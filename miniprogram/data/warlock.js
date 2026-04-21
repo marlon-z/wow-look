@@ -1,0 +1,13 @@
+module.exports = {
+  "version": "12.0.1-S1",
+  "updatedAt": "2026-04-21",
+  "ilvl": 246,
+  "class": { "id": 9, "name": "术士", "key": "warlock", "armorType": "cloth", "armorTypeName": "布甲" },
+  "specs": [
+    { "id": 265, "name": "痛苦" },
+    { "id": 266, "name": "恶魔学识" },
+    { "id": 267, "name": "毁灭" }
+  ],
+  "instances": []
+};
+

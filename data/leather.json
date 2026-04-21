@@ -1,0 +1,2507 @@
+{
+  "version": "12.0.1-S1",
+  "updatedAt": "2026-04-21",
+  "ilvl": 246,
+  "filter": "leather",
+  "filterName": "皮甲",
+  "instances": [
+    {
+      "id": 1316,
+      "name": "节点希纳斯",
+      "type": "dungeon",
+      "encounters": [
+        {
+          "id": 2813,
+          "name": "核技工程长卡斯雷瑟",
+          "items": [
+            {
+              "id": 251204,
+              "name": "核技师电击器",
+              "icon": "inv_glove_leather_dungeonharronir_c_01",
+              "slot": "hand",
+              "slotName": "手部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 59,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 38,
+                    "isMajor": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 2814,
+          "name": "核心守卫奈萨拉",
+          "items": [
+            {
+              "id": 251210,
+              "name": "蚀影轻履",
+              "icon": "inv_boot_leather_dungeonharronir_c_01",
+              "slot": "feet",
+              "slotName": "脚部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 38,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 59,
+                    "isMajor": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 2815,
+          "name": "洛萨克森",
+          "items": [
+            {
+              "id": 251216,
+              "name": "咒怨马甲",
+              "icon": "inv_chest_leather_dungeonharronir_c_01",
+              "slot": "chest",
+              "slotName": "胸部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 79,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 51,
+                    "isMajor": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1315,
+      "name": "迈萨拉洞窟",
+      "type": "dungeon",
+      "encounters": [
+        {
+          "id": 2810,
+          "name": "姆罗金和内克拉克斯",
+          "items": [
+            {
+              "id": 251166,
+              "name": "猎鹰人的腰带",
+              "icon": "inv_belt_leather_dungeonharronir_c_01",
+              "slot": "waist",
+              "slotName": "腰部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 59,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 38,
+                    "isMajor": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 2811,
+          "name": "沃达扎",
+          "items": [
+            {
+              "id": 251171,
+              "name": "被奴役的骨刺",
+              "icon": "inv_shoulder_leather_dungeonharronir_c_01",
+              "slot": "shoulder",
+              "slotName": "肩部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 59,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 38,
+                    "isMajor": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 2812,
+          "name": "拉克图尔，聚魂之器",
+          "items": [
+            {
+              "id": 251177,
+              "name": "恶臭邪冠",
+              "icon": "inv_helm_leather_dungeonharronir_c_01",
+              "slot": "head",
+              "slotName": "头部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 82,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 48,
+                    "isMajor": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1299,
+      "name": "风行者之塔",
+      "type": "dungeon",
+      "encounters": [
+        {
+          "id": 2655,
+          "name": "烬晓",
+          "items": [
+            {
+              "id": 251082,
+              "name": "噬人藤腰带",
+              "icon": "inv_belt_leather_dungeonharronir_c_01",
+              "slot": "waist",
+              "slotName": "腰部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 59,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 38,
+                    "isMajor": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 2656,
+          "name": "被遗弃的二人组",
+          "items": [
+            {
+              "id": 251087,
+              "name": "遗世传承裹腿",
+              "icon": "inv_pant_leather_dungeonharronir_c_01",
+              "slot": "legs",
+              "slotName": "腿部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 79,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 51,
+                    "isMajor": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 2657,
+          "name": "指挥官克罗鲁科",
+          "items": [
+            {
+              "id": 251092,
+              "name": "堕落步兵的护肩",
+              "icon": "inv_shoulder_leather_dungeonharronir_c_01",
+              "slot": "shoulder",
+              "slotName": "肩部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 34,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 63,
+                    "isMajor": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 2658,
+          "name": "无眠之心",
+          "items": [
+            {
+              "id": 251099,
+              "name": "尖啸旋风背心",
+              "icon": "inv_chest_leather_dungeonharronir_c_01",
+              "slot": "chest",
+              "slotName": "胸部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 76,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 54,
+                    "isMajor": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1300,
+      "name": "魔导师平台",
+      "type": "dungeon",
+      "encounters": [
+        {
+          "id": 2659,
+          "name": "奥能金刚库斯托斯",
+          "items": [
+            {
+              "id": 251103,
+              "name": "看护袖带",
+              "icon": "inv_bracer_leather_dungeonharronir_c_01",
+              "slot": "wrist",
+              "slotName": "护腕",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 30,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 43,
+                    "isMajor": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 2661,
+          "name": "瑟拉奈尔·日鞭",
+          "items": [
+            {
+              "id": 251109,
+              "name": "断法暗影面具",
+              "icon": "inv_helm_leather_dungeonharronir_c_01",
+              "slot": "head",
+              "slotName": "头部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 51,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 79,
+                    "isMajor": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 2660,
+          "name": "吉美尔鲁斯",
+          "items": [
+            {
+              "id": 251113,
+              "name": "黏性软泥手套",
+              "icon": "inv_glove_leather_dungeonharronir_c_01",
+              "slot": "hand",
+              "slotName": "手部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 36,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 61,
+                    "isMajor": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 2662,
+          "name": "迪詹崔乌斯",
+          "items": [
+            {
+              "id": 251121,
+              "name": "多曼纳尔的恐怖长靴",
+              "icon": "inv_boot_leather_dungeonharronir_c_01",
+              "slot": "feet",
+              "slotName": "脚部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 63,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 34,
+                    "isMajor": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 945,
+      "name": "执政团之座",
+      "type": "dungeon",
+      "encounters": [
+        {
+          "id": 1979,
+          "name": "晋升者祖拉尔",
+          "items": [
+            {
+              "id": 151336,
+              "name": "虚空之鞭兜帽",
+              "icon": "inv_helm_leather_legiondungeon_c_03",
+              "slot": "head",
+              "slotName": "头部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 59,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 70,
+                    "isMajor": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 1980,
+          "name": "萨普瑞什",
+          "items": [
+            {
+              "id": 151314,
+              "name": "位移追猎者皮裤",
+              "icon": "inv_pant_leather_legiondungeon_c_03",
+              "slot": "legs",
+              "slotName": "腿部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 78,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 52,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 151318,
+              "name": "黑暗遮蔽手套",
+              "icon": "inv_glove_leather_legiondungeon_c_03",
+              "slot": "hand",
+              "slotName": "手部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 53,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 44,
+                    "isMajor": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 1981,
+          "name": "总督奈扎尔",
+          "items": [
+            {
+              "id": 151316,
+              "name": "幽影鞭笞者腰带",
+              "icon": "inv_belt_leather_legiondungeon_c_03",
+              "slot": "waist",
+              "slotName": "腰部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 40,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 57,
+                    "isMajor": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 151317,
+              "name": "渗透恐惧薄靴",
+              "icon": "inv_boot_leather_legiondungeon_c_03",
+              "slot": "feet",
+              "slotName": "脚部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 40,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 57,
+                    "isMajor": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 1982,
+          "name": "鲁拉",
+          "items": [
+            {
+              "id": 151319,
+              "name": "暮光之锋护肩",
+              "icon": "inv_shoulder_leather_legiondungeon_c_03",
+              "slot": "shoulder",
+              "slotName": "肩部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 54,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 43,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 151313,
+              "name": "虚空之拥外套",
+              "icon": "inv_chest_leather_legiondungeon_c_03",
+              "slot": "chest",
+              "slotName": "胸部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 46,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 83,
+                    "isMajor": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1201,
+      "name": "艾杰斯亚学院",
+      "type": "dungeon",
+      "encounters": [
+        {
+          "id": 2512,
+          "name": "茂林古树",
+          "items": [
+            {
+              "id": 193714,
+              "name": "狂根腕扣",
+              "icon": "inv_leather_dragondungeon_c_01_bracer",
+              "slot": "wrist",
+              "slotName": "护腕",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 43,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 30,
+                    "isMajor": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 2495,
+          "name": "克罗兹",
+          "items": [
+            {
+              "id": 193721,
+              "name": "红玉参赛者手套",
+              "icon": "inv_leather_dragondungeon_c_01_glove",
+              "slot": "hand",
+              "slotName": "手部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 40,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 57,
+                    "isMajor": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 278,
+      "name": "萨隆矿坑",
+      "type": "dungeon",
+      "encounters": [
+        {
+          "id": 608,
+          "name": "熔炉之主加弗斯特",
+          "items": [
+            {
+              "id": 49806,
+              "name": "鞭笞者的黑色腰带",
+              "icon": "inv_belt_65",
+              "slot": "waist",
+              "slotName": "腰部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 51,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 47,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 133490,
+              "name": "鞭笞者的黑色腰带",
+              "icon": "inv_belt_65",
+              "slot": "waist",
+              "slotName": "腰部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 52,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 46,
+                    "isMajor": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 609,
+          "name": "伊克和科瑞克",
+          "items": [
+            {
+              "id": 50264,
+              "name": "碎羽护腕",
+              "icon": "inv_bracer_23a",
+              "slot": "wrist",
+              "slotName": "护腕",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 30,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 43,
+                    "isMajor": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 133517,
+              "name": "萨隆邪铁镶钉护肩",
+              "icon": "inv_shoulder_115",
+              "slot": "shoulder",
+              "slotName": "肩部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 42,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 56,
+                    "isMajor": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 610,
+          "name": "天灾领主泰兰努斯",
+          "items": [
+            {
+              "id": 50269,
+              "name": "缝合场护腿",
+              "icon": "inv_pants_leather_30a",
+              "slot": "legs",
+              "slotName": "腿部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 65,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 65,
+                    "isMajor": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 49817,
+              "name": "蓬松的龙皮护腿",
+              "icon": "inv_pants_leather_30a",
+              "slot": "legs",
+              "slotName": "腿部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 62,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 68,
+                    "isMajor": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 133499,
+              "name": "蓬松的龙皮护腿",
+              "icon": "inv_pants_leather_30a",
+              "slot": "legs",
+              "slotName": "腿部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 65,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 65,
+                    "isMajor": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 476,
+      "name": "通天峰",
+      "type": "dungeon",
+      "encounters": [
+        {
+          "id": 965,
+          "name": "兰吉特",
+          "items": [
+            {
+              "id": 109829,
+              "name": "炽燃焦点腰带",
+              "icon": "inv_leather_draenordungeon_c_01belt",
+              "slot": "waist",
+              "slotName": "腰部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 51,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 47,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109830,
+              "name": "血羽束腰",
+              "icon": "inv_leather_draenordungeon_c_01belt",
+              "slot": "waist",
+              "slotName": "腰部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 52,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 44,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109831,
+              "name": "缚晶者腰带",
+              "icon": "inv_leather_draenordungeon_c_01belt",
+              "slot": "waist",
+              "slotName": "腰部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 56,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 37,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109832,
+              "name": "护叶者束腰",
+              "icon": "inv_leather_draenordungeon_c_01belt",
+              "slot": "waist",
+              "slotName": "腰部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 52,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 44,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109842,
+              "name": "黑水腰带",
+              "icon": "inv_leather_draenordungeon_c_01belt",
+              "slot": "waist",
+              "slotName": "腰部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 52,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 43,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109975,
+              "name": "炽燃焦点兜帽",
+              "icon": "inv_leather_draenordungeon_c_01helm",
+              "slot": "head",
+              "slotName": "头部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 71,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 55,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109976,
+              "name": "血羽风帽",
+              "icon": "inv_leather_draenordungeon_c_01helm",
+              "slot": "head",
+              "slotName": "头部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 74,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 49,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109977,
+              "name": "缚晶者头盔",
+              "icon": "inv_leather_draenordungeon_c_01helm",
+              "slot": "head",
+              "slotName": "头部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 66,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 63,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109978,
+              "name": "护叶者兜帽",
+              "icon": "inv_leather_draenordungeon_c_01helm",
+              "slot": "head",
+              "slotName": "头部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 57,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 70,
+                    "isMajor": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109979,
+              "name": "黑水头盔",
+              "icon": "inv_leather_draenordungeon_c_01helm",
+              "slot": "head",
+              "slotName": "头部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 54,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 76,
+                    "isMajor": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 966,
+          "name": "阿拉卡纳斯",
+          "items": [
+            {
+              "id": 109787,
+              "name": "炽燃焦点长靴",
+              "icon": "inv_leather_draenordungeon_c_01boot",
+              "slot": "feet",
+              "slotName": "脚部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 49,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 49,
+                    "isMajor": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109788,
+              "name": "血羽皮靴",
+              "icon": "inv_leather_draenordungeon_c_01boot",
+              "slot": "feet",
+              "slotName": "脚部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 52,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 43,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109789,
+              "name": "缚晶者便鞋",
+              "icon": "inv_leather_draenordungeon_c_01boot",
+              "slot": "feet",
+              "slotName": "脚部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 53,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 42,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109798,
+              "name": "护叶者便鞋",
+              "icon": "inv_leather_draenordungeon_c_01boot",
+              "slot": "feet",
+              "slotName": "脚部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 46,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 50,
+                    "isMajor": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109799,
+              "name": "黑水长靴",
+              "icon": "inv_leather_draenordungeon_c_01boot",
+              "slot": "feet",
+              "slotName": "脚部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 56,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 37,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 258577,
+              "name": "炽燃焦点长靴",
+              "icon": "inv_leather_draenordungeon_c_01boot",
+              "slot": "feet",
+              "slotName": "脚部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 51,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 47,
+                    "isMajor": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 967,
+          "name": "鲁克兰",
+          "items": [
+            {
+              "id": 109848,
+              "name": "炽燃焦点手套",
+              "icon": "inv_leather_draenordungeon_c_01glove",
+              "slot": "hand",
+              "slotName": "手部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 58,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 39,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109849,
+              "name": "血羽之握",
+              "icon": "inv_leather_draenordungeon_c_01glove",
+              "slot": "hand",
+              "slotName": "手部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 54,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 40,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109850,
+              "name": "缚晶者手套",
+              "icon": "inv_leather_draenordungeon_c_01glove",
+              "slot": "hand",
+              "slotName": "手部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 52,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 44,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109851,
+              "name": "护叶者之握",
+              "icon": "inv_leather_draenordungeon_c_01glove",
+              "slot": "hand",
+              "slotName": "手部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 37,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 56,
+                    "isMajor": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109862,
+              "name": "黑水之握",
+              "icon": "inv_leather_draenordungeon_c_01glove",
+              "slot": "hand",
+              "slotName": "手部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 49,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 49,
+                    "isMajor": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109868,
+              "name": "炽燃焦点护腕",
+              "icon": "inv_leather_draenordungeon_c_01bracer",
+              "slot": "wrist",
+              "slotName": "护腕",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 39,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 32,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109869,
+              "name": "血羽护腕",
+              "icon": "inv_leather_draenordungeon_c_01bracer",
+              "slot": "wrist",
+              "slotName": "护腕",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 37,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 37,
+                    "isMajor": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109870,
+              "name": "缚晶者护腕",
+              "icon": "inv_leather_draenordungeon_c_01bracer",
+              "slot": "wrist",
+              "slotName": "护腕",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 33,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 39,
+                    "isMajor": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109871,
+              "name": "护叶者裹腕",
+              "icon": "inv_leather_draenordungeon_c_01bracer",
+              "slot": "wrist",
+              "slotName": "护腕",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 36,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 37,
+                    "isMajor": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109882,
+              "name": "黑水护腕",
+              "icon": "inv_leather_draenordungeon_c_01bracer",
+              "slot": "wrist",
+              "slotName": "护腕",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 31,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 40,
+                    "isMajor": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 258581,
+              "name": "血羽披肩",
+              "icon": "inv_leather_draenordungeon_c_01shoulder",
+              "slot": "shoulder",
+              "slotName": "肩部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 61,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 36,
+                    "isMajor": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 968,
+          "name": "高阶贤者维里克斯",
+          "items": [
+            {
+              "id": 109934,
+              "name": "炽燃焦点护肩",
+              "icon": "inv_leather_draenordungeon_c_01shoulder",
+              "slot": "shoulder",
+              "slotName": "肩部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 54,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 40,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109935,
+              "name": "血羽护肩",
+              "icon": "inv_leather_draenordungeon_c_01shoulder",
+              "slot": "shoulder",
+              "slotName": "肩部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 40,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 57,
+                    "isMajor": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109936,
+              "name": "缚晶者护肩",
+              "icon": "inv_leather_draenordungeon_c_01shoulder",
+              "slot": "shoulder",
+              "slotName": "肩部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 50,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 46,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109809,
+              "name": "炽燃焦点护腿",
+              "icon": "inv_leather_draenordungeon_c_01pant",
+              "slot": "legs",
+              "slotName": "腿部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 59,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 70,
+                    "isMajor": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109937,
+              "name": "护叶者护肩",
+              "icon": "inv_leather_draenordungeon_c_01shoulder",
+              "slot": "shoulder",
+              "slotName": "肩部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 63,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 35,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109810,
+              "name": "血羽护腿",
+              "icon": "inv_leather_draenordungeon_c_01pant",
+              "slot": "legs",
+              "slotName": "腿部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 65,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 65,
+                    "isMajor": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109938,
+              "name": "黑水护肩",
+              "icon": "inv_leather_draenordungeon_c_01shoulder",
+              "slot": "shoulder",
+              "slotName": "肩部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 51,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 45,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109811,
+              "name": "缚晶者绑腿",
+              "icon": "inv_leather_draenordungeon_c_01pant",
+              "slot": "legs",
+              "slotName": "腿部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 71,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 55,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109812,
+              "name": "护叶者绑腿",
+              "icon": "inv_leather_draenordungeon_c_01pant",
+              "slot": "legs",
+              "slotName": "腿部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 72,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 54,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 109823,
+              "name": "黑水护腿",
+              "icon": "inv_leather_draenordungeon_c_01pant",
+              "slot": "legs",
+              "slotName": "腿部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 73,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 51,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 258586,
+              "name": "血羽护胸",
+              "icon": "inv_leather_draenordungeon_c_01chest",
+              "slot": "chest",
+              "slotName": "胸部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 76,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 54,
+                    "isMajor": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1314,
+      "name": "梦境裂隙",
+      "type": "raid",
+      "encounters": [
+        {
+          "id": 2795,
+          "name": "奇美鲁斯，未梦之神",
+          "items": [
+            {
+              "id": 249374,
+              "name": "蔑痕舒尔卡的腰带",
+              "icon": "inv_belt_leather_raidmonkmidnight_d_01",
+              "slot": "waist",
+              "slotName": "腰部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 67,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 30,
+                    "isMajor": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1307,
+      "name": "虚影尖塔",
+      "type": "raid",
+      "encounters": [
+        {
+          "id": 2733,
+          "name": "元首阿福扎恩",
+          "items": [
+            {
+              "id": 249306,
+              "name": "吞噬之夜面容",
+              "icon": "inv_helm_leather_raiddemonhuntermidnight_d_01",
+              "slot": "head",
+              "slotName": "头部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 38,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 92,
+                    "isMajor": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 249334,
+              "name": "虚侵踢靴",
+              "icon": "inv_boot_leather_raiddemonhuntermidnight_d_01",
+              "slot": "feet",
+              "slotName": "脚部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 33,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 64,
+                    "isMajor": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 2734,
+          "name": "弗拉希乌斯",
+          "items": [
+            {
+              "id": 249327,
+              "name": "虚空皮制护腕",
+              "icon": "inv_bracer_leather_raidroguemidnight_d_01",
+              "slot": "wrist",
+              "slotName": "护腕",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 24,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 49,
+                    "isMajor": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 2736,
+          "name": "陨落之王萨哈达尔",
+          "items": [
+            {
+              "id": 249314,
+              "name": "扭曲暮光腰带",
+              "icon": "inv_belt_leather_raiddemonhuntermidnight_d_01",
+              "slot": "waist",
+              "slotName": "腰部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 67,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 31,
+                    "isMajor": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 2735,
+          "name": "威厄高尔和艾佐拉克",
+          "items": [
+            {
+              "id": 249321,
+              "name": "维尔戈的恐怖之握",
+              "icon": "inv_glove_leather_raiddruidmidnight_d_01",
+              "slot": "hand",
+              "slotName": "手部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 68,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 29,
+                    "isMajor": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 2737,
+          "name": "光盲先锋军",
+          "items": [
+            {
+              "id": 249333,
+              "name": "盛放的树皮光芒肩甲",
+              "icon": "inv_shoulder_leather_raiddruidmidnight_d_01",
+              "slot": "shoulder",
+              "slotName": "肩部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 68,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "versatility",
+                    "name": "全能",
+                    "value": 30,
+                    "isMajor": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 2738,
+          "name": "宇宙之冕",
+          "items": [
+            {
+              "id": 249312,
+              "name": "夜刃的长裤",
+              "icon": "inv_pant_leather_raidroguemidnight_d_01",
+              "slot": "legs",
+              "slotName": "腿部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 85,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 45,
+                    "isMajor": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 249382,
+              "name": "树冠行者裹足",
+              "icon": "inv_boot_leather_raiddruidmidnight_d_01",
+              "slot": "feet",
+              "slotName": "脚部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 34,
+                    "isMajor": false
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 64,
+                    "isMajor": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1308,
+      "name": "进军奎尔丹纳斯",
+      "type": "raid",
+      "encounters": [
+        {
+          "id": 2739,
+          "name": "贝洛朗，奥的子嗣",
+          "items": [
+            {
+              "id": 249322,
+              "name": "光辉护巢者的皮衣",
+              "icon": "inv_chest_leather_raidmonkmidnight_d_01",
+              "slot": "chest",
+              "slotName": "胸部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 89,
+                    "isMajor": true
+                  },
+                  {
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 41,
+                    "isMajor": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 2740,
+          "name": "至暗之夜降临",
+          "items": [
+            {
+              "id": 249913,
+              "name": "黑暗企图面具",
+              "icon": "inv_helm_leather_raidroguemidnight_d_01",
+              "slot": "head",
+              "slotName": "头部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "stats": {
+                "primary": null,
+                "stamina": null,
+                "secondary": [
+                  {
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 130
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

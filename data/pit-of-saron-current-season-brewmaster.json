@@ -1,0 +1,238 @@
+{
+  "version": "midnight-s1-current-season-check",
+  "updatedAt": "2026-04-21",
+  "instance": {
+    "id": 278,
+    "name": "萨隆矿坑",
+    "type": "dungeon",
+    "season": "至暗之夜 赛季1",
+    "filter": "monk-brewmaster",
+    "filterName": "武僧·酒仙"
+  },
+  "encounters": [
+    {
+      "id": 608,
+      "name": "熔炉之主加弗斯特",
+      "items": [
+        {
+          "id": 50228,
+          "name": "尖刺伊米亚颈饰",
+          "icon": "inv_jewelry_necklace_22",
+          "slot": "neck",
+          "slotName": "项链",
+          "armorType": "none",
+          "armorTypeName": "无甲种",
+          "ilvl": 246,
+          "stats": {
+            "primary": null,
+            "stamina": {
+              "value": 580
+            },
+            "secondary": [
+              {
+                "type": "haste",
+                "name": "急速",
+                "value": 73,
+                "isMajor": false
+              },
+              {
+                "type": "crit",
+                "name": "暴击",
+                "value": 132,
+                "isMajor": true
+              }
+            ]
+          }
+        },
+        {
+          "id": 49806,
+          "name": "鞭笞者的黑色腰带",
+          "icon": "inv_belt_65",
+          "slot": "waist",
+          "slotName": "腰部",
+          "armorType": "leather",
+          "armorTypeName": "皮甲",
+          "ilvl": 246,
+          "stats": {
+            "primary": null,
+            "stamina": {
+              "value": 773
+            },
+            "secondary": [
+              {
+                "type": "haste",
+                "name": "急速",
+                "value": 51,
+                "isMajor": true
+              },
+              {
+                "type": "crit",
+                "name": "暴击",
+                "value": 47,
+                "isMajor": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": 609,
+      "name": "伊克和科瑞克",
+      "items": [
+        {
+          "id": 49812,
+          "name": "被盗的婚戒",
+          "icon": "inv_jewelry_ring_42",
+          "slot": "finger",
+          "slotName": "戒指",
+          "armorType": "none",
+          "armorTypeName": "无甲种",
+          "ilvl": 246,
+          "stats": {
+            "primary": null,
+            "stamina": {
+              "value": 580
+            },
+            "secondary": [
+              {
+                "type": "haste",
+                "name": "急速",
+                "value": 88,
+                "isMajor": false
+              },
+              {
+                "type": "crit",
+                "name": "暴击",
+                "value": 117,
+                "isMajor": true
+              }
+            ]
+          }
+        },
+        {
+          "id": 252421,
+          "name": "腐烂液球",
+          "icon": "inv_maldraxxusslime_plague",
+          "slot": "trinket",
+          "slotName": "饰品",
+          "armorType": "none",
+          "armorTypeName": "无甲种",
+          "ilvl": 246,
+          "stats": {
+            "primary": null,
+            "stamina": null,
+            "secondary": []
+          }
+        },
+        {
+          "id": 50264,
+          "name": "碎羽护腕",
+          "icon": "inv_bracer_23a",
+          "slot": "wrist",
+          "slotName": "护腕",
+          "armorType": "leather",
+          "armorTypeName": "皮甲",
+          "ilvl": 246,
+          "stats": {
+            "primary": null,
+            "stamina": {
+              "value": 580
+            },
+            "secondary": [
+              {
+                "type": "haste",
+                "name": "急速",
+                "value": 30,
+                "isMajor": false
+              },
+              {
+                "type": "crit",
+                "name": "暴击",
+                "value": 43,
+                "isMajor": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": 610,
+      "name": "天灾领主泰兰努斯",
+      "items": [
+        {
+          "id": 49823,
+          "name": "阵亡主教斗篷",
+          "icon": "inv_misc_cape_18",
+          "slot": "cloak",
+          "slotName": "披风",
+          "armorType": "none",
+          "armorTypeName": "无甲种",
+          "ilvl": 246,
+          "stats": {
+            "primary": null,
+            "stamina": {
+              "value": 580
+            },
+            "secondary": [
+              {
+                "type": "crit",
+                "name": "暴击",
+                "value": 33,
+                "isMajor": false
+              },
+              {
+                "type": "versatility",
+                "name": "全能",
+                "value": 40,
+                "isMajor": true
+              }
+            ]
+          }
+        },
+        {
+          "id": 49817,
+          "name": "蓬松的龙皮护腿",
+          "icon": "inv_pants_leather_30a",
+          "slot": "legs",
+          "slotName": "腿部",
+          "armorType": "leather",
+          "armorTypeName": "皮甲",
+          "ilvl": 246,
+          "stats": {
+            "primary": null,
+            "stamina": {
+              "value": 1031
+            },
+            "secondary": [
+              {
+                "type": "haste",
+                "name": "急速",
+                "value": 62,
+                "isMajor": false
+              },
+              {
+                "type": "mastery",
+                "name": "精通",
+                "value": 68,
+                "isMajor": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.wowhead.com/guide/midnight/season-1-mythic-rewards-loot-drops-mounts-achievements",
+    "https://www.wowhead.com/guide/midnight/pit-of-saron-dungeon-overview-mythic-plus",
+    "https://www.wowhead.com/item=50228",
+    "https://www.wowhead.com/item=49806",
+    "https://www.wowhead.com/item=49812",
+    "https://www.wowhead.com/item=252421",
+    "https://www.wowhead.com/item=50264",
+    "https://www.wowhead.com/item=49823",
+    "https://www.wowhead.com/item=49817"
+  ]
+}

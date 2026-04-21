@@ -1,0 +1,46 @@
+/* Global Styles */
+page {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #0b0b0e;
+  color: #e5e5e5;
+  --theme-color: #b78a48;
+  --secondary: #2f2f35;
+  --bg-dark: #121217;
+  --bg-light: #1c1c24;
+  --text-main: #f0f0f0;
+  --text-muted: #8e8e99;
+  --quality-poor: #9d9d9d;
+  --quality-common: #ffffff;
+  --quality-uncommon: #1eff00;
+  --quality-rare: #0070dd;
+  --quality-epic: #a335ee;
+  --quality-legendary: #ff8000;
+  box-sizing: border-box;
+}
+
+view, text, scroll-view {
+  box-sizing: border-box;
+}
+
+/* Base Utility Classes */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}

@@ -1,0 +1,12 @@
+{
+  "version": "12.0.1-S1",
+  "updatedAt": "2026-04-21",
+  "ilvl": 246,
+  "class": { "id": 2, "name": "圣骑士", "key": "paladin", "armorType": "plate", "armorTypeName": "板甲" },
+  "specs": [
+    { "id": 65, "name": "神圣" },
+    { "id": 66, "name": "防护" },
+    { "id": 70, "name": "惩戒" }
+  ],
+  "instances": []
+}

@@ -1,0 +1,129 @@
+{
+  "version": "midnight-s1-current-season-check",
+  "updatedAt": "2026-04-21",
+  "instance": {
+    "id": 278,
+    "name": "萨隆矿坑",
+    "type": "dungeon",
+    "season": "至暗之夜 赛季1",
+    "filter": "leather",
+    "filterName": "皮甲"
+  },
+  "encounters": [
+    {
+      "id": 608,
+      "name": "熔炉之主加弗斯特",
+      "items": [
+        {
+          "id": 49806,
+          "name": "鞭笞者的黑色腰带",
+          "icon": "inv_belt_65",
+          "slot": "waist",
+          "slotName": "腰部",
+          "armorType": "leather",
+          "armorTypeName": "皮甲",
+          "ilvl": 246,
+          "stats": {
+            "primary": null,
+            "stamina": {
+              "value": 773
+            },
+            "secondary": [
+              {
+                "type": "haste",
+                "name": "急速",
+                "value": 51,
+                "isMajor": true
+              },
+              {
+                "type": "crit",
+                "name": "暴击",
+                "value": 47,
+                "isMajor": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": 609,
+      "name": "伊克和科瑞克",
+      "items": [
+        {
+          "id": 50264,
+          "name": "碎羽护腕",
+          "icon": "inv_bracer_23a",
+          "slot": "wrist",
+          "slotName": "护腕",
+          "armorType": "leather",
+          "armorTypeName": "皮甲",
+          "ilvl": 246,
+          "stats": {
+            "primary": null,
+            "stamina": {
+              "value": 580
+            },
+            "secondary": [
+              {
+                "type": "haste",
+                "name": "急速",
+                "value": 30,
+                "isMajor": false
+              },
+              {
+                "type": "crit",
+                "name": "暴击",
+                "value": 43,
+                "isMajor": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": 610,
+      "name": "天灾领主泰兰努斯",
+      "items": [
+        {
+          "id": 49817,
+          "name": "蓬松的龙皮护腿",
+          "icon": "inv_pants_leather_30a",
+          "slot": "legs",
+          "slotName": "腿部",
+          "armorType": "leather",
+          "armorTypeName": "皮甲",
+          "ilvl": 246,
+          "stats": {
+            "primary": null,
+            "stamina": {
+              "value": 1031
+            },
+            "secondary": [
+              {
+                "type": "haste",
+                "name": "急速",
+                "value": 62,
+                "isMajor": false
+              },
+              {
+                "type": "mastery",
+                "name": "精通",
+                "value": 68,
+                "isMajor": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.wowhead.com/guide/midnight/season-1-mythic-rewards-loot-drops-mounts-achievements",
+    "https://www.wowhead.com/guide/midnight/pit-of-saron-dungeon-overview-mythic-plus",
+    "https://www.wowhead.com/item=49806",
+    "https://www.wowhead.com/item=50264",
+    "https://www.wowhead.com/item=49817"
+  ]
+}

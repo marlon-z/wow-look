@@ -1,0 +1,13 @@
+{
+  "version": "12.0.1-S1",
+  "updatedAt": "2026-04-21",
+  "ilvl": 246,
+  "class": { "id": 11, "name": "德鲁伊", "key": "druid", "armorType": "leather", "armorTypeName": "皮甲" },
+  "specs": [
+    { "id": 102, "name": "平衡" },
+    { "id": 103, "name": "野性" },
+    { "id": 104, "name": "守护" },
+    { "id": 105, "name": "恢复" }
+  ],
+  "instances": []
+}

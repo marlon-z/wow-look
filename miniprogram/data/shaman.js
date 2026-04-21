@@ -1,0 +1,13 @@
+module.exports = {
+  "version": "12.0.1-S1",
+  "updatedAt": "2026-04-21",
+  "ilvl": 246,
+  "class": { "id": 7, "name": "萨满祭司", "key": "shaman", "armorType": "mail", "armorTypeName": "锁甲" },
+  "specs": [
+    { "id": 262, "name": "元素" },
+    { "id": 263, "name": "增强" },
+    { "id": 264, "name": "恢复" }
+  ],
+  "instances": []
+};
+

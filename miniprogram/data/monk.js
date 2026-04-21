@@ -1,0 +1,187 @@
+module.exports = {
+  "version": "12.0.1-S1",
+  "updatedAt": "2026-04-21",
+  "ilvl": 246,
+  "class": {
+    "id": 10,
+    "name": "武僧",
+    "key": "monk",
+    "armorType": "leather",
+    "armorTypeName": "皮甲"
+  },
+  "specs": [
+    { "id": 268, "name": "酒仙" },
+    { "id": 269, "name": "踏风" },
+    { "id": 270, "name": "织雾" }
+  ],
+  "instances": [
+    {
+      "id": 278,
+      "name": "萨隆矿坑",
+      "type": "dungeon",
+      "encounters": [
+        {
+          "id": 608,
+          "name": "熔炉之主加弗斯特",
+          "items": [
+            {
+              "id": 50228,
+              "name": "尖刺伊米亚颈饰",
+              "icon": "inv_jewelry_necklace_22",
+              "slot": "neck",
+              "slotName": "项链",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "ilvl": 246,
+              "specs": [268, 269, 270],
+              "stats": {
+                "primary": null,
+                "stamina": { "value": 580 },
+                "secondary": [
+                  { "type": "haste", "name": "急速", "value": 73, "isMajor": false },
+                  { "type": "crit", "name": "暴击", "value": 132, "isMajor": true }
+                ]
+              }
+            },
+            {
+              "id": 49806,
+              "name": "鞭笞者的黑色腰带",
+              "icon": "inv_belt_65",
+              "slot": "waist",
+              "slotName": "腰部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "specs": [268, 269, 270],
+              "stats": {
+                "primary": null,
+                "stamina": { "value": 773 },
+                "secondary": [
+                  { "type": "haste", "name": "急速", "value": 51, "isMajor": true },
+                  { "type": "crit", "name": "暴击", "value": 47, "isMajor": false }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 609,
+          "name": "伊克和科瑞克",
+          "items": [
+            {
+              "id": 49812,
+              "name": "被盗的婚戒",
+              "icon": "inv_jewelry_ring_42",
+              "slot": "finger",
+              "slotName": "戒指",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "ilvl": 246,
+              "specs": [268, 269, 270],
+              "stats": {
+                "primary": null,
+                "stamina": { "value": 580 },
+                "secondary": [
+                  { "type": "haste", "name": "急速", "value": 88, "isMajor": false },
+                  { "type": "crit", "name": "暴击", "value": 117, "isMajor": true }
+                ]
+              }
+            },
+            {
+              "id": 252421,
+              "name": "腐烂液球",
+              "icon": "inv_maldraxxusslime_plague",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "ilvl": 246,
+              "specs": [268],
+              "sourceDifficulty": "史诗",
+              "upgradeTrack": "勇士 1/6",
+              "bindType": "拾取后绑定",
+              "uniqueText": "装备唯一",
+              "vendorPrice": "50金 33银 89铜",
+              "effectType": "使用",
+              "effectCooldown": "2分钟",
+              "effectText": "用四个恶臭脓疱覆盖自身，吸收108716点伤害，持续15秒。每当该护盾失去25%的吸收值时，就会爆炸一个脓疱，对附近敌人造成2821点瘟疫伤害，由所有敌人分摊。如果所有脓疱均已爆发，则最后一次爆发会额外造成1612点瘟疫伤害。",
+              "stats": {
+                "primary": null,
+                "primaryOptions": [
+                  { "type": "agility", "name": "敏捷", "value": 79 },
+                  { "type": "strength", "name": "力量", "value": 79 }
+                ],
+                "stamina": null,
+                "secondary": []
+              }
+            },
+            {
+              "id": 50264,
+              "name": "碎羽护腕",
+              "icon": "inv_bracer_23a",
+              "slot": "wrist",
+              "slotName": "护腕",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "specs": [268, 269, 270],
+              "stats": {
+                "primary": null,
+                "stamina": { "value": 580 },
+                "secondary": [
+                  { "type": "haste", "name": "急速", "value": 30, "isMajor": false },
+                  { "type": "crit", "name": "暴击", "value": 43, "isMajor": true }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 610,
+          "name": "天灾领主泰兰努斯",
+          "items": [
+            {
+              "id": 49823,
+              "name": "阵亡主教斗篷",
+              "icon": "inv_misc_cape_18",
+              "slot": "cloak",
+              "slotName": "披风",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "ilvl": 246,
+              "specs": [268, 269, 270],
+              "stats": {
+                "primary": null,
+                "stamina": { "value": 580 },
+                "secondary": [
+                  { "type": "crit", "name": "暴击", "value": 33, "isMajor": false },
+                  { "type": "versatility", "name": "全能", "value": 40, "isMajor": true }
+                ]
+              }
+            },
+            {
+              "id": 49817,
+              "name": "蓬松的龙皮护腿",
+              "icon": "inv_pants_leather_30a",
+              "slot": "legs",
+              "slotName": "腿部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "ilvl": 246,
+              "specs": [268, 269, 270],
+              "stats": {
+                "primary": null,
+                "stamina": { "value": 1031 },
+                "secondary": [
+                  { "type": "haste", "name": "急速", "value": 62, "isMajor": false },
+                  { "type": "mastery", "name": "精通", "value": 68, "isMajor": true }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+

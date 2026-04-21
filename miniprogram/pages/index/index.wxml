@@ -1,0 +1,41 @@
+<view class="container flex-col">
+  <view class="hero-panel">
+    <text class="eyebrow">Midnight Season 1</text>
+    <text class="title">WoWLook</text>
+    <text class="subtitle">按职业、专精和属性快速定位当前赛季装备掉落</text>
+  </view>
+
+  <view class="legend-row">
+    <view class="legend-pill">8 个大秘境</view>
+    <view class="legend-pill">3 个团本</view>
+    <view class="legend-pill">勇士 1/6 · ilvl 246</view>
+  </view>
+
+  <view class="section-head">
+    <text class="section-title">选择职业</text>
+    <text class="section-copy">职业为必选项，进入后再按专精、属性和部位筛选。</text>
+  </view>
+
+  <view class="grid-container">
+    <view class="class-grid">
+      <view
+        wx:for="{{classes}}"
+        wx:key="id"
+        class="class-item flex-col align-center justify-center"
+        bindtap="onClassTap"
+        data-key="{{item.key}}"
+        data-name="{{item.name}}"
+      >
+        <view class="icon-wrap" style="box-shadow: 0 4rpx 20rpx {{item.color}}40; border: 2rpx solid {{item.color}}80;">
+          <text class="emoji-icon">{{item.icon}}</text>
+        </view>
+        <text class="class-name" style="color: {{item.color}};">{{item.name}}</text>
+        <text class="class-armor">{{item.armorTypeName}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer">
+    <text>当前已接通 13 个职业数据文件结构，武僧为真实样例。</text>
+  </view>
+</view>

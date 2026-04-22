@@ -1,3 +1,6 @@
 miniprogram/project.private.config.json
 .DS_Store
 Thumbs.db
+.cache/
+WoWLookExport3.lua
+WoWLookExport3 copy.lua

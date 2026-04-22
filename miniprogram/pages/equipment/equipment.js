@@ -4,110 +4,173 @@ const {
   flattenItems,
   filterItems,
   groupItems,
+  groupItemsBySource,
   buildStatLine,
   buildSpecNames,
-  buildItemMetaLine,
-  getEmptyMessage
+  buildMetaLine,
+  buildWhiteLines,
+  buildInstanceOptions,
+  getEmptyMessage,
 } = require('../../utils/equipment');
 
 Page({
+  itemMap: {},
+
   data: {
-    className: '',
     classKey: '',
+    className: '',
     classMeta: null,
     specs: [],
     stats: [
       { type: 'crit', name: '暴击', selected: false },
       { type: 'haste', name: '急速', selected: false },
       { type: 'mastery', name: '精通', selected: false },
-      { type: 'versatility', name: '全能', selected: false }
+      { type: 'versatility', name: '全能', selected: false },
     ],
     slots: SLOT_OPTIONS,
+    sourceTypes: [
+      { type: 'all', name: '全部' },
+      { type: 'dungeon', name: '地下城' },
+      { type: 'raid', name: '团本' },
+    ],
+    instanceOptions: [],
+    keyword: '',
     selectedSpec: null,
     selectedSlot: null,
+    selectedSourceType: 'all',
+    selectedInstanceId: null,
+    viewModes: [
+      { type: 'slot', name: '按部位' },
+      { type: 'source', name: '按来源' },
+    ],
+    selectedViewMode: 'slot',
     allItems: [],
-    filteredItems: [],
     groupedItems: [],
     resultCount: 0,
-    isLoading: true,
     hasAnyData: false,
+    isLoading: true,
     emptyMessage: '数据加载中',
+    selectedItem: null,
     showModal: false,
-    selectedItem: null
   },
 
   onLoad(options) {
     const classKey = options.classKey || 'monk';
     const classMeta = getClassMeta(classKey) || getClassMeta('monk');
-
     this.setData({
       classKey,
       className: options.className || (classMeta && classMeta.name) || '武僧',
-      classMeta
+      classMeta,
     });
-
     this.loadData(classKey);
   },
 
   loadData(classKey) {
     const data = loadClassData(classKey);
-    const classMeta = getClassMeta(classKey) || this.data.classMeta;
-    const instances = data && Array.isArray(data.instances) ? data.instances : [];
-    const specs = data && Array.isArray(data.specs) ? data.specs : [];
-    const allItems = flattenItems(instances).map((item) => ({
-      ...item,
-      statLine: buildStatLine(item),
-      specNames: buildSpecNames(item, specs),
-      metaLine: buildItemMetaLine(item)
-    }));
+    const allItems = data
+      ? flattenItems(data.instances || []).map((item) => ({
+        ...item,
+        statLine: buildStatLine(item),
+        specNames: buildSpecNames(item, data.specs || []),
+        metaLine: buildMetaLine(item),
+        iconText: item.iconText || (item.name ? item.name.slice(0, 1) : '装'),
+      }))
+      : [];
+    this.itemMap = {};
+    allItems.forEach((item) => {
+      this.itemMap[item.id] = item;
+    });
 
     this.setData({
-      className: (data && data.class && data.class.name) || (classMeta && classMeta.name) || this.data.className,
-      classMeta,
-      specs,
+      classMeta: (data && data.class) || this.data.classMeta,
+      className: (data && data.class && data.class.name) || this.data.className,
+      specs: (data && data.specs) || [],
+      instanceOptions: buildInstanceOptions((data && data.instances) || []),
       allItems,
       hasAnyData: allItems.length > 0,
-      isLoading: false
+      isLoading: false,
     });
 
     this.applyFilters();
   },
 
-  onSpecTap(e) {
-    const id = e.currentTarget.dataset.id;
+  onSpecTap(event) {
+    const { id } = event.currentTarget.dataset;
     this.setData({
-      selectedSpec: this.data.selectedSpec === id ? null : id
+      selectedSpec: this.data.selectedSpec === id ? null : id,
     });
     this.applyFilters();
   },
 
-  onStatTap(e) {
-    const type = e.currentTarget.dataset.type;
-    const selectedCount = this.data.stats.filter((item) => item.selected).length;
+  onSlotTap(event) {
+    const { type } = event.currentTarget.dataset;
+    this.setData({
+      selectedSlot: this.data.selectedSlot === type ? null : type,
+    });
+    this.applyFilters();
+  },
 
+  onStatTap(event) {
+    const { type } = event.currentTarget.dataset;
+    const selectedCount = this.data.stats.filter((item) => item.selected).length;
     const stats = this.data.stats.map((item) => {
       if (item.type !== type) {
         return item;
       }
-
       if (!item.selected && selectedCount >= 2) {
         return item;
       }
-
-      return {
-        ...item,
-        selected: !item.selected
-      };
+      return { ...item, selected: !item.selected };
     });
-
     this.setData({ stats });
     this.applyFilters();
   },
 
-  onSlotTap(e) {
-    const type = e.currentTarget.dataset.type;
+  onSourceTypeTap(event) {
+    const { type } = event.currentTarget.dataset;
+    const nextType = this.data.selectedSourceType === type ? 'all' : type;
+    const currentInstance = this.data.instanceOptions.find((item) => item.id === this.data.selectedInstanceId);
+    const shouldResetInstance = currentInstance && nextType !== 'all' && currentInstance.type !== nextType;
+
     this.setData({
-      selectedSlot: this.data.selectedSlot === type ? null : type
+      selectedSourceType: nextType,
+      selectedInstanceId: shouldResetInstance ? null : this.data.selectedInstanceId,
+    });
+    this.applyFilters();
+  },
+
+  onInstanceTap(event) {
+    const { id } = event.currentTarget.dataset;
+    this.setData({
+      selectedInstanceId: this.data.selectedInstanceId === id ? null : id,
+    });
+    this.applyFilters();
+  },
+
+  onKeywordInput(event) {
+    this.setData({
+      keyword: event.detail.value || '',
+    });
+    this.applyFilters();
+  },
+
+  onViewModeTap(event) {
+    const { type } = event.currentTarget.dataset;
+    this.setData({
+      selectedViewMode: type,
+    });
+    this.applyFilters();
+  },
+
+  resetFilters() {
+    this.setData({
+      keyword: '',
+      selectedSpec: null,
+      selectedSlot: null,
+      selectedSourceType: 'all',
+      selectedInstanceId: null,
+      selectedViewMode: 'slot',
+      stats: this.data.stats.map((item) => ({ ...item, selected: false })),
     });
     this.applyFilters();
   },
@@ -117,67 +180,71 @@ Page({
     const filteredItems = filterItems(this.data.allItems, {
       selectedSpec: this.data.selectedSpec,
       selectedSlot: this.data.selectedSlot,
-      selectedStats
+      selectedStats,
+      selectedSourceType: this.data.selectedSourceType,
+      selectedInstanceId: this.data.selectedInstanceId,
+      keyword: this.data.keyword,
     });
-    const groupedItems = groupItems(filteredItems);
-    const hasFilters = Boolean(this.data.selectedSpec || this.data.selectedSlot || selectedStats.length);
+
+    const groupedItems = this.data.selectedViewMode === 'source'
+      ? groupItemsBySource(filteredItems)
+      : groupItems(filteredItems);
 
     this.setData({
-      filteredItems,
       groupedItems,
       resultCount: filteredItems.length,
-      emptyMessage: getEmptyMessage(this.data.hasAnyData, hasFilters)
+      emptyMessage: getEmptyMessage(
+        this.data.hasAnyData,
+        Boolean(
+          this.data.selectedSpec ||
+          this.data.selectedSlot ||
+          this.data.selectedInstanceId ||
+          this.data.selectedSourceType !== 'all' ||
+          selectedStats.length ||
+          this.data.keyword.trim()
+        )
+      ),
     });
   },
 
-  resetFilters() {
-    this.setData({
-      selectedSpec: null,
-      selectedSlot: null,
-      stats: this.data.stats.map((item) => ({
-        ...item,
-        selected: false
-      }))
-    });
-    this.applyFilters();
-  },
-
-  onBackTap() {
-    if (getCurrentPages().length > 1) {
-      wx.navigateBack();
+  onItemTap(event) {
+    const item = this.itemMap[event.currentTarget.dataset.itemId];
+    if (!item) {
       return;
     }
-
-    wx.redirectTo({
-      url: '/pages/index/index'
+    const whiteLines = buildWhiteLines(item);
+    const secondaryStats = ((item.stats && item.stats.secondary) || []).map((stat) => ({ ...stat }));
+    const maxSecondaryValue = secondaryStats.reduce((max, stat) => Math.max(max, stat.value || 0), 0);
+    secondaryStats.forEach((stat) => {
+      stat.width = maxSecondaryValue > 0 ? `${Math.max(18, Math.round((stat.value / maxSecondaryValue) * 100))}%` : '18%';
     });
-  },
-
-  onItemTap(e) {
-    const item = e.currentTarget.dataset.item;
-    const primaryOptions = item.stats && Array.isArray(item.stats.primaryOptions)
-      ? item.stats.primaryOptions
-      : (item.stats && item.stats.primary ? [item.stats.primary] : []);
-
     this.setData({
+      showModal: true,
       selectedItem: {
         ...item,
-        specNamesText: item.specNames && item.specNames.length ? item.specNames.join(' / ') : '当前职业通用',
-        effectLabel: item.effectType || (item.slot === 'trinket' ? '使用' : '装备'),
-        primaryOptions,
-        itemLevelText: `物品等级${item.ilvl}`,
-        itemIdText: `ID: ${item.id}`
+        whiteLines,
+        secondaryStats,
+        specText: item.specNames && item.specNames.length ? item.specNames.join(' / ') : '当前职业通用',
+        equipEffects: item.stats && item.stats.effects ? item.stats.effects.equip || [] : [],
+        useEffects: item.stats && item.stats.effects ? item.stats.effects.use || [] : [],
       },
-      showModal: true
     });
   },
 
   closeModal() {
     this.setData({
       showModal: false,
-      selectedItem: null
+      selectedItem: null,
     });
   },
 
-  preventClose() {}
+  preventClose() {},
+
+  onBackTap() {
+    if (getCurrentPages().length > 1) {
+      wx.navigateBack();
+      return;
+    }
+    wx.redirectTo({ url: '/pages/index/index' });
+  },
 });

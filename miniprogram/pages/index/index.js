@@ -1,15 +1,32 @@
-const { CLASS_LIST } = require('../../utils/class-data');
+const { CLASS_LIST, loadOverview } = require('../../utils/class-data');
 
 Page({
   data: {
-    classes: CLASS_LIST
+    classes: CLASS_LIST,
+    overview: null,
   },
 
-  onClassTap(e) {
-    const classKey = e.currentTarget.dataset.key;
-    const className = e.currentTarget.dataset.name;
-    wx.navigateTo({
-      url: `/pages/equipment/equipment?classKey=${classKey}&className=${className}`
+  onLoad() {
+    const overview = loadOverview();
+    const classCountMap = {};
+    if (overview && Array.isArray(overview.classes)) {
+      overview.classes.forEach((item) => {
+        classCountMap[item.key] = item.itemCount;
+      });
+    }
+    this.setData({
+      overview,
+      classes: CLASS_LIST.map((item) => ({
+        ...item,
+        itemCount: classCountMap[item.key] || 0,
+      })),
     });
-  }
+  },
+
+  onClassTap(event) {
+    const { key, name } = event.currentTarget.dataset;
+    wx.navigateTo({
+      url: `/pages/equipment/equipment?classKey=${key}&className=${name}`,
+    });
+  },
 });

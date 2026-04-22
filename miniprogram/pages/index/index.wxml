@@ -1,41 +1,42 @@
-<view class="container flex-col">
-  <view class="hero-panel">
-    <text class="eyebrow">Midnight Season 1</text>
-    <text class="title">WoWLook</text>
-    <text class="subtitle">按职业、专精和属性快速定位当前赛季装备掉落</text>
+<view class="page-shell index-page">
+  <view class="hero-card">
+    <text class="hero-tag">CURRENT SEASON</text>
+    <text class="hero-title">WoWLook</text>
+    <text class="hero-copy">按职业、专精、副属性和部位筛选当前赛季掉落，直接查看副本、首领和装备说明。</text>
   </view>
 
-  <view class="legend-row">
-    <view class="legend-pill">8 个大秘境</view>
-    <view class="legend-pill">3 个团本</view>
-    <view class="legend-pill">勇士 1/6 · ilvl 246</view>
+  <view class="hero-stats">
+    <view class="pill">{{overview ? overview.scope.dungeonCount : 0}} 个地下城</view>
+    <view class="pill">{{overview ? overview.scope.raidCount : 0}} 个团本</view>
+    <view class="pill">插件直连数据</view>
+  </view>
+
+  <view wx:if="{{overview}}" class="summary-card">
+    <text class="summary-title">当前赛季快照</text>
+    <text class="summary-copy">更新时间：{{overview.updatedAt}}</text>
+    <text class="summary-copy">已跳过无英雄难度的世界首领集合，只保留正式团本。</text>
   </view>
 
   <view class="section-head">
     <text class="section-title">选择职业</text>
-    <text class="section-copy">职业为必选项，进入后再按专精、属性和部位筛选。</text>
+    <text class="section-copy">先按职业进入，再按专精、副属性和部位继续筛选。</text>
   </view>
 
-  <view class="grid-container">
-    <view class="class-grid">
-      <view
-        wx:for="{{classes}}"
-        wx:key="id"
-        class="class-item flex-col align-center justify-center"
-        bindtap="onClassTap"
-        data-key="{{item.key}}"
-        data-name="{{item.name}}"
-      >
-        <view class="icon-wrap" style="box-shadow: 0 4rpx 20rpx {{item.color}}40; border: 2rpx solid {{item.color}}80;">
-          <text class="emoji-icon">{{item.icon}}</text>
-        </view>
-        <text class="class-name" style="color: {{item.color}};">{{item.name}}</text>
-        <text class="class-armor">{{item.armorTypeName}}</text>
+  <view class="class-grid">
+    <view
+      wx:for="{{classes}}"
+      wx:key="id"
+      class="class-card"
+      bindtap="onClassTap"
+      data-key="{{item.key}}"
+      data-name="{{item.name}}"
+    >
+      <view class="class-mark" style="color: {{item.color}}; border-color: {{item.color}};">
+        {{item.abbr}}
       </view>
+      <text class="class-name" style="color: {{item.color}};">{{item.name}}</text>
+      <text class="class-armor">{{item.armorTypeName}}</text>
+      <text class="class-count">{{item.itemCount}} 件装备</text>
     </view>
-  </view>
-
-  <view class="footer">
-    <text>当前已接通 13 个职业数据文件结构，武僧为真实样例。</text>
   </view>
 </view>

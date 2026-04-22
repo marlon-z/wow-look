@@ -1,0 +1,8 @@
+## Interface: 120001
+## Title: WoWLookExport2
+## Notes: 导出冒险手册装备数据供 WoWLook 小程序使用 (v2)
+## Author: WoWLook
+## Version: 2.2.0
+## SavedVariables: WoWLookExport2DB
+
+WoWLookExport2.lua

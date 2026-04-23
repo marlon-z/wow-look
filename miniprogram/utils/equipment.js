@@ -63,7 +63,7 @@ function flattenItems(instances = []) {
 function filterItems(items = [], filters = {}) {
   const {
     selectedSpec = null,
-    selectedSlot = null,
+    selectedSlots = [],
     selectedStats = [],
     selectedSourceType = 'all',
     selectedInstanceId = null,
@@ -76,7 +76,7 @@ function filterItems(items = [], filters = {}) {
       return false;
     }
 
-    if (selectedSlot && item.slot !== selectedSlot) {
+    if (selectedSlots.length && selectedSlots.indexOf(item.slot) === -1) {
       return false;
     }
 

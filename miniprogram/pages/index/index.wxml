@@ -1,7 +1,7 @@
 <view class="page-shell index-page">
-  <image class="global-site-bg" src="/assets/public/bg.png" mode="aspectFill" />
+  <image class="global-site-bg" src="https://wowlook-1308073800.cos.ap-guangzhou.myqcloud.com/assets/public/bg.png" mode="aspectFill" />
   <view class="header-section">
-    <image class="logo-img" src="/assets/public/logo.png" mode="widthFix" />
+    <image class="logo-img" src="https://wowlook-1308073800.cos.ap-guangzhou.myqcloud.com/assets/public/logo.png" mode="widthFix" />
   </view>
 
   <view class="prompt-wrap">

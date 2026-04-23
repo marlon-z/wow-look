@@ -1,5 +1,5 @@
 <view class="page-shell equipment-page">
-  <image class="global-site-bg" src="/assets/public/bg.png" mode="aspectFill" />
+  <image class="global-site-bg" src="https://wowlook-1308073800.cos.ap-guangzhou.myqcloud.com/assets/public/bg.png" mode="aspectFill" />
   <view class="page-bg-glow page-bg-glow-top"></view>
   <view class="page-bg-glow page-bg-glow-bottom"></view>
 
@@ -73,7 +73,7 @@
 
     <view class="filter-row">
       <view class="filter-head">
-        <text class="filter-symbol">👁</text>
+        <text class="filter-symbol">◉</text>
         <text class="filter-label">视图</text>
       </view>
       <view class="chip-grid">
@@ -113,7 +113,7 @@
           <view
             wx:for="{{slots}}"
             wx:key="type"
-            class="chip sm {{selectedSlot === item.type ? 'on' : ''}}"
+            class="chip sm {{item.selected ? 'on' : ''}}"
             bindtap="onSlotTap"
             data-type="{{item.type}}"
           >{{item.name}}</view>
@@ -283,7 +283,7 @@
 
         <view wx:if="{{selectedItem.equipEffects.length || selectedItem.useEffects.length || selectedItem.filteredRaw.length}}" class="tt-section">
           <view class="tt-extra-block">
-            <text class="tt-extra-icon">🎒</text>
+            <text class="tt-extra-icon">◈</text>
             <view class="tt-extra-col">
               <block wx:for="{{selectedItem.equipEffects}}" wx:key="*this">
                 <text class="tt-extra-line green-text">装备：{{item}}</text>
@@ -303,11 +303,11 @@
         
         <view class="tt-footer-wrap">
           <view class="tt-bot-item" wx:if="{{selectedItem.specText}}">
-            <text class="tt-bot-icon">🐾</text>
+            <text class="tt-bot-icon">✦</text>
             <text>拾取专精：{{selectedItem.specText}}</text>
           </view>
           <view class="tt-bot-item" wx:if="{{selectedItem.instanceName}}">
-            <text class="tt-bot-icon">🏛️</text>
+            <text class="tt-bot-icon">⬡</text>
             <text>{{selectedItem.instanceName}}<block wx:if="{{selectedItem.encounterName}}"> · {{selectedItem.encounterName}}</block></text>
           </view>
           <text class="tt-bot-dim">{{selectedItem.source.difficultyName || '史诗'}} · ID {{selectedItem.id}}</text>

@@ -18,64 +18,50 @@ function getClassMeta(classKey) {
   return CLASS_LIST.find((item) => item.key === classKey) || null;
 }
 
+const COS_BASE = 'https://wowlook-1308073800.cos.ap-guangzhou.myqcloud.com';
+
 function getClassVisualAssets(classKey) {
   const classMeta = getClassMeta(classKey);
   const assetCode = (classMeta && classMeta.assetCode) || 'ws';
 
   return {
-    banner: `../../assets/zhiye/banner/${assetCode}.png`,
-    emblem: `../../assets/zhiye/emblem/${assetCode}.png`,
+    banner: `${COS_BASE}/assets/zhiye/banner/${assetCode}.png`,
+    emblem: `${COS_BASE}/assets/zhiye/emblem/${assetCode}.png`,
   };
 }
 
 function loadOverview() {
-  try {
-    return require('../data/overview.js');
-  } catch (error) {
-    console.error('load overview failed', error);
-    return null;
-  }
+  return new Promise((resolve) => {
+    wx.request({
+      url: `${COS_BASE}/data/overview.json`,
+      success(res) { resolve(res.data); },
+      fail(err) {
+        console.error('load overview failed', err);
+        resolve(null);
+      },
+    });
+  });
 }
 
 function loadClassData(classKey) {
-  try {
-    switch (classKey) {
-      case 'warrior':
-        return require('../data/warrior.js');
-      case 'paladin':
-        return require('../data/paladin.js');
-      case 'hunter':
-        return require('../data/hunter.js');
-      case 'rogue':
-        return require('../data/rogue.js');
-      case 'priest':
-        return require('../data/priest.js');
-      case 'deathknight':
-        return require('../data/deathknight.js');
-      case 'shaman':
-        return require('../data/shaman.js');
-      case 'mage':
-        return require('../data/mage.js');
-      case 'warlock':
-        return require('../data/warlock.js');
-      case 'monk':
-        return require('../data/monk.js');
-      case 'druid':
-        return require('../data/druid.js');
-      case 'demonhunter':
-        return require('../data/demonhunter.js');
-      case 'evoker':
-        return require('../data/evoker.js');
-      default:
-        return null;
-    }
-  } catch (error) {
-    console.error(`load class data failed: ${classKey}`, error);
-    return null;
+  const validKeys = ['warrior', 'paladin', 'hunter', 'rogue', 'priest', 'deathknight', 'shaman', 'mage', 'warlock', 'monk', 'druid', 'demonhunter', 'evoker'];
+  if (validKeys.indexOf(classKey) === -1) {
+    return Promise.resolve(null);
   }
+  return new Promise((resolve) => {
+    wx.request({
+      url: `${COS_BASE}/data/${classKey}.json`,
+      success(res) { resolve(res.data); },
+      fail(err) {
+        console.error(`load class data failed: ${classKey}`, err);
+        resolve(null);
+      },
+    });
+  });
 }
 
 module.exports = {
+  COS_BASE,
   CLASS_LIST,
   getClassMeta,
   getClassVisualAssets,

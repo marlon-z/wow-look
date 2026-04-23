@@ -16,18 +16,24 @@ Page({
   },
 
   onLoad() {
-    const overview = loadOverview();
     const countMap = {};
-    if (overview && Array.isArray(overview.classes)) {
-      overview.classes.forEach((item) => {
-        countMap[item.key] = item.itemCount;
-      });
-    }
-
     this.setData({
       row1: enrichList(CLASS_LIST.slice(0, 4), countMap),
       row2: enrichList(CLASS_LIST.slice(4, 9), countMap),
       row3: enrichList(CLASS_LIST.slice(9, 13), countMap),
+    });
+
+    loadOverview().then((overview) => {
+      if (overview && Array.isArray(overview.classes)) {
+        overview.classes.forEach((item) => {
+          countMap[item.key] = item.itemCount;
+        });
+        this.setData({
+          row1: enrichList(CLASS_LIST.slice(0, 4), countMap),
+          row2: enrichList(CLASS_LIST.slice(4, 9), countMap),
+          row3: enrichList(CLASS_LIST.slice(9, 13), countMap),
+        });
+      }
     });
   },
 

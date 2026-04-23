@@ -1,4 +1,4 @@
-const { getClassMeta, getClassVisualAssets, loadClassData } = require('../../utils/class-data');
+const { COS_BASE, getClassMeta, getClassVisualAssets, loadClassData } = require('../../utils/class-data');
 const {
   SLOT_OPTIONS,
   flattenItems,
@@ -79,7 +79,7 @@ Page({
     instanceOptions: [],
     keyword: '',
     selectedSpec: null,
-    selectedSlot: null,
+    selectedSlots: [],
     selectedSourceType: 'all',
     selectedInstanceId: null,
     viewModes: [
@@ -112,38 +112,40 @@ Page({
   },
 
   loadData(classKey) {
-    const data = loadClassData(classKey);
-    const allItems = data
-      ? flattenItems(data.instances || []).map((item) => ({
-        ...item,
-        statLine: buildStatLine(item),
-        specNames: buildSpecNames(item, data.specs || []),
-        metaLine: buildMetaLine(item),
-        sourceBadge: item.source ? item.source.difficultyName : '',
-        roleBadge: item.stats && item.stats.effects && item.stats.effects.use && item.stats.effects.use.length ? '使用特效'
-          : (item.stats && item.stats.effects && item.stats.effects.equip && item.stats.effects.equip.length ? '装备特效' : ''),
-        rightMeta: item.slot === 'weapon' ? item.itemSubType : (item.armorType !== 'none' ? item.armorTypeName : item.slotName),
-        iconText: item.iconText || (item.name ? item.name.slice(0, 1) : '装'),
-      }))
-      : [];
-    this.itemMap = {};
-    allItems.forEach((item) => {
-      this.itemMap[item.id] = item;
-    });
+    loadClassData(classKey).then((data) => {
+      const allItems = data
+        ? flattenItems(data.instances || []).map((item) => ({
+          ...item,
+          iconAsset: item.iconAsset ? COS_BASE + item.iconAsset : '',
+          statLine: buildStatLine(item),
+          specNames: buildSpecNames(item, data.specs || []),
+          metaLine: buildMetaLine(item),
+          sourceBadge: item.source ? item.source.difficultyName : '',
+          roleBadge: item.stats && item.stats.effects && item.stats.effects.use && item.stats.effects.use.length ? '使用特效'
+            : (item.stats && item.stats.effects && item.stats.effects.equip && item.stats.effects.equip.length ? '装备特效' : ''),
+          rightMeta: item.slot === 'weapon' ? item.itemSubType : (item.armorType !== 'none' ? item.armorTypeName : item.slotName),
+          iconText: item.iconText || (item.name ? item.name.slice(0, 1) : '装'),
+        }))
+        : [];
+      this.itemMap = {};
+      allItems.forEach((item) => {
+        this.itemMap[item.id] = item;
+      });
 
-    this.setData({
-      classMeta: (data && data.class) || this.data.classMeta,
-      className: (data && data.class && data.class.name) || this.data.className,
-      heroBannerAsset: getClassVisualAssets(classKey).banner,
-      classEmblemAsset: getClassVisualAssets(classKey).emblem,
-      specs: (data && data.specs) || [],
-      instanceOptions: buildInstanceOptions((data && data.instances) || []),
-      allItems,
-      hasAnyData: allItems.length > 0,
-      isLoading: false,
-    });
+      this.setData({
+        classMeta: (data && data.class) || this.data.classMeta,
+        className: (data && data.class && data.class.name) || this.data.className,
+        heroBannerAsset: getClassVisualAssets(classKey).banner,
+        classEmblemAsset: getClassVisualAssets(classKey).emblem,
+        specs: (data && data.specs) || [],
+        instanceOptions: buildInstanceOptions((data && data.instances) || []),
+        allItems,
+        hasAnyData: allItems.length > 0,
+        isLoading: false,
+      });
 
-    this.applyFilters();
+      this.applyFilters();
+    });
   },
 
   onSpecTap(event) {
@@ -156,9 +158,18 @@ Page({
 
   onSlotTap(event) {
     const { type } = event.currentTarget.dataset;
-    this.setData({
-      selectedSlot: this.data.selectedSlot === type ? null : type,
-    });
+    const selectedSlots = this.data.selectedSlots.slice();
+    const idx = selectedSlots.indexOf(type);
+    if (idx === -1) {
+      selectedSlots.push(type);
+    } else {
+      selectedSlots.splice(idx, 1);
+    }
+    const slots = this.data.slots.map((item) => ({
+      ...item,
+      selected: selectedSlots.indexOf(item.type) !== -1,
+    }));
+    this.setData({ selectedSlots, slots });
     this.applyFilters();
   },
 
@@ -218,7 +229,8 @@ Page({
     this.setData({
       keyword: '',
       selectedSpec: null,
-      selectedSlot: null,
+      selectedSlots: [],
+      slots: this.data.slots.map((item) => ({ ...item, selected: false })),
       selectedSourceType: 'all',
       selectedInstanceId: null,
       selectedViewMode: 'slot',
@@ -231,7 +243,7 @@ Page({
     const selectedStats = this.data.stats.filter((item) => item.selected).map((item) => item.type);
     const filteredItems = filterItems(this.data.allItems, {
       selectedSpec: this.data.selectedSpec,
-      selectedSlot: this.data.selectedSlot,
+      selectedSlots: this.data.selectedSlots,
       selectedStats,
       selectedSourceType: this.data.selectedSourceType,
       selectedInstanceId: this.data.selectedInstanceId,
@@ -253,12 +265,12 @@ Page({
     if (selectedInstance) {
       activeFilterParts.push(selectedInstance.name);
     }
-    if (this.data.selectedSlot) {
-      const slot = this.data.slots.find((item) => item.type === this.data.selectedSlot);
+    this.data.selectedSlots.forEach((slotType) => {
+      const slot = this.data.slots.find((item) => item.type === slotType);
       if (slot) {
         activeFilterParts.push(slot.name);
       }
-    }
+    });
     selectedStats.forEach((type) => {
       const stat = this.data.stats.find((item) => item.type === type);
       if (stat) {
@@ -277,7 +289,7 @@ Page({
         this.data.hasAnyData,
         Boolean(
           this.data.selectedSpec ||
-          this.data.selectedSlot ||
+          this.data.selectedSlots.length ||
           this.data.selectedInstanceId ||
           this.data.selectedSourceType !== 'all' ||
           selectedStats.length ||

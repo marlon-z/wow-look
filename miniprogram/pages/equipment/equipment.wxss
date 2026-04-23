@@ -1,9 +1,7 @@
 .equipment-page {
   padding: 18rpx 22rpx 0;
   position: relative;
-  background:
-    radial-gradient(circle at top, rgba(98, 53, 128, 0.26), transparent 38%),
-    linear-gradient(180deg, #0d0a13 0%, #09080d 100%);
+  background: transparent;
 }
 
 .page-bg-glow {

@@ -1,5 +1,5 @@
 page {
-  background: #09080d;
+  background: #000000;
   color: #e8e4dc;
   font-family: "PingFang SC", "SF Pro Display", "Helvetica Neue", sans-serif;
   --theme: #d4a84b;
@@ -19,6 +19,15 @@ page {
   --green: #1eff00;
   --poor: #9d9d9d;
   box-sizing: border-box;
+}
+
+.global-site-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -999;
 }
 
 view,

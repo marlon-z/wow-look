@@ -1,5 +1,5 @@
 App({
   globalData: {
-    title: 'WoWLook'
+    title: '艾泽配装'
   }
 });

@@ -8,7 +8,10 @@
       <image class="top-emblem" src="{{classEmblemAsset}}" mode="aspectFit" />
       <text class="top-title">{{className}}</text>
     </view>
-    <view class="armor-pill">{{classMeta.armorTypeName}}</view>
+    <view class="armor-pill">
+      
+      <text>{{classMeta.armorTypeName}}</text>
+    </view>
   </view>
 
   <view class="hero-panel">
@@ -37,7 +40,7 @@
 
     <view class="filter-row">
       <view class="filter-head">
-        <text class="filter-symbol">✦</text>
+        <text class="filter-symbol">♚</text>
         <text class="filter-label">专精</text>
       </view>
       <view class="chip-grid">
@@ -53,7 +56,7 @@
 
     <view class="filter-row">
       <view class="filter-head">
-        <text class="filter-symbol">✧</text>
+        <text class="filter-symbol">✴</text>
         <text class="filter-label">副属性</text>
       </view>
       <view class="chip-grid">
@@ -69,7 +72,7 @@
 
     <view class="filter-row">
       <view class="filter-head">
-        <text class="filter-symbol">◉</text>
+        <text class="filter-symbol">👁</text>
         <text class="filter-label">视图</text>
       </view>
       <view class="chip-grid">
@@ -101,35 +104,39 @@
 
     <view class="filter-row">
       <view class="filter-head">
-        <text class="filter-symbol">⬒</text>
+        <text class="filter-symbol">♞</text>
         <text class="filter-label">部位</text>
       </view>
-      <view class="chip-grid">
-        <view
-          wx:for="{{slots}}"
-          wx:key="type"
-          class="chip sm {{selectedSlot === item.type ? 'on' : ''}}"
-          bindtap="onSlotTap"
-          data-type="{{item.type}}"
-        >{{item.name}}</view>
-      </view>
+      <scroll-view class="chip-scroll-x" scroll-x="true" enhanced show-scrollbar="{{false}}">
+        <view class="chip-scroll-wrap">
+          <view
+            wx:for="{{slots}}"
+            wx:key="type"
+            class="chip sm {{selectedSlot === item.type ? 'on' : ''}}"
+            bindtap="onSlotTap"
+            data-type="{{item.type}}"
+          >{{item.name}}</view>
+        </view>
+      </scroll-view>
     </view>
 
     <view class="filter-row filter-row-last">
       <view class="filter-head">
-        <text class="filter-symbol">▣</text>
+        <text class="filter-symbol">♜</text>
         <text class="filter-label">副本</text>
       </view>
-      <view class="chip-grid">
-        <block wx:for="{{instanceOptions}}" wx:key="id">
-          <view
-            wx:if="{{selectedSourceType === 'all' || item.type === selectedSourceType}}"
-            class="chip instance-chip {{selectedInstanceId === item.id ? 'on' : ''}}"
-            bindtap="onInstanceTap"
-            data-id="{{item.id}}"
-          >{{item.name}}</view>
-        </block>
-      </view>
+      <scroll-view class="chip-scroll-x" scroll-x="true" enhanced show-scrollbar="{{false}}">
+        <view class="chip-scroll-wrap">
+          <block wx:for="{{instanceOptions}}" wx:key="id">
+            <view
+              wx:if="{{selectedSourceType === 'all' || item.type === selectedSourceType}}"
+              class="chip instance-chip {{selectedInstanceId === item.id ? 'on' : ''}}"
+              bindtap="onInstanceTap"
+              data-id="{{item.id}}"
+            >{{item.name}}</view>
+          </block>
+        </view>
+      </scroll-view>
     </view>
 
     <view class="filter-actions">
@@ -156,7 +163,7 @@
         <block wx:if="{{selectedViewMode === 'slot'}}">
           <view class="group-head">
             <view class="group-title-wrap">
-              <text class="group-badge">✦</text>
+              <text class="group-badge">♚</text>
               <text class="group-title">{{item.slotName}}</text>
             </view>
             <text class="group-count">共 {{item.items.length}} 件</text>
@@ -188,10 +195,20 @@
             </view>
 
             <view class="item-body">
-              <text class="item-name epic-text">{{equip.name}}</text>
-              <text class="item-meta-line">{{equip.rightMeta}} · ilvl{{equip.ilvl}}</text>
-              <text class="item-stat-line">{{equip.statLine}}</text>
-              <text class="item-source-line">{{equip.instanceName}} · {{equip.encounterName}}</text>
+              <view class="item-row item-row-1">
+                <text class="item-name epic-text">{{equip.name}}</text>
+                <text class="item-quality-badge">史诗</text>
+              </view>
+              <view class="item-row item-row-2">
+                <text class="item-stat-line">{{equip.statLine}}</text>
+              </view>
+              <view class="item-row item-row-3">
+                <text class="item-meta-line">{{equip.rightMeta}} · ilvl{{equip.ilvl}}</text>
+                <view class="item-source-wrap">
+                  <text class="item-source-text">{{equip.instanceName}}</text>
+                  <text class="item-arrow">›</text>
+                </view>
+              </view>
             </view>
           </view>
         </view>
@@ -213,18 +230,19 @@
           <view class="tt-icon-border"></view>
         </view>
         <view class="tt-title-area">
-          <text class="tt-name epic-text">{{selectedItem.name}}</text>
+          <text class="tt-name">{{selectedItem.name}}</text>
           <view class="tt-tag-row">
             <text wx:for="{{selectedItem.headerTags}}" wx:key="*this" class="tt-tag">{{item}}</text>
           </view>
         </view>
       </view>
 
-      <view class="tt-quality-line"></view>
-
       <scroll-view scroll-y class="tt-body" enhanced show-scrollbar="{{false}}">
         <view class="tt-section">
-          <text class="tt-ilvl">物品等级 {{selectedItem.ilvl}}</text>
+          <view class="tt-ilvl-row">
+            <text class="tt-ilvl">物品等级 {{selectedItem.ilvl}}</text>
+            <view class="tt-badge-icon"></view>
+          </view>
           <text wx:if="{{selectedItem.upgradeTrack}}" class="tt-line">升级：{{selectedItem.upgradeTrack}}</text>
           <text class="tt-line">{{selectedItem.slotName}}<block wx:if="{{selectedItem.itemSubType}}"> · {{selectedItem.itemSubType}}</block></text>
           <text wx:if="{{selectedItem.tooltipFlags.uniqueEquipped}}" class="tt-line">装备唯一</text>
@@ -234,17 +252,27 @@
         <view class="tt-divider"></view>
 
         <view class="tt-section">
+          <text wx:if="{{selectedItem.stats.armor}}" class="strong-line">{{selectedItem.stats.armor.value}}点护甲</text>
+          
           <block wx:for="{{selectedItem.whiteLines}}" wx:key="*this">
             <text class="tt-line white-line">{{item}}</text>
           </block>
+
           <block wx:for="{{selectedItem.stats.primaryStats}}" wx:key="type">
-            <text class="tt-line white-line">+{{item.value}} {{item.name}}</text>
+            <view class="stat-row">
+              <text class="stat-bullet">♦</text>
+              <text class="tt-line white-line">+{{item.value}} {{item.name}}</text>
+            </view>
           </block>
-          <text wx:if="{{selectedItem.stats.stamina}}" class="tt-line white-line">+{{selectedItem.stats.stamina.value}} {{selectedItem.stats.stamina.name}}</text>
+          
+          <view wx:if="{{selectedItem.stats.stamina}}" class="stat-row">
+            <text class="stat-bullet">♦</text>
+            <text class="tt-line white-line">+{{selectedItem.stats.stamina.value}} {{selectedItem.stats.stamina.name}}</text>
+          </view>
 
           <view wx:if="{{selectedItem.secondaryStats && selectedItem.secondaryStats.length}}" class="stat-bars">
             <view wx:for="{{selectedItem.secondaryStats}}" wx:key="type" class="stat-bar-item">
-              <text class="tt-line green-line">+{{item.value}} {{item.name}}</text>
+              <text class="green-val-row">+{{item.value}} {{item.name}}</text>
               <view class="bar-track">
                 <view class="bar-fill" style="width: {{item.width}};"></view>
               </view>
@@ -252,34 +280,45 @@
           </view>
         </view>
 
-        <view wx:if="{{selectedItem.equipEffects.length || selectedItem.useEffects.length}}" class="tt-section">
-          <view class="tt-divider"></view>
-          <block wx:for="{{selectedItem.equipEffects}}" wx:key="*this">
-            <text class="tt-line green-line">装备：{{item}}</text>
-          </block>
-          <block wx:for="{{selectedItem.useEffects}}" wx:key="*this">
-            <text class="tt-line green-line">使用：{{item}}</text>
-          </block>
+        <view wx:if="{{selectedItem.equipEffects.length || selectedItem.useEffects.length || selectedItem.filteredRaw.length}}" class="tt-section">
+          <view class="tt-extra-block">
+            <text class="tt-extra-icon">🎒</text>
+            <view class="tt-extra-col">
+              <block wx:for="{{selectedItem.equipEffects}}" wx:key="*this">
+                <text class="tt-extra-line green-text">装备：{{item}}</text>
+              </block>
+              <block wx:for="{{selectedItem.useEffects}}" wx:key="*this">
+                <text class="tt-extra-line green-text">使用：{{item}}</text>
+              </block>
+              <block wx:for="{{selectedItem.filteredRaw}}" wx:key="index">
+                <text class="tt-extra-line">{{item}}</text>
+              </block>
+            </view>
+            <text class="tt-extra-watermark">✶</text>
+          </view>
         </view>
 
-        <view wx:if="{{selectedItem.tooltipRaw && selectedItem.tooltipRaw.length}}" class="tt-section">
-          <view class="tt-divider"></view>
-          <text class="tt-raw-label">原始说明</text>
-          <block wx:for="{{selectedItem.tooltipRaw}}" wx:key="index">
-            <text class="tt-line raw-line">{{item}}</text>
-          </block>
+        <view class="tt-divider"></view>
+        
+        <view class="tt-footer-wrap">
+          <view class="tt-bot-item" wx:if="{{selectedItem.specText}}">
+            <text class="tt-bot-icon">🐾</text>
+            <text>可用专精：{{selectedItem.specText}}</text>
+          </view>
+          <view class="tt-bot-item" wx:if="{{selectedItem.instanceName}}">
+            <text class="tt-bot-icon">🏛️</text>
+            <text>{{selectedItem.instanceName}}<block wx:if="{{selectedItem.encounterName}}"> · {{selectedItem.encounterName}}</block></text>
+          </view>
+          <text class="tt-bot-dim">{{selectedItem.source.difficultyName || '史诗'}} · ID {{selectedItem.id}}</text>
         </view>
 
-        <view class="tt-section">
-          <view class="tt-divider"></view>
-          <text class="tt-line spec-line">可用专精：{{selectedItem.specText}}</text>
+        <view class="tt-ornament">
+          <view class="orn-line"></view>
+          <view class="orn-dot"></view>
+          <view class="orn-line"></view>
         </view>
+
       </scroll-view>
-
-      <view class="tt-footer">
-        <text class="tt-footer-line">{{selectedItem.instanceName}} · {{selectedItem.encounterName}}</text>
-        <text class="tt-footer-line dim">{{selectedItem.source.difficultyName}} · ID {{selectedItem.id}}</text>
-      </view>
     </view>
   </view>
 </view>

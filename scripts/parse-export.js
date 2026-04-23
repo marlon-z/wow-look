@@ -230,6 +230,34 @@ function sortNumericList(value) {
   return Array.from(new Set((value || []).map(Number))).sort((left, right) => left - right);
 }
 
+function normalizeTooltipText(value) {
+  return String(value || '')
+    .replace(/\r\n/g, '\n')
+    .replace(/\|c[0-9a-fA-F]{8}/g, '')
+    .replace(/\|r/g, '')
+    .replace(/(\d+)\|4([^:;]+):[^;]+;/g, '$1$2')
+    .replace(/\n+/g, '\n')
+    .replace(/[ \t]+/g, ' ')
+    .trim();
+}
+
+function normalizeEffectList(effects) {
+  if (!Array.isArray(effects)) {
+    return [];
+  }
+  const seen = new Set();
+  return effects
+    .map(normalizeTooltipText)
+    .filter((line) => {
+      const key = line.replace(/\s+/g, '');
+      if (!key || seen.has(key)) {
+        return false;
+      }
+      seen.add(key);
+      return true;
+    });
+}
+
 function normalizeTooltipRaw(rawLines) {
   if (!Array.isArray(rawLines)) {
     return [];
@@ -237,11 +265,11 @@ function normalizeTooltipRaw(rawLines) {
   return rawLines
     .map((line) => {
       if (typeof line === 'string') {
-        return line.trim();
+        return normalizeTooltipText(line);
       }
       const left = line && line.left ? String(line.left).trim() : '';
       const right = line && line.right ? String(line.right).trim() : '';
-      return [left, right].filter(Boolean).join(' ');
+      return normalizeTooltipText([left, right].filter(Boolean).join(' '));
     })
     .filter((line) => line && !/^\|c/i.test(line));
 }
@@ -283,8 +311,8 @@ function buildClassItem(rawItem, classConfig, classSpecs, source, iconAssetMap) 
   const tooltipRaw = normalizeTooltipRaw(tooltip.rawLines);
   const whiteStats = normalizeWhiteStats(parsed.white);
   const effects = rawItem.effects || parsed.effects || {};
-  const equipEffects = Array.isArray(effects.equip) ? effects.equip : (Array.isArray(parsed.equipEffects) ? parsed.equipEffects : []);
-  const useEffects = Array.isArray(effects.use) ? effects.use : (Array.isArray(parsed.useEffects) ? parsed.useEffects : []);
+  const equipEffects = normalizeEffectList(Array.isArray(effects.equip) ? effects.equip : (Array.isArray(parsed.equipEffects) ? parsed.equipEffects : []));
+  const useEffects = normalizeEffectList(Array.isArray(effects.use) ? effects.use : (Array.isArray(parsed.useEffects) ? parsed.useEffects : []));
 
   return {
     id: rawItem.itemId,

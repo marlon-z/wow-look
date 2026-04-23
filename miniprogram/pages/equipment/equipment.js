@@ -13,6 +13,47 @@ const {
   getEmptyMessage,
 } = require('../../utils/equipment');
 
+function normalizeTooltipText(text) {
+  return String(text || '')
+    .replace(/\r\n/g, '\n')
+    .replace(/\|c[0-9a-fA-F]{8}/g, '')
+    .replace(/\|r/g, '')
+    .replace(/(\d+)\|4([^:;]+):[^;]+;/g, '$1$2')
+    .replace(/\n+/g, '\n')
+    .replace(/[ \t]+/g, ' ')
+    .trim();
+}
+
+function stripEffectPrefix(text) {
+  return normalizeTooltipText(text).replace(/^(装备|使用)[：:]\s*/, '').trim();
+}
+
+function effectKey(text) {
+  return stripEffectPrefix(text).replace(/[\s。，“”"'：:；;，,（）()]+/g, '');
+}
+
+function uniqueCleanEffects(effects = []) {
+  const seen = new Set();
+  return effects
+    .map(stripEffectPrefix)
+    .filter((line) => {
+      const key = effectKey(line);
+      if (!key || seen.has(key)) {
+        return false;
+      }
+      seen.add(key);
+      return true;
+    });
+}
+
+function isDuplicateEffectLine(line, effectKeys) {
+  const key = effectKey(line);
+  if (!key) {
+    return false;
+  }
+  return Array.from(effectKeys).some((effect) => key === effect || key.startsWith(effect) || effect.startsWith(key));
+}
+
 Page({
   itemMap: {},
 
@@ -246,6 +287,48 @@ Page({
     });
   },
 
+  filterTooltipRaw(item) {
+    const raw = item.tooltipRaw;
+    if (!raw || !raw.length) return [];
+
+    const skip = new Set();
+    skip.add(item.name);
+    const qualities = ['史诗', '稀有', '精良', '优秀', '普通', '传说'];
+    qualities.forEach((q) => skip.add(q));
+    if (item.slotName) skip.add(item.slotName);
+    if (item.armorTypeName && item.armorType !== 'none') {
+      skip.add(item.slotName + ' ' + item.armorTypeName);
+    }
+
+    const allStats = [];
+    ((item.stats && item.stats.primaryStats) || []).forEach((s) => allStats.push(s));
+    if (item.stats && item.stats.stamina) allStats.push(item.stats.stamina);
+    ((item.stats && item.stats.secondary) || []).forEach((s) => allStats.push(s));
+    const effectKeys = new Set([
+      ...((item.stats && item.stats.effects && item.stats.effects.equip) || []),
+      ...((item.stats && item.stats.effects && item.stats.effects.use) || []),
+    ].map(effectKey).filter(Boolean));
+
+    const seen = new Set();
+    return raw.map(normalizeTooltipText).filter((line) => {
+      if (skip.has(line)) return false;
+      if (/^物品等级/.test(line)) return false;
+      if (/^升级[：:]/.test(line)) return false;
+      if (/^装备唯一/.test(line)) return false;
+      if (/棱彩插槽/.test(line)) return false;
+      if (/你尚未收藏/.test(line)) return false;
+      if (/^\d+点护甲$/.test(line)) return false;
+      if (/^每秒伤害/.test(line)) return false;
+      if (/^\d+-\d+点伤害/.test(line) || /^速度/.test(line)) return false;
+      if (/^\+\d+\s/.test(line)) return false;
+      if (isDuplicateEffectLine(line, effectKeys)) return false;
+      const key = effectKey(line) || line.replace(/\s+/g, '');
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  },
+
   onItemTap(event) {
     const item = this.itemMap[event.currentTarget.dataset.itemId];
     if (!item) {
@@ -257,18 +340,22 @@ Page({
     secondaryStats.forEach((stat) => {
       stat.width = maxSecondaryValue > 0 ? `${Math.max(18, Math.round((stat.value / maxSecondaryValue) * 100))}%` : '18%';
     });
+    const filteredRaw = this.filterTooltipRaw(item);
+    const equipEffects = uniqueCleanEffects(item.stats && item.stats.effects ? item.stats.effects.equip || [] : []);
+    const useEffects = uniqueCleanEffects(item.stats && item.stats.effects ? item.stats.effects.use || [] : []);
     this.setData({
       showModal: true,
       selectedItem: {
         ...item,
         whiteLines,
         secondaryStats,
+        filteredRaw,
         primaryStatText: item.stats && item.stats.primaryStats && item.stats.primaryStats.length
           ? item.stats.primaryStats.map((stat) => `${stat.name}${stat.value}`).join(' / ')
           : '无主属性',
         specText: item.specNames && item.specNames.length ? item.specNames.join(' / ') : '当前职业通用',
-        equipEffects: item.stats && item.stats.effects ? item.stats.effects.equip || [] : [],
-        useEffects: item.stats && item.stats.effects ? item.stats.effects.use || [] : [],
+        equipEffects,
+        useEffects,
         headerTags: [
           item.source ? item.source.difficultyName : '',
           item.slotName,

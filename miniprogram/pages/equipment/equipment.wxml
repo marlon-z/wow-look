@@ -198,7 +198,7 @@
             <view class="item-body">
               <view class="item-row item-row-1">
                 <text class="item-name epic-text">{{equip.name}}</text>
-                <text class="item-quality-badge">史诗</text>
+                <text class="item-quality-badge">{{equip.slotName}}</text>
               </view>
               <view class="item-row item-row-2">
                 <text class="item-stat-line">{{equip.statLine}}</text>

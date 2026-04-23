@@ -1,25 +1,33 @@
-const { CLASS_LIST, loadOverview } = require('../../utils/class-data');
+const { CLASS_LIST, getClassVisualAssets, loadOverview } = require('../../utils/class-data');
+
+function enrichList(list, countMap) {
+  return list.map((item) => ({
+    ...item,
+    emblem: getClassVisualAssets(item.key).emblem,
+    itemCount: countMap[item.key] || 0,
+  }));
+}
 
 Page({
   data: {
-    classes: CLASS_LIST,
-    overview: null,
+    row1: [],
+    row2: [],
+    row3: [],
   },
 
   onLoad() {
     const overview = loadOverview();
-    const classCountMap = {};
+    const countMap = {};
     if (overview && Array.isArray(overview.classes)) {
       overview.classes.forEach((item) => {
-        classCountMap[item.key] = item.itemCount;
+        countMap[item.key] = item.itemCount;
       });
     }
+
     this.setData({
-      overview,
-      classes: CLASS_LIST.map((item) => ({
-        ...item,
-        itemCount: classCountMap[item.key] || 0,
-      })),
+      row1: enrichList(CLASS_LIST.slice(0, 4), countMap),
+      row2: enrichList(CLASS_LIST.slice(4, 9), countMap),
+      row3: enrichList(CLASS_LIST.slice(9, 13), countMap),
     });
   },
 

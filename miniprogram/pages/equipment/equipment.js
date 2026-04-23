@@ -1,4 +1,4 @@
-const { getClassMeta, loadClassData } = require('../../utils/class-data');
+const { getClassMeta, getClassVisualAssets, loadClassData } = require('../../utils/class-data');
 const {
   SLOT_OPTIONS,
   flattenItems,
@@ -20,6 +20,8 @@ Page({
     classKey: '',
     className: '',
     classMeta: null,
+    heroBannerAsset: '',
+    classEmblemAsset: '',
     specs: [],
     stats: [
       { type: 'crit', name: '暴击', selected: false },
@@ -57,10 +59,13 @@ Page({
   onLoad(options) {
     const classKey = options.classKey || 'monk';
     const classMeta = getClassMeta(classKey) || getClassMeta('monk');
+    const visualAssets = getClassVisualAssets((classMeta && classMeta.key) || 'monk');
     this.setData({
       classKey,
       className: options.className || (classMeta && classMeta.name) || '武僧',
       classMeta,
+      heroBannerAsset: visualAssets.banner,
+      classEmblemAsset: visualAssets.emblem,
     });
     this.loadData(classKey);
   },
@@ -73,6 +78,10 @@ Page({
         statLine: buildStatLine(item),
         specNames: buildSpecNames(item, data.specs || []),
         metaLine: buildMetaLine(item),
+        sourceBadge: item.source ? item.source.difficultyName : '',
+        roleBadge: item.stats && item.stats.effects && item.stats.effects.use && item.stats.effects.use.length ? '使用特效'
+          : (item.stats && item.stats.effects && item.stats.effects.equip && item.stats.effects.equip.length ? '装备特效' : ''),
+        rightMeta: item.slot === 'weapon' ? item.itemSubType : (item.armorType !== 'none' ? item.armorTypeName : item.slotName),
         iconText: item.iconText || (item.name ? item.name.slice(0, 1) : '装'),
       }))
       : [];
@@ -84,6 +93,8 @@ Page({
     this.setData({
       classMeta: (data && data.class) || this.data.classMeta,
       className: (data && data.class && data.class.name) || this.data.className,
+      heroBannerAsset: getClassVisualAssets(classKey).banner,
+      classEmblemAsset: getClassVisualAssets(classKey).emblem,
       specs: (data && data.specs) || [],
       instanceOptions: buildInstanceOptions((data && data.instances) || []),
       allItems,
@@ -189,10 +200,38 @@ Page({
     const groupedItems = this.data.selectedViewMode === 'source'
       ? groupItemsBySource(filteredItems)
       : groupItems(filteredItems);
+    const activeFilterParts = [];
+    const selectedSpec = this.data.specs.find((item) => item.id === this.data.selectedSpec);
+    const selectedInstance = this.data.instanceOptions.find((item) => item.id === this.data.selectedInstanceId);
+    if (selectedSpec) {
+      activeFilterParts.push(selectedSpec.name);
+    }
+    if (this.data.selectedSourceType !== 'all') {
+      activeFilterParts.push(this.data.selectedSourceType === 'dungeon' ? '地下城' : '团本');
+    }
+    if (selectedInstance) {
+      activeFilterParts.push(selectedInstance.name);
+    }
+    if (this.data.selectedSlot) {
+      const slot = this.data.slots.find((item) => item.type === this.data.selectedSlot);
+      if (slot) {
+        activeFilterParts.push(slot.name);
+      }
+    }
+    selectedStats.forEach((type) => {
+      const stat = this.data.stats.find((item) => item.type === type);
+      if (stat) {
+        activeFilterParts.push(stat.name);
+      }
+    });
+    if (this.data.keyword.trim()) {
+      activeFilterParts.push(`搜索:${this.data.keyword.trim()}`);
+    }
 
     this.setData({
       groupedItems,
       resultCount: filteredItems.length,
+      activeFiltersText: activeFilterParts.length ? activeFilterParts.join(' · ') : '当前显示该职业全部可用装备',
       emptyMessage: getEmptyMessage(
         this.data.hasAnyData,
         Boolean(
@@ -224,9 +263,17 @@ Page({
         ...item,
         whiteLines,
         secondaryStats,
+        primaryStatText: item.stats && item.stats.primaryStats && item.stats.primaryStats.length
+          ? item.stats.primaryStats.map((stat) => `${stat.name}${stat.value}`).join(' / ')
+          : '无主属性',
         specText: item.specNames && item.specNames.length ? item.specNames.join(' / ') : '当前职业通用',
         equipEffects: item.stats && item.stats.effects ? item.stats.effects.equip || [] : [],
         useEffects: item.stats && item.stats.effects ? item.stats.effects.use || [] : [],
+        headerTags: [
+          item.source ? item.source.difficultyName : '',
+          item.slotName,
+          item.itemSubType && item.slot === 'weapon' ? item.itemSubType : (item.armorType !== 'none' ? item.armorTypeName : ''),
+        ].filter(Boolean),
       },
     });
   },

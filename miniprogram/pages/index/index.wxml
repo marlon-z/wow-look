@@ -1,42 +1,24 @@
 <view class="page-shell index-page">
-  <view class="hero-card">
-    <text class="hero-tag">CURRENT SEASON</text>
-    <text class="hero-title">WoWLook</text>
-    <text class="hero-copy">按职业、专精、副属性和部位筛选当前赛季掉落，直接查看副本、首领和装备说明。</text>
+  <text class="app-title">WoWLook 装备查询</text>
+
+  <view class="class-row">
+    <view class="class-cell" wx:for="{{row1}}" wx:key="id" bindtap="onClassTap" data-key="{{item.key}}" data-name="{{item.name}}">
+      <image class="class-emblem" src="{{item.emblem}}" mode="aspectFit" />
+      <text class="class-label" style="color: {{item.color}};">{{item.shortName}}</text>
+    </view>
   </view>
 
-  <view class="hero-stats">
-    <view class="pill">{{overview ? overview.scope.dungeonCount : 0}} 个地下城</view>
-    <view class="pill">{{overview ? overview.scope.raidCount : 0}} 个团本</view>
-    <view class="pill">插件直连数据</view>
+  <view class="class-row">
+    <view class="class-cell" wx:for="{{row2}}" wx:key="id" bindtap="onClassTap" data-key="{{item.key}}" data-name="{{item.name}}">
+      <image class="class-emblem" src="{{item.emblem}}" mode="aspectFit" />
+      <text class="class-label" style="color: {{item.color}};">{{item.shortName}}</text>
+    </view>
   </view>
 
-  <view wx:if="{{overview}}" class="summary-card">
-    <text class="summary-title">当前赛季快照</text>
-    <text class="summary-copy">更新时间：{{overview.updatedAt}}</text>
-    <text class="summary-copy">已跳过无英雄难度的世界首领集合，只保留正式团本。</text>
-  </view>
-
-  <view class="section-head">
-    <text class="section-title">选择职业</text>
-    <text class="section-copy">先按职业进入，再按专精、副属性和部位继续筛选。</text>
-  </view>
-
-  <view class="class-grid">
-    <view
-      wx:for="{{classes}}"
-      wx:key="id"
-      class="class-card"
-      bindtap="onClassTap"
-      data-key="{{item.key}}"
-      data-name="{{item.name}}"
-    >
-      <view class="class-mark" style="color: {{item.color}}; border-color: {{item.color}};">
-        {{item.abbr}}
-      </view>
-      <text class="class-name" style="color: {{item.color}};">{{item.name}}</text>
-      <text class="class-armor">{{item.armorTypeName}}</text>
-      <text class="class-count">{{item.itemCount}} 件装备</text>
+  <view class="class-row">
+    <view class="class-cell" wx:for="{{row3}}" wx:key="id" bindtap="onClassTap" data-key="{{item.key}}" data-name="{{item.name}}">
+      <image class="class-emblem" src="{{item.emblem}}" mode="aspectFit" />
+      <text class="class-label" style="color: {{item.color}};">{{item.shortName}}</text>
     </view>
   </view>
 </view>

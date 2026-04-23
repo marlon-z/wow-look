@@ -4,8 +4,8 @@
     "pages/equipment/equipment"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#111117",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#09080d",
     "navigationBarTitleText": "WoWLook",
     "navigationBarTextStyle": "white"
   },

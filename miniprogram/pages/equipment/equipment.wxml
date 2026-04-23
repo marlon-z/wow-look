@@ -1,169 +1,178 @@
 <view class="page-shell equipment-page">
-  <view class="top-card">
-    <view class="top-row">
-      <text class="back-link" bindtap="onBackTap">返回</text>
-      <view class="pill">{{classMeta.armorTypeName}}</view>
+  <view class="page-bg-glow page-bg-glow-top"></view>
+  <view class="page-bg-glow page-bg-glow-bottom"></view>
+
+  <view class="top-bar">
+    <text class="back-btn" bindtap="onBackTap">‹</text>
+    <view class="top-title-wrap">
+      <image class="top-emblem" src="{{classEmblemAsset}}" mode="aspectFit" />
+      <text class="top-title">{{className}}</text>
     </view>
-    <text class="page-title">{{className}}</text>
-    <text class="page-copy">按专精、副属性、部位和关键词筛选当前赛季装备。</text>
+    <view class="armor-pill">{{classMeta.armorTypeName}}</view>
+  </view>
+
+  <view class="hero-panel">
+    <image class="hero-banner" src="{{heroBannerAsset}}" mode="aspectFill" />
+    <view class="hero-shade"></view>
+    <view class="hero-panel-content">
+      <view class="hero-summary-row">
+        <text class="hero-count">{{resultCount}}</text>
+        <text class="hero-count-unit">件装备</text>
+      </view>
+      <text class="hero-desc">{{activeFiltersText}}</text>
+    </view>
   </view>
 
   <view class="filter-panel">
-    <view class="filter-head">
-      <view>
-        <text class="result-count">{{resultCount}} 件结果</text>
-        <text class="result-copy">全部结果来自当前赛季插件导出</text>
-      </view>
-      <view class="reset-chip" bindtap="resetFilters">重置</view>
-    </view>
-
     <view class="search-box">
+      <text class="search-icon">⌕</text>
       <input
         class="search-input"
-        placeholder="搜索装备名、副本名或首领名"
-        placeholder-class="search-placeholder"
+        placeholder="搜索装备、副本或首领"
+        placeholder-class="search-ph"
         value="{{keyword}}"
         bindinput="onKeywordInput"
       />
     </view>
 
-    <view class="filter-block">
-      <text class="filter-label">专精</text>
-      <scroll-view scroll-x class="filter-scroll" enhanced show-scrollbar="{{false}}">
-        <view class="filter-list">
-          <view
-            wx:for="{{specs}}"
-            wx:key="id"
-            class="filter-tag {{selectedSpec === item.id ? 'active' : ''}}"
-            bindtap="onSpecTap"
-            data-id="{{item.id}}"
-          >
-            {{item.name}}
-          </view>
-        </view>
-      </scroll-view>
+    <view class="filter-row">
+      <view class="filter-head">
+        <text class="filter-symbol">✦</text>
+        <text class="filter-label">专精</text>
+      </view>
+      <view class="chip-grid">
+        <view
+          wx:for="{{specs}}"
+          wx:key="id"
+          class="chip {{selectedSpec === item.id ? 'on' : ''}}"
+          bindtap="onSpecTap"
+          data-id="{{item.id}}"
+        >{{item.name}}</view>
+      </view>
     </view>
 
-    <view class="filter-block">
-      <text class="filter-label">副属性</text>
-      <scroll-view scroll-x class="filter-scroll" enhanced show-scrollbar="{{false}}">
-        <view class="filter-list">
-          <view
-            wx:for="{{stats}}"
-            wx:key="type"
-            class="filter-tag {{item.selected ? 'active' : ''}}"
-            bindtap="onStatTap"
-            data-type="{{item.type}}"
-          >
-            {{item.name}}
-          </view>
-        </view>
-      </scroll-view>
+    <view class="filter-row">
+      <view class="filter-head">
+        <text class="filter-symbol">✧</text>
+        <text class="filter-label">副属性</text>
+      </view>
+      <view class="chip-grid">
+        <view
+          wx:for="{{stats}}"
+          wx:key="type"
+          class="chip {{item.selected ? 'on' : ''}}"
+          bindtap="onStatTap"
+          data-type="{{item.type}}"
+        >{{item.name}}</view>
+      </view>
     </view>
 
-    <view class="filter-block">
-      <text class="filter-label">结果视图</text>
-      <scroll-view scroll-x class="filter-scroll" enhanced show-scrollbar="{{false}}">
-        <view class="filter-list">
-          <view
-            wx:for="{{viewModes}}"
-            wx:key="type"
-            class="filter-tag {{selectedViewMode === item.type ? 'active' : ''}}"
-            bindtap="onViewModeTap"
-            data-type="{{item.type}}"
-          >
-            {{item.name}}
-          </view>
-        </view>
-      </scroll-view>
+    <view class="filter-row">
+      <view class="filter-head">
+        <text class="filter-symbol">◉</text>
+        <text class="filter-label">视图</text>
+      </view>
+      <view class="chip-grid">
+        <view
+          wx:for="{{viewModes}}"
+          wx:key="type"
+          class="chip {{selectedViewMode === item.type ? 'on' : ''}}"
+          bindtap="onViewModeTap"
+          data-type="{{item.type}}"
+        >{{item.name}}</view>
+      </view>
     </view>
 
-    <view class="filter-block">
-      <text class="filter-label">来源</text>
-      <scroll-view scroll-x class="filter-scroll" enhanced show-scrollbar="{{false}}">
-        <view class="filter-list">
-          <view
-            wx:for="{{sourceTypes}}"
-            wx:key="type"
-            class="filter-tag {{selectedSourceType === item.type ? 'active' : ''}}"
-            bindtap="onSourceTypeTap"
-            data-type="{{item.type}}"
-          >
-            {{item.name}}
-          </view>
-        </view>
-      </scroll-view>
+    <view class="filter-row">
+      <view class="filter-head">
+        <text class="filter-symbol">▤</text>
+        <text class="filter-label">来源</text>
+      </view>
+      <view class="chip-grid">
+        <view
+          wx:for="{{sourceTypes}}"
+          wx:key="type"
+          class="chip {{selectedSourceType === item.type ? 'on' : ''}}"
+          bindtap="onSourceTypeTap"
+          data-type="{{item.type}}"
+        >{{item.name}}</view>
+      </view>
     </view>
 
-    <view class="filter-block">
-      <text class="filter-label">部位</text>
-      <scroll-view scroll-x class="filter-scroll" enhanced show-scrollbar="{{false}}">
-        <view class="filter-list">
-          <view
-            wx:for="{{slots}}"
-            wx:key="type"
-            class="filter-tag compact {{selectedSlot === item.type ? 'active' : ''}}"
-            bindtap="onSlotTap"
-            data-type="{{item.type}}"
-          >
-            {{item.name}}
-          </view>
-        </view>
-      </scroll-view>
+    <view class="filter-row">
+      <view class="filter-head">
+        <text class="filter-symbol">⬒</text>
+        <text class="filter-label">部位</text>
+      </view>
+      <view class="chip-grid">
+        <view
+          wx:for="{{slots}}"
+          wx:key="type"
+          class="chip sm {{selectedSlot === item.type ? 'on' : ''}}"
+          bindtap="onSlotTap"
+          data-type="{{item.type}}"
+        >{{item.name}}</view>
+      </view>
     </view>
 
-    <view class="filter-block">
-      <text class="filter-label">副本</text>
-      <scroll-view scroll-x class="filter-scroll" enhanced show-scrollbar="{{false}}">
-        <view class="filter-list">
+    <view class="filter-row filter-row-last">
+      <view class="filter-head">
+        <text class="filter-symbol">▣</text>
+        <text class="filter-label">副本</text>
+      </view>
+      <view class="chip-grid">
+        <block wx:for="{{instanceOptions}}" wx:key="id">
           <view
-            wx:for="{{instanceOptions}}"
-            wx:key="id"
             wx:if="{{selectedSourceType === 'all' || item.type === selectedSourceType}}"
-            class="filter-tag compact {{selectedInstanceId === item.id ? 'active' : ''}}"
+            class="chip instance-chip {{selectedInstanceId === item.id ? 'on' : ''}}"
             bindtap="onInstanceTap"
             data-id="{{item.id}}"
-          >
-            {{item.name}}
-          </view>
-        </view>
-      </scroll-view>
+          >{{item.name}}</view>
+        </block>
+      </view>
+    </view>
+
+    <view class="filter-actions">
+      <text class="filter-summary-note">{{activeFiltersText}}</text>
+      <text class="reset-btn" catchtap="resetFilters">重置</text>
     </view>
   </view>
 
-  <scroll-view scroll-y class="result-scroll" enhanced show-scrollbar="{{false}}">
-    <block wx:if="{{isLoading}}">
-      <view class="empty-card">
-        <text class="empty-title">数据加载中</text>
-      </view>
-    </block>
+  <block wx:if="{{isLoading}}">
+    <view class="empty-state">
+      <text class="empty-text">加载中…</text>
+    </view>
+  </block>
 
-    <block wx:elif="{{groupedItems.length === 0}}">
-      <view class="empty-card">
-        <text class="empty-title">{{emptyMessage}}</text>
-      </view>
-    </block>
+  <block wx:elif="{{groupedItems.length === 0}}">
+    <view class="empty-state">
+      <text class="empty-text">{{emptyMessage}}</text>
+    </view>
+  </block>
 
-    <block wx:else>
-      <block wx:for="{{groupedItems}}" wx:key="slotType">
-        <view class="slot-section">
-          <block wx:if="{{selectedViewMode === 'slot'}}">
-            <view class="slot-head">
-              <text class="slot-title">{{item.slotName}}</text>
-              <text class="slot-count">{{item.items.length}} 件</text>
+  <block wx:else>
+    <block wx:for="{{groupedItems}}" wx:key="slotType">
+      <view class="group-section">
+        <block wx:if="{{selectedViewMode === 'slot'}}">
+          <view class="group-head">
+            <view class="group-title-wrap">
+              <text class="group-badge">✦</text>
+              <text class="group-title">{{item.slotName}}</text>
             </view>
-          </block>
-
-          <block wx:else>
-            <view class="slot-head source-head">
-              <view>
-                <text class="slot-title">{{item.title}}</text>
-                <text class="source-subtitle">{{item.subtitle}}<block wx:if="{{item.difficultyName}}"> · {{item.difficultyName}}</block></text>
-              </view>
-              <text class="slot-count">{{item.items.length}} 件</text>
+            <text class="group-count">共 {{item.items.length}} 件</text>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="group-head">
+            <view class="group-meta">
+              <text class="group-title">{{item.title}}</text>
+              <text class="group-sub">{{item.subtitle}}<block wx:if="{{item.difficultyName}}"> · {{item.difficultyName}}</block></text>
             </view>
-          </block>
+            <text class="group-count">共 {{item.items.length}} 件</text>
+          </view>
+        </block>
 
+        <view class="item-list">
           <view
             wx:for="{{item.items}}"
             wx:key="id"
@@ -172,88 +181,104 @@
             bindtap="onItemTap"
             data-item-id="{{equip.id}}"
           >
-            <view class="item-icon">
-              <image wx:if="{{equip.iconAsset}}" class="item-icon-image" mode="aspectFill" src="{{equip.iconAsset}}" />
-              <text wx:else class="item-icon-text">{{equip.iconText}}</text>
+            <view class="item-icon-wrap">
+              <image wx:if="{{equip.iconAsset}}" class="item-icon-img" mode="aspectFill" src="{{equip.iconAsset}}" />
+              <text wx:else class="item-icon-letter">{{equip.iconText}}</text>
+              <view class="icon-border"></view>
             </view>
 
-            <view class="item-main">
+            <view class="item-body">
               <text class="item-name epic-text">{{equip.name}}</text>
-              <text class="item-meta">{{equip.metaLine}}</text>
-              <text class="item-stat">{{equip.statLine}}</text>
-              <text class="item-source">{{equip.instanceName}} · {{equip.encounterName}}</text>
+              <text class="item-meta-line">{{equip.rightMeta}} · ilvl{{equip.ilvl}}</text>
+              <text class="item-stat-line">{{equip.statLine}}</text>
+              <text class="item-source-line">{{equip.instanceName}} · {{equip.encounterName}}</text>
             </view>
           </view>
         </view>
-      </block>
+      </view>
     </block>
-  </scroll-view>
+  </block>
 
+  <view class="page-end-pad"></view>
+
+  <!-- modal tooltip -->
   <view wx:if="{{showModal}}" class="modal-mask" bindtap="closeModal">
     <view class="modal-card" catchtap="preventClose">
       <view class="modal-close" bindtap="closeModal">×</view>
 
-      <view class="modal-header">
-        <view class="modal-icon">
-          <image wx:if="{{selectedItem.iconAsset}}" class="modal-icon-image" mode="aspectFill" src="{{selectedItem.iconAsset}}" />
-          <text wx:else class="modal-icon-text">{{selectedItem.iconText}}</text>
+      <view class="tt-header">
+        <view class="tt-icon-wrap">
+          <image wx:if="{{selectedItem.iconAsset}}" class="tt-icon-img" mode="aspectFill" src="{{selectedItem.iconAsset}}" />
+          <text wx:else class="tt-icon-letter">{{selectedItem.iconText}}</text>
+          <view class="tt-icon-border"></view>
         </view>
-        <view class="modal-head-copy">
-          <text class="modal-name epic-text">{{selectedItem.name}}</text>
-          <text class="modal-meta">{{selectedItem.metaLine}}</text>
-          <text class="modal-specs">可用专精：{{selectedItem.specText}}</text>
+        <view class="tt-title-area">
+          <text class="tt-name epic-text">{{selectedItem.name}}</text>
+          <view class="tt-tag-row">
+            <text wx:for="{{selectedItem.headerTags}}" wx:key="*this" class="tt-tag">{{item}}</text>
+          </view>
         </view>
       </view>
 
-      <scroll-view scroll-y class="modal-body" enhanced show-scrollbar="{{false}}">
-        <view class="tooltip-quality-bar"></view>
-        <text class="detail-line level-line">物品等级{{selectedItem.ilvl}}</text>
-        <text wx:if="{{selectedItem.upgradeTrack}}" class="detail-line level-line">升级：{{selectedItem.upgradeTrack}}</text>
-        <text class="detail-line">{{selectedItem.slotName}}<block wx:if="{{selectedItem.itemSubType}}"> · {{selectedItem.itemSubType}}</block></text>
-        <text wx:if="{{selectedItem.tooltipFlags.uniqueEquipped}}" class="detail-line">装备唯一</text>
-        <text wx:if="{{selectedItem.tooltipFlags.prismaticSocket}}" class="detail-line">棱彩插槽</text>
+      <view class="tt-quality-line"></view>
 
-        <block wx:for="{{selectedItem.whiteLines}}" wx:key="*this">
-          <text class="detail-line">{{item}}</text>
-        </block>
+      <scroll-view scroll-y class="tt-body" enhanced show-scrollbar="{{false}}">
+        <view class="tt-section">
+          <text class="tt-ilvl">物品等级 {{selectedItem.ilvl}}</text>
+          <text wx:if="{{selectedItem.upgradeTrack}}" class="tt-line">升级：{{selectedItem.upgradeTrack}}</text>
+          <text class="tt-line">{{selectedItem.slotName}}<block wx:if="{{selectedItem.itemSubType}}"> · {{selectedItem.itemSubType}}</block></text>
+          <text wx:if="{{selectedItem.tooltipFlags.uniqueEquipped}}" class="tt-line">装备唯一</text>
+          <text wx:if="{{selectedItem.tooltipFlags.prismaticSocket}}" class="tt-line socket-line">◇ 棱彩插槽</text>
+        </view>
 
-        <block wx:for="{{selectedItem.stats.primaryStats}}" wx:key="type">
-          <text class="detail-line">+{{item.value}} {{item.name}}</text>
-        </block>
+        <view class="tt-divider"></view>
 
-        <text wx:if="{{selectedItem.stats.stamina}}" class="detail-line">+{{selectedItem.stats.stamina.value}} {{selectedItem.stats.stamina.name}}</text>
+        <view class="tt-section">
+          <block wx:for="{{selectedItem.whiteLines}}" wx:key="*this">
+            <text class="tt-line white-line">{{item}}</text>
+          </block>
+          <block wx:for="{{selectedItem.stats.primaryStats}}" wx:key="type">
+            <text class="tt-line white-line">+{{item.value}} {{item.name}}</text>
+          </block>
+          <text wx:if="{{selectedItem.stats.stamina}}" class="tt-line white-line">+{{selectedItem.stats.stamina.value}} {{selectedItem.stats.stamina.name}}</text>
 
-        <view wx:if="{{selectedItem.secondaryStats && selectedItem.secondaryStats.length}}" class="stat-bar-list">
-          <view wx:for="{{selectedItem.secondaryStats}}" wx:key="type" class="stat-bar-row">
-            <view class="stat-bar-head">
-              <text class="detail-line green-line">+{{item.value}} {{item.name}}</text>
-            </view>
-            <view class="stat-bar-track">
-              <view class="stat-bar-fill" style="width: {{item.width}};"></view>
+          <view wx:if="{{selectedItem.secondaryStats && selectedItem.secondaryStats.length}}" class="stat-bars">
+            <view wx:for="{{selectedItem.secondaryStats}}" wx:key="type" class="stat-bar-item">
+              <text class="tt-line green-line">+{{item.value}} {{item.name}}</text>
+              <view class="bar-track">
+                <view class="bar-fill" style="width: {{item.width}};"></view>
+              </view>
             </view>
           </view>
         </view>
 
-        <block wx:for="{{selectedItem.equipEffects}}" wx:key="*this">
-          <text class="detail-line green-line">装备：{{item}}</text>
-        </block>
-
-        <block wx:for="{{selectedItem.useEffects}}" wx:key="*this">
-          <text class="detail-line green-line">使用：{{item}}</text>
-        </block>
-
-        <view wx:if="{{selectedItem.tooltipRaw && selectedItem.tooltipRaw.length}}" class="raw-block">
-          <text class="raw-title">原始说明</text>
-          <block wx:for="{{selectedItem.tooltipRaw}}" wx:key="index">
-            <text class="raw-line">{{item}}</text>
+        <view wx:if="{{selectedItem.equipEffects.length || selectedItem.useEffects.length}}" class="tt-section">
+          <view class="tt-divider"></view>
+          <block wx:for="{{selectedItem.equipEffects}}" wx:key="*this">
+            <text class="tt-line green-line">装备：{{item}}</text>
           </block>
+          <block wx:for="{{selectedItem.useEffects}}" wx:key="*this">
+            <text class="tt-line green-line">使用：{{item}}</text>
+          </block>
+        </view>
+
+        <view wx:if="{{selectedItem.tooltipRaw && selectedItem.tooltipRaw.length}}" class="tt-section">
+          <view class="tt-divider"></view>
+          <text class="tt-raw-label">原始说明</text>
+          <block wx:for="{{selectedItem.tooltipRaw}}" wx:key="index">
+            <text class="tt-line raw-line">{{item}}</text>
+          </block>
+        </view>
+
+        <view class="tt-section">
+          <view class="tt-divider"></view>
+          <text class="tt-line spec-line">可用专精：{{selectedItem.specText}}</text>
         </view>
       </scroll-view>
 
-      <view class="modal-footer">
-        <text class="footer-line">{{selectedItem.instanceName}}</text>
-        <text class="footer-line">{{selectedItem.encounterName}} · {{selectedItem.source.difficultyName}}</text>
-        <text class="footer-line muted">图标ID {{selectedItem.icon}} · 装备ID {{selectedItem.id}}</text>
+      <view class="tt-footer">
+        <text class="tt-footer-line">{{selectedItem.instanceName}} · {{selectedItem.encounterName}}</text>
+        <text class="tt-footer-line dim">{{selectedItem.source.difficultyName}} · ID {{selectedItem.id}}</text>
       </view>
     </view>
   </view>

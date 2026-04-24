@@ -221,7 +221,7 @@ function buildInstanceOptions(instances = []) {
     id: instance.id,
     name: instance.name,
     type: instance.type,
-    typeName: instance.type === 'raid' ? '团本' : '地下城',
+    typeName: instance.type === 'raid' ? '团本' : (instance.type === 'tier' ? '套装' : '地下城'),
   }));
 }
 

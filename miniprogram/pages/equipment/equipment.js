@@ -54,6 +54,42 @@ function isDuplicateEffectLine(line, effectKeys) {
   return Array.from(effectKeys).some((effect) => key === effect || key.startsWith(effect) || effect.startsWith(key));
 }
 
+function buildTierBonusDisplay(item, selectedSpec, pageSpecs = []) {
+  if (!item || !item.tier || !item.tier.bonusesBySpec) {
+    return null;
+  }
+
+  const requestedSpecId = selectedSpec || (Array.isArray(item.specs) && item.specs.length ? item.specs[0] : null);
+  const availableSpecIds = Object.keys(item.tier.bonusesBySpec || {});
+  if (!requestedSpecId && !availableSpecIds.length) {
+    return null;
+  }
+
+  const resolvedSpecId = item.tier.bonusesBySpec[String(requestedSpecId)]
+    ? String(requestedSpecId)
+    : (availableSpecIds[0] || null);
+  if (!resolvedSpecId) {
+    return null;
+  }
+
+  const specBonus = item.tier.bonusesBySpec[resolvedSpecId];
+  if (!specBonus) {
+    return null;
+  }
+
+  const numericSpecId = Number(resolvedSpecId);
+  const specMeta = pageSpecs.find((spec) => spec.id === numericSpecId);
+  return {
+    setName: item.tier.setName || '',
+    pieces: Array.isArray(item.tier.pieces) ? item.tier.pieces : [],
+    specId: numericSpecId,
+    specName: specBonus.specName || (specMeta && specMeta.name) || '',
+    twoPiece: specBonus.twoPiece || '',
+    fourPiece: specBonus.fourPiece || '',
+    isFallback: selectedSpec && numericSpecId !== selectedSpec,
+  };
+}
+
 Page({
   itemMap: {},
 
@@ -76,6 +112,7 @@ Page({
       { type: 'all', name: '全部' },
       { type: 'dungeon', name: '地下城' },
       { type: 'raid', name: '团本' },
+      { type: 'tier', name: '套装' },
     ],
     instanceOptions: [],
     keyword: '',
@@ -261,7 +298,11 @@ Page({
       activeFilterParts.push(selectedSpec.name);
     }
     if (this.data.selectedSourceType !== 'all') {
-      activeFilterParts.push(this.data.selectedSourceType === 'dungeon' ? '地下城' : '团本');
+      activeFilterParts.push(
+        this.data.selectedSourceType === 'dungeon'
+          ? '地下城'
+          : (this.data.selectedSourceType === 'raid' ? '团本' : '套装')
+      );
     }
     if (selectedInstance) {
       activeFilterParts.push(selectedInstance.name);
@@ -330,6 +371,7 @@ Page({
       if (/^装备唯一/.test(line)) return false;
       if (/棱彩插槽/.test(line)) return false;
       if (/你尚未收藏/.test(line)) return false;
+      if (/^套装奖励将根据玩家专精变化/.test(line)) return false;
       if (/^\d+点护甲$/.test(line)) return false;
       if (/^每秒伤害/.test(line)) return false;
       if (/^\d+-\d+点伤害/.test(line) || /^速度/.test(line)) return false;
@@ -356,6 +398,7 @@ Page({
     const filteredRaw = this.filterTooltipRaw(item);
     const equipEffects = uniqueCleanEffects(item.stats && item.stats.effects ? item.stats.effects.equip || [] : []);
     const useEffects = uniqueCleanEffects(item.stats && item.stats.effects ? item.stats.effects.use || [] : []);
+    const tierInfo = buildTierBonusDisplay(item, this.data.selectedSpec, this.data.specs);
     this.setData({
       showModal: true,
       selectedItem: {
@@ -369,10 +412,13 @@ Page({
         specText: item.specNames && item.specNames.length ? item.specNames.join(' / ') : '当前职业通用',
         equipEffects,
         useEffects,
+        tierInfo,
+        tierExpanded: false,
         headerTags: [
           item.source ? item.source.difficultyName : '',
           item.slotName,
           item.itemSubType && item.slot === 'weapon' ? item.itemSubType : (item.armorType !== 'none' ? item.armorTypeName : ''),
+          item.sourceType === 'tier' ? '套装' : '',
         ].filter(Boolean),
       },
     });
@@ -382,6 +428,19 @@ Page({
     this.setData({
       showModal: false,
       selectedItem: null,
+    });
+  },
+
+  toggleTierExpanded() {
+    const selectedItem = this.data.selectedItem;
+    if (!selectedItem || !selectedItem.tierInfo) {
+      return;
+    }
+    this.setData({
+      selectedItem: {
+        ...selectedItem,
+        tierExpanded: !selectedItem.tierExpanded,
+      },
     });
   },
 

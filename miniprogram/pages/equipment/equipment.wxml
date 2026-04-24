@@ -281,6 +281,24 @@
           </view>
         </view>
 
+        <view wx:if="{{selectedItem.tierInfo}}" class="tt-section">
+          <view class="tt-extra-block">
+            <text class="tt-extra-icon">✦</text>
+            <view class="tt-extra-col {{selectedItem.tierExpanded ? 'tier-expanded' : 'tier-collapsed'}}">
+              <text class="tt-extra-line gold-text">{{selectedItem.tierInfo.setName}}（{{selectedItem.tierInfo.pieces.length}}件）</text>
+              <text wx:for="{{selectedItem.tierInfo.pieces}}" wx:key="*this" class="tt-extra-line">{{item}}</text>
+              <text wx:if="{{selectedItem.tierInfo.specName}}" class="tt-extra-line">当前专精：{{selectedItem.tierInfo.specName}}</text>
+              <text wx:if="{{selectedItem.tierInfo.isFallback}}" class="tt-extra-line dim-text">当前专精无独立套装效果，已显示可用套装效果。</text>
+              <text wx:if="{{selectedItem.tierInfo.twoPiece}}" class="tt-extra-line green-text">(2) 套装：{{selectedItem.tierInfo.twoPiece}}</text>
+              <text wx:if="{{selectedItem.tierInfo.fourPiece}}" class="tt-extra-line green-text">(4) 套装：{{selectedItem.tierInfo.fourPiece}}</text>
+            </view>
+            <text class="tt-extra-watermark">✶</text>
+          </view>
+          <view class="tier-toggle-row">
+            <text class="tier-toggle-btn" bindtap="toggleTierExpanded">{{selectedItem.tierExpanded ? '收起' : '展开'}}</text>
+          </view>
+        </view>
+
         <view wx:if="{{selectedItem.equipEffects.length || selectedItem.useEffects.length || selectedItem.filteredRaw.length}}" class="tt-section">
           <view class="tt-extra-block">
             <text class="tt-extra-icon">◈</text>

@@ -792,6 +792,15 @@
   z-index: 2;
 }
 
+.tier-collapsed {
+  max-height: 360rpx;
+  overflow: hidden;
+}
+
+.tier-expanded {
+  max-height: none;
+}
+
 .tt-extra-line {
   display: block;
   font-size: 24rpx;
@@ -802,6 +811,29 @@
 .green-text {
   color: #1eff00;
   font-weight: 500;
+}
+
+.gold-text {
+  color: #e7c46a;
+  font-weight: 500;
+}
+
+.dim-text {
+  color: rgba(220, 211, 196, 0.72);
+}
+
+.tier-toggle-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12rpx;
+}
+
+.tier-toggle-btn {
+  font-size: 22rpx;
+  color: #e7c46a;
+  padding: 6rpx 16rpx;
+  border: 1rpx solid rgba(231, 196, 106, 0.35);
+  border-radius: 999rpx;
 }
 
 .tt-extra-watermark {

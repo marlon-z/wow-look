@@ -4,8 +4,8 @@ const https = require('https');
 const { execFileSync } = require('child_process');
 
 const ROOT_DIR = path.resolve(__dirname, '..');
-const DEFAULT_OUTPUT_DIR = path.join(ROOT_DIR, 'miniprogram', 'data');
-const DEFAULT_ASSET_DIR = path.join(ROOT_DIR, 'miniprogram', 'assets', 'icons');
+const DEFAULT_OUTPUT_DIR = path.join(ROOT_DIR, 'cos-upload', 'data');
+const DEFAULT_ASSET_DIR = path.join(ROOT_DIR, 'cos-upload', 'assets', 'icons');
 const CACHE_DIR = path.join(ROOT_DIR, '.cache');
 const LISTFILE_CACHE_PATH = path.join(CACHE_DIR, 'community-listfile.csv');
 const LISTFILE_URL = 'https://github.com/wowdev/wow-listfile/releases/latest/download/community-listfile.csv';
@@ -51,6 +51,10 @@ const SLOT_MAP = {
   INVTYPE_THROWN: { key: 'weapon', name: '武器' },
 };
 
+const TIER_SLOT_KEY_MAP = {
+  hands: 'hand',
+};
+
 const ARMOR_TYPE_MAP = {
   布甲: { key: 'cloth', name: '布甲' },
   皮甲: { key: 'leather', name: '皮甲' },
@@ -66,6 +70,15 @@ function readPayload(inputPath) {
   }
   return JSON.parse(decodeLuaString(match[1]));
 }
+
+function buildClassMapByKey(list = []) {
+  return list.reduce((map, item) => {
+    map[item.key] = item;
+    return map;
+  }, {});
+}
+
+const CLASS_MAP_BY_KEY = buildClassMapByKey(CLASS_CONFIG);
 
 function decodeLuaString(value) {
   let result = '';
@@ -201,11 +214,18 @@ async function downloadIconAsset(iconName, assetDir, attempt = 0) {
   }
 }
 
-async function buildIconAssetMap(payload, assetDir) {
+async function buildIconAssetMap(payload, assetDir, tierPayload) {
   ensureDir(assetDir);
-  const iconIds = Array.from(new Set(Object.values(payload.items || {}).map((item) => item.icon).filter(Boolean)));
+  const iconIds = new Set(Object.values(payload.items || {}).map((item) => item.icon).filter(Boolean));
+  (tierPayload && Array.isArray(tierPayload.classes) ? tierPayload.classes : []).forEach((classEntry) => {
+    (classEntry.items || []).forEach((item) => {
+      if (item.icon) {
+        iconIds.add(item.icon);
+      }
+    });
+  });
   const listfilePath = await ensureListfileCache();
-  const iconNameMap = resolveIconNames(iconIds, listfilePath);
+  const iconNameMap = resolveIconNames(Array.from(iconIds), listfilePath);
   const assetMap = {};
   let downloaded = 0;
 
@@ -314,6 +334,9 @@ function buildClassItem(rawItem, classConfig, classSpecs, source, iconAssetMap) 
   const equipEffects = normalizeEffectList(Array.isArray(effects.equip) ? effects.equip : (Array.isArray(parsed.equipEffects) ? parsed.equipEffects : []));
   const useEffects = normalizeEffectList(Array.isArray(effects.use) ? effects.use : (Array.isArray(parsed.useEffects) ? parsed.useEffects : []));
 
+  const allowedSpecIds = new Set((classConfig.specs || []).map((spec) => spec.id));
+  const normalizedSpecs = sortNumericList(classSpecs).filter((specId) => allowedSpecIds.has(specId));
+
   return {
     id: rawItem.itemId,
     name: rawItem.name,
@@ -327,7 +350,7 @@ function buildClassItem(rawItem, classConfig, classSpecs, source, iconAssetMap) 
     itemType: rawItem.itemType || '',
     itemSubType: itemTypeName || '',
     ilvl: rawItem.itemLevel || parsed.itemLevel || 0,
-    specs: sortNumericList(classSpecs),
+    specs: normalizedSpecs,
     classes: sortNumericList(rawItem.classes),
     quality: rawItem.quality || 0,
     upgradeTrack: rawItem.upgradeTrack || parsed.upgradeTrack || '',
@@ -358,7 +381,155 @@ function buildClassItem(rawItem, classConfig, classSpecs, source, iconAssetMap) 
   };
 }
 
-function buildClassPayload(classConfig, payload, iconAssetMap) {
+function normalizeTierBonusesBySpec(bonusesBySpec = {}) {
+  const normalized = {};
+  Object.entries(bonusesBySpec).forEach(([specId, entry]) => {
+    const tooltipParsed = entry && entry.tooltip && entry.tooltip.parsed ? entry.tooltip.parsed : {};
+    const setBonuses = Array.isArray(tooltipParsed.setData && tooltipParsed.setData.bonuses)
+      ? tooltipParsed.setData.bonuses
+      : [];
+    const spellResolved = entry && entry.spells && Array.isArray(entry.spells.resolved)
+      ? entry.spells.resolved
+      : [];
+    const twoPiece = setBonuses.find((bonus) => bonus.pieces === 2) || null;
+    const fourPiece = setBonuses.find((bonus) => bonus.pieces === 4) || null;
+    normalized[String(specId)] = {
+      specId: entry.specId || Number(specId),
+      specName: entry.specName || '',
+      twoPiece: twoPiece ? normalizeTooltipText(twoPiece.text) : normalizeTooltipText((spellResolved[0] && spellResolved[0].description) || ''),
+      fourPiece: fourPiece ? normalizeTooltipText(fourPiece.text) : normalizeTooltipText((spellResolved[1] && spellResolved[1].description) || ''),
+      spells: spellResolved.map((spell) => ({
+        spellId: spell.spellId,
+        name: spell.name || '',
+        description: normalizeTooltipText(spell.description || ''),
+      })),
+    };
+  });
+  return normalized;
+}
+
+function normalizeStatRecord(stat) {
+  if (!stat) {
+    return null;
+  }
+  const type = stat.type || stat.key || '';
+  return {
+    key: stat.key || type,
+    type,
+    name: stat.name || '',
+    value: stat.value || 0,
+  };
+}
+
+function buildTierItem(rawItem, classConfig, classData, iconAssetMap) {
+  const tooltip = rawItem.tooltip || {};
+  const parsed = tooltip.parsed || {};
+  const slot = {
+    key: TIER_SLOT_KEY_MAP[parsed.slotKey] || parsed.slotKey || 'unknown',
+    name: parsed.slotText || '未知',
+  };
+  const armorType = mapArmorType({
+    itemSubType: rawItem.itemSubType || parsed.armorType || '',
+  }, slot);
+  const setName = normalizeTooltipText(
+    (parsed.setData && parsed.setData.name) ||
+    (rawItem.setInfoRaw && rawItem.setInfoRaw.raw) ||
+    classData.setName ||
+    ''
+  );
+  const tooltipRaw = normalizeTooltipRaw(tooltip.rawLines);
+  const whiteStats = normalizeWhiteStats(parsed.white);
+  const primaryStats = (Array.isArray(parsed.primaryStats) ? parsed.primaryStats : [])
+    .map(normalizeStatRecord)
+    .filter(Boolean);
+  const secondaryStats = (Array.isArray(parsed.secondaryStats) ? parsed.secondaryStats : [])
+    .map(normalizeStatRecord)
+    .filter(Boolean);
+  const stamina = normalizeStatRecord(parsed.stamina);
+  const tierBonusesBySpec = normalizeTierBonusesBySpec(rawItem.bonusesBySpec || {});
+  const classSpecs = (classData.specs || []).map((spec) => spec.id || spec.specId).filter(Boolean);
+  const sourceName = setName || '职业套装';
+  const source = {
+    instanceId: `tier:${classConfig.key}`,
+    instanceName: '套装',
+    isRaid: false,
+    encounterId: `tier-set:${classConfig.key}`,
+    encounterName: sourceName,
+    difficulty: 5,
+    difficultyName: parsed.upgradeTrack || '英雄 2/6',
+    order: 999,
+  };
+
+  return {
+    id: rawItem.itemId,
+    name: rawItem.name,
+    icon: rawItem.icon || 0,
+    iconName: iconAssetMap[rawItem.icon] ? iconAssetMap[rawItem.icon].iconName : '',
+    iconAsset: iconAssetMap[rawItem.icon] ? iconAssetMap[rawItem.icon].iconAsset : '',
+    slot: slot.key,
+    slotName: slot.name,
+    armorType: armorType.key,
+    armorTypeName: armorType.name,
+    itemType: rawItem.itemType || '',
+    itemSubType: rawItem.itemSubType || '',
+    ilvl: rawItem.itemLevel || parsed.itemLevel || 0,
+    specs: classSpecs,
+    classes: [classConfig.id],
+    quality: rawItem.quality || 0,
+    upgradeTrack: rawItem.upgradeTrack || parsed.upgradeTrack || '',
+    tooltipFlags: parsed.flags || { prismaticSocket: false, uniqueEquipped: false },
+    stats: {
+      primaryStats,
+      stamina,
+      secondary: secondaryStats,
+      effects: {
+        equip: [],
+        use: [],
+      },
+      white: whiteStats,
+    },
+    source,
+    sourceType: 'tier',
+    tooltipRaw,
+    link: rawItem.seasonLink || rawItem.baseLink || '',
+    iconText: rawItem.name ? String(rawItem.name).slice(0, 1) : classConfig.abbr,
+    tier: {
+      setId: rawItem.setId || 0,
+      setName,
+      pieceCount: parsed.setData && parsed.setData.totalCount ? parsed.setData.totalCount : 5,
+      pieces: Array.isArray(parsed.setData && parsed.setData.pieces) ? parsed.setData.pieces : [],
+      bonusesBySpec: tierBonusesBySpec,
+      sourceLabel: '套装',
+    },
+  };
+}
+
+function buildTierInstance(classConfig, tierPayload, iconAssetMap) {
+  if (!tierPayload || !Array.isArray(tierPayload.classes)) {
+    return null;
+  }
+  const classData = tierPayload.classes.find((entry) => entry.classKey === classConfig.key);
+  if (!classData || !Array.isArray(classData.items) || !classData.items.length) {
+    return null;
+  }
+
+  const items = classData.items.map((item) => buildTierItem(item, classConfig, classData, iconAssetMap));
+  return {
+    id: `tier:${classConfig.key}`,
+    name: '套装',
+    type: 'tier',
+    difficulty: 5,
+    order: 999,
+    encounters: [{
+      id: `tier-set:${classConfig.key}`,
+      name: items[0] && items[0].tier && items[0].tier.setName ? items[0].tier.setName : '职业套装',
+      order: 0,
+      items,
+    }],
+  };
+}
+
+function buildClassPayload(classConfig, payload, iconAssetMap, tierPayload) {
   const itemMap = payload.items || {};
   const instances = (payload.instances || []).map((instance) => {
     const encounters = (instance.encounters || []).map((encounter) => {
@@ -399,6 +570,11 @@ function buildClassPayload(classConfig, payload, iconAssetMap) {
       encounters,
     };
   }).filter((instance) => instance.encounters.length > 0);
+
+  const tierInstance = buildTierInstance(classConfig, tierPayload, iconAssetMap);
+  if (tierInstance) {
+    instances.push(tierInstance);
+  }
 
   const itemCount = instances.reduce((sum, instance) => {
     return sum + instance.encounters.reduce((encounterSum, encounter) => encounterSum + encounter.items.length, 0);
@@ -451,6 +627,20 @@ function buildOverviewPayload(payload, classSummaries) {
   };
 }
 
+function countItemsFromInstances(instances = [], predicate = null) {
+  let total = 0;
+  (instances || []).forEach((instance) => {
+    (instance.encounters || []).forEach((encounter) => {
+      (encounter.items || []).forEach((item) => {
+        if (!predicate || predicate(item)) {
+          total += 1;
+        }
+      });
+    });
+  });
+  return total;
+}
+
 function writeOverviewFiles(outputDir, data) {
   const jsonPath = path.join(outputDir, 'overview.json');
   const jsPath = path.join(outputDir, 'overview.js');
@@ -477,8 +667,9 @@ async function main() {
   const args = parseArgs(process.argv);
   const inputPath = args.input;
   if (!inputPath) {
-    throw new Error('用法: node scripts/parse-export.js --input <WoWLookExport3.lua路径> [--output miniprogram/data]');
+    throw new Error('用法: node scripts/parse-export.js --input <WoWLookExport3.lua路径> [--tier-input <WoWLookTierExport.lua路径>] [--output cos-upload/data]');
   }
+  const tierInputPath = args['tier-input'];
 
   const outputDir = args.output
     ? path.resolve(process.cwd(), args.output)
@@ -488,18 +679,20 @@ async function main() {
     : DEFAULT_ASSET_DIR;
 
   const payload = readPayload(path.resolve(process.cwd(), inputPath));
+  const tierPayload = tierInputPath ? readPayload(path.resolve(process.cwd(), tierInputPath)) : null;
   ensureDir(outputDir);
-  const iconAssetMap = await buildIconAssetMap(payload, assetDir);
+  const iconAssetMap = await buildIconAssetMap(payload, assetDir, tierPayload);
 
   const classSummaries = [];
   CLASS_CONFIG.forEach((classConfig) => {
-    const classData = buildClassPayload(classConfig, payload, iconAssetMap);
+    const classData = buildClassPayload(classConfig, payload, iconAssetMap, tierPayload);
     writeClassFiles(outputDir, classConfig, classData);
     classSummaries.push({
       id: classConfig.id,
       key: classConfig.key,
       name: classConfig.name,
       itemCount: classData.meta.itemCount,
+      tierItemCount: countItemsFromInstances(classData.instances, (item) => item.sourceType === 'tier'),
       color: classConfig.color,
       abbr: classConfig.abbr,
       armorTypeName: classConfig.armorTypeName,

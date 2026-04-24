@@ -1,0 +1,8 @@
+## Interface: 120001
+## Title: WoWLookTierExport
+## Notes: 导出当前赛季职业套装数据（65件套装与39专精效果）
+## Author: WoWLook
+## Version: 0.3.0
+## SavedVariables: WoWLookTierExportDB
+
+WoWLookTierExport.lua

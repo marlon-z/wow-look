@@ -1,5 +1,5 @@
 <view class="page-shell equipment-page">
-  <image class="global-site-bg" src="https://wowlook-1308073800.cos.ap-guangzhou.myqcloud.com/assets/public/bg.png" mode="aspectFill" />
+  <image class="global-site-bg" src="{{cosBase}}/assets/public/bg.png" mode="aspectFill" />
   <view class="page-bg-glow page-bg-glow-top"></view>
   <view class="page-bg-glow page-bg-glow-bottom"></view>
 

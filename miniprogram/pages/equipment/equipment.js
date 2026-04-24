@@ -58,6 +58,7 @@ Page({
   itemMap: {},
 
   data: {
+    cosBase: COS_BASE,
     classKey: '',
     className: '',
     classMeta: null,

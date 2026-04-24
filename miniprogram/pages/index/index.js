@@ -1,4 +1,4 @@
-const { CLASS_LIST, getClassVisualAssets, loadOverview } = require('../../utils/class-data');
+const { COS_BASE, CLASS_LIST, getClassVisualAssets, loadOverview } = require('../../utils/class-data');
 
 function enrichList(list, countMap) {
   return list.map((item) => ({
@@ -10,6 +10,7 @@ function enrichList(list, countMap) {
 
 Page({
   data: {
+    cosBase: COS_BASE,
     row1: [],
     row2: [],
     row3: [],

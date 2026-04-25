@@ -23,6 +23,7 @@
       <view class="hero-summary-row">
         <text class="hero-count">{{resultCount}}</text>
         <text class="hero-count-unit">件装备</text>
+        <button class="hero-share-btn" open-type="share">分享</button>
       </view>
       <text class="hero-desc">{{activeFiltersText}}</text>
     </view>

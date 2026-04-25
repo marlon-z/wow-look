@@ -96,6 +96,27 @@
   margin-top: -2rpx;
 }
 
+.hero-share-btn {
+  min-width: 0 !important;
+  width: auto !important;
+  height: 48rpx !important;
+  min-height: 0 !important;
+  padding: 0 22rpx !important;
+  margin: 0 0 0 16rpx !important;
+  border-radius: 99rpx;
+  border: 1rpx solid rgba(255, 255, 255, 0.15) !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  color: #c9c3ba;
+  font-size: 20rpx;
+  font-weight: 600;
+  letter-spacing: 2rpx;
+  line-height: 48rpx !important;
+}
+
+.hero-share-btn::after {
+  display: none;
+}
+
 /* ── hero panel ── */
 .hero-panel {
   position: relative;
@@ -147,6 +168,26 @@
   color: #c9c3ba;
   font-weight: 600;
   padding-bottom: 0rpx;
+}
+
+.hero-share-btn {
+  margin: 0 0 -10rpx 6rpx !important;
+  padding: 0 24rpx !important;
+  height: 52rpx !important;
+  border-radius: 99rpx;
+  background: rgba(0, 0, 0, 0.45) !important;
+  border: 1rpx solid rgba(255, 255, 255, 0.12) !important;
+  color: #ffae00 !important;
+  font-size: 24rpx !important;
+  font-weight: 500 !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  line-height: normal !important;
+}
+
+.hero-share-btn::after {
+  display: none;
 }
 
 .hero-desc {

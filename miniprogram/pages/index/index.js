@@ -38,6 +38,19 @@ Page({
     });
   },
 
+  onShareAppMessage() {
+    return {
+      title: '艾泽配装 · 当赛季装备一键速查',
+      path: '/pages/index/index',
+    };
+  },
+
+  onShareTimeline() {
+    return {
+      title: '艾泽配装 · 当赛季装备一键速查',
+    };
+  },
+
   onClassTap(event) {
     const { key, name } = event.currentTarget.dataset;
     wx.navigateTo({

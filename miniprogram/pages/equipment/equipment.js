@@ -430,6 +430,20 @@ Page({
     });
   },
 
+  onShareAppMessage() {
+    return {
+      title: `当赛季${this.data.className}装备一键速查，副本掉落全收录`,
+      path: `/pages/equipment/equipment?classKey=${this.data.classKey}&className=${this.data.className}`,
+    };
+  },
+
+  onShareTimeline() {
+    return {
+      title: `当赛季${this.data.className}装备一键速查，副本掉落全收录`,
+      query: `classKey=${this.data.classKey}&className=${this.data.className}`,
+    };
+  },
+
   preventClose() {},
 
   onBackTap() {

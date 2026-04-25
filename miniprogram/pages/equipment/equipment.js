@@ -413,7 +413,6 @@ Page({
         equipEffects,
         useEffects,
         tierInfo,
-        tierExpanded: false,
         headerTags: [
           item.source ? item.source.difficultyName : '',
           item.slotName,
@@ -428,19 +427,6 @@ Page({
     this.setData({
       showModal: false,
       selectedItem: null,
-    });
-  },
-
-  toggleTierExpanded() {
-    const selectedItem = this.data.selectedItem;
-    if (!selectedItem || !selectedItem.tierInfo) {
-      return;
-    }
-    this.setData({
-      selectedItem: {
-        ...selectedItem,
-        tierExpanded: !selectedItem.tierExpanded,
-      },
     });
   },
 

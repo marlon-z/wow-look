@@ -1,5 +1,5 @@
 local ADDON_NAME = ...
-local ADDON_VERSION = "0.3.0"
+local ADDON_VERSION = "0.3.1"
 
 WoWLookTierExportDB = WoWLookTierExportDB or {
     version = ADDON_VERSION,
@@ -38,6 +38,7 @@ local TIER_SETS = {
         specs = {
             { specId = 577, specName = "浩劫" },
             { specId = 581, specName = "复仇" },
+            { specId = 1480, specName = "噬灭" },
         },
     },
     druid = {
@@ -574,6 +575,47 @@ local function BuildSpecBonusRecords(itemId, seasonLink, classId, specs)
     return results, matchCount
 end
 
+local function HasText(value)
+    return type(value) == "string" and value:match("%S") ~= nil
+end
+
+local function CountMissingBonusTexts(payload)
+    local missingCount = 0
+
+    for _, classData in ipairs(payload.classes or {}) do
+        for _, item in ipairs(classData.items or {}) do
+            for _, specEntry in pairs(item.bonusesBySpec or {}) do
+                local tooltipBonuses = (((specEntry or {}).tooltip or {}).parsed or {}).setData
+                tooltipBonuses = tooltipBonuses and tooltipBonuses.bonuses or {}
+
+                local hasTooltipBonusText = false
+                for _, bonus in ipairs(tooltipBonuses) do
+                    if HasText(bonus.text) then
+                        hasTooltipBonusText = true
+                        break
+                    end
+                end
+
+                local resolvedSpells = (((specEntry or {}).spells or {}).resolved or {})
+                local hasSpellDescription = false
+                for _, spell in ipairs(resolvedSpells) do
+                    if HasText(spell.description) then
+                        hasSpellDescription = true
+                        break
+                    end
+                end
+
+                local rawSpells = (((specEntry or {}).spells or {}).raw or {})
+                if #rawSpells > 0 and not hasTooltipBonusText and not hasSpellDescription then
+                    missingCount = missingCount + 1
+                end
+            end
+        end
+    end
+
+    return missingCount
+end
+
 local function ProbeItem(itemId, classKey, setInfo)
     local seasonLink = BuildSeasonLink(itemId)
     local name, baseLink, quality, _, minLevel, itemType, itemSubType,
@@ -744,9 +786,9 @@ local function StartExport(classKeys)
     RequestLoadForClassKeys(classKeys)
     Print(string.format("预加载 %d 个职业套装，3秒后开始导出。", #classKeys))
 
-    C_Timer.After(3, function()
-        ResetExportDB()
+    local maxAttempts = 6
 
+    local function RunAttempt(attempt)
         local ok, payload, summary = pcall(BuildExportPayload, classKeys)
         if not ok then
             WoWLookTierExportDB.lastError = payload
@@ -754,8 +796,24 @@ local function StartExport(classKeys)
             return
         end
 
+        local missingTexts = CountMissingBonusTexts(payload)
+        if missingTexts > 0 and attempt < maxAttempts then
+            Print(string.format("第 %d/%d 次导出检测到 %d 条套装效果正文未就绪，1秒后重试。",
+                attempt, maxAttempts, missingTexts))
+            C_Timer.After(1, function()
+                RunAttempt(attempt + 1)
+            end)
+            return
+        end
+
+        ResetExportDB()
         WoWLookTierExportDB.summary = summary
         WoWLookTierExportDB.payload = jsonEncode(payload)
+        WoWLookTierExportDB.lastError = nil
+
+        if missingTexts > 0 then
+            PrintWarn(string.format("导出完成，但仍有 %d 条套装效果正文为空。", missingTexts))
+        end
 
         Print(string.format("导出完成: %d 职业, %d 件套装, %d 组专精效果。",
             summary.classCount or 0,
@@ -763,6 +821,10 @@ local function StartExport(classKeys)
             summary.bonusSpecMatches or 0))
         Print("数据已保存到 SavedVariables/WoWLookTierExport.lua")
         Print("请 /reload 后到 WTF 目录查看。")
+    end
+
+    C_Timer.After(3, function()
+        RunAttempt(1)
     end)
 end
 

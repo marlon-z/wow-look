@@ -230,6 +230,150 @@ function buildWhiteLines(item) {
   return lines;
 }
 
+function normalizeTooltipText(text) {
+  return String(text || '')
+    .replace(/\r\n/g, '\n')
+    .replace(/\|c[0-9a-fA-F]{8}/g, '')
+    .replace(/\|r/g, '')
+    .replace(/(\d+)\|4([^:;]+):[^;]+;/g, '$1$2')
+    .replace(/\n+/g, '\n')
+    .replace(/[ \t]+/g, ' ')
+    .trim();
+}
+
+function stripEffectPrefix(text) {
+  return normalizeTooltipText(text).replace(/^(装备|使用)[：:]\s*/, '').trim();
+}
+
+function effectKey(text) {
+  return stripEffectPrefix(text).replace(/[\s。，“”"'：:；;，,（）()]+/g, '');
+}
+
+function uniqueCleanEffects(effects = []) {
+  const seen = new Set();
+  return effects
+    .map(stripEffectPrefix)
+    .filter((line) => {
+      const key = effectKey(line);
+      if (!key || seen.has(key)) {
+        return false;
+      }
+      seen.add(key);
+      return true;
+    });
+}
+
+function isDuplicateEffectLine(line, effectKeys) {
+  const key = effectKey(line);
+  if (!key) {
+    return false;
+  }
+  return Array.from(effectKeys).some((effect) => key === effect || key.startsWith(effect) || effect.startsWith(key));
+}
+
+function filterTooltipRaw(item) {
+  const raw = item.tooltipRaw;
+  if (!raw || !raw.length) return [];
+
+  const skip = new Set();
+  skip.add(item.name);
+  const qualities = ['史诗', '稀有', '精良', '优秀', '普通', '传说'];
+  qualities.forEach((q) => skip.add(q));
+  if (item.slotName) skip.add(item.slotName);
+  if (item.armorTypeName && item.armorType !== 'none') {
+    skip.add(item.slotName + ' ' + item.armorTypeName);
+  }
+
+  const effectKeys = new Set([
+    ...((item.stats && item.stats.effects && item.stats.effects.equip) || []),
+    ...((item.stats && item.stats.effects && item.stats.effects.use) || []),
+  ].map(effectKey).filter(Boolean));
+
+  const seen = new Set();
+  return raw.map(normalizeTooltipText).filter((line) => {
+    if (skip.has(line)) return false;
+    if (/^物品等级/.test(line)) return false;
+    if (/^升级[：:]/.test(line)) return false;
+    if (/^装备唯一/.test(line)) return false;
+    if (/棱彩插槽/.test(line)) return false;
+    if (/你尚未收藏/.test(line)) return false;
+    if (/^套装奖励将根据玩家专精变化/.test(line)) return false;
+    if (/^\d+点护甲$/.test(line)) return false;
+    if (/^每秒伤害/.test(line)) return false;
+    if (/^\d+-\d+点伤害/.test(line) || /^速度/.test(line)) return false;
+    if (/^\+\d+\s/.test(line)) return false;
+    if (isDuplicateEffectLine(line, effectKeys)) return false;
+    const key = effectKey(line) || line.replace(/\s+/g, '');
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function buildTierBonusDisplay(item, selectedSpec, pageSpecs = []) {
+  if (!item || !item.tier || !item.tier.bonusesBySpec) {
+    return null;
+  }
+
+  const requestedSpecId = selectedSpec || (Array.isArray(item.specs) && item.specs.length ? item.specs[0] : null);
+  const availableSpecIds = Object.keys(item.tier.bonusesBySpec || {});
+  if (!requestedSpecId && !availableSpecIds.length) {
+    return null;
+  }
+
+  const resolvedSpecId = item.tier.bonusesBySpec[String(requestedSpecId)]
+    ? String(requestedSpecId)
+    : (availableSpecIds[0] || null);
+  if (!resolvedSpecId) {
+    return null;
+  }
+
+  const specBonus = item.tier.bonusesBySpec[resolvedSpecId];
+  if (!specBonus) {
+    return null;
+  }
+
+  const numericSpecId = Number(resolvedSpecId);
+  const specMeta = pageSpecs.find((spec) => spec.id === numericSpecId);
+  return {
+    setName: item.tier.setName || '',
+    pieces: Array.isArray(item.tier.pieces) ? item.tier.pieces : [],
+    specId: numericSpecId,
+    specName: specBonus.specName || (specMeta && specMeta.name) || '',
+    twoPiece: specBonus.twoPiece || '',
+    fourPiece: specBonus.fourPiece || '',
+    isFallback: selectedSpec && numericSpecId !== selectedSpec,
+  };
+}
+
+function buildItemDetail(item, selectedSpec, specs = []) {
+  const secondaryStats = ((item.stats && item.stats.secondary) || []).map((stat) => ({ ...stat }));
+  const maxSecondaryValue = secondaryStats.reduce((max, stat) => Math.max(max, stat.value || 0), 0);
+  secondaryStats.forEach((stat) => {
+    stat.width = maxSecondaryValue > 0 ? `${Math.max(18, Math.round((stat.value / maxSecondaryValue) * 100))}%` : '18%';
+  });
+
+  return {
+    ...item,
+    whiteLines: buildWhiteLines(item),
+    secondaryStats,
+    filteredRaw: filterTooltipRaw(item),
+    primaryStatText: item.stats && item.stats.primaryStats && item.stats.primaryStats.length
+      ? item.stats.primaryStats.map((stat) => `${stat.name}${stat.value}`).join(' / ')
+      : '无主属性',
+    specText: item.specNames && item.specNames.length ? item.specNames.join(' / ') : '当前职业通用',
+    equipEffects: uniqueCleanEffects(item.stats && item.stats.effects ? item.stats.effects.equip || [] : []),
+    useEffects: uniqueCleanEffects(item.stats && item.stats.effects ? item.stats.effects.use || [] : []),
+    tierInfo: buildTierBonusDisplay(item, selectedSpec, specs),
+    headerTags: [
+      item.source ? item.source.difficultyName : '',
+      item.slotName,
+      item.itemSubType && item.slot === 'weapon' ? item.itemSubType : (item.armorType !== 'none' ? item.armorTypeName : ''),
+      item.sourceType === 'tier' ? '套装' : '',
+    ].filter(Boolean),
+  };
+}
+
 function buildInstanceOptions(instances = []) {
   return (instances || []).map((instance) => ({
     id: instance.id,
@@ -259,6 +403,7 @@ module.exports = {
   buildSpecNames,
   buildMetaLine,
   buildWhiteLines,
+  buildItemDetail,
   buildInstanceOptions,
   getEmptyMessage,
 };

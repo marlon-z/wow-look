@@ -1,9 +1,9 @@
-<page-meta page-style="{{showFavorites ? 'overflow:hidden;height:100vh;' : ''}}" />
+<page-meta page-style="{{pageStyle}}"></page-meta>
 <view class="page-shell index-page">
   <image class="global-site-bg" src="{{cosBase}}/assets/public/bg.png" mode="aspectFill" />
   <view class="favorite-entry" bindtap="openFavorites">
     <view class="favorite-entry-icon icon-star-filled"></view>
-    <text class="favorite-entry-label">收藏</text>
+    <text class="favorite-entry-label">收藏夹</text>
     <view wx:if="{{favoriteCount}}" class="favorite-entry-count">{{favoriteCount}}</view>
   </view>
 
@@ -49,34 +49,55 @@
       <view class="favorite-panel-head">
         <view class="favorite-title-wrap">
           <view class="favorite-title-icon icon-star-filled"></view>
-          <text class="favorite-title">收藏</text>
+          <text class="favorite-title">收藏夹</text>
           <text class="favorite-count">共 {{favoriteCount}} 件</text>
         </view>
-        <text class="favorite-close" bindtap="closeFavorites">×</text>
+        <view class="favorite-close" bindtap="closeFavorites">×</view>
       </view>
+      <view class="favorite-divider"></view>
 
       <block wx:if="{{favoriteList.length}}">
         <scroll-view class="favorite-list" scroll-y enhanced show-scrollbar="{{false}}">
-          <view wx:for="{{favoriteList}}" wx:key="key" class="favorite-item">
+          <view
+            wx:for="{{favoriteList}}"
+            wx:key="key"
+            class="favorite-item"
+            bindtap="onFavoriteItemTap"
+            data-item-id="{{item.itemId}}"
+            data-class-key="{{item.classKey}}"
+            data-class-name="{{item.className}}"
+          >
             <view class="favorite-icon-wrap">
               <image wx:if="{{item.iconAsset}}" class="favorite-icon-img" src="{{item.iconAsset}}" mode="aspectFill" />
               <text wx:else class="favorite-icon-letter">{{item.iconText}}</text>
+              <view class="favorite-icon-border"></view>
             </view>
             <view class="favorite-item-body">
-              <view class="favorite-name-row">
+              <view class="favorite-row favorite-row-1">
                 <text class="favorite-name">{{item.name}}</text>
-                <text class="favorite-slot">{{item.slotName}}</text>
+                <view class="favorite-row-actions">
+                  <text class="favorite-slot">{{item.slotName}}</text>
+                  <view class="favorite-remove-btn" catchtap="removeFavoriteItem" data-key="{{item.key}}">
+                    <view class="favorite-remove-icon-sm"></view>
+                    <text class="favorite-remove-text">删除</text>
+                  </view>
+                </view>
               </view>
-              <text class="favorite-stat">{{item.statLine}}</text>
-              <text class="favorite-source">{{item.className}} · {{item.sourceName}}<block wx:if="{{item.encounterName}}"> · {{item.encounterName}}</block></text>
-            </view>
-            <view class="favorite-remove" catchtap="removeFavoriteItem" data-key="{{item.key}}">
-              <view class="favorite-remove-icon"></view>
+              <view class="favorite-row favorite-row-2">
+                <text class="favorite-stat">{{item.statLine}}</text>
+              </view>
+              <view class="favorite-row favorite-row-3">
+                <text class="favorite-meta-line">{{item.className}} · ilvl{{item.ilvl}}</text>
+                <view class="favorite-source-wrap">
+                  <text class="favorite-source">{{item.sourceName}}</text>
+                  <text class="favorite-arrow">›</text>
+                </view>
+              </view>
             </view>
           </view>
         </scroll-view>
         <view class="favorite-actions">
-          <text class="favorite-clear" bindtap="clearFavoriteItems">清空收藏</text>
+          <view class="favorite-clear" bindtap="clearFavoriteItems">清空全部收藏</view>
         </view>
       </block>
 
@@ -86,4 +107,11 @@
       </view>
     </view>
   </view>
+
+  <equipment-detail
+    visible="{{showModal}}"
+    item="{{selectedItem}}"
+    bind:close="closeModal"
+    bind:favorite="onDetailFavoriteTap"
+  />
 </view>

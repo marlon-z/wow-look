@@ -1,5 +1,26 @@
-const { COS_BASE, CLASS_LIST, getClassVisualAssets, loadOverview } = require('../../utils/class-data');
-const { getFavorites, removeFavorite, clearFavorites } = require('../../utils/favorites');
+const {
+  COS_BASE,
+  CLASS_LIST,
+  getClassMeta,
+  getClassVisualAssets,
+  loadOverview,
+  loadClassData,
+} = require('../../utils/class-data');
+const {
+  flattenItems,
+  buildStatLine,
+  buildSpecNames,
+  buildMetaLine,
+  buildItemDetail,
+} = require('../../utils/equipment');
+const {
+  getFavorites,
+  removeFavorite,
+  clearFavorites,
+  isFavorite,
+  buildFavoriteSnapshot,
+  toggleFavorite,
+} = require('../../utils/favorites');
 
 function enrichList(list, countMap) {
   return list.map((item) => ({
@@ -10,6 +31,8 @@ function enrichList(list, countMap) {
 }
 
 Page({
+  classItemCache: {},
+
   data: {
     cosBase: COS_BASE,
     row1: [],
@@ -18,6 +41,9 @@ Page({
     favoriteCount: 0,
     favoriteList: [],
     showFavorites: false,
+    selectedItem: null,
+    showModal: false,
+    pageStyle: '',
   },
 
   onLoad() {
@@ -56,11 +82,72 @@ Page({
 
   openFavorites() {
     this.refreshFavorites();
-    this.setData({ showFavorites: true });
+    this.setData({
+      showFavorites: true,
+      pageStyle: 'overflow:hidden;height:100vh;',
+    });
+  },
+
+  loadClassItems(classKey) {
+    if (this.classItemCache[classKey]) {
+      return Promise.resolve(this.classItemCache[classKey]);
+    }
+
+    return loadClassData(classKey).then((data) => {
+      if (!data) {
+        return null;
+      }
+
+      const favorites = getFavorites();
+      const classMeta = (data && data.class) || getClassMeta(classKey) || {};
+      const items = flattenItems(data.instances || []).map((item) => ({
+        ...item,
+        iconAsset: item.iconAsset ? COS_BASE + item.iconAsset : '',
+        statLine: buildStatLine(item),
+        specNames: buildSpecNames(item, data.specs || []),
+        metaLine: buildMetaLine(item),
+        sourceBadge: item.source ? item.source.difficultyName : '',
+        roleBadge: item.stats && item.stats.effects && item.stats.effects.use && item.stats.effects.use.length ? '使用特效'
+          : (item.stats && item.stats.effects && item.stats.effects.equip && item.stats.effects.equip.length ? '装备特效' : ''),
+        rightMeta: item.slot === 'weapon' ? item.itemSubType : (item.armorType !== 'none' ? item.armorTypeName : item.slotName),
+        iconText: item.iconText || (item.name ? item.name.slice(0, 1) : '装'),
+        isFavorite: isFavorite(classKey, item.id, favorites),
+      }));
+      const itemMap = {};
+      items.forEach((item) => {
+        itemMap[item.id] = item;
+      });
+
+      const result = {
+        classKey,
+        className: classMeta.name || '',
+        specs: data.specs || [],
+        items,
+        itemMap,
+      };
+      this.classItemCache[classKey] = result;
+      return result;
+    });
+  },
+
+  refreshCachedFavoriteState(classKey, itemId, isItemFavorite) {
+    const cache = this.classItemCache[classKey];
+    if (!cache || !cache.itemMap[itemId]) {
+      return;
+    }
+    const item = {
+      ...cache.itemMap[itemId],
+      isFavorite: isItemFavorite,
+    };
+    cache.itemMap[itemId] = item;
+    cache.items = cache.items.map((equip) => (equip.id === item.id ? item : equip));
   },
 
   closeFavorites() {
-    this.setData({ showFavorites: false });
+    this.setData({
+      showFavorites: false,
+      pageStyle: this.data.showModal ? 'overflow:hidden;height:100vh;' : '',
+    });
   },
 
   removeFavoriteItem(event) {
@@ -89,6 +176,72 @@ Page({
         clearFavorites();
         this.refreshFavorites();
       },
+    });
+  },
+
+  onFavoriteItemTap(event) {
+    const { itemId, classKey, className } = event.currentTarget.dataset;
+    if (!itemId || !classKey) {
+      return;
+    }
+
+    wx.showLoading({ title: '加载中' });
+    this.loadClassItems(classKey).then((cache) => {
+      wx.hideLoading();
+      const item = cache && cache.itemMap[itemId];
+      if (!item) {
+        wx.showToast({
+          title: '未找到装备详情',
+          icon: 'none',
+        });
+        return;
+      }
+
+      this.setData({
+        showFavorites: false,
+        showModal: true,
+        pageStyle: 'overflow:hidden;height:100vh;',
+        selectedItem: buildItemDetail({
+          ...item,
+          isFavorite: isFavorite(classKey, item.id),
+          classKey,
+          className: className || cache.className,
+        }, null, cache.specs),
+      });
+    }).catch(() => {
+      wx.hideLoading();
+      wx.showToast({
+        title: '加载装备详情失败',
+        icon: 'none',
+      });
+    });
+  },
+
+  onDetailFavoriteTap(event) {
+    const itemId = event.detail && event.detail.itemId;
+    const item = this.data.selectedItem;
+    if (!item || item.id !== itemId) {
+      return;
+    }
+
+    const classKey = item.classKey;
+    const className = item.className || '';
+    const result = toggleFavorite(buildFavoriteSnapshot(classKey, className, item));
+    this.refreshCachedFavoriteState(classKey, item.id, result.isFavorite);
+    this.setData({
+      selectedItem: {
+        ...item,
+        isFavorite: result.isFavorite,
+      },
+    });
+    this.refreshFavorites();
+  },
+
+  closeModal() {
+    this.setData({
+      showModal: false,
+      selectedItem: null,
+      pageStyle: this.data.showFavorites ? 'overflow:hidden;height:100vh;' : '',
     });
   },
 

@@ -1,0 +1,121 @@
+<view wx:if="{{visible && item}}" class="modal-mask" bindtap="close">
+  <view class="modal-card" catchtap="preventClose">
+    <view class="modal-close" bindtap="close">×</view>
+
+    <view class="tt-header">
+      <view class="tt-icon-wrap">
+        <image wx:if="{{item.iconAsset}}" class="tt-icon-img" mode="aspectFill" src="{{item.iconAsset}}" />
+        <text wx:else class="tt-icon-letter">{{item.iconText}}</text>
+        <view class="tt-icon-border"></view>
+      </view>
+      <view class="tt-title-area">
+        <text class="tt-name">{{item.name}}</text>
+        <view class="tt-tag-row">
+          <text wx:for="{{item.headerTags}}" wx:key="*this" class="tt-tag">{{item}}</text>
+        </view>
+      </view>
+    </view>
+
+    <scroll-view scroll-y class="tt-body" enhanced show-scrollbar="{{false}}">
+      <view class="tt-section">
+        <view class="tt-ilvl-row">
+          <text class="tt-ilvl">物品等级 {{item.ilvl}}</text>
+          <view
+            class="favorite-star tt-favorite-star {{item.isFavorite ? 'on' : ''}}"
+            catchtap="onFavoriteTap"
+          >
+            <view class="favorite-icon"></view>
+            <text class="favorite-text">{{item.isFavorite ? '已收藏' : '收藏'}}</text>
+          </view>
+        </view>
+        <text wx:if="{{item.upgradeTrack}}" class="tt-line">升级：{{item.upgradeTrack}}</text>
+        <text class="tt-line">{{item.slotName}}<block wx:if="{{item.itemSubType}}"> · {{item.itemSubType}}</block></text>
+        <text wx:if="{{item.tooltipFlags.uniqueEquipped}}" class="tt-line">装备唯一</text>
+        <text wx:if="{{item.tooltipFlags.prismaticSocket}}" class="tt-line socket-line">◇ 棱彩插槽</text>
+      </view>
+
+      <view class="tt-divider"></view>
+
+      <view class="tt-section">
+        <text wx:if="{{item.stats.armor}}" class="strong-line">{{item.stats.armor.value}}点护甲</text>
+
+        <block wx:for="{{item.whiteLines}}" wx:key="*this">
+          <text class="tt-line white-line">{{item}}</text>
+        </block>
+
+        <block wx:for="{{item.stats.primaryStats}}" wx:key="type">
+          <view class="stat-row">
+            <text class="stat-bullet">♦</text>
+            <text class="tt-line white-line">+{{item.value}} {{item.name}}</text>
+          </view>
+        </block>
+
+        <view wx:if="{{item.stats.stamina}}" class="stat-row">
+          <text class="stat-bullet">♦</text>
+          <text class="tt-line white-line">+{{item.stats.stamina.value}} {{item.stats.stamina.name}}</text>
+        </view>
+
+        <view wx:if="{{item.secondaryStats && item.secondaryStats.length}}" class="stat-bars">
+          <view wx:for="{{item.secondaryStats}}" wx:key="type" class="stat-bar-item">
+            <text class="green-val-row">+{{item.value}} {{item.name}}</text>
+            <view class="bar-track">
+              <view class="bar-fill" style="width: {{item.width}};"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view wx:if="{{item.tierInfo}}" class="tt-section">
+        <view class="tt-extra-block">
+          <text class="tt-extra-icon">✦</text>
+          <view class="tt-extra-col">
+            <text class="tt-extra-line gold-text">{{item.tierInfo.setName}}（{{item.tierInfo.pieces.length}}件）</text>
+            <text wx:if="{{item.tierInfo.specName}}" class="tt-extra-line">当前专精：{{item.tierInfo.specName}}</text>
+            <text wx:if="{{item.tierInfo.isFallback}}" class="tt-extra-line dim-text">当前专精无独立套装效果，已显示可用套装效果。</text>
+            <text wx:if="{{item.tierInfo.twoPiece}}" class="tt-extra-line green-text">(2) 套装：{{item.tierInfo.twoPiece}}</text>
+            <text wx:if="{{item.tierInfo.fourPiece}}" class="tt-extra-line green-text">(4) 套装：{{item.tierInfo.fourPiece}}</text>
+          </view>
+          <text class="tt-extra-watermark">✶</text>
+        </view>
+      </view>
+
+      <view wx:if="{{item.equipEffects.length || item.useEffects.length || item.filteredRaw.length}}" class="tt-section">
+        <view class="tt-extra-block">
+          <text class="tt-extra-icon">◈</text>
+          <view class="tt-extra-col">
+            <block wx:for="{{item.equipEffects}}" wx:key="*this">
+              <text class="tt-extra-line green-text">装备：{{item}}</text>
+            </block>
+            <block wx:for="{{item.useEffects}}" wx:key="*this">
+              <text class="tt-extra-line green-text">使用：{{item}}</text>
+            </block>
+            <block wx:for="{{item.filteredRaw}}" wx:key="index">
+              <text class="tt-extra-line">{{item}}</text>
+            </block>
+          </view>
+          <text class="tt-extra-watermark">✶</text>
+        </view>
+      </view>
+
+      <view class="tt-divider"></view>
+
+      <view class="tt-footer-wrap">
+        <view class="tt-bot-item" wx:if="{{item.specText}}">
+          <text class="tt-bot-icon">✦</text>
+          <text>拾取专精：{{item.specText}}</text>
+        </view>
+        <view class="tt-bot-item" wx:if="{{item.instanceName}}">
+          <text class="tt-bot-icon">⬡</text>
+          <text>{{item.instanceName}}<block wx:if="{{item.encounterName}}"> · {{item.encounterName}}</block></text>
+        </view>
+        <text class="tt-bot-dim">{{item.source.difficultyName || '史诗'}} · ID {{item.id}}</text>
+      </view>
+
+      <view class="tt-ornament">
+        <view class="orn-line"></view>
+        <view class="orn-dot"></view>
+        <view class="orn-line"></view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

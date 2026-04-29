@@ -8,7 +8,7 @@ const {
   buildStatLine,
   buildSpecNames,
   buildMetaLine,
-  buildWhiteLines,
+  buildItemDetail,
   buildInstanceOptions,
   getEmptyMessage,
 } = require('../../utils/equipment');
@@ -17,87 +17,13 @@ const {
   isFavorite,
   buildFavoriteSnapshot,
   toggleFavorite,
+  removeFavorite,
+  clearFavorites,
 } = require('../../utils/favorites');
-
-function normalizeTooltipText(text) {
-  return String(text || '')
-    .replace(/\r\n/g, '\n')
-    .replace(/\|c[0-9a-fA-F]{8}/g, '')
-    .replace(/\|r/g, '')
-    .replace(/(\d+)\|4([^:;]+):[^;]+;/g, '$1$2')
-    .replace(/\n+/g, '\n')
-    .replace(/[ \t]+/g, ' ')
-    .trim();
-}
-
-function stripEffectPrefix(text) {
-  return normalizeTooltipText(text).replace(/^(装备|使用)[：:]\s*/, '').trim();
-}
-
-function effectKey(text) {
-  return stripEffectPrefix(text).replace(/[\s。，“”"'：:；;，,（）()]+/g, '');
-}
-
-function uniqueCleanEffects(effects = []) {
-  const seen = new Set();
-  return effects
-    .map(stripEffectPrefix)
-    .filter((line) => {
-      const key = effectKey(line);
-      if (!key || seen.has(key)) {
-        return false;
-      }
-      seen.add(key);
-      return true;
-    });
-}
-
-function isDuplicateEffectLine(line, effectKeys) {
-  const key = effectKey(line);
-  if (!key) {
-    return false;
-  }
-  return Array.from(effectKeys).some((effect) => key === effect || key.startsWith(effect) || effect.startsWith(key));
-}
-
-function buildTierBonusDisplay(item, selectedSpec, pageSpecs = []) {
-  if (!item || !item.tier || !item.tier.bonusesBySpec) {
-    return null;
-  }
-
-  const requestedSpecId = selectedSpec || (Array.isArray(item.specs) && item.specs.length ? item.specs[0] : null);
-  const availableSpecIds = Object.keys(item.tier.bonusesBySpec || {});
-  if (!requestedSpecId && !availableSpecIds.length) {
-    return null;
-  }
-
-  const resolvedSpecId = item.tier.bonusesBySpec[String(requestedSpecId)]
-    ? String(requestedSpecId)
-    : (availableSpecIds[0] || null);
-  if (!resolvedSpecId) {
-    return null;
-  }
-
-  const specBonus = item.tier.bonusesBySpec[resolvedSpecId];
-  if (!specBonus) {
-    return null;
-  }
-
-  const numericSpecId = Number(resolvedSpecId);
-  const specMeta = pageSpecs.find((spec) => spec.id === numericSpecId);
-  return {
-    setName: item.tier.setName || '',
-    pieces: Array.isArray(item.tier.pieces) ? item.tier.pieces : [],
-    specId: numericSpecId,
-    specName: specBonus.specName || (specMeta && specMeta.name) || '',
-    twoPiece: specBonus.twoPiece || '',
-    fourPiece: specBonus.fourPiece || '',
-    isFallback: selectedSpec && numericSpecId !== selectedSpec,
-  };
-}
 
 Page({
   itemMap: {},
+  classItemCache: {},
 
   data: {
     cosBase: COS_BASE,
@@ -139,6 +65,10 @@ Page({
     emptyMessage: '数据加载中',
     selectedItem: null,
     showModal: false,
+    favoriteCount: 0,
+    favoriteList: [],
+    showFavorites: false,
+    pageStyle: '',
   },
 
   onLoad(options) {
@@ -151,6 +81,7 @@ Page({
       classMeta,
       heroBannerAsset: visualAssets.banner,
       classEmblemAsset: visualAssets.emblem,
+      openItemId: options.openItemId || null,
     });
     this.loadData(classKey);
   },
@@ -159,6 +90,7 @@ Page({
     if (this.data.allItems.length) {
       this.refreshFavoriteFlags();
     }
+    this.refreshFavorites();
   },
 
   loadData(classKey) {
@@ -197,6 +129,12 @@ Page({
       });
 
       this.applyFilters();
+      this.refreshFavorites();
+
+      if (this.data.openItemId && this.itemMap[this.data.openItemId]) {
+        this.onItemTap({ currentTarget: { dataset: { itemId: this.data.openItemId } } });
+        this.setData({ openItemId: null });
+      }
     });
   },
 
@@ -394,90 +332,107 @@ Page({
     });
   },
 
-  filterTooltipRaw(item) {
-    const raw = item.tooltipRaw;
-    if (!raw || !raw.length) return [];
-
-    const skip = new Set();
-    skip.add(item.name);
-    const qualities = ['史诗', '稀有', '精良', '优秀', '普通', '传说'];
-    qualities.forEach((q) => skip.add(q));
-    if (item.slotName) skip.add(item.slotName);
-    if (item.armorTypeName && item.armorType !== 'none') {
-      skip.add(item.slotName + ' ' + item.armorTypeName);
-    }
-
-    const allStats = [];
-    ((item.stats && item.stats.primaryStats) || []).forEach((s) => allStats.push(s));
-    if (item.stats && item.stats.stamina) allStats.push(item.stats.stamina);
-    ((item.stats && item.stats.secondary) || []).forEach((s) => allStats.push(s));
-    const effectKeys = new Set([
-      ...((item.stats && item.stats.effects && item.stats.effects.equip) || []),
-      ...((item.stats && item.stats.effects && item.stats.effects.use) || []),
-    ].map(effectKey).filter(Boolean));
-
-    const seen = new Set();
-    return raw.map(normalizeTooltipText).filter((line) => {
-      if (skip.has(line)) return false;
-      if (/^物品等级/.test(line)) return false;
-      if (/^升级[：:]/.test(line)) return false;
-      if (/^装备唯一/.test(line)) return false;
-      if (/棱彩插槽/.test(line)) return false;
-      if (/你尚未收藏/.test(line)) return false;
-      if (/^套装奖励将根据玩家专精变化/.test(line)) return false;
-      if (/^\d+点护甲$/.test(line)) return false;
-      if (/^每秒伤害/.test(line)) return false;
-      if (/^\d+-\d+点伤害/.test(line) || /^速度/.test(line)) return false;
-      if (/^\+\d+\s/.test(line)) return false;
-      if (isDuplicateEffectLine(line, effectKeys)) return false;
-      const key = effectKey(line) || line.replace(/\s+/g, '');
-      if (seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    });
-  },
-
   onItemTap(event) {
     const item = this.itemMap[event.currentTarget.dataset.itemId];
     if (!item) {
       return;
     }
-    const whiteLines = buildWhiteLines(item);
-    const secondaryStats = ((item.stats && item.stats.secondary) || []).map((stat) => ({ ...stat }));
-    const maxSecondaryValue = secondaryStats.reduce((max, stat) => Math.max(max, stat.value || 0), 0);
-    secondaryStats.forEach((stat) => {
-      stat.width = maxSecondaryValue > 0 ? `${Math.max(18, Math.round((stat.value / maxSecondaryValue) * 100))}%` : '18%';
-    });
-    const filteredRaw = this.filterTooltipRaw(item);
-    const equipEffects = uniqueCleanEffects(item.stats && item.stats.effects ? item.stats.effects.equip || [] : []);
-    const useEffects = uniqueCleanEffects(item.stats && item.stats.effects ? item.stats.effects.use || [] : []);
-    const tierInfo = buildTierBonusDisplay(item, this.data.selectedSpec, this.data.specs);
     this.setData({
       showModal: true,
-      selectedItem: {
+      pageStyle: 'overflow:hidden;height:100vh;',
+      selectedItem: buildItemDetail({
         ...item,
-        whiteLines,
-        secondaryStats,
-        filteredRaw,
-        primaryStatText: item.stats && item.stats.primaryStats && item.stats.primaryStats.length
-          ? item.stats.primaryStats.map((stat) => `${stat.name}${stat.value}`).join(' / ')
-          : '无主属性',
-        specText: item.specNames && item.specNames.length ? item.specNames.join(' / ') : '当前职业通用',
-        equipEffects,
-        useEffects,
-        tierInfo,
-        headerTags: [
-          item.source ? item.source.difficultyName : '',
-          item.slotName,
-          item.itemSubType && item.slot === 'weapon' ? item.itemSubType : (item.armorType !== 'none' ? item.armorTypeName : ''),
-          item.sourceType === 'tier' ? '套装' : '',
-        ].filter(Boolean),
-      },
+        isFavorite: isFavorite(this.data.classKey, item.id),
+        classKey: this.data.classKey,
+        className: this.data.className,
+      }, this.data.selectedSpec, this.data.specs),
     });
   },
 
-  onFavoriteTap(event) {
-    const item = this.itemMap[event.currentTarget.dataset.itemId];
+  loadFavoriteClassItems(classKey) {
+    if (classKey === this.data.classKey) {
+      return Promise.resolve({
+        classKey,
+        className: this.data.className,
+        specs: this.data.specs,
+        itemMap: this.itemMap,
+      });
+    }
+    if (this.classItemCache[classKey]) {
+      return Promise.resolve(this.classItemCache[classKey]);
+    }
+
+    return loadClassData(classKey).then((data) => {
+      if (!data) {
+        return null;
+      }
+
+      const favorites = getFavorites();
+      const classMeta = (data && data.class) || getClassMeta(classKey) || {};
+      const items = flattenItems(data.instances || []).map((item) => ({
+        ...item,
+        iconAsset: item.iconAsset ? COS_BASE + item.iconAsset : '',
+        statLine: buildStatLine(item),
+        specNames: buildSpecNames(item, data.specs || []),
+        metaLine: buildMetaLine(item),
+        sourceBadge: item.source ? item.source.difficultyName : '',
+        roleBadge: item.stats && item.stats.effects && item.stats.effects.use && item.stats.effects.use.length ? '使用特效'
+          : (item.stats && item.stats.effects && item.stats.effects.equip && item.stats.effects.equip.length ? '装备特效' : ''),
+        rightMeta: item.slot === 'weapon' ? item.itemSubType : (item.armorType !== 'none' ? item.armorTypeName : item.slotName),
+        iconText: item.iconText || (item.name ? item.name.slice(0, 1) : '装'),
+        isFavorite: isFavorite(classKey, item.id, favorites),
+      }));
+      const itemMap = {};
+      items.forEach((item) => {
+        itemMap[item.id] = item;
+      });
+
+      const result = {
+        classKey,
+        className: classMeta.name || '',
+        specs: data.specs || [],
+        itemMap,
+      };
+      this.classItemCache[classKey] = result;
+      return result;
+    });
+  },
+
+  refreshCachedFavoriteState(classKey, itemId, isItemFavorite) {
+    if (classKey === this.data.classKey && this.itemMap[itemId]) {
+      this.itemMap[itemId] = {
+        ...this.itemMap[itemId],
+        isFavorite: isItemFavorite,
+      };
+      return;
+    }
+
+    const cache = this.classItemCache[classKey];
+    if (!cache || !cache.itemMap[itemId]) {
+      return;
+    }
+    cache.itemMap[itemId] = {
+      ...cache.itemMap[itemId],
+      isFavorite: isItemFavorite,
+    };
+  },
+
+  toggleFavoriteItem(itemId) {
+    const item = this.itemMap[itemId];
+    if (!item && this.data.selectedItem && this.data.selectedItem.id === itemId) {
+      const detail = this.data.selectedItem;
+      const result = toggleFavorite(buildFavoriteSnapshot(detail.classKey, detail.className, detail));
+      this.refreshCachedFavoriteState(detail.classKey, detail.id, result.isFavorite);
+      this.setData({
+        selectedItem: {
+          ...detail,
+          isFavorite: result.isFavorite,
+        },
+      });
+      this.refreshFavorites();
+      return;
+    }
+
     if (!item) {
       return;
     }
@@ -490,19 +445,124 @@ Page({
     allItems.forEach((equip) => {
       this.itemMap[equip.id] = equip;
     });
+    this.refreshCachedFavoriteState(this.data.classKey, item.id, result.isFavorite);
 
     this.setData({
       allItems,
       selectedItem: this.data.selectedItem && this.data.selectedItem.id === item.id
         ? { ...this.data.selectedItem, isFavorite: result.isFavorite }
         : this.data.selectedItem,
-    }, () => this.applyFilters());
+    }, () => {
+      this.applyFilters();
+      this.refreshFavorites();
+    });
+  },
+
+  onFavoriteTap(event) {
+    this.toggleFavoriteItem(event.currentTarget.dataset.itemId);
+  },
+
+  onDetailFavoriteTap(event) {
+    this.toggleFavoriteItem(event.detail && event.detail.itemId);
   },
 
   closeModal() {
     this.setData({
       showModal: false,
       selectedItem: null,
+      pageStyle: this.data.showFavorites ? 'overflow:hidden;height:100vh;' : '',
+    });
+  },
+
+  refreshFavorites() {
+    const favoriteList = getFavorites();
+    this.setData({
+      favoriteList,
+      favoriteCount: favoriteList.length,
+    });
+  },
+
+  openFavorites() {
+    this.refreshFavorites();
+    this.setData({
+      showFavorites: true,
+      pageStyle: 'overflow:hidden;height:100vh;',
+    });
+  },
+
+  closeFavorites() {
+    this.setData({
+      showFavorites: false,
+      pageStyle: this.data.showModal ? 'overflow:hidden;height:100vh;' : '',
+    });
+  },
+
+  removeFavoriteItem(event) {
+    const { key } = event.currentTarget.dataset;
+    removeFavorite(key);
+    this.refreshFavorites();
+    this.refreshFavoriteFlags();
+    wx.showToast({
+      title: '已移除收藏',
+      icon: 'none',
+    });
+  },
+
+  clearFavoriteItems() {
+    if (!this.data.favoriteList.length) {
+      return;
+    }
+    wx.showModal({
+      title: '清空收藏',
+      content: '确定移除全部收藏装备？',
+      confirmText: '清空',
+      confirmColor: '#e05050',
+      success: (res) => {
+        if (!res.confirm) {
+          return;
+        }
+        clearFavorites();
+        this.refreshFavorites();
+        this.refreshFavoriteFlags();
+      },
+    });
+  },
+
+  onFavoriteItemTap(event) {
+    const { itemId, classKey, className } = event.currentTarget.dataset;
+    if (!itemId || !classKey) {
+      return;
+    }
+
+    this.closeFavorites();
+    wx.showLoading({ title: '加载中' });
+    this.loadFavoriteClassItems(classKey).then((cache) => {
+      wx.hideLoading();
+      const item = cache && cache.itemMap[itemId];
+      if (!item) {
+        wx.showToast({
+          title: '未找到装备详情',
+          icon: 'none',
+        });
+        return;
+      }
+
+      this.setData({
+        showModal: true,
+        pageStyle: 'overflow:hidden;height:100vh;',
+        selectedItem: buildItemDetail({
+          ...item,
+          isFavorite: isFavorite(classKey, item.id),
+          classKey,
+          className: className || cache.className,
+        }, classKey === this.data.classKey ? this.data.selectedSpec : null, cache.specs),
+      });
+    }).catch(() => {
+      wx.hideLoading();
+      wx.showToast({
+        title: '加载装备详情失败',
+        icon: 'none',
+      });
     });
   },
 

@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "艾泽配装"
+  "navigationBarTitleText": "艾泽配装",
+  "usingComponents": {
+    "equipment-detail": "/components/equipment-detail/equipment-detail"
+  }
 }

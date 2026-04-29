@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "艾泽配装·装备查询",
-  "navigationBarBackgroundColor": "#09080d"
+  "navigationBarBackgroundColor": "#09080d",
+  "usingComponents": {
+    "equipment-detail": "/components/equipment-detail/equipment-detail"
+  }
 }

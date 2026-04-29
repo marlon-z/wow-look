@@ -15,6 +15,7 @@ const {
 const {
   getFavorites,
   isFavorite,
+  buildFavoriteGroups,
   buildFavoriteSnapshot,
   toggleFavorite,
   removeFavorite,
@@ -67,6 +68,7 @@ Page({
     showModal: false,
     favoriteCount: 0,
     favoriteList: [],
+    favoriteGroups: [],
     showFavorites: false,
     pageStyle: '',
   },
@@ -478,6 +480,7 @@ Page({
     const favoriteList = getFavorites();
     this.setData({
       favoriteList,
+      favoriteGroups: buildFavoriteGroups(favoriteList),
       favoriteCount: favoriteList.length,
     });
   },

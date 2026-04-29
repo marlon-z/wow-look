@@ -15,6 +15,7 @@ const {
 } = require('../../utils/equipment');
 const {
   getFavorites,
+  buildFavoriteGroups,
   removeFavorite,
   clearFavorites,
   isFavorite,
@@ -40,6 +41,7 @@ Page({
     row3: [],
     favoriteCount: 0,
     favoriteList: [],
+    favoriteGroups: [],
     showFavorites: false,
     selectedItem: null,
     showModal: false,
@@ -76,6 +78,7 @@ Page({
     const favoriteList = getFavorites();
     this.setData({
       favoriteList,
+      favoriteGroups: buildFavoriteGroups(favoriteList),
       favoriteCount: favoriteList.length,
     });
   },

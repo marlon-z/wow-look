@@ -200,7 +200,17 @@
             <view class="item-body">
               <view class="item-row item-row-1">
                 <text class="item-name epic-text">{{equip.name}}</text>
-                <text class="item-quality-badge">{{equip.slotName}}</text>
+                <view class="item-row-actions">
+                  <view
+                    class="favorite-star item-favorite-star {{equip.isFavorite ? 'on' : ''}}"
+                    catchtap="onFavoriteTap"
+                    data-item-id="{{equip.id}}"
+                  >
+                    <view class="favorite-icon"></view>
+                    <text class="favorite-text">{{equip.isFavorite ? '已收藏' : '收藏'}}</text>
+                  </view>
+                  <text class="item-quality-badge">{{equip.slotName}}</text>
+                </view>
               </view>
               <view class="item-row item-row-2">
                 <text class="item-stat-line">{{equip.statLine}}</text>
@@ -244,7 +254,14 @@
         <view class="tt-section">
           <view class="tt-ilvl-row">
             <text class="tt-ilvl">物品等级 {{selectedItem.ilvl}}</text>
-            <view class="tt-badge-icon"></view>
+            <view
+              class="favorite-star tt-favorite-star {{selectedItem.isFavorite ? 'on' : ''}}"
+              catchtap="onFavoriteTap"
+              data-item-id="{{selectedItem.id}}"
+            >
+              <view class="favorite-icon"></view>
+              <text class="favorite-text">{{selectedItem.isFavorite ? '已收藏' : '收藏'}}</text>
+            </view>
           </view>
           <text wx:if="{{selectedItem.upgradeTrack}}" class="tt-line">升级：{{selectedItem.upgradeTrack}}</text>
           <text class="tt-line">{{selectedItem.slotName}}<block wx:if="{{selectedItem.itemSubType}}"> · {{selectedItem.itemSubType}}</block></text>

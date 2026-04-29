@@ -12,6 +12,12 @@ const {
   buildInstanceOptions,
   getEmptyMessage,
 } = require('../../utils/equipment');
+const {
+  getFavorites,
+  isFavorite,
+  buildFavoriteSnapshot,
+  toggleFavorite,
+} = require('../../utils/favorites');
 
 function normalizeTooltipText(text) {
   return String(text || '')
@@ -149,8 +155,15 @@ Page({
     this.loadData(classKey);
   },
 
+  onShow() {
+    if (this.data.allItems.length) {
+      this.refreshFavoriteFlags();
+    }
+  },
+
   loadData(classKey) {
     loadClassData(classKey).then((data) => {
+      const favorites = getFavorites();
       const allItems = data
         ? flattenItems(data.instances || []).map((item) => ({
           ...item,
@@ -163,6 +176,7 @@ Page({
             : (item.stats && item.stats.effects && item.stats.effects.equip && item.stats.effects.equip.length ? '装备特效' : ''),
           rightMeta: item.slot === 'weapon' ? item.itemSubType : (item.armorType !== 'none' ? item.armorTypeName : item.slotName),
           iconText: item.iconText || (item.name ? item.name.slice(0, 1) : '装'),
+          isFavorite: isFavorite(classKey, item.id, favorites),
         }))
         : [];
       this.itemMap = {};
@@ -184,6 +198,27 @@ Page({
 
       this.applyFilters();
     });
+  },
+
+  refreshFavoriteFlags() {
+    const favorites = getFavorites();
+    const allItems = this.data.allItems.map((item) => ({
+      ...item,
+      isFavorite: isFavorite(this.data.classKey, item.id, favorites),
+    }));
+    this.itemMap = {};
+    allItems.forEach((item) => {
+      this.itemMap[item.id] = item;
+    });
+    this.setData({
+      allItems,
+      selectedItem: this.data.selectedItem
+        ? {
+          ...this.data.selectedItem,
+          isFavorite: isFavorite(this.data.classKey, this.data.selectedItem.id, favorites),
+        }
+        : null,
+    }, () => this.applyFilters());
   },
 
   onSpecTap(event) {
@@ -439,6 +474,29 @@ Page({
         ].filter(Boolean),
       },
     });
+  },
+
+  onFavoriteTap(event) {
+    const item = this.itemMap[event.currentTarget.dataset.itemId];
+    if (!item) {
+      return;
+    }
+
+    const result = toggleFavorite(buildFavoriteSnapshot(this.data.classKey, this.data.className, item));
+    const allItems = this.data.allItems.map((equip) => (
+      equip.id === item.id ? { ...equip, isFavorite: result.isFavorite } : equip
+    ));
+    this.itemMap = {};
+    allItems.forEach((equip) => {
+      this.itemMap[equip.id] = equip;
+    });
+
+    this.setData({
+      allItems,
+      selectedItem: this.data.selectedItem && this.data.selectedItem.id === item.id
+        ? { ...this.data.selectedItem, isFavorite: result.isFavorite }
+        : this.data.selectedItem,
+    }, () => this.applyFilters());
   },
 
   closeModal() {

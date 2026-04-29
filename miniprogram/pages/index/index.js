@@ -1,4 +1,5 @@
 const { COS_BASE, CLASS_LIST, getClassVisualAssets, loadOverview } = require('../../utils/class-data');
+const { getFavorites, removeFavorite, clearFavorites } = require('../../utils/favorites');
 
 function enrichList(list, countMap) {
   return list.map((item) => ({
@@ -14,6 +15,9 @@ Page({
     row1: [],
     row2: [],
     row3: [],
+    favoriteCount: 0,
+    favoriteList: [],
+    showFavorites: false,
   },
 
   onLoad() {
@@ -38,6 +42,56 @@ Page({
     });
   },
 
+  onShow() {
+    this.refreshFavorites();
+  },
+
+  refreshFavorites() {
+    const favoriteList = getFavorites();
+    this.setData({
+      favoriteList,
+      favoriteCount: favoriteList.length,
+    });
+  },
+
+  openFavorites() {
+    this.refreshFavorites();
+    this.setData({ showFavorites: true });
+  },
+
+  closeFavorites() {
+    this.setData({ showFavorites: false });
+  },
+
+  removeFavoriteItem(event) {
+    const { key } = event.currentTarget.dataset;
+    removeFavorite(key);
+    this.refreshFavorites();
+    wx.showToast({
+      title: '已移除收藏',
+      icon: 'none',
+    });
+  },
+
+  clearFavoriteItems() {
+    if (!this.data.favoriteList.length) {
+      return;
+    }
+    wx.showModal({
+      title: '清空收藏',
+      content: '确定移除全部收藏装备？',
+      confirmText: '清空',
+      confirmColor: '#e05050',
+      success: (res) => {
+        if (!res.confirm) {
+          return;
+        }
+        clearFavorites();
+        this.refreshFavorites();
+      },
+    });
+  },
+
   onShareAppMessage() {
     return {
       title: '艾泽配装 · 当赛季装备一键速查',
@@ -57,4 +111,6 @@ Page({
       url: `/pages/equipment/equipment?classKey=${key}&className=${name}`,
     });
   },
+
+  preventClose() {},
 });

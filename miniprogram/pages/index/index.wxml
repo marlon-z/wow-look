@@ -1,5 +1,12 @@
+<page-meta page-style="{{showFavorites ? 'overflow:hidden;height:100vh;' : ''}}" />
 <view class="page-shell index-page">
   <image class="global-site-bg" src="{{cosBase}}/assets/public/bg.png" mode="aspectFill" />
+  <view class="favorite-entry" bindtap="openFavorites">
+    <view class="favorite-entry-icon icon-star-filled"></view>
+    <text class="favorite-entry-label">收藏</text>
+    <view wx:if="{{favoriteCount}}" class="favorite-entry-count">{{favoriteCount}}</view>
+  </view>
+
   <view class="header-section">
     <image class="logo-img" src="{{cosBase}}/assets/public/logo.png" mode="widthFix" />
   </view>
@@ -35,5 +42,48 @@
     <view class="footer-ornament"></view>
     <text>采集数据 · 仅供参考</text>
     <view class="footer-ornament"></view>
+  </view>
+
+  <view wx:if="{{showFavorites}}" class="favorite-mask" bindtap="closeFavorites">
+    <view class="favorite-panel" catchtap="preventClose">
+      <view class="favorite-panel-head">
+        <view class="favorite-title-wrap">
+          <view class="favorite-title-icon icon-star-filled"></view>
+          <text class="favorite-title">收藏</text>
+          <text class="favorite-count">共 {{favoriteCount}} 件</text>
+        </view>
+        <text class="favorite-close" bindtap="closeFavorites">×</text>
+      </view>
+
+      <block wx:if="{{favoriteList.length}}">
+        <scroll-view class="favorite-list" scroll-y enhanced show-scrollbar="{{false}}">
+          <view wx:for="{{favoriteList}}" wx:key="key" class="favorite-item">
+            <view class="favorite-icon-wrap">
+              <image wx:if="{{item.iconAsset}}" class="favorite-icon-img" src="{{item.iconAsset}}" mode="aspectFill" />
+              <text wx:else class="favorite-icon-letter">{{item.iconText}}</text>
+            </view>
+            <view class="favorite-item-body">
+              <view class="favorite-name-row">
+                <text class="favorite-name">{{item.name}}</text>
+                <text class="favorite-slot">{{item.slotName}}</text>
+              </view>
+              <text class="favorite-stat">{{item.statLine}}</text>
+              <text class="favorite-source">{{item.className}} · {{item.sourceName}}<block wx:if="{{item.encounterName}}"> · {{item.encounterName}}</block></text>
+            </view>
+            <view class="favorite-remove" catchtap="removeFavoriteItem" data-key="{{item.key}}">
+              <view class="favorite-remove-icon"></view>
+            </view>
+          </view>
+        </scroll-view>
+        <view class="favorite-actions">
+          <text class="favorite-clear" bindtap="clearFavoriteItems">清空收藏</text>
+        </view>
+      </block>
+
+      <view wx:else class="favorite-empty">
+        <view class="favorite-empty-icon icon-star-outline"></view>
+        <text class="favorite-empty-text">还没有收藏装备</text>
+      </view>
+    </view>
   </view>
 </view>

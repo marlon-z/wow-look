@@ -1,5 +1,5 @@
 local ADDON_NAME = ...
-local ADDON_VERSION = "0.3.1"
+local ADDON_VERSION = "0.4.0"
 
 WoWLookTierExportDB = WoWLookTierExportDB or {
     version = ADDON_VERSION,
@@ -228,6 +228,34 @@ local SLOT_TEXTS = {
     ["腿部"] = "legs",
     ["脚部"] = "feet",
     ["背部"] = "back",
+}
+
+local TRANSMOG_APPEARANCE_SLOTS = {
+    { slotId = 1, slotKey = "head" },
+    { slotId = 3, slotKey = "shoulder" },
+    { slotId = 15, slotKey = "back" },
+    { slotId = 5, slotKey = "chest" },
+    { slotId = 9, slotKey = "wrist" },
+    { slotId = 10, slotKey = "hands" },
+    { slotId = 6, slotKey = "waist" },
+    { slotId = 7, slotKey = "legs" },
+    { slotId = 8, slotKey = "feet" },
+}
+
+local TRANSMOG_CLASS_MASK_BY_CLASS_ID = {
+    [1] = 0x1,
+    [2] = 0x2,
+    [3] = 0x4,
+    [4] = 0x8,
+    [5] = 0x10,
+    [6] = 0x20,
+    [7] = 0x40,
+    [8] = 0x80,
+    [9] = 0x100,
+    [10] = 0x200,
+    [11] = 0x400,
+    [12] = 0x800,
+    [13] = 0x1000,
 }
 
 local function Print(msg)
@@ -579,6 +607,75 @@ local function HasText(value)
     return type(value) == "string" and value:match("%S") ~= nil
 end
 
+local function TrimText(value)
+    if type(value) ~= "string" then
+        return ""
+    end
+    return value:match("^%s*(.-)%s*$") or ""
+end
+
+local function ContainsClassMask(classMask, classId)
+    local mask = TRANSMOG_CLASS_MASK_BY_CLASS_ID[classId]
+    if not (classMask and mask) then
+        return false
+    end
+    return (math.floor(classMask / mask) % 2) == 1
+end
+
+local function TransmogSetMatchesClass(setData, classId)
+    if not setData then
+        return false
+    end
+    if setData.classMask and setData.classMask > 0 then
+        return ContainsClassMask(setData.classMask, classId)
+    end
+    if C_TransmogSets and type(C_TransmogSets.GetValidClassForSet) == "function" and setData.setID then
+        local ok, validClassId = pcall(C_TransmogSets.GetValidClassForSet, setData.setID)
+        return ok and validClassId == classId
+    end
+    return true
+end
+
+local function DescriptionLooksHeroic(setData)
+    local text = TrimText((setData and (setData.description or setData.label)) or "")
+    return text == "Heroic" or text == "英雄" or text:match("Heroic") ~= nil or text:match("英雄") ~= nil
+end
+
+local function WithTransmogClassFilter(classId, callback)
+    if not C_TransmogSets then
+        return callback()
+    end
+
+    local hasGetter = type(C_TransmogSets.GetTransmogSetsClassFilter) == "function"
+    local hasSetter = type(C_TransmogSets.SetTransmogSetsClassFilter) == "function"
+    local originalFilter = nil
+    local shouldRestore = false
+
+    if hasGetter then
+        local ok, value = pcall(C_TransmogSets.GetTransmogSetsClassFilter)
+        if ok then
+            originalFilter = value
+            shouldRestore = true
+        end
+    end
+
+    if hasSetter then
+        pcall(C_TransmogSets.SetTransmogSetsClassFilter, classId)
+    end
+
+    local results = { pcall(callback) }
+
+    if hasSetter and shouldRestore then
+        pcall(C_TransmogSets.SetTransmogSetsClassFilter, originalFilter)
+    end
+
+    if results[1] then
+        return results[2], results[3], results[4]
+    end
+
+    return nil, tostring(results[2] or "transmog class filter failed")
+end
+
 local function CountMissingBonusTexts(payload)
     local missingCount = 0
 
@@ -616,11 +713,239 @@ local function CountMissingBonusTexts(payload)
     return missingCount
 end
 
-local function ProbeItem(itemId, classKey, setInfo)
+local function CountMissingItemData(payload)
+    local missingCount = 0
+
+    for _, classData in ipairs(payload.classes or {}) do
+        for _, item in ipairs(classData.items or {}) do
+            if not HasText(item.name) or not item.icon or item.icon == 0 then
+                missingCount = missingCount + 1
+                if C_Item and type(C_Item.RequestLoadItemDataByID) == "function" and item.itemId then
+                    C_Item.RequestLoadItemDataByID(item.itemId)
+                end
+            end
+        end
+    end
+
+    return missingCount
+end
+
+local function AddTransmogCandidate(candidates, setID)
+    if not (setID and setID > 0) or candidates[setID] then
+        return
+    end
+
+    if C_TransmogSets and type(C_TransmogSets.GetSetInfo) == "function" then
+        local ok, setData = pcall(C_TransmogSets.GetSetInfo, setID)
+        if ok and type(setData) == "table" then
+            candidates[setID] = setData
+            return
+        end
+    end
+
+    candidates[setID] = { setID = setID }
+end
+
+local function AddTransmogCandidatesFromBonusItems(candidates, bonusItemLookup)
+    if not (C_TransmogCollection and C_TransmogSets) then
+        return
+    end
+    if type(C_TransmogCollection.GetItemInfo) ~= "function" or type(C_TransmogSets.GetSetsContainingSourceID) ~= "function" then
+        return
+    end
+
+    for itemId in pairs(bonusItemLookup or {}) do
+        local ok, _, sourceID = pcall(C_TransmogCollection.GetItemInfo, itemId)
+        if ok and sourceID and sourceID > 0 then
+            local setOk, setIDs = pcall(C_TransmogSets.GetSetsContainingSourceID, sourceID)
+            if setOk and type(setIDs) == "table" then
+                for _, setID in ipairs(setIDs) do
+                    AddTransmogCandidate(candidates, setID)
+                end
+            end
+        end
+    end
+end
+
+local function AddTransmogCandidatesByName(candidates, localizedSetName, fallbackSetName)
+    if not (C_TransmogSets and type(C_TransmogSets.GetAllSets) == "function") then
+        return
+    end
+
+    local ok, sets = pcall(C_TransmogSets.GetAllSets)
+    if not ok or type(sets) ~= "table" then
+        return
+    end
+
+    localizedSetName = TrimText(localizedSetName)
+    fallbackSetName = TrimText(fallbackSetName)
+
+    for _, setData in ipairs(sets) do
+        local setName = TrimText(setData and setData.name)
+        if setName ~= "" and (setName == localizedSetName or setName == fallbackSetName) then
+            AddTransmogCandidate(candidates, setData.setID)
+        end
+    end
+end
+
+local function SelectAppearanceSource(sources, bonusItemLookup)
+    local fallbackSource = nil
+    local heroicSource = nil
+
+    for _, source in ipairs(sources or {}) do
+        if source and source.itemID and source.itemID > 0 and not source.isHideVisual then
+            if bonusItemLookup and bonusItemLookup[source.itemID] then
+                return source
+            end
+            if not fallbackSource then
+                fallbackSource = source
+            end
+            if source.itemModID == 1 then
+                heroicSource = source
+            end
+        end
+    end
+
+    return heroicSource or fallbackSource
+end
+
+local function CountBonusMatchesForTransmogSet(transmogSetID, bonusItemLookup)
+    if not (C_TransmogSets and type(C_TransmogSets.GetSourcesForSlot) == "function") then
+        return 0
+    end
+
+    local matched = {}
+    local count = 0
+    for _, slotInfo in ipairs(TRANSMOG_APPEARANCE_SLOTS) do
+        local ok, sources = pcall(C_TransmogSets.GetSourcesForSlot, transmogSetID, slotInfo.slotId)
+        if ok and type(sources) == "table" then
+            for _, source in ipairs(sources) do
+                if source and source.itemID and bonusItemLookup[source.itemID] and not matched[source.itemID] then
+                    matched[source.itemID] = true
+                    count = count + 1
+                end
+            end
+        end
+    end
+    return count
+end
+
+local function ScoreTransmogSetCandidate(setData, localizedSetName, fallbackSetName, classId, bonusItemLookup)
+    local score = 0
+    local setName = TrimText(setData and setData.name)
+    localizedSetName = TrimText(localizedSetName)
+    fallbackSetName = TrimText(fallbackSetName)
+
+    if setName ~= "" and setName == localizedSetName then
+        score = score + 1000
+    elseif setName ~= "" and setName == fallbackSetName then
+        score = score + 700
+    end
+
+    if TransmogSetMatchesClass(setData, classId) then
+        score = score + 100
+    end
+    if DescriptionLooksHeroic(setData) then
+        score = score + 50
+    end
+
+    score = score + (CountBonusMatchesForTransmogSet(setData and setData.setID, bonusItemLookup) * 25)
+    return score
+end
+
+local function FindTransmogSet(setInfo, localizedSetName, bonusItemLookup)
+    if not C_TransmogSets then
+        return nil, nil, "C_TransmogSets 不可用"
+    end
+
+    local candidates = {}
+    AddTransmogCandidatesFromBonusItems(candidates, bonusItemLookup)
+    AddTransmogCandidatesByName(candidates, localizedSetName, setInfo.setName)
+
+    local bestSet = nil
+    local bestScore = -1
+    for _, setData in pairs(candidates) do
+        if TransmogSetMatchesClass(setData, setInfo.classId) then
+            local score = ScoreTransmogSetCandidate(setData, localizedSetName, setInfo.setName, setInfo.classId, bonusItemLookup)
+            if score > bestScore then
+                bestScore = score
+                bestSet = setData
+            end
+        end
+    end
+
+    if not bestSet then
+        return nil, nil, "未找到匹配的幻化套装"
+    end
+
+    return bestSet.setID, bestSet, nil
+end
+
+local function BuildTransmogAppearanceSources(setInfo, localizedSetName, bonusItemLookup)
+    return WithTransmogClassFilter(setInfo.classId, function()
+        local transmogSetID, transmogSet, findError = FindTransmogSet(setInfo, localizedSetName, bonusItemLookup)
+        local result = {
+            setID = transmogSetID or 0,
+            name = transmogSet and transmogSet.name or "",
+            description = transmogSet and transmogSet.description or "",
+            label = transmogSet and transmogSet.label or "",
+            sources = {},
+            warnings = {},
+        }
+
+        local playerClassId = select(3, UnitClass("player")) or 0
+        if playerClassId ~= setInfo.classId and not (C_TransmogSets and type(C_TransmogSets.SetTransmogSetsClassFilter) == "function") then
+            result.warnings[#result.warnings + 1] = "当前客户端不支持切换幻化职业过滤，非当前职业的完整外观可能无法读取"
+        end
+
+        if not transmogSetID then
+            result.warnings[#result.warnings + 1] = findError or "未找到匹配的幻化套装"
+            return result
+        end
+
+        if not (C_TransmogSets and type(C_TransmogSets.GetSourcesForSlot) == "function") then
+            result.warnings[#result.warnings + 1] = "C_TransmogSets.GetSourcesForSlot 不可用"
+            return result
+        end
+
+        local seenItemIds = {}
+        for _, slotInfo in ipairs(TRANSMOG_APPEARANCE_SLOTS) do
+            local ok, sources = pcall(C_TransmogSets.GetSourcesForSlot, transmogSetID, slotInfo.slotId)
+            if ok and type(sources) == "table" then
+                local source = SelectAppearanceSource(sources, bonusItemLookup)
+                if source and source.itemID and not seenItemIds[source.itemID] then
+                    seenItemIds[source.itemID] = true
+                    result.sources[#result.sources + 1] = {
+                        itemId = source.itemID,
+                        slotId = slotInfo.slotId,
+                        slotKey = slotInfo.slotKey,
+                        sourceId = source.sourceID or 0,
+                        visualId = source.visualID or 0,
+                        itemModId = source.itemModID or 0,
+                        isCollected = source.isCollected or false,
+                        isBonusPiece = bonusItemLookup[source.itemID] == true,
+                    }
+                elseif not source then
+                    result.warnings[#result.warnings + 1] = "幻化槽位无来源: " .. tostring(slotInfo.slotKey)
+                end
+            else
+                result.warnings[#result.warnings + 1] = "读取幻化槽位失败: " .. tostring(slotInfo.slotKey)
+            end
+        end
+
+        return result
+    end)
+end
+
+local function ProbeItem(itemId, classKey, setInfo, options)
+    options = options or {}
     local seasonLink = BuildSeasonLink(itemId)
     local name, baseLink, quality, _, minLevel, itemType, itemSubType,
         stackCount, equipLoc, icon, sellPrice, itemClassId, itemSubclassId, bindType, expacId, setId =
         GetItemInfo(itemId)
+    if not name and C_Item and type(C_Item.RequestLoadItemDataByID) == "function" then
+        C_Item.RequestLoadItemDataByID(itemId)
+    end
 
     local tooltipLines = GetTooltipLines(seasonLink)
     local parsedTooltip = ParseTooltipLines(tooltipLines)
@@ -634,7 +959,11 @@ local function ProbeItem(itemId, classKey, setInfo)
         }
     end
 
-    local specBonuses, bonusSpecCount = BuildSpecBonusRecords(itemId, seasonLink, setInfo.classId, setInfo.specs)
+    local specBonuses = {}
+    local bonusSpecCount = 0
+    if options.includeSpecBonuses ~= false then
+        specBonuses, bonusSpecCount = BuildSpecBonusRecords(itemId, seasonLink, setInfo.classId, setInfo.specs)
+    end
     local setInfoRaw = GetSetInfoSafe(setId)
 
     return {
@@ -657,6 +986,9 @@ local function ProbeItem(itemId, classKey, setInfo)
         expacId = expacId or 0,
         setId = setId or 0,
         setInfoRaw = setInfoRaw,
+        collectionKind = options.collectionKind or "bonus",
+        isBonusPiece = options.isBonusPiece ~= false,
+        appearance = options.appearance,
         itemLevel = parsedTooltip.itemLevel or 0,
         detailedItemLevel = detailedItemLevel,
         tooltip = {
@@ -675,11 +1007,71 @@ local function BuildClassExport(classKey)
     end
 
     local items = {}
+    local itemById = {}
+    local bonusItemLookup = {}
     local bonusSpecMatches = 0
     for _, itemId in ipairs(setInfo.itemIds) do
-        local itemRecord = ProbeItem(itemId, classKey, setInfo)
+        bonusItemLookup[itemId] = true
+        local itemRecord = ProbeItem(itemId, classKey, setInfo, {
+            collectionKind = "bonus",
+            isBonusPiece = true,
+        })
         items[#items + 1] = itemRecord
+        itemById[itemId] = itemRecord
         bonusSpecMatches = bonusSpecMatches + (itemRecord.bonusSpecCount or 0)
+    end
+
+    local localizedSetName = ""
+    for _, itemRecord in ipairs(items) do
+        localizedSetName = (((itemRecord.tooltip or {}).parsed or {}).setData or {}).name or ""
+        if HasText(localizedSetName) then
+            break
+        end
+    end
+
+    local transmogData, transmogError = BuildTransmogAppearanceSources(setInfo, localizedSetName, bonusItemLookup)
+    transmogData = transmogData or {
+        setID = 0,
+        name = "",
+        description = "",
+        label = "",
+        sources = {},
+        warnings = { transmogError or "幻化套装读取失败" },
+    }
+
+    local appearanceItemCount = 0
+    local extraAppearanceItemCount = 0
+    for _, source in ipairs(transmogData.sources or {}) do
+        appearanceItemCount = appearanceItemCount + 1
+        local appearance = {
+            transmogSetId = transmogData.setID or 0,
+            transmogSetName = transmogData.name or "",
+            transmogSetDescription = transmogData.description or "",
+            transmogSetLabel = transmogData.label or "",
+            slotId = source.slotId or 0,
+            slotKey = source.slotKey or "",
+            sourceId = source.sourceId or 0,
+            visualId = source.visualId or 0,
+            itemModId = source.itemModId or 0,
+            isCollected = source.isCollected or false,
+            isBonusPiece = source.isBonusPiece or false,
+        }
+
+        local existing = itemById[source.itemId]
+        if existing then
+            existing.appearance = appearance
+            existing.isBonusPiece = true
+        else
+            local itemRecord = ProbeItem(source.itemId, classKey, setInfo, {
+                includeSpecBonuses = false,
+                collectionKind = "appearance",
+                isBonusPiece = false,
+                appearance = appearance,
+            })
+            items[#items + 1] = itemRecord
+            itemById[source.itemId] = itemRecord
+            extraAppearanceItemCount = extraAppearanceItemCount + 1
+        end
     end
 
     return {
@@ -690,7 +1082,18 @@ local function BuildClassExport(classKey)
         setName = setInfo.setName,
         specs = setInfo.specs,
         itemCount = #items,
+        bonusItemCount = #setInfo.itemIds,
+        appearanceItemCount = appearanceItemCount,
+        extraAppearanceItemCount = extraAppearanceItemCount,
         bonusSpecMatches = bonusSpecMatches,
+        transmogSet = {
+            setID = transmogData.setID or 0,
+            name = transmogData.name or "",
+            description = transmogData.description or "",
+            label = transmogData.label or "",
+            localizedItemSetName = localizedSetName or "",
+            warnings = transmogData.warnings or {},
+        },
         items = items,
     }
 end
@@ -701,6 +1104,11 @@ local function BuildExportPayload(classKeys)
         exportedAt = date("%Y-%m-%d %H:%M:%S"),
         classCount = 0,
         itemCount = 0,
+        bonusItemCount = 0,
+        appearanceItemCount = 0,
+        extraAppearanceItemCount = 0,
+        transmogSetCount = 0,
+        transmogWarningCount = 0,
         bonusSpecMatches = 0,
         build = select(2, GetBuildInfo()),
         buildNumber = select(4, GetBuildInfo()),
@@ -714,6 +1122,13 @@ local function BuildExportPayload(classKeys)
             WoWLookTierExportDB.classes[classKey] = classData
             summary.classCount = summary.classCount + 1
             summary.itemCount = summary.itemCount + classData.itemCount
+            summary.bonusItemCount = summary.bonusItemCount + (classData.bonusItemCount or 0)
+            summary.appearanceItemCount = summary.appearanceItemCount + (classData.appearanceItemCount or 0)
+            summary.extraAppearanceItemCount = summary.extraAppearanceItemCount + (classData.extraAppearanceItemCount or 0)
+            if classData.transmogSet and classData.transmogSet.setID and classData.transmogSet.setID > 0 then
+                summary.transmogSetCount = summary.transmogSetCount + 1
+            end
+            summary.transmogWarningCount = summary.transmogWarningCount + #(((classData or {}).transmogSet or {}).warnings or {})
             summary.bonusSpecMatches = summary.bonusSpecMatches + classData.bonusSpecMatches
         end
     end
@@ -797,9 +1212,10 @@ local function StartExport(classKeys)
         end
 
         local missingTexts = CountMissingBonusTexts(payload)
-        if missingTexts > 0 and attempt < maxAttempts then
-            Print(string.format("第 %d/%d 次导出检测到 %d 条套装效果正文未就绪，1秒后重试。",
-                attempt, maxAttempts, missingTexts))
+        local missingItems = CountMissingItemData(payload)
+        if (missingTexts > 0 or missingItems > 0) and attempt < maxAttempts then
+            Print(string.format("第 %d/%d 次导出检测到 %d 条套装效果正文、%d 件物品数据未就绪，1秒后重试。",
+                attempt, maxAttempts, missingTexts, missingItems))
             C_Timer.After(1, function()
                 RunAttempt(attempt + 1)
             end)
@@ -814,10 +1230,18 @@ local function StartExport(classKeys)
         if missingTexts > 0 then
             PrintWarn(string.format("导出完成，但仍有 %d 条套装效果正文为空。", missingTexts))
         end
+        if missingItems > 0 then
+            PrintWarn(string.format("导出完成，但仍有 %d 件物品数据未就绪。", missingItems))
+        end
+        if (summary.transmogWarningCount or 0) > 0 then
+            PrintWarn(string.format("导出完成，但有 %d 条幻化套装读取警告。", summary.transmogWarningCount or 0))
+        end
 
-        Print(string.format("导出完成: %d 职业, %d 件套装, %d 组专精效果。",
+        Print(string.format("导出完成: %d 职业, %d 件装备（%d 件特效套装，额外 %d 件外观）, %d 组专精效果。",
             summary.classCount or 0,
             summary.itemCount or 0,
+            summary.bonusItemCount or 0,
+            summary.extraAppearanceItemCount or 0,
             summary.bonusSpecMatches or 0))
         Print("数据已保存到 SavedVariables/WoWLookTierExport.lua")
         Print("请 /reload 后到 WTF 目录查看。")
@@ -846,10 +1270,12 @@ local function PrintSummary()
     end
 
     Print(string.format("上次导出: %s", summary.exportedAt or ""))
-    Print(string.format("模式: %s, 职业: %d, 物品: %d, 专精效果: %d",
+    Print(string.format("模式: %s, 职业: %d, 物品: %d, 特效套装: %d, 额外外观: %d, 专精效果: %d",
         summary.mode or "",
         summary.classCount or 0,
         summary.itemCount or 0,
+        summary.bonusItemCount or 0,
+        summary.extraAppearanceItemCount or 0,
         summary.bonusSpecMatches or 0))
 end
 

@@ -19,6 +19,8 @@ function getClassMeta(classKey) {
 }
 
 const COS_BASE = 'https://wowlook-1308073800.cos.ap-guangzhou.myqcloud.com';
+const DATA_VERSION = '4.2.x';
+const DATA_DIR = `data-${DATA_VERSION}`;
 
 function getClassVisualAssets(classKey) {
   const classMeta = getClassMeta(classKey);
@@ -33,7 +35,7 @@ function getClassVisualAssets(classKey) {
 function loadOverview() {
   return new Promise((resolve) => {
     wx.request({
-      url: `${COS_BASE}/data/overview.json`,
+      url: `${COS_BASE}/${DATA_DIR}/overview.json`,
       success(res) { resolve(res.data); },
       fail(err) {
         console.error('load overview failed', err);
@@ -50,7 +52,7 @@ function loadClassData(classKey) {
   }
   return new Promise((resolve) => {
     wx.request({
-      url: `${COS_BASE}/data/${classKey}.json`,
+      url: `${COS_BASE}/${DATA_DIR}/${classKey}.json`,
       success(res) { resolve(res.data); },
       fail(err) {
         console.error(`load class data failed: ${classKey}`, err);
@@ -62,6 +64,8 @@ function loadClassData(classKey) {
 
 module.exports = {
   COS_BASE,
+  DATA_VERSION,
+  DATA_DIR,
   CLASS_LIST,
   getClassMeta,
   getClassVisualAssets,

@@ -102,10 +102,10 @@ Page({
     classEmblemAsset: '',
     specs: [],
     stats: [
-      { type: 'crit', name: '暴击', selected: false },
-      { type: 'haste', name: '急速', selected: false },
-      { type: 'mastery', name: '精通', selected: false },
-      { type: 'versatility', name: '全能', selected: false },
+      { type: 'crit', name: '暴击', state: 'none' },
+      { type: 'haste', name: '急速', state: 'none' },
+      { type: 'mastery', name: '精通', state: 'none' },
+      { type: 'versatility', name: '全能', state: 'none' },
     ],
     slots: SLOT_OPTIONS,
     sourceTypes: [
@@ -213,16 +213,29 @@ Page({
 
   onStatTap(event) {
     const { type } = event.currentTarget.dataset;
-    const selectedCount = this.data.stats.filter((item) => item.selected).length;
-    const stats = this.data.stats.map((item) => {
-      if (item.type !== type) {
-        return item;
+    const includeCount = this.data.stats.filter((item) => item.state === 'include').length;
+    let includeLimitReached = false;
+    let stats = this.data.stats.map((item) => {
+      if (item.type !== type) return item;
+      if (item.state === 'none') {
+        if (includeCount >= 2) {
+          includeLimitReached = true;
+          return item;
+        }
+        return { ...item, state: 'include' };
       }
-      if (!item.selected && selectedCount >= 2) {
-        return item;
-      }
-      return { ...item, selected: !item.selected };
+      if (item.state === 'include') return { ...item, state: 'exclude' };
+      return { ...item, state: 'none' };
     });
+    if (stats.filter((item) => item.state === 'include').length >= 2) {
+      stats = stats.map((item) => (item.state === 'exclude' ? { ...item, state: 'none' } : item));
+    }
+    if (includeLimitReached) {
+      wx.showToast({
+        title: '最多选择2个包含属性',
+        icon: 'none',
+      });
+    }
     this.setData({ stats });
     this.applyFilters();
   },
@@ -272,17 +285,19 @@ Page({
       selectedSourceType: 'all',
       selectedInstanceId: null,
       selectedViewMode: 'slot',
-      stats: this.data.stats.map((item) => ({ ...item, selected: false })),
+      stats: this.data.stats.map((item) => ({ ...item, state: 'none' })),
     });
     this.applyFilters();
   },
 
   applyFilters() {
-    const selectedStats = this.data.stats.filter((item) => item.selected).map((item) => item.type);
+    const selectedStats = this.data.stats.filter((item) => item.state === 'include').map((item) => item.type);
+    const excludedStats = this.data.stats.filter((item) => item.state === 'exclude').map((item) => item.type);
     const filteredItems = filterItems(this.data.allItems, {
       selectedSpec: this.data.selectedSpec,
       selectedSlots: this.data.selectedSlots,
       selectedStats,
+      excludedStats,
       selectedSourceType: this.data.selectedSourceType,
       selectedInstanceId: this.data.selectedInstanceId,
       keyword: this.data.keyword,
@@ -315,9 +330,11 @@ Page({
     });
     selectedStats.forEach((type) => {
       const stat = this.data.stats.find((item) => item.type === type);
-      if (stat) {
-        activeFilterParts.push(stat.name);
-      }
+      if (stat) activeFilterParts.push(stat.name);
+    });
+    excludedStats.forEach((type) => {
+      const stat = this.data.stats.find((item) => item.type === type);
+      if (stat) activeFilterParts.push(`排除${stat.name}`);
     });
     if (this.data.keyword.trim()) {
       activeFilterParts.push(`搜索:${this.data.keyword.trim()}`);
@@ -335,6 +352,7 @@ Page({
           this.data.selectedInstanceId ||
           this.data.selectedSourceType !== 'all' ||
           selectedStats.length ||
+          excludedStats.length ||
           this.data.keyword.trim()
         )
       ),

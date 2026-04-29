@@ -30,6 +30,14 @@ const SLOT_OPTIONS = [
   { type: 'weapon', name: '武' },
 ];
 
+const SLOT_ALIASES = {
+  back: 'cloak',
+};
+
+function normalizeSlotType(slot) {
+  return SLOT_ALIASES[slot] || slot;
+}
+
 function flattenItems(instances = []) {
   const result = [];
   let order = 0;
@@ -37,8 +45,10 @@ function flattenItems(instances = []) {
   instances.forEach((instance, instanceIndex) => {
     (instance.encounters || []).forEach((encounter, encounterIndex) => {
       (encounter.items || []).forEach((item, itemIndex) => {
+        const normalizedSlot = normalizeSlotType(item.slot);
         result.push({
           ...item,
+          slot: normalizedSlot,
           instanceId: instance.id,
           instanceName: instance.name,
           instanceType: instance.type,
@@ -65,6 +75,7 @@ function filterItems(items = [], filters = {}) {
     selectedSpec = null,
     selectedSlots = [],
     selectedStats = [],
+    excludedStats = [],
     selectedSourceType = 'all',
     selectedInstanceId = null,
     keyword = '',
@@ -88,9 +99,12 @@ function filterItems(items = [], filters = {}) {
       return false;
     }
 
-    if (selectedStats.length > 0) {
+    if (selectedStats.length > 0 || excludedStats.length > 0) {
       const secondaryTypes = ((item.stats && item.stats.secondary) || []).map((stat) => stat.type);
-      if (!selectedStats.every((type) => secondaryTypes.includes(type))) {
+      if (selectedStats.length > 0 && !selectedStats.every((type) => secondaryTypes.includes(type))) {
+        return false;
+      }
+      if (excludedStats.length > 0 && excludedStats.some((type) => secondaryTypes.includes(type))) {
         return false;
       }
     }

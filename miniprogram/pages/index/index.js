@@ -22,6 +22,11 @@ const {
   buildFavoriteSnapshot,
   toggleFavorite,
 } = require('../../utils/favorites');
+const {
+  getAnnouncement,
+  isAnnouncementUnread,
+  markAnnouncementRead,
+} = require('../../utils/announcements');
 
 function enrichList(list, countMap) {
   return list.map((item) => ({
@@ -42,7 +47,11 @@ Page({
     favoriteCount: 0,
     favoriteList: [],
     favoriteGroups: [],
+    pendingRemoveFavoriteKey: '',
     showFavorites: false,
+    announcement: getAnnouncement(),
+    showAnnouncement: false,
+    hasUnreadAnnouncement: false,
     selectedItem: null,
     showModal: false,
     pageStyle: '',
@@ -54,6 +63,7 @@ Page({
       row1: enrichList(CLASS_LIST.slice(0, 4), countMap),
       row2: enrichList(CLASS_LIST.slice(4, 9), countMap),
       row3: enrichList(CLASS_LIST.slice(9, 13), countMap),
+      hasUnreadAnnouncement: isAnnouncementUnread(),
     });
 
     loadOverview().then((overview) => {
@@ -88,6 +98,22 @@ Page({
     this.setData({
       showFavorites: true,
       pageStyle: 'overflow:hidden;height:100vh;',
+    });
+  },
+
+  openAnnouncement() {
+    markAnnouncementRead();
+    this.setData({
+      showAnnouncement: true,
+      hasUnreadAnnouncement: false,
+      pageStyle: 'overflow:hidden;height:100vh;',
+    });
+  },
+
+  closeAnnouncement() {
+    this.setData({
+      showAnnouncement: false,
+      pageStyle: this.data.showFavorites || this.data.showModal ? 'overflow:hidden;height:100vh;' : '',
     });
   },
 
@@ -149,13 +175,26 @@ Page({
   closeFavorites() {
     this.setData({
       showFavorites: false,
+      pendingRemoveFavoriteKey: '',
       pageStyle: this.data.showModal ? 'overflow:hidden;height:100vh;' : '',
     });
   },
 
+  clearPendingRemoveFavorite() {
+    if (this.data.pendingRemoveFavoriteKey) {
+      this.setData({ pendingRemoveFavoriteKey: '' });
+    }
+  },
+
   removeFavoriteItem(event) {
     const { key } = event.currentTarget.dataset;
+    if (this.data.pendingRemoveFavoriteKey !== key) {
+      this.setData({ pendingRemoveFavoriteKey: key });
+      return;
+    }
+
     removeFavorite(key);
+    this.setData({ pendingRemoveFavoriteKey: '' });
     this.refreshFavorites();
     wx.showToast({
       title: '已移除收藏',
@@ -177,6 +216,7 @@ Page({
           return;
         }
         clearFavorites();
+        this.setData({ pendingRemoveFavoriteKey: '' });
         this.refreshFavorites();
       },
     });
@@ -201,7 +241,6 @@ Page({
       }
 
       this.setData({
-        showFavorites: false,
         showModal: true,
         pageStyle: 'overflow:hidden;height:100vh;',
         selectedItem: buildItemDetail({

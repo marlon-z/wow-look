@@ -38,6 +38,26 @@ function normalizeSlotType(slot) {
   return SLOT_ALIASES[slot] || slot;
 }
 
+function normalizeSlotName(slot, slotName) {
+  if (normalizeSlotType(slot) === 'wrist' || slotName === '手腕' || slotName === '护腕') {
+    return '腕';
+  }
+  if (slotName === '手部') {
+    return '手';
+  }
+  return slotName;
+}
+
+function buildSlotBadgeName(slot, slotName) {
+  if (normalizeSlotType(slot) === 'wrist' || slotName === '腕' || slotName === '手腕' || slotName === '护腕') {
+    return '护腕';
+  }
+  if (normalizeSlotType(slot) === 'hand' || slotName === '手' || slotName === '手部') {
+    return '手部';
+  }
+  return slotName;
+}
+
 function flattenItems(instances = []) {
   const result = [];
   let order = 0;
@@ -49,6 +69,8 @@ function flattenItems(instances = []) {
         result.push({
           ...item,
           slot: normalizedSlot,
+          slotName: normalizeSlotName(normalizedSlot, item.slotName),
+          slotBadgeName: buildSlotBadgeName(normalizedSlot, item.slotName),
           instanceId: instance.id,
           instanceName: instance.name,
           instanceType: instance.type,
@@ -77,6 +99,7 @@ function filterItems(items = [], filters = {}) {
     selectedStats = [],
     excludedStats = [],
     selectedSourceType = 'all',
+    selectedSourceTypes = [],
     selectedInstanceId = null,
     keyword = '',
   } = filters;
@@ -91,7 +114,10 @@ function filterItems(items = [], filters = {}) {
       return false;
     }
 
-    if (selectedSourceType !== 'all' && item.instanceType !== selectedSourceType) {
+    const activeSourceTypes = selectedSourceTypes.length
+      ? selectedSourceTypes
+      : (selectedSourceType !== 'all' ? [selectedSourceType] : []);
+    if (activeSourceTypes.length && activeSourceTypes.indexOf(item.instanceType) === -1) {
       return false;
     }
 
@@ -404,6 +430,7 @@ module.exports = {
   buildMetaLine,
   buildWhiteLines,
   buildItemDetail,
+  buildSlotBadgeName,
   buildInstanceOptions,
   getEmptyMessage,
 };

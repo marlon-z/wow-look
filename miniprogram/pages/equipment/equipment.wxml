@@ -99,7 +99,7 @@
         <view
           wx:for="{{sourceTypes}}"
           wx:key="type"
-          class="chip {{selectedSourceType === item.type ? 'on' : ''}}"
+          class="chip {{item.selected ? 'on' : ''}}"
           bindtap="onSourceTypeTap"
           data-type="{{item.type}}"
         >{{item.name}}</view>
@@ -131,9 +131,8 @@
       </view>
       <scroll-view class="chip-scroll-x" scroll-x="true" enhanced show-scrollbar="{{false}}">
         <view class="chip-scroll-wrap">
-          <block wx:for="{{instanceOptions}}" wx:key="id">
+          <block wx:for="{{visibleInstanceOptions}}" wx:key="id">
             <view
-              wx:if="{{selectedSourceType === 'all' || item.type === selectedSourceType}}"
               class="chip instance-chip {{selectedInstanceId === item.id ? 'on' : ''}}"
               bindtap="onInstanceTap"
               data-id="{{item.id}}"
@@ -210,7 +209,7 @@
                     <view class="favorite-icon"></view>
                     <text class="favorite-text">{{equip.isFavorite ? '已收藏' : '收藏'}}</text>
                   </view>
-                  <text class="item-quality-badge">{{equip.slotName}}</text>
+                  <text class="item-quality-badge">{{equip.slotBadgeName || equip.slotName}}</text>
                 </view>
               </view>
               <view class="item-row item-row-2">
@@ -240,14 +239,17 @@
   />
 
 <view wx:if="{{showFavorites}}" class="favorite-mask" bindtap="closeFavorites">
-    <view class="favorite-panel" catchtap="preventClose">
+    <view class="favorite-panel" catchtap="clearPendingRemoveFavorite">
       <view class="favorite-panel-head">
         <view class="favorite-title-wrap">
           <view class="favorite-title-icon icon-star-filled"></view>
           <text class="favorite-title">收藏夹</text>
           <text class="favorite-count">共 {{favoriteCount}} 件</text>
         </view>
-        <view class="favorite-close" bindtap="closeFavorites">×</view>
+        <view class="favorite-head-actions">
+          <view wx:if="{{favoriteGroups.length}}" class="favorite-clear-mini" catchtap="clearFavoriteItems">清空</view>
+          <view class="favorite-close" catchtap="closeFavorites">×</view>
+        </view>
       </view>
       <view class="favorite-divider"></view>
 
@@ -263,7 +265,7 @@
               wx:for-item="favorite"
               wx:key="key"
               class="favorite-item"
-              bindtap="onFavoriteItemTap"
+              catchtap="onFavoriteItemTap"
               data-item-id="{{favorite.itemId}}"
               data-class-key="{{favorite.classKey}}"
               data-class-name="{{favorite.className}}"
@@ -277,10 +279,10 @@
                 <view class="favorite-row favorite-row-1">
                   <text class="favorite-name">{{favorite.name}}</text>
                   <view class="favorite-row-actions">
-                    <text class="favorite-slot">{{favorite.slotName}}</text>
-                    <view class="favorite-remove-btn" catchtap="removeFavoriteItem" data-key="{{favorite.key}}">
+                    <text class="favorite-slot">{{favorite.slotBadgeName || favorite.slotName}}</text>
+                    <view class="favorite-remove-btn {{pendingRemoveFavoriteKey === favorite.key ? 'confirm' : ''}}" catchtap="removeFavoriteItem" data-key="{{favorite.key}}">
                       <view class="favorite-remove-icon-sm"></view>
-                      <text class="favorite-remove-text">删除</text>
+                      <text wx:if="{{pendingRemoveFavoriteKey === favorite.key}}" class="favorite-remove-confirm-text">确认</text>
                     </view>
                   </view>
                 </view>
@@ -298,9 +300,6 @@
             </view>
           </view>
         </scroll-view>
-        <view class="favorite-actions">
-          <view class="favorite-clear" bindtap="clearFavoriteItems">清空全部收藏</view>
-        </view>
       </block>
 
       <view wx:else class="favorite-empty">

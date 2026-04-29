@@ -1,6 +1,11 @@
 <page-meta page-style="{{pageStyle}}"></page-meta>
 <view class="page-shell index-page">
   <image class="global-site-bg" src="{{cosBase}}/assets/public/bg.png" mode="aspectFill" />
+  <view class="announcement-entry" bindtap="openAnnouncement">
+    <view class="announcement-entry-icon"></view>
+    <text class="announcement-entry-label">公告</text>
+    <view wx:if="{{hasUnreadAnnouncement}}" class="announcement-entry-dot"></view>
+  </view>
   <view class="favorite-entry" bindtap="openFavorites">
     <view class="favorite-entry-icon icon-star-filled"></view>
     <text class="favorite-entry-label">收藏夹</text>
@@ -45,14 +50,17 @@
   </view>
 
   <view wx:if="{{showFavorites}}" class="favorite-mask" bindtap="closeFavorites">
-    <view class="favorite-panel" catchtap="preventClose">
+    <view class="favorite-panel" catchtap="clearPendingRemoveFavorite">
       <view class="favorite-panel-head">
         <view class="favorite-title-wrap">
           <view class="favorite-title-icon icon-star-filled"></view>
           <text class="favorite-title">收藏夹</text>
           <text class="favorite-count">共 {{favoriteCount}} 件</text>
         </view>
-        <view class="favorite-close" bindtap="closeFavorites">×</view>
+        <view class="favorite-head-actions">
+          <view wx:if="{{favoriteGroups.length}}" class="favorite-clear-mini" catchtap="clearFavoriteItems">清空</view>
+          <view class="favorite-close" catchtap="closeFavorites">×</view>
+        </view>
       </view>
       <view class="favorite-divider"></view>
 
@@ -68,7 +76,7 @@
               wx:for-item="favorite"
               wx:key="key"
               class="favorite-item"
-              bindtap="onFavoriteItemTap"
+              catchtap="onFavoriteItemTap"
               data-item-id="{{favorite.itemId}}"
               data-class-key="{{favorite.classKey}}"
               data-class-name="{{favorite.className}}"
@@ -82,10 +90,10 @@
                 <view class="favorite-row favorite-row-1">
                   <text class="favorite-name">{{favorite.name}}</text>
                   <view class="favorite-row-actions">
-                    <text class="favorite-slot">{{favorite.slotName}}</text>
-                    <view class="favorite-remove-btn" catchtap="removeFavoriteItem" data-key="{{favorite.key}}">
+                    <text class="favorite-slot">{{favorite.slotBadgeName || favorite.slotName}}</text>
+                    <view class="favorite-remove-btn {{pendingRemoveFavoriteKey === favorite.key ? 'confirm' : ''}}" catchtap="removeFavoriteItem" data-key="{{favorite.key}}">
                       <view class="favorite-remove-icon-sm"></view>
-                      <text class="favorite-remove-text">删除</text>
+                      <text wx:if="{{pendingRemoveFavoriteKey === favorite.key}}" class="favorite-remove-confirm-text">确认</text>
                     </view>
                   </view>
                 </view>
@@ -103,14 +111,36 @@
             </view>
           </view>
         </scroll-view>
-        <view class="favorite-actions">
-          <view class="favorite-clear" bindtap="clearFavoriteItems">清空全部收藏</view>
-        </view>
       </block>
 
       <view wx:else class="favorite-empty">
         <view class="favorite-empty-icon icon-star-outline"></view>
         <text class="favorite-empty-text">还没有收藏装备</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{showAnnouncement}}" class="announcement-mask" bindtap="closeAnnouncement">
+    <view class="announcement-panel" catchtap="preventClose">
+      <view class="announcement-head">
+        <view class="announcement-title-wrap">
+          <view class="announcement-title-icon"></view>
+          <view class="announcement-title-block">
+            <text class="announcement-title">{{announcement.title}}</text>
+            <text class="announcement-meta">{{announcement.version}} · {{announcement.date}}</text>
+          </view>
+        </view>
+        <view class="favorite-close announcement-close" catchtap="closeAnnouncement">×</view>
+      </view>
+      <view class="favorite-divider"></view>
+      <view class="announcement-body">
+        <text class="announcement-summary">{{announcement.summary}}</text>
+        <view class="announcement-list">
+          <view wx:for="{{announcement.items}}" wx:key="*this" class="announcement-item">
+            <view class="announcement-bullet"></view>
+            <text class="announcement-item-text">{{item}}</text>
+          </view>
+        </view>
       </view>
     </view>
   </view>

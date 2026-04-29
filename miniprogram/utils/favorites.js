@@ -60,8 +60,29 @@ function isFavorite(classKey, itemId, favorites = getFavorites()) {
 }
 
 function getSlotOrder(slotName) {
-  const index = FAVORITE_SLOT_ORDER.indexOf(slotName);
+  const normalizedSlotName = normalizeFavoriteSlotName(slotName);
+  const index = FAVORITE_SLOT_ORDER.indexOf(normalizedSlotName);
   return index === -1 ? FAVORITE_SLOT_ORDER.length : index;
+}
+
+function normalizeFavoriteSlotName(slotName) {
+  if (slotName === '手腕' || slotName === '护腕') {
+    return '腕';
+  }
+  if (slotName === '手部') {
+    return '手';
+  }
+  return slotName;
+}
+
+function buildFavoriteSlotBadgeName(slotName) {
+  if (slotName === '腕' || slotName === '手腕' || slotName === '护腕') {
+    return '护腕';
+  }
+  if (slotName === '手' || slotName === '手部') {
+    return '手部';
+  }
+  return slotName;
 }
 
 function buildFavoriteGroups(favorites = []) {
@@ -88,6 +109,8 @@ function buildFavoriteGroups(favorites = []) {
     group.firstAddedAt = Math.max(group.firstAddedAt, favorite.addedAt || 0);
     group.items.push({
       ...favorite,
+      slotName: normalizeFavoriteSlotName(favorite.slotName),
+      slotBadgeName: favorite.slotBadgeName || buildFavoriteSlotBadgeName(favorite.slotName),
       _slotOrder: getSlotOrder(favorite.slotName),
       _addedAt: favorite.addedAt || 0,
     });
@@ -124,7 +147,8 @@ function buildFavoriteSnapshot(classKey, className, item) {
     classKey,
     className,
     name: item.name,
-    slotName: item.slotName,
+    slotName: normalizeFavoriteSlotName(item.slotName),
+    slotBadgeName: item.slotBadgeName || buildFavoriteSlotBadgeName(item.slotName),
     ilvl: item.ilvl,
     iconAsset: item.iconAsset || '',
     iconText: item.iconText || (item.name ? item.name.slice(0, 1) : '装'),

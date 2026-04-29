@@ -42,16 +42,18 @@ Page({
     ],
     slots: SLOT_OPTIONS,
     sourceTypes: [
-      { type: 'all', name: '全部' },
+      { type: 'all', name: '全部', selected: true },
       { type: 'dungeon', name: '地下城' },
       { type: 'raid', name: '团本' },
       { type: 'tier', name: '套装' },
     ],
     instanceOptions: [],
+    visibleInstanceOptions: [],
     keyword: '',
     selectedSpec: null,
     selectedSlots: [],
     selectedSourceType: 'all',
+    selectedSourceTypes: [],
     selectedInstanceId: null,
     viewModes: [
       { type: 'slot', name: '按部位' },
@@ -69,6 +71,7 @@ Page({
     favoriteCount: 0,
     favoriteList: [],
     favoriteGroups: [],
+    pendingRemoveFavoriteKey: '',
     showFavorites: false,
     pageStyle: '',
   },
@@ -118,13 +121,16 @@ Page({
         this.itemMap[item.id] = item;
       });
 
+      const instanceOptions = buildInstanceOptions((data && data.instances) || []);
+
       this.setData({
         classMeta: (data && data.class) || this.data.classMeta,
         className: (data && data.class && data.class.name) || this.data.className,
         heroBannerAsset: getClassVisualAssets(classKey).banner,
         classEmblemAsset: getClassVisualAssets(classKey).emblem,
         specs: (data && data.specs) || [],
-        instanceOptions: buildInstanceOptions((data && data.instances) || []),
+        instanceOptions,
+        visibleInstanceOptions: instanceOptions,
         allItems,
         hasAnyData: allItems.length > 0,
         isLoading: false,
@@ -217,12 +223,37 @@ Page({
 
   onSourceTypeTap(event) {
     const { type } = event.currentTarget.dataset;
-    const nextType = this.data.selectedSourceType === type ? 'all' : type;
+    let selectedSourceTypes = this.data.selectedSourceTypes.slice();
+    if (type === 'all') {
+      selectedSourceTypes = [];
+    } else {
+      const index = selectedSourceTypes.indexOf(type);
+      if (index === -1) {
+        selectedSourceTypes.push(type);
+      } else {
+        selectedSourceTypes.splice(index, 1);
+      }
+      if (selectedSourceTypes.length >= 3) {
+        selectedSourceTypes = [];
+      }
+    }
+
+    const sourceTypes = this.data.sourceTypes.map((item) => ({
+      ...item,
+      selected: item.type === 'all'
+        ? selectedSourceTypes.length === 0
+        : selectedSourceTypes.indexOf(item.type) !== -1,
+    }));
     const currentInstance = this.data.instanceOptions.find((item) => item.id === this.data.selectedInstanceId);
-    const shouldResetInstance = currentInstance && nextType !== 'all' && currentInstance.type !== nextType;
+    const shouldResetInstance = currentInstance
+      && selectedSourceTypes.length > 0
+      && selectedSourceTypes.indexOf(currentInstance.type) === -1;
 
     this.setData({
-      selectedSourceType: nextType,
+      selectedSourceType: selectedSourceTypes.length === 1 ? selectedSourceTypes[0] : 'all',
+      selectedSourceTypes,
+      sourceTypes,
+      visibleInstanceOptions: this.getVisibleInstanceOptions(selectedSourceTypes),
       selectedInstanceId: shouldResetInstance ? null : this.data.selectedInstanceId,
     });
     this.applyFilters();
@@ -258,6 +289,9 @@ Page({
       selectedSlots: [],
       slots: this.data.slots.map((item) => ({ ...item, selected: false })),
       selectedSourceType: 'all',
+      selectedSourceTypes: [],
+      sourceTypes: this.data.sourceTypes.map((item) => ({ ...item, selected: item.type === 'all' })),
+      visibleInstanceOptions: this.data.instanceOptions,
       selectedInstanceId: null,
       selectedViewMode: 'slot',
       stats: this.data.stats.map((item) => ({ ...item, state: 'none' })),
@@ -274,6 +308,7 @@ Page({
       selectedStats,
       excludedStats,
       selectedSourceType: this.data.selectedSourceType,
+      selectedSourceTypes: this.data.selectedSourceTypes,
       selectedInstanceId: this.data.selectedInstanceId,
       keyword: this.data.keyword,
     });
@@ -287,12 +322,13 @@ Page({
     if (selectedSpec) {
       activeFilterParts.push(selectedSpec.name);
     }
-    if (this.data.selectedSourceType !== 'all') {
-      activeFilterParts.push(
-        this.data.selectedSourceType === 'dungeon'
-          ? '地下城'
-          : (this.data.selectedSourceType === 'raid' ? '团本' : '套装')
-      );
+    if (this.data.selectedSourceTypes.length) {
+      const selectedSourceNames = this.data.sourceTypes
+        .filter((item) => item.type !== 'all' && this.data.selectedSourceTypes.indexOf(item.type) !== -1)
+        .map((item) => item.name);
+      if (selectedSourceNames.length) {
+        activeFilterParts.push(selectedSourceNames.join('/'));
+      }
     }
     if (selectedInstance) {
       activeFilterParts.push(selectedInstance.name);
@@ -325,7 +361,7 @@ Page({
           this.data.selectedSpec ||
           this.data.selectedSlots.length ||
           this.data.selectedInstanceId ||
-          this.data.selectedSourceType !== 'all' ||
+          this.data.selectedSourceTypes.length ||
           selectedStats.length ||
           excludedStats.length ||
           this.data.keyword.trim()
@@ -349,6 +385,13 @@ Page({
         className: this.data.className,
       }, this.data.selectedSpec, this.data.specs),
     });
+  },
+
+  getVisibleInstanceOptions(selectedSourceTypes) {
+    if (!selectedSourceTypes.length) {
+      return this.data.instanceOptions;
+    }
+    return this.data.instanceOptions.filter((item) => selectedSourceTypes.indexOf(item.type) !== -1);
   },
 
   loadFavoriteClassItems(classKey) {
@@ -496,13 +539,26 @@ Page({
   closeFavorites() {
     this.setData({
       showFavorites: false,
+      pendingRemoveFavoriteKey: '',
       pageStyle: this.data.showModal ? 'overflow:hidden;height:100vh;' : '',
     });
   },
 
+  clearPendingRemoveFavorite() {
+    if (this.data.pendingRemoveFavoriteKey) {
+      this.setData({ pendingRemoveFavoriteKey: '' });
+    }
+  },
+
   removeFavoriteItem(event) {
     const { key } = event.currentTarget.dataset;
+    if (this.data.pendingRemoveFavoriteKey !== key) {
+      this.setData({ pendingRemoveFavoriteKey: key });
+      return;
+    }
+
     removeFavorite(key);
+    this.setData({ pendingRemoveFavoriteKey: '' });
     this.refreshFavorites();
     this.refreshFavoriteFlags();
     wx.showToast({
@@ -525,6 +581,7 @@ Page({
           return;
         }
         clearFavorites();
+        this.setData({ pendingRemoveFavoriteKey: '' });
         this.refreshFavorites();
         this.refreshFavoriteFlags();
       },
@@ -537,7 +594,6 @@ Page({
       return;
     }
 
-    this.closeFavorites();
     wx.showLoading({ title: '加载中' });
     this.loadFavoriteClassItems(classKey).then((cache) => {
       wx.hideLoading();

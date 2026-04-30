@@ -39,11 +39,12 @@ const {
 const POSTER_CANVAS_ID = 'favoritePosterCanvas';
 const POSTER_WIDTH = 750;
 const POSTER_HEIGHT = 1000;
-const POSTER_BG = '/assets/poster/favorite-poster-bg.jpg';
-const POSTER_ITEMS_PER_PAGE = 10;
-const POSTER_PAGE_UNITS = 12;
+const POSTER_ITEMS_PER_PAGE = 8;
+const POSTER_PAGE_UNITS = 9;
+const POSTER_ITEM_CARD_HEIGHT = 70;
+const POSTER_ITEM_CARD_GAP = 8;
 
-function drawRoundRect(ctx, x, y, width, height, radius, fillStyle, strokeStyle) {
+function drawRoundRect(ctx, x, y, width, height, radius, fillStyle, strokeStyle, lineWidth = 1) {
   const r = Math.min(radius, width / 2, height / 2);
   ctx.beginPath();
   ctx.moveTo(x + r, y);
@@ -61,9 +62,30 @@ function drawRoundRect(ctx, x, y, width, height, radius, fillStyle, strokeStyle)
     ctx.fill();
   }
   if (strokeStyle) {
+    if (ctx.setLineWidth) {
+      ctx.setLineWidth(lineWidth);
+    } else {
+      ctx.lineWidth = lineWidth;
+    }
     ctx.setStrokeStyle(strokeStyle);
     ctx.stroke();
   }
+}
+
+function clipRoundRect(ctx, x, y, width, height, radius) {
+  const r = Math.min(radius, width / 2, height / 2);
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + width - r, y);
+  ctx.arc(x + width - r, y + r, r, -Math.PI / 2, 0);
+  ctx.lineTo(x + width, y + height - r);
+  ctx.arc(x + width - r, y + height - r, r, 0, Math.PI / 2);
+  ctx.lineTo(x + r, y + height);
+  ctx.arc(x + r, y + height - r, r, Math.PI / 2, Math.PI);
+  ctx.lineTo(x, y + r);
+  ctx.arc(x + r, y + r, r, Math.PI, Math.PI * 1.5);
+  ctx.closePath();
+  ctx.clip();
 }
 
 function setPosterTextStyle(ctx, size, color, weight = 'normal', align = 'left') {
@@ -118,8 +140,165 @@ function drawStrokedText(ctx, text, x, y, strokeColor = 'rgba(0, 0, 0, 0.86)', s
 function drawPosterBrand(ctx) {
   setPosterTextStyle(ctx, 48, '#f3e6c3', 'bold', 'center');
   ctx.setShadow(0, 8, 18, 'rgba(0, 0, 0, 0.88)');
-  drawStrokedText(ctx, '我的艾泽拉斯装备库', POSTER_WIDTH / 2, 92, 'rgba(0, 0, 0, 0.92)', 7);
+  drawStrokedText(ctx, '收藏夹·艾泽配装', POSTER_WIDTH / 2, 92, 'rgba(0, 0, 0, 0.92)', 7);
   ctx.setShadow(0, 0, 0, 'transparent');
+}
+
+function createPosterGlow(ctx, x, y, radius, stops) {
+  const gradient = ctx.createRadialGradient
+    ? ctx.createRadialGradient(x, y, 20, x, y, radius)
+    : ctx.createCircularGradient(x, y, radius);
+  stops.forEach((stop) => {
+    gradient.addColorStop(stop[0], stop[1]);
+  });
+  return gradient;
+}
+
+function drawPosterBackground(ctx) {
+  const bg = ctx.createLinearGradient(0, 0, 0, POSTER_HEIGHT);
+  bg.addColorStop(0, '#17101d');
+  bg.addColorStop(0.45, '#09070d');
+  bg.addColorStop(1, '#130d18');
+  ctx.setFillStyle(bg);
+  ctx.fillRect(0, 0, POSTER_WIDTH, POSTER_HEIGHT);
+
+  const topGlow = createPosterGlow(ctx, POSTER_WIDTH / 2, 90, 380, [
+    [0, 'rgba(108, 53, 142, 0.42)'],
+    [0.48, 'rgba(68, 31, 94, 0.18)'],
+    [1, 'rgba(0, 0, 0, 0)'],
+  ]);
+  ctx.setFillStyle(topGlow);
+  ctx.fillRect(0, 0, POSTER_WIDTH, 360);
+
+  const bottomGlow = createPosterGlow(ctx, POSTER_WIDTH / 2, POSTER_HEIGHT - 60, 360, [
+    [0, 'rgba(87, 42, 112, 0.36)'],
+    [0.45, 'rgba(53, 27, 74, 0.16)'],
+    [1, 'rgba(0, 0, 0, 0)'],
+  ]);
+  ctx.setFillStyle(bottomGlow);
+  ctx.fillRect(0, POSTER_HEIGHT - 320, POSTER_WIDTH, 320);
+
+  ctx.setFillStyle('rgba(255, 255, 255, 0.025)');
+  for (let y = 150; y < POSTER_HEIGHT - 120; y += 74) {
+    ctx.fillRect(58, y, 634, 1);
+  }
+
+  drawRoundRect(ctx, 34, 24, 682, 934, 30, 'rgba(4, 3, 7, 0.28)', 'rgba(212, 168, 75, 0.34)');
+  drawRoundRect(ctx, 48, 38, 654, 906, 24, null, 'rgba(255, 255, 255, 0.06)');
+
+  ctx.setStrokeStyle('rgba(212, 168, 75, 0.4)');
+  ctx.setLineWidth(1);
+  ctx.beginPath();
+  ctx.moveTo(94, 142);
+  ctx.lineTo(656, 142);
+  ctx.moveTo(94, 920);
+  ctx.lineTo(656, 920);
+  ctx.stroke();
+
+  const cornerSize = 28;
+  [
+    [56, 46, 1, 1],
+    [694, 46, -1, 1],
+    [56, 932, 1, -1],
+    [694, 932, -1, -1],
+  ].forEach(([x, y, sx, sy]) => {
+    ctx.setStrokeStyle('rgba(179, 119, 41, 0.48)');
+    ctx.setLineWidth(2);
+    ctx.beginPath();
+    ctx.moveTo(x, y + sy * cornerSize);
+    ctx.lineTo(x, y);
+    ctx.lineTo(x + sx * cornerSize, y);
+    ctx.stroke();
+  });
+}
+
+function collectPosterIconUrls(posterPage) {
+  const iconMap = {};
+  (posterPage.groups || []).forEach((group) => {
+    (group.items || []).forEach((favorite) => {
+      if (favorite.iconAsset) {
+        iconMap[favorite.iconAsset] = true;
+      }
+    });
+  });
+  return Object.keys(iconMap);
+}
+
+function loadPosterImage(url) {
+  return new Promise((resolve) => {
+    if (!url) {
+      resolve('');
+      return;
+    }
+    wx.getImageInfo({
+      src: url,
+      success(res) {
+        resolve(res.path || url);
+      },
+      fail() {
+        resolve('');
+      },
+    });
+  });
+}
+
+function loadPosterIconMap(posterPage) {
+  const urls = collectPosterIconUrls(posterPage);
+  if (!urls.length) {
+    return Promise.resolve({});
+  }
+  return Promise.all(urls.map((url) => loadPosterImage(url).then((path) => ({ url, path })))).then((results) => {
+    const iconMap = {};
+    results.forEach((item) => {
+      if (item.path) {
+        iconMap[item.url] = item.path;
+      }
+    });
+    return iconMap;
+  });
+}
+
+function drawPosterFavoriteItem(ctx, favorite, y, iconMap) {
+  const cardX = 72;
+  const cardY = y;
+  const cardWidth = 606;
+  const cardHeight = POSTER_ITEM_CARD_HEIGHT;
+  const iconX = cardX + 16;
+  const iconY = cardY + 10;
+  const iconSize = 50;
+  const bodyX = iconX + iconSize + 18;
+  const rightX = cardX + cardWidth - 18;
+
+  drawRoundRect(ctx, cardX, cardY, cardWidth, cardHeight, 12, 'rgba(31, 27, 37, 0.9)', 'rgba(255, 255, 255, 0.055)');
+
+  const iconPath = favorite.iconAsset ? iconMap[favorite.iconAsset] : '';
+  if (iconPath) {
+    ctx.save();
+    clipRoundRect(ctx, iconX, iconY, iconSize, iconSize, 8);
+    ctx.drawImage(iconPath, iconX, iconY, iconSize, iconSize);
+    ctx.restore();
+  } else {
+    drawRoundRect(ctx, iconX, iconY, iconSize, iconSize, 8, 'rgba(28, 24, 34, 0.96)', null);
+    setPosterTextStyle(ctx, 24, '#b55cff', 'bold', 'center');
+    ctx.fillText(favorite.iconText || (favorite.name ? favorite.name.slice(0, 1) : '装'), iconX + iconSize / 2, iconY + 35);
+  }
+  drawRoundRect(ctx, iconX, iconY, iconSize, iconSize, 8, null, 'rgba(255, 255, 255, 0.14)');
+
+  drawRoundRect(ctx, rightX - 56, cardY + 12, 56, 24, 5, 'rgba(255, 187, 18, 0.06)', 'rgba(255, 187, 18, 0.28)');
+  setPosterTextStyle(ctx, 17, '#f0b931', 'normal', 'center');
+  drawEllipsisText(ctx, favorite.slotBadgeName || favorite.slotName || '装备', rightX - 28, cardY + 30, 48);
+
+  setPosterTextStyle(ctx, 21, '#b55cff', 'bold', 'left');
+  drawEllipsisText(ctx, favorite.name, bodyX, cardY + 25, 330);
+
+  setPosterTextStyle(ctx, 17, '#38f038', 'bold', 'left');
+  drawEllipsisText(ctx, favorite.statLine || '无常规副属性', bodyX, cardY + 47, 348);
+
+  setPosterTextStyle(ctx, 16, '#8d8579', 'normal', 'left');
+  drawEllipsisText(ctx, `${favorite.className || ''} · ilvl${favorite.ilvl || '-'}`, bodyX, cardY + 64, 190);
+
+  setPosterTextStyle(ctx, 16, '#8d8579', 'normal', 'right');
+  drawEllipsisText(ctx, `${favorite.sourceName || favorite.encounterName || '装备来源'} ›`, rightX, cardY + 64, 178);
 }
 
 function getFavoriteGroupsTotal(groups) {
@@ -586,83 +765,73 @@ Page({
   },
 
   drawFavoritePosterPage(posterPage, posterMeta) {
-    const ctx = wx.createCanvasContext(POSTER_CANVAS_ID, this);
-    const summary = `${posterMeta.totalItems} 件装备收藏 · ${posterMeta.totalClasses} 个职业 · 第 ${posterMeta.pageIndex}/${posterMeta.totalPages} 张`;
-    let y = 216;
+    return loadPosterIconMap(posterPage).then((iconMap) => {
+      const ctx = wx.createCanvasContext(POSTER_CANVAS_ID, this);
+      const summary = `${posterMeta.totalItems} 件装备收藏 · ${posterMeta.totalClasses} 个职业 · 第 ${posterMeta.pageIndex}/${posterMeta.totalPages} 张`;
+      let y = 216;
 
-    ctx.clearRect(0, 0, POSTER_WIDTH, POSTER_HEIGHT);
-    ctx.drawImage(POSTER_BG, 0, 0, POSTER_WIDTH, POSTER_HEIGHT);
+      ctx.clearRect(0, 0, POSTER_WIDTH, POSTER_HEIGHT);
+      drawPosterBackground(ctx);
 
-    drawRoundRect(ctx, 44, 156, 662, 722, 28, 'rgba(13, 10, 18, 0.76)', 'rgba(212, 168, 75, 0.32)');
-    drawRoundRect(ctx, 64, 176, 622, 682, 18, 'rgba(10, 8, 13, 0.38)', 'rgba(255, 255, 255, 0.05)');
+      drawRoundRect(ctx, 54, 156, 642, 722, 24, 'rgba(8, 6, 12, 0.72)', 'rgba(212, 168, 75, 0.22)');
+      drawRoundRect(ctx, 66, 170, 618, 694, 18, 'rgba(16, 13, 21, 0.58)', 'rgba(255, 255, 255, 0.04)');
 
-    drawPosterBrand(ctx);
-    setPosterTextStyle(ctx, 22, '#a69882', 'normal', 'center');
-    ctx.setShadow(0, 4, 10, 'rgba(0, 0, 0, 0.82)');
-    drawStrokedText(ctx, summary, POSTER_WIDTH / 2, 128, 'rgba(0, 0, 0, 0.82)', 4);
-    ctx.setShadow(0, 0, 0, 'transparent');
+      drawPosterBrand(ctx);
+      setPosterTextStyle(ctx, 22, '#a69882', 'normal', 'center');
+      ctx.setShadow(0, 4, 10, 'rgba(0, 0, 0, 0.82)');
+      drawStrokedText(ctx, summary, POSTER_WIDTH / 2, 128, 'rgba(0, 0, 0, 0.82)', 4);
+      ctx.setShadow(0, 0, 0, 'transparent');
 
-    posterPage.groups.forEach((group) => {
-      setPosterTextStyle(ctx, 26, '#ffbb12', 'bold');
-      ctx.fillText(`◇ ${group.className}`, 84, y);
-      setPosterTextStyle(ctx, 20, '#a79e8f', 'bold', 'right');
-      ctx.fillText(`${group.count} 件`, 666, y);
-      y += 18;
+      posterPage.groups.forEach((group) => {
+        setPosterTextStyle(ctx, 26, '#ffbb12', 'bold');
+        ctx.fillText(`◇ ${group.className}`, 84, y);
+        setPosterTextStyle(ctx, 20, '#a79e8f', 'bold', 'right');
+        ctx.fillText(`${group.count} 件`, 666, y);
+        y += 18;
 
-      group.items.forEach((favorite) => {
-        drawRoundRect(ctx, 72, y, 606, 52, 12, 'rgba(32, 27, 38, 0.9)', 'rgba(255, 255, 255, 0.08)');
-        drawRoundRect(ctx, 90, y + 12, 58, 28, 6, 'rgba(255, 187, 18, 0.08)', 'rgba(255, 187, 18, 0.38)');
+        group.items.forEach((favorite) => {
+          drawPosterFavoriteItem(ctx, favorite, y, iconMap);
+          y += POSTER_ITEM_CARD_HEIGHT + POSTER_ITEM_CARD_GAP;
+        });
 
-        setPosterTextStyle(ctx, 19, '#ffbb12', 'bold', 'center');
-        drawEllipsisText(ctx, favorite.slotBadgeName || favorite.slotName || '装备', 119, y + 33, 50);
-
-        setPosterTextStyle(ctx, 22, '#b55cff', 'bold', 'left');
-        drawEllipsisText(ctx, favorite.name, 168, y + 24, 344);
-
-        setPosterTextStyle(ctx, 19, '#cfc1a6', 'bold', 'right');
-        ctx.fillText(`ilvl${favorite.ilvl || '-'}`, 652, y + 24);
-
-        setPosterTextStyle(ctx, 18, '#38f038', 'bold', 'left');
-        drawEllipsisText(ctx, favorite.statLine || '无常规副属性', 168, y + 45, 270);
-
-        setPosterTextStyle(ctx, 17, '#8d8579', 'normal', 'right');
-        drawEllipsisText(ctx, favorite.sourceName || favorite.encounterName || '装备来源', 652, y + 45, 160);
-
-        y += 62;
+        y += 26;
       });
 
-      y += 18;
-    });
+      setPosterTextStyle(ctx, 22, '#b8aa8f', 'normal', 'center');
+      ctx.setStrokeStyle('rgba(212, 168, 75, 0.24)');
+      ctx.setLineWidth(1);
+      ctx.beginPath();
+      ctx.moveTo(80, POSTER_HEIGHT - 70);
+      ctx.lineTo(178, POSTER_HEIGHT - 70);
+      ctx.moveTo(572, POSTER_HEIGHT - 70);
+      ctx.lineTo(670, POSTER_HEIGHT - 70);
+      ctx.stroke();
+      ctx.setShadow(0, 4, 10, 'rgba(0, 0, 0, 0.86)');
+      drawStrokedText(ctx, '微信小程序搜索「艾泽配装」', POSTER_WIDTH / 2, POSTER_HEIGHT - 68, 'rgba(0, 0, 0, 0.86)', 4);
+      ctx.setShadow(0, 0, 0, 'transparent');
 
-    drawRoundRect(ctx, 214, POSTER_HEIGHT - 116, 322, 78, 18, 'rgba(0, 0, 0, 0.34)', 'rgba(212, 168, 75, 0.16)');
-    setPosterTextStyle(ctx, 22, '#b8aa8f', 'normal', 'center');
-    ctx.setShadow(0, 4, 10, 'rgba(0, 0, 0, 0.86)');
-    drawStrokedText(ctx, '微信搜索「艾泽配装」', POSTER_WIDTH / 2, POSTER_HEIGHT - 82, 'rgba(0, 0, 0, 0.86)', 4);
-    setPosterTextStyle(ctx, 18, '#857966', 'normal', 'center');
-    drawStrokedText(ctx, '收藏装备 · 分享配装思路', POSTER_WIDTH / 2, POSTER_HEIGHT - 52, 'rgba(0, 0, 0, 0.8)', 3);
-    ctx.setShadow(0, 0, 0, 'transparent');
-
-    return new Promise((resolve, reject) => {
-      ctx.draw(false, () => {
-        setTimeout(() => {
-          wx.canvasToTempFilePath({
-            canvasId: POSTER_CANVAS_ID,
-            x: 0,
-            y: 0,
-            width: POSTER_WIDTH,
-            height: POSTER_HEIGHT,
-            destWidth: POSTER_WIDTH,
-            destHeight: POSTER_HEIGHT,
-            fileType: 'png',
-            success: (res) => {
-              resolve(res.tempFilePath);
-            },
-            fail: (err) => {
-              console.error('create poster image failed', err);
-              reject(err);
-            },
-          }, this);
-        }, 500);
+      return new Promise((resolve, reject) => {
+        ctx.draw(false, () => {
+          setTimeout(() => {
+            wx.canvasToTempFilePath({
+              canvasId: POSTER_CANVAS_ID,
+              x: 0,
+              y: 0,
+              width: POSTER_WIDTH,
+              height: POSTER_HEIGHT,
+              destWidth: POSTER_WIDTH * 2,
+              destHeight: POSTER_HEIGHT * 2,
+              fileType: 'png',
+              success: (res) => {
+                resolve(res.tempFilePath);
+              },
+              fail: (err) => {
+                console.error('create poster image failed', err);
+                reject(err);
+              },
+            }, this);
+          }, 500);
+        });
       });
     });
   },

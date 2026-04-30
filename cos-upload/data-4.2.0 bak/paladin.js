@@ -1,33 +1,34 @@
 module.exports = {
-  "version": "4.2.x",
+  "version": "12.0.1",
   "addonVersion": "3.0.0",
   "updatedAt": "2026-04-22 21:59:03",
   "class": {
-    "id": 6,
-    "key": "deathknight",
-    "name": "死亡骑士",
+    "id": 2,
+    "key": "paladin",
+    "name": "圣骑士",
     "armorType": "plate",
     "armorTypeName": "板甲",
-    "color": "#C41E3A",
+    "color": "#F48CBA",
     "abbr": "骑"
   },
   "specs": [
     {
-      "id": 250,
-      "name": "鲜血"
+      "id": 65,
+      "name": "神圣"
     },
     {
-      "id": 251,
-      "name": "冰霜"
+      "id": 66,
+      "name": "防护"
     },
     {
-      "id": 252,
-      "name": "邪恶"
+      "id": 70,
+      "name": "惩戒"
     }
   ],
   "meta": {
-    "itemCount": 153,
-    "instanceCount": 12
+    "itemCount": 180,
+    "instanceCount": 12,
+    "tierItemCount": 9
   },
   "instances": [
     {
@@ -56,9 +57,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -151,9 +152,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -245,7 +246,7 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250
+                66
               ],
               "classes": [
                 1,
@@ -330,9 +331,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -425,9 +426,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -520,8 +521,7 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                251,
-                252
+                70
               ],
               "classes": [
                 1,
@@ -609,9 +609,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -704,9 +704,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -793,9 +793,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -898,9 +898,9 @@ module.exports = {
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -970,7 +970,7 @@ module.exports = {
               "itemSubType": "单手锤",
               "ilvl": 246,
               "specs": [
-                251
+                66
               ],
               "classes": [
                 1,
@@ -1061,9 +1061,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -1156,9 +1156,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -1235,6 +1235,78 @@ module.exports = {
               ],
               "link": "|cnIQ4:|Hitem:151311::::::::90:270::23:1:3524:1:28:3025:::::|h[执政团指轮]|h|r",
               "iconText": "执"
+            },
+            {
+              "id": 151340,
+              "name": "鲁拉的回响",
+              "icon": 1708140,
+              "iconName": "inv_pet_naaru_purple",
+              "iconAsset": "/assets/icons/inv_pet_naaru_purple.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                65
+              ],
+              "classes": [
+                2,
+                5,
+                7,
+                10,
+                11,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 79
+                  }
+                ],
+                "stamina": null,
+                "secondary": [],
+                "effects": {
+                  "equip": [],
+                  "use": [
+                    "使用： 聆听鲁拉的低语，持续45秒，使你的治疗法术有一定几率额外恢复8482点生命值。 （3分钟冷却）"
+                  ]
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 945,
+                "instanceName": "执政团之座",
+                "isRaid": false,
+                "encounterId": 1982,
+                "encounterName": "鲁拉",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 10
+              },
+              "tooltipRaw": [
+                "鲁拉的回响",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "装备唯一",
+                "饰品",
+                "+79 智力",
+                "使用： 聆听鲁拉的低语，持续45秒，使你的治疗法术有一定几率额外恢复8482点生命值。 （3分钟冷却）"
+              ],
+              "link": "|cnIQ4:|Hitem:151340::::::::90:270::23:1:3524:1:28:3025:::::|h[鲁拉的回响]|h|r",
+              "iconText": "鲁"
             }
           ]
         }
@@ -1266,9 +1338,7 @@ module.exports = {
               "itemSubType": "双手剑",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                70
               ],
               "classes": [
                 1,
@@ -1346,6 +1416,100 @@ module.exports = {
               "iconText": "斩"
             },
             {
+              "id": 258218,
+              "name": "碎天者之刃",
+              "icon": 4680187,
+              "iconName": "inv_sword_1h_short_c_03",
+              "iconAsset": "/assets/icons/inv_sword_1h_short_c_03.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "单手剑",
+              "itemType": "武器",
+              "itemSubType": "单手剑",
+              "ilvl": 246,
+              "specs": [
+                65
+              ],
+              "classes": [
+                2,
+                8,
+                9,
+                10,
+                12,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 242
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 515
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 30
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 35
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "damageMax": 77,
+                  "damageMin": 46,
+                  "dps": 23.7,
+                  "speed": 2.6
+                }
+              },
+              "source": {
+                "instanceId": 476,
+                "instanceName": "通天峰",
+                "isRaid": false,
+                "encounterId": 965,
+                "encounterName": "兰吉特",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 2
+              },
+              "tooltipRaw": [
+                "碎天者之刃",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "单手 剑",
+                "46 - 77点伤害 速度 2.60",
+                "（每秒伤害23.7）",
+                "+242 智力",
+                "+515 耐力",
+                "+30 爆击",
+                "+35 精通",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:258218::::::::90:270::23:1:3524:1:28:3025:::::|h[碎天者之刃]|h|r",
+              "iconText": "碎"
+            },
+            {
               "id": 258575,
               "name": "刚鳞大氅",
               "icon": 1043737,
@@ -1359,9 +1523,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -1477,9 +1641,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -1572,7 +1736,7 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250
+                66
               ],
               "classes": [
                 1,
@@ -1657,7 +1821,7 @@ module.exports = {
               "itemSubType": "单手剑",
               "ilvl": 246,
               "specs": [
-                251
+                66
               ],
               "classes": [
                 1,
@@ -1748,9 +1912,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -1828,6 +1992,78 @@ module.exports = {
               ],
               "link": "|cnIQ4:|Hitem:258583::::::::90:270::23:1:3524:1:28:3025:::::|h[猩红手甲]|h|r",
               "iconText": "猩"
+            },
+            {
+              "id": 252411,
+              "name": "光耀日长石",
+              "icon": 134909,
+              "iconName": "inv_qirajidol_sun",
+              "iconAsset": "/assets/icons/inv_qirajidol_sun.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                65
+              ],
+              "classes": [
+                2,
+                5,
+                7,
+                10,
+                11,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 79
+                  }
+                ],
+                "stamina": null,
+                "secondary": [],
+                "effects": {
+                  "equip": [],
+                  "use": [
+                    "使用： 用圣光沐浴你的目标盟友，为其治疗88769点生命值，并为其注入能量，持续20秒。\n注入能量期间，你的治疗法术和技能也会为该盟友治疗3522点生命值。 （2分钟冷却）"
+                  ]
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 476,
+                "instanceName": "通天峰",
+                "isRaid": false,
+                "encounterId": 967,
+                "encounterName": "鲁克兰",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 8
+              },
+              "tooltipRaw": [
+                "光耀日长石",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "装备唯一",
+                "饰品",
+                "+79 智力",
+                "使用： 用圣光沐浴你的目标盟友，为其治疗88769点生命值，并为其注入能量，持续20秒。\n注入能量期间，你的治疗法术和技能也会为该盟友治疗3522点生命值。 （2分钟冷却）"
+              ],
+              "link": "|cnIQ4:|Hitem:252411::::::::90:270::23:1:3524:1:28:3025:::::|h[光耀日长石]|h|r",
+              "iconText": "光"
             }
           ]
         },
@@ -1850,9 +2086,9 @@ module.exports = {
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -1909,6 +2145,101 @@ module.exports = {
               "iconText": "通"
             },
             {
+              "id": 258049,
+              "name": "维里克斯的不屈壁垒",
+              "icon": 943306,
+              "iconName": "inv_shield_draenordungeon_c_03",
+              "iconAsset": "/assets/icons/inv_shield_draenordungeon_c_03.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "盾牌",
+              "itemType": "护甲",
+              "itemSubType": "盾牌",
+              "ilvl": 246,
+              "specs": [
+                65,
+                66
+              ],
+              "classes": [
+                1,
+                2,
+                7
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "力量",
+                    "type": "strength",
+                    "value": 42
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 127
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 515
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 34
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 31
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 751
+                }
+              },
+              "source": {
+                "instanceId": 476,
+                "instanceName": "通天峰",
+                "isRaid": false,
+                "encounterId": 968,
+                "encounterName": "高阶贤者维里克斯",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 4
+              },
+              "tooltipRaw": [
+                "维里克斯的不屈壁垒",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "副手 盾牌",
+                "751点护甲",
+                "1877点格挡",
+                "+127 智力",
+                "+515 耐力",
+                "+34 爆击",
+                "+31 精通",
+                "+42 力量",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:258049::::::::90:270::23:1:3524:1:28:3025:::::|h[维里克斯的不屈壁垒]|h|r",
+              "iconText": "维"
+            },
+            {
               "id": 258587,
               "name": "灼烧射线肩甲",
               "icon": 960788,
@@ -1922,9 +2253,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -2017,9 +2348,8 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -2116,9 +2446,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -2219,9 +2549,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -2331,9 +2661,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -2434,9 +2764,9 @@ module.exports = {
               "itemSubType": "配方",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -2549,9 +2879,9 @@ module.exports = {
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -2621,9 +2951,7 @@ module.exports = {
               "itemSubType": "双手剑",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                70
               ],
               "classes": [
                 1,
@@ -2714,9 +3042,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -2809,9 +3137,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -2907,9 +3235,7 @@ module.exports = {
               "itemSubType": "双手剑",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                70
               ],
               "classes": [
                 1,
@@ -3000,9 +3326,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -3079,6 +3405,89 @@ module.exports = {
               ],
               "link": "|cnIQ4:|Hitem:251081::::::::90:270::23:1:3524:1:28:3025:::::|h[烬林护手]|h|r",
               "iconText": "烬"
+            },
+            {
+              "id": 250144,
+              "name": "烬翼羽毛",
+              "icon": 2103819,
+              "iconName": "inv_icon_feather06a",
+              "iconAsset": "/assets/icons/inv_icon_feather06a.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                65
+              ],
+              "classes": [
+                2,
+                3,
+                4,
+                5,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 79
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 79
+                  }
+                ],
+                "stamina": null,
+                "secondary": [],
+                "effects": {
+                  "equip": [],
+                  "use": [
+                    "使用： 释放烬翼热浪，使你的急速提高395，持续15秒。\n你有较低几率遭受烬翼灼烧的影响，使你的其他次要属性之一降低122，持续10秒。 （2分钟冷却）"
+                  ]
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1299,
+                "instanceName": "风行者之塔",
+                "isRaid": false,
+                "encounterId": 2655,
+                "encounterName": "烬晓",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 7
+              },
+              "tooltipRaw": [
+                "烬翼羽毛",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "装备唯一",
+                "饰品",
+                "+79 智力",
+                "+79 敏捷",
+                "使用： 释放烬翼热浪，使你的急速提高395，持续15秒。\n你有较低几率遭受烬翼灼烧的影响，使你的其他次要属性之一降低122，持续10秒。 （2分钟冷却）"
+              ],
+              "link": "|cnIQ4:|Hitem:250144::::::::90:270::23:1:3524:1:28:3025:::::|h[烬翼羽毛]|h|r",
+              "iconText": "烬"
             }
           ]
         },
@@ -3087,6 +3496,100 @@ module.exports = {
           "name": "被遗弃的二人组",
           "order": 2,
           "items": [
+            {
+              "id": 251083,
+              "name": "挖掘大槌",
+              "icon": 6936236,
+              "iconName": "inv_mace_1h_dungeonharronir_c_02",
+              "iconAsset": "/assets/icons/inv_mace_1h_dungeonharronir_c_02.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "单手锤",
+              "itemType": "武器",
+              "itemSubType": "单手锤",
+              "ilvl": 246,
+              "specs": [
+                65
+              ],
+              "classes": [
+                2,
+                5,
+                7,
+                10,
+                11,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 242
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 515
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 41
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 24
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "damageMax": 69,
+                  "damageMin": 53,
+                  "dps": 23.5,
+                  "speed": 2.6
+                }
+              },
+              "source": {
+                "instanceId": 1299,
+                "instanceName": "风行者之塔",
+                "isRaid": false,
+                "encounterId": 2656,
+                "encounterName": "被遗弃的二人组",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 1
+              },
+              "tooltipRaw": [
+                "挖掘大槌",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "单手 锤",
+                "53 - 69点伤害 速度 2.60",
+                "（每秒伤害23.5）",
+                "+242 智力",
+                "+515 耐力",
+                "+41 爆击",
+                "+24 精通",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:251083::::::::90:270::23:1:3524:1:28:3025:::::|h[挖掘大槌]|h|r",
+              "iconText": "挖"
+            },
             {
               "id": 251086,
               "name": "裂钩防御者",
@@ -3101,9 +3604,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -3195,8 +3698,7 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                251,
-                252
+                70
               ],
               "classes": [
                 1,
@@ -3284,7 +3786,7 @@ module.exports = {
               "itemSubType": "单手斧",
               "ilvl": 246,
               "specs": [
-                251
+                66
               ],
               "classes": [
                 1,
@@ -3374,9 +3876,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -3469,8 +3971,7 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                251,
-                252
+                70
               ],
               "classes": [
                 1,
@@ -3558,9 +4059,9 @@ module.exports = {
               "itemSubType": "配方",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -3673,9 +4174,9 @@ module.exports = {
               "itemSubType": "配方",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -3782,9 +4283,9 @@ module.exports = {
               "itemSubType": "杂项",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -3854,9 +4355,9 @@ module.exports = {
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -3926,9 +4427,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -4020,9 +4521,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -4109,9 +4610,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -4218,9 +4719,7 @@ module.exports = {
               "itemSubType": "双手锤",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                70
               ],
               "classes": [
                 1,
@@ -4311,9 +4810,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -4400,9 +4899,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -4502,9 +5001,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -4597,9 +5096,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -4687,7 +5186,7 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250
+                66
               ],
               "classes": [
                 1,
@@ -4772,9 +5271,9 @@ module.exports = {
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -4844,9 +5343,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -4939,9 +5438,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -5049,9 +5548,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -5129,6 +5628,81 @@ module.exports = {
               ],
               "link": "|cnIQ4:|Hitem:50272::::::::90:270::23:1:3524:1:28:3025:::::|h[冰龙胸骨]|h|r",
               "iconText": "冰"
+            },
+            {
+              "id": 50259,
+              "name": "永冻冰晶",
+              "icon": 132783,
+              "iconName": "inv_datacrystal09",
+              "iconAsset": "/assets/icons/inv_datacrystal09.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                65
+              ],
+              "classes": [
+                2,
+                5,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 79
+                  }
+                ],
+                "stamina": null,
+                "secondary": [],
+                "effects": {
+                  "equip": [],
+                  "use": [
+                    "使用： 使你的爆击提高801，持续20秒。每当你的非周期性法术造成爆击时，此加成便会降低160。 （3分钟冷却）"
+                  ]
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 278,
+                "instanceName": "萨隆矿坑",
+                "isRaid": false,
+                "encounterId": 610,
+                "encounterName": "天灾领主泰兰努斯",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 9
+              },
+              "tooltipRaw": [
+                "永冻冰晶",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "装备唯一",
+                "饰品",
+                "+79 智力",
+                "使用： 使你的爆击提高801，持续20秒。每当你的非周期性法术造成爆击时，此加成便会降低160。 （3分钟冷却）"
+              ],
+              "link": "|cnIQ4:|Hitem:50259::::::::90:270::23:1:3524:1:28:3025:::::|h[永冻冰晶]|h|r",
+              "iconText": "永"
             }
           ]
         }
@@ -5160,7 +5734,7 @@ module.exports = {
               "itemSubType": "单手锤",
               "ilvl": 246,
               "specs": [
-                251
+                66
               ],
               "classes": [
                 1,
@@ -5251,9 +5825,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -5331,6 +5905,78 @@ module.exports = {
               ],
               "link": "|cnIQ4:|Hitem:251101::::::::90:270::23:1:3524:1:28:3025:::::|h[奥术守护者胸铠]|h|r",
               "iconText": "奥"
+            },
+            {
+              "id": 250246,
+              "name": "充能宝珠",
+              "icon": 4914670,
+              "iconName": "inv_cosmicvoid_orb",
+              "iconAsset": "/assets/icons/inv_cosmicvoid_orb.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                65
+              ],
+              "classes": [
+                2,
+                5,
+                7,
+                10,
+                11,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 79
+                  }
+                ],
+                "stamina": null,
+                "secondary": [],
+                "effects": {
+                  "equip": [
+                    "装备： 你的法术和技能有几率释放出能量球，在最多5名附近盟友间弹跳，使其全能提高49，持续12秒。如果盟友生命值低于50%，则为其恢复4156点生命值。"
+                  ],
+                  "use": []
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1300,
+                "instanceName": "魔导师平台",
+                "isRaid": false,
+                "encounterId": 2659,
+                "encounterName": "奥能金刚库斯托斯",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 6
+              },
+              "tooltipRaw": [
+                "充能宝珠",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "装备唯一",
+                "饰品",
+                "+79 智力",
+                "装备： 你的法术和技能有几率释放出能量球，在最多5名附近盟友间弹跳，使其全能提高49，持续12秒。如果盟友生命值低于50%，则为其恢复4156点生命值。"
+              ],
+              "link": "|cnIQ4:|Hitem:250246::::::::90:270::23:1:3524:1:28:3025:::::|h[充能宝珠]|h|r",
+              "iconText": "充"
             }
           ]
         },
@@ -5339,6 +5985,101 @@ module.exports = {
           "name": "瑟拉奈尔·日鞭",
           "order": 2,
           "items": [
+            {
+              "id": 251105,
+              "name": "破法者之盾",
+              "icon": 7392266,
+              "iconName": "inv_shield_1h_dungeonharronir_c_01",
+              "iconAsset": "/assets/icons/inv_shield_1h_dungeonharronir_c_01.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "盾牌",
+              "itemType": "护甲",
+              "itemSubType": "盾牌",
+              "ilvl": 246,
+              "specs": [
+                65,
+                66
+              ],
+              "classes": [
+                1,
+                2,
+                7
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "力量",
+                    "type": "strength",
+                    "value": 42
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 127
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 515
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 27
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 38
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 751
+                }
+              },
+              "source": {
+                "instanceId": 1300,
+                "instanceName": "魔导师平台",
+                "isRaid": false,
+                "encounterId": 2661,
+                "encounterName": "瑟拉奈尔·日鞭",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 2
+              },
+              "tooltipRaw": [
+                "破法者之盾",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "副手 盾牌",
+                "751点护甲",
+                "1877点格挡",
+                "+127 智力",
+                "+515 耐力",
+                "+27 爆击",
+                "+38 精通",
+                "+42 力量",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:251105::::::::90:270::23:1:3524:1:28:3025:::::|h[破法者之盾]|h|r",
+              "iconText": "破"
+            },
             {
               "id": 260312,
               "name": "挑战防御者斗篷",
@@ -5353,9 +6094,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -5463,9 +6204,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -5565,9 +6306,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -5659,9 +6400,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -5749,7 +6490,7 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250
+                66
               ],
               "classes": [
                 1,
@@ -5834,9 +6575,9 @@ module.exports = {
               "itemSubType": "杂项",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -5906,9 +6647,9 @@ module.exports = {
               "itemSubType": "配方",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -5976,9 +6717,9 @@ module.exports = {
               "itemSubType": "配方",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -6046,9 +6787,9 @@ module.exports = {
               "itemSubType": "配方",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -6124,9 +6865,9 @@ module.exports = {
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -6196,9 +6937,7 @@ module.exports = {
               "itemSubType": "双手斧",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                70
               ],
               "classes": [
                 1,
@@ -6289,9 +7028,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -6386,6 +7125,101 @@ module.exports = {
           "order": 1,
           "items": [
             {
+              "id": 251202,
+              "name": "溢流反射盾",
+              "icon": 7433369,
+              "iconName": "inv_12al_armyoflight_defense_shield01",
+              "iconAsset": "/assets/icons/inv_12al_armyoflight_defense_shield01.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "盾牌",
+              "itemType": "护甲",
+              "itemSubType": "盾牌",
+              "ilvl": 246,
+              "specs": [
+                65,
+                66
+              ],
+              "classes": [
+                1,
+                2,
+                7
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "力量",
+                    "type": "strength",
+                    "value": 42
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 127
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 515
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 23
+                  },
+                  {
+                    "name": "全能",
+                    "type": "versatility",
+                    "value": 42
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 751
+                }
+              },
+              "source": {
+                "instanceId": 1316,
+                "instanceName": "节点希纳斯",
+                "isRaid": false,
+                "encounterId": 2813,
+                "encounterName": "核技工程长卡斯雷瑟",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 2
+              },
+              "tooltipRaw": [
+                "溢流反射盾",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "副手 盾牌",
+                "751点护甲",
+                "1877点格挡",
+                "+127 智力",
+                "+515 耐力",
+                "+23 爆击",
+                "+42 全能",
+                "+42 力量",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:251202::::::::90:270::23:1:3524:1:28:3025:::::|h[溢流反射盾]|h|r",
+              "iconText": "溢"
+            },
+            {
               "id": 251206,
               "name": "流光织锦披风",
               "icon": 7252744,
@@ -6399,9 +7233,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -6509,9 +7343,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -6611,9 +7445,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -6705,9 +7539,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -6784,6 +7618,78 @@ module.exports = {
               ],
               "link": "|cnIQ4:|Hitem:251093::::::::90:270::23:1:3524:1:28:3025:::::|h[圣光的遗落]|h|r",
               "iconText": "圣"
+            },
+            {
+              "id": 250253,
+              "name": "暮色怨灵的低语",
+              "icon": 4914671,
+              "iconName": "inv_cosmicvoid_wave",
+              "iconAsset": "/assets/icons/inv_cosmicvoid_wave.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                65
+              ],
+              "classes": [
+                2,
+                5,
+                7,
+                10,
+                11,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 79
+                  }
+                ],
+                "stamina": null,
+                "secondary": [],
+                "effects": {
+                  "equip": [
+                    "装备： 你的治疗法术和技能有一定几率召唤暮色怨灵，跃向目标并为其恢复19601点生命值。\n如果目标生命值低于40%，暮色怨灵会进一步强化目标，使其获得67全能，持续10秒。"
+                  ],
+                  "use": []
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1316,
+                "instanceName": "节点希纳斯",
+                "isRaid": false,
+                "encounterId": 2814,
+                "encounterName": "核心守卫奈萨拉",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 7
+              },
+              "tooltipRaw": [
+                "暮色怨灵的低语",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "装备唯一",
+                "饰品",
+                "+79 智力",
+                "装备： 你的治疗法术和技能有一定几率召唤暮色怨灵，跃向目标并为其恢复19601点生命值。\n如果目标生命值低于40%，暮色怨灵会进一步强化目标，使其获得67全能，持续10秒。"
+              ],
+              "link": "|cnIQ4:|Hitem:250253::::::::90:270::23:1:3524:1:28:3025:::::|h[暮色怨灵的低语]|h|r",
+              "iconText": "暮"
             }
           ]
         },
@@ -6806,9 +7712,9 @@ module.exports = {
               "itemSubType": "配方",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -6884,9 +7790,9 @@ module.exports = {
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -6956,9 +7862,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -7051,9 +7957,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -7145,9 +8051,8 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -7219,6 +8124,100 @@ module.exports = {
           "order": 1,
           "items": [
             {
+              "id": 193710,
+              "name": "惠魔佩剑",
+              "icon": 4214741,
+              "iconName": "inv_sword_1h_dragon_c_01",
+              "iconAsset": "/assets/icons/inv_sword_1h_dragon_c_01.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "单手剑",
+              "itemType": "武器",
+              "itemSubType": "单手剑",
+              "ilvl": 246,
+              "specs": [
+                65
+              ],
+              "classes": [
+                2,
+                8,
+                9,
+                10,
+                12,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 242
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 515
+                },
+                "secondary": [
+                  {
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 39
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 25
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "damageMax": 77,
+                  "damageMin": 46,
+                  "dps": 23.7,
+                  "speed": 2.6
+                }
+              },
+              "source": {
+                "instanceId": 1201,
+                "instanceName": "艾杰斯亚学院",
+                "isRaid": false,
+                "encounterId": 2509,
+                "encounterName": "维克萨姆斯",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 2
+              },
+              "tooltipRaw": [
+                "惠魔佩剑",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "单手 剑",
+                "46 - 77点伤害 速度 2.60",
+                "（每秒伤害23.7）",
+                "+242 智力",
+                "+515 耐力",
+                "+39 急速",
+                "+25 精通",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:193710::::::::90:270::23:1:3524:1:28:3025:::::|h[惠魔佩剑]|h|r",
+              "iconText": "惠"
+            },
+            {
               "id": 193711,
               "name": "殇魔弯刀",
               "icon": 4391287,
@@ -7232,7 +8231,7 @@ module.exports = {
               "itemSubType": "单手剑",
               "ilvl": 246,
               "specs": [
-                251
+                66
               ],
               "classes": [
                 1,
@@ -7323,9 +8322,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -7421,9 +8420,7 @@ module.exports = {
               "itemSubType": "双手斧",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                70
               ],
               "classes": [
                 1,
@@ -7514,9 +8511,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -7618,6 +8615,101 @@ module.exports = {
           "order": 3,
           "items": [
             {
+              "id": 258531,
+              "name": "克罗兹鳞片护盾",
+              "icon": 4181501,
+              "iconName": "inv_shield_1h_dragondungeon_c_01",
+              "iconAsset": "/assets/icons/inv_shield_1h_dragondungeon_c_01.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "盾牌",
+              "itemType": "护甲",
+              "itemSubType": "盾牌",
+              "ilvl": 246,
+              "specs": [
+                65,
+                66
+              ],
+              "classes": [
+                1,
+                2,
+                7
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "力量",
+                    "type": "strength",
+                    "value": 42
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 127
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 515
+                },
+                "secondary": [
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 23
+                  },
+                  {
+                    "name": "全能",
+                    "type": "versatility",
+                    "value": 42
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 751
+                }
+              },
+              "source": {
+                "instanceId": 1201,
+                "instanceName": "艾杰斯亚学院",
+                "isRaid": false,
+                "encounterId": 2495,
+                "encounterName": "克罗兹",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 2
+              },
+              "tooltipRaw": [
+                "克罗兹鳞片护盾",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "副手 盾牌",
+                "751点护甲",
+                "1877点格挡",
+                "+127 智力",
+                "+515 耐力",
+                "+42 全能",
+                "+23 精通",
+                "+42 力量",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:258531::::::::90:270::23:1:3524:1:28:3025:::::|h[克罗兹鳞片护盾]|h|r",
+              "iconText": "克"
+            },
+            {
               "id": 193719,
               "name": "巨龙竞技装备",
               "icon": 4641307,
@@ -7631,9 +8723,8 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -7688,6 +8779,81 @@ module.exports = {
               ],
               "link": "|cnIQ4:|Hitem:193719::::::::90:270::23:1:3524:1:28:3025:::::|h[巨龙竞技装备]|h|r",
               "iconText": "巨"
+            },
+            {
+              "id": 193718,
+              "name": "翡翠教练的哨子",
+              "icon": 134157,
+              "iconName": "inv_misc_head_dragon_green",
+              "iconAsset": "/assets/icons/inv_misc_head_dragon_green.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                65
+              ],
+              "classes": [
+                2,
+                5,
+                7,
+                10,
+                11,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 79
+                  }
+                ],
+                "stamina": null,
+                "secondary": [],
+                "effects": {
+                  "equip": [
+                    "装备： 你的有益法术和技能有一定几率鼓舞你和你所指导的盟友，使你们的精通提高187，持续10秒。"
+                  ],
+                  "use": [
+                    "使用： 选择一位目标友方玩家进行指导。"
+                  ]
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1201,
+                "instanceName": "艾杰斯亚学院",
+                "isRaid": false,
+                "encounterId": 2495,
+                "encounterName": "克罗兹",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 7
+              },
+              "tooltipRaw": [
+                "翡翠教练的哨子",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "装备唯一",
+                "饰品",
+                "+79 智力",
+                "使用： 选择一位目标友方玩家进行指导。",
+                "装备： 你的有益法术和技能有一定几率鼓舞你和你所指导的盟友，使你们的精通提高187，持续10秒。"
+              ],
+              "link": "|cnIQ4:|Hitem:193718::::::::90:270::23:1:3524:1:28:3025:::::|h[翡翠教练的哨子]|h|r",
+              "iconText": "翡"
             }
           ]
         },
@@ -7710,9 +8876,9 @@ module.exports = {
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -7782,9 +8948,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -7876,9 +9042,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -7970,9 +9136,8 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -8069,9 +9234,9 @@ module.exports = {
               "itemSubType": "配方",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -8139,9 +9304,9 @@ module.exports = {
               "itemSubType": "配方",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -8256,9 +9421,9 @@ module.exports = {
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -8328,9 +9493,9 @@ module.exports = {
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -8400,9 +9565,9 @@ module.exports = {
               "itemSubType": "杂项",
               "ilvl": 263,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -8462,9 +9627,9 @@ module.exports = {
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -8534,9 +9699,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -8629,8 +9794,7 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                251,
-                252
+                70
               ],
               "classes": [
                 1,
@@ -8712,9 +9876,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -8810,9 +9974,9 @@ module.exports = {
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -8869,6 +10033,196 @@ module.exports = {
               "iconText": "元"
             },
             {
+              "id": 249293,
+              "name": "指挥的重担",
+              "icon": 7456191,
+              "iconName": "inv_mace_1h_raidmidnight_d_02",
+              "iconAsset": "/assets/icons/inv_mace_1h_raidmidnight_d_02.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "单手锤",
+              "itemType": "武器",
+              "itemSubType": "单手锤",
+              "ilvl": 269,
+              "specs": [
+                65
+              ],
+              "classes": [
+                2,
+                5,
+                7,
+                10,
+                11,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "英雄 4/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 299
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 691
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 48
+                  },
+                  {
+                    "name": "全能",
+                    "type": "versatility",
+                    "value": 26
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "damageMax": 86,
+                  "damageMin": 66,
+                  "dps": 29.2,
+                  "speed": 2.6
+                }
+              },
+              "source": {
+                "instanceId": 1307,
+                "instanceName": "虚影尖塔",
+                "isRaid": true,
+                "encounterId": 2733,
+                "encounterName": "元首阿福扎恩",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 2
+              },
+              "tooltipRaw": [
+                "指挥的重担",
+                "史诗",
+                "物品等级269",
+                "升级：英雄 4/6",
+                "拾取后绑定",
+                "单手 锤",
+                "66 - 86点伤害 速度 2.60",
+                "（每秒伤害29.2）",
+                "+299 智力",
+                "+691 耐力",
+                "+48 爆击",
+                "+26 全能",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:249293::::::::90:270::5:1:3524:1:28:3606:::::|h[指挥的重担]|h|r",
+              "iconText": "指"
+            },
+            {
+              "id": 249275,
+              "name": "高尚决心壁垒",
+              "icon": 7412729,
+              "iconName": "inv_shield_1h_raidmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_shield_1h_raidmidnight_d_01.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "盾牌",
+              "itemType": "护甲",
+              "itemSubType": "盾牌",
+              "ilvl": 269,
+              "specs": [
+                65,
+                66
+              ],
+              "classes": [
+                1,
+                2,
+                7
+              ],
+              "quality": 4,
+              "upgradeTrack": "英雄 4/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "力量",
+                    "type": "strength",
+                    "value": 51
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 158
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 691
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 22
+                  },
+                  {
+                    "name": "全能",
+                    "type": "versatility",
+                    "value": 52
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 849
+                }
+              },
+              "source": {
+                "instanceId": 1307,
+                "instanceName": "虚影尖塔",
+                "isRaid": true,
+                "encounterId": 2733,
+                "encounterName": "元首阿福扎恩",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 4
+              },
+              "tooltipRaw": [
+                "高尚决心壁垒",
+                "史诗",
+                "物品等级269",
+                "升级：英雄 4/6",
+                "拾取后绑定",
+                "副手 盾牌",
+                "849点护甲",
+                "2122点格挡",
+                "+158 智力",
+                "+691 耐力",
+                "+22 爆击",
+                "+52 全能",
+                "+51 力量",
+                "“毁灭即是唯一的高贵。”——元首阿福扎恩",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:249275::::::::90:270::5:1:3524:1:28:3606:::::|h[高尚决心壁垒]|h|r",
+              "iconText": "高"
+            },
+            {
               "id": 249313,
               "name": "光之审判肩甲",
               "icon": 7319576,
@@ -8882,9 +10236,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -8977,9 +10331,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -9088,9 +10442,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -9183,9 +10537,8 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -9277,9 +10630,9 @@ module.exports = {
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -9349,9 +10702,9 @@ module.exports = {
               "itemSubType": "杂项",
               "ilvl": 263,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -9411,9 +10764,9 @@ module.exports = {
               "itemSubType": "配方",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -9515,9 +10868,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -9610,9 +10963,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -9700,9 +11053,8 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -9778,9 +11130,9 @@ module.exports = {
               "itemSubType": "配方",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -9853,9 +11205,9 @@ module.exports = {
               "itemSubType": "杂项",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -9926,9 +11278,9 @@ module.exports = {
               "itemSubType": "杂项",
               "ilvl": 263,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -9988,9 +11340,9 @@ module.exports = {
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -10060,7 +11412,7 @@ module.exports = {
               "itemSubType": "单手剑",
               "ilvl": 269,
               "specs": [
-                251
+                66
               ],
               "classes": [
                 1,
@@ -10151,9 +11503,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -10247,9 +11599,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -10321,6 +11673,78 @@ module.exports = {
               ],
               "link": "|cnIQ4:|Hitem:249337::::::::90:270::5:1:3524:1:28:3606:::::|h[盘绕恶意丝带]|h|r",
               "iconText": "盘"
+            },
+            {
+              "id": 249341,
+              "name": "不稳定的虚空弥散器",
+              "icon": 7636704,
+              "iconName": "inv_12_trinket_raid_voidspire_healer1_volatilevoidsuffuser",
+              "iconAsset": "/assets/icons/inv_12_trinket_raid_voidspire_healer1_volatilevoidsuffuser.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 269,
+              "specs": [
+                65
+              ],
+              "classes": [
+                2,
+                5,
+                7,
+                10,
+                11,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "英雄 4/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [],
+                "stamina": null,
+                "secondary": [
+                  {
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 106
+                  }
+                ],
+                "effects": {
+                  "equip": [
+                    "装备： 你的治疗法术和技能有很大几率使你获得虚空弥散，持续12秒，使你的智力提高167点，并根据目标已损失的生命值百分比，每1%额外提高2点智力。多个弥散效果可以重叠。"
+                  ],
+                  "use": []
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1307,
+                "instanceName": "虚影尖塔",
+                "isRaid": true,
+                "encounterId": 2736,
+                "encounterName": "陨落之王萨哈达尔",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 15
+              },
+              "tooltipRaw": [
+                "不稳定的虚空弥散器",
+                "史诗",
+                "物品等级269",
+                "升级：英雄 4/6",
+                "拾取后绑定",
+                "装备唯一",
+                "饰品",
+                "+106 急速",
+                "装备： 你的治疗法术和技能有很大几率使你获得虚空弥散，持续12秒，使你的智力提高167点，并根据目标已损失的生命值百分比，每1%额外提高2点智力。多个弥散效果可以重叠。"
+              ],
+              "link": "|cnIQ4:|Hitem:249341::::::::90:270::5:1:3524:1:28:3606:::::|h[不稳定的虚空弥散器]|h|r",
+              "iconText": "不"
             }
           ]
         },
@@ -10343,9 +11767,9 @@ module.exports = {
               "itemSubType": "杂项",
               "ilvl": 266,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -10405,9 +11829,9 @@ module.exports = {
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -10477,9 +11901,9 @@ module.exports = {
               "itemSubType": "配方",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -10580,9 +12004,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -10690,9 +12114,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -10772,6 +12196,81 @@ module.exports = {
               "iconText": "艾"
             },
             {
+              "id": 249346,
+              "name": "威厄高尔的最终凝视",
+              "icon": 7636706,
+              "iconName": "inv_12_trinket_raid_voidspire_int1_voiddragoneye",
+              "iconAsset": "/assets/icons/inv_12_trinket_raid_voidspire_int1_voiddragoneye.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 269,
+              "specs": [
+                65
+              ],
+              "classes": [
+                2,
+                5,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "英雄 4/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 98
+                  }
+                ],
+                "stamina": null,
+                "secondary": [],
+                "effects": {
+                  "equip": [],
+                  "use": [
+                    "使用： 夺取眼睛的龙族之力，使你获得1220精通，该效果在15秒内逐渐减弱，并让你能够看见隐藏的敌人。 （1分钟 30秒冷却）"
+                  ]
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1307,
+                "instanceName": "虚影尖塔",
+                "isRaid": true,
+                "encounterId": 2735,
+                "encounterName": "威厄高尔和艾佐拉克",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 14
+              },
+              "tooltipRaw": [
+                "威厄高尔的最终凝视",
+                "史诗",
+                "物品等级269",
+                "升级：英雄 4/6",
+                "拾取后绑定",
+                "装备唯一",
+                "饰品",
+                "+98 智力",
+                "使用： 夺取眼睛的龙族之力，使你获得1220精通，该效果在15秒内逐渐减弱，并让你能够看见隐藏的敌人。 （1分钟 30秒冷却）"
+              ],
+              "link": "|cnIQ4:|Hitem:249346::::::::90:270::5:1:3524:1:28:3606:::::|h[威厄高尔的最终凝视]|h|r",
+              "iconText": "威"
+            },
+            {
               "id": 249339,
               "name": "溅暗恐惧之鳞",
               "icon": 7636711,
@@ -10785,7 +12284,7 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250
+                66
               ],
               "classes": [
                 1,
@@ -10864,9 +12363,9 @@ module.exports = {
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -10936,9 +12435,9 @@ module.exports = {
               "itemSubType": "杂项",
               "ilvl": 266,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -10998,9 +12497,9 @@ module.exports = {
               "itemSubType": "配方",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -11103,9 +12602,7 @@ module.exports = {
               "itemSubType": "双手锤",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                70
               ],
               "classes": [
                 1,
@@ -11183,6 +12680,101 @@ module.exports = {
               "iconText": "贝"
             },
             {
+              "id": 249294,
+              "name": "盲目裁决之刃",
+              "icon": 7490210,
+              "iconName": "inv_sword_1h_raidmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_sword_1h_raidmidnight_d_01.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "单手剑",
+              "itemType": "武器",
+              "itemSubType": "单手剑",
+              "ilvl": 269,
+              "specs": [
+                65
+              ],
+              "classes": [
+                2,
+                8,
+                9,
+                10,
+                12,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "英雄 4/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 299
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 691
+                },
+                "secondary": [
+                  {
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 49
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 25
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "damageMax": 95,
+                  "damageMin": 57,
+                  "dps": 29.2,
+                  "speed": 2.6
+                }
+              },
+              "source": {
+                "instanceId": 1307,
+                "instanceName": "虚影尖塔",
+                "isRaid": true,
+                "encounterId": 2737,
+                "encounterName": "光盲先锋军",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 8
+              },
+              "tooltipRaw": [
+                "盲目裁决之刃",
+                "史诗",
+                "物品等级269",
+                "升级：英雄 4/6",
+                "拾取后绑定",
+                "单手 剑",
+                "57 - 95点伤害 速度 2.60",
+                "（每秒伤害29.2）",
+                "+299 智力",
+                "+691 耐力",
+                "+49 急速",
+                "+25 精通",
+                "“圣光之火不饶恕任何人。”——维纳尔·光血",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:249294::::::::90:270::5:1:3524:1:28:3606:::::|h[盲目裁决之刃]|h|r",
+              "iconText": "盲"
+            },
+            {
               "id": 249311,
               "name": "光血护胫",
               "icon": 7319584,
@@ -11196,9 +12788,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -11291,9 +12883,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -11366,6 +12958,79 @@ module.exports = {
               ],
               "link": "|cnIQ4:|Hitem:249369::::::::90:270::5:1:3524:1:28:3606:::::|h[圣光纽带]|h|r",
               "iconText": "圣"
+            },
+            {
+              "id": 249808,
+              "name": "光盲圣怒的连祷",
+              "icon": 7636705,
+              "iconName": "inv_12_trinket_raid_voidspire_healer2_litanyoflightblindwrath",
+              "iconAsset": "/assets/icons/inv_12_trinket_raid_voidspire_healer2_litanyoflightblindwrath.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 269,
+              "specs": [
+                65
+              ],
+              "classes": [
+                2,
+                5,
+                7,
+                10,
+                11,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "英雄 4/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 98
+                  }
+                ],
+                "stamina": null,
+                "secondary": [],
+                "effects": {
+                  "equip": [],
+                  "use": [
+                    "使用： 祈求连祷，对一个敌人施加光盲圣怒的道标，持续30秒。你的下5个有害法术会召下一道圣光冲击，对目标造成13107点神圣伤害。\n5名受伤的盟友会获得等量的护盾，护盾持续期间吸收50%的伤害。 （1分钟 30秒冷却） \"你与圣光同在吗？\""
+                  ]
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1307,
+                "instanceName": "虚影尖塔",
+                "isRaid": true,
+                "encounterId": 2737,
+                "encounterName": "光盲先锋军",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 14
+              },
+              "tooltipRaw": [
+                "光盲圣怒的连祷",
+                "史诗",
+                "物品等级269",
+                "升级：英雄 4/6",
+                "拾取后绑定",
+                "装备唯一",
+                "饰品",
+                "+98 智力",
+                "使用： 祈求连祷，对一个敌人施加光盲圣怒的道标，持续30秒。你的下5个有害法术会召下一道圣光冲击，对目标造成13107点神圣伤害。\n5名受伤的盟友会获得等量的护盾，护盾持续期间吸收50%的伤害。 （1分钟 30秒冷却）",
+                "\"你与圣光同在吗？\""
+              ],
+              "link": "|cnIQ4:|Hitem:249808::::::::90:270::5:1:3524:1:28:3606:::::|h[光盲圣怒的连祷]|h|r",
+              "iconText": "光"
             }
           ]
         },
@@ -11388,9 +13053,9 @@ module.exports = {
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -11460,9 +13125,9 @@ module.exports = {
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -11532,9 +13197,9 @@ module.exports = {
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -11604,7 +13269,7 @@ module.exports = {
               "itemSubType": "单手锤",
               "ilvl": 269,
               "specs": [
-                251
+                66
               ],
               "classes": [
                 1,
@@ -11695,9 +13360,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 276,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -11787,9 +13452,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -11882,9 +13547,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -11962,6 +13627,82 @@ module.exports = {
               ],
               "link": "|cnIQ4:|Hitem:249380::::::::90:270::5:1:3524:1:28:3606:::::|h[仇恨束缚腰链]|h|r",
               "iconText": "仇"
+            },
+            {
+              "id": 249809,
+              "name": "双界行者的丝带",
+              "icon": 7636707,
+              "iconName": "inv_12_trinket_raid_voidspire_int2_locuswalkerslastribbon",
+              "iconAsset": "/assets/icons/inv_12_trinket_raid_voidspire_int2_locuswalkerslastribbon.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 269,
+              "specs": [
+                65
+              ],
+              "classes": [
+                2,
+                5,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "英雄 4/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [],
+                "stamina": null,
+                "secondary": [
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 106
+                  }
+                ],
+                "effects": {
+                  "equip": [
+                    "装备： 施放法术有很大几率让你受到虚空之力的诱惑，使你的智力提高223点，持续10秒。\n每次诱惑会永久使此效果提高5%，最多10次，离开战斗后迅速减弱。 “你想要深入了解虚空？在疯狂的低语声中，它会向我们传授许多教训。”——双界行者"
+                  ],
+                  "use": []
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1307,
+                "instanceName": "虚影尖塔",
+                "isRaid": true,
+                "encounterId": 2738,
+                "encounterName": "宇宙之冕",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 14
+              },
+              "tooltipRaw": [
+                "双界行者的丝带",
+                "史诗",
+                "物品等级269",
+                "升级：英雄 4/6",
+                "拾取后绑定",
+                "装备唯一",
+                "饰品",
+                "+106 精通",
+                "装备： 施放法术有很大几率让你受到虚空之力的诱惑，使你的智力提高223点，持续10秒。\n每次诱惑会永久使此效果提高5%，最多10次，离开战斗后迅速减弱。",
+                "“你想要深入了解虚空？在疯狂的低语声中，它会向我们传授许多教训。”——双界行者"
+              ],
+              "link": "|cnIQ4:|Hitem:249809::::::::90:270::5:1:3524:1:28:3606:::::|h[双界行者的丝带]|h|r",
+              "iconText": "双"
             }
           ]
         }
@@ -11993,9 +13734,9 @@ module.exports = {
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -12065,9 +13806,9 @@ module.exports = {
               "itemSubType": "配方",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -12151,6 +13892,101 @@ module.exports = {
               "iconText": "图"
             },
             {
+              "id": 249921,
+              "name": "萨拉斯护晨者",
+              "icon": 7412729,
+              "iconName": "inv_shield_1h_raidmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_shield_1h_raidmidnight_d_01.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "盾牌",
+              "itemType": "护甲",
+              "itemSubType": "盾牌",
+              "ilvl": 269,
+              "specs": [
+                65,
+                66
+              ],
+              "classes": [
+                1,
+                2,
+                7
+              ],
+              "quality": 4,
+              "upgradeTrack": "英雄 4/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "力量",
+                    "type": "strength",
+                    "value": 51
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 158
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 691
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 22
+                  },
+                  {
+                    "name": "全能",
+                    "type": "versatility",
+                    "value": 52
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 849
+                }
+              },
+              "source": {
+                "instanceId": 1308,
+                "instanceName": "进军奎尔丹纳斯",
+                "isRaid": true,
+                "encounterId": 2739,
+                "encounterName": "贝洛朗，奥的子嗣",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 5
+              },
+              "tooltipRaw": [
+                "萨拉斯护晨者",
+                "史诗",
+                "物品等级269",
+                "升级：英雄 4/6",
+                "拾取后绑定",
+                "副手 盾牌",
+                "849点护甲",
+                "2122点格挡",
+                "+158 智力",
+                "+691 耐力",
+                "+22 爆击",
+                "+52 全能",
+                "+51 力量",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:249921::::::::90:270::5:1:3524:1:28:3611:::::|h[萨拉斯护晨者]|h|r",
+              "iconText": "萨"
+            },
+            {
               "id": 249307,
               "name": "余烬之子护手",
               "icon": 7319582,
@@ -12164,9 +14000,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -12259,9 +14095,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -12349,9 +14185,8 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -12435,9 +14270,8 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -12521,7 +14355,7 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250
+                66
               ],
               "classes": [
                 1,
@@ -12606,9 +14440,9 @@ module.exports = {
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -12678,9 +14512,9 @@ module.exports = {
               "itemSubType": "配方",
               "ilvl": 246,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -12776,9 +14610,9 @@ module.exports = {
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -12848,9 +14682,9 @@ module.exports = {
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -12920,9 +14754,9 @@ module.exports = {
               "itemSubType": "材料",
               "ilvl": 266,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -12989,9 +14823,7 @@ module.exports = {
               "itemSubType": "双手斧",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                70
               ],
               "classes": [
                 1,
@@ -13076,9 +14908,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -13166,9 +14998,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -13257,9 +15089,9 @@ module.exports = {
               "itemSubType": "护甲",
               "ilvl": 276,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
                 1,
@@ -13330,29 +15162,102 @@ module.exports = {
               ],
               "link": "|cnIQ4:|Hitem:249920::::::::90:270::5:1:3524:1:28:3611:::::|h[至暗之夜的眼眸]|h|r",
               "iconText": "至"
+            },
+            {
+              "id": 249811,
+              "name": "宇宙波动之光",
+              "icon": 7636700,
+              "iconName": "inv_12_trinket_raid_darkwelle_healer3_cosmiccrescendo",
+              "iconAsset": "/assets/icons/inv_12_trinket_raid_darkwelle_healer3_cosmiccrescendo.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 269,
+              "specs": [
+                65
+              ],
+              "classes": [
+                2,
+                5,
+                7,
+                10,
+                11,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "英雄 4/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 98
+                  }
+                ],
+                "stamina": null,
+                "secondary": [],
+                "effects": {
+                  "equip": [
+                    "装备： 你的治疗有很大几率对附近的敌人施加宇宙波动，每3秒造成81点宇宙伤害，直到其死亡，最多叠加25次。\n每2秒哼唱一首宇宙圣歌，如果任何盟友的生命值低于60%，则消耗一层宇宙潮音，为其和最多4名受伤的盟友共恢复15656点生命值，由其分摊。每增加一名盟友，治疗效果提高30%，最多150%。 \"曾几何时，她的歌声让人们心中充满希望。\""
+                  ],
+                  "use": []
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1308,
+                "instanceName": "进军奎尔丹纳斯",
+                "isRaid": true,
+                "encounterId": 2740,
+                "encounterName": "至暗之夜降临",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 15
+              },
+              "tooltipRaw": [
+                "宇宙波动之光",
+                "史诗",
+                "物品等级269",
+                "升级：英雄 4/6",
+                "拾取后绑定",
+                "装备唯一",
+                "饰品",
+                "+98 智力",
+                "装备： 你的治疗有很大几率对附近的敌人施加宇宙波动，每3秒造成81点宇宙伤害，直到其死亡，最多叠加25次。\n每2秒哼唱一首宇宙圣歌，如果任何盟友的生命值低于60%，则消耗一层宇宙潮音，为其和最多4名受伤的盟友共恢复15656点生命值，由其分摊。每增加一名盟友，治疗效果提高30%，最多150%。",
+                "\"曾几何时，她的歌声让人们心中充满希望。\""
+              ],
+              "link": "|cnIQ4:|Hitem:249811::::::::90:270::5:1:3524:1:28:3611:::::|h[宇宙波动之光]|h|r",
+              "iconText": "宇"
             }
           ]
         }
       ]
     },
     {
-      "id": "tier:deathknight",
+      "id": "tier:paladin",
       "name": "套装",
       "type": "tier",
       "difficulty": 5,
       "order": 999,
       "encounters": [
         {
-          "id": "tier-set:deathknight",
-          "name": "冷厉骑手的挽歌",
+          "id": "tier-set:paladin",
+          "name": "光耀裁决的套装",
           "order": 0,
           "items": [
             {
-              "id": 249970,
-              "name": "冷厉骑手的头冠",
-              "icon": 7382330,
-              "iconName": "inv_plate_raiddeathknightmidnight_d_01_helm",
-              "iconAsset": "/assets/icons/inv_plate_raiddeathknightmidnight_d_01_helm.jpg",
+              "id": 249961,
+              "name": "光耀裁决的坚定凝视",
+              "icon": 7319583,
+              "iconName": "inv_helm_plate_raidpaladinmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_helm_plate_raidpaladinmidnight_d_01.jpg",
               "slot": "head",
               "slotName": "头部",
               "armorType": "plate",
@@ -13361,12 +15266,12 @@ module.exports = {
               "itemSubType": "板甲",
               "ilvl": 263,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
-                6
+                2
               ],
               "quality": 4,
               "upgradeTrack": "英雄 2/6",
@@ -13376,6 +15281,12 @@ module.exports = {
               },
               "stats": {
                 "primaryStats": [
+                  {
+                    "key": "intellect",
+                    "type": "intellect",
+                    "name": "智力",
+                    "value": 97
+                  },
                   {
                     "key": "strength",
                     "type": "strength",
@@ -13394,13 +15305,13 @@ module.exports = {
                     "key": "haste",
                     "type": "haste",
                     "name": "急速",
-                    "value": 93
+                    "value": 98
                   },
                   {
                     "key": "mastery",
                     "type": "mastery",
                     "name": "精通",
-                    "value": 50
+                    "value": 46
                   }
                 ],
                 "effects": {
@@ -13412,121 +15323,136 @@ module.exports = {
                 }
               },
               "source": {
-                "instanceId": "tier:deathknight",
+                "instanceId": "tier:paladin",
                 "instanceName": "套装",
                 "isRaid": false,
-                "encounterId": "tier-set:deathknight",
-                "encounterName": "冷厉骑手的挽歌",
+                "encounterId": "tier-set:paladin",
+                "encounterName": "光耀裁决的套装",
                 "difficulty": 5,
-                "difficultyName": "英雄 2/6",
+                "difficultyName": "虚影尖塔 · 英雄",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
-                "冷厉骑手的头冠",
+                "光耀裁决的坚定凝视",
                 "史诗",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
                 "头部 板甲",
                 "210点护甲",
-                "+97 力量",
+                "+97 智力",
                 "+1281 耐力",
-                "+93 急速",
-                "+50 精通",
-                "冷厉骑手的挽歌（0/5）",
-                "冷厉骑手的护胸",
-                "冷厉骑手的骨握",
-                "冷厉骑手的头冠",
-                "冷厉骑手的腿铠",
-                "冷厉骑手的恐惧棘刺",
+                "+98 急速",
+                "+46 精通",
+                "+97 力量",
+                "光耀裁决的套装（0/5）",
+                "光耀裁决的神圣战甲",
+                "光耀裁决的护手",
+                "光耀裁决的坚定凝视",
+                "光耀裁决的护胫",
+                "光耀裁决的天命护肩",
                 "套装奖励将根据玩家专精变化。",
-                "职业：死亡骑士",
+                "职业：圣骑士",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:249970::::::::90:0::5:1:3524:1:28:3606:::::",
-              "iconText": "冷",
+              "link": "item:249961::::::::90:0::5:1:3524:1:28:3606:::::",
+              "iconText": "光",
+              "isBonusPiece": true,
+              "collectionKind": "bonus",
+              "appearance": {
+                "isBonusPiece": true,
+                "isCollected": false,
+                "itemModId": 1,
+                "slotId": 1,
+                "slotKey": "head",
+                "sourceId": 296552,
+                "transmogSetDescription": "英雄",
+                "transmogSetId": 5447,
+                "transmogSetLabel": "虚影尖塔",
+                "transmogSetName": "光耀裁决的套装",
+                "visualId": 127348
+              },
               "tier": {
-                "setId": 1978,
-                "setName": "冷厉骑手的挽歌",
+                "setId": 5447,
+                "setName": "光耀裁决的套装",
                 "pieceCount": 9,
                 "pieces": [
-                  "冷厉骑手的头冠",
-                  "冷厉骑手的恐惧棘刺",
-                  "冷厉骑手的护胸",
-                  "冷厉骑手的骨握",
-                  "冷厉骑手的腿铠",
-                  "冷厉骑手的披风",
-                  "冷厉骑手的镣铐",
-                  "冷厉骑手的腰链",
-                  "冷厉骑手的重靴"
+                  "光耀裁决的坚定凝视",
+                  "光耀裁决的天命护肩",
+                  "光耀裁决的神圣战甲",
+                  "光耀裁决的护手",
+                  "光耀裁决的护胫",
+                  "光耀裁决的重型披风",
+                  "光耀裁决的护腕",
+                  "光耀裁决的无畏徽记",
+                  "光耀裁决的战靴"
                 ],
                 "bonusesBySpec": {
-                  "250": {
-                    "specId": 250,
-                    "specName": "鲜血",
-                    "twoPiece": "你的血液沸腾造成的伤害提高8%，并产生3点符文能量。",
-                    "fourPiece": "灵界打击的伤害提高8%，并有10%的几率获得一层血液沸腾充能。",
+                  "65": {
+                    "specId": 65,
+                    "specName": "神圣",
+                    "twoPiece": "神圣震击的治疗效果提高15%。",
+                    "fourPiece": "神圣震击额外转移20%的治疗量到你的圣光道标中。",
                     "spells": [
                       {
-                        "spellId": 1264799,
-                        "name": "Death Knight Blood 12.0 Class Set 2pc",
-                        "description": "你的血液沸腾造成的伤害提高8%，并产生3点符文能量。"
+                        "spellId": 1264844,
+                        "name": "Paladin Holy 12.0 Class Set 2pc",
+                        "description": "神圣震击的治疗效果提高15%。"
                       },
                       {
-                        "spellId": 1264800,
-                        "name": "Death Knight Blood 12.0 Class Set 4pc",
-                        "description": "灵界打击的伤害提高8%，并有10%的几率获得一层血液沸腾充能。"
+                        "spellId": 1264845,
+                        "name": "Paladin Holy 12.0 Class Set 4pc",
+                        "description": "神圣震击额外转移20%的治疗量到你的圣光道标中。"
                       }
                     ]
                   },
-                  "251": {
-                    "specId": 251,
-                    "specName": "冰霜",
-                    "twoPiece": "符文武器增效使你下一个湮灭的伤害提高20%，或使冰霜之镰的伤害提高20%。",
-                    "fourPiece": "符文武器增效的充能速度加快20%，冰霜之柱额外获得1层充能。",
+                  "66": {
+                    "specId": 66,
+                    "specName": "防护",
+                    "twoPiece": "正义盾击造成的伤害提高20%。",
+                    "fourPiece": "施放正义盾击后，你的下一个复仇者之盾造成的伤害提高5%。最多叠加5层。",
                     "spells": [
                       {
-                        "spellId": 1264801,
-                        "name": "Death Knight Frost 12.0 Class Set 2pc",
-                        "description": "符文武器增效使你下一个湮灭的伤害提高20%，或使冰霜之镰的伤害提高20%。"
+                        "spellId": 1264846,
+                        "name": "Paladin Protection 12.0 Class Set 2pc",
+                        "description": "正义盾击造成的伤害提高20%。"
                       },
                       {
-                        "spellId": 1264802,
-                        "name": "Death Knight Frost 12.0 Class Set 4pc",
-                        "description": "符文武器增效的充能速度加快20%，冰霜之柱额外获得1层充能。"
+                        "spellId": 1264847,
+                        "name": "Paladin Protection 12.0 Class Set 4pc",
+                        "description": "施放正义盾击后，你的下一个复仇者之盾造成的伤害提高5%。最多叠加5层。"
                       }
                     ]
                   },
-                  "252": {
-                    "specId": 252,
-                    "specName": "邪恶",
-                    "twoPiece": "恐惧瘟疫的伤害提高25%。恶性瘟疫的伤害提高25%。",
-                    "fourPiece": "腐化造成的伤害提高20%，并使你的下一个天灾打击不消耗符文。",
+                  "70": {
+                    "specId": 70,
+                    "specName": "惩戒",
+                    "twoPiece": "异端逐除的伤害提高20%。",
+                    "fourPiece": "圣殿骑士的裁决会施加异端逐除，效果为100%，而神圣风暴施加异端逐除的效果为50%。",
                     "spells": [
                       {
-                        "spellId": 1264803,
-                        "name": "Death Knight Unholy 12.0 Class Set 2pc",
-                        "description": "恐惧瘟疫的伤害提高25%。恶性瘟疫的伤害提高25%。"
+                        "spellId": 1264848,
+                        "name": "Paladin Retribution 12.0 Class Set 2pc",
+                        "description": "异端逐除的伤害提高20%。"
                       },
                       {
-                        "spellId": 1264804,
-                        "name": "Death Knight Unholy 12.0 Class Set 4pc",
-                        "description": "腐化造成的伤害提高20%，并使你的下一个天灾打击不消耗符文。"
+                        "spellId": 1264849,
+                        "name": "Paladin Retribution 12.0 Class Set 4pc",
+                        "description": "圣殿骑士的裁决会施加异端逐除，效果为100%，而神圣风暴施加异端逐除的效果为50%。"
                       }
                     ]
                   }
                 },
-                "sourceLabel": "套装",
-                "isBonusPiece": true
+                "sourceLabel": "套装"
               }
             },
             {
-              "id": 249968,
-              "name": "冷厉骑手的恐惧棘刺",
-              "icon": 7382334,
-              "iconName": "inv_plate_raiddeathknightmidnight_d_01_shoulder",
-              "iconAsset": "/assets/icons/inv_plate_raiddeathknightmidnight_d_01_shoulder.jpg",
+              "id": 249959,
+              "name": "光耀裁决的天命护肩",
+              "icon": 7319576,
+              "iconName": "inv_shoulder_plate_raidpaladinmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_shoulder_plate_raidpaladinmidnight_d_01.jpg",
               "slot": "shoulder",
               "slotName": "肩部",
               "armorType": "plate",
@@ -13535,12 +15461,12 @@ module.exports = {
               "itemSubType": "板甲",
               "ilvl": 263,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
-                6
+                2
               ],
               "quality": 4,
               "upgradeTrack": "英雄 2/6",
@@ -13550,6 +15476,402 @@ module.exports = {
               },
               "stats": {
                 "primaryStats": [
+                  {
+                    "key": "intellect",
+                    "type": "intellect",
+                    "name": "智力",
+                    "value": 73
+                  },
+                  {
+                    "key": "strength",
+                    "type": "strength",
+                    "name": "力量",
+                    "value": 73
+                  }
+                ],
+                "stamina": {
+                  "key": "stamina",
+                  "type": "stamina",
+                  "name": "耐力",
+                  "value": 961
+                },
+                "secondary": [
+                  {
+                    "key": "crit",
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 76
+                  },
+                  {
+                    "key": "mastery",
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 31
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 193
+                }
+              },
+              "source": {
+                "instanceId": "tier:paladin",
+                "instanceName": "套装",
+                "isRaid": false,
+                "encounterId": "tier-set:paladin",
+                "encounterName": "光耀裁决的套装",
+                "difficulty": 5,
+                "difficultyName": "虚影尖塔 · 英雄",
+                "order": 999
+              },
+              "sourceType": "tier",
+              "tooltipRaw": [
+                "光耀裁决的天命护肩",
+                "史诗",
+                "物品等级263",
+                "升级：英雄 2/6",
+                "拾取后绑定",
+                "肩部 板甲",
+                "193点护甲",
+                "+73 智力",
+                "+961 耐力",
+                "+76 爆击",
+                "+31 精通",
+                "+73 力量",
+                "光耀裁决的套装（0/5）",
+                "光耀裁决的神圣战甲",
+                "光耀裁决的护手",
+                "光耀裁决的坚定凝视",
+                "光耀裁决的护胫",
+                "光耀裁决的天命护肩",
+                "套装奖励将根据玩家专精变化。",
+                "职业：圣骑士",
+                "你尚未收藏过此外观"
+              ],
+              "link": "item:249959::::::::90:0::5:1:3524:1:28:3606:::::",
+              "iconText": "光",
+              "isBonusPiece": true,
+              "collectionKind": "bonus",
+              "appearance": {
+                "isBonusPiece": true,
+                "isCollected": false,
+                "itemModId": 1,
+                "slotId": 3,
+                "slotKey": "shoulder",
+                "sourceId": 296528,
+                "transmogSetDescription": "英雄",
+                "transmogSetId": 5447,
+                "transmogSetLabel": "虚影尖塔",
+                "transmogSetName": "光耀裁决的套装",
+                "visualId": 127349
+              },
+              "tier": {
+                "setId": 5447,
+                "setName": "光耀裁决的套装",
+                "pieceCount": 9,
+                "pieces": [
+                  "光耀裁决的坚定凝视",
+                  "光耀裁决的天命护肩",
+                  "光耀裁决的神圣战甲",
+                  "光耀裁决的护手",
+                  "光耀裁决的护胫",
+                  "光耀裁决的重型披风",
+                  "光耀裁决的护腕",
+                  "光耀裁决的无畏徽记",
+                  "光耀裁决的战靴"
+                ],
+                "bonusesBySpec": {
+                  "65": {
+                    "specId": 65,
+                    "specName": "神圣",
+                    "twoPiece": "神圣震击的治疗效果提高15%。",
+                    "fourPiece": "神圣震击额外转移20%的治疗量到你的圣光道标中。",
+                    "spells": [
+                      {
+                        "spellId": 1264844,
+                        "name": "Paladin Holy 12.0 Class Set 2pc",
+                        "description": "神圣震击的治疗效果提高15%。"
+                      },
+                      {
+                        "spellId": 1264845,
+                        "name": "Paladin Holy 12.0 Class Set 4pc",
+                        "description": "神圣震击额外转移20%的治疗量到你的圣光道标中。"
+                      }
+                    ]
+                  },
+                  "66": {
+                    "specId": 66,
+                    "specName": "防护",
+                    "twoPiece": "正义盾击造成的伤害提高20%。",
+                    "fourPiece": "施放正义盾击后，你的下一个复仇者之盾造成的伤害提高5%。最多叠加5层。",
+                    "spells": [
+                      {
+                        "spellId": 1264846,
+                        "name": "Paladin Protection 12.0 Class Set 2pc",
+                        "description": "正义盾击造成的伤害提高20%。"
+                      },
+                      {
+                        "spellId": 1264847,
+                        "name": "Paladin Protection 12.0 Class Set 4pc",
+                        "description": "施放正义盾击后，你的下一个复仇者之盾造成的伤害提高5%。最多叠加5层。"
+                      }
+                    ]
+                  },
+                  "70": {
+                    "specId": 70,
+                    "specName": "惩戒",
+                    "twoPiece": "异端逐除的伤害提高20%。",
+                    "fourPiece": "圣殿骑士的裁决会施加异端逐除，效果为100%，而神圣风暴施加异端逐除的效果为50%。",
+                    "spells": [
+                      {
+                        "spellId": 1264848,
+                        "name": "Paladin Retribution 12.0 Class Set 2pc",
+                        "description": "异端逐除的伤害提高20%。"
+                      },
+                      {
+                        "spellId": 1264849,
+                        "name": "Paladin Retribution 12.0 Class Set 4pc",
+                        "description": "圣殿骑士的裁决会施加异端逐除，效果为100%，而神圣风暴施加异端逐除的效果为50%。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装"
+              }
+            },
+            {
+              "id": 249964,
+              "name": "光耀裁决的神圣战甲",
+              "icon": 7319581,
+              "iconName": "inv_chest_plate_raidpaladinmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_chest_plate_raidpaladinmidnight_d_01.jpg",
+              "slot": "chest",
+              "slotName": "胸部",
+              "armorType": "plate",
+              "armorTypeName": "板甲",
+              "itemType": "护甲",
+              "itemSubType": "板甲",
+              "ilvl": 263,
+              "specs": [
+                65,
+                66,
+                70
+              ],
+              "classes": [
+                2
+              ],
+              "quality": 4,
+              "upgradeTrack": "英雄 2/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "key": "intellect",
+                    "type": "intellect",
+                    "name": "智力",
+                    "value": 97
+                  },
+                  {
+                    "key": "strength",
+                    "type": "strength",
+                    "name": "力量",
+                    "value": 97
+                  }
+                ],
+                "stamina": {
+                  "key": "stamina",
+                  "type": "stamina",
+                  "name": "耐力",
+                  "value": 1281
+                },
+                "secondary": [
+                  {
+                    "key": "mastery",
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 94
+                  },
+                  {
+                    "key": "haste",
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 49
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 280
+                }
+              },
+              "source": {
+                "instanceId": "tier:paladin",
+                "instanceName": "套装",
+                "isRaid": false,
+                "encounterId": "tier-set:paladin",
+                "encounterName": "光耀裁决的套装",
+                "difficulty": 5,
+                "difficultyName": "虚影尖塔 · 英雄",
+                "order": 999
+              },
+              "sourceType": "tier",
+              "tooltipRaw": [
+                "光耀裁决的神圣战甲",
+                "史诗",
+                "物品等级263",
+                "升级：英雄 2/6",
+                "拾取后绑定",
+                "胸部 板甲",
+                "280点护甲",
+                "+97 智力",
+                "+1281 耐力",
+                "+49 急速",
+                "+94 精通",
+                "+97 力量",
+                "光耀裁决的套装（0/5）",
+                "光耀裁决的神圣战甲",
+                "光耀裁决的护手",
+                "光耀裁决的坚定凝视",
+                "光耀裁决的护胫",
+                "光耀裁决的天命护肩",
+                "套装奖励将根据玩家专精变化。",
+                "职业：圣骑士",
+                "你尚未收藏过此外观"
+              ],
+              "link": "item:249964::::::::90:0::5:1:3524:1:28:3606:::::",
+              "iconText": "光",
+              "isBonusPiece": true,
+              "collectionKind": "bonus",
+              "appearance": {
+                "isBonusPiece": true,
+                "isCollected": false,
+                "itemModId": 1,
+                "slotId": 5,
+                "slotKey": "chest",
+                "sourceId": 296588,
+                "transmogSetDescription": "英雄",
+                "transmogSetId": 5447,
+                "transmogSetLabel": "虚影尖塔",
+                "transmogSetName": "光耀裁决的套装",
+                "visualId": 127350
+              },
+              "tier": {
+                "setId": 5447,
+                "setName": "光耀裁决的套装",
+                "pieceCount": 9,
+                "pieces": [
+                  "光耀裁决的坚定凝视",
+                  "光耀裁决的天命护肩",
+                  "光耀裁决的神圣战甲",
+                  "光耀裁决的护手",
+                  "光耀裁决的护胫",
+                  "光耀裁决的重型披风",
+                  "光耀裁决的护腕",
+                  "光耀裁决的无畏徽记",
+                  "光耀裁决的战靴"
+                ],
+                "bonusesBySpec": {
+                  "65": {
+                    "specId": 65,
+                    "specName": "神圣",
+                    "twoPiece": "神圣震击的治疗效果提高15%。",
+                    "fourPiece": "神圣震击额外转移20%的治疗量到你的圣光道标中。",
+                    "spells": [
+                      {
+                        "spellId": 1264844,
+                        "name": "Paladin Holy 12.0 Class Set 2pc",
+                        "description": "神圣震击的治疗效果提高15%。"
+                      },
+                      {
+                        "spellId": 1264845,
+                        "name": "Paladin Holy 12.0 Class Set 4pc",
+                        "description": "神圣震击额外转移20%的治疗量到你的圣光道标中。"
+                      }
+                    ]
+                  },
+                  "66": {
+                    "specId": 66,
+                    "specName": "防护",
+                    "twoPiece": "正义盾击造成的伤害提高20%。",
+                    "fourPiece": "施放正义盾击后，你的下一个复仇者之盾造成的伤害提高5%。最多叠加5层。",
+                    "spells": [
+                      {
+                        "spellId": 1264846,
+                        "name": "Paladin Protection 12.0 Class Set 2pc",
+                        "description": "正义盾击造成的伤害提高20%。"
+                      },
+                      {
+                        "spellId": 1264847,
+                        "name": "Paladin Protection 12.0 Class Set 4pc",
+                        "description": "施放正义盾击后，你的下一个复仇者之盾造成的伤害提高5%。最多叠加5层。"
+                      }
+                    ]
+                  },
+                  "70": {
+                    "specId": 70,
+                    "specName": "惩戒",
+                    "twoPiece": "异端逐除的伤害提高20%。",
+                    "fourPiece": "圣殿骑士的裁决会施加异端逐除，效果为100%，而神圣风暴施加异端逐除的效果为50%。",
+                    "spells": [
+                      {
+                        "spellId": 1264848,
+                        "name": "Paladin Retribution 12.0 Class Set 2pc",
+                        "description": "异端逐除的伤害提高20%。"
+                      },
+                      {
+                        "spellId": 1264849,
+                        "name": "Paladin Retribution 12.0 Class Set 4pc",
+                        "description": "圣殿骑士的裁决会施加异端逐除，效果为100%，而神圣风暴施加异端逐除的效果为50%。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装"
+              }
+            },
+            {
+              "id": 249962,
+              "name": "光耀裁决的护手",
+              "icon": 7319582,
+              "iconName": "inv_glove_plate_raidpaladinmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_glove_plate_raidpaladinmidnight_d_01.jpg",
+              "slot": "hand",
+              "slotName": "手部",
+              "armorType": "plate",
+              "armorTypeName": "板甲",
+              "itemType": "护甲",
+              "itemSubType": "板甲",
+              "ilvl": 263,
+              "specs": [
+                65,
+                66,
+                70
+              ],
+              "classes": [
+                2
+              ],
+              "quality": 4,
+              "upgradeTrack": "英雄 2/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "key": "intellect",
+                    "type": "intellect",
+                    "name": "智力",
+                    "value": 73
+                  },
                   {
                     "key": "strength",
                     "type": "strength",
@@ -13568,13 +15890,13 @@ module.exports = {
                     "key": "haste",
                     "type": "haste",
                     "name": "急速",
-                    "value": 76
+                    "value": 73
                   },
                   {
                     "key": "versatility",
                     "type": "versatility",
                     "name": "全能",
-                    "value": 32
+                    "value": 34
                   }
                 ],
                 "effects": {
@@ -13582,139 +15904,154 @@ module.exports = {
                   "use": []
                 },
                 "white": {
-                  "armor": 193
+                  "armor": 158
                 }
               },
               "source": {
-                "instanceId": "tier:deathknight",
+                "instanceId": "tier:paladin",
                 "instanceName": "套装",
                 "isRaid": false,
-                "encounterId": "tier-set:deathknight",
-                "encounterName": "冷厉骑手的挽歌",
+                "encounterId": "tier-set:paladin",
+                "encounterName": "光耀裁决的套装",
                 "difficulty": 5,
-                "difficultyName": "英雄 2/6",
+                "difficultyName": "虚影尖塔 · 英雄",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
-                "冷厉骑手的恐惧棘刺",
+                "光耀裁决的护手",
                 "史诗",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
-                "肩部 板甲",
-                "193点护甲",
-                "+73 力量",
+                "手部 板甲",
+                "158点护甲",
+                "+73 智力",
                 "+961 耐力",
-                "+76 急速",
-                "+32 全能",
-                "冷厉骑手的挽歌（0/5）",
-                "冷厉骑手的护胸",
-                "冷厉骑手的骨握",
-                "冷厉骑手的头冠",
-                "冷厉骑手的腿铠",
-                "冷厉骑手的恐惧棘刺",
+                "+73 急速",
+                "+34 全能",
+                "+73 力量",
+                "光耀裁决的套装（0/5）",
+                "光耀裁决的神圣战甲",
+                "光耀裁决的护手",
+                "光耀裁决的坚定凝视",
+                "光耀裁决的护胫",
+                "光耀裁决的天命护肩",
                 "套装奖励将根据玩家专精变化。",
-                "职业：死亡骑士",
+                "职业：圣骑士",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:249968::::::::90:0::5:1:3524:1:28:3606:::::",
-              "iconText": "冷",
+              "link": "item:249962::::::::90:0::5:1:3524:1:28:3606:::::",
+              "iconText": "光",
+              "isBonusPiece": true,
+              "collectionKind": "bonus",
+              "appearance": {
+                "isBonusPiece": true,
+                "isCollected": false,
+                "itemModId": 1,
+                "slotId": 10,
+                "slotKey": "hands",
+                "sourceId": 296564,
+                "transmogSetDescription": "英雄",
+                "transmogSetId": 5447,
+                "transmogSetLabel": "虚影尖塔",
+                "transmogSetName": "光耀裁决的套装",
+                "visualId": 127355
+              },
               "tier": {
-                "setId": 1978,
-                "setName": "冷厉骑手的挽歌",
+                "setId": 5447,
+                "setName": "光耀裁决的套装",
                 "pieceCount": 9,
                 "pieces": [
-                  "冷厉骑手的头冠",
-                  "冷厉骑手的恐惧棘刺",
-                  "冷厉骑手的护胸",
-                  "冷厉骑手的骨握",
-                  "冷厉骑手的腿铠",
-                  "冷厉骑手的披风",
-                  "冷厉骑手的镣铐",
-                  "冷厉骑手的腰链",
-                  "冷厉骑手的重靴"
+                  "光耀裁决的坚定凝视",
+                  "光耀裁决的天命护肩",
+                  "光耀裁决的神圣战甲",
+                  "光耀裁决的护手",
+                  "光耀裁决的护胫",
+                  "光耀裁决的重型披风",
+                  "光耀裁决的护腕",
+                  "光耀裁决的无畏徽记",
+                  "光耀裁决的战靴"
                 ],
                 "bonusesBySpec": {
-                  "250": {
-                    "specId": 250,
-                    "specName": "鲜血",
-                    "twoPiece": "你的血液沸腾造成的伤害提高8%，并产生3点符文能量。",
-                    "fourPiece": "灵界打击的伤害提高8%，并有10%的几率获得一层血液沸腾充能。",
+                  "65": {
+                    "specId": 65,
+                    "specName": "神圣",
+                    "twoPiece": "神圣震击的治疗效果提高15%。",
+                    "fourPiece": "神圣震击额外转移20%的治疗量到你的圣光道标中。",
                     "spells": [
                       {
-                        "spellId": 1264799,
-                        "name": "Death Knight Blood 12.0 Class Set 2pc",
-                        "description": "你的血液沸腾造成的伤害提高8%，并产生3点符文能量。"
+                        "spellId": 1264844,
+                        "name": "Paladin Holy 12.0 Class Set 2pc",
+                        "description": "神圣震击的治疗效果提高15%。"
                       },
                       {
-                        "spellId": 1264800,
-                        "name": "Death Knight Blood 12.0 Class Set 4pc",
-                        "description": "灵界打击的伤害提高8%，并有10%的几率获得一层血液沸腾充能。"
+                        "spellId": 1264845,
+                        "name": "Paladin Holy 12.0 Class Set 4pc",
+                        "description": "神圣震击额外转移20%的治疗量到你的圣光道标中。"
                       }
                     ]
                   },
-                  "251": {
-                    "specId": 251,
-                    "specName": "冰霜",
-                    "twoPiece": "符文武器增效使你下一个湮灭的伤害提高20%，或使冰霜之镰的伤害提高20%。",
-                    "fourPiece": "符文武器增效的充能速度加快20%，冰霜之柱额外获得1层充能。",
+                  "66": {
+                    "specId": 66,
+                    "specName": "防护",
+                    "twoPiece": "正义盾击造成的伤害提高20%。",
+                    "fourPiece": "施放正义盾击后，你的下一个复仇者之盾造成的伤害提高5%。最多叠加5层。",
                     "spells": [
                       {
-                        "spellId": 1264801,
-                        "name": "Death Knight Frost 12.0 Class Set 2pc",
-                        "description": "符文武器增效使你下一个湮灭的伤害提高20%，或使冰霜之镰的伤害提高20%。"
+                        "spellId": 1264846,
+                        "name": "Paladin Protection 12.0 Class Set 2pc",
+                        "description": "正义盾击造成的伤害提高20%。"
                       },
                       {
-                        "spellId": 1264802,
-                        "name": "Death Knight Frost 12.0 Class Set 4pc",
-                        "description": "符文武器增效的充能速度加快20%，冰霜之柱额外获得1层充能。"
+                        "spellId": 1264847,
+                        "name": "Paladin Protection 12.0 Class Set 4pc",
+                        "description": "施放正义盾击后，你的下一个复仇者之盾造成的伤害提高5%。最多叠加5层。"
                       }
                     ]
                   },
-                  "252": {
-                    "specId": 252,
-                    "specName": "邪恶",
-                    "twoPiece": "恐惧瘟疫的伤害提高25%。恶性瘟疫的伤害提高25%。",
-                    "fourPiece": "腐化造成的伤害提高20%，并使你的下一个天灾打击不消耗符文。",
+                  "70": {
+                    "specId": 70,
+                    "specName": "惩戒",
+                    "twoPiece": "异端逐除的伤害提高20%。",
+                    "fourPiece": "圣殿骑士的裁决会施加异端逐除，效果为100%，而神圣风暴施加异端逐除的效果为50%。",
                     "spells": [
                       {
-                        "spellId": 1264803,
-                        "name": "Death Knight Unholy 12.0 Class Set 2pc",
-                        "description": "恐惧瘟疫的伤害提高25%。恶性瘟疫的伤害提高25%。"
+                        "spellId": 1264848,
+                        "name": "Paladin Retribution 12.0 Class Set 2pc",
+                        "description": "异端逐除的伤害提高20%。"
                       },
                       {
-                        "spellId": 1264804,
-                        "name": "Death Knight Unholy 12.0 Class Set 4pc",
-                        "description": "腐化造成的伤害提高20%，并使你的下一个天灾打击不消耗符文。"
+                        "spellId": 1264849,
+                        "name": "Paladin Retribution 12.0 Class Set 4pc",
+                        "description": "圣殿骑士的裁决会施加异端逐除，效果为100%，而神圣风暴施加异端逐除的效果为50%。"
                       }
                     ]
                   }
                 },
-                "sourceLabel": "套装",
-                "isBonusPiece": true
+                "sourceLabel": "套装"
               }
             },
             {
-              "id": 249973,
-              "name": "冷厉骑手的护胸",
-              "icon": 7382327,
-              "iconName": "inv_plate_raiddeathknightmidnight_d_01_chest",
-              "iconAsset": "/assets/icons/inv_plate_raiddeathknightmidnight_d_01_chest.jpg",
-              "slot": "chest",
-              "slotName": "胸部",
+              "id": 249960,
+              "name": "光耀裁决的护胫",
+              "icon": 7319584,
+              "iconName": "inv_pant_plate_raidpaladinmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_pant_plate_raidpaladinmidnight_d_01.jpg",
+              "slot": "legs",
+              "slotName": "腿部",
               "armorType": "plate",
               "armorTypeName": "板甲",
               "itemType": "护甲",
               "itemSubType": "板甲",
               "ilvl": 263,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
-                6
+                2
               ],
               "quality": 4,
               "upgradeTrack": "英雄 2/6",
@@ -13724,6 +16061,12 @@ module.exports = {
               },
               "stats": {
                 "primaryStats": [
+                  {
+                    "key": "intellect",
+                    "type": "intellect",
+                    "name": "智力",
+                    "value": 97
+                  },
                   {
                     "key": "strength",
                     "type": "strength",
@@ -13756,487 +16099,154 @@ module.exports = {
                   "use": []
                 },
                 "white": {
-                  "armor": 280
-                }
-              },
-              "source": {
-                "instanceId": "tier:deathknight",
-                "instanceName": "套装",
-                "isRaid": false,
-                "encounterId": "tier-set:deathknight",
-                "encounterName": "冷厉骑手的挽歌",
-                "difficulty": 5,
-                "difficultyName": "英雄 2/6",
-                "order": 999
-              },
-              "sourceType": "tier",
-              "tooltipRaw": [
-                "冷厉骑手的护胸",
-                "史诗",
-                "物品等级263",
-                "升级：英雄 2/6",
-                "拾取后绑定",
-                "胸部 板甲",
-                "280点护甲",
-                "+97 力量",
-                "+1281 耐力",
-                "+42 爆击",
-                "+102 急速",
-                "冷厉骑手的挽歌（0/5）",
-                "冷厉骑手的护胸",
-                "冷厉骑手的骨握",
-                "冷厉骑手的头冠",
-                "冷厉骑手的腿铠",
-                "冷厉骑手的恐惧棘刺",
-                "套装奖励将根据玩家专精变化。",
-                "职业：死亡骑士",
-                "你尚未收藏过此外观"
-              ],
-              "link": "item:249973::::::::90:0::5:1:3524:1:28:3606:::::",
-              "iconText": "冷",
-              "tier": {
-                "setId": 1978,
-                "setName": "冷厉骑手的挽歌",
-                "pieceCount": 9,
-                "pieces": [
-                  "冷厉骑手的头冠",
-                  "冷厉骑手的恐惧棘刺",
-                  "冷厉骑手的护胸",
-                  "冷厉骑手的骨握",
-                  "冷厉骑手的腿铠",
-                  "冷厉骑手的披风",
-                  "冷厉骑手的镣铐",
-                  "冷厉骑手的腰链",
-                  "冷厉骑手的重靴"
-                ],
-                "bonusesBySpec": {
-                  "250": {
-                    "specId": 250,
-                    "specName": "鲜血",
-                    "twoPiece": "你的血液沸腾造成的伤害提高8%，并产生3点符文能量。",
-                    "fourPiece": "灵界打击的伤害提高8%，并有10%的几率获得一层血液沸腾充能。",
-                    "spells": [
-                      {
-                        "spellId": 1264799,
-                        "name": "Death Knight Blood 12.0 Class Set 2pc",
-                        "description": "你的血液沸腾造成的伤害提高8%，并产生3点符文能量。"
-                      },
-                      {
-                        "spellId": 1264800,
-                        "name": "Death Knight Blood 12.0 Class Set 4pc",
-                        "description": "灵界打击的伤害提高8%，并有10%的几率获得一层血液沸腾充能。"
-                      }
-                    ]
-                  },
-                  "251": {
-                    "specId": 251,
-                    "specName": "冰霜",
-                    "twoPiece": "符文武器增效使你下一个湮灭的伤害提高20%，或使冰霜之镰的伤害提高20%。",
-                    "fourPiece": "符文武器增效的充能速度加快20%，冰霜之柱额外获得1层充能。",
-                    "spells": [
-                      {
-                        "spellId": 1264801,
-                        "name": "Death Knight Frost 12.0 Class Set 2pc",
-                        "description": "符文武器增效使你下一个湮灭的伤害提高20%，或使冰霜之镰的伤害提高20%。"
-                      },
-                      {
-                        "spellId": 1264802,
-                        "name": "Death Knight Frost 12.0 Class Set 4pc",
-                        "description": "符文武器增效的充能速度加快20%，冰霜之柱额外获得1层充能。"
-                      }
-                    ]
-                  },
-                  "252": {
-                    "specId": 252,
-                    "specName": "邪恶",
-                    "twoPiece": "恐惧瘟疫的伤害提高25%。恶性瘟疫的伤害提高25%。",
-                    "fourPiece": "腐化造成的伤害提高20%，并使你的下一个天灾打击不消耗符文。",
-                    "spells": [
-                      {
-                        "spellId": 1264803,
-                        "name": "Death Knight Unholy 12.0 Class Set 2pc",
-                        "description": "恐惧瘟疫的伤害提高25%。恶性瘟疫的伤害提高25%。"
-                      },
-                      {
-                        "spellId": 1264804,
-                        "name": "Death Knight Unholy 12.0 Class Set 4pc",
-                        "description": "腐化造成的伤害提高20%，并使你的下一个天灾打击不消耗符文。"
-                      }
-                    ]
-                  }
-                },
-                "sourceLabel": "套装",
-                "isBonusPiece": true
-              }
-            },
-            {
-              "id": 249971,
-              "name": "冷厉骑手的骨握",
-              "icon": 7382329,
-              "iconName": "inv_plate_raiddeathknightmidnight_d_01_glove",
-              "iconAsset": "/assets/icons/inv_plate_raiddeathknightmidnight_d_01_glove.jpg",
-              "slot": "hand",
-              "slotName": "手部",
-              "armorType": "plate",
-              "armorTypeName": "板甲",
-              "itemType": "护甲",
-              "itemSubType": "板甲",
-              "ilvl": 263,
-              "specs": [
-                250,
-                251,
-                252
-              ],
-              "classes": [
-                6
-              ],
-              "quality": 4,
-              "upgradeTrack": "英雄 2/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "key": "strength",
-                    "type": "strength",
-                    "name": "力量",
-                    "value": 73
-                  }
-                ],
-                "stamina": {
-                  "key": "stamina",
-                  "type": "stamina",
-                  "name": "耐力",
-                  "value": 961
-                },
-                "secondary": [
-                  {
-                    "key": "mastery",
-                    "type": "mastery",
-                    "name": "精通",
-                    "value": 77
-                  },
-                  {
-                    "key": "haste",
-                    "type": "haste",
-                    "name": "急速",
-                    "value": 31
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {
-                  "armor": 158
-                }
-              },
-              "source": {
-                "instanceId": "tier:deathknight",
-                "instanceName": "套装",
-                "isRaid": false,
-                "encounterId": "tier-set:deathknight",
-                "encounterName": "冷厉骑手的挽歌",
-                "difficulty": 5,
-                "difficultyName": "英雄 2/6",
-                "order": 999
-              },
-              "sourceType": "tier",
-              "tooltipRaw": [
-                "冷厉骑手的骨握",
-                "史诗",
-                "物品等级263",
-                "升级：英雄 2/6",
-                "拾取后绑定",
-                "手部 板甲",
-                "158点护甲",
-                "+73 力量",
-                "+961 耐力",
-                "+31 急速",
-                "+77 精通",
-                "冷厉骑手的挽歌（0/5）",
-                "冷厉骑手的护胸",
-                "冷厉骑手的骨握",
-                "冷厉骑手的头冠",
-                "冷厉骑手的腿铠",
-                "冷厉骑手的恐惧棘刺",
-                "套装奖励将根据玩家专精变化。",
-                "职业：死亡骑士",
-                "你尚未收藏过此外观"
-              ],
-              "link": "item:249971::::::::90:0::5:1:3524:1:28:3606:::::",
-              "iconText": "冷",
-              "tier": {
-                "setId": 1978,
-                "setName": "冷厉骑手的挽歌",
-                "pieceCount": 9,
-                "pieces": [
-                  "冷厉骑手的头冠",
-                  "冷厉骑手的恐惧棘刺",
-                  "冷厉骑手的护胸",
-                  "冷厉骑手的骨握",
-                  "冷厉骑手的腿铠",
-                  "冷厉骑手的披风",
-                  "冷厉骑手的镣铐",
-                  "冷厉骑手的腰链",
-                  "冷厉骑手的重靴"
-                ],
-                "bonusesBySpec": {
-                  "250": {
-                    "specId": 250,
-                    "specName": "鲜血",
-                    "twoPiece": "你的血液沸腾造成的伤害提高8%，并产生3点符文能量。",
-                    "fourPiece": "灵界打击的伤害提高8%，并有10%的几率获得一层血液沸腾充能。",
-                    "spells": [
-                      {
-                        "spellId": 1264799,
-                        "name": "Death Knight Blood 12.0 Class Set 2pc",
-                        "description": "你的血液沸腾造成的伤害提高8%，并产生3点符文能量。"
-                      },
-                      {
-                        "spellId": 1264800,
-                        "name": "Death Knight Blood 12.0 Class Set 4pc",
-                        "description": "灵界打击的伤害提高8%，并有10%的几率获得一层血液沸腾充能。"
-                      }
-                    ]
-                  },
-                  "251": {
-                    "specId": 251,
-                    "specName": "冰霜",
-                    "twoPiece": "符文武器增效使你下一个湮灭的伤害提高20%，或使冰霜之镰的伤害提高20%。",
-                    "fourPiece": "符文武器增效的充能速度加快20%，冰霜之柱额外获得1层充能。",
-                    "spells": [
-                      {
-                        "spellId": 1264801,
-                        "name": "Death Knight Frost 12.0 Class Set 2pc",
-                        "description": "符文武器增效使你下一个湮灭的伤害提高20%，或使冰霜之镰的伤害提高20%。"
-                      },
-                      {
-                        "spellId": 1264802,
-                        "name": "Death Knight Frost 12.0 Class Set 4pc",
-                        "description": "符文武器增效的充能速度加快20%，冰霜之柱额外获得1层充能。"
-                      }
-                    ]
-                  },
-                  "252": {
-                    "specId": 252,
-                    "specName": "邪恶",
-                    "twoPiece": "恐惧瘟疫的伤害提高25%。恶性瘟疫的伤害提高25%。",
-                    "fourPiece": "腐化造成的伤害提高20%，并使你的下一个天灾打击不消耗符文。",
-                    "spells": [
-                      {
-                        "spellId": 1264803,
-                        "name": "Death Knight Unholy 12.0 Class Set 2pc",
-                        "description": "恐惧瘟疫的伤害提高25%。恶性瘟疫的伤害提高25%。"
-                      },
-                      {
-                        "spellId": 1264804,
-                        "name": "Death Knight Unholy 12.0 Class Set 4pc",
-                        "description": "腐化造成的伤害提高20%，并使你的下一个天灾打击不消耗符文。"
-                      }
-                    ]
-                  }
-                },
-                "sourceLabel": "套装",
-                "isBonusPiece": true
-              }
-            },
-            {
-              "id": 249969,
-              "name": "冷厉骑手的腿铠",
-              "icon": 7382331,
-              "iconName": "inv_plate_raiddeathknightmidnight_d_01_pant",
-              "iconAsset": "/assets/icons/inv_plate_raiddeathknightmidnight_d_01_pant.jpg",
-              "slot": "legs",
-              "slotName": "腿部",
-              "armorType": "plate",
-              "armorTypeName": "板甲",
-              "itemType": "护甲",
-              "itemSubType": "板甲",
-              "ilvl": 263,
-              "specs": [
-                250,
-                251,
-                252
-              ],
-              "classes": [
-                6
-              ],
-              "quality": 4,
-              "upgradeTrack": "英雄 2/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "key": "strength",
-                    "type": "strength",
-                    "name": "力量",
-                    "value": 97
-                  }
-                ],
-                "stamina": {
-                  "key": "stamina",
-                  "type": "stamina",
-                  "name": "耐力",
-                  "value": 1281
-                },
-                "secondary": [
-                  {
-                    "key": "crit",
-                    "type": "crit",
-                    "name": "暴击",
-                    "value": 97
-                  },
-                  {
-                    "key": "mastery",
-                    "type": "mastery",
-                    "name": "精通",
-                    "value": 47
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {
                   "armor": 245
                 }
               },
               "source": {
-                "instanceId": "tier:deathknight",
+                "instanceId": "tier:paladin",
                 "instanceName": "套装",
                 "isRaid": false,
-                "encounterId": "tier-set:deathknight",
-                "encounterName": "冷厉骑手的挽歌",
+                "encounterId": "tier-set:paladin",
+                "encounterName": "光耀裁决的套装",
                 "difficulty": 5,
-                "difficultyName": "英雄 2/6",
+                "difficultyName": "虚影尖塔 · 英雄",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
-                "冷厉骑手的腿铠",
+                "光耀裁决的护胫",
                 "史诗",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
                 "腿部 板甲",
                 "245点护甲",
-                "+97 力量",
+                "+97 智力",
                 "+1281 耐力",
-                "+97 爆击",
-                "+47 精通",
-                "冷厉骑手的挽歌（0/5）",
-                "冷厉骑手的护胸",
-                "冷厉骑手的骨握",
-                "冷厉骑手的头冠",
-                "冷厉骑手的腿铠",
-                "冷厉骑手的恐惧棘刺",
+                "+42 爆击",
+                "+102 急速",
+                "+97 力量",
+                "光耀裁决的套装（0/5）",
+                "光耀裁决的神圣战甲",
+                "光耀裁决的护手",
+                "光耀裁决的坚定凝视",
+                "光耀裁决的护胫",
+                "光耀裁决的天命护肩",
                 "套装奖励将根据玩家专精变化。",
-                "职业：死亡骑士",
+                "职业：圣骑士",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:249969::::::::90:0::5:1:3524:1:28:3606:::::",
-              "iconText": "冷",
+              "link": "item:249960::::::::90:0::5:1:3524:1:28:3606:::::",
+              "iconText": "光",
+              "isBonusPiece": true,
+              "collectionKind": "bonus",
+              "appearance": {
+                "isBonusPiece": true,
+                "isCollected": false,
+                "itemModId": 1,
+                "slotId": 7,
+                "slotKey": "legs",
+                "sourceId": 296540,
+                "transmogSetDescription": "英雄",
+                "transmogSetId": 5447,
+                "transmogSetLabel": "虚影尖塔",
+                "transmogSetName": "光耀裁决的套装",
+                "visualId": 127352
+              },
               "tier": {
-                "setId": 1978,
-                "setName": "冷厉骑手的挽歌",
+                "setId": 5447,
+                "setName": "光耀裁决的套装",
                 "pieceCount": 9,
                 "pieces": [
-                  "冷厉骑手的头冠",
-                  "冷厉骑手的恐惧棘刺",
-                  "冷厉骑手的护胸",
-                  "冷厉骑手的骨握",
-                  "冷厉骑手的腿铠",
-                  "冷厉骑手的披风",
-                  "冷厉骑手的镣铐",
-                  "冷厉骑手的腰链",
-                  "冷厉骑手的重靴"
+                  "光耀裁决的坚定凝视",
+                  "光耀裁决的天命护肩",
+                  "光耀裁决的神圣战甲",
+                  "光耀裁决的护手",
+                  "光耀裁决的护胫",
+                  "光耀裁决的重型披风",
+                  "光耀裁决的护腕",
+                  "光耀裁决的无畏徽记",
+                  "光耀裁决的战靴"
                 ],
                 "bonusesBySpec": {
-                  "250": {
-                    "specId": 250,
-                    "specName": "鲜血",
-                    "twoPiece": "你的血液沸腾造成的伤害提高8%，并产生3点符文能量。",
-                    "fourPiece": "灵界打击的伤害提高8%，并有10%的几率获得一层血液沸腾充能。",
+                  "65": {
+                    "specId": 65,
+                    "specName": "神圣",
+                    "twoPiece": "神圣震击的治疗效果提高15%。",
+                    "fourPiece": "神圣震击额外转移20%的治疗量到你的圣光道标中。",
                     "spells": [
                       {
-                        "spellId": 1264799,
-                        "name": "Death Knight Blood 12.0 Class Set 2pc",
-                        "description": "你的血液沸腾造成的伤害提高8%，并产生3点符文能量。"
+                        "spellId": 1264844,
+                        "name": "Paladin Holy 12.0 Class Set 2pc",
+                        "description": "神圣震击的治疗效果提高15%。"
                       },
                       {
-                        "spellId": 1264800,
-                        "name": "Death Knight Blood 12.0 Class Set 4pc",
-                        "description": "灵界打击的伤害提高8%，并有10%的几率获得一层血液沸腾充能。"
+                        "spellId": 1264845,
+                        "name": "Paladin Holy 12.0 Class Set 4pc",
+                        "description": "神圣震击额外转移20%的治疗量到你的圣光道标中。"
                       }
                     ]
                   },
-                  "251": {
-                    "specId": 251,
-                    "specName": "冰霜",
-                    "twoPiece": "符文武器增效使你下一个湮灭的伤害提高20%，或使冰霜之镰的伤害提高20%。",
-                    "fourPiece": "符文武器增效的充能速度加快20%，冰霜之柱额外获得1层充能。",
+                  "66": {
+                    "specId": 66,
+                    "specName": "防护",
+                    "twoPiece": "正义盾击造成的伤害提高20%。",
+                    "fourPiece": "施放正义盾击后，你的下一个复仇者之盾造成的伤害提高5%。最多叠加5层。",
                     "spells": [
                       {
-                        "spellId": 1264801,
-                        "name": "Death Knight Frost 12.0 Class Set 2pc",
-                        "description": "符文武器增效使你下一个湮灭的伤害提高20%，或使冰霜之镰的伤害提高20%。"
+                        "spellId": 1264846,
+                        "name": "Paladin Protection 12.0 Class Set 2pc",
+                        "description": "正义盾击造成的伤害提高20%。"
                       },
                       {
-                        "spellId": 1264802,
-                        "name": "Death Knight Frost 12.0 Class Set 4pc",
-                        "description": "符文武器增效的充能速度加快20%，冰霜之柱额外获得1层充能。"
+                        "spellId": 1264847,
+                        "name": "Paladin Protection 12.0 Class Set 4pc",
+                        "description": "施放正义盾击后，你的下一个复仇者之盾造成的伤害提高5%。最多叠加5层。"
                       }
                     ]
                   },
-                  "252": {
-                    "specId": 252,
-                    "specName": "邪恶",
-                    "twoPiece": "恐惧瘟疫的伤害提高25%。恶性瘟疫的伤害提高25%。",
-                    "fourPiece": "腐化造成的伤害提高20%，并使你的下一个天灾打击不消耗符文。",
+                  "70": {
+                    "specId": 70,
+                    "specName": "惩戒",
+                    "twoPiece": "异端逐除的伤害提高20%。",
+                    "fourPiece": "圣殿骑士的裁决会施加异端逐除，效果为100%，而神圣风暴施加异端逐除的效果为50%。",
                     "spells": [
                       {
-                        "spellId": 1264803,
-                        "name": "Death Knight Unholy 12.0 Class Set 2pc",
-                        "description": "恐惧瘟疫的伤害提高25%。恶性瘟疫的伤害提高25%。"
+                        "spellId": 1264848,
+                        "name": "Paladin Retribution 12.0 Class Set 2pc",
+                        "description": "异端逐除的伤害提高20%。"
                       },
                       {
-                        "spellId": 1264804,
-                        "name": "Death Knight Unholy 12.0 Class Set 4pc",
-                        "description": "腐化造成的伤害提高20%，并使你的下一个天灾打击不消耗符文。"
+                        "spellId": 1264849,
+                        "name": "Paladin Retribution 12.0 Class Set 4pc",
+                        "description": "圣殿骑士的裁决会施加异端逐除，效果为100%，而神圣风暴施加异端逐除的效果为50%。"
                       }
                     ]
                   }
                 },
-                "sourceLabel": "套装",
-                "isBonusPiece": true
+                "sourceLabel": "套装"
               }
             },
             {
-              "id": 249965,
-              "name": "冷厉骑手的披风",
-              "icon": 7382325,
-              "iconName": "inv_plate_raiddeathknightmidnight_d_01_cape",
-              "iconAsset": "/assets/icons/inv_plate_raiddeathknightmidnight_d_01_cape.jpg",
-              "slot": "back",
-              "slotName": "背部",
-              "armorType": "plate",
-              "armorTypeName": "板甲",
+              "id": 249956,
+              "name": "光耀裁决的重型披风",
+              "icon": 7319580,
+              "iconName": "inv_cape_plate_raidpaladinmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_cape_plate_raidpaladinmidnight_d_01.jpg",
+              "slot": "cloak",
+              "slotName": "披风",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "布甲",
               "ilvl": 263,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
-                6
+                2
               ],
               "quality": 4,
               "upgradeTrack": "英雄 2/6",
@@ -14246,6 +16256,12 @@ module.exports = {
               },
               "stats": {
                 "primaryStats": [
+                  {
+                    "key": "intellect",
+                    "type": "intellect",
+                    "name": "智力",
+                    "value": 55
+                  },
                   {
                     "key": "strength",
                     "type": "strength",
@@ -14264,176 +16280,7 @@ module.exports = {
                     "key": "versatility",
                     "type": "versatility",
                     "name": "全能",
-                    "value": 53
-                  },
-                  {
-                    "key": "crit",
-                    "type": "crit",
-                    "name": "暴击",
-                    "value": 28
-                  }
-                ],
-                "effects": {
-                  "equip": "",
-                  "use": ""
-                },
-                "white": {
-                  "armor": 51
-                }
-              },
-              "source": {
-                "instanceId": "tier:deathknight",
-                "instanceName": "套装",
-                "isRaid": false,
-                "encounterId": "tier-set:deathknight",
-                "encounterName": "冷厉骑手的挽歌",
-                "difficulty": 5,
-                "difficultyName": "英雄 2/6",
-                "order": 999
-              },
-              "sourceType": "tier",
-              "tooltipRaw": [
-                "冷厉骑手的披风",
-                "史诗",
-                "|cFF 0FF 0英雄|r",
-                "物品等级263",
-                "升级：英雄 2/6",
-                "拾取后绑定",
-                "背部",
-                "51点护甲",
-                "+55 力量",
-                "+721 耐力",
-                "+28 爆击",
-                "+53 全能",
-                "职业：死亡骑士",
-                "你尚未收藏过此外观"
-              ],
-              "link": "item:249965::::::::90:0::5:1:3524:1:28:3606:::::",
-              "iconText": "冷",
-              "tier": {
-                "setId": 1978,
-                "setName": "冷厉骑手的挽歌",
-                "pieceCount": 9,
-                "pieces": [
-                  "冷厉骑手的头冠",
-                  "冷厉骑手的恐惧棘刺",
-                  "冷厉骑手的护胸",
-                  "冷厉骑手的骨握",
-                  "冷厉骑手的腿铠",
-                  "冷厉骑手的披风",
-                  "冷厉骑手的镣铐",
-                  "冷厉骑手的腰链",
-                  "冷厉骑手的重靴"
-                ],
-                "bonusesBySpec": {
-                  "250": {
-                    "specId": 250,
-                    "specName": "鲜血",
-                    "twoPiece": "你的血液沸腾造成的伤害提高8%，并产生3点符文能量。",
-                    "fourPiece": "灵界打击的伤害提高8%，并有10%的几率获得一层血液沸腾充能。",
-                    "spells": [
-                      {
-                        "spellId": 1264799,
-                        "name": "Death Knight Blood 12.0 Class Set 2pc",
-                        "description": "你的血液沸腾造成的伤害提高8%，并产生3点符文能量。"
-                      },
-                      {
-                        "spellId": 1264800,
-                        "name": "Death Knight Blood 12.0 Class Set 4pc",
-                        "description": "灵界打击的伤害提高8%，并有10%的几率获得一层血液沸腾充能。"
-                      }
-                    ]
-                  },
-                  "251": {
-                    "specId": 251,
-                    "specName": "冰霜",
-                    "twoPiece": "符文武器增效使你下一个湮灭的伤害提高20%，或使冰霜之镰的伤害提高20%。",
-                    "fourPiece": "符文武器增效的充能速度加快20%，冰霜之柱额外获得1层充能。",
-                    "spells": [
-                      {
-                        "spellId": 1264801,
-                        "name": "Death Knight Frost 12.0 Class Set 2pc",
-                        "description": "符文武器增效使你下一个湮灭的伤害提高20%，或使冰霜之镰的伤害提高20%。"
-                      },
-                      {
-                        "spellId": 1264802,
-                        "name": "Death Knight Frost 12.0 Class Set 4pc",
-                        "description": "符文武器增效的充能速度加快20%，冰霜之柱额外获得1层充能。"
-                      }
-                    ]
-                  },
-                  "252": {
-                    "specId": 252,
-                    "specName": "邪恶",
-                    "twoPiece": "恐惧瘟疫的伤害提高25%。恶性瘟疫的伤害提高25%。",
-                    "fourPiece": "腐化造成的伤害提高20%，并使你的下一个天灾打击不消耗符文。",
-                    "spells": [
-                      {
-                        "spellId": 1264803,
-                        "name": "Death Knight Unholy 12.0 Class Set 2pc",
-                        "description": "恐惧瘟疫的伤害提高25%。恶性瘟疫的伤害提高25%。"
-                      },
-                      {
-                        "spellId": 1264804,
-                        "name": "Death Knight Unholy 12.0 Class Set 4pc",
-                        "description": "腐化造成的伤害提高20%，并使你的下一个天灾打击不消耗符文。"
-                      }
-                    ]
-                  }
-                },
-                "sourceLabel": "套装",
-                "isBonusPiece": false,
-                "appearanceOnly": true
-              }
-            },
-            {
-              "id": 249966,
-              "name": "冷厉骑手的镣铐",
-              "icon": 7382323,
-              "iconName": "inv_plate_raiddeathknightmidnight_d_01_bracer",
-              "iconAsset": "/assets/icons/inv_plate_raiddeathknightmidnight_d_01_bracer.jpg",
-              "slot": "wrist",
-              "slotName": "手腕",
-              "armorType": "plate",
-              "armorTypeName": "板甲",
-              "itemType": "护甲",
-              "itemSubType": "板甲",
-              "ilvl": 263,
-              "specs": [
-                250,
-                251,
-                252
-              ],
-              "classes": [
-                6
-              ],
-              "quality": 4,
-              "upgradeTrack": "英雄 2/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "key": "strength",
-                    "type": "strength",
-                    "name": "力量",
-                    "value": 55
-                  }
-                ],
-                "stamina": {
-                  "key": "stamina",
-                  "type": "stamina",
-                  "name": "耐力",
-                  "value": 721
-                },
-                "secondary": [
-                  {
-                    "key": "crit",
-                    "type": "crit",
-                    "name": "暴击",
-                    "value": 53
+                    "value": 54
                   },
                   {
                     "key": "haste",
@@ -14443,138 +16290,95 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": "",
-                  "use": ""
+                  "equip": [],
+                  "use": []
                 },
                 "white": {
-                  "armor": 140
+                  "armor": 51
                 }
               },
               "source": {
-                "instanceId": "tier:deathknight",
+                "instanceId": "tier:paladin",
                 "instanceName": "套装",
                 "isRaid": false,
-                "encounterId": "tier-set:deathknight",
-                "encounterName": "冷厉骑手的挽歌",
+                "encounterId": "tier-set:paladin",
+                "encounterName": "光耀裁决的套装",
                 "difficulty": 5,
-                "difficultyName": "英雄 2/6",
+                "difficultyName": "虚影尖塔 · 英雄",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
-                "冷厉骑手的镣铐",
+                "光耀裁决的重型披风",
                 "史诗",
-                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
-                "腕部 板甲",
-                "140点护甲",
-                "+55 力量",
+                "背部",
+                "51点护甲",
+                "+55 智力",
                 "+721 耐力",
-                "+53 爆击",
                 "+27 急速",
-                "职业：死亡骑士",
-                "你尚未收藏过此外观"
+                "+54 全能",
+                "+55 力量",
+                "职业：圣骑士"
               ],
-              "link": "item:249966::::::::90:0::5:1:3524:1:28:3606:::::",
-              "iconText": "冷",
+              "link": "item:249956::::::::90:0::5:1:3524:1:28:3606:::::",
+              "iconText": "光",
+              "isBonusPiece": false,
+              "collectionKind": "appearance",
+              "appearance": {
+                "isBonusPiece": false,
+                "isCollected": false,
+                "itemModId": 1,
+                "slotId": 15,
+                "slotKey": "back",
+                "sourceId": 296492,
+                "transmogSetDescription": "英雄",
+                "transmogSetId": 5447,
+                "transmogSetLabel": "虚影尖塔",
+                "transmogSetName": "光耀裁决的套装",
+                "visualId": 127356
+              },
               "tier": {
-                "setId": 1978,
-                "setName": "冷厉骑手的挽歌",
+                "setId": 5447,
+                "setName": "光耀裁决的套装",
                 "pieceCount": 9,
                 "pieces": [
-                  "冷厉骑手的头冠",
-                  "冷厉骑手的恐惧棘刺",
-                  "冷厉骑手的护胸",
-                  "冷厉骑手的骨握",
-                  "冷厉骑手的腿铠",
-                  "冷厉骑手的披风",
-                  "冷厉骑手的镣铐",
-                  "冷厉骑手的腰链",
-                  "冷厉骑手的重靴"
+                  "光耀裁决的坚定凝视",
+                  "光耀裁决的天命护肩",
+                  "光耀裁决的神圣战甲",
+                  "光耀裁决的护手",
+                  "光耀裁决的护胫",
+                  "光耀裁决的重型披风",
+                  "光耀裁决的护腕",
+                  "光耀裁决的无畏徽记",
+                  "光耀裁决的战靴"
                 ],
-                "bonusesBySpec": {
-                  "250": {
-                    "specId": 250,
-                    "specName": "鲜血",
-                    "twoPiece": "你的血液沸腾造成的伤害提高8%，并产生3点符文能量。",
-                    "fourPiece": "灵界打击的伤害提高8%，并有10%的几率获得一层血液沸腾充能。",
-                    "spells": [
-                      {
-                        "spellId": 1264799,
-                        "name": "Death Knight Blood 12.0 Class Set 2pc",
-                        "description": "你的血液沸腾造成的伤害提高8%，并产生3点符文能量。"
-                      },
-                      {
-                        "spellId": 1264800,
-                        "name": "Death Knight Blood 12.0 Class Set 4pc",
-                        "description": "灵界打击的伤害提高8%，并有10%的几率获得一层血液沸腾充能。"
-                      }
-                    ]
-                  },
-                  "251": {
-                    "specId": 251,
-                    "specName": "冰霜",
-                    "twoPiece": "符文武器增效使你下一个湮灭的伤害提高20%，或使冰霜之镰的伤害提高20%。",
-                    "fourPiece": "符文武器增效的充能速度加快20%，冰霜之柱额外获得1层充能。",
-                    "spells": [
-                      {
-                        "spellId": 1264801,
-                        "name": "Death Knight Frost 12.0 Class Set 2pc",
-                        "description": "符文武器增效使你下一个湮灭的伤害提高20%，或使冰霜之镰的伤害提高20%。"
-                      },
-                      {
-                        "spellId": 1264802,
-                        "name": "Death Knight Frost 12.0 Class Set 4pc",
-                        "description": "符文武器增效的充能速度加快20%，冰霜之柱额外获得1层充能。"
-                      }
-                    ]
-                  },
-                  "252": {
-                    "specId": 252,
-                    "specName": "邪恶",
-                    "twoPiece": "恐惧瘟疫的伤害提高25%。恶性瘟疫的伤害提高25%。",
-                    "fourPiece": "腐化造成的伤害提高20%，并使你的下一个天灾打击不消耗符文。",
-                    "spells": [
-                      {
-                        "spellId": 1264803,
-                        "name": "Death Knight Unholy 12.0 Class Set 2pc",
-                        "description": "恐惧瘟疫的伤害提高25%。恶性瘟疫的伤害提高25%。"
-                      },
-                      {
-                        "spellId": 1264804,
-                        "name": "Death Knight Unholy 12.0 Class Set 4pc",
-                        "description": "腐化造成的伤害提高20%，并使你的下一个天灾打击不消耗符文。"
-                      }
-                    ]
-                  }
-                },
-                "sourceLabel": "套装",
-                "isBonusPiece": false,
-                "appearanceOnly": true
+                "bonusesBySpec": {},
+                "sourceLabel": "套装"
               }
             },
             {
-              "id": 249967,
-              "name": "冷厉骑手的腰链",
-              "icon": 7382319,
-              "iconName": "inv_plate_raiddeathknightmidnight_d_01_belt",
-              "iconAsset": "/assets/icons/inv_plate_raiddeathknightmidnight_d_01_belt.jpg",
-              "slot": "waist",
-              "slotName": "腰部",
+              "id": 249957,
+              "name": "光耀裁决的护腕",
+              "icon": 7319579,
+              "iconName": "inv_bracer_plate_raidpaladinmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_bracer_plate_raidpaladinmidnight_d_01.jpg",
+              "slot": "wrist",
+              "slotName": "腕部",
               "armorType": "plate",
               "armorTypeName": "板甲",
               "itemType": "护甲",
               "itemSubType": "板甲",
               "ilvl": 263,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
-                6
+                2
               ],
               "quality": 4,
               "upgradeTrack": "英雄 2/6",
@@ -14584,6 +16388,145 @@ module.exports = {
               },
               "stats": {
                 "primaryStats": [
+                  {
+                    "key": "intellect",
+                    "type": "intellect",
+                    "name": "智力",
+                    "value": 55
+                  },
+                  {
+                    "key": "strength",
+                    "type": "strength",
+                    "name": "力量",
+                    "value": 55
+                  }
+                ],
+                "stamina": {
+                  "key": "stamina",
+                  "type": "stamina",
+                  "name": "耐力",
+                  "value": 721
+                },
+                "secondary": [
+                  {
+                    "key": "crit",
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 54
+                  },
+                  {
+                    "key": "haste",
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 27
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 140
+                }
+              },
+              "source": {
+                "instanceId": "tier:paladin",
+                "instanceName": "套装",
+                "isRaid": false,
+                "encounterId": "tier-set:paladin",
+                "encounterName": "光耀裁决的套装",
+                "difficulty": 5,
+                "difficultyName": "虚影尖塔 · 英雄",
+                "order": 999
+              },
+              "sourceType": "tier",
+              "tooltipRaw": [
+                "光耀裁决的护腕",
+                "史诗",
+                "物品等级263",
+                "升级：英雄 2/6",
+                "拾取后绑定",
+                "腕部 板甲",
+                "140点护甲",
+                "+55 智力",
+                "+721 耐力",
+                "+54 爆击",
+                "+27 急速",
+                "+55 力量",
+                "职业：圣骑士",
+                "你尚未收藏过此外观"
+              ],
+              "link": "item:249957::::::::90:0::5:1:3524:1:28:3606:::::",
+              "iconText": "光",
+              "isBonusPiece": false,
+              "collectionKind": "appearance",
+              "appearance": {
+                "isBonusPiece": false,
+                "isCollected": false,
+                "itemModId": 1,
+                "slotId": 9,
+                "slotKey": "wrist",
+                "sourceId": 296504,
+                "transmogSetDescription": "英雄",
+                "transmogSetId": 5447,
+                "transmogSetLabel": "虚影尖塔",
+                "transmogSetName": "光耀裁决的套装",
+                "visualId": 127354
+              },
+              "tier": {
+                "setId": 5447,
+                "setName": "光耀裁决的套装",
+                "pieceCount": 9,
+                "pieces": [
+                  "光耀裁决的坚定凝视",
+                  "光耀裁决的天命护肩",
+                  "光耀裁决的神圣战甲",
+                  "光耀裁决的护手",
+                  "光耀裁决的护胫",
+                  "光耀裁决的重型披风",
+                  "光耀裁决的护腕",
+                  "光耀裁决的无畏徽记",
+                  "光耀裁决的战靴"
+                ],
+                "bonusesBySpec": {},
+                "sourceLabel": "套装"
+              }
+            },
+            {
+              "id": 249958,
+              "name": "光耀裁决的无畏徽记",
+              "icon": 7319577,
+              "iconName": "inv_belt_plate_raidpaladinmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_belt_plate_raidpaladinmidnight_d_01.jpg",
+              "slot": "waist",
+              "slotName": "腰部",
+              "armorType": "plate",
+              "armorTypeName": "板甲",
+              "itemType": "护甲",
+              "itemSubType": "板甲",
+              "ilvl": 263,
+              "specs": [
+                65,
+                66,
+                70
+              ],
+              "classes": [
+                2
+              ],
+              "quality": 4,
+              "upgradeTrack": "英雄 2/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "key": "intellect",
+                    "type": "intellect",
+                    "name": "智力",
+                    "value": 73
+                  },
                   {
                     "key": "strength",
                     "type": "strength",
@@ -14602,148 +16545,106 @@ module.exports = {
                     "key": "mastery",
                     "type": "mastery",
                     "name": "精通",
-                    "value": 77
+                    "value": 76
                   },
                   {
-                    "key": "crit",
-                    "type": "crit",
-                    "name": "暴击",
+                    "key": "haste",
+                    "type": "haste",
+                    "name": "急速",
                     "value": 31
                   }
                 ],
                 "effects": {
-                  "equip": "",
-                  "use": ""
+                  "equip": [],
+                  "use": []
                 },
                 "white": {
                   "armor": 158
                 }
               },
               "source": {
-                "instanceId": "tier:deathknight",
+                "instanceId": "tier:paladin",
                 "instanceName": "套装",
                 "isRaid": false,
-                "encounterId": "tier-set:deathknight",
-                "encounterName": "冷厉骑手的挽歌",
+                "encounterId": "tier-set:paladin",
+                "encounterName": "光耀裁决的套装",
                 "difficulty": 5,
-                "difficultyName": "英雄 2/6",
+                "difficultyName": "虚影尖塔 · 英雄",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
-                "冷厉骑手的腰链",
+                "光耀裁决的无畏徽记",
                 "史诗",
-                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
                 "腰部 板甲",
                 "158点护甲",
-                "+73 力量",
+                "+73 智力",
                 "+961 耐力",
-                "+31 爆击",
-                "+77 精通",
-                "职业：死亡骑士",
+                "+31 急速",
+                "+76 精通",
+                "+73 力量",
+                "职业：圣骑士",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:249967::::::::90:0::5:1:3524:1:28:3606:::::",
-              "iconText": "冷",
+              "link": "item:249958::::::::90:0::5:1:3524:1:28:3606:::::",
+              "iconText": "光",
+              "isBonusPiece": false,
+              "collectionKind": "appearance",
+              "appearance": {
+                "isBonusPiece": false,
+                "isCollected": false,
+                "itemModId": 1,
+                "slotId": 6,
+                "slotKey": "waist",
+                "sourceId": 296516,
+                "transmogSetDescription": "英雄",
+                "transmogSetId": 5447,
+                "transmogSetLabel": "虚影尖塔",
+                "transmogSetName": "光耀裁决的套装",
+                "visualId": 127351
+              },
               "tier": {
-                "setId": 1978,
-                "setName": "冷厉骑手的挽歌",
+                "setId": 5447,
+                "setName": "光耀裁决的套装",
                 "pieceCount": 9,
                 "pieces": [
-                  "冷厉骑手的头冠",
-                  "冷厉骑手的恐惧棘刺",
-                  "冷厉骑手的护胸",
-                  "冷厉骑手的骨握",
-                  "冷厉骑手的腿铠",
-                  "冷厉骑手的披风",
-                  "冷厉骑手的镣铐",
-                  "冷厉骑手的腰链",
-                  "冷厉骑手的重靴"
+                  "光耀裁决的坚定凝视",
+                  "光耀裁决的天命护肩",
+                  "光耀裁决的神圣战甲",
+                  "光耀裁决的护手",
+                  "光耀裁决的护胫",
+                  "光耀裁决的重型披风",
+                  "光耀裁决的护腕",
+                  "光耀裁决的无畏徽记",
+                  "光耀裁决的战靴"
                 ],
-                "bonusesBySpec": {
-                  "250": {
-                    "specId": 250,
-                    "specName": "鲜血",
-                    "twoPiece": "你的血液沸腾造成的伤害提高8%，并产生3点符文能量。",
-                    "fourPiece": "灵界打击的伤害提高8%，并有10%的几率获得一层血液沸腾充能。",
-                    "spells": [
-                      {
-                        "spellId": 1264799,
-                        "name": "Death Knight Blood 12.0 Class Set 2pc",
-                        "description": "你的血液沸腾造成的伤害提高8%，并产生3点符文能量。"
-                      },
-                      {
-                        "spellId": 1264800,
-                        "name": "Death Knight Blood 12.0 Class Set 4pc",
-                        "description": "灵界打击的伤害提高8%，并有10%的几率获得一层血液沸腾充能。"
-                      }
-                    ]
-                  },
-                  "251": {
-                    "specId": 251,
-                    "specName": "冰霜",
-                    "twoPiece": "符文武器增效使你下一个湮灭的伤害提高20%，或使冰霜之镰的伤害提高20%。",
-                    "fourPiece": "符文武器增效的充能速度加快20%，冰霜之柱额外获得1层充能。",
-                    "spells": [
-                      {
-                        "spellId": 1264801,
-                        "name": "Death Knight Frost 12.0 Class Set 2pc",
-                        "description": "符文武器增效使你下一个湮灭的伤害提高20%，或使冰霜之镰的伤害提高20%。"
-                      },
-                      {
-                        "spellId": 1264802,
-                        "name": "Death Knight Frost 12.0 Class Set 4pc",
-                        "description": "符文武器增效的充能速度加快20%，冰霜之柱额外获得1层充能。"
-                      }
-                    ]
-                  },
-                  "252": {
-                    "specId": 252,
-                    "specName": "邪恶",
-                    "twoPiece": "恐惧瘟疫的伤害提高25%。恶性瘟疫的伤害提高25%。",
-                    "fourPiece": "腐化造成的伤害提高20%，并使你的下一个天灾打击不消耗符文。",
-                    "spells": [
-                      {
-                        "spellId": 1264803,
-                        "name": "Death Knight Unholy 12.0 Class Set 2pc",
-                        "description": "恐惧瘟疫的伤害提高25%。恶性瘟疫的伤害提高25%。"
-                      },
-                      {
-                        "spellId": 1264804,
-                        "name": "Death Knight Unholy 12.0 Class Set 4pc",
-                        "description": "腐化造成的伤害提高20%，并使你的下一个天灾打击不消耗符文。"
-                      }
-                    ]
-                  }
-                },
-                "sourceLabel": "套装",
-                "isBonusPiece": false,
-                "appearanceOnly": true
+                "bonusesBySpec": {},
+                "sourceLabel": "套装"
               }
             },
             {
-              "id": 249972,
-              "name": "冷厉骑手的重靴",
-              "icon": 7382322,
-              "iconName": "inv_plate_raiddeathknightmidnight_d_01_boot",
-              "iconAsset": "/assets/icons/inv_plate_raiddeathknightmidnight_d_01_boot.jpg",
+              "id": 249963,
+              "name": "光耀裁决的战靴",
+              "icon": 7319578,
+              "iconName": "inv_boot_plate_raidpaladinmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_boot_plate_raidpaladinmidnight_d_01.jpg",
               "slot": "feet",
-              "slotName": "脚",
+              "slotName": "脚部",
               "armorType": "plate",
               "armorTypeName": "板甲",
               "itemType": "护甲",
               "itemSubType": "板甲",
               "ilvl": 263,
               "specs": [
-                250,
-                251,
-                252
+                65,
+                66,
+                70
               ],
               "classes": [
-                6
+                2
               ],
               "quality": 4,
               "upgradeTrack": "英雄 2/6",
@@ -14753,6 +16654,12 @@ module.exports = {
               },
               "stats": {
                 "primaryStats": [
+                  {
+                    "key": "intellect",
+                    "type": "intellect",
+                    "name": "智力",
+                    "value": 73
+                  },
                   {
                     "key": "strength",
                     "type": "strength",
@@ -14771,132 +16678,90 @@ module.exports = {
                     "key": "haste",
                     "type": "haste",
                     "name": "急速",
-                    "value": 73
+                    "value": 70
                   },
                   {
-                    "key": "versatility",
-                    "type": "versatility",
-                    "name": "全能",
-                    "value": 34
+                    "key": "mastery",
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 37
                   }
                 ],
                 "effects": {
-                  "equip": "",
-                  "use": ""
+                  "equip": [],
+                  "use": []
                 },
                 "white": {
                   "armor": 175
                 }
               },
               "source": {
-                "instanceId": "tier:deathknight",
+                "instanceId": "tier:paladin",
                 "instanceName": "套装",
                 "isRaid": false,
-                "encounterId": "tier-set:deathknight",
-                "encounterName": "冷厉骑手的挽歌",
+                "encounterId": "tier-set:paladin",
+                "encounterName": "光耀裁决的套装",
                 "difficulty": 5,
-                "difficultyName": "英雄 2/6",
+                "difficultyName": "虚影尖塔 · 英雄",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
-                "冷厉骑手的重靴",
+                "光耀裁决的战靴",
                 "史诗",
-                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
                 "脚部 板甲",
                 "175点护甲",
-                "+73 力量",
+                "+73 智力",
                 "+961 耐力",
-                "+73 急速",
-                "+34 全能",
-                "职业：死亡骑士",
-                "需要等级 90",
+                "+70 急速",
+                "+37 精通",
+                "+73 力量",
+                "职业：圣骑士",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:249972::::::::90:0::5:1:3524:1:28:3606:::::",
-              "iconText": "冷",
+              "link": "item:249963::::::::90:0::5:1:3524:1:28:3606:::::",
+              "iconText": "光",
+              "isBonusPiece": false,
+              "collectionKind": "appearance",
+              "appearance": {
+                "isBonusPiece": false,
+                "isCollected": false,
+                "itemModId": 1,
+                "slotId": 8,
+                "slotKey": "feet",
+                "sourceId": 296576,
+                "transmogSetDescription": "英雄",
+                "transmogSetId": 5447,
+                "transmogSetLabel": "虚影尖塔",
+                "transmogSetName": "光耀裁决的套装",
+                "visualId": 127353
+              },
               "tier": {
-                "setId": 1978,
-                "setName": "冷厉骑手的挽歌",
+                "setId": 5447,
+                "setName": "光耀裁决的套装",
                 "pieceCount": 9,
                 "pieces": [
-                  "冷厉骑手的头冠",
-                  "冷厉骑手的恐惧棘刺",
-                  "冷厉骑手的护胸",
-                  "冷厉骑手的骨握",
-                  "冷厉骑手的腿铠",
-                  "冷厉骑手的披风",
-                  "冷厉骑手的镣铐",
-                  "冷厉骑手的腰链",
-                  "冷厉骑手的重靴"
+                  "光耀裁决的坚定凝视",
+                  "光耀裁决的天命护肩",
+                  "光耀裁决的神圣战甲",
+                  "光耀裁决的护手",
+                  "光耀裁决的护胫",
+                  "光耀裁决的重型披风",
+                  "光耀裁决的护腕",
+                  "光耀裁决的无畏徽记",
+                  "光耀裁决的战靴"
                 ],
-                "bonusesBySpec": {
-                  "250": {
-                    "specId": 250,
-                    "specName": "鲜血",
-                    "twoPiece": "你的血液沸腾造成的伤害提高8%，并产生3点符文能量。",
-                    "fourPiece": "灵界打击的伤害提高8%，并有10%的几率获得一层血液沸腾充能。",
-                    "spells": [
-                      {
-                        "spellId": 1264799,
-                        "name": "Death Knight Blood 12.0 Class Set 2pc",
-                        "description": "你的血液沸腾造成的伤害提高8%，并产生3点符文能量。"
-                      },
-                      {
-                        "spellId": 1264800,
-                        "name": "Death Knight Blood 12.0 Class Set 4pc",
-                        "description": "灵界打击的伤害提高8%，并有10%的几率获得一层血液沸腾充能。"
-                      }
-                    ]
-                  },
-                  "251": {
-                    "specId": 251,
-                    "specName": "冰霜",
-                    "twoPiece": "符文武器增效使你下一个湮灭的伤害提高20%，或使冰霜之镰的伤害提高20%。",
-                    "fourPiece": "符文武器增效的充能速度加快20%，冰霜之柱额外获得1层充能。",
-                    "spells": [
-                      {
-                        "spellId": 1264801,
-                        "name": "Death Knight Frost 12.0 Class Set 2pc",
-                        "description": "符文武器增效使你下一个湮灭的伤害提高20%，或使冰霜之镰的伤害提高20%。"
-                      },
-                      {
-                        "spellId": 1264802,
-                        "name": "Death Knight Frost 12.0 Class Set 4pc",
-                        "description": "符文武器增效的充能速度加快20%，冰霜之柱额外获得1层充能。"
-                      }
-                    ]
-                  },
-                  "252": {
-                    "specId": 252,
-                    "specName": "邪恶",
-                    "twoPiece": "恐惧瘟疫的伤害提高25%。恶性瘟疫的伤害提高25%。",
-                    "fourPiece": "腐化造成的伤害提高20%，并使你的下一个天灾打击不消耗符文。",
-                    "spells": [
-                      {
-                        "spellId": 1264803,
-                        "name": "Death Knight Unholy 12.0 Class Set 2pc",
-                        "description": "恐惧瘟疫的伤害提高25%。恶性瘟疫的伤害提高25%。"
-                      },
-                      {
-                        "spellId": 1264804,
-                        "name": "Death Knight Unholy 12.0 Class Set 4pc",
-                        "description": "腐化造成的伤害提高20%，并使你的下一个天灾打击不消耗符文。"
-                      }
-                    ]
-                  }
-                },
-                "sourceLabel": "套装",
-                "isBonusPiece": false,
-                "appearanceOnly": true
+                "bonusesBySpec": {},
+                "sourceLabel": "套装"
               }
             }
           ]
         }
       ]
     }
-  ]
+  ],
+  "dataVersion": "4.2.x"
 };

@@ -1,6 +1,6 @@
 <page-meta page-style="{{pageStyle}}"></page-meta>
 <view class="page-shell index-page">
-  <image class="global-site-bg" src="{{cosBase}}/assets/public/bg.png" mode="aspectFill" />
+  <image class="global-site-bg" src="{{cosBase}}/assets/public/bg.jpg" mode="aspectFill" />
   <view class="announcement-entry" bindtap="openAnnouncement">
     <view class="announcement-entry-icon"></view>
     <text class="announcement-entry-label">公告</text>

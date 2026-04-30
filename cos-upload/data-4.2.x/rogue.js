@@ -1,5 +1,5 @@
 module.exports = {
-  "version": "12.0.1",
+  "version": "4.2.x",
   "addonVersion": "3.0.0",
   "updatedAt": "2026-04-22 21:59:03",
   "class": {
@@ -26,9 +26,8 @@ module.exports = {
     }
   ],
   "meta": {
-    "itemCount": 148,
-    "instanceCount": 12,
-    "tierItemCount": 9
+    "itemCount": 144,
+    "instanceCount": 12
   },
   "instances": [
     {
@@ -12737,7 +12736,7 @@ module.exports = {
                 "encounterId": "tier-set:rogue",
                 "encounterName": "冷酷戏谑的彩衣",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -12765,23 +12764,8 @@ module.exports = {
               ],
               "link": "item:250006::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "冷",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 1,
-                "slotKey": "head",
-                "sourceId": 297092,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5455,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "冷酷戏谑的彩衣",
-                "visualId": 123442
-              },
               "tier": {
-                "setId": 5455,
+                "setId": 1987,
                 "setName": "冷酷戏谑的彩衣",
                 "pieceCount": 9,
                 "pieces": [
@@ -12793,7 +12777,7 @@ module.exports = {
                   "冷酷戏谑的消失披风",
                   "冷酷戏谑的诡计护腕",
                   "冷酷戏谑的工具腰带",
-                  "空虚行者长靴"
+                  "冷酷戏谑的平衡长靴"
                 ],
                 "bonusesBySpec": {
                   "259": {
@@ -12851,7 +12835,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -12925,7 +12910,7 @@ module.exports = {
                 "encounterId": "tier-set:rogue",
                 "encounterName": "冷酷戏谑的彩衣",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -12953,23 +12938,8 @@ module.exports = {
               ],
               "link": "item:250004::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "冷",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 3,
-                "slotKey": "shoulder",
-                "sourceId": 297068,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5455,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "冷酷戏谑的彩衣",
-                "visualId": 123443
-              },
               "tier": {
-                "setId": 5455,
+                "setId": 1987,
                 "setName": "冷酷戏谑的彩衣",
                 "pieceCount": 9,
                 "pieces": [
@@ -12981,7 +12951,7 @@ module.exports = {
                   "冷酷戏谑的消失披风",
                   "冷酷戏谑的诡计护腕",
                   "冷酷戏谑的工具腰带",
-                  "空虚行者长靴"
+                  "冷酷戏谑的平衡长靴"
                 ],
                 "bonusesBySpec": {
                   "259": {
@@ -13039,7 +13009,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -13113,7 +13084,7 @@ module.exports = {
                 "encounterId": "tier-set:rogue",
                 "encounterName": "冷酷戏谑的彩衣",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -13141,23 +13112,8 @@ module.exports = {
               ],
               "link": "item:250009::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "冷",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 5,
-                "slotKey": "chest",
-                "sourceId": 297128,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5455,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "冷酷戏谑的彩衣",
-                "visualId": 123444
-              },
               "tier": {
-                "setId": 5455,
+                "setId": 1987,
                 "setName": "冷酷戏谑的彩衣",
                 "pieceCount": 9,
                 "pieces": [
@@ -13169,7 +13125,7 @@ module.exports = {
                   "冷酷戏谑的消失披风",
                   "冷酷戏谑的诡计护腕",
                   "冷酷戏谑的工具腰带",
-                  "空虚行者长靴"
+                  "冷酷戏谑的平衡长靴"
                 ],
                 "bonusesBySpec": {
                   "259": {
@@ -13227,7 +13183,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -13301,7 +13258,7 @@ module.exports = {
                 "encounterId": "tier-set:rogue",
                 "encounterName": "冷酷戏谑的彩衣",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -13329,23 +13286,8 @@ module.exports = {
               ],
               "link": "item:250007::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "冷",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 10,
-                "slotKey": "hands",
-                "sourceId": 297104,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5455,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "冷酷戏谑的彩衣",
-                "visualId": 123449
-              },
               "tier": {
-                "setId": 5455,
+                "setId": 1987,
                 "setName": "冷酷戏谑的彩衣",
                 "pieceCount": 9,
                 "pieces": [
@@ -13357,7 +13299,7 @@ module.exports = {
                   "冷酷戏谑的消失披风",
                   "冷酷戏谑的诡计护腕",
                   "冷酷戏谑的工具腰带",
-                  "空虚行者长靴"
+                  "冷酷戏谑的平衡长靴"
                 ],
                 "bonusesBySpec": {
                   "259": {
@@ -13415,7 +13357,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -13489,7 +13432,7 @@ module.exports = {
                 "encounterId": "tier-set:rogue",
                 "encounterName": "冷酷戏谑的彩衣",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -13517,23 +13460,8 @@ module.exports = {
               ],
               "link": "item:250005::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "冷",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 7,
-                "slotKey": "legs",
-                "sourceId": 297080,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5455,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "冷酷戏谑的彩衣",
-                "visualId": 123446
-              },
               "tier": {
-                "setId": 5455,
+                "setId": 1987,
                 "setName": "冷酷戏谑的彩衣",
                 "pieceCount": 9,
                 "pieces": [
@@ -13545,7 +13473,7 @@ module.exports = {
                   "冷酷戏谑的消失披风",
                   "冷酷戏谑的诡计护腕",
                   "冷酷戏谑的工具腰带",
-                  "空虚行者长靴"
+                  "冷酷戏谑的平衡长靴"
                 ],
                 "bonusesBySpec": {
                   "259": {
@@ -13603,7 +13531,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -13612,10 +13541,10 @@ module.exports = {
               "icon": 7446701,
               "iconName": "inv_cape_leather_raidroguemidnight_d_01",
               "iconAsset": "/assets/icons/inv_cape_leather_raidroguemidnight_d_01.jpg",
-              "slot": "cloak",
-              "slotName": "披风",
-              "armorType": "none",
-              "armorTypeName": "无甲种",
+              "slot": "back",
+              "slotName": "背部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
               "itemType": "护甲",
               "itemSubType": "布甲",
               "ilvl": 263,
@@ -13663,8 +13592,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 51
@@ -13677,13 +13606,14 @@ module.exports = {
                 "encounterId": "tier-set:rogue",
                 "encounterName": "冷酷戏谑的彩衣",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "冷酷戏谑的消失披风",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -13698,23 +13628,8 @@ module.exports = {
               ],
               "link": "item:250001::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "冷",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 15,
-                "slotKey": "back",
-                "sourceId": 297032,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5455,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "冷酷戏谑的彩衣",
-                "visualId": 123450
-              },
               "tier": {
-                "setId": 5455,
+                "setId": 1987,
                 "setName": "冷酷戏谑的彩衣",
                 "pieceCount": 9,
                 "pieces": [
@@ -13726,10 +13641,67 @@ module.exports = {
                   "冷酷戏谑的消失披风",
                   "冷酷戏谑的诡计护腕",
                   "冷酷戏谑的工具腰带",
-                  "空虚行者长靴"
+                  "冷酷戏谑的平衡长靴"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "259": {
+                    "specId": 259,
+                    "specName": "奇袭",
+                    "twoPiece": "锁喉的伤害提高30%，并且也会施加你的武器药膏。",
+                    "fourPiece": "锁喉的能量消耗降低10点。毁伤、伏击和刀扇对受到你武器药膏影响的目标造成的伤害提高25%。",
+                    "spells": [
+                      {
+                        "spellId": 1264856,
+                        "name": "Rogue Assassination 12.0 Class Set 2pc",
+                        "description": "锁喉的伤害提高30%，并且也会施加你的武器药膏。"
+                      },
+                      {
+                        "spellId": 1264857,
+                        "name": "Rogue Assassination 12.0 Class Set 4pc",
+                        "description": "锁喉的能量消耗降低10点。毁伤、伏击和刀扇对受到你武器药膏影响的目标造成的伤害提高25%。"
+                      }
+                    ]
+                  },
+                  "260": {
+                    "specId": 260,
+                    "specName": "狂徒",
+                    "twoPiece": "刀锋冲刺的伤害提高30%，对主要目标的伤害额外提高15%。",
+                    "fourPiece": "刀锋冲刺的冷却时间缩短6秒，并使你造成的伤害提高5%，持续8秒。",
+                    "spells": [
+                      {
+                        "spellId": 1264858,
+                        "name": "Rogue Outlaw 12.0 Class Set 2pc",
+                        "description": "刀锋冲刺的伤害提高30%，对主要目标的伤害额外提高15%。"
+                      },
+                      {
+                        "spellId": 1264859,
+                        "name": "Rogue Outlaw 12.0 Class Set 4pc",
+                        "description": "刀锋冲刺的冷却时间缩短6秒，并使你造成的伤害提高5%，持续8秒。"
+                      }
+                    ]
+                  },
+                  "261": {
+                    "specId": 261,
+                    "specName": "敏锐",
+                    "twoPiece": "每消耗一个连击点数，终结技造成的伤害提高1.5%。",
+                    "fourPiece": "暗影之刃的持续时间延长4.0秒，并使你的攻击额外造成6.0%的暗影伤害。",
+                    "spells": [
+                      {
+                        "spellId": 1264860,
+                        "name": "Rogue Subtlety 12.0 Class Set 2pc",
+                        "description": "每消耗一个连击点数，终结技造成的伤害提高1.5%。"
+                      },
+                      {
+                        "spellId": 1264861,
+                        "name": "Rogue Subtlety 12.0 Class Set 4pc",
+                        "description": "暗影之刃的持续时间延长4.0秒，并使你的攻击额外造成6.0%的暗影伤害。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             },
             {
@@ -13739,7 +13711,7 @@ module.exports = {
               "iconName": "inv_bracer_leather_raidroguemidnight_d_01",
               "iconAsset": "/assets/icons/inv_bracer_leather_raidroguemidnight_d_01.jpg",
               "slot": "wrist",
-              "slotName": "腕部",
+              "slotName": "手腕",
               "armorType": "leather",
               "armorTypeName": "皮甲",
               "itemType": "护甲",
@@ -13789,8 +13761,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 63
@@ -13803,13 +13775,14 @@ module.exports = {
                 "encounterId": "tier-set:rogue",
                 "encounterName": "冷酷戏谑的彩衣",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "冷酷戏谑的诡计护腕",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -13824,23 +13797,8 @@ module.exports = {
               ],
               "link": "item:250002::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "冷",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 9,
-                "slotKey": "wrist",
-                "sourceId": 297044,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5455,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "冷酷戏谑的彩衣",
-                "visualId": 123448
-              },
               "tier": {
-                "setId": 5455,
+                "setId": 1987,
                 "setName": "冷酷戏谑的彩衣",
                 "pieceCount": 9,
                 "pieces": [
@@ -13852,10 +13810,67 @@ module.exports = {
                   "冷酷戏谑的消失披风",
                   "冷酷戏谑的诡计护腕",
                   "冷酷戏谑的工具腰带",
-                  "空虚行者长靴"
+                  "冷酷戏谑的平衡长靴"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "259": {
+                    "specId": 259,
+                    "specName": "奇袭",
+                    "twoPiece": "锁喉的伤害提高30%，并且也会施加你的武器药膏。",
+                    "fourPiece": "锁喉的能量消耗降低10点。毁伤、伏击和刀扇对受到你武器药膏影响的目标造成的伤害提高25%。",
+                    "spells": [
+                      {
+                        "spellId": 1264856,
+                        "name": "Rogue Assassination 12.0 Class Set 2pc",
+                        "description": "锁喉的伤害提高30%，并且也会施加你的武器药膏。"
+                      },
+                      {
+                        "spellId": 1264857,
+                        "name": "Rogue Assassination 12.0 Class Set 4pc",
+                        "description": "锁喉的能量消耗降低10点。毁伤、伏击和刀扇对受到你武器药膏影响的目标造成的伤害提高25%。"
+                      }
+                    ]
+                  },
+                  "260": {
+                    "specId": 260,
+                    "specName": "狂徒",
+                    "twoPiece": "刀锋冲刺的伤害提高30%，对主要目标的伤害额外提高15%。",
+                    "fourPiece": "刀锋冲刺的冷却时间缩短6秒，并使你造成的伤害提高5%，持续8秒。",
+                    "spells": [
+                      {
+                        "spellId": 1264858,
+                        "name": "Rogue Outlaw 12.0 Class Set 2pc",
+                        "description": "刀锋冲刺的伤害提高30%，对主要目标的伤害额外提高15%。"
+                      },
+                      {
+                        "spellId": 1264859,
+                        "name": "Rogue Outlaw 12.0 Class Set 4pc",
+                        "description": "刀锋冲刺的冷却时间缩短6秒，并使你造成的伤害提高5%，持续8秒。"
+                      }
+                    ]
+                  },
+                  "261": {
+                    "specId": 261,
+                    "specName": "敏锐",
+                    "twoPiece": "每消耗一个连击点数，终结技造成的伤害提高1.5%。",
+                    "fourPiece": "暗影之刃的持续时间延长4.0秒，并使你的攻击额外造成6.0%的暗影伤害。",
+                    "spells": [
+                      {
+                        "spellId": 1264860,
+                        "name": "Rogue Subtlety 12.0 Class Set 2pc",
+                        "description": "每消耗一个连击点数，终结技造成的伤害提高1.5%。"
+                      },
+                      {
+                        "spellId": 1264861,
+                        "name": "Rogue Subtlety 12.0 Class Set 4pc",
+                        "description": "暗影之刃的持续时间延长4.0秒，并使你的攻击额外造成6.0%的暗影伤害。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             },
             {
@@ -13915,8 +13930,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 71
@@ -13929,13 +13944,14 @@ module.exports = {
                 "encounterId": "tier-set:rogue",
                 "encounterName": "冷酷戏谑的彩衣",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "冷酷戏谑的工具腰带",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -13950,23 +13966,8 @@ module.exports = {
               ],
               "link": "item:250003::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "冷",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 6,
-                "slotKey": "waist",
-                "sourceId": 297056,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5455,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "冷酷戏谑的彩衣",
-                "visualId": 123445
-              },
               "tier": {
-                "setId": 5455,
+                "setId": 1987,
                 "setName": "冷酷戏谑的彩衣",
                 "pieceCount": 9,
                 "pieces": [
@@ -13978,20 +13979,77 @@ module.exports = {
                   "冷酷戏谑的消失披风",
                   "冷酷戏谑的诡计护腕",
                   "冷酷戏谑的工具腰带",
-                  "空虚行者长靴"
+                  "冷酷戏谑的平衡长靴"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "259": {
+                    "specId": 259,
+                    "specName": "奇袭",
+                    "twoPiece": "锁喉的伤害提高30%，并且也会施加你的武器药膏。",
+                    "fourPiece": "锁喉的能量消耗降低10点。毁伤、伏击和刀扇对受到你武器药膏影响的目标造成的伤害提高25%。",
+                    "spells": [
+                      {
+                        "spellId": 1264856,
+                        "name": "Rogue Assassination 12.0 Class Set 2pc",
+                        "description": "锁喉的伤害提高30%，并且也会施加你的武器药膏。"
+                      },
+                      {
+                        "spellId": 1264857,
+                        "name": "Rogue Assassination 12.0 Class Set 4pc",
+                        "description": "锁喉的能量消耗降低10点。毁伤、伏击和刀扇对受到你武器药膏影响的目标造成的伤害提高25%。"
+                      }
+                    ]
+                  },
+                  "260": {
+                    "specId": 260,
+                    "specName": "狂徒",
+                    "twoPiece": "刀锋冲刺的伤害提高30%，对主要目标的伤害额外提高15%。",
+                    "fourPiece": "刀锋冲刺的冷却时间缩短6秒，并使你造成的伤害提高5%，持续8秒。",
+                    "spells": [
+                      {
+                        "spellId": 1264858,
+                        "name": "Rogue Outlaw 12.0 Class Set 2pc",
+                        "description": "刀锋冲刺的伤害提高30%，对主要目标的伤害额外提高15%。"
+                      },
+                      {
+                        "spellId": 1264859,
+                        "name": "Rogue Outlaw 12.0 Class Set 4pc",
+                        "description": "刀锋冲刺的冷却时间缩短6秒，并使你造成的伤害提高5%，持续8秒。"
+                      }
+                    ]
+                  },
+                  "261": {
+                    "specId": 261,
+                    "specName": "敏锐",
+                    "twoPiece": "每消耗一个连击点数，终结技造成的伤害提高1.5%。",
+                    "fourPiece": "暗影之刃的持续时间延长4.0秒，并使你的攻击额外造成6.0%的暗影伤害。",
+                    "spells": [
+                      {
+                        "spellId": 1264860,
+                        "name": "Rogue Subtlety 12.0 Class Set 2pc",
+                        "description": "每消耗一个连击点数，终结技造成的伤害提高1.5%。"
+                      },
+                      {
+                        "spellId": 1264861,
+                        "name": "Rogue Subtlety 12.0 Class Set 4pc",
+                        "description": "暗影之刃的持续时间延长4.0秒，并使你的攻击额外造成6.0%的暗影伤害。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             },
             {
-              "id": 260372,
-              "name": "空虚行者长靴",
+              "id": 250008,
+              "name": "冷酷戏谑的平衡长靴",
               "icon": 7446699,
               "iconName": "inv_boot_leather_raidroguemidnight_d_01",
               "iconAsset": "/assets/icons/inv_boot_leather_raidroguemidnight_d_01.jpg",
               "slot": "feet",
-              "slotName": "脚部",
+              "slotName": "脚",
               "armorType": "leather",
               "armorTypeName": "皮甲",
               "itemType": "护甲",
@@ -14018,12 +14076,6 @@ module.exports = {
                     "type": "agility",
                     "name": "敏捷",
                     "value": 73
-                  },
-                  {
-                    "key": "intellect",
-                    "type": "intellect",
-                    "name": "智力",
-                    "value": 73
                   }
                 ],
                 "stamina": {
@@ -14032,10 +14084,23 @@ module.exports = {
                   "name": "耐力",
                   "value": 961
                 },
-                "secondary": [],
+                "secondary": [
+                  {
+                    "key": "crit",
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 73
+                  },
+                  {
+                    "key": "mastery",
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 34
+                  }
+                ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 79
@@ -14048,45 +14113,31 @@ module.exports = {
                 "encounterId": "tier-set:rogue",
                 "encounterName": "冷酷戏谑的彩衣",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
-                "空虚行者长靴",
+                "冷酷戏谑的平衡长靴",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
-                "装备后绑定",
+                "拾取后绑定",
                 "脚部 皮甲",
                 "79点护甲",
-                "+73 智力",
-                "+961 耐力",
-                "+73 随机属性1",
-                "+35 随机属性2",
                 "+73 敏捷",
+                "+961 耐力",
+                "+73 爆击",
+                "+34 精通",
+                "职业：潜行者",
                 "需要等级 90",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:260372::::::::90:0::5:1:3524:1:28:3606:::::",
-              "iconText": "空",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 8,
-                "slotKey": "feet",
-                "sourceId": 302116,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5455,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "冷酷戏谑的彩衣",
-                "visualId": 123447
-              },
+              "link": "item:250008::::::::90:0::5:1:3524:1:28:3606:::::",
+              "iconText": "冷",
               "tier": {
-                "setId": 5455,
+                "setId": 1987,
                 "setName": "冷酷戏谑的彩衣",
                 "pieceCount": 9,
                 "pieces": [
@@ -14098,16 +14149,72 @@ module.exports = {
                   "冷酷戏谑的消失披风",
                   "冷酷戏谑的诡计护腕",
                   "冷酷戏谑的工具腰带",
-                  "空虚行者长靴"
+                  "冷酷戏谑的平衡长靴"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "259": {
+                    "specId": 259,
+                    "specName": "奇袭",
+                    "twoPiece": "锁喉的伤害提高30%，并且也会施加你的武器药膏。",
+                    "fourPiece": "锁喉的能量消耗降低10点。毁伤、伏击和刀扇对受到你武器药膏影响的目标造成的伤害提高25%。",
+                    "spells": [
+                      {
+                        "spellId": 1264856,
+                        "name": "Rogue Assassination 12.0 Class Set 2pc",
+                        "description": "锁喉的伤害提高30%，并且也会施加你的武器药膏。"
+                      },
+                      {
+                        "spellId": 1264857,
+                        "name": "Rogue Assassination 12.0 Class Set 4pc",
+                        "description": "锁喉的能量消耗降低10点。毁伤、伏击和刀扇对受到你武器药膏影响的目标造成的伤害提高25%。"
+                      }
+                    ]
+                  },
+                  "260": {
+                    "specId": 260,
+                    "specName": "狂徒",
+                    "twoPiece": "刀锋冲刺的伤害提高30%，对主要目标的伤害额外提高15%。",
+                    "fourPiece": "刀锋冲刺的冷却时间缩短6秒，并使你造成的伤害提高5%，持续8秒。",
+                    "spells": [
+                      {
+                        "spellId": 1264858,
+                        "name": "Rogue Outlaw 12.0 Class Set 2pc",
+                        "description": "刀锋冲刺的伤害提高30%，对主要目标的伤害额外提高15%。"
+                      },
+                      {
+                        "spellId": 1264859,
+                        "name": "Rogue Outlaw 12.0 Class Set 4pc",
+                        "description": "刀锋冲刺的冷却时间缩短6秒，并使你造成的伤害提高5%，持续8秒。"
+                      }
+                    ]
+                  },
+                  "261": {
+                    "specId": 261,
+                    "specName": "敏锐",
+                    "twoPiece": "每消耗一个连击点数，终结技造成的伤害提高1.5%。",
+                    "fourPiece": "暗影之刃的持续时间延长4.0秒，并使你的攻击额外造成6.0%的暗影伤害。",
+                    "spells": [
+                      {
+                        "spellId": 1264860,
+                        "name": "Rogue Subtlety 12.0 Class Set 2pc",
+                        "description": "每消耗一个连击点数，终结技造成的伤害提高1.5%。"
+                      },
+                      {
+                        "spellId": 1264861,
+                        "name": "Rogue Subtlety 12.0 Class Set 4pc",
+                        "description": "暗影之刃的持续时间延长4.0秒，并使你的攻击额外造成6.0%的暗影伤害。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             }
           ]
         }
       ]
     }
-  ],
-  "dataVersion": "4.2.x"
+  ]
 };

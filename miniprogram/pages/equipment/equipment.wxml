@@ -1,6 +1,6 @@
 <page-meta page-style="{{pageStyle}}"></page-meta>
 <view class="page-shell equipment-page">
-  <image class="global-site-bg" src="{{cosBase}}/assets/public/bg.png" mode="aspectFill" />
+  <image class="global-site-bg" src="{{cosBase}}/assets/public/bg.jpg" mode="aspectFill" />
   <view class="page-bg-glow page-bg-glow-top"></view>
   <view class="page-bg-glow page-bg-glow-bottom"></view>
 

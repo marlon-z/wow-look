@@ -1,33 +1,34 @@
-{
-  "version": "4.2.x",
+module.exports = {
+  "version": "12.0.1",
   "addonVersion": "3.0.0",
   "updatedAt": "2026-04-22 21:59:03",
   "class": {
-    "id": 9,
-    "key": "warlock",
-    "name": "术士",
-    "armorType": "cloth",
-    "armorTypeName": "布甲",
-    "color": "#8788EE",
-    "abbr": "术"
+    "id": 3,
+    "key": "hunter",
+    "name": "猎人",
+    "armorType": "mail",
+    "armorTypeName": "锁甲",
+    "color": "#AAD372",
+    "abbr": "猎"
   },
   "specs": [
     {
-      "id": 265,
-      "name": "痛苦"
+      "id": 253,
+      "name": "野兽控制"
     },
     {
-      "id": 266,
-      "name": "恶魔学识"
+      "id": 254,
+      "name": "射击"
     },
     {
-      "id": 267,
-      "name": "毁灭"
+      "id": 255,
+      "name": "生存"
     }
   ],
   "meta": {
-    "itemCount": 148,
-    "instanceCount": 12
+    "itemCount": 156,
+    "instanceCount": 12,
+    "tierItemCount": 9
   },
   "instances": [
     {
@@ -43,30 +44,26 @@
           "order": 1,
           "items": [
             {
-              "id": 258514,
-              "name": "祖拉尔的暗影尖塔",
-              "icon": 3461503,
-              "iconName": "inv_staff_2h_oribosdungeon_c_01",
-              "iconAsset": "/assets/icons/inv_staff_2h_oribosdungeon_c_01.jpg",
-              "slot": "weapon",
-              "slotName": "武器",
-              "armorType": "none",
-              "armorTypeName": "法杖",
-              "itemType": "武器",
-              "itemSubType": "法杖",
+              "id": 151320,
+              "name": "虚空涂层战靴",
+              "icon": 1574621,
+              "iconName": "inv_boot_mail_legiondungeon_c_03",
+              "iconAsset": "/assets/icons/inv_boot_mail_legiondungeon_c_03.jpg",
+              "slot": "feet",
+              "slotName": "脚部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                5,
+                3,
                 7,
-                8,
-                9,
-                10,
-                11,
                 13
               ],
               "quality": 4,
@@ -78,97 +75,10 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 369
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 1031
-                },
-                "secondary": [
-                  {
-                    "name": "暴击",
-                    "type": "crit",
-                    "value": 51
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 62
                   },
-                  {
-                    "name": "精通",
-                    "type": "mastery",
-                    "value": 79
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {
-                  "damageMax": 129,
-                  "damageMin": 95,
-                  "dps": 31.1,
-                  "speed": 3.6
-                }
-              },
-              "source": {
-                "instanceId": 945,
-                "instanceName": "执政团之座",
-                "isRaid": false,
-                "encounterId": 1979,
-                "encounterName": "晋升者祖拉尔",
-                "difficulty": 23,
-                "difficultyName": "史诗",
-                "order": 1
-              },
-              "tooltipRaw": [
-                "祖拉尔的暗影尖塔",
-                "史诗",
-                "物品等级246",
-                "升级：勇士 1/6",
-                "拾取后绑定",
-                "双手 法杖",
-                "95 - 129点伤害 速度 3.60",
-                "（每秒伤害31.1）",
-                "+369 智力",
-                "+1031 耐力",
-                "+51 爆击",
-                "+79 精通"
-              ],
-              "link": "|cnIQ4:|Hitem:258514::::::::90:270::23:1:3524:1:28:3025:::::|h[祖拉尔的暗影尖塔]|h|r",
-              "iconText": "祖"
-            },
-            {
-              "id": 151300,
-              "name": "晋升者裹手",
-              "icon": 1575406,
-              "iconName": "inv_glove_cloth_legiondungeon_c_03",
-              "iconAsset": "/assets/icons/inv_glove_cloth_legiondungeon_c_03.jpg",
-              "slot": "hand",
-              "slotName": "手部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
-              "ilvl": 246,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "勇士 1/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
                   {
                     "name": "智力",
                     "type": "intellect",
@@ -182,14 +92,14 @@
                 },
                 "secondary": [
                   {
-                    "name": "暴击",
-                    "type": "crit",
-                    "value": 53
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 55
                   },
                   {
                     "name": "精通",
                     "type": "mastery",
-                    "value": 44
+                    "value": 42
                   }
                 ],
                 "effects": {
@@ -197,7 +107,7 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 38
+                  "armor": 106
                 }
               },
               "source": {
@@ -208,24 +118,25 @@
                 "encounterName": "晋升者祖拉尔",
                 "difficulty": 23,
                 "difficultyName": "史诗",
-                "order": 4
+                "order": 5
               },
               "tooltipRaw": [
-                "晋升者裹手",
+                "虚空涂层战靴",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "手部 布甲",
-                "38点护甲",
+                "脚部 锁甲",
+                "106点护甲",
                 "+62 智力",
                 "+773 耐力",
-                "+53 爆击",
-                "+44 精通",
+                "+55 急速",
+                "+42 精通",
+                "+62 敏捷",
                 "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:151300::::::::90:270::23:1:3524:1:28:3025:::::|h[晋升者裹手]|h|r",
-              "iconText": "晋"
+              "link": "|cnIQ4:|Hitem:151320::::::::90:270::23:1:3524:1:28:3025:::::|h[虚空涂层战靴]|h|r",
+              "iconText": "虚"
             },
             {
               "id": 151308,
@@ -241,9 +152,9 @@
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -329,311 +240,26 @@
           "order": 2,
           "items": [
             {
-              "id": 258516,
-              "name": "萨普瑞什的凝视魔棒",
-              "icon": 1003750,
-              "iconName": "inv_wand_1h_draenordungeon_c_01",
-              "iconAsset": "/assets/icons/inv_wand_1h_draenordungeon_c_01.jpg",
-              "slot": "weapon",
-              "slotName": "武器",
-              "armorType": "none",
-              "armorTypeName": "魔杖",
-              "itemType": "武器",
-              "itemSubType": "魔杖",
-              "ilvl": 246,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "勇士 1/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 242
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 515
-                },
-                "secondary": [
-                  {
-                    "name": "暴击",
-                    "type": "crit",
-                    "value": 41
-                  },
-                  {
-                    "name": "全能",
-                    "type": "versatility",
-                    "value": 24
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {
-                  "damageMax": 59,
-                  "damageMin": 35,
-                  "dps": 23.5,
-                  "speed": 2
-                }
-              },
-              "source": {
-                "instanceId": 945,
-                "instanceName": "执政团之座",
-                "isRaid": false,
-                "encounterId": 1980,
-                "encounterName": "萨普瑞什",
-                "difficulty": 23,
-                "difficultyName": "史诗",
-                "order": 1
-              },
-              "tooltipRaw": [
-                "萨普瑞什的凝视魔棒",
-                "史诗",
-                "物品等级246",
-                "升级：勇士 1/6",
-                "拾取后绑定",
-                "远程 魔杖",
-                "35 - 59点伤害 速度 2.00",
-                "（每秒伤害23.5）",
-                "+242 智力",
-                "+515 耐力",
-                "+41 爆击",
-                "+24 全能",
-                "你尚未收藏过此外观"
-              ],
-              "link": "|cnIQ4:|Hitem:258516::::::::90:270::23:1:3524:1:28:3025:::::|h[萨普瑞什的凝视魔棒]|h|r",
-              "iconText": "萨"
-            },
-            {
-              "id": 151337,
-              "name": "织影者之冠",
-              "icon": 1575407,
-              "iconName": "inv_helm_cloth_legiondungeon_c_03",
-              "iconAsset": "/assets/icons/inv_helm_cloth_legiondungeon_c_03.jpg",
-              "slot": "head",
-              "slotName": "头部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
+              "id": 151323,
+              "name": "虚空猎手肩甲",
+              "icon": 1574628,
+              "iconName": "inv_shoulder_mail_legiondungeon_c_03",
+              "iconAsset": "/assets/icons/inv_shoulder_mail_legiondungeon_c_03.jpg",
+              "slot": "shoulder",
+              "slotName": "肩部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "勇士 1/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 83
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 1031
-                },
-                "secondary": [
-                  {
-                    "name": "暴击",
-                    "type": "crit",
-                    "value": 54
-                  },
-                  {
-                    "name": "精通",
-                    "type": "mastery",
-                    "value": 76
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {
-                  "armor": 50
-                }
-              },
-              "source": {
-                "instanceId": 945,
-                "instanceName": "执政团之座",
-                "isRaid": false,
-                "encounterId": 1980,
-                "encounterName": "萨普瑞什",
-                "difficulty": 23,
-                "difficultyName": "史诗",
-                "order": 2
-              },
-              "tooltipRaw": [
-                "织影者之冠",
-                "史诗",
-                "物品等级246",
-                "升级：勇士 1/6",
-                "拾取后绑定",
-                "头部 布甲",
-                "50点护甲",
-                "+83 智力",
-                "+1031 耐力",
-                "+54 爆击",
-                "+76 精通"
-              ],
-              "link": "|cnIQ4:|Hitem:151337::::::::90:270::23:1:3524:1:28:3025:::::|h[织影者之冠]|h|r",
-              "iconText": "织"
-            },
-            {
-              "id": 151303,
-              "name": "虚空扭曲者长袍",
-              "icon": 1575405,
-              "iconName": "inv_chest_cloth_legiondungeon_c_03",
-              "iconAsset": "/assets/icons/inv_chest_cloth_legiondungeon_c_03.jpg",
-              "slot": "chest",
-              "slotName": "胸部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
-              "ilvl": 246,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "勇士 1/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 83
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 1031
-                },
-                "secondary": [
-                  {
-                    "name": "暴击",
-                    "type": "crit",
-                    "value": 70
-                  },
-                  {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 59
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {
-                  "armor": 67
-                }
-              },
-              "source": {
-                "instanceId": 945,
-                "instanceName": "执政团之座",
-                "isRaid": false,
-                "encounterId": 1980,
-                "encounterName": "萨普瑞什",
-                "difficulty": 23,
-                "difficultyName": "史诗",
-                "order": 4
-              },
-              "tooltipRaw": [
-                "虚空扭曲者长袍",
-                "史诗",
-                "物品等级246",
-                "升级：勇士 1/6",
-                "拾取后绑定",
-                "胸部 布甲",
-                "67点护甲",
-                "+83 智力",
-                "+1031 耐力",
-                "+70 爆击",
-                "+59 急速",
-                "织影者的预兆（0/3）",
-                "虚空扭曲者长袍",
-                "总督的幽影护肩",
-                "瓦解现实束带",
-                "(2) 套装：你的法术有一定几率使你获得暗影迅捷，使受到的所有暗影伤害，持续18秒。",
-                "(3) 套装：暗影迅捷同时使你的精通提高。"
-              ],
-              "link": "|cnIQ4:|Hitem:151303::::::::90:270::23:1:3524:1:28:3025:::::|h[虚空扭曲者长袍]|h|r",
-              "iconText": "虚"
-            }
-          ]
-        },
-        {
-          "id": 1981,
-          "name": "总督奈扎尔",
-          "order": 3,
-          "items": [
-            {
-              "id": 258523,
-              "name": "奈扎尔的虚空爪",
-              "icon": 3229469,
-              "iconName": "inv_offhand_1h_ardenwealdquest_b_01",
-              "iconAsset": "/assets/icons/inv_offhand_1h_ardenwealdquest_b_01.jpg",
-              "slot": "weapon",
-              "slotName": "武器",
-              "armorType": "none",
-              "armorTypeName": "其它",
-              "itemType": "护甲",
-              "itemSubType": "其它",
-              "ilvl": 246,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                8,
-                9,
-                10,
-                11,
+                3,
+                7,
                 13
               ],
               "quality": 4,
@@ -645,21 +271,124 @@
               "stats": {
                 "primaryStats": [
                   {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 62
+                  },
+                  {
                     "name": "智力",
                     "type": "intellect",
-                    "value": 127
+                    "value": 62
                   }
                 ],
                 "stamina": {
                   "name": "耐力",
                   "type": "stamina",
-                  "value": 515
+                  "value": 773
+                },
+                "secondary": [
+                  {
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 53
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 44
+                  }
+                ],
+                "effects": {
+                  "equip": [
+                    "装备： 与畸变怪战斗时智力提高13点。"
+                  ],
+                  "use": []
+                },
+                "white": {
+                  "armor": 117
+                }
+              },
+              "source": {
+                "instanceId": 945,
+                "instanceName": "执政团之座",
+                "isRaid": false,
+                "encounterId": 1980,
+                "encounterName": "萨普瑞什",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 3
+              },
+              "tooltipRaw": [
+                "虚空猎手肩甲",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "肩部 锁甲",
+                "117点护甲",
+                "+62 智力",
+                "+773 耐力",
+                "+53 急速",
+                "+44 精通",
+                "+62 敏捷",
+                "装备： 与畸变怪战斗时智力提高13点。",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:151323::::::::90:270::23:1:3524:1:28:3025:::::|h[虚空猎手肩甲]|h|r",
+              "iconText": "虚"
+            },
+            {
+              "id": 151321,
+              "name": "黯牙鳞甲护腕",
+              "icon": 1574622,
+              "iconName": "inv_bracer_mail_legiondungeon_c_03",
+              "iconAsset": "/assets/icons/inv_bracer_mail_legiondungeon_c_03.jpg",
+              "slot": "wrist",
+              "slotName": "腕部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                3,
+                7,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 47
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 47
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 580
                 },
                 "secondary": [
                   {
                     "name": "暴击",
                     "type": "crit",
-                    "value": 38
+                    "value": 46
                   },
                   {
                     "name": "精通",
@@ -671,33 +400,128 @@
                   "equip": [],
                   "use": []
                 },
+                "white": {
+                  "armor": 85
+                }
+              },
+              "source": {
+                "instanceId": 945,
+                "instanceName": "执政团之座",
+                "isRaid": false,
+                "encounterId": 1980,
+                "encounterName": "萨普瑞什",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 5
+              },
+              "tooltipRaw": [
+                "黯牙鳞甲护腕",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "腕部 锁甲",
+                "85点护甲",
+                "+47 智力",
+                "+580 耐力",
+                "+46 爆击",
+                "+27 精通",
+                "+47 敏捷",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:151321::::::::90:270::23:1:3524:1:28:3025:::::|h[黯牙鳞甲护腕]|h|r",
+              "iconText": "黯"
+            },
+            {
+              "id": 151307,
+              "name": "虚空追猎者的契约",
+              "icon": 237018,
+              "iconName": "inv_enchant_formulaepic_01",
+              "iconAsset": "/assets/icons/inv_enchant_formulaepic_01.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                1,
+                2,
+                3,
+                4,
+                6,
+                7,
+                10,
+                11,
+                12
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "力量",
+                    "type": "strength",
+                    "value": 79
+                  },
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 79
+                  }
+                ],
+                "stamina": null,
+                "secondary": [],
+                "effects": {
+                  "equip": [],
+                  "use": [
+                    "使用： 召唤两个虚空追猎者，从两个方向攻击你的目标，对其路径上的所有敌人造成最高24619点物理伤害。 （1分钟 30秒冷却）"
+                  ]
+                },
                 "white": {}
               },
               "source": {
                 "instanceId": 945,
                 "instanceName": "执政团之座",
                 "isRaid": false,
-                "encounterId": 1981,
-                "encounterName": "总督奈扎尔",
+                "encounterId": 1980,
+                "encounterName": "萨普瑞什",
                 "difficulty": 23,
                 "difficultyName": "史诗",
-                "order": 2
+                "order": 10
               },
               "tooltipRaw": [
-                "奈扎尔的虚空爪",
+                "虚空追猎者的契约",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "副手物品",
-                "+127 智力",
-                "+515 耐力",
-                "+38 爆击",
-                "+27 精通"
+                "装备唯一",
+                "饰品",
+                "+79 敏捷",
+                "+79 力量",
+                "使用： 召唤两个虚空追猎者，从两个方向攻击你的目标，对其路径上的所有敌人造成最高24619点物理伤害。 （1分钟 30秒冷却）"
               ],
-              "link": "|cnIQ4:|Hitem:258523::::::::90:270::23:1:3524:1:28:3025:::::|h[奈扎尔的虚空爪]|h|r",
-              "iconText": "奈"
-            },
+              "link": "|cnIQ4:|Hitem:151307::::::::90:270::23:1:3524:1:28:3025:::::|h[虚空追猎者的契约]|h|r",
+              "iconText": "虚"
+            }
+          ]
+        },
+        {
+          "id": 1981,
+          "name": "总督奈扎尔",
+          "order": 3,
+          "items": [
             {
               "id": 151309,
               "name": "扭曲虚空项链",
@@ -712,9 +536,9 @@
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -788,237 +612,71 @@
               "iconText": "扭"
             },
             {
-              "id": 151299,
-              "name": "总督的幽影护肩",
-              "icon": 1575409,
-              "iconName": "inv_shoulder_cloth_legiondungeon_c_03",
-              "iconAsset": "/assets/icons/inv_shoulder_cloth_legiondungeon_c_03.jpg",
-              "slot": "shoulder",
-              "slotName": "肩部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
+              "id": 151325,
+              "name": "虚空之环长袍",
+              "icon": 1574627,
+              "iconName": "inv_robe_mail_legiondungeon_c_03",
+              "iconAsset": "/assets/icons/inv_robe_mail_legiondungeon_c_03.jpg",
+              "slot": "chest",
+              "slotName": "胸部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "勇士 1/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 62
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 773
-                },
-                "secondary": [
-                  {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 56
-                  },
-                  {
-                    "name": "精通",
-                    "type": "mastery",
-                    "value": 42
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {
-                  "armor": 46
-                }
-              },
-              "source": {
-                "instanceId": 945,
-                "instanceName": "执政团之座",
-                "isRaid": false,
-                "encounterId": 1981,
-                "encounterName": "总督奈扎尔",
-                "difficulty": 23,
-                "difficultyName": "史诗",
-                "order": 5
-              },
-              "tooltipRaw": [
-                "总督的幽影护肩",
-                "史诗",
-                "物品等级246",
-                "升级：勇士 1/6",
-                "拾取后绑定",
-                "肩部 布甲",
-                "46点护甲",
-                "+62 智力",
-                "+773 耐力",
-                "+56 急速",
-                "+42 精通",
-                "织影者的预兆（0/3）",
-                "虚空扭曲者长袍",
-                "总督的幽影护肩",
-                "瓦解现实束带",
-                "(2) 套装：你的法术有一定几率使你获得暗影迅捷，使受到的所有暗影伤害，持续18秒。",
-                "(3) 套装：暗影迅捷同时使你的精通提高。"
-              ],
-              "link": "|cnIQ4:|Hitem:151299::::::::90:270::23:1:3524:1:28:3025:::::|h[总督的幽影护肩]|h|r",
-              "iconText": "总"
-            },
-            {
-              "id": 151305,
-              "name": "熵能裹腕",
-              "icon": 1575404,
-              "iconName": "inv_bracer_cloth_legiondungeon_c_03",
-              "iconAsset": "/assets/icons/inv_bracer_cloth_legiondungeon_c_03.jpg",
-              "slot": "wrist",
-              "slotName": "腕部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
-              "ilvl": 246,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "勇士 1/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 47
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 580
-                },
-                "secondary": [
-                  {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 30
-                  },
-                  {
-                    "name": "精通",
-                    "type": "mastery",
-                    "value": 43
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {
-                  "armor": 34
-                }
-              },
-              "source": {
-                "instanceId": 945,
-                "instanceName": "执政团之座",
-                "isRaid": false,
-                "encounterId": 1981,
-                "encounterName": "总督奈扎尔",
-                "difficulty": 23,
-                "difficultyName": "史诗",
-                "order": 7
-              },
-              "tooltipRaw": [
-                "熵能裹腕",
-                "史诗",
-                "物品等级246",
-                "升级：勇士 1/6",
-                "拾取后绑定",
-                "腕部 布甲",
-                "34点护甲",
-                "+47 智力",
-                "+580 耐力",
-                "+30 急速",
-                "+43 精通"
-              ],
-              "link": "|cnIQ4:|Hitem:151305::::::::90:270::23:1:3524:1:28:3025:::::|h[熵能裹腕]|h|r",
-              "iconText": "熵"
-            },
-            {
-              "id": 151310,
-              "name": "现实突破者",
-              "icon": 1119888,
-              "iconName": "achievement_battleground_templeofkotmogu_02_purple",
-              "iconAsset": "/assets/icons/achievement_battleground_templeofkotmogu_02_purple.jpg",
-              "slot": "trinket",
-              "slotName": "饰品",
-              "armorType": "none",
-              "armorTypeName": "无甲种",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
-              "ilvl": 246,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
+                3,
                 7,
-                8,
-                9,
-                11,
-                12,
                 13
               ],
               "quality": 4,
               "upgradeTrack": "勇士 1/6",
               "tooltipFlags": {
                 "prismaticSocket": false,
-                "uniqueEquipped": true
+                "uniqueEquipped": false
               },
               "stats": {
                 "primaryStats": [
                   {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 83
+                  },
+                  {
                     "name": "智力",
                     "type": "intellect",
-                    "value": 79
+                    "value": 83
                   }
                 ],
-                "stamina": null,
-                "secondary": [],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1031
+                },
+                "secondary": [
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 76
+                  },
+                  {
+                    "name": "全能",
+                    "type": "versatility",
+                    "value": 54
+                  }
+                ],
                 "effects": {
-                  "equip": [
-                    "装备： 你的伤害性法术有几率在目标的位置附近召唤一条虚空触须，短暂的延迟过后，对4码范围内的所有敌人造成2612点暗影伤害。"
-                  ],
+                  "equip": [],
                   "use": []
                 },
-                "white": {}
+                "white": {
+                  "armor": 170
+                }
               },
               "source": {
                 "instanceId": 945,
@@ -1028,21 +686,25 @@
                 "encounterName": "总督奈扎尔",
                 "difficulty": 23,
                 "difficultyName": "史诗",
-                "order": 10
+                "order": 6
               },
               "tooltipRaw": [
-                "现实突破者",
+                "虚空之环长袍",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "装备唯一",
-                "饰品",
-                "+79 智力",
-                "装备： 你的伤害性法术有几率在目标的位置附近召唤一条虚空触须，短暂的延迟过后，对4码范围内的所有敌人造成2612点暗影伤害。"
+                "胸部 锁甲",
+                "170点护甲",
+                "+83 智力",
+                "+1031 耐力",
+                "+54 全能",
+                "+76 精通",
+                "+83 敏捷",
+                "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:151310::::::::90:270::23:1:3524:1:28:3025:::::|h[现实突破者]|h|r",
-              "iconText": "现"
+              "link": "|cnIQ4:|Hitem:151325::::::::90:270::23:1:3524:1:28:3025:::::|h[虚空之环长袍]|h|r",
+              "iconText": "虚"
             }
           ]
         },
@@ -1065,9 +727,9 @@
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -1124,27 +786,27 @@
               "iconText": "阿"
             },
             {
-              "id": 151302,
-              "name": "瓦解现实束带",
-              "icon": 1575402,
-              "iconName": "inv_belt_cloth_legiondungeon_c_03",
-              "iconAsset": "/assets/icons/inv_belt_cloth_legiondungeon_c_03.jpg",
-              "slot": "waist",
-              "slotName": "腰部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
+              "id": 151322,
+              "name": "虚空之触手套",
+              "icon": 1574624,
+              "iconName": "inv_glove_mail_legiondungeon_c_03",
+              "iconAsset": "/assets/icons/inv_glove_mail_legiondungeon_c_03.jpg",
+              "slot": "hand",
+              "slotName": "手部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                7,
+                13
               ],
               "quality": 4,
               "upgradeTrack": "勇士 1/6",
@@ -1154,6 +816,11 @@
               },
               "stats": {
                 "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 62
+                  },
                   {
                     "name": "智力",
                     "type": "intellect",
@@ -1169,12 +836,12 @@
                   {
                     "name": "精通",
                     "type": "mastery",
-                    "value": 51
+                    "value": 42
                   },
                   {
                     "name": "全能",
                     "type": "versatility",
-                    "value": 46
+                    "value": 56
                   }
                 ],
                 "effects": {
@@ -1182,7 +849,7 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 38
+                  "armor": 96
                 }
               },
               "source": {
@@ -1193,117 +860,25 @@
                 "encounterName": "鲁拉",
                 "difficulty": 23,
                 "difficultyName": "史诗",
-                "order": 7
+                "order": 6
               },
               "tooltipRaw": [
-                "瓦解现实束带",
+                "虚空之触手套",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "腰部 布甲",
-                "38点护甲",
+                "手部 锁甲",
+                "96点护甲",
                 "+62 智力",
                 "+773 耐力",
-                "+46 全能",
-                "+51 精通",
-                "织影者的预兆（0/3）",
-                "虚空扭曲者长袍",
-                "总督的幽影护肩",
-                "瓦解现实束带",
-                "(2) 套装：你的法术有一定几率使你获得暗影迅捷，使受到的所有暗影伤害，持续18秒。",
-                "(3) 套装：暗影迅捷同时使你的精通提高。"
+                "+56 全能",
+                "+42 精通",
+                "+62 敏捷",
+                "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:151302::::::::90:270::23:1:3524:1:28:3025:::::|h[瓦解现实束带]|h|r",
-              "iconText": "瓦"
-            },
-            {
-              "id": 151301,
-              "name": "滋长绝望软鞋",
-              "icon": 1575403,
-              "iconName": "inv_boot_cloth_legiondungeon_c_03",
-              "iconAsset": "/assets/icons/inv_boot_cloth_legiondungeon_c_03.jpg",
-              "slot": "feet",
-              "slotName": "脚部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
-              "ilvl": 246,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "勇士 1/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 62
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 773
-                },
-                "secondary": [
-                  {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 35
-                  },
-                  {
-                    "name": "全能",
-                    "type": "versatility",
-                    "value": 63
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {
-                  "armor": 42
-                }
-              },
-              "source": {
-                "instanceId": 945,
-                "instanceName": "执政团之座",
-                "isRaid": false,
-                "encounterId": 1982,
-                "encounterName": "鲁拉",
-                "difficulty": 23,
-                "difficultyName": "史诗",
-                "order": 8
-              },
-              "tooltipRaw": [
-                "滋长绝望软鞋",
-                "史诗",
-                "物品等级246",
-                "升级：勇士 1/6",
-                "拾取后绑定",
-                "脚部 布甲",
-                "42点护甲",
-                "+62 智力",
-                "+773 耐力",
-                "+35 急速",
-                "+63 全能"
-              ],
-              "link": "|cnIQ4:|Hitem:151301::::::::90:270::23:1:3524:1:28:3025:::::|h[滋长绝望软鞋]|h|r",
-              "iconText": "滋"
+              "link": "|cnIQ4:|Hitem:151322::::::::90:270::23:1:3524:1:28:3025:::::|h[虚空之触手套]|h|r",
+              "iconText": "虚"
             },
             {
               "id": 151311,
@@ -1319,9 +894,9 @@
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -1416,30 +991,24 @@
           "order": 1,
           "items": [
             {
-              "id": 258218,
-              "name": "碎天者之刃",
-              "icon": 4680187,
-              "iconName": "inv_sword_1h_short_c_03",
-              "iconAsset": "/assets/icons/inv_sword_1h_short_c_03.jpg",
+              "id": 258412,
+              "name": "塑风者十字弩",
+              "icon": 946949,
+              "iconName": "inv_bow_2h_crossbow_draenordungeon_c_01",
+              "iconAsset": "/assets/icons/inv_bow_2h_crossbow_draenordungeon_c_01.jpg",
               "slot": "weapon",
               "slotName": "武器",
               "armorType": "none",
-              "armorTypeName": "单手剑",
+              "armorTypeName": "弩",
               "itemType": "武器",
-              "itemSubType": "单手剑",
+              "itemSubType": "弩",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254
               ],
               "classes": [
-                2,
-                8,
-                9,
-                10,
-                12,
-                13
+                3
               ],
               "quality": 4,
               "upgradeTrack": "勇士 1/6",
@@ -1450,26 +1019,26 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 242
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 83
                   }
                 ],
                 "stamina": {
                   "name": "耐力",
                   "type": "stamina",
-                  "value": 515
+                  "value": 1031
                 },
                 "secondary": [
                   {
                     "name": "暴击",
                     "type": "crit",
-                    "value": 30
+                    "value": 54
                   },
                   {
-                    "name": "精通",
-                    "type": "mastery",
-                    "value": 35
+                    "name": "全能",
+                    "type": "versatility",
+                    "value": 76
                   }
                 ],
                 "effects": {
@@ -1477,10 +1046,10 @@
                   "use": []
                 },
                 "white": {
-                  "damageMax": 77,
-                  "damageMin": 46,
-                  "dps": 23.7,
-                  "speed": 2.6
+                  "damageMax": 225,
+                  "damageMin": 150,
+                  "dps": 62.5,
+                  "speed": 3
                 }
               },
               "source": {
@@ -1491,25 +1060,25 @@
                 "encounterName": "兰吉特",
                 "difficulty": 23,
                 "difficultyName": "史诗",
-                "order": 2
+                "order": 3
               },
               "tooltipRaw": [
-                "碎天者之刃",
+                "塑风者十字弩",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "单手 剑",
-                "46 - 77点伤害 速度 2.60",
-                "（每秒伤害23.7）",
-                "+242 智力",
-                "+515 耐力",
-                "+30 爆击",
-                "+35 精通",
+                "远程 弩",
+                "150 - 225点伤害 速度 3.00",
+                "（每秒伤害62.5）",
+                "+83 敏捷",
+                "+1031 耐力",
+                "+54 爆击",
+                "+76 全能",
                 "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:258218::::::::90:270::23:1:3524:1:28:3025:::::|h[碎天者之刃]|h|r",
-              "iconText": "碎"
+              "link": "|cnIQ4:|Hitem:258412::::::::90:270::23:1:3524:1:28:3025:::::|h[塑风者十字弩]|h|r",
+              "iconText": "塑"
             },
             {
               "id": 258575,
@@ -1525,9 +1094,9 @@
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -1621,29 +1190,33 @@
               ],
               "link": "|cnIQ4:|Hitem:258575::::::::90:270::23:1:3524:1:28:3025:::::|h[刚鳞大氅]|h|r",
               "iconText": "刚"
-            },
+            }
+          ]
+        },
+        {
+          "id": 966,
+          "name": "阿拉卡纳斯",
+          "order": 2,
+          "items": [
             {
-              "id": 258574,
-              "name": "流光裹腿",
-              "icon": 961490,
-              "iconName": "inv_cloth_draenordungeon_c_01pant",
-              "iconAsset": "/assets/icons/inv_cloth_draenordungeon_c_01pant.jpg",
-              "slot": "legs",
-              "slotName": "腿部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
+              "id": 258436,
+              "name": "灼日之锋",
+              "icon": 942781,
+              "iconName": "inv_knife_1h_draenordungeon_c_01",
+              "iconAsset": "/assets/icons/inv_knife_1h_draenordungeon_c_01.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "匕首",
+              "itemType": "武器",
+              "itemSubType": "匕首",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                4
               ],
               "quality": 4,
               "upgradeTrack": "勇士 1/6",
@@ -1653,6 +1226,104 @@
               },
               "stats": {
                 "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 42
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 515
+                },
+                "secondary": [
+                  {
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 41
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 24
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "damageMax": 106,
+                  "damageMin": 63,
+                  "dps": 46.9,
+                  "speed": 1.8
+                }
+              },
+              "source": {
+                "instanceId": 476,
+                "instanceName": "通天峰",
+                "isRaid": false,
+                "encounterId": 966,
+                "encounterName": "阿拉卡纳斯",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 2
+              },
+              "tooltipRaw": [
+                "灼日之锋",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "单手 匕首",
+                "63 - 106点伤害 速度 1.80",
+                "（每秒伤害46.9）",
+                "+42 敏捷",
+                "+515 耐力",
+                "+41 急速",
+                "+24 精通",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:258436::::::::90:270::23:1:3524:1:28:3025:::::|h[灼日之锋]|h|r",
+              "iconText": "灼"
+            },
+            {
+              "id": 258576,
+              "name": "锐眼胸甲",
+              "icon": 960039,
+              "iconName": "inv_chest_mail_draenordungeon_c_01",
+              "iconAsset": "/assets/icons/inv_chest_mail_draenordungeon_c_01.jpg",
+              "slot": "chest",
+              "slotName": "胸部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                3,
+                7,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 83
+                  },
                   {
                     "name": "智力",
                     "type": "intellect",
@@ -1666,13 +1337,13 @@
                 },
                 "secondary": [
                   {
-                    "name": "急速",
-                    "type": "haste",
+                    "name": "暴击",
+                    "type": "crit",
                     "value": 70
                   },
                   {
-                    "name": "全能",
-                    "type": "versatility",
+                    "name": "急速",
+                    "type": "haste",
                     "value": 59
                   }
                 ],
@@ -1681,68 +1352,64 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 59
+                  "armor": 170
                 }
               },
               "source": {
                 "instanceId": 476,
                 "instanceName": "通天峰",
                 "isRaid": false,
-                "encounterId": 965,
-                "encounterName": "兰吉特",
+                "encounterId": 966,
+                "encounterName": "阿拉卡纳斯",
                 "difficulty": 23,
                 "difficultyName": "史诗",
                 "order": 5
               },
               "tooltipRaw": [
-                "流光裹腿",
+                "锐眼胸甲",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "腿部 布甲",
-                "59点护甲",
+                "胸部 锁甲",
+                "170点护甲",
                 "+83 智力",
                 "+1031 耐力",
-                "+70 急速",
-                "+59 全能",
-                "你尚未收藏过此外观"
+                "+70 爆击",
+                "+59 急速",
+                "+83 敏捷"
               ],
-              "link": "|cnIQ4:|Hitem:258574::::::::90:270::23:1:3524:1:28:3025:::::|h[流光裹腿]|h|r",
-              "iconText": "流"
+              "link": "|cnIQ4:|Hitem:258576::::::::90:270::23:1:3524:1:28:3025:::::|h[锐眼胸甲]|h|r",
+              "iconText": "锐"
             }
           ]
         },
         {
-          "id": 966,
-          "name": "阿拉卡纳斯",
-          "order": 2,
+          "id": 967,
+          "name": "鲁克兰",
+          "order": 3,
           "items": [
             {
-              "id": 258047,
-              "name": "狂怒构装体之杖",
-              "icon": 947159,
-              "iconName": "invstaff_2h_draenordungeon_c_04",
-              "iconAsset": "/assets/icons/invstaff_2h_draenordungeon_c_04.jpg",
-              "slot": "weapon",
-              "slotName": "武器",
-              "armorType": "none",
-              "armorTypeName": "法杖",
-              "itemType": "武器",
-              "itemSubType": "法杖",
+              "id": 258582,
+              "name": "刚鳞长靴",
+              "icon": 960037,
+              "iconName": "inv_boot_mail_draenordungeon_c_01",
+              "iconAsset": "/assets/icons/inv_boot_mail_draenordungeon_c_01.jpg",
+              "slot": "feet",
+              "slotName": "脚部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                5,
+                3,
                 7,
-                8,
-                9,
-                10,
-                11,
                 13
               ],
               "quality": 4,
@@ -1754,98 +1421,10 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 369
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 1031
-                },
-                "secondary": [
-                  {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 68
-                  },
-                  {
-                    "name": "精通",
-                    "type": "mastery",
+                    "name": "敏捷",
+                    "type": "agility",
                     "value": 62
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {
-                  "damageMax": 129,
-                  "damageMin": 95,
-                  "dps": 31.1,
-                  "speed": 3.6
-                }
-              },
-              "source": {
-                "instanceId": 476,
-                "instanceName": "通天峰",
-                "isRaid": false,
-                "encounterId": 966,
-                "encounterName": "阿拉卡纳斯",
-                "difficulty": 23,
-                "difficultyName": "史诗",
-                "order": 1
-              },
-              "tooltipRaw": [
-                "狂怒构装体之杖",
-                "史诗",
-                "物品等级246",
-                "升级：勇士 1/6",
-                "拾取后绑定",
-                "双手 法杖",
-                "95 - 129点伤害 速度 3.60",
-                "（每秒伤害31.1）",
-                "+369 智力",
-                "+1031 耐力",
-                "+68 急速",
-                "+62 精通",
-                "你尚未收藏过此外观"
-              ],
-              "link": "|cnIQ4:|Hitem:258047::::::::90:270::23:1:3524:1:28:3025:::::|h[狂怒构装体之杖]|h|r",
-              "iconText": "狂"
-            },
-            {
-              "id": 258578,
-              "name": "缚光者护肩",
-              "icon": 961492,
-              "iconName": "inv_cloth_draenordungeon_c_01shoulder",
-              "iconAsset": "/assets/icons/inv_cloth_draenordungeon_c_01shoulder.jpg",
-              "slot": "shoulder",
-              "slotName": "肩部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
-              "ilvl": 246,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "勇士 1/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
+                  },
                   {
                     "name": "智力",
                     "type": "intellect",
@@ -1859,199 +1438,14 @@
                 },
                 "secondary": [
                   {
-                    "name": "急速",
-                    "type": "haste",
+                    "name": "精通",
+                    "type": "mastery",
                     "value": 53
-                  },
-                  {
-                    "name": "精通",
-                    "type": "mastery",
-                    "value": 44
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {
-                  "armor": 46
-                }
-              },
-              "source": {
-                "instanceId": 476,
-                "instanceName": "通天峰",
-                "isRaid": false,
-                "encounterId": 966,
-                "encounterName": "阿拉卡纳斯",
-                "difficulty": 23,
-                "difficultyName": "史诗",
-                "order": 4
-              },
-              "tooltipRaw": [
-                "缚光者护肩",
-                "史诗",
-                "物品等级246",
-                "升级：勇士 1/6",
-                "拾取后绑定",
-                "肩部 布甲",
-                "46点护甲",
-                "+62 智力",
-                "+773 耐力",
-                "+53 急速",
-                "+44 精通",
-                "你尚未收藏过此外观"
-              ],
-              "link": "|cnIQ4:|Hitem:258578::::::::90:270::23:1:3524:1:28:3025:::::|h[缚光者护肩]|h|r",
-              "iconText": "缚"
-            }
-          ]
-        },
-        {
-          "id": 967,
-          "name": "鲁克兰",
-          "order": 3,
-          "items": [
-            {
-              "id": 258472,
-              "name": "鲁克兰的阳炎圣物",
-              "icon": 946906,
-              "iconName": "inv_offhand_1h_draenordungeon_c_01",
-              "iconAsset": "/assets/icons/inv_offhand_1h_draenordungeon_c_01.jpg",
-              "slot": "weapon",
-              "slotName": "武器",
-              "armorType": "none",
-              "armorTypeName": "其它",
-              "itemType": "护甲",
-              "itemSubType": "其它",
-              "ilvl": 246,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                8,
-                9,
-                10,
-                11,
-                13
-              ],
-              "quality": 4,
-              "upgradeTrack": "勇士 1/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 127
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 515
-                },
-                "secondary": [
-                  {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 24
-                  },
-                  {
-                    "name": "精通",
-                    "type": "mastery",
-                    "value": 41
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {}
-              },
-              "source": {
-                "instanceId": 476,
-                "instanceName": "通天峰",
-                "isRaid": false,
-                "encounterId": 967,
-                "encounterName": "鲁克兰",
-                "difficulty": 23,
-                "difficultyName": "史诗",
-                "order": 3
-              },
-              "tooltipRaw": [
-                "鲁克兰的阳炎圣物",
-                "史诗",
-                "物品等级246",
-                "升级：勇士 1/6",
-                "拾取后绑定",
-                "副手物品",
-                "+127 智力",
-                "+515 耐力",
-                "+24 急速",
-                "+41 精通",
-                "你尚未收藏过此外观"
-              ],
-              "link": "|cnIQ4:|Hitem:258472::::::::90:270::23:1:3524:1:28:3025:::::|h[鲁克兰的阳炎圣物]|h|r",
-              "iconText": "鲁"
-            },
-            {
-              "id": 258580,
-              "name": "闪耀光芒护腕",
-              "icon": 961486,
-              "iconName": "inv_cloth_draenordungeon_c_01bracer",
-              "iconAsset": "/assets/icons/inv_cloth_draenordungeon_c_01bracer.jpg",
-              "slot": "wrist",
-              "slotName": "腕部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
-              "ilvl": 246,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "勇士 1/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 47
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 580
-                },
-                "secondary": [
-                  {
-                    "name": "精通",
-                    "type": "mastery",
-                    "value": 44
                   },
                   {
                     "name": "全能",
                     "type": "versatility",
-                    "value": 29
+                    "value": 44
                   }
                 ],
                 "effects": {
@@ -2059,7 +1453,7 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 34
+                  "armor": 106
                 }
               },
               "source": {
@@ -2070,24 +1464,25 @@
                 "encounterName": "鲁克兰",
                 "difficulty": 23,
                 "difficultyName": "史诗",
-                "order": 5
+                "order": 7
               },
               "tooltipRaw": [
-                "闪耀光芒护腕",
+                "刚鳞长靴",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "腕部 布甲",
-                "34点护甲",
-                "+47 智力",
-                "+580 耐力",
-                "+29 全能",
-                "+44 精通",
+                "脚部 锁甲",
+                "106点护甲",
+                "+62 智力",
+                "+773 耐力",
+                "+44 全能",
+                "+53 精通",
+                "+62 敏捷",
                 "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:258580::::::::90:270::23:1:3524:1:28:3025:::::|h[闪耀光芒护腕]|h|r",
-              "iconText": "闪"
+              "link": "|cnIQ4:|Hitem:258582::::::::90:270::23:1:3524:1:28:3025:::::|h[刚鳞长靴]|h|r",
+              "iconText": "刚"
             }
           ]
         },
@@ -2110,9 +1505,9 @@
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -2169,27 +1564,25 @@
               "iconText": "通"
             },
             {
-              "id": 258584,
-              "name": "缚光者便鞋",
-              "icon": 961485,
-              "iconName": "inv_cloth_draenordungeon_c_01boot",
-              "iconAsset": "/assets/icons/inv_cloth_draenordungeon_c_01boot.jpg",
-              "slot": "feet",
-              "slotName": "脚部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
+              "id": 258484,
+              "name": "维里克斯的炎枪",
+              "icon": 944531,
+              "iconName": "inv_polearm_2h_draenordungeon_c_01",
+              "iconAsset": "/assets/icons/inv_polearm_2h_draenordungeon_c_01.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "长柄武器",
+              "itemType": "武器",
+              "itemSubType": "长柄武器",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                10,
+                11
               ],
               "quality": 4,
               "upgradeTrack": "勇士 1/6",
@@ -2200,26 +1593,26 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 62
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 83
                   }
                 ],
                 "stamina": {
                   "name": "耐力",
                   "type": "stamina",
-                  "value": 773
+                  "value": 1031
                 },
                 "secondary": [
                   {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 51
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 84
                   },
                   {
-                    "name": "精通",
-                    "type": "mastery",
-                    "value": 47
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 45
                   }
                 ],
                 "effects": {
@@ -2227,7 +1620,10 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 42
+                  "damageMax": 293,
+                  "damageMin": 157,
+                  "dps": 62.5,
+                  "speed": 3.6
                 }
               },
               "source": {
@@ -2238,24 +1634,202 @@
                 "encounterName": "高阶贤者维里克斯",
                 "difficulty": 23,
                 "difficultyName": "史诗",
-                "order": 8
+                "order": 2
               },
               "tooltipRaw": [
-                "缚光者便鞋",
+                "维里克斯的炎枪",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "脚部 布甲",
-                "42点护甲",
-                "+62 智力",
-                "+773 耐力",
-                "+51 急速",
-                "+47 精通",
+                "双手 长柄武器",
+                "157 - 293点伤害 速度 3.60",
+                "（每秒伤害62.5）",
+                "+83 敏捷",
+                "+1031 耐力",
+                "+84 爆击",
+                "+45 急速",
                 "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:258584::::::::90:270::23:1:3524:1:28:3025:::::|h[缚光者便鞋]|h|r",
-              "iconText": "缚"
+              "link": "|cnIQ4:|Hitem:258484::::::::90:270::23:1:3524:1:28:3025:::::|h[维里克斯的炎枪]|h|r",
+              "iconText": "维"
+            },
+            {
+              "id": 258585,
+              "name": "锐眼头盔",
+              "icon": 960041,
+              "iconName": "inv_helm_mail_draenordungeon_c_01",
+              "iconAsset": "/assets/icons/inv_helm_mail_draenordungeon_c_01.jpg",
+              "slot": "head",
+              "slotName": "头部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                3,
+                7,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 83
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 83
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1031
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 70
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 59
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 128
+                }
+              },
+              "source": {
+                "instanceId": 476,
+                "instanceName": "通天峰",
+                "isRaid": false,
+                "encounterId": 968,
+                "encounterName": "高阶贤者维里克斯",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 5
+              },
+              "tooltipRaw": [
+                "锐眼头盔",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "头部 锁甲",
+                "128点护甲",
+                "+83 智力",
+                "+1031 耐力",
+                "+70 爆击",
+                "+59 精通",
+                "+83 敏捷"
+              ],
+              "link": "|cnIQ4:|Hitem:258585::::::::90:270::23:1:3524:1:28:3025:::::|h[锐眼头盔]|h|r",
+              "iconText": "锐"
+            },
+            {
+              "id": 252420,
+              "name": "太阳耀斑棱镜",
+              "icon": 132873,
+              "iconName": "inv_enchant_shardbrilliantlarge",
+              "iconAsset": "/assets/icons/inv_enchant_shardbrilliantlarge.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                1,
+                2,
+                3,
+                4,
+                6,
+                7,
+                10,
+                11,
+                12
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "力量",
+                    "type": "strength",
+                    "value": 79
+                  },
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 79
+                  }
+                ],
+                "stamina": null,
+                "secondary": [],
+                "effects": {
+                  "equip": [
+                    "装备： 你的伤害技能有几率释放棱镜的光耀之光，使你的爆击提高187，持续10秒，目标每损失1%的生命值，该效果额外提高1，最高可达229。"
+                  ],
+                  "use": []
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 476,
+                "instanceName": "通天峰",
+                "isRaid": false,
+                "encounterId": 968,
+                "encounterName": "高阶贤者维里克斯",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 9
+              },
+              "tooltipRaw": [
+                "太阳耀斑棱镜",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "装备唯一",
+                "饰品",
+                "+79 敏捷",
+                "+79 力量",
+                "装备： 你的伤害技能有几率释放棱镜的光耀之光，使你的爆击提高187，持续10秒，目标每损失1%的生命值，该效果额外提高1，最高可达229。"
+              ],
+              "link": "|cnIQ4:|Hitem:252420::::::::90:270::23:1:3524:1:28:3025:::::|h[太阳耀斑棱镜]|h|r",
+              "iconText": "太"
             }
           ]
         }
@@ -2274,27 +1848,25 @@
           "order": 1,
           "items": [
             {
-              "id": 251167,
-              "name": "夜猎追踪靴",
-              "icon": 7252742,
-              "iconName": "inv_boot_cloth_dungeonharronir_c_01",
-              "iconAsset": "/assets/icons/inv_boot_cloth_dungeonharronir_c_01.jpg",
-              "slot": "feet",
-              "slotName": "脚部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
+              "id": 251162,
+              "name": "叛徒之爪",
+              "icon": 6929479,
+              "iconName": "inv_polearm_2h_dungeonharronir_c_01",
+              "iconAsset": "/assets/icons/inv_polearm_2h_dungeonharronir_c_01.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "长柄武器",
+              "itemType": "武器",
+              "itemSubType": "长柄武器",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                10,
+                11
               ],
               "quality": 4,
               "upgradeTrack": "勇士 1/6",
@@ -2304,6 +1876,193 @@
               },
               "stats": {
                 "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 83
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1031
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 48
+                  },
+                  {
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 82
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "damageMax": 293,
+                  "damageMin": 157,
+                  "dps": 62.5,
+                  "speed": 3.6
+                }
+              },
+              "source": {
+                "instanceId": 1315,
+                "instanceName": "迈萨拉洞窟",
+                "isRaid": false,
+                "encounterId": 2810,
+                "encounterName": "姆罗金和内克拉克斯",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 1
+              },
+              "tooltipRaw": [
+                "叛徒之爪",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "双手 长柄武器",
+                "157 - 293点伤害 速度 3.60",
+                "（每秒伤害62.5）",
+                "+83 敏捷",
+                "+1031 耐力",
+                "+48 爆击",
+                "+82 急速"
+              ],
+              "link": "|cnIQ4:|Hitem:251162::::::::90:270::23:1:3524:1:28:3025:::::|h[叛徒之爪]|h|r",
+              "iconText": "叛"
+            },
+            {
+              "id": 251174,
+              "name": "欺诈者的腐烂之弓",
+              "icon": 6989930,
+              "iconName": "inv_bow_1h_amani_c_01",
+              "iconAsset": "/assets/icons/inv_bow_1h_amani_c_01.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "弓",
+              "itemType": "武器",
+              "itemSubType": "弓",
+              "ilvl": 246,
+              "specs": [
+                253,
+                254
+              ],
+              "classes": [
+                3
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 83
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1031
+                },
+                "secondary": [
+                  {
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 51
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 79
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "damageMax": 216,
+                  "damageMin": 159,
+                  "dps": 62.5,
+                  "speed": 3
+                }
+              },
+              "source": {
+                "instanceId": 1315,
+                "instanceName": "迈萨拉洞窟",
+                "isRaid": false,
+                "encounterId": 2810,
+                "encounterName": "姆罗金和内克拉克斯",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 2
+              },
+              "tooltipRaw": [
+                "欺诈者的腐烂之弓",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "远程 弓",
+                "159 - 216点伤害 速度 3.00",
+                "（每秒伤害62.5）",
+                "+83 敏捷",
+                "+1031 耐力",
+                "+51 急速",
+                "+79 精通",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:251174::::::::90:270::23:1:3524:1:28:3025:::::|h[欺诈者的腐烂之弓]|h|r",
+              "iconText": "欺"
+            },
+            {
+              "id": 251176,
+              "name": "复生者的重担",
+              "icon": 7264184,
+              "iconName": "inv_shoulder_armor_hextroll_d_01",
+              "iconAsset": "/assets/icons/inv_shoulder_armor_hextroll_d_01.jpg",
+              "slot": "shoulder",
+              "slotName": "肩部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                3,
+                7,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 62
+                  },
                   {
                     "name": "智力",
                     "type": "intellect",
@@ -2317,14 +2076,14 @@
                 },
                 "secondary": [
                   {
-                    "name": "暴击",
-                    "type": "crit",
-                    "value": 59
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 40
                   },
                   {
                     "name": "全能",
                     "type": "versatility",
-                    "value": 38
+                    "value": 57
                   }
                 ],
                 "effects": {
@@ -2332,7 +2091,7 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 42
+                  "armor": 117
                 }
               },
               "source": {
@@ -2343,25 +2102,25 @@
                 "encounterName": "姆罗金和内克拉克斯",
                 "difficulty": 23,
                 "difficultyName": "史诗",
-                "order": 6
+                "order": 3
               },
               "tooltipRaw": [
-                "夜猎追踪靴",
+                "复生者的重担",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "脚部 布甲",
-                "42点护甲",
+                "肩部 锁甲",
+                "117点护甲",
                 "+62 智力",
                 "+773 耐力",
-                "+59 爆击",
-                "+38 全能",
-                "\"这些裹足让枯木猎手在追踪猎物时步履稳健、悄无声息。\"",
+                "+57 全能",
+                "+40 精通",
+                "+62 敏捷",
                 "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:251167::::::::90:270::23:1:3524:1:28:3025:::::|h[夜猎追踪靴]|h|r",
-              "iconText": "夜"
+              "link": "|cnIQ4:|Hitem:251176::::::::90:270::23:1:3524:1:28:3025:::::|h[复生者的重担]|h|r",
+              "iconText": "复"
             }
           ]
         },
@@ -2370,102 +2129,6 @@
           "name": "沃达扎",
           "order": 2,
           "items": [
-            {
-              "id": 251178,
-              "name": "仪式妖术之刃",
-              "icon": 7065189,
-              "iconName": "inv_knife_1h_dungeonharronir_c_02",
-              "iconAsset": "/assets/icons/inv_knife_1h_dungeonharronir_c_02.jpg",
-              "slot": "weapon",
-              "slotName": "武器",
-              "armorType": "none",
-              "armorTypeName": "匕首",
-              "itemType": "武器",
-              "itemSubType": "匕首",
-              "ilvl": 246,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                7,
-                8,
-                9,
-                11,
-                13
-              ],
-              "quality": 4,
-              "upgradeTrack": "勇士 1/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 242
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 515
-                },
-                "secondary": [
-                  {
-                    "name": "暴击",
-                    "type": "crit",
-                    "value": 24
-                  },
-                  {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 41
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {
-                  "damageMax": 53,
-                  "damageMin": 31,
-                  "dps": 23.3,
-                  "speed": 1.8
-                }
-              },
-              "source": {
-                "instanceId": 1315,
-                "instanceName": "迈萨拉洞窟",
-                "isRaid": false,
-                "encounterId": 2811,
-                "encounterName": "沃达扎",
-                "difficulty": 23,
-                "difficultyName": "史诗",
-                "order": 1
-              },
-              "tooltipRaw": [
-                "仪式妖术之刃",
-                "史诗",
-                "物品等级246",
-                "升级：勇士 1/6",
-                "拾取后绑定",
-                "单手 匕首",
-                "31 - 53点伤害 速度 1.80",
-                "（每秒伤害23.3）",
-                "+242 智力",
-                "+515 耐力",
-                "+24 爆击",
-                "+41 急速",
-                "\"在复活并强化加克苏尔的邪恶仪式中使用的利刃。\""
-              ],
-              "link": "|cnIQ4:|Hitem:251178::::::::90:270::23:1:3524:1:28:3025:::::|h[仪式妖术之刃]|h|r",
-              "iconText": "仪"
-            },
             {
               "id": 251161,
               "name": "猎魂者的斗篷",
@@ -2480,9 +2143,9 @@
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -2579,27 +2242,27 @@
               "iconText": "猎"
             },
             {
-              "id": 251172,
-              "name": "邪恶妖术束带",
-              "icon": 7252746,
-              "iconName": "inv_glove_cloth_dungeonharronir_c_01",
-              "iconAsset": "/assets/icons/inv_glove_cloth_dungeonharronir_c_01.jpg",
-              "slot": "hand",
-              "slotName": "手部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
+              "id": 251170,
+              "name": "邪纹长裤",
+              "icon": 7259237,
+              "iconName": "inv_pant_mail_dungeonharronir_c_01",
+              "iconAsset": "/assets/icons/inv_pant_mail_dungeonharronir_c_01.jpg",
+              "slot": "legs",
+              "slotName": "腿部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                7,
+                13
               ],
               "quality": 4,
               "upgradeTrack": "勇士 1/6",
@@ -2610,26 +2273,31 @@
               "stats": {
                 "primaryStats": [
                   {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 83
+                  },
+                  {
                     "name": "智力",
                     "type": "intellect",
-                    "value": 62
+                    "value": 83
                   }
                 ],
                 "stamina": {
                   "name": "耐力",
                   "type": "stamina",
-                  "value": 773
+                  "value": 1031
                 },
                 "secondary": [
                   {
                     "name": "暴击",
                     "type": "crit",
-                    "value": 59
+                    "value": 84
                   },
                   {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 38
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 45
                   }
                 ],
                 "effects": {
@@ -2637,7 +2305,7 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 38
+                  "armor": 149
                 }
               },
               "source": {
@@ -2648,100 +2316,24 @@
                 "encounterName": "沃达扎",
                 "difficulty": 23,
                 "difficultyName": "史诗",
-                "order": 4
+                "order": 5
               },
               "tooltipRaw": [
-                "邪恶妖术束带",
+                "邪纹长裤",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "手部 布甲",
-                "38点护甲",
-                "+62 智力",
-                "+773 耐力",
-                "+59 爆击",
-                "+38 急速",
-                "你尚未收藏过此外观"
+                "腿部 锁甲",
+                "149点护甲",
+                "+83 智力",
+                "+1031 耐力",
+                "+84 爆击",
+                "+45 精通",
+                "+83 敏捷"
               ],
-              "link": "|cnIQ4:|Hitem:251172::::::::90:270::23:1:3524:1:28:3025:::::|h[邪恶妖术束带]|h|r",
+              "link": "|cnIQ4:|Hitem:251170::::::::90:270::23:1:3524:1:28:3025:::::|h[邪纹长裤]|h|r",
               "iconText": "邪"
-            },
-            {
-              "id": 250223,
-              "name": "捕魂者的咒符",
-              "icon": 133323,
-              "iconName": "inv_jewelry_necklace_32",
-              "iconAsset": "/assets/icons/inv_jewelry_necklace_32.jpg",
-              "slot": "trinket",
-              "slotName": "饰品",
-              "armorType": "none",
-              "armorTypeName": "无甲种",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
-              "ilvl": 246,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                7,
-                8,
-                9,
-                11,
-                12,
-                13
-              ],
-              "quality": 4,
-              "upgradeTrack": "勇士 1/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": true
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 79
-                  }
-                ],
-                "stamina": null,
-                "secondary": [],
-                "effects": {
-                  "equip": [
-                    "装备： 你的伤害性法术有一定几率诅咒目标，在12秒内造成17492点暗影伤害。\n如果目标在受诅咒期间死亡，该效果将转移至附近一名敌人，并在剩余持续时间内造成150%的暗影伤害。 \"沃达扎的通灵法器上刻满了难以参透的符文，散发着沉重而不祥的气息。\""
-                  ],
-                  "use": []
-                },
-                "white": {}
-              },
-              "source": {
-                "instanceId": 1315,
-                "instanceName": "迈萨拉洞窟",
-                "isRaid": false,
-                "encounterId": 2811,
-                "encounterName": "沃达扎",
-                "difficulty": 23,
-                "difficultyName": "史诗",
-                "order": 7
-              },
-              "tooltipRaw": [
-                "捕魂者的咒符",
-                "史诗",
-                "物品等级246",
-                "升级：勇士 1/6",
-                "拾取后绑定",
-                "装备唯一",
-                "饰品",
-                "+79 智力",
-                "装备： 你的伤害性法术有一定几率诅咒目标，在12秒内造成17492点暗影伤害。\n如果目标在受诅咒期间死亡，该效果将转移至附近一名敌人，并在剩余持续时间内造成150%的暗影伤害。",
-                "\"沃达扎的通灵法器上刻满了难以参透的符文，散发着沉重而不祥的气息。\""
-              ],
-              "link": "|cnIQ4:|Hitem:250223::::::::90:270::23:1:3524:1:28:3025:::::|h[捕魂者的咒符]|h|r",
-              "iconText": "捕"
             }
           ]
         },
@@ -2764,9 +2356,9 @@
               "itemSubType": "配方",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -2879,9 +2471,9 @@
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -2938,6 +2530,194 @@
               "iconText": "阿"
             },
             {
+              "id": 251175,
+              "name": "灵魂枯萎劈刀",
+              "icon": 7389567,
+              "iconName": "inv_axe_1h_amani_b_01",
+              "iconAsset": "/assets/icons/inv_axe_1h_amani_b_01.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "单手斧",
+              "itemType": "武器",
+              "itemSubType": "单手斧",
+              "ilvl": 246,
+              "specs": [
+                255
+              ],
+              "classes": [
+                3,
+                4,
+                7,
+                10,
+                12
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 42
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 515
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 39
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 25
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "damageMax": 166,
+                  "damageMin": 79,
+                  "dps": 47.1,
+                  "speed": 2.6
+                }
+              },
+              "source": {
+                "instanceId": 1315,
+                "instanceName": "迈萨拉洞窟",
+                "isRaid": false,
+                "encounterId": 2812,
+                "encounterName": "拉克图尔，聚魂之器",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 4
+              },
+              "tooltipRaw": [
+                "灵魂枯萎劈刀",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "单手 斧",
+                "79 - 166点伤害 速度 2.60",
+                "（每秒伤害47.1）",
+                "+42 敏捷",
+                "+515 耐力",
+                "+39 爆击",
+                "+25 精通",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:251175::::::::90:270::23:1:3524:1:28:3025:::::|h[灵魂枯萎劈刀]|h|r",
+              "iconText": "灵"
+            },
+            {
+              "id": 251179,
+              "name": "腐败胸甲",
+              "icon": 7259234,
+              "iconName": "inv_chest_mail_dungeonharronir_c_01",
+              "iconAsset": "/assets/icons/inv_chest_mail_dungeonharronir_c_01.jpg",
+              "slot": "chest",
+              "slotName": "胸部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                3,
+                7,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 83
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 83
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1031
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 51
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 79
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 170
+                }
+              },
+              "source": {
+                "instanceId": 1315,
+                "instanceName": "迈萨拉洞窟",
+                "isRaid": false,
+                "encounterId": 2812,
+                "encounterName": "拉克图尔，聚魂之器",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 8
+              },
+              "tooltipRaw": [
+                "腐败胸甲",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "胸部 锁甲",
+                "170点护甲",
+                "+83 智力",
+                "+1031 耐力",
+                "+51 爆击",
+                "+79 精通",
+                "+83 敏捷",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:251179::::::::90:270::23:1:3524:1:28:3025:::::|h[腐败胸甲]|h|r",
+              "iconText": "腐"
+            },
+            {
               "id": 250258,
               "name": "折磨之魂容器",
               "icon": 461138,
@@ -2951,9 +2731,9 @@
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -3036,27 +2816,25 @@
           "order": 1,
           "items": [
             {
-              "id": 251080,
-              "name": "棘晨光晕",
-              "icon": 7252747,
-              "iconName": "inv_helm_cloth_dungeonharronir_c_01",
-              "iconAsset": "/assets/icons/inv_helm_cloth_dungeonharronir_c_01.jpg",
-              "slot": "head",
-              "slotName": "头部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
+              "id": 251077,
+              "name": "护根者的枝干",
+              "icon": 6936235,
+              "iconName": "inv_staff_2h_dungeonharronir_c_01",
+              "iconAsset": "/assets/icons/inv_staff_2h_dungeonharronir_c_01.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "法杖",
+              "itemType": "武器",
+              "itemSubType": "法杖",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                10,
+                11
               ],
               "quality": 4,
               "upgradeTrack": "勇士 1/6",
@@ -3067,8 +2845,8 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "name": "智力",
-                    "type": "intellect",
+                    "name": "敏捷",
+                    "type": "agility",
                     "value": 83
                   }
                 ],
@@ -3081,12 +2859,12 @@
                   {
                     "name": "暴击",
                     "type": "crit",
-                    "value": 84
+                    "value": 48
                   },
                   {
                     "name": "精通",
                     "type": "mastery",
-                    "value": 45
+                    "value": 82
                   }
                 ],
                 "effects": {
@@ -3094,7 +2872,10 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 50
+                  "damageMax": 259,
+                  "damageMin": 191,
+                  "dps": 62.5,
+                  "speed": 3.6
                 }
               },
               "source": {
@@ -3105,23 +2886,118 @@
                 "encounterName": "烬晓",
                 "difficulty": 23,
                 "difficultyName": "史诗",
-                "order": 3
+                "order": 1
               },
               "tooltipRaw": [
-                "棘晨光晕",
+                "护根者的枝干",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "头部 布甲",
-                "50点护甲",
-                "+83 智力",
+                "双手 法杖",
+                "191 - 259点伤害 速度 3.60",
+                "（每秒伤害62.5）",
+                "+83 敏捷",
                 "+1031 耐力",
-                "+84 爆击",
-                "+45 精通"
+                "+48 爆击",
+                "+82 精通"
               ],
-              "link": "|cnIQ4:|Hitem:251080::::::::90:270::23:1:3524:1:28:3025:::::|h[棘晨光晕]|h|r",
-              "iconText": "棘"
+              "link": "|cnIQ4:|Hitem:251077::::::::90:270::23:1:3524:1:28:3025:::::|h[护根者的枝干]|h|r",
+              "iconText": "护"
+            },
+            {
+              "id": 251079,
+              "name": "琥珀叶护腕",
+              "icon": 7259232,
+              "iconName": "inv_bracer_mail_dungeonharronir_c_01",
+              "iconAsset": "/assets/icons/inv_bracer_mail_dungeonharronir_c_01.jpg",
+              "slot": "wrist",
+              "slotName": "腕部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                3,
+                7,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 47
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 47
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 580
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 29
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 44
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 85
+                }
+              },
+              "source": {
+                "instanceId": 1299,
+                "instanceName": "风行者之塔",
+                "isRaid": false,
+                "encounterId": 2655,
+                "encounterName": "烬晓",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 4
+              },
+              "tooltipRaw": [
+                "琥珀叶护腕",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "腕部 锁甲",
+                "85点护甲",
+                "+47 智力",
+                "+580 耐力",
+                "+29 爆击",
+                "+44 精通",
+                "+47 敏捷"
+              ],
+              "link": "|cnIQ4:|Hitem:251079::::::::90:270::23:1:3524:1:28:3025:::::|h[琥珀叶护腕]|h|r",
+              "iconText": "琥"
             },
             {
               "id": 250144,
@@ -3137,9 +3013,9 @@
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 2,
@@ -3216,27 +3092,27 @@
           "order": 2,
           "items": [
             {
-              "id": 251085,
-              "name": "黑暗奉献护肩",
-              "icon": 7252749,
-              "iconName": "inv_shoulder_cloth_dungeonharronir_c_01",
-              "iconAsset": "/assets/icons/inv_shoulder_cloth_dungeonharronir_c_01.jpg",
-              "slot": "shoulder",
-              "slotName": "肩部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
+              "id": 251084,
+              "name": "鞭线铁靴",
+              "icon": 7259231,
+              "iconName": "inv_boot_mail_dungeonharronir_c_01",
+              "iconAsset": "/assets/icons/inv_boot_mail_dungeonharronir_c_01.jpg",
+              "slot": "feet",
+              "slotName": "脚部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                7,
+                13
               ],
               "quality": 4,
               "upgradeTrack": "勇士 1/6",
@@ -3246,6 +3122,11 @@
               },
               "stats": {
                 "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 62
+                  },
                   {
                     "name": "智力",
                     "type": "intellect",
@@ -3261,6 +3142,188 @@
                   {
                     "name": "暴击",
                     "type": "crit",
+                    "value": 61
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 36
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 106
+                }
+              },
+              "source": {
+                "instanceId": 1299,
+                "instanceName": "风行者之塔",
+                "isRaid": false,
+                "encounterId": 2656,
+                "encounterName": "被遗弃的二人组",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 5
+              },
+              "tooltipRaw": [
+                "鞭线铁靴",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "脚部 锁甲",
+                "106点护甲",
+                "+62 智力",
+                "+773 耐力",
+                "+61 爆击",
+                "+36 精通",
+                "+62 敏捷"
+              ],
+              "link": "|cnIQ4:|Hitem:251084::::::::90:270::23:1:3524:1:28:3025:::::|h[鞭线铁靴]|h|r",
+              "iconText": "鞭"
+            },
+            {
+              "id": 250226,
+              "name": "拉奇的弯曲钩爪",
+              "icon": 1379246,
+              "iconName": "inv_archaeology_70_tauren_moosebonefishhook",
+              "iconAsset": "/assets/icons/inv_archaeology_70_tauren_moosebonefishhook.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                255
+              ],
+              "classes": [
+                1,
+                2,
+                3,
+                4,
+                6,
+                7,
+                10,
+                11,
+                12
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "力量",
+                    "type": "strength",
+                    "value": 79
+                  },
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 79
+                  }
+                ],
+                "stamina": null,
+                "secondary": [],
+                "effects": {
+                  "equip": [],
+                  "use": [
+                    "使用： 向目标投掷巨大的钩爪，劈砍路径上的敌人并对每个敌人造成19695点物理伤害。当钩爪击中目标时，造成7点物理伤害，由13130码范围内的敌人分摊。 （1分钟 30秒冷却）"
+                  ]
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1299,
+                "instanceName": "风行者之塔",
+                "isRaid": false,
+                "encounterId": 2656,
+                "encounterName": "被遗弃的二人组",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 6
+              },
+              "tooltipRaw": [
+                "拉奇的弯曲钩爪",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "装备唯一",
+                "饰品",
+                "+79 敏捷",
+                "+79 力量",
+                "使用： 向目标投掷巨大的钩爪，劈砍路径上的敌人并对每个敌人造成19695点物理伤害。当钩爪击中目标时，造成7点物理伤害，由13130码范围内的敌人分摊。 （1分钟 30秒冷却）"
+              ],
+              "link": "|cnIQ4:|Hitem:250226::::::::90:270::23:1:3524:1:28:3025:::::|h[拉奇的弯曲钩爪]|h|r",
+              "iconText": "拉"
+            }
+          ]
+        },
+        {
+          "id": 2657,
+          "name": "指挥官克罗鲁科",
+          "order": 3,
+          "items": [
+            {
+              "id": 251089,
+              "name": "遗誉护手",
+              "icon": 7259235,
+              "iconName": "inv_glove_mail_dungeonharronir_c_01",
+              "iconAsset": "/assets/icons/inv_glove_mail_dungeonharronir_c_01.jpg",
+              "slot": "hand",
+              "slotName": "手部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                3,
+                7,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 62
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 62
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 773
+                },
+                "secondary": [
+                  {
+                    "name": "急速",
+                    "type": "haste",
                     "value": 38
                   },
                   {
@@ -3274,102 +3337,7 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 46
-                }
-              },
-              "source": {
-                "instanceId": 1299,
-                "instanceName": "风行者之塔",
-                "isRaid": false,
-                "encounterId": 2656,
-                "encounterName": "被遗弃的二人组",
-                "difficulty": 23,
-                "difficultyName": "史诗",
-                "order": 2
-              },
-              "tooltipRaw": [
-                "黑暗奉献护肩",
-                "史诗",
-                "物品等级246",
-                "升级：勇士 1/6",
-                "拾取后绑定",
-                "肩部 布甲",
-                "46点护甲",
-                "+62 智力",
-                "+773 耐力",
-                "+38 爆击",
-                "+59 精通"
-              ],
-              "link": "|cnIQ4:|Hitem:251085::::::::90:270::23:1:3524:1:28:3025:::::|h[黑暗奉献护肩]|h|r",
-              "iconText": "黑"
-            }
-          ]
-        },
-        {
-          "id": 2657,
-          "name": "指挥官克罗鲁科",
-          "order": 3,
-          "items": [
-            {
-              "id": 251090,
-              "name": "指挥官的褪色长裤",
-              "icon": 7252748,
-              "iconName": "inv_pant_cloth_dungeonharronir_c_01",
-              "iconAsset": "/assets/icons/inv_pant_cloth_dungeonharronir_c_01.jpg",
-              "slot": "legs",
-              "slotName": "腿部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
-              "ilvl": 246,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "勇士 1/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 83
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 1031
-                },
-                "secondary": [
-                  {
-                    "name": "精通",
-                    "type": "mastery",
-                    "value": 51
-                  },
-                  {
-                    "name": "全能",
-                    "type": "versatility",
-                    "value": 79
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {
-                  "armor": 59
+                  "armor": 96
                 }
               },
               "source": {
@@ -3380,23 +3348,105 @@
                 "encounterName": "指挥官克罗鲁科",
                 "difficulty": 23,
                 "difficultyName": "史诗",
-                "order": 4
+                "order": 3
               },
               "tooltipRaw": [
-                "指挥官的褪色长裤",
+                "遗誉护手",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "腿部 布甲",
-                "59点护甲",
-                "+83 智力",
-                "+1031 耐力",
-                "+79 全能",
-                "+51 精通"
+                "手部 锁甲",
+                "96点护甲",
+                "+62 智力",
+                "+773 耐力",
+                "+38 急速",
+                "+59 精通",
+                "+62 敏捷"
               ],
-              "link": "|cnIQ4:|Hitem:251090::::::::90:270::23:1:3524:1:28:3025:::::|h[指挥官的褪色长裤]|h|r",
-              "iconText": "指"
+              "link": "|cnIQ4:|Hitem:251089::::::::90:270::23:1:3524:1:28:3025:::::|h[遗誉护手]|h|r",
+              "iconText": "遗"
+            },
+            {
+              "id": 250227,
+              "name": "克罗鲁科的战旗",
+              "icon": 4624619,
+              "iconName": "inv_10_tailoring2_banner_red",
+              "iconAsset": "/assets/icons/inv_10_tailoring2_banner_red.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                255
+              ],
+              "classes": [
+                1,
+                2,
+                3,
+                4,
+                6,
+                7,
+                10,
+                11,
+                12
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "力量",
+                    "type": "strength",
+                    "value": 79
+                  },
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 79
+                  }
+                ],
+                "stamina": null,
+                "secondary": [],
+                "effects": {
+                  "equip": [
+                    "装备： 你的近战攻击有几率召唤一名精英掷斧者，向你的目标投掷利斧，造成9080点物理伤害。"
+                  ],
+                  "use": []
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1299,
+                "instanceName": "风行者之塔",
+                "isRaid": false,
+                "encounterId": 2657,
+                "encounterName": "指挥官克罗鲁科",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 6
+              },
+              "tooltipRaw": [
+                "克罗鲁科的战旗",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "装备唯一",
+                "饰品",
+                "+79 敏捷",
+                "+79 力量",
+                "装备： 你的近战攻击有几率召唤一名精英掷斧者，向你的目标投掷利斧，造成9080点物理伤害。"
+              ],
+              "link": "|cnIQ4:|Hitem:250227::::::::90:270::23:1:3524:1:28:3025:::::|h[克罗鲁科的战旗]|h|r",
+              "iconText": "克"
             }
           ]
         },
@@ -3419,9 +3469,9 @@
               "itemSubType": "配方",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -3534,9 +3584,9 @@
               "itemSubType": "配方",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -3643,9 +3693,9 @@
               "itemSubType": "杂项",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -3715,9 +3765,9 @@
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -3774,30 +3824,24 @@
               "iconText": "银"
             },
             {
-              "id": 251094,
-              "name": "无眠之心印记",
-              "icon": 7431122,
-              "iconName": "inv_offhand_1h_dungeonharronir_c_01",
-              "iconAsset": "/assets/icons/inv_offhand_1h_dungeonharronir_c_01.jpg",
+              "id": 251095,
+              "name": "飓风之心",
+              "icon": 6998205,
+              "iconName": "inv_bow_1h_dungeonharronir_c_01",
+              "iconAsset": "/assets/icons/inv_bow_1h_dungeonharronir_c_01.jpg",
               "slot": "weapon",
               "slotName": "武器",
               "armorType": "none",
-              "armorTypeName": "其它",
-              "itemType": "护甲",
-              "itemSubType": "其它",
+              "armorTypeName": "弓",
+              "itemType": "武器",
+              "itemSubType": "弓",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254
               ],
               "classes": [
-                5,
-                8,
-                9,
-                10,
-                11,
-                13
+                3
               ],
               "quality": 4,
               "upgradeTrack": "勇士 1/6",
@@ -3808,33 +3852,38 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 127
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 83
                   }
                 ],
                 "stamina": {
                   "name": "耐力",
                   "type": "stamina",
-                  "value": 515
+                  "value": 1031
                 },
                 "secondary": [
                   {
                     "name": "暴击",
                     "type": "crit",
-                    "value": 41
+                    "value": 84
                   },
                   {
-                    "name": "全能",
-                    "type": "versatility",
-                    "value": 24
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 45
                   }
                 ],
                 "effects": {
                   "equip": [],
                   "use": []
                 },
-                "white": {}
+                "white": {
+                  "damageMax": 216,
+                  "damageMin": 159,
+                  "dps": 62.5,
+                  "speed": 3
+                }
               },
               "source": {
                 "instanceId": 1299,
@@ -3844,23 +3893,25 @@
                 "encounterName": "无眠之心",
                 "difficulty": 23,
                 "difficultyName": "史诗",
-                "order": 6
+                "order": 5
               },
               "tooltipRaw": [
-                "无眠之心印记",
+                "飓风之心",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "副手物品",
-                "+127 智力",
-                "+515 耐力",
-                "+41 爆击",
-                "+24 全能",
+                "远程 弓",
+                "159 - 216点伤害 速度 3.00",
+                "（每秒伤害62.5）",
+                "+83 敏捷",
+                "+1031 耐力",
+                "+84 爆击",
+                "+45 急速",
                 "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:251094::::::::90:270::23:1:3524:1:28:3025:::::|h[无眠之心印记]|h|r",
-              "iconText": "无"
+              "link": "|cnIQ4:|Hitem:251095::::::::90:270::23:1:3524:1:28:3025:::::|h[飓风之心]|h|r",
+              "iconText": "飓"
             },
             {
               "id": 251096,
@@ -3876,9 +3927,9 @@
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -3952,6 +4003,101 @@
               "iconText": "悲"
             },
             {
+              "id": 251097,
+              "name": "飞箭肩甲",
+              "icon": 7259238,
+              "iconName": "inv_shoulder_mail_dungeonharronir_c_01",
+              "iconAsset": "/assets/icons/inv_shoulder_mail_dungeonharronir_c_01.jpg",
+              "slot": "shoulder",
+              "slotName": "肩部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                3,
+                7,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 62
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 62
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 773
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 57
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 40
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 117
+                }
+              },
+              "source": {
+                "instanceId": 1299,
+                "instanceName": "风行者之塔",
+                "isRaid": false,
+                "encounterId": 2658,
+                "encounterName": "无眠之心",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 9
+              },
+              "tooltipRaw": [
+                "飞箭肩甲",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "肩部 锁甲",
+                "117点护甲",
+                "+62 智力",
+                "+773 耐力",
+                "+57 爆击",
+                "+40 精通",
+                "+62 敏捷",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:251097::::::::90:270::23:1:3524:1:28:3025:::::|h[飞箭肩甲]|h|r",
+              "iconText": "飞"
+            },
+            {
               "id": 250256,
               "name": "风之心",
               "icon": 4644003,
@@ -3965,9 +4111,9 @@
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -4061,102 +4207,6 @@
           "order": 1,
           "items": [
             {
-              "id": 50227,
-              "name": "医用长针",
-              "icon": 307037,
-              "iconName": "inv_weapon_shortblade_100",
-              "iconAsset": "/assets/icons/inv_weapon_shortblade_100.jpg",
-              "slot": "weapon",
-              "slotName": "武器",
-              "armorType": "none",
-              "armorTypeName": "匕首",
-              "itemType": "武器",
-              "itemSubType": "匕首",
-              "ilvl": 246,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                7,
-                8,
-                9,
-                11,
-                13
-              ],
-              "quality": 4,
-              "upgradeTrack": "勇士 1/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 242
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 515
-                },
-                "secondary": [
-                  {
-                    "name": "暴击",
-                    "type": "crit",
-                    "value": 38
-                  },
-                  {
-                    "name": "全能",
-                    "type": "versatility",
-                    "value": 27
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {
-                  "damageMax": 53,
-                  "damageMin": 31,
-                  "dps": 23.3,
-                  "speed": 1.8
-                }
-              },
-              "source": {
-                "instanceId": 278,
-                "instanceName": "萨隆矿坑",
-                "isRaid": false,
-                "encounterId": 608,
-                "encounterName": "熔炉之主加弗斯特",
-                "difficulty": 23,
-                "difficultyName": "史诗",
-                "order": 2
-              },
-              "tooltipRaw": [
-                "医用长针",
-                "史诗",
-                "物品等级246",
-                "升级：勇士 1/6",
-                "拾取后绑定",
-                "单手 匕首",
-                "31 - 53点伤害 速度 1.80",
-                "（每秒伤害23.3）",
-                "+242 智力",
-                "+515 耐力",
-                "+38 爆击",
-                "+27 全能",
-                "你尚未收藏过此外观"
-              ],
-              "link": "|cnIQ4:|Hitem:50227::::::::90:270::23:1:3524:1:28:3025:::::|h[医用长针]|h|r",
-              "iconText": "医"
-            },
-            {
               "id": 50228,
               "name": "尖刺伊米亚颈饰",
               "icon": 133309,
@@ -4170,9 +4220,9 @@
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -4246,27 +4296,27 @@
               "iconText": "尖"
             },
             {
-              "id": 49805,
-              "name": "踏冰软鞋",
-              "icon": 341559,
-              "iconName": "inv_boots_cloth_26",
-              "iconAsset": "/assets/icons/inv_boots_cloth_26.jpg",
-              "slot": "feet",
-              "slotName": "脚部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
+              "id": 50233,
+              "name": "被遗弃的瓦格里肩甲",
+              "icon": 342520,
+              "iconName": "inv_shoulder_120",
+              "iconAsset": "/assets/icons/inv_shoulder_120.jpg",
+              "slot": "shoulder",
+              "slotName": "肩部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                7,
+                13
               ],
               "quality": 4,
               "upgradeTrack": "勇士 1/6",
@@ -4276,6 +4326,11 @@
               },
               "stats": {
                 "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 62
+                  },
                   {
                     "name": "智力",
                     "type": "intellect",
@@ -4291,12 +4346,12 @@
                   {
                     "name": "暴击",
                     "type": "crit",
-                    "value": 53
+                    "value": 63
                   },
                   {
                     "name": "急速",
                     "type": "haste",
-                    "value": 44
+                    "value": 34
                   }
                 ],
                 "effects": {
@@ -4304,7 +4359,7 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 42
+                  "armor": 117
                 }
               },
               "source": {
@@ -4315,24 +4370,25 @@
                 "encounterName": "熔炉之主加弗斯特",
                 "difficulty": 23,
                 "difficultyName": "史诗",
-                "order": 7
+                "order": 4
               },
               "tooltipRaw": [
-                "踏冰软鞋",
+                "被遗弃的瓦格里肩甲",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "脚部 布甲",
-                "42点护甲",
+                "肩部 锁甲",
+                "117点护甲",
                 "+62 智力",
                 "+773 耐力",
-                "+53 爆击",
-                "+44 急速",
+                "+63 爆击",
+                "+34 急速",
+                "+62 敏捷",
                 "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:49805::::::::90:270::23:1:3524:1:28:3025:::::|h[踏冰软鞋]|h|r",
-              "iconText": "踏"
+              "link": "|cnIQ4:|Hitem:50233::::::::90:270::23:1:3524:1:28:3025:::::|h[被遗弃的瓦格里肩甲]|h|r",
+              "iconText": "被"
             }
           ]
         },
@@ -4342,27 +4398,24 @@
           "order": 2,
           "items": [
             {
-              "id": 49809,
-              "name": "墓苔护腕",
-              "icon": 236990,
-              "iconName": "inv_bracer_32a",
-              "iconAsset": "/assets/icons/inv_bracer_32a.jpg",
-              "slot": "wrist",
-              "slotName": "腕部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
+              "id": 49807,
+              "name": "科瑞克的甲虫刀",
+              "icon": 135715,
+              "iconName": "inv_weapon_shortblade_80",
+              "iconAsset": "/assets/icons/inv_weapon_shortblade_80.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "匕首",
+              "itemType": "武器",
+              "itemSubType": "匕首",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                4
               ],
               "quality": 4,
               "upgradeTrack": "勇士 1/6",
@@ -4373,26 +4426,26 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 47
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 42
                   }
                 ],
                 "stamina": {
                   "name": "耐力",
                   "type": "stamina",
-                  "value": 580
+                  "value": 515
                 },
                 "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 30
+                  },
                   {
                     "name": "急速",
                     "type": "haste",
                     "value": 35
-                  },
-                  {
-                    "name": "全能",
-                    "type": "versatility",
-                    "value": 38
                   }
                 ],
                 "effects": {
@@ -4400,7 +4453,10 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 34
+                  "damageMax": 106,
+                  "damageMin": 63,
+                  "dps": 46.9,
+                  "speed": 1.8
                 }
               },
               "source": {
@@ -4411,47 +4467,48 @@
                 "encounterName": "伊克和科瑞克",
                 "difficulty": 23,
                 "difficultyName": "史诗",
-                "order": 2
+                "order": 1
               },
               "tooltipRaw": [
-                "墓苔护腕",
+                "科瑞克的甲虫刀",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "腕部 布甲",
-                "34点护甲",
-                "+47 智力",
-                "+580 耐力",
+                "单手 匕首",
+                "63 - 106点伤害 速度 1.80",
+                "（每秒伤害46.9）",
+                "+42 敏捷",
+                "+515 耐力",
+                "+30 爆击",
                 "+35 急速",
-                "+38 全能",
                 "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:49809::::::::90:270::23:1:3524:1:28:3025:::::|h[墓苔护腕]|h|r",
-              "iconText": "墓"
+              "link": "|cnIQ4:|Hitem:49807::::::::90:270::23:1:3524:1:28:3025:::::|h[科瑞克的甲虫刀]|h|r",
+              "iconText": "科"
             },
             {
-              "id": 50263,
-              "name": "降魔束带",
-              "icon": 341558,
-              "iconName": "inv_belt_67",
-              "iconAsset": "/assets/icons/inv_belt_67.jpg",
+              "id": 49810,
+              "name": "凶尸腰索",
+              "icon": 342513,
+              "iconName": "inv_belt_69",
+              "iconAsset": "/assets/icons/inv_belt_69.jpg",
               "slot": "waist",
               "slotName": "腰部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                7,
+                13
               ],
               "quality": 4,
               "upgradeTrack": "勇士 1/6",
@@ -4461,6 +4518,11 @@
               },
               "stats": {
                 "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 62
+                  },
                   {
                     "name": "智力",
                     "type": "intellect",
@@ -4474,14 +4536,14 @@
                 },
                 "secondary": [
                   {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 51
+                  },
+                  {
                     "name": "急速",
                     "type": "haste",
                     "value": 47
-                  },
-                  {
-                    "name": "全能",
-                    "type": "versatility",
-                    "value": 51
                   }
                 ],
                 "effects": {
@@ -4489,7 +4551,7 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 38
+                  "armor": 96
                 }
               },
               "source": {
@@ -4500,24 +4562,120 @@
                 "encounterName": "伊克和科瑞克",
                 "difficulty": 23,
                 "difficultyName": "史诗",
-                "order": 6
+                "order": 4
               },
               "tooltipRaw": [
-                "降魔束带",
+                "凶尸腰索",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "腰部 布甲",
-                "38点护甲",
+                "腰部 锁甲",
+                "96点护甲",
                 "+62 智力",
                 "+773 耐力",
+                "+51 爆击",
                 "+47 急速",
-                "+51 全能",
+                "+62 敏捷",
                 "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:50263::::::::90:270::23:1:3524:1:28:3025:::::|h[降魔束带]|h|r",
-              "iconText": "降"
+              "link": "|cnIQ4:|Hitem:49810::::::::90:270::23:1:3524:1:28:3025:::::|h[凶尸腰索]|h|r",
+              "iconText": "凶"
+            },
+            {
+              "id": 49811,
+              "name": "黑色龙皮褶裙",
+              "icon": 342519,
+              "iconName": "inv_pants_mail_33",
+              "iconAsset": "/assets/icons/inv_pants_mail_33.jpg",
+              "slot": "legs",
+              "slotName": "腿部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                3,
+                7,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 83
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 83
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1031
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 76
+                  },
+                  {
+                    "name": "全能",
+                    "type": "versatility",
+                    "value": 54
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 149
+                }
+              },
+              "source": {
+                "instanceId": 278,
+                "instanceName": "萨隆矿坑",
+                "isRaid": false,
+                "encounterId": 609,
+                "encounterName": "伊克和科瑞克",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 7
+              },
+              "tooltipRaw": [
+                "黑色龙皮褶裙",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "腿部 锁甲",
+                "149点护甲",
+                "+83 智力",
+                "+1031 耐力",
+                "+76 爆击",
+                "+54 全能",
+                "+83 敏捷",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:49811::::::::90:270::23:1:3524:1:28:3025:::::|h[黑色龙皮褶裙]|h|r",
+              "iconText": "黑"
             },
             {
               "id": 49812,
@@ -4533,9 +4691,9 @@
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -4630,9 +4788,9 @@
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -4689,6 +4847,191 @@
               "iconText": "阿"
             },
             {
+              "id": 49813,
+              "name": "霜灾火枪",
+              "icon": 135621,
+              "iconName": "inv_weapon_rifle_13",
+              "iconAsset": "/assets/icons/inv_weapon_rifle_13.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "枪械",
+              "itemType": "武器",
+              "itemSubType": "枪械",
+              "ilvl": 246,
+              "specs": [
+                253,
+                254
+              ],
+              "classes": [
+                3
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 83
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1031
+                },
+                "secondary": [
+                  {
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 82
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 48
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "damageMax": 244,
+                  "damageMin": 131,
+                  "dps": 62.5,
+                  "speed": 3
+                }
+              },
+              "source": {
+                "instanceId": 278,
+                "instanceName": "萨隆矿坑",
+                "isRaid": false,
+                "encounterId": 610,
+                "encounterName": "天灾领主泰兰努斯",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 2
+              },
+              "tooltipRaw": [
+                "霜灾火枪",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "远程 枪械",
+                "131 - 244点伤害 速度 3.00",
+                "（每秒伤害62.5）",
+                "+83 敏捷",
+                "+1031 耐力",
+                "+82 急速",
+                "+48 精通",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:49813::::::::90:270::23:1:3524:1:28:3025:::::|h[霜灾火枪]|h|r",
+              "iconText": "霜"
+            },
+            {
+              "id": 49824,
+              "name": "被遗弃的瓦格里之角",
+              "icon": 342518,
+              "iconName": "inv_helmet_157",
+              "iconAsset": "/assets/icons/inv_helmet_157.jpg",
+              "slot": "head",
+              "slotName": "头部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                3,
+                7,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 83
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 83
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1031
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 59
+                  },
+                  {
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 70
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 128
+                }
+              },
+              "source": {
+                "instanceId": 278,
+                "instanceName": "萨隆矿坑",
+                "isRaid": false,
+                "encounterId": 610,
+                "encounterName": "天灾领主泰兰努斯",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 3
+              },
+              "tooltipRaw": [
+                "被遗弃的瓦格里之角",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "头部 锁甲",
+                "128点护甲",
+                "+83 智力",
+                "+1031 耐力",
+                "+59 爆击",
+                "+70 急速",
+                "+83 敏捷",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:49824::::::::90:270::23:1:3524:1:28:3025:::::|h[被遗弃的瓦格里之角]|h|r",
+              "iconText": "被"
+            },
+            {
               "id": 49823,
               "name": "阵亡主教斗篷",
               "icon": 133770,
@@ -4702,9 +5045,9 @@
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -4797,172 +5140,6 @@
               ],
               "link": "|cnIQ4:|Hitem:49823::::::::90:270::23:1:3524:1:28:3025:::::|h[阵亡主教斗篷]|h|r",
               "iconText": "阵"
-            },
-            {
-              "id": 49825,
-              "name": "灰骨法袍",
-              "icon": 341560,
-              "iconName": "inv_chest_cloth_79",
-              "iconAsset": "/assets/icons/inv_chest_cloth_79.jpg",
-              "slot": "chest",
-              "slotName": "胸部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
-              "ilvl": 246,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "勇士 1/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 83
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 1031
-                },
-                "secondary": [
-                  {
-                    "name": "暴击",
-                    "type": "crit",
-                    "value": 62
-                  },
-                  {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 68
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {
-                  "armor": 67
-                }
-              },
-              "source": {
-                "instanceId": 278,
-                "instanceName": "萨隆矿坑",
-                "isRaid": false,
-                "encounterId": 610,
-                "encounterName": "天灾领主泰兰努斯",
-                "difficulty": 23,
-                "difficultyName": "史诗",
-                "order": 7
-              },
-              "tooltipRaw": [
-                "灰骨法袍",
-                "史诗",
-                "物品等级246",
-                "升级：勇士 1/6",
-                "拾取后绑定",
-                "胸部 布甲",
-                "67点护甲",
-                "+83 智力",
-                "+1031 耐力",
-                "+62 爆击",
-                "+68 急速",
-                "你尚未收藏过此外观"
-              ],
-              "link": "|cnIQ4:|Hitem:49825::::::::90:270::23:1:3524:1:28:3025:::::|h[灰骨法袍]|h|r",
-              "iconText": "灰"
-            },
-            {
-              "id": 50259,
-              "name": "永冻冰晶",
-              "icon": 132783,
-              "iconName": "inv_datacrystal09",
-              "iconAsset": "/assets/icons/inv_datacrystal09.jpg",
-              "slot": "trinket",
-              "slotName": "饰品",
-              "armorType": "none",
-              "armorTypeName": "无甲种",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
-              "ilvl": 246,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                2,
-                5,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13
-              ],
-              "quality": 4,
-              "upgradeTrack": "勇士 1/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": true
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 79
-                  }
-                ],
-                "stamina": null,
-                "secondary": [],
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 使你的爆击提高801，持续20秒。每当你的非周期性法术造成爆击时，此加成便会降低160。 （3分钟冷却）"
-                  ]
-                },
-                "white": {}
-              },
-              "source": {
-                "instanceId": 278,
-                "instanceName": "萨隆矿坑",
-                "isRaid": false,
-                "encounterId": 610,
-                "encounterName": "天灾领主泰兰努斯",
-                "difficulty": 23,
-                "difficultyName": "史诗",
-                "order": 9
-              },
-              "tooltipRaw": [
-                "永冻冰晶",
-                "史诗",
-                "物品等级246",
-                "升级：勇士 1/6",
-                "拾取后绑定",
-                "装备唯一",
-                "饰品",
-                "+79 智力",
-                "使用： 使你的爆击提高801，持续20秒。每当你的非周期性法术造成爆击时，此加成便会降低160。 （3分钟冷却）"
-              ],
-              "link": "|cnIQ4:|Hitem:50259::::::::90:270::23:1:3524:1:28:3025:::::|h[永冻冰晶]|h|r",
-              "iconText": "永"
             }
           ]
         }
@@ -4981,27 +5158,27 @@
           "order": 1,
           "items": [
             {
-              "id": 251102,
-              "name": "顺从束带",
-              "icon": 7252741,
-              "iconName": "inv_belt_cloth_dungeonharronir_c_01",
-              "iconAsset": "/assets/icons/inv_belt_cloth_dungeonharronir_c_01.jpg",
-              "slot": "waist",
-              "slotName": "腰部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
+              "id": 251104,
+              "name": "秩序守恒护腿",
+              "icon": 7259237,
+              "iconName": "inv_pant_mail_dungeonharronir_c_01",
+              "iconAsset": "/assets/icons/inv_pant_mail_dungeonharronir_c_01.jpg",
+              "slot": "legs",
+              "slotName": "腿部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                7,
+                13
               ],
               "quality": 4,
               "upgradeTrack": "勇士 1/6",
@@ -5012,26 +5189,31 @@
               "stats": {
                 "primaryStats": [
                   {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 83
+                  },
+                  {
                     "name": "智力",
                     "type": "intellect",
-                    "value": 62
+                    "value": 83
                   }
                 ],
                 "stamina": {
                   "name": "耐力",
                   "type": "stamina",
-                  "value": 773
+                  "value": 1031
                 },
                 "secondary": [
                   {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 38
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 45
                   },
                   {
                     "name": "全能",
                     "type": "versatility",
-                    "value": 59
+                    "value": 84
                   }
                 ],
                 "effects": {
@@ -5039,7 +5221,7 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 38
+                  "armor": 149
                 }
               },
               "source": {
@@ -5050,23 +5232,24 @@
                 "encounterName": "奥能金刚库斯托斯",
                 "difficulty": 23,
                 "difficultyName": "史诗",
-                "order": 4
+                "order": 5
               },
               "tooltipRaw": [
-                "顺从束带",
+                "秩序守恒护腿",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "腰部 布甲",
-                "38点护甲",
-                "+62 智力",
-                "+773 耐力",
-                "+38 急速",
-                "+59 全能"
+                "腿部 锁甲",
+                "149点护甲",
+                "+83 智力",
+                "+1031 耐力",
+                "+84 全能",
+                "+45 精通",
+                "+83 敏捷"
               ],
-              "link": "|cnIQ4:|Hitem:251102::::::::90:270::23:1:3524:1:28:3025:::::|h[顺从束带]|h|r",
-              "iconText": "顺"
+              "link": "|cnIQ4:|Hitem:251104::::::::90:270::23:1:3524:1:28:3025:::::|h[秩序守恒护腿]|h|r",
+              "iconText": "秩"
             }
           ]
         },
@@ -5089,9 +5272,9 @@
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -5186,124 +5369,26 @@
               "iconText": "挑"
             },
             {
-              "id": 251108,
-              "name": "警惕之怒裹布",
-              "icon": 7252743,
-              "iconName": "inv_bracer_cloth_dungeonharronir_c_01",
-              "iconAsset": "/assets/icons/inv_bracer_cloth_dungeonharronir_c_01.jpg",
-              "slot": "wrist",
-              "slotName": "腕部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
+              "id": 251110,
+              "name": "日鞭的炎阳腰带",
+              "icon": 7259230,
+              "iconName": "inv_belt_mail_dungeonharronir_c_01",
+              "iconAsset": "/assets/icons/inv_belt_mail_dungeonharronir_c_01.jpg",
+              "slot": "waist",
+              "slotName": "腰部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "勇士 1/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 47
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 580
-                },
-                "secondary": [
-                  {
-                    "name": "精通",
-                    "type": "mastery",
-                    "value": 46
-                  },
-                  {
-                    "name": "全能",
-                    "type": "versatility",
-                    "value": 27
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {
-                  "armor": 34
-                }
-              },
-              "source": {
-                "instanceId": 1300,
-                "instanceName": "魔导师平台",
-                "isRaid": false,
-                "encounterId": 2661,
-                "encounterName": "瑟拉奈尔·日鞭",
-                "difficulty": 23,
-                "difficultyName": "史诗",
-                "order": 5
-              },
-              "tooltipRaw": [
-                "警惕之怒裹布",
-                "史诗",
-                "物品等级246",
-                "升级：勇士 1/6",
-                "拾取后绑定",
-                "腕部 布甲",
-                "34点护甲",
-                "+47 智力",
-                "+580 耐力",
-                "+27 全能",
-                "+46 精通"
-              ],
-              "link": "|cnIQ4:|Hitem:251108::::::::90:270::23:1:3524:1:28:3025:::::|h[警惕之怒裹布]|h|r",
-              "iconText": "警"
-            }
-          ]
-        },
-        {
-          "id": 2660,
-          "name": "吉美尔鲁斯",
-          "order": 3,
-          "items": [
-            {
-              "id": 251111,
-              "name": "裂纱钉刺",
-              "icon": 7065189,
-              "iconName": "inv_knife_1h_dungeonharronir_c_02",
-              "iconAsset": "/assets/icons/inv_knife_1h_dungeonharronir_c_02.jpg",
-              "slot": "weapon",
-              "slotName": "武器",
-              "armorType": "none",
-              "armorTypeName": "匕首",
-              "itemType": "武器",
-              "itemSubType": "匕首",
-              "ilvl": 246,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
+                3,
                 7,
-                8,
-                9,
-                11,
                 13
               ],
               "quality": 4,
@@ -5315,26 +5400,31 @@
               "stats": {
                 "primaryStats": [
                   {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 62
+                  },
+                  {
                     "name": "智力",
                     "type": "intellect",
-                    "value": 242
+                    "value": 62
                   }
                 ],
                 "stamina": {
                   "name": "耐力",
                   "type": "stamina",
-                  "value": 515
+                  "value": 773
                 },
                 "secondary": [
                   {
-                    "name": "暴击",
-                    "type": "crit",
-                    "value": 42
-                  },
-                  {
                     "name": "急速",
                     "type": "haste",
-                    "value": 23
+                    "value": 40
+                  },
+                  {
+                    "name": "全能",
+                    "type": "versatility",
+                    "value": 57
                   }
                 ],
                 "effects": {
@@ -5342,10 +5432,108 @@
                   "use": []
                 },
                 "white": {
-                  "damageMax": 53,
-                  "damageMin": 31,
-                  "dps": 23.3,
-                  "speed": 1.8
+                  "armor": 96
+                }
+              },
+              "source": {
+                "instanceId": 1300,
+                "instanceName": "魔导师平台",
+                "isRaid": false,
+                "encounterId": 2661,
+                "encounterName": "瑟拉奈尔·日鞭",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 6
+              },
+              "tooltipRaw": [
+                "日鞭的炎阳腰带",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "腰部 锁甲",
+                "96点护甲",
+                "+62 智力",
+                "+773 耐力",
+                "+40 急速",
+                "+57 全能",
+                "+62 敏捷"
+              ],
+              "link": "|cnIQ4:|Hitem:251110::::::::90:270::23:1:3524:1:28:3025:::::|h[日鞭的炎阳腰带]|h|r",
+              "iconText": "日"
+            }
+          ]
+        },
+        {
+          "id": 2660,
+          "name": "吉美尔鲁斯",
+          "order": 3,
+          "items": [
+            {
+              "id": 251114,
+              "name": "虚空扭曲软泥甲",
+              "icon": 7259234,
+              "iconName": "inv_chest_mail_dungeonharronir_c_01",
+              "iconAsset": "/assets/icons/inv_chest_mail_dungeonharronir_c_01.jpg",
+              "slot": "chest",
+              "slotName": "胸部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                3,
+                7,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 83
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 83
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1031
+                },
+                "secondary": [
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 48
+                  },
+                  {
+                    "name": "全能",
+                    "type": "versatility",
+                    "value": 82
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 170
                 }
               },
               "source": {
@@ -5356,24 +5544,25 @@
                 "encounterName": "吉美尔鲁斯",
                 "difficulty": 23,
                 "difficultyName": "史诗",
-                "order": 1
+                "order": 2
               },
               "tooltipRaw": [
-                "裂纱钉刺",
+                "虚空扭曲软泥甲",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "单手 匕首",
-                "31 - 53点伤害 速度 1.80",
-                "（每秒伤害23.3）",
-                "+242 智力",
-                "+515 耐力",
-                "+42 爆击",
-                "+23 急速"
+                "胸部 锁甲",
+                "170点护甲",
+                "+83 智力",
+                "+1031 耐力",
+                "+82 全能",
+                "+48 精通",
+                "+83 敏捷",
+                "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:251111::::::::90:270::23:1:3524:1:28:3025:::::|h[裂纱钉刺]|h|r",
-              "iconText": "裂"
+              "link": "|cnIQ4:|Hitem:251114::::::::90:270::23:1:3524:1:28:3025:::::|h[虚空扭曲软泥甲]|h|r",
+              "iconText": "虚"
             },
             {
               "id": 251115,
@@ -5389,9 +5578,9 @@
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -5486,9 +5675,9 @@
               "itemSubType": "杂项",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -5558,9 +5747,9 @@
               "itemSubType": "配方",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -5628,9 +5817,9 @@
               "itemSubType": "配方",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -5698,9 +5887,9 @@
               "itemSubType": "配方",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -5776,9 +5965,9 @@
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -5835,27 +6024,26 @@
               "iconText": "魔"
             },
             {
-              "id": 251120,
-              "name": "幽影沉降裹布",
-              "icon": 7252745,
-              "iconName": "inv_chest_cloth_dungeonharronir_c_01",
-              "iconAsset": "/assets/icons/inv_chest_cloth_dungeonharronir_c_01.jpg",
-              "slot": "chest",
-              "slotName": "胸部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
+              "id": 251122,
+              "name": "影斩切割者",
+              "icon": 6994479,
+              "iconName": "inv_sword_1h_domanaar_b_01",
+              "iconAsset": "/assets/icons/inv_sword_1h_domanaar_b_01.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "单手剑",
+              "itemType": "武器",
+              "itemSubType": "单手剑",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                4,
+                10,
+                12
               ],
               "quality": 4,
               "upgradeTrack": "勇士 1/6",
@@ -5865,6 +6053,104 @@
               },
               "stats": {
                 "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 42
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 515
+                },
+                "secondary": [
+                  {
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 41
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 24
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "damageMax": 153,
+                  "damageMin": 92,
+                  "dps": 47.1,
+                  "speed": 2.6
+                }
+              },
+              "source": {
+                "instanceId": 1300,
+                "instanceName": "魔导师平台",
+                "isRaid": false,
+                "encounterId": 2662,
+                "encounterName": "迪詹崔乌斯",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 7
+              },
+              "tooltipRaw": [
+                "影斩切割者",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "单手 剑",
+                "92 - 153点伤害 速度 2.60",
+                "（每秒伤害47.1）",
+                "+42 敏捷",
+                "+515 耐力",
+                "+41 急速",
+                "+24 精通",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:251122::::::::90:270::23:1:3524:1:28:3025:::::|h[影斩切割者]|h|r",
+              "iconText": "影"
+            },
+            {
+              "id": 251119,
+              "name": "漩涡护面",
+              "icon": 7259236,
+              "iconName": "inv_helm_mail_dungeonharronir_c_01",
+              "iconAsset": "/assets/icons/inv_helm_mail_dungeonharronir_c_01.jpg",
+              "slot": "head",
+              "slotName": "头部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                3,
+                7,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 83
+                  },
                   {
                     "name": "智力",
                     "type": "intellect",
@@ -5880,12 +6166,12 @@
                   {
                     "name": "暴击",
                     "type": "crit",
-                    "value": 48
+                    "value": 51
                   },
                   {
-                    "name": "全能",
-                    "type": "versatility",
-                    "value": 82
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 79
                   }
                 ],
                 "effects": {
@@ -5893,7 +6179,7 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 67
+                  "armor": 128
                 }
               },
               "source": {
@@ -5904,24 +6190,25 @@
                 "encounterName": "迪詹崔乌斯",
                 "difficulty": 23,
                 "difficultyName": "史诗",
-                "order": 9
+                "order": 8
               },
               "tooltipRaw": [
-                "幽影沉降裹布",
+                "漩涡护面",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "胸部 布甲",
-                "67点护甲",
+                "头部 锁甲",
+                "128点护甲",
                 "+83 智力",
                 "+1031 耐力",
-                "+48 爆击",
-                "+82 全能",
+                "+51 爆击",
+                "+79 精通",
+                "+83 敏捷",
                 "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:251120::::::::90:270::23:1:3524:1:28:3025:::::|h[幽影沉降裹布]|h|r",
-              "iconText": "幽"
+              "link": "|cnIQ4:|Hitem:251119::::::::90:270::23:1:3524:1:28:3025:::::|h[漩涡护面]|h|r",
+              "iconText": "漩"
             },
             {
               "id": 250257,
@@ -5937,9 +6224,9 @@
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 3,
@@ -6024,103 +6311,6 @@
           "order": 1,
           "items": [
             {
-              "id": 251201,
-              "name": "核闪多用仪",
-              "icon": 6994496,
-              "iconName": "inv_staff_2h_domanaar_b_01",
-              "iconAsset": "/assets/icons/inv_staff_2h_domanaar_b_01.jpg",
-              "slot": "weapon",
-              "slotName": "武器",
-              "armorType": "none",
-              "armorTypeName": "法杖",
-              "itemType": "武器",
-              "itemSubType": "法杖",
-              "ilvl": 246,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                7,
-                8,
-                9,
-                10,
-                11,
-                13
-              ],
-              "quality": 4,
-              "upgradeTrack": "勇士 1/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 369
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 1031
-                },
-                "secondary": [
-                  {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 51
-                  },
-                  {
-                    "name": "精通",
-                    "type": "mastery",
-                    "value": 79
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {
-                  "damageMax": 129,
-                  "damageMin": 95,
-                  "dps": 31.1,
-                  "speed": 3.6
-                }
-              },
-              "source": {
-                "instanceId": 1316,
-                "instanceName": "节点希纳斯",
-                "isRaid": false,
-                "encounterId": 2813,
-                "encounterName": "核技工程长卡斯雷瑟",
-                "difficulty": 23,
-                "difficultyName": "史诗",
-                "order": 1
-              },
-              "tooltipRaw": [
-                "核闪多用仪",
-                "史诗",
-                "物品等级246",
-                "升级：勇士 1/6",
-                "拾取后绑定",
-                "双手 法杖",
-                "95 - 129点伤害 速度 3.60",
-                "（每秒伤害31.1）",
-                "+369 智力",
-                "+1031 耐力",
-                "+51 急速",
-                "+79 精通",
-                "你尚未收藏过此外观"
-              ],
-              "link": "|cnIQ4:|Hitem:251201::::::::90:270::23:1:3524:1:28:3025:::::|h[核闪多用仪]|h|r",
-              "iconText": "核"
-            },
-            {
               "id": 251206,
               "name": "流光织锦披风",
               "icon": 7252744,
@@ -6134,9 +6324,9 @@
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -6229,94 +6419,6 @@
               ],
               "link": "|cnIQ4:|Hitem:251206::::::::90:270::23:1:3524:1:28:3025:::::|h[流光织锦披风]|h|r",
               "iconText": "流"
-            },
-            {
-              "id": 251205,
-              "name": "魔网护腿",
-              "icon": 7252748,
-              "iconName": "inv_pant_cloth_dungeonharronir_c_01",
-              "iconAsset": "/assets/icons/inv_pant_cloth_dungeonharronir_c_01.jpg",
-              "slot": "legs",
-              "slotName": "腿部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
-              "ilvl": 246,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "勇士 1/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 83
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 1031
-                },
-                "secondary": [
-                  {
-                    "name": "暴击",
-                    "type": "crit",
-                    "value": 84
-                  },
-                  {
-                    "name": "全能",
-                    "type": "versatility",
-                    "value": 45
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {
-                  "armor": 59
-                }
-              },
-              "source": {
-                "instanceId": 1316,
-                "instanceName": "节点希纳斯",
-                "isRaid": false,
-                "encounterId": 2813,
-                "encounterName": "核技工程长卡斯雷瑟",
-                "difficulty": 23,
-                "difficultyName": "史诗",
-                "order": 6
-              },
-              "tooltipRaw": [
-                "魔网护腿",
-                "史诗",
-                "物品等级246",
-                "升级：勇士 1/6",
-                "拾取后绑定",
-                "腿部 布甲",
-                "59点护甲",
-                "+83 智力",
-                "+1031 耐力",
-                "+84 爆击",
-                "+45 全能"
-              ],
-              "link": "|cnIQ4:|Hitem:251205::::::::90:270::23:1:3524:1:28:3025:::::|h[魔网护腿]|h|r",
-              "iconText": "魔"
             }
           ]
         },
@@ -6326,27 +6428,27 @@
           "order": 2,
           "items": [
             {
-              "id": 251213,
-              "name": "奈萨拉披肩",
-              "icon": 7252749,
-              "iconName": "inv_shoulder_cloth_dungeonharronir_c_01",
-              "iconAsset": "/assets/icons/inv_shoulder_cloth_dungeonharronir_c_01.jpg",
-              "slot": "shoulder",
-              "slotName": "肩部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
+              "id": 251209,
+              "name": "核心守卫臂甲",
+              "icon": 7259232,
+              "iconName": "inv_bracer_mail_dungeonharronir_c_01",
+              "iconAsset": "/assets/icons/inv_bracer_mail_dungeonharronir_c_01.jpg",
+              "slot": "wrist",
+              "slotName": "腕部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                7,
+                13
               ],
               "quality": 4,
               "upgradeTrack": "勇士 1/6",
@@ -6357,26 +6459,31 @@
               "stats": {
                 "primaryStats": [
                   {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 47
+                  },
+                  {
                     "name": "智力",
                     "type": "intellect",
-                    "value": 62
+                    "value": 47
                   }
                 ],
                 "stamina": {
                   "name": "耐力",
                   "type": "stamina",
-                  "value": 773
+                  "value": 580
                 },
                 "secondary": [
                   {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 63
-                  },
-                  {
                     "name": "精通",
                     "type": "mastery",
-                    "value": 34
+                    "value": 44
+                  },
+                  {
+                    "name": "全能",
+                    "type": "versatility",
+                    "value": 29
                   }
                 ],
                 "effects": {
@@ -6384,7 +6491,7 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 46
+                  "armor": 85
                 }
               },
               "source": {
@@ -6395,23 +6502,24 @@
                 "encounterName": "核心守卫奈萨拉",
                 "difficulty": 23,
                 "difficultyName": "史诗",
-                "order": 2
+                "order": 3
               },
               "tooltipRaw": [
-                "奈萨拉披肩",
+                "核心守卫臂甲",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "肩部 布甲",
-                "46点护甲",
-                "+62 智力",
-                "+773 耐力",
-                "+63 急速",
-                "+34 精通"
+                "腕部 锁甲",
+                "85点护甲",
+                "+47 智力",
+                "+580 耐力",
+                "+29 全能",
+                "+44 精通",
+                "+47 敏捷"
               ],
-              "link": "|cnIQ4:|Hitem:251213::::::::90:270::23:1:3524:1:28:3025:::::|h[奈萨拉披肩]|h|r",
-              "iconText": "奈"
+              "link": "|cnIQ4:|Hitem:251209::::::::90:270::23:1:3524:1:28:3025:::::|h[核心守卫臂甲]|h|r",
+              "iconText": "核"
             },
             {
               "id": 251093,
@@ -6427,9 +6535,9 @@
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -6528,9 +6636,9 @@
               "itemSubType": "配方",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -6606,9 +6714,9 @@
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -6665,27 +6773,24 @@
               "iconText": "多"
             },
             {
-              "id": 251211,
-              "name": "碎裂护指",
-              "icon": 7252746,
-              "iconName": "inv_glove_cloth_dungeonharronir_c_01",
-              "iconAsset": "/assets/icons/inv_glove_cloth_dungeonharronir_c_01.jpg",
-              "slot": "hand",
-              "slotName": "手部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
+              "id": 251212,
+              "name": "熠耀利刃",
+              "icon": 7009181,
+              "iconName": "inv_knife_1h_dungeonharronir_c_01",
+              "iconAsset": "/assets/icons/inv_knife_1h_dungeonharronir_c_01.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "匕首",
+              "itemType": "武器",
+              "itemSubType": "匕首",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                4
               ],
               "quality": 4,
               "upgradeTrack": "勇士 1/6",
@@ -6696,26 +6801,26 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 62
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 42
                   }
                 ],
                 "stamina": {
                   "name": "耐力",
                   "type": "stamina",
-                  "value": 773
+                  "value": 515
                 },
                 "secondary": [
                   {
-                    "name": "暴击",
-                    "type": "crit",
-                    "value": 57
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 41
                   },
                   {
                     "name": "全能",
                     "type": "versatility",
-                    "value": 40
+                    "value": 24
                   }
                 ],
                 "effects": {
@@ -6723,7 +6828,10 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 38
+                  "damageMax": 106,
+                  "damageMin": 63,
+                  "dps": 46.9,
+                  "speed": 1.8
                 }
               },
               "source": {
@@ -6734,24 +6842,119 @@
                 "encounterName": "洛萨克森",
                 "difficulty": 23,
                 "difficultyName": "史诗",
-                "order": 6
+                "order": 3
               },
               "tooltipRaw": [
-                "碎裂护指",
+                "熠耀利刃",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "手部 布甲",
-                "38点护甲",
-                "+62 智力",
-                "+773 耐力",
-                "+57 爆击",
-                "+40 全能",
+                "单手 匕首",
+                "63 - 106点伤害 速度 1.80",
+                "（每秒伤害46.9）",
+                "+42 敏捷",
+                "+515 耐力",
+                "+41 急速",
+                "+24 全能",
                 "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:251211::::::::90:270::23:1:3524:1:28:3025:::::|h[碎裂护指]|h|r",
-              "iconText": "碎"
+              "link": "|cnIQ4:|Hitem:251212::::::::90:270::23:1:3524:1:28:3025:::::|h[熠耀利刃]|h|r",
+              "iconText": "熠"
+            },
+            {
+              "id": 251215,
+              "name": "神圣诡计护胫",
+              "icon": 7259237,
+              "iconName": "inv_pant_mail_dungeonharronir_c_01",
+              "iconAsset": "/assets/icons/inv_pant_mail_dungeonharronir_c_01.jpg",
+              "slot": "legs",
+              "slotName": "腿部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                3,
+                7,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 83
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 83
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1031
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 51
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 79
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 149
+                }
+              },
+              "source": {
+                "instanceId": 1316,
+                "instanceName": "节点希纳斯",
+                "isRaid": false,
+                "encounterId": 2815,
+                "encounterName": "洛萨克森",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 7
+              },
+              "tooltipRaw": [
+                "神圣诡计护胫",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "腿部 锁甲",
+                "149点护甲",
+                "+83 智力",
+                "+1031 耐力",
+                "+51 爆击",
+                "+79 精通",
+                "+83 敏捷"
+              ],
+              "link": "|cnIQ4:|Hitem:251215::::::::90:270::23:1:3524:1:28:3025:::::|h[神圣诡计护胫]|h|r",
+              "iconText": "神"
             },
             {
               "id": 251217,
@@ -6767,9 +6970,9 @@
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -6864,30 +7067,25 @@
           "order": 1,
           "items": [
             {
-              "id": 193710,
-              "name": "惠魔佩剑",
-              "icon": 4214741,
-              "iconName": "inv_sword_1h_dragon_c_01",
-              "iconAsset": "/assets/icons/inv_sword_1h_dragon_c_01.jpg",
+              "id": 258529,
+              "name": "奥术之爪长矛",
+              "icon": 4322743,
+              "iconName": "inv_polearm_2h_dragondungeon_c_01",
+              "iconAsset": "/assets/icons/inv_polearm_2h_dragondungeon_c_01.jpg",
               "slot": "weapon",
               "slotName": "武器",
               "armorType": "none",
-              "armorTypeName": "单手剑",
+              "armorTypeName": "长柄武器",
               "itemType": "武器",
-              "itemSubType": "单手剑",
+              "itemSubType": "长柄武器",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                255
               ],
               "classes": [
-                2,
-                8,
-                9,
+                3,
                 10,
-                12,
-                13
+                11
               ],
               "quality": 4,
               "upgradeTrack": "勇士 1/6",
@@ -6898,26 +7096,26 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 242
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 83
                   }
                 ],
                 "stamina": {
                   "name": "耐力",
                   "type": "stamina",
-                  "value": 515
+                  "value": 1031
                 },
                 "secondary": [
                   {
                     "name": "急速",
                     "type": "haste",
-                    "value": 39
+                    "value": 84
                   },
                   {
-                    "name": "精通",
-                    "type": "mastery",
-                    "value": 25
+                    "name": "全能",
+                    "type": "versatility",
+                    "value": 45
                   }
                 ],
                 "effects": {
@@ -6925,10 +7123,10 @@
                   "use": []
                 },
                 "white": {
-                  "damageMax": 77,
-                  "damageMin": 46,
-                  "dps": 23.7,
-                  "speed": 2.6
+                  "damageMax": 293,
+                  "damageMin": 157,
+                  "dps": 62.5,
+                  "speed": 3.6
                 }
               },
               "source": {
@@ -6939,114 +7137,25 @@
                 "encounterName": "维克萨姆斯",
                 "difficulty": 23,
                 "difficultyName": "史诗",
-                "order": 2
+                "order": 1
               },
               "tooltipRaw": [
-                "惠魔佩剑",
+                "奥术之爪长矛",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "单手 剑",
-                "46 - 77点伤害 速度 2.60",
-                "（每秒伤害23.7）",
-                "+242 智力",
-                "+515 耐力",
-                "+39 急速",
-                "+25 精通",
+                "双手 长柄武器",
+                "157 - 293点伤害 速度 3.60",
+                "（每秒伤害62.5）",
+                "+83 敏捷",
+                "+1031 耐力",
+                "+84 急速",
+                "+45 全能",
                 "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:193710::::::::90:270::23:1:3524:1:28:3025:::::|h[惠魔佩剑]|h|r",
-              "iconText": "惠"
-            },
-            {
-              "id": 193709,
-              "name": "维克萨姆斯的开除杖",
-              "icon": 4526077,
-              "iconName": "inv_offhand_1h_drakonid_c_01",
-              "iconAsset": "/assets/icons/inv_offhand_1h_drakonid_c_01.jpg",
-              "slot": "weapon",
-              "slotName": "武器",
-              "armorType": "none",
-              "armorTypeName": "其它",
-              "itemType": "护甲",
-              "itemSubType": "其它",
-              "ilvl": 246,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                8,
-                9,
-                10,
-                11,
-                13
-              ],
-              "quality": 4,
-              "upgradeTrack": "勇士 1/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 127
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 515
-                },
-                "secondary": [
-                  {
-                    "name": "暴击",
-                    "type": "crit",
-                    "value": 38
-                  },
-                  {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 27
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {}
-              },
-              "source": {
-                "instanceId": 1201,
-                "instanceName": "艾杰斯亚学院",
-                "isRaid": false,
-                "encounterId": 2509,
-                "encounterName": "维克萨姆斯",
-                "difficulty": 23,
-                "difficultyName": "史诗",
-                "order": 4
-              },
-              "tooltipRaw": [
-                "维克萨姆斯的开除杖",
-                "史诗",
-                "物品等级246",
-                "升级：勇士 1/6",
-                "拾取后绑定",
-                "副手物品",
-                "+127 智力",
-                "+515 耐力",
-                "+38 爆击",
-                "+27 急速",
-                "你尚未收藏过此外观"
-              ],
-              "link": "|cnIQ4:|Hitem:193709::::::::90:270::23:1:3524:1:28:3025:::::|h[维克萨姆斯的开除杖]|h|r",
-              "iconText": "维"
+              "link": "|cnIQ4:|Hitem:258529::::::::90:270::23:1:3524:1:28:3025:::::|h[奥术之爪长矛]|h|r",
+              "iconText": "奥"
             },
             {
               "id": 193708,
@@ -7062,9 +7171,9 @@
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -7160,9 +7269,9 @@
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -7257,27 +7366,27 @@
               "iconText": "药"
             },
             {
-              "id": 193713,
-              "name": "实验性安全手套",
-              "icon": 4182960,
-              "iconName": "inv_glove_cloth_dragondungeon_c_01",
-              "iconAsset": "/assets/icons/inv_glove_cloth_dragondungeon_c_01.jpg",
-              "slot": "hand",
-              "slotName": "手部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
+              "id": 193715,
+              "name": "爆裂生长之靴",
+              "icon": 4326054,
+              "iconName": "inv_mail_dragondungeon_c_01_boot",
+              "iconAsset": "/assets/icons/inv_mail_dragondungeon_c_01_boot.jpg",
+              "slot": "feet",
+              "slotName": "脚部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                7,
+                13
               ],
               "quality": 4,
               "upgradeTrack": "勇士 1/6",
@@ -7287,6 +7396,11 @@
               },
               "stats": {
                 "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 62
+                  },
                   {
                     "name": "智力",
                     "type": "intellect",
@@ -7302,12 +7416,12 @@
                   {
                     "name": "暴击",
                     "type": "crit",
-                    "value": 40
+                    "value": 63
                   },
                   {
-                    "name": "全能",
-                    "type": "versatility",
-                    "value": 57
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 34
                   }
                 ],
                 "effects": {
@@ -7315,7 +7429,7 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 38
+                  "armor": 106
                 }
               },
               "source": {
@@ -7326,24 +7440,25 @@
                 "encounterName": "茂林古树",
                 "difficulty": 23,
                 "difficultyName": "史诗",
-                "order": 5
+                "order": 6
               },
               "tooltipRaw": [
-                "实验性安全手套",
+                "爆裂生长之靴",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "手部 布甲",
-                "38点护甲",
+                "脚部 锁甲",
+                "106点护甲",
                 "+62 智力",
                 "+773 耐力",
-                "+40 爆击",
-                "+57 全能",
+                "+63 爆击",
+                "+34 急速",
+                "+62 敏捷",
                 "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:193713::::::::90:270::23:1:3524:1:28:3025:::::|h[实验性安全手套]|h|r",
-              "iconText": "实"
+              "link": "|cnIQ4:|Hitem:193715::::::::90:270::23:1:3524:1:28:3025:::::|h[爆裂生长之靴]|h|r",
+              "iconText": "爆"
             }
           ]
         },
@@ -7353,27 +7468,25 @@
           "order": 3,
           "items": [
             {
-              "id": 193720,
-              "name": "青铜挑战者长袍",
-              "icon": 4182959,
-              "iconName": "inv_chest_cloth_dragondungeon_c_01",
-              "iconAsset": "/assets/icons/inv_chest_cloth_dragondungeon_c_01.jpg",
-              "slot": "chest",
-              "slotName": "胸部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
+              "id": 193723,
+              "name": "黑曜守门塔杖",
+              "icon": 4526297,
+              "iconName": "inv_staff_2h_drakonid_c_02",
+              "iconAsset": "/assets/icons/inv_staff_2h_drakonid_c_02.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "法杖",
+              "itemType": "武器",
+              "itemSubType": "法杖",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                10,
+                11
               ],
               "quality": 4,
               "upgradeTrack": "勇士 1/6",
@@ -7384,8 +7497,8 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "name": "智力",
-                    "type": "intellect",
+                    "name": "敏捷",
+                    "type": "agility",
                     "value": 83
                   }
                 ],
@@ -7398,12 +7511,12 @@
                   {
                     "name": "暴击",
                     "type": "crit",
-                    "value": 54
+                    "value": 76
                   },
                   {
-                    "name": "精通",
-                    "type": "mastery",
-                    "value": 76
+                    "name": "全能",
+                    "type": "versatility",
+                    "value": 54
                   }
                 ],
                 "effects": {
@@ -7411,7 +7524,10 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 67
+                  "damageMax": 259,
+                  "damageMin": 191,
+                  "dps": 62.5,
+                  "speed": 3.6
                 }
               },
               "source": {
@@ -7422,23 +7538,120 @@
                 "encounterName": "克罗兹",
                 "difficulty": 23,
                 "difficultyName": "史诗",
-                "order": 3
+                "order": 1
               },
               "tooltipRaw": [
-                "青铜挑战者长袍",
+                "黑曜守门塔杖",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "胸部 布甲",
-                "67点护甲",
-                "+83 智力",
+                "双手 法杖",
+                "191 - 259点伤害 速度 3.60",
+                "（每秒伤害62.5）",
+                "+83 敏捷",
                 "+1031 耐力",
-                "+54 爆击",
-                "+76 精通"
+                "+76 爆击",
+                "+54 全能",
+                "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:193720::::::::90:270::23:1:3524:1:28:3025:::::|h[青铜挑战者长袍]|h|r",
-              "iconText": "青"
+              "link": "|cnIQ4:|Hitem:193723::::::::90:270::23:1:3524:1:28:3025:::::|h[黑曜守门塔杖]|h|r",
+              "iconText": "黑"
+            },
+            {
+              "id": 193722,
+              "name": "碧蓝竞技腰带",
+              "icon": 4326056,
+              "iconName": "inv_mail_dragondungeon_c_01_buckle",
+              "iconAsset": "/assets/icons/inv_mail_dragondungeon_c_01_buckle.jpg",
+              "slot": "waist",
+              "slotName": "腰部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                3,
+                7,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 62
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 62
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 773
+                },
+                "secondary": [
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 34
+                  },
+                  {
+                    "name": "全能",
+                    "type": "versatility",
+                    "value": 63
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 96
+                }
+              },
+              "source": {
+                "instanceId": 1201,
+                "instanceName": "艾杰斯亚学院",
+                "isRaid": false,
+                "encounterId": 2495,
+                "encounterName": "克罗兹",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 5
+              },
+              "tooltipRaw": [
+                "碧蓝竞技腰带",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "腰部 锁甲",
+                "96点护甲",
+                "+62 智力",
+                "+773 耐力",
+                "+63 全能",
+                "+34 精通",
+                "+62 敏捷",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:193722::::::::90:270::23:1:3524:1:28:3025:::::|h[碧蓝竞技腰带]|h|r",
+              "iconText": "碧"
             }
           ]
         },
@@ -7461,9 +7674,9 @@
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -7520,30 +7733,26 @@
               "iconText": "瓦"
             },
             {
-              "id": 193707,
-              "name": "期末考分",
-              "icon": 4526264,
-              "iconName": "inv_staff_2h_drakonid_c_01",
-              "iconAsset": "/assets/icons/inv_staff_2h_drakonid_c_01.jpg",
-              "slot": "weapon",
-              "slotName": "武器",
-              "armorType": "none",
-              "armorTypeName": "法杖",
-              "itemType": "武器",
-              "itemSubType": "法杖",
+              "id": 193704,
+              "name": "坚鳞毕业护肩",
+              "icon": 4326062,
+              "iconName": "inv_mail_dragondungeon_c_01_shoulder",
+              "iconAsset": "/assets/icons/inv_mail_dragondungeon_c_01_shoulder.jpg",
+              "slot": "shoulder",
+              "slotName": "肩部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                5,
+                3,
                 7,
-                8,
-                9,
-                10,
-                11,
                 13
               ],
               "quality": 4,
@@ -7555,118 +7764,31 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 369
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 1031
-                },
-                "secondary": [
-                  {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 48
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 62
                   },
                   {
-                    "name": "精通",
-                    "type": "mastery",
-                    "value": 82
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {
-                  "damageMax": 129,
-                  "damageMin": 95,
-                  "dps": 31.1,
-                  "speed": 3.6
-                }
-              },
-              "source": {
-                "instanceId": 1201,
-                "instanceName": "艾杰斯亚学院",
-                "isRaid": false,
-                "encounterId": 2514,
-                "encounterName": "多拉苟萨的回响",
-                "difficulty": 23,
-                "difficultyName": "史诗",
-                "order": 2
-              },
-              "tooltipRaw": [
-                "期末考分",
-                "史诗",
-                "物品等级246",
-                "升级：勇士 1/6",
-                "拾取后绑定",
-                "双手 法杖",
-                "95 - 129点伤害 速度 3.60",
-                "（每秒伤害31.1）",
-                "+369 智力",
-                "+1031 耐力",
-                "+48 急速",
-                "+82 精通"
-              ],
-              "link": "|cnIQ4:|Hitem:193707::::::::90:270::23:1:3524:1:28:3025:::::|h[期末考分]|h|r",
-              "iconText": "期"
-            },
-            {
-              "id": 193703,
-              "name": "陈词学究的面具",
-              "icon": 4182961,
-              "iconName": "inv_helm_cloth_dragondungeon_c_01",
-              "iconAsset": "/assets/icons/inv_helm_cloth_dragondungeon_c_01.jpg",
-              "slot": "head",
-              "slotName": "头部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
-              "ilvl": 246,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "勇士 1/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
-                  {
                     "name": "智力",
                     "type": "intellect",
-                    "value": 83
+                    "value": 62
                   }
                 ],
                 "stamina": {
                   "name": "耐力",
                   "type": "stamina",
-                  "value": 1031
+                  "value": 773
                 },
                 "secondary": [
                   {
                     "name": "暴击",
                     "type": "crit",
-                    "value": 84
+                    "value": 38
                   },
                   {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 45
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 59
                   }
                 ],
                 "effects": {
@@ -7674,7 +7796,7 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 50
+                  "armor": 117
                 }
               },
               "source": {
@@ -7685,24 +7807,108 @@
                 "encounterName": "多拉苟萨的回响",
                 "difficulty": 23,
                 "difficultyName": "史诗",
-                "order": 3
+                "order": 4
               },
               "tooltipRaw": [
-                "陈词学究的面具",
+                "坚鳞毕业护肩",
                 "史诗",
                 "物品等级246",
                 "升级：勇士 1/6",
                 "拾取后绑定",
-                "头部 布甲",
-                "50点护甲",
-                "+83 智力",
-                "+1031 耐力",
-                "+84 爆击",
-                "+45 急速",
+                "肩部 锁甲",
+                "117点护甲",
+                "+62 智力",
+                "+773 耐力",
+                "+38 爆击",
+                "+59 精通",
+                "+62 敏捷",
                 "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:193703::::::::90:270::23:1:3524:1:28:3025:::::|h[陈词学究的面具]|h|r",
-              "iconText": "陈"
+              "link": "|cnIQ4:|Hitem:193704::::::::90:270::23:1:3524:1:28:3025:::::|h[坚鳞毕业护肩]|h|r",
+              "iconText": "坚"
+            },
+            {
+              "id": 193701,
+              "name": "艾杰斯亚谜题盒",
+              "icon": 133876,
+              "iconName": "inv_misc_enggizmos_18",
+              "iconAsset": "/assets/icons/inv_misc_enggizmos_18.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 246,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                1,
+                2,
+                3,
+                4,
+                6,
+                7,
+                10,
+                11,
+                12
+              ],
+              "quality": 4,
+              "upgradeTrack": "勇士 1/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "力量",
+                    "type": "strength",
+                    "value": 79
+                  },
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 79
+                  }
+                ],
+                "stamina": null,
+                "secondary": [],
+                "effects": {
+                  "equip": [],
+                  "use": [
+                    "使用： 解开一个谜题，使你的精通提高679，持续20秒。\n （2分钟冷却）"
+                  ]
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1201,
+                "instanceName": "艾杰斯亚学院",
+                "isRaid": false,
+                "encounterId": 2514,
+                "encounterName": "多拉苟萨的回响",
+                "difficulty": 23,
+                "difficultyName": "史诗",
+                "order": 7
+              },
+              "tooltipRaw": [
+                "艾杰斯亚谜题盒",
+                "史诗",
+                "物品等级246",
+                "升级：勇士 1/6",
+                "拾取后绑定",
+                "装备唯一",
+                "饰品",
+                "+79 敏捷",
+                "+79 力量",
+                "使用： 解开一个谜题，使你的精通提高679，持续20秒。\n （2分钟冷却）"
+              ],
+              "link": "|cnIQ4:|Hitem:193701::::::::90:270::23:1:3524:1:28:3025:::::|h[艾杰斯亚谜题盒]|h|r",
+              "iconText": "艾"
             }
           ]
         }
@@ -7734,9 +7940,9 @@
               "itemSubType": "配方",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -7804,9 +8010,9 @@
               "itemSubType": "配方",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -7921,9 +8127,9 @@
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -7993,9 +8199,9 @@
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -8052,11 +8258,11 @@
               "iconText": "梦"
             },
             {
-              "id": 249347,
-              "name": "艾林编织的裂隙绽放",
-              "icon": 7636712,
-              "iconName": "inv_12_trinket_rutaani_currency_blue",
-              "iconAsset": "/assets/icons/inv_12_trinket_rutaani_currency_blue.jpg",
+              "id": 249349,
+              "name": "艾林锻造的裂隙绽放",
+              "icon": 7636714,
+              "iconName": "inv_12_trinket_rutaani_currency_purple",
+              "iconAsset": "/assets/icons/inv_12_trinket_rutaani_currency_purple.jpg",
               "slot": "unknown",
               "slotName": "未知",
               "armorType": "none",
@@ -8065,14 +8271,14 @@
               "itemSubType": "杂项",
               "ilvl": 263,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                7,
+                13
               ],
               "quality": 4,
               "upgradeTrack": "",
@@ -8087,7 +8293,7 @@
                 "effects": {
                   "equip": [],
                   "use": [
-                    "使用： 为你的职业合成一个灵魂绑定的套装胸部物品。职业：牧师, 法师, 术士"
+                    "使用： 为你的职业合成一个灵魂绑定的套装胸部物品。职业：猎人, 萨满祭司, 唤魔师"
                   ]
                 },
                 "white": {}
@@ -8100,17 +8306,17 @@
                 "encounterName": "奇美鲁斯，未梦之神",
                 "difficulty": 15,
                 "difficultyName": "英雄",
-                "order": 6
+                "order": 8
               },
               "tooltipRaw": [
-                "艾林编织的裂隙绽放",
+                "艾林锻造的裂隙绽放",
                 "史诗",
                 "物品等级263",
                 "拾取后绑定",
                 "使用： 为你的职业合成一个灵魂绑定的套装胸部物品。",
-                "职业：牧师, 法师, 术士"
+                "职业：猎人, 萨满祭司, 唤魔师"
               ],
-              "link": "|cnIQ4:|Hitem:249347::::::::90:270::5:1:3524:1:28:3606:::::|h[艾林编织的裂隙绽放]|h|r",
+              "link": "|cnIQ4:|Hitem:249349::::::::90:270::5:1:3524:1:28:3606:::::|h[艾林锻造的裂隙绽放]|h|r",
               "iconText": "艾"
             },
             {
@@ -8127,9 +8333,9 @@
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -8186,29 +8392,117 @@
               "iconText": "诡"
             },
             {
-              "id": 249922,
-              "name": "艾蔑悔恨魔典",
-              "icon": 7427980,
-              "iconName": "inv_offhand_1h_raidmidnight_d_01",
-              "iconAsset": "/assets/icons/inv_offhand_1h_raidmidnight_d_01.jpg",
+              "id": 249278,
+              "name": "艾蔑尖塔法杖",
+              "icon": 7393531,
+              "iconName": "inv_staff_2h_raidmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_staff_2h_raidmidnight_d_01.jpg",
               "slot": "weapon",
               "slotName": "武器",
               "armorType": "none",
-              "armorTypeName": "其它",
-              "itemType": "护甲",
-              "itemSubType": "其它",
+              "armorTypeName": "法杖",
+              "itemType": "武器",
+              "itemSubType": "法杖",
               "ilvl": 269,
               "specs": [
-                265,
-                266,
-                267
+                255
               ],
               "classes": [
-                5,
-                8,
-                9,
+                3,
                 10,
-                11,
+                11
+              ],
+              "quality": 4,
+              "upgradeTrack": "英雄 4/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 103
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1383
+                },
+                "secondary": [
+                  {
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 102
+                  },
+                  {
+                    "name": "全能",
+                    "type": "versatility",
+                    "value": 46
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "damageMax": 321,
+                  "damageMin": 237,
+                  "dps": 77.5,
+                  "speed": 3.6
+                }
+              },
+              "source": {
+                "instanceId": 1314,
+                "instanceName": "梦境裂隙",
+                "isRaid": true,
+                "encounterId": 2795,
+                "encounterName": "奇美鲁斯，未梦之神",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 10
+              },
+              "tooltipRaw": [
+                "艾蔑尖塔法杖",
+                "史诗",
+                "物品等级269",
+                "升级：英雄 4/6",
+                "拾取后绑定",
+                "双手 法杖",
+                "237 - 321点伤害 速度 3.60",
+                "（每秒伤害77.5）",
+                "+103 敏捷",
+                "+1383 耐力",
+                "+102 急速",
+                "+46 全能",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:249278::::::::90:270::5:1:3524:1:28:3606:::::|h[艾蔑尖塔法杖]|h|r",
+              "iconText": "艾"
+            },
+            {
+              "id": 249371,
+              "name": "灾祸克星护腰",
+              "icon": 7371087,
+              "iconName": "inv_belt_mail_raidhuntermidnight_d_01",
+              "iconAsset": "/assets/icons/inv_belt_mail_raidhuntermidnight_d_01.jpg",
+              "slot": "waist",
+              "slotName": "腰部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 269,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                3,
+                7,
                 13
               ],
               "quality": 4,
@@ -8220,92 +8514,10 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 158
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 691
-                },
-                "secondary": [
-                  {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 52
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 77
                   },
-                  {
-                    "name": "精通",
-                    "type": "mastery",
-                    "value": 22
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {}
-              },
-              "source": {
-                "instanceId": 1314,
-                "instanceName": "梦境裂隙",
-                "isRaid": true,
-                "encounterId": 2795,
-                "encounterName": "奇美鲁斯，未梦之神",
-                "difficulty": 15,
-                "difficultyName": "英雄",
-                "order": 11
-              },
-              "tooltipRaw": [
-                "艾蔑悔恨魔典",
-                "史诗",
-                "物品等级269",
-                "升级：英雄 4/6",
-                "拾取后绑定",
-                "副手物品",
-                "+158 智力",
-                "+691 耐力",
-                "+52 急速",
-                "+22 精通",
-                "\"你确定想要理解艾蔑吗？想要感同身受他们的痛苦吗？\"",
-                "你尚未收藏过此外观"
-              ],
-              "link": "|cnIQ4:|Hitem:249922::::::::90:270::5:1:3524:1:28:3606:::::|h[艾蔑悔恨魔典]|h|r",
-              "iconText": "艾"
-            },
-            {
-              "id": 249373,
-              "name": "梦境灼烧长靴",
-              "icon": 7444038,
-              "iconName": "inv_boot_cloth_raidmagemidnight_d_01",
-              "iconAsset": "/assets/icons/inv_boot_cloth_raidmagemidnight_d_01.jpg",
-              "slot": "feet",
-              "slotName": "脚部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
-              "ilvl": 269,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "英雄 4/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
                   {
                     "name": "智力",
                     "type": "intellect",
@@ -8319,14 +8531,14 @@
                 },
                 "secondary": [
                   {
-                    "name": "暴击",
-                    "type": "crit",
-                    "value": 34
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 78
                   },
                   {
                     "name": "精通",
                     "type": "mastery",
-                    "value": 77
+                    "value": 33
                   }
                 ],
                 "effects": {
@@ -8334,7 +8546,7 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 48
+                  "armor": 108
                 }
               },
               "source": {
@@ -8345,24 +8557,109 @@
                 "encounterName": "奇美鲁斯，未梦之神",
                 "difficulty": 15,
                 "difficultyName": "英雄",
-                "order": 15
+                "order": 12
               },
               "tooltipRaw": [
-                "梦境灼烧长靴",
+                "灾祸克星护腰",
                 "史诗",
                 "物品等级269",
                 "升级：英雄 4/6",
                 "拾取后绑定",
-                "脚部 布甲",
-                "48点护甲",
+                "腰部 锁甲",
+                "108点护甲",
                 "+77 智力",
                 "+1037 耐力",
-                "+34 爆击",
-                "+77 精通",
+                "+78 急速",
+                "+33 精通",
+                "+77 敏捷",
                 "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:249373::::::::90:270::5:1:3524:1:28:3606:::::|h[梦境灼烧长靴]|h|r",
-              "iconText": "梦"
+              "link": "|cnIQ4:|Hitem:249371::::::::90:270::5:1:3524:1:28:3606:::::|h[灾祸克星护腰]|h|r",
+              "iconText": "灾"
+            },
+            {
+              "id": 249805,
+              "name": "未梦之神的污泥残迹",
+              "icon": 7636701,
+              "iconName": "",
+              "iconAsset": "",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 269,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                1,
+                2,
+                3,
+                4,
+                6,
+                7,
+                10,
+                11,
+                12
+              ],
+              "quality": 4,
+              "upgradeTrack": "英雄 4/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "力量",
+                    "type": "strength",
+                    "value": 98
+                  },
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 98
+                  }
+                ],
+                "stamina": null,
+                "secondary": [],
+                "effects": {
+                  "equip": [
+                    "装备： 你有很大几率向目标溅射不稳定的黏痰，每秒造成111点自然伤害，最多叠加5次。\n达到5层或敌人死亡时，黏痰会猛烈地消耗自身，造成16811点自然伤害，由附近的敌人分摊。每额外击中一个敌人，伤害提高30%，最多150%。 \"似乎在源源不断地渗出烂泥。\""
+                  ],
+                  "use": []
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1314,
+                "instanceName": "梦境裂隙",
+                "isRaid": true,
+                "encounterId": 2795,
+                "encounterName": "奇美鲁斯，未梦之神",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 16
+              },
+              "tooltipRaw": [
+                "未梦之神的污泥残迹",
+                "史诗",
+                "物品等级269",
+                "升级：英雄 4/6",
+                "拾取后绑定",
+                "装备唯一",
+                "饰品",
+                "+98 敏捷",
+                "+98 力量",
+                "装备： 你有很大几率向目标溅射不稳定的黏痰，每秒造成111点自然伤害，最多叠加5次。\n达到5层或敌人死亡时，黏痰会猛烈地消耗自身，造成16811点自然伤害，由附近的敌人分摊。每额外击中一个敌人，伤害提高30%，最多150%。",
+                "\"似乎在源源不断地渗出烂泥。\""
+              ],
+              "link": "|cnIQ4:|Hitem:249805::::::::90:270::5:1:3524:1:28:3606:::::|h[未梦之神的污泥残迹]|h|r",
+              "iconText": "未"
             },
             {
               "id": 249343,
@@ -8378,9 +8675,9 @@
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -8476,9 +8773,9 @@
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -8535,6 +8832,96 @@
               "iconText": "元"
             },
             {
+              "id": 249279,
+              "name": "阳炎打击步枪",
+              "icon": 7525805,
+              "iconName": "inv_firearm_2h_raidmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_firearm_2h_raidmidnight_d_01.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "枪械",
+              "itemType": "武器",
+              "itemSubType": "枪械",
+              "ilvl": 269,
+              "specs": [
+                253,
+                254
+              ],
+              "classes": [
+                3
+              ],
+              "quality": 4,
+              "upgradeTrack": "英雄 4/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 103
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1383
+                },
+                "secondary": [
+                  {
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 104
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 44
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "damageMax": 302,
+                  "damageMin": 162,
+                  "dps": 77.3,
+                  "speed": 3
+                }
+              },
+              "source": {
+                "instanceId": 1307,
+                "instanceName": "虚影尖塔",
+                "isRaid": true,
+                "encounterId": 2733,
+                "encounterName": "元首阿福扎恩",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 3
+              },
+              "tooltipRaw": [
+                "阳炎打击步枪",
+                "史诗",
+                "物品等级269",
+                "升级：英雄 4/6",
+                "拾取后绑定",
+                "远程 枪械",
+                "162 - 302点伤害 速度 3.00",
+                "（每秒伤害77.3）",
+                "+103 敏捷",
+                "+1383 耐力",
+                "+104 急速",
+                "+44 精通",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:249279::::::::90:270::5:1:3524:1:28:3606:::::|h[阳炎打击步枪]|h|r",
+              "iconText": "阳"
+            },
+            {
               "id": 249335,
               "name": "元首的战旗",
               "icon": 7382325,
@@ -8548,9 +8935,9 @@
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -8646,27 +9033,27 @@
               "iconText": "元"
             },
             {
-              "id": 249319,
-              "name": "无尽进军裹腰",
-              "icon": 7448847,
-              "iconName": "inv_belt_cloth_raidpriestmidnight_d_01",
-              "iconAsset": "/assets/icons/inv_belt_cloth_raidpriestmidnight_d_01.jpg",
-              "slot": "waist",
-              "slotName": "腰部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
+              "id": 249310,
+              "name": "虚缚长袍",
+              "icon": 7384537,
+              "iconName": "inv_robe_mail_raidshamanmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_robe_mail_raidshamanmidnight_d_01.jpg",
+              "slot": "chest",
+              "slotName": "胸部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                7,
+                13
               ],
               "quality": 4,
               "upgradeTrack": "英雄 4/6",
@@ -8677,94 +9064,10 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 77
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 1037
-                },
-                "secondary": [
-                  {
-                    "name": "暴击",
-                    "type": "crit",
-                    "value": 32
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 103
                   },
-                  {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 79
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {
-                  "armor": 43
-                }
-              },
-              "source": {
-                "instanceId": 1307,
-                "instanceName": "虚影尖塔",
-                "isRaid": true,
-                "encounterId": 2733,
-                "encounterName": "元首阿福扎恩",
-                "difficulty": 15,
-                "difficultyName": "英雄",
-                "order": 10
-              },
-              "tooltipRaw": [
-                "无尽进军裹腰",
-                "史诗",
-                "物品等级269",
-                "升级：英雄 4/6",
-                "拾取后绑定",
-                "腰部 布甲",
-                "43点护甲",
-                "+77 智力",
-                "+1037 耐力",
-                "+32 爆击",
-                "+79 急速",
-                "你尚未收藏过此外观"
-              ],
-              "link": "|cnIQ4:|Hitem:249319::::::::90:270::5:1:3524:1:28:3606:::::|h[无尽进军裹腰]|h|r",
-              "iconText": "无"
-            },
-            {
-              "id": 249323,
-              "name": "吞噬大进护腿",
-              "icon": 7444044,
-              "iconName": "inv_pant_cloth_raidmagemidnight_d_01",
-              "iconAsset": "/assets/icons/inv_pant_cloth_raidmagemidnight_d_01.jpg",
-              "slot": "legs",
-              "slotName": "腿部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
-              "ilvl": 269,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "英雄 4/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
                   {
                     "name": "智力",
                     "type": "intellect",
@@ -8780,12 +9083,12 @@
                   {
                     "name": "暴击",
                     "type": "crit",
-                    "value": 98
+                    "value": 49
                   },
                   {
-                    "name": "全能",
-                    "type": "versatility",
-                    "value": 50
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 99
                   }
                 ],
                 "effects": {
@@ -8793,7 +9096,7 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 67
+                  "armor": 193
                 }
               },
               "source": {
@@ -8804,24 +9107,207 @@
                 "encounterName": "元首阿福扎恩",
                 "difficulty": 15,
                 "difficultyName": "英雄",
-                "order": 11
+                "order": 8
               },
               "tooltipRaw": [
-                "吞噬大进护腿",
+                "虚缚长袍",
                 "史诗",
                 "物品等级269",
                 "升级：英雄 4/6",
                 "拾取后绑定",
-                "腿部 布甲",
-                "67点护甲",
+                "胸部 锁甲",
+                "193点护甲",
                 "+103 智力",
                 "+1383 耐力",
-                "+98 爆击",
-                "+50 全能",
+                "+49 爆击",
+                "+99 急速",
+                "+103 敏捷",
                 "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:249323::::::::90:270::5:1:3524:1:28:3606:::::|h[吞噬大进护腿]|h|r",
-              "iconText": "吞"
+              "link": "|cnIQ4:|Hitem:249310::::::::90:270::5:1:3524:1:28:3606:::::|h[虚缚长袍]|h|r",
+              "iconText": "虚"
+            },
+            {
+              "id": 249320,
+              "name": "遮蔽战靴",
+              "icon": 7307673,
+              "iconName": "inv_boot_mail_raidevokermidnight_d_01",
+              "iconAsset": "/assets/icons/inv_boot_mail_raidevokermidnight_d_01.jpg",
+              "slot": "feet",
+              "slotName": "脚部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 269,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                3,
+                7,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "英雄 4/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 77
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 77
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1037
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 36
+                  },
+                  {
+                    "name": "全能",
+                    "type": "versatility",
+                    "value": 76
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 120
+                }
+              },
+              "source": {
+                "instanceId": 1307,
+                "instanceName": "虚影尖塔",
+                "isRaid": true,
+                "encounterId": 2733,
+                "encounterName": "元首阿福扎恩",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 13
+              },
+              "tooltipRaw": [
+                "遮蔽战靴",
+                "史诗",
+                "物品等级269",
+                "升级：英雄 4/6",
+                "拾取后绑定",
+                "脚部 锁甲",
+                "120点护甲",
+                "+77 智力",
+                "+1037 耐力",
+                "+36 爆击",
+                "+76 全能",
+                "+77 敏捷",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:249320::::::::90:270::5:1:3524:1:28:3606:::::|h[遮蔽战靴]|h|r",
+              "iconText": "遮"
+            },
+            {
+              "id": 249344,
+              "name": "圣光连队的旌旗",
+              "icon": 7636709,
+              "iconName": "inv_12_trinket_raid_voidspire_physdps1_armyoflightbanner",
+              "iconAsset": "/assets/icons/inv_12_trinket_raid_voidspire_physdps1_armyoflightbanner.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 269,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                1,
+                2,
+                3,
+                4,
+                6,
+                7,
+                10,
+                11,
+                12
+              ],
+              "quality": 4,
+              "upgradeTrack": "英雄 4/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "力量",
+                    "type": "strength",
+                    "value": 98
+                  },
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 98
+                  }
+                ],
+                "stamina": null,
+                "secondary": [],
+                "effects": {
+                  "equip": [
+                    "装备： 你是圣光先锋军的一名志愿者。"
+                  ],
+                  "use": [
+                    "使用： 带头冲锋，获得610急速，持续15秒。40码内的所有圣光先锋军志愿者也会获得152加速，持续6秒。 （1分钟 30秒冷却） \"圣光先锋军，前进！\""
+                  ]
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1307,
+                "instanceName": "虚影尖塔",
+                "isRaid": true,
+                "encounterId": 2733,
+                "encounterName": "元首阿福扎恩",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 14
+              },
+              "tooltipRaw": [
+                "圣光连队的旌旗",
+                "史诗",
+                "物品等级269",
+                "升级：英雄 4/6",
+                "拾取后绑定",
+                "装备唯一",
+                "饰品",
+                "+98 敏捷",
+                "+98 力量",
+                "装备： 你是圣光先锋军的一名志愿者。",
+                "使用： 带头冲锋，获得610急速，持续15秒。40码内的所有圣光先锋军志愿者也会获得152加速，持续6秒。 （1分钟 30秒冷却）",
+                "\"圣光先锋军，前进！\""
+              ],
+              "link": "|cnIQ4:|Hitem:249344::::::::90:270::5:1:3524:1:28:3606:::::|h[圣光连队的旌旗]|h|r",
+              "iconText": "圣"
             }
           ]
         },
@@ -8844,9 +9330,9 @@
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -8903,11 +9389,11 @@
               "iconText": "流"
             },
             {
-              "id": 249351,
-              "name": "虚空编织的饥饿虚核",
-              "icon": 7636684,
-              "iconName": "inv_12_trinket_devouring_host_currency3_silver",
-              "iconAsset": "/assets/icons/inv_12_trinket_devouring_host_currency3_silver.jpg",
+              "id": 249353,
+              "name": "虚空锻造的饥饿虚核",
+              "icon": 7636683,
+              "iconName": "inv_12_trinket_devouring_host_currency3_dark",
+              "iconAsset": "/assets/icons/inv_12_trinket_devouring_host_currency3_dark.jpg",
               "slot": "unknown",
               "slotName": "未知",
               "armorType": "none",
@@ -8916,14 +9402,14 @@
               "itemSubType": "杂项",
               "ilvl": 263,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                7,
+                13
               ],
               "quality": 4,
               "upgradeTrack": "",
@@ -8938,7 +9424,7 @@
                 "effects": {
                   "equip": [],
                   "use": [
-                    "使用： 为你的职业合成一个灵魂绑定的套装手部物品。职业：牧师, 法师, 术士"
+                    "使用： 为你的职业合成一个灵魂绑定的套装手部物品。职业：猎人, 萨满祭司, 唤魔师"
                   ]
                 },
                 "white": {}
@@ -8951,17 +9437,17 @@
                 "encounterName": "弗拉希乌斯",
                 "difficulty": 15,
                 "difficultyName": "英雄",
-                "order": 3
+                "order": 5
               },
               "tooltipRaw": [
-                "虚空编织的饥饿虚核",
+                "虚空锻造的饥饿虚核",
                 "史诗",
                 "物品等级263",
                 "拾取后绑定",
                 "使用： 为你的职业合成一个灵魂绑定的套装手部物品。",
-                "职业：牧师, 法师, 术士"
+                "职业：猎人, 萨满祭司, 唤魔师"
               ],
-              "link": "|cnIQ4:|Hitem:249351::::::::90:270::5:1:3524:1:28:3606:::::|h[虚空编织的饥饿虚核]|h|r",
+              "link": "|cnIQ4:|Hitem:249353::::::::90:270::5:1:3524:1:28:3606:::::|h[虚空锻造的饥饿虚核]|h|r",
               "iconText": "虚"
             },
             {
@@ -8978,9 +9464,9 @@
               "itemSubType": "配方",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -9069,29 +9555,208 @@
               "iconText": "设"
             },
             {
-              "id": 249276,
-              "name": "永恒之光魔典",
-              "icon": 7427980,
-              "iconName": "inv_offhand_1h_raidmidnight_d_01",
-              "iconAsset": "/assets/icons/inv_offhand_1h_raidmidnight_d_01.jpg",
+              "id": 249302,
+              "name": "殒命缠身",
+              "icon": 7439627,
+              "iconName": "inv_polearm_2h_raidmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_polearm_2h_raidmidnight_d_01.jpg",
               "slot": "weapon",
               "slotName": "武器",
               "armorType": "none",
-              "armorTypeName": "其它",
-              "itemType": "护甲",
-              "itemSubType": "其它",
+              "armorTypeName": "长柄武器",
+              "itemType": "武器",
+              "itemSubType": "长柄武器",
               "ilvl": 269,
               "specs": [
-                265,
-                266,
-                267
+                255
               ],
               "classes": [
-                5,
-                8,
-                9,
+                3,
                 10,
-                11,
+                11
+              ],
+              "quality": 4,
+              "upgradeTrack": "英雄 4/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 103
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1383
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 104
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 44
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "damageMax": 363,
+                  "damageMin": 195,
+                  "dps": 77.5,
+                  "speed": 3.6
+                }
+              },
+              "source": {
+                "instanceId": 1307,
+                "instanceName": "虚影尖塔",
+                "isRaid": true,
+                "encounterId": 2734,
+                "encounterName": "弗拉希乌斯",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 7
+              },
+              "tooltipRaw": [
+                "殒命缠身",
+                "史诗",
+                "物品等级269",
+                "升级：英雄 4/6",
+                "拾取后绑定",
+                "双手 长柄武器",
+                "195 - 363点伤害 速度 3.60",
+                "（每秒伤害77.5）",
+                "+103 敏捷",
+                "+1383 耐力",
+                "+104 爆击",
+                "+44 精通",
+                "\"没有猎物能逃得掉。\"",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:249302::::::::90:270::5:1:3524:1:28:3606:::::|h[殒命缠身]|h|r",
+              "iconText": "殒"
+            },
+            {
+              "id": 249925,
+              "name": "饥渴凯旋",
+              "icon": 7428175,
+              "iconName": "inv_knife_1h_raidmidnight_d_02",
+              "iconAsset": "/assets/icons/inv_knife_1h_raidmidnight_d_02.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "匕首",
+              "itemType": "武器",
+              "itemSubType": "匕首",
+              "ilvl": 269,
+              "specs": [
+                255
+              ],
+              "classes": [
+                3,
+                4
+              ],
+              "quality": 4,
+              "upgradeTrack": "英雄 4/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 51
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 691
+                },
+                "secondary": [
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 51
+                  },
+                  {
+                    "name": "全能",
+                    "type": "versatility",
+                    "value": 23
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "damageMax": 132,
+                  "damageMin": 78,
+                  "dps": 58.3,
+                  "speed": 1.8
+                }
+              },
+              "source": {
+                "instanceId": 1307,
+                "instanceName": "虚影尖塔",
+                "isRaid": true,
+                "encounterId": 2734,
+                "encounterName": "弗拉希乌斯",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 8
+              },
+              "tooltipRaw": [
+                "饥渴凯旋",
+                "史诗",
+                "物品等级269",
+                "升级：英雄 4/6",
+                "拾取后绑定",
+                "单手 匕首",
+                "78 - 132点伤害 速度 1.80",
+                "（每秒伤害58.3）",
+                "+51 敏捷",
+                "+691 耐力",
+                "+23 全能",
+                "+51 精通",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:249925::::::::90:270::5:1:3524:1:28:3606:::::|h[饥渴凯旋]|h|r",
+              "iconText": "饥"
+            },
+            {
+              "id": 249317,
+              "name": "狂乱斥责",
+              "icon": 7307678,
+              "iconName": "inv_helm_mail_raidevokermidnight_d_01",
+              "iconAsset": "/assets/icons/inv_helm_mail_raidevokermidnight_d_01.jpg",
+              "slot": "head",
+              "slotName": "头部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 269,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                3,
+                7,
                 13
               ],
               "quality": 4,
@@ -9103,113 +9768,31 @@
               "stats": {
                 "primaryStats": [
                   {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 103
+                  },
+                  {
                     "name": "智力",
                     "type": "intellect",
-                    "value": 158
+                    "value": 103
                   }
                 ],
                 "stamina": {
                   "name": "耐力",
                   "type": "stamina",
-                  "value": 691
+                  "value": 1383
                 },
                 "secondary": [
                   {
                     "name": "暴击",
                     "type": "crit",
-                    "value": 51
+                    "value": 102
                   },
                   {
                     "name": "急速",
                     "type": "haste",
-                    "value": 23
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {}
-              },
-              "source": {
-                "instanceId": 1307,
-                "instanceName": "虚影尖塔",
-                "isRaid": true,
-                "encounterId": 2734,
-                "encounterName": "弗拉希乌斯",
-                "difficulty": 15,
-                "difficultyName": "英雄",
-                "order": 9
-              },
-              "tooltipRaw": [
-                "永恒之光魔典",
-                "史诗",
-                "物品等级269",
-                "升级：英雄 4/6",
-                "拾取后绑定",
-                "副手物品",
-                "+158 智力",
-                "+691 耐力",
-                "+51 爆击",
-                "+23 急速",
-                "\"充满圣光的智慧，但粗心的信徒可能会误入不该探索的虎口。\"",
-                "你尚未收藏过此外观"
-              ],
-              "link": "|cnIQ4:|Hitem:249276::::::::90:270::5:1:3524:1:28:3606:::::|h[永恒之光魔典]|h|r",
-              "iconText": "永"
-            },
-            {
-              "id": 249315,
-              "name": "暴食护腕",
-              "icon": 7448849,
-              "iconName": "inv_bracer_cloth_raidpriestmidnight_d_01",
-              "iconAsset": "/assets/icons/inv_bracer_cloth_raidpriestmidnight_d_01.jpg",
-              "slot": "wrist",
-              "slotName": "腕部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
-              "ilvl": 269,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "英雄 4/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 58
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 778
-                },
-                "secondary": [
-                  {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 55
-                  },
-                  {
-                    "name": "精通",
-                    "type": "mastery",
-                    "value": 29
+                    "value": 46
                   }
                 ],
                 "effects": {
@@ -9217,7 +9800,7 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 38
+                  "armor": 144
                 }
               },
               "source": {
@@ -9228,24 +9811,25 @@
                 "encounterName": "弗拉希乌斯",
                 "difficulty": 15,
                 "difficultyName": "英雄",
-                "order": 11
+                "order": 10
               },
               "tooltipRaw": [
-                "暴食护腕",
+                "狂乱斥责",
                 "史诗",
                 "物品等级269",
                 "升级：英雄 4/6",
                 "拾取后绑定",
-                "腕部 布甲",
-                "38点护甲",
-                "+58 智力",
-                "+778 耐力",
-                "+55 急速",
-                "+29 精通",
+                "头部 锁甲",
+                "144点护甲",
+                "+103 智力",
+                "+1383 耐力",
+                "+102 爆击",
+                "+46 急速",
+                "+103 敏捷",
                 "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:249315::::::::90:270::5:1:3524:1:28:3606:::::|h[暴食护腕]|h|r",
-              "iconText": "暴"
+              "link": "|cnIQ4:|Hitem:249317::::::::90:270::5:1:3524:1:28:3606:::::|h[狂乱斥责]|h|r",
+              "iconText": "狂"
             },
             {
               "id": 249336,
@@ -9261,9 +9845,9 @@
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -9358,9 +9942,9 @@
               "itemSubType": "配方",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -9433,9 +10017,9 @@
               "itemSubType": "杂项",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -9493,11 +10077,11 @@
               "iconText": "宇"
             },
             {
-              "id": 249363,
-              "name": "虚空编织的解离虚核",
-              "icon": 7636673,
-              "iconName": "inv_12_trinket_devouring_host_currency_void",
-              "iconAsset": "/assets/icons/inv_12_trinket_devouring_host_currency_void.jpg",
+              "id": 249365,
+              "name": "虚空锻造的解离虚核",
+              "icon": 7636671,
+              "iconName": "inv_12_trinket_devouring_host_currency_dark",
+              "iconAsset": "/assets/icons/inv_12_trinket_devouring_host_currency_dark.jpg",
               "slot": "unknown",
               "slotName": "未知",
               "armorType": "none",
@@ -9506,14 +10090,14 @@
               "itemSubType": "杂项",
               "ilvl": 263,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                7,
+                13
               ],
               "quality": 4,
               "upgradeTrack": "",
@@ -9528,7 +10112,7 @@
                 "effects": {
                   "equip": [],
                   "use": [
-                    "使用： 为你的职业合成一个灵魂绑定的套装肩部物品。职业：牧师, 法师, 术士"
+                    "使用： 为你的职业合成一个灵魂绑定的套装肩部物品。职业：猎人, 萨满祭司, 唤魔师"
                   ]
                 },
                 "white": {}
@@ -9541,17 +10125,17 @@
                 "encounterName": "陨落之王萨哈达尔",
                 "difficulty": 15,
                 "difficultyName": "英雄",
-                "order": 4
+                "order": 6
               },
               "tooltipRaw": [
-                "虚空编织的解离虚核",
+                "虚空锻造的解离虚核",
                 "史诗",
                 "物品等级263",
                 "拾取后绑定",
                 "使用： 为你的职业合成一个灵魂绑定的套装肩部物品。",
-                "职业：牧师, 法师, 术士"
+                "职业：猎人, 萨满祭司, 唤魔师"
               ],
-              "link": "|cnIQ4:|Hitem:249363::::::::90:270::5:1:3524:1:28:3606:::::|h[虚空编织的解离虚核]|h|r",
+              "link": "|cnIQ4:|Hitem:249365::::::::90:270::5:1:3524:1:28:3606:::::|h[虚空锻造的解离虚核]|h|r",
               "iconText": "虚"
             },
             {
@@ -9568,9 +10152,9 @@
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -9640,9 +10224,9 @@
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -9716,27 +10300,27 @@
               "iconText": "盘"
             },
             {
-              "id": 249308,
-              "name": "豪横服饰",
-              "icon": 7448854,
-              "iconName": "inv_robe_cloth_raidpriestmidnight_d_01",
-              "iconAsset": "/assets/icons/inv_robe_cloth_raidpriestmidnight_d_01.jpg",
-              "slot": "chest",
-              "slotName": "胸部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
+              "id": 249304,
+              "name": "陨落之王的护腕",
+              "icon": 7384532,
+              "iconName": "inv_bracer_mail_raidshamanmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_bracer_mail_raidshamanmidnight_d_01.jpg",
+              "slot": "wrist",
+              "slotName": "腕部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                7,
+                13
               ],
               "quality": 4,
               "upgradeTrack": "英雄 4/6",
@@ -9747,26 +10331,31 @@
               "stats": {
                 "primaryStats": [
                   {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 58
+                  },
+                  {
                     "name": "智力",
                     "type": "intellect",
-                    "value": 103
+                    "value": 58
                   }
                 ],
                 "stamina": {
                   "name": "耐力",
                   "type": "stamina",
-                  "value": 1383
+                  "value": 778
                 },
                 "secondary": [
                   {
                     "name": "暴击",
                     "type": "crit",
-                    "value": 45
+                    "value": 27
                   },
                   {
                     "name": "精通",
                     "type": "mastery",
-                    "value": 104
+                    "value": 56
                   }
                 ],
                 "effects": {
@@ -9774,7 +10363,7 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 76
+                  "armor": 96
                 }
               },
               "source": {
@@ -9785,100 +10374,25 @@
                 "encounterName": "陨落之王萨哈达尔",
                 "difficulty": 15,
                 "difficultyName": "英雄",
-                "order": 12
+                "order": 13
               },
               "tooltipRaw": [
-                "豪横服饰",
+                "陨落之王的护腕",
                 "史诗",
                 "物品等级269",
                 "升级：英雄 4/6",
                 "拾取后绑定",
-                "胸部 布甲",
-                "76点护甲",
-                "+103 智力",
-                "+1383 耐力",
-                "+45 爆击",
-                "+104 精通",
+                "腕部 锁甲",
+                "96点护甲",
+                "+58 智力",
+                "+778 耐力",
+                "+27 爆击",
+                "+56 精通",
+                "+58 敏捷",
                 "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:249308::::::::90:270::5:1:3524:1:28:3606:::::|h[豪横服饰]|h|r",
-              "iconText": "豪"
-            },
-            {
-              "id": 249340,
-              "name": "宇宙疯狂裹布",
-              "icon": 7636708,
-              "iconName": "inv_12_trinket_raid_voidspire_intdps1_wrapsofcosmicmadness",
-              "iconAsset": "/assets/icons/inv_12_trinket_raid_voidspire_intdps1_wrapsofcosmicmadness.jpg",
-              "slot": "trinket",
-              "slotName": "饰品",
-              "armorType": "none",
-              "armorTypeName": "无甲种",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
-              "ilvl": 269,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                7,
-                8,
-                9,
-                11,
-                12,
-                13
-              ],
-              "quality": 4,
-              "upgradeTrack": "英雄 4/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": true
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 98
-                  }
-                ],
-                "stamina": null,
-                "secondary": [],
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 在2秒内不顾一切地释放自我，向你的目标释放一连串共13发宇宙飞弹，数量受你的急速加成，每发对附近的敌人造成6720点宇宙伤害，由其分摊。每额外击中一个敌人，伤害提高30%，最多150%。\n盟友的死亡会引发更深的疯狂，使冷却时间缩短60秒。 （2分钟冷却） \"为了胜利而背弃诺言，是否有点疯狂？\""
-                  ]
-                },
-                "white": {}
-              },
-              "source": {
-                "instanceId": 1307,
-                "instanceName": "虚影尖塔",
-                "isRaid": true,
-                "encounterId": 2736,
-                "encounterName": "陨落之王萨哈达尔",
-                "difficulty": 15,
-                "difficultyName": "英雄",
-                "order": 16
-              },
-              "tooltipRaw": [
-                "宇宙疯狂裹布",
-                "史诗",
-                "物品等级269",
-                "升级：英雄 4/6",
-                "拾取后绑定",
-                "装备唯一",
-                "饰品",
-                "+98 智力",
-                "使用： 在2秒内不顾一切地释放自我，向你的目标释放一连串共13发宇宙飞弹，数量受你的急速加成，每发对附近的敌人造成6720点宇宙伤害，由其分摊。每额外击中一个敌人，伤害提高30%，最多150%。\n盟友的死亡会引发更深的疯狂，使冷却时间缩短60秒。 （2分钟冷却）",
-                "\"为了胜利而背弃诺言，是否有点疯狂？\""
-              ],
-              "link": "|cnIQ4:|Hitem:249340::::::::90:270::5:1:3524:1:28:3606:::::|h[宇宙疯狂裹布]|h|r",
-              "iconText": "宇"
+              "link": "|cnIQ4:|Hitem:249304::::::::90:270::5:1:3524:1:28:3606:::::|h[陨落之王的护腕]|h|r",
+              "iconText": "陨"
             }
           ]
         },
@@ -9888,11 +10402,11 @@
           "order": 4,
           "items": [
             {
-              "id": 249359,
-              "name": "虚空编织的腐化虚核",
-              "icon": 7636681,
-              "iconName": "inv_12_trinket_devouring_host_currency2_void",
-              "iconAsset": "/assets/icons/inv_12_trinket_devouring_host_currency2_void.jpg",
+              "id": 249361,
+              "name": "虚空锻造的腐化虚核",
+              "icon": 7636679,
+              "iconName": "inv_12_trinket_devouring_host_currency2_dark",
+              "iconAsset": "/assets/icons/inv_12_trinket_devouring_host_currency2_dark.jpg",
               "slot": "unknown",
               "slotName": "未知",
               "armorType": "none",
@@ -9901,14 +10415,14 @@
               "itemSubType": "杂项",
               "ilvl": 266,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                7,
+                13
               ],
               "quality": 4,
               "upgradeTrack": "",
@@ -9923,7 +10437,7 @@
                 "effects": {
                   "equip": [],
                   "use": [
-                    "使用： 为你的职业合成一个灵魂绑定的套装腿部物品。职业：牧师, 法师, 术士"
+                    "使用： 为你的职业合成一个灵魂绑定的套装腿部物品。职业：猎人, 萨满祭司, 唤魔师"
                   ]
                 },
                 "white": {}
@@ -9936,17 +10450,17 @@
                 "encounterName": "威厄高尔和艾佐拉克",
                 "difficulty": 15,
                 "difficultyName": "英雄",
-                "order": 2
+                "order": 4
               },
               "tooltipRaw": [
-                "虚空编织的腐化虚核",
+                "虚空锻造的腐化虚核",
                 "史诗",
                 "物品等级266",
                 "拾取后绑定",
                 "使用： 为你的职业合成一个灵魂绑定的套装腿部物品。",
-                "职业：牧师, 法师, 术士"
+                "职业：猎人, 萨满祭司, 唤魔师"
               ],
-              "link": "|cnIQ4:|Hitem:249359::::::::90:270::5:1:3524:1:28:3606:::::|h[虚空编织的腐化虚核]|h|r",
+              "link": "|cnIQ4:|Hitem:249361::::::::90:270::5:1:3524:1:28:3606:::::|h[虚空锻造的腐化虚核]|h|r",
               "iconText": "虚"
             },
             {
@@ -9963,9 +10477,9 @@
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -10035,9 +10549,9 @@
               "itemSubType": "配方",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -10125,6 +10639,101 @@
               "iconText": "设"
             },
             {
+              "id": 249318,
+              "name": "虚无行者的恐惧肩章",
+              "icon": 7307680,
+              "iconName": "inv_shoulder_mail_raidevokermidnight_d_01",
+              "iconAsset": "/assets/icons/inv_shoulder_mail_raidevokermidnight_d_01.jpg",
+              "slot": "shoulder",
+              "slotName": "肩部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 269,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                3,
+                7,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "英雄 4/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 77
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 77
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1037
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 73
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 39
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 132
+                }
+              },
+              "source": {
+                "instanceId": 1307,
+                "instanceName": "虚影尖塔",
+                "isRaid": true,
+                "encounterId": 2735,
+                "encounterName": "威厄高尔和艾佐拉克",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 9
+              },
+              "tooltipRaw": [
+                "虚无行者的恐惧肩章",
+                "史诗",
+                "物品等级269",
+                "升级：英雄 4/6",
+                "拾取后绑定",
+                "肩部 锁甲",
+                "132点护甲",
+                "+77 智力",
+                "+1037 耐力",
+                "+73 爆击",
+                "+39 精通",
+                "+77 敏捷",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:249318::::::::90:270::5:1:3524:1:28:3606:::::|h[虚无行者的恐惧肩章]|h|r",
+              "iconText": "虚"
+            },
+            {
               "id": 249370,
               "name": "龙族虚无披风",
               "icon": 7319580,
@@ -10138,9 +10747,9 @@
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -10233,172 +10842,6 @@
               ],
               "link": "|cnIQ4:|Hitem:249370::::::::90:270::5:1:3524:1:28:3606:::::|h[龙族虚无披风]|h|r",
               "iconText": "龙"
-            },
-            {
-              "id": 249305,
-              "name": "午夜烈焰便鞋",
-              "icon": 7367698,
-              "iconName": "inv_boot_cloth_raidwarlockmidnight_d_01",
-              "iconAsset": "/assets/icons/inv_boot_cloth_raidwarlockmidnight_d_01.jpg",
-              "slot": "feet",
-              "slotName": "脚部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
-              "ilvl": 269,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "英雄 4/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 77
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 1037
-                },
-                "secondary": [
-                  {
-                    "name": "暴击",
-                    "type": "crit",
-                    "value": 74
-                  },
-                  {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 38
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {
-                  "armor": 48
-                }
-              },
-              "source": {
-                "instanceId": 1307,
-                "instanceName": "虚影尖塔",
-                "isRaid": true,
-                "encounterId": 2735,
-                "encounterName": "威厄高尔和艾佐拉克",
-                "difficulty": 15,
-                "difficultyName": "英雄",
-                "order": 13
-              },
-              "tooltipRaw": [
-                "午夜烈焰便鞋",
-                "史诗",
-                "物品等级269",
-                "升级：英雄 4/6",
-                "拾取后绑定",
-                "脚部 布甲",
-                "48点护甲",
-                "+77 智力",
-                "+1037 耐力",
-                "+74 爆击",
-                "+38 急速",
-                "你尚未收藏过此外观"
-              ],
-              "link": "|cnIQ4:|Hitem:249305::::::::90:270::5:1:3524:1:28:3606:::::|h[午夜烈焰便鞋]|h|r",
-              "iconText": "午"
-            },
-            {
-              "id": 249346,
-              "name": "威厄高尔的最终凝视",
-              "icon": 7636706,
-              "iconName": "inv_12_trinket_raid_voidspire_int1_voiddragoneye",
-              "iconAsset": "/assets/icons/inv_12_trinket_raid_voidspire_int1_voiddragoneye.jpg",
-              "slot": "trinket",
-              "slotName": "饰品",
-              "armorType": "none",
-              "armorTypeName": "无甲种",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
-              "ilvl": 269,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                2,
-                5,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13
-              ],
-              "quality": 4,
-              "upgradeTrack": "英雄 4/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": true
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 98
-                  }
-                ],
-                "stamina": null,
-                "secondary": [],
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 夺取眼睛的龙族之力，使你获得1220精通，该效果在15秒内逐渐减弱，并让你能够看见隐藏的敌人。 （1分钟 30秒冷却）"
-                  ]
-                },
-                "white": {}
-              },
-              "source": {
-                "instanceId": 1307,
-                "instanceName": "虚影尖塔",
-                "isRaid": true,
-                "encounterId": 2735,
-                "encounterName": "威厄高尔和艾佐拉克",
-                "difficulty": 15,
-                "difficultyName": "英雄",
-                "order": 14
-              },
-              "tooltipRaw": [
-                "威厄高尔的最终凝视",
-                "史诗",
-                "物品等级269",
-                "升级：英雄 4/6",
-                "拾取后绑定",
-                "装备唯一",
-                "饰品",
-                "+98 智力",
-                "使用： 夺取眼睛的龙族之力，使你获得1220精通，该效果在15秒内逐渐减弱，并让你能够看见隐藏的敌人。 （1分钟 30秒冷却）"
-              ],
-              "link": "|cnIQ4:|Hitem:249346::::::::90:270::5:1:3524:1:28:3606:::::|h[威厄高尔的最终凝视]|h|r",
-              "iconText": "威"
             }
           ]
         },
@@ -10421,9 +10864,9 @@
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -10480,11 +10923,11 @@
               "iconText": "破"
             },
             {
-              "id": 249355,
-              "name": "虚空编织的狂热虚核",
-              "icon": 7636677,
-              "iconName": "inv_12_trinket_devouring_host_currency1_void",
-              "iconAsset": "/assets/icons/inv_12_trinket_devouring_host_currency1_void.jpg",
+              "id": 249357,
+              "name": "虚空锻造的狂热虚核",
+              "icon": 7636675,
+              "iconName": "inv_12_trinket_devouring_host_currency1_dark",
+              "iconAsset": "/assets/icons/inv_12_trinket_devouring_host_currency1_dark.jpg",
               "slot": "unknown",
               "slotName": "未知",
               "armorType": "none",
@@ -10493,14 +10936,14 @@
               "itemSubType": "杂项",
               "ilvl": 266,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                7,
+                13
               ],
               "quality": 4,
               "upgradeTrack": "",
@@ -10515,7 +10958,7 @@
                 "effects": {
                   "equip": [],
                   "use": [
-                    "使用： 为你的职业合成一个灵魂绑定的套装头部物品。职业：牧师, 法师, 术士"
+                    "使用： 为你的职业合成一个灵魂绑定的套装头部物品。职业：猎人, 萨满祭司, 唤魔师"
                   ]
                 },
                 "white": {}
@@ -10528,17 +10971,17 @@
                 "encounterName": "光盲先锋军",
                 "difficulty": 15,
                 "difficultyName": "英雄",
-                "order": 3
+                "order": 5
               },
               "tooltipRaw": [
-                "虚空编织的狂热虚核",
+                "虚空锻造的狂热虚核",
                 "史诗",
                 "物品等级266",
                 "拾取后绑定",
                 "使用： 为你的职业合成一个灵魂绑定的套装头部物品。",
-                "职业：牧师, 法师, 术士"
+                "职业：猎人, 萨满祭司, 唤魔师"
               ],
-              "link": "|cnIQ4:|Hitem:249355::::::::90:270::5:1:3524:1:28:3606:::::|h[虚空编织的狂热虚核]|h|r",
+              "link": "|cnIQ4:|Hitem:249357::::::::90:270::5:1:3524:1:28:3606:::::|h[虚空锻造的狂热虚核]|h|r",
               "iconText": "虚"
             },
             {
@@ -10555,9 +10998,9 @@
               "itemSubType": "配方",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -10647,29 +11090,26 @@
               "iconText": "设"
             },
             {
-              "id": 249294,
-              "name": "盲目裁决之刃",
-              "icon": 7490210,
-              "iconName": "inv_sword_1h_raidmidnight_d_01",
-              "iconAsset": "/assets/icons/inv_sword_1h_raidmidnight_d_01.jpg",
-              "slot": "weapon",
-              "slotName": "武器",
-              "armorType": "none",
-              "armorTypeName": "单手剑",
-              "itemType": "武器",
-              "itemSubType": "单手剑",
+              "id": 249303,
+              "name": "被审判者的腰索",
+              "icon": 7307672,
+              "iconName": "inv_belt_mail_raidevokermidnight_d_01",
+              "iconAsset": "/assets/icons/inv_belt_mail_raidevokermidnight_d_01.jpg",
+              "slot": "waist",
+              "slotName": "腰部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                2,
-                8,
-                9,
-                10,
-                12,
+                3,
+                7,
                 13
               ],
               "quality": 4,
@@ -10681,99 +11121,10 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 299
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 691
-                },
-                "secondary": [
-                  {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 49
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 77
                   },
-                  {
-                    "name": "精通",
-                    "type": "mastery",
-                    "value": 25
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {
-                  "damageMax": 95,
-                  "damageMin": 57,
-                  "dps": 29.2,
-                  "speed": 2.6
-                }
-              },
-              "source": {
-                "instanceId": 1307,
-                "instanceName": "虚影尖塔",
-                "isRaid": true,
-                "encounterId": 2737,
-                "encounterName": "光盲先锋军",
-                "difficulty": 15,
-                "difficultyName": "英雄",
-                "order": 8
-              },
-              "tooltipRaw": [
-                "盲目裁决之刃",
-                "史诗",
-                "物品等级269",
-                "升级：英雄 4/6",
-                "拾取后绑定",
-                "单手 剑",
-                "57 - 95点伤害 速度 2.60",
-                "（每秒伤害29.2）",
-                "+299 智力",
-                "+691 耐力",
-                "+49 急速",
-                "+25 精通",
-                "“圣光之火不饶恕任何人。”——维纳尔·光血",
-                "你尚未收藏过此外观"
-              ],
-              "link": "|cnIQ4:|Hitem:249294::::::::90:270::5:1:3524:1:28:3606:::::|h[盲目裁决之刃]|h|r",
-              "iconText": "盲"
-            },
-            {
-              "id": 249330,
-              "name": "战争牧师的护手",
-              "icon": 7367702,
-              "iconName": "inv_glove_cloth_raidwarlockmidnight_d_01",
-              "iconAsset": "/assets/icons/inv_glove_cloth_raidwarlockmidnight_d_01.jpg",
-              "slot": "hand",
-              "slotName": "手部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
-              "ilvl": 269,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "英雄 4/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
                   {
                     "name": "智力",
                     "type": "intellect",
@@ -10787,14 +11138,14 @@
                 },
                 "secondary": [
                   {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 79
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 73
                   },
                   {
                     "name": "全能",
                     "type": "versatility",
-                    "value": 32
+                    "value": 38
                   }
                 ],
                 "effects": {
@@ -10802,7 +11153,7 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 43
+                  "armor": 108
                 }
               },
               "source": {
@@ -10813,24 +11164,26 @@
                 "encounterName": "光盲先锋军",
                 "difficulty": 15,
                 "difficultyName": "英雄",
-                "order": 10
+                "order": 11
               },
               "tooltipRaw": [
-                "战争牧师的护手",
+                "被审判者的腰索",
                 "史诗",
                 "物品等级269",
                 "升级：英雄 4/6",
                 "拾取后绑定",
-                "手部 布甲",
-                "43点护甲",
+                "腰部 锁甲",
+                "108点护甲",
                 "+77 智力",
                 "+1037 耐力",
-                "+79 急速",
-                "+32 全能",
+                "+73 爆击",
+                "+38 全能",
+                "+77 敏捷",
+                "\"你被称在天平里，显出你的罪孽。\"",
                 "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:249330::::::::90:270::5:1:3524:1:28:3606:::::|h[战争牧师的护手]|h|r",
-              "iconText": "战"
+              "link": "|cnIQ4:|Hitem:249303::::::::90:270::5:1:3524:1:28:3606:::::|h[被审判者的腰索]|h|r",
+              "iconText": "被"
             },
             {
               "id": 249369,
@@ -10846,9 +11199,9 @@
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -10943,9 +11296,9 @@
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -11015,9 +11368,9 @@
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -11087,9 +11440,9 @@
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -11146,27 +11499,26 @@
               "iconText": "虚"
             },
             {
-              "id": 249329,
-              "name": "放纵者的凝视",
-              "icon": 7367703,
-              "iconName": "inv_helm_cloth_raidwarlockmidnight_d_01",
-              "iconAsset": "/assets/icons/inv_helm_cloth_raidwarlockmidnight_d_01.jpg",
-              "slot": "head",
-              "slotName": "头部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
+              "id": 260423,
+              "name": "阿拉托尔的迅疾纪念",
+              "icon": 7490210,
+              "iconName": "inv_sword_1h_raidmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_sword_1h_raidmidnight_d_01.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "单手剑",
+              "itemType": "武器",
+              "itemSubType": "单手剑",
               "ilvl": 269,
               "specs": [
-                265,
-                266,
-                267
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                4,
+                10,
+                12
               ],
               "quality": 4,
               "upgradeTrack": "英雄 4/6",
@@ -11177,26 +11529,26 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 103
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 51
                   }
                 ],
                 "stamina": {
                   "name": "耐力",
                   "type": "stamina",
-                  "value": 1383
+                  "value": 691
                 },
                 "secondary": [
                   {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 47
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 52
                   },
                   {
-                    "name": "精通",
-                    "type": "mastery",
-                    "value": 101
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 22
                   }
                 ],
                 "effects": {
@@ -11204,7 +11556,10 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 57
+                  "damageMax": 190,
+                  "damageMin": 114,
+                  "dps": 58.5,
+                  "speed": 2.6
                 }
               },
               "source": {
@@ -11215,24 +11570,115 @@
                 "encounterName": "宇宙之冕",
                 "difficulty": 15,
                 "difficultyName": "英雄",
-                "order": 7
+                "order": 5
               },
               "tooltipRaw": [
-                "放纵者的凝视",
+                "阿拉托尔的迅疾纪念",
                 "史诗",
                 "物品等级269",
                 "升级：英雄 4/6",
                 "拾取后绑定",
-                "头部 布甲",
-                "57点护甲",
-                "+103 智力",
-                "+1383 耐力",
-                "+47 急速",
-                "+101 精通",
+                "单手 剑",
+                "114 - 190点伤害 速度 2.60",
+                "（每秒伤害58.5）",
+                "+51 敏捷",
+                "+691 耐力",
+                "+52 爆击",
+                "+22 急速",
                 "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:249329::::::::90:270::5:1:3524:1:28:3606:::::|h[放纵者的凝视]|h|r",
-              "iconText": "放"
+              "link": "|cnIQ4:|Hitem:260423::::::::90:270::5:1:3524:1:28:3606:::::|h[阿拉托尔的迅疾纪念]|h|r",
+              "iconText": "阿"
+            },
+            {
+              "id": 249288,
+              "name": "游侠队长的致命反曲弓",
+              "icon": 7431982,
+              "iconName": "inv_bow_1h_raidmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_bow_1h_raidmidnight_d_01.jpg",
+              "slot": "weapon",
+              "slotName": "武器",
+              "armorType": "none",
+              "armorTypeName": "弓",
+              "itemType": "武器",
+              "itemSubType": "弓",
+              "ilvl": 269,
+              "specs": [
+                253,
+                254
+              ],
+              "classes": [
+                3
+              ],
+              "quality": 4,
+              "upgradeTrack": "英雄 4/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 103
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1383
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 105
+                  },
+                  {
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 44
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "damageMax": 267,
+                  "damageMin": 197,
+                  "dps": 77.3,
+                  "speed": 3
+                }
+              },
+              "source": {
+                "instanceId": 1307,
+                "instanceName": "虚影尖塔",
+                "isRaid": true,
+                "encounterId": 2738,
+                "encounterName": "宇宙之冕",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 6
+              },
+              "tooltipRaw": [
+                "游侠队长的致命反曲弓",
+                "史诗",
+                "物品等级269",
+                "升级：英雄 4/6",
+                "拾取后绑定",
+                "远程 弓",
+                "197 - 267点伤害 速度 3.00",
+                "（每秒伤害77.3）",
+                "+103 敏捷",
+                "+1383 耐力",
+                "+105 爆击",
+                "+44 急速",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:249288::::::::90:270::5:1:3524:1:28:3606:::::|h[游侠队长的致命反曲弓]|h|r",
+              "iconText": "游"
             },
             {
               "id": 249368,
@@ -11248,9 +11694,9 @@
               "itemSubType": "护甲",
               "ilvl": 276,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -11327,11 +11773,107 @@
               "iconText": "永"
             },
             {
-              "id": 249809,
-              "name": "双界行者的丝带",
-              "icon": 7636707,
-              "iconName": "inv_12_trinket_raid_voidspire_int2_locuswalkerslastribbon",
-              "iconAsset": "/assets/icons/inv_12_trinket_raid_voidspire_int2_locuswalkerslastribbon.jpg",
+              "id": 249325,
+              "name": "无拘狂暴者的护手",
+              "icon": 7371092,
+              "iconName": "inv_glove_mail_raidhuntermidnight_d_01",
+              "iconAsset": "/assets/icons/inv_glove_mail_raidhuntermidnight_d_01.jpg",
+              "slot": "hand",
+              "slotName": "手部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 269,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                3,
+                7,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "英雄 4/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 77
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 77
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1037
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 36
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 76
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 108
+                }
+              },
+              "source": {
+                "instanceId": 1307,
+                "instanceName": "虚影尖塔",
+                "isRaid": true,
+                "encounterId": 2738,
+                "encounterName": "宇宙之冕",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 10
+              },
+              "tooltipRaw": [
+                "无拘狂暴者的护手",
+                "史诗",
+                "物品等级269",
+                "升级：英雄 4/6",
+                "拾取后绑定",
+                "手部 锁甲",
+                "108点护甲",
+                "+77 智力",
+                "+1037 耐力",
+                "+36 爆击",
+                "+76 精通",
+                "+77 敏捷",
+                "\"她唯有在战斗中才能尽情释放。至少以前是这样。\"",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:249325::::::::90:270::5:1:3524:1:28:3606:::::|h[无拘狂暴者的护手]|h|r",
+              "iconText": "无"
+            },
+            {
+              "id": 249345,
+              "name": "游侠将军的虹彩徽章",
+              "icon": 7636703,
+              "iconName": "inv_12_trinket_raid_voidspire_agidps_rangercaptainsinsignia",
+              "iconAsset": "/assets/icons/inv_12_trinket_raid_voidspire_agidps_rangercaptainsinsignia.jpg",
               "slot": "trinket",
               "slotName": "饰品",
               "armorType": "none",
@@ -11340,20 +11882,17 @@
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                2,
-                5,
+                3,
+                4,
                 7,
-                8,
-                9,
                 10,
                 11,
-                12,
-                13
+                12
               ],
               "quality": 4,
               "upgradeTrack": "英雄 4/6",
@@ -11362,20 +11901,20 @@
                 "uniqueEquipped": true
               },
               "stats": {
-                "primaryStats": [],
-                "stamina": null,
-                "secondary": [
+                "primaryStats": [
                   {
-                    "name": "精通",
-                    "type": "mastery",
-                    "value": 106
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 98
                   }
                 ],
+                "stamina": null,
+                "secondary": [],
                 "effects": {
-                  "equip": [
-                    "装备： 施放法术有很大几率让你受到虚空之力的诱惑，使你的智力提高223点，持续10秒。\n每次诱惑会永久使此效果提高5%，最多10次，离开战斗后迅速减弱。 “你想要深入了解虚空？在疯狂的低语声中，它会向我们传授许多教训。”——双界行者"
-                  ],
-                  "use": []
+                  "equip": [],
+                  "use": [
+                    "使用： 释放一次银锋技巧射击，对你的目标和一名附近的敌人造成必定爆击的36044点奥术伤害。此伤害会受到你的爆击几率的进一步加成。\n你的爆击有很大几率使此技能的冷却时间缩短5秒。 （3分钟冷却）"
+                  ]
                 },
                 "white": {}
               },
@@ -11387,22 +11926,21 @@
                 "encounterName": "宇宙之冕",
                 "difficulty": 15,
                 "difficultyName": "英雄",
-                "order": 14
+                "order": 15
               },
               "tooltipRaw": [
-                "双界行者的丝带",
+                "游侠将军的虹彩徽章",
                 "史诗",
                 "物品等级269",
                 "升级：英雄 4/6",
                 "拾取后绑定",
                 "装备唯一",
                 "饰品",
-                "+106 精通",
-                "装备： 施放法术有很大几率让你受到虚空之力的诱惑，使你的智力提高223点，持续10秒。\n每次诱惑会永久使此效果提高5%，最多10次，离开战斗后迅速减弱。",
-                "“你想要深入了解虚空？在疯狂的低语声中，它会向我们传授许多教训。”——双界行者"
+                "+98 敏捷",
+                "使用： 释放一次银锋技巧射击，对你的目标和一名附近的敌人造成必定爆击的36044点奥术伤害。此伤害会受到你的爆击几率的进一步加成。\n你的爆击有很大几率使此技能的冷却时间缩短5秒。 （3分钟冷却）"
               ],
-              "link": "|cnIQ4:|Hitem:249809::::::::90:270::5:1:3524:1:28:3606:::::|h[双界行者的丝带]|h|r",
-              "iconText": "双"
+              "link": "|cnIQ4:|Hitem:249345::::::::90:270::5:1:3524:1:28:3606:::::|h[游侠将军的虹彩徽章]|h|r",
+              "iconText": "游"
             }
           ]
         }
@@ -11434,9 +11972,9 @@
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -11506,9 +12044,9 @@
               "itemSubType": "配方",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -11592,11 +12130,11 @@
               "iconText": "图"
             },
             {
-              "id": 249283,
-              "name": "贝罗梅洛恩，破碎之爪",
-              "icon": 7428175,
-              "iconName": "inv_knife_1h_raidmidnight_d_02",
-              "iconAsset": "/assets/icons/inv_knife_1h_raidmidnight_d_02.jpg",
+              "id": 249284,
+              "name": "贝洛朗的迅捷之爪",
+              "icon": 7363535,
+              "iconName": "inv_knife_1h_raidmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_knife_1h_raidmidnight_d_01.jpg",
               "slot": "weapon",
               "slotName": "武器",
               "armorType": "none",
@@ -11605,17 +12143,11 @@
               "itemSubType": "匕首",
               "ilvl": 269,
               "specs": [
-                265,
-                266,
-                267
+                255
               ],
               "classes": [
-                5,
-                7,
-                8,
-                9,
-                11,
-                13
+                3,
+                4
               ],
               "quality": 4,
               "upgradeTrack": "英雄 4/6",
@@ -11626,9 +12158,9 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 299
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 51
                   }
                 ],
                 "stamina": {
@@ -11638,14 +12170,14 @@
                 },
                 "secondary": [
                   {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 50
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 53
                   },
                   {
                     "name": "精通",
                     "type": "mastery",
-                    "value": 24
+                    "value": 22
                   }
                 ],
                 "effects": {
@@ -11653,9 +12185,9 @@
                   "use": []
                 },
                 "white": {
-                  "damageMax": 66,
-                  "damageMin": 39,
-                  "dps": 29.2,
+                  "damageMax": 132,
+                  "damageMin": 78,
+                  "dps": 58.3,
                   "speed": 1.8
                 }
               },
@@ -11667,48 +12199,49 @@
                 "encounterName": "贝洛朗，奥的子嗣",
                 "difficulty": 15,
                 "difficultyName": "英雄",
-                "order": 4
+                "order": 3
               },
               "tooltipRaw": [
-                "贝罗梅洛恩，破碎之爪",
+                "贝洛朗的迅捷之爪",
                 "史诗",
                 "物品等级269",
                 "升级：英雄 4/6",
                 "拾取后绑定",
                 "单手 匕首",
-                "39 - 66点伤害 速度 1.80",
-                "（每秒伤害29.2）",
-                "+299 智力",
+                "78 - 132点伤害 速度 1.80",
+                "（每秒伤害58.3）",
+                "+51 敏捷",
                 "+691 耐力",
-                "+50 急速",
-                "+24 精通",
+                "+53 爆击",
+                "+22 精通",
+                "\"火光一闪，黑影倒下。鲜有事物比这更快。\"",
                 "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:249283::::::::90:270::5:1:3524:1:28:3611:::::|h[贝罗梅洛恩，破碎之爪]|h|r",
+              "link": "|cnIQ4:|Hitem:249284::::::::90:270::5:1:3524:1:28:3611:::::|h[贝洛朗的迅捷之爪]|h|r",
               "iconText": "贝"
             },
             {
-              "id": 249328,
-              "name": "虚空回响衬肩",
-              "icon": 7444045,
-              "iconName": "inv_shoulder_cloth_raidmagemidnight_d_01",
-              "iconAsset": "/assets/icons/inv_shoulder_cloth_raidmagemidnight_d_01.jpg",
-              "slot": "shoulder",
-              "slotName": "肩部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
+              "id": 249324,
+              "name": "永恒之火鳞甲",
+              "icon": 7371094,
+              "iconName": "inv_pant_mail_raidhuntermidnight_d_01",
+              "iconAsset": "/assets/icons/inv_pant_mail_raidhuntermidnight_d_01.jpg",
+              "slot": "legs",
+              "slotName": "腿部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                7,
+                13
               ],
               "quality": 4,
               "upgradeTrack": "英雄 4/6",
@@ -11719,26 +12252,31 @@
               "stats": {
                 "primaryStats": [
                   {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 103
+                  },
+                  {
                     "name": "智力",
                     "type": "intellect",
-                    "value": 77
+                    "value": 103
                   }
                 ],
                 "stamina": {
                   "name": "耐力",
                   "type": "stamina",
-                  "value": 1037
+                  "value": 1383
                 },
                 "secondary": [
                   {
                     "name": "急速",
                     "type": "haste",
-                    "value": 78
+                    "value": 47
                   },
                   {
                     "name": "精通",
                     "type": "mastery",
-                    "value": 33
+                    "value": 101
                   }
                 ],
                 "effects": {
@@ -11746,7 +12284,7 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 52
+                  "armor": 169
                 }
               },
               "source": {
@@ -11757,47 +12295,48 @@
                 "encounterName": "贝洛朗，奥的子嗣",
                 "difficulty": 15,
                 "difficultyName": "英雄",
-                "order": 6
+                "order": 10
               },
               "tooltipRaw": [
-                "虚空回响衬肩",
+                "永恒之火鳞甲",
                 "史诗",
                 "物品等级269",
                 "升级：英雄 4/6",
                 "拾取后绑定",
-                "肩部 布甲",
-                "52点护甲",
-                "+77 智力",
-                "+1037 耐力",
-                "+78 急速",
-                "+33 精通",
+                "腿部 锁甲",
+                "169点护甲",
+                "+103 智力",
+                "+1383 耐力",
+                "+47 急速",
+                "+101 精通",
+                "+103 敏捷",
                 "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:249328::::::::90:270::5:1:3524:1:28:3611:::::|h[虚空回响衬肩]|h|r",
-              "iconText": "虚"
+              "link": "|cnIQ4:|Hitem:249324::::::::90:270::5:1:3524:1:28:3611:::::|h[永恒之火鳞甲]|h|r",
+              "iconText": "永"
             },
             {
-              "id": 249376,
-              "name": "铭刻低语腰带",
-              "icon": 7444037,
-              "iconName": "inv_belt_cloth_raidmagemidnight_d_01",
-              "iconAsset": "/assets/icons/inv_belt_cloth_raidmagemidnight_d_01.jpg",
-              "slot": "waist",
-              "slotName": "腰部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
+              "id": 249377,
+              "name": "涉暗踏靴",
+              "icon": 7371088,
+              "iconName": "inv_boot_mail_raidhuntermidnight_d_01",
+              "iconAsset": "/assets/icons/inv_boot_mail_raidhuntermidnight_d_01.jpg",
+              "slot": "feet",
+              "slotName": "脚部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                5,
-                8,
-                9
+                3,
+                7,
+                13
               ],
               "quality": 4,
               "upgradeTrack": "英雄 4/6",
@@ -11807,6 +12346,11 @@
               },
               "stats": {
                 "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 77
+                  },
                   {
                     "name": "智力",
                     "type": "intellect",
@@ -11820,14 +12364,14 @@
                 },
                 "secondary": [
                   {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 37
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 79
                   },
                   {
-                    "name": "精通",
-                    "type": "mastery",
-                    "value": 74
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 32
                   }
                 ],
                 "effects": {
@@ -11835,7 +12379,7 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 43
+                  "armor": 120
                 }
               },
               "source": {
@@ -11846,24 +12390,25 @@
                 "encounterName": "贝洛朗，奥的子嗣",
                 "difficulty": 15,
                 "difficultyName": "英雄",
-                "order": 9
+                "order": 11
               },
               "tooltipRaw": [
-                "铭刻低语腰带",
+                "涉暗踏靴",
                 "史诗",
                 "物品等级269",
                 "升级：英雄 4/6",
                 "拾取后绑定",
-                "腰部 布甲",
-                "43点护甲",
+                "脚部 锁甲",
+                "120点护甲",
                 "+77 智力",
                 "+1037 耐力",
-                "+37 急速",
-                "+74 精通",
+                "+79 爆击",
+                "+32 急速",
+                "+77 敏捷",
                 "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:249376::::::::90:270::5:1:3524:1:28:3611:::::|h[铭刻低语腰带]|h|r",
-              "iconText": "铭"
+              "link": "|cnIQ4:|Hitem:249377::::::::90:270::5:1:3524:1:28:3611:::::|h[涉暗踏靴]|h|r",
+              "iconText": "涉"
             },
             {
               "id": 249919,
@@ -11879,9 +12424,9 @@
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -11954,6 +12499,178 @@
               ],
               "link": "|cnIQ4:|Hitem:249919::::::::90:270::5:1:3524:1:28:3611:::::|h[辛多雷希望指环]|h|r",
               "iconText": "辛"
+            },
+            {
+              "id": 249806,
+              "name": "光耀飞羽",
+              "icon": 7636520,
+              "iconName": "inv_12_dualityphoenix_holy_feather",
+              "iconAsset": "/assets/icons/inv_12_dualityphoenix_holy_feather.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 269,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                1,
+                2,
+                3,
+                4,
+                6,
+                7,
+                10,
+                11,
+                12
+              ],
+              "quality": 4,
+              "upgradeTrack": "英雄 4/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "力量",
+                    "type": "strength",
+                    "value": 98
+                  },
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 98
+                  }
+                ],
+                "stamina": null,
+                "secondary": [],
+                "effects": {
+                  "equip": [
+                    "装备： 飞羽的光辉使你获得254精通，该效果在60秒内逐渐减弱，然后重新燃起万丈光芒。羽毛的力量在脱离战斗后会恢复。"
+                  ],
+                  "use": [
+                    "使用： 脱离战斗时，激活羽毛的二重性质，将其转变为幽影羽毛。 （5分钟冷却）"
+                  ]
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1308,
+                "instanceName": "进军奎尔丹纳斯",
+                "isRaid": true,
+                "encounterId": 2739,
+                "encounterName": "贝洛朗，奥的子嗣",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 13
+              },
+              "tooltipRaw": [
+                "光耀飞羽",
+                "史诗",
+                "物品等级269",
+                "升级：英雄 4/6",
+                "拾取后绑定",
+                "装备唯一：贝洛朗的飞羽 （1）",
+                "饰品",
+                "+98 敏捷",
+                "+98 力量",
+                "装备： 飞羽的光辉使你获得254精通，该效果在60秒内逐渐减弱，然后重新燃起万丈光芒。羽毛的力量在脱离战斗后会恢复。",
+                "使用： 脱离战斗时，激活羽毛的二重性质，将其转变为幽影羽毛。 （5分钟冷却）"
+              ],
+              "link": "|cnIQ4:|Hitem:249806::::::::90:270::5:1:3524:1:28:3611:::::|h[光耀飞羽]|h|r",
+              "iconText": "光"
+            },
+            {
+              "id": 260235,
+              "name": "幽影羽毛",
+              "icon": 7636525,
+              "iconName": "inv_12_dualityphoenix_void_feather",
+              "iconAsset": "/assets/icons/inv_12_dualityphoenix_void_feather.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 269,
+              "specs": [
+                253,
+                254,
+                255
+              ],
+              "classes": [
+                1,
+                2,
+                3,
+                4,
+                6,
+                7,
+                10,
+                11,
+                12
+              ],
+              "quality": 4,
+              "upgradeTrack": "英雄 4/6",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "力量",
+                    "type": "strength",
+                    "value": 98
+                  },
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 98
+                  }
+                ],
+                "stamina": null,
+                "secondary": [],
+                "effects": {
+                  "equip": [
+                    "装备： 羽毛的幽暗使你获得254爆击，该效果在60秒内逐渐减弱，然后重归于至暗。羽毛的力量在脱离战斗后会恢复。"
+                  ],
+                  "use": [
+                    "使用： 脱离战斗时，激活羽毛的二重性质，将其转变为光耀飞羽。 （5分钟冷却）"
+                  ]
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1308,
+                "instanceName": "进军奎尔丹纳斯",
+                "isRaid": true,
+                "encounterId": 2739,
+                "encounterName": "贝洛朗，奥的子嗣",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 14
+              },
+              "tooltipRaw": [
+                "幽影羽毛",
+                "史诗",
+                "物品等级269",
+                "升级：英雄 4/6",
+                "拾取后绑定",
+                "装备唯一：贝洛朗的飞羽 （1）",
+                "饰品",
+                "+98 敏捷",
+                "+98 力量",
+                "装备： 羽毛的幽暗使你获得254爆击，该效果在60秒内逐渐减弱，然后重归于至暗。羽毛的力量在脱离战斗后会恢复。",
+                "使用： 脱离战斗时，激活羽毛的二重性质，将其转变为光耀飞羽。 （5分钟冷却）"
+              ],
+              "link": "|cnIQ4:|Hitem:260235::::::::90:270::5:1:3524:1:28:3611:::::|h[幽影羽毛]|h|r",
+              "iconText": "幽"
             }
           ]
         },
@@ -11976,9 +12693,9 @@
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -12048,9 +12765,9 @@
               "itemSubType": "配方",
               "ilvl": 246,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -12146,9 +12863,9 @@
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -12218,9 +12935,9 @@
               "itemSubType": "住宅",
               "ilvl": 0,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -12290,9 +13007,9 @@
               "itemSubType": "材料",
               "ilvl": 266,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -12346,30 +13063,26 @@
               "iconText": "鸣"
             },
             {
-              "id": 249286,
-              "name": "不谐挽歌火杖",
-              "icon": 7374933,
-              "iconName": "inv_staff_2h_raidmidnight_d_02",
-              "iconAsset": "/assets/icons/inv_staff_2h_raidmidnight_d_02.jpg",
-              "slot": "weapon",
-              "slotName": "武器",
-              "armorType": "none",
-              "armorTypeName": "法杖",
-              "itemType": "武器",
-              "itemSubType": "法杖",
+              "id": 249914,
+              "name": "湮灭伪装",
+              "icon": 7384535,
+              "iconName": "inv_helm_mail_raidshamanmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_helm_mail_raidshamanmidnight_d_01.jpg",
+              "slot": "head",
+              "slotName": "头部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                5,
+                3,
                 7,
-                8,
-                9,
-                10,
-                11,
                 13
               ],
               "quality": 4,
@@ -12381,9 +13094,14 @@
               "stats": {
                 "primaryStats": [
                   {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 103
+                  },
+                  {
                     "name": "智力",
                     "type": "intellect",
-                    "value": 458
+                    "value": 103
                   }
                 ],
                 "stamina": {
@@ -12393,8 +13111,8 @@
                 },
                 "secondary": [
                   {
-                    "name": "精通",
-                    "type": "mastery",
+                    "name": "暴击",
+                    "type": "crit",
                     "value": 148
                   }
                 ],
@@ -12403,10 +13121,7 @@
                   "use": []
                 },
                 "white": {
-                  "damageMax": 160,
-                  "damageMin": 118,
-                  "dps": 38.6,
-                  "speed": 3.6
+                  "armor": 144
                 }
               },
               "source": {
@@ -12417,24 +13132,25 @@
                 "encounterName": "至暗之夜降临",
                 "difficulty": 15,
                 "difficultyName": "英雄",
-                "order": 6
+                "order": 9
               },
               "tooltipRaw": [
-                "不谐挽歌火杖",
+                "湮灭伪装",
                 "史诗",
                 "物品等级269",
                 "升级：英雄 4/6",
                 "拾取后绑定",
-                "双手 法杖",
-                "118 - 160点伤害 速度 3.60",
-                "（每秒伤害38.6）",
-                "+458 智力",
+                "头部 锁甲",
+                "144点护甲",
+                "+103 智力",
                 "+1383 耐力",
-                "+148 精通",
+                "+148 爆击",
+                "+64 吸血",
+                "+103 敏捷",
                 "你尚未收藏过此外观"
               ],
-              "link": "|cnIQ4:|Hitem:249286::::::::90:270::5:1:3524:1:28:3611:::::|h[不谐挽歌火杖]|h|r",
-              "iconText": "不"
+              "link": "|cnIQ4:|Hitem:249914::::::::90:270::5:1:3524:1:28:3611:::::|h[湮灭伪装]|h|r",
+              "iconText": "湮"
             },
             {
               "id": 250247,
@@ -12450,9 +13166,9 @@
               "itemSubType": "护甲",
               "ilvl": 269,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -12527,90 +13243,6 @@
               "iconText": "深"
             },
             {
-              "id": 249912,
-              "name": "无尽湮灭长袍",
-              "icon": 7367701,
-              "iconName": "inv_chest_cloth_raidwarlockmidnight_d_01",
-              "iconAsset": "/assets/icons/inv_chest_cloth_raidwarlockmidnight_d_01.jpg",
-              "slot": "chest",
-              "slotName": "胸部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
-              "ilvl": 269,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "英雄 4/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 103
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 1383
-                },
-                "secondary": [
-                  {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 148
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {
-                  "armor": 76
-                }
-              },
-              "source": {
-                "instanceId": 1308,
-                "instanceName": "进军奎尔丹纳斯",
-                "isRaid": true,
-                "encounterId": 2740,
-                "encounterName": "至暗之夜降临",
-                "difficulty": 15,
-                "difficultyName": "英雄",
-                "order": 12
-              },
-              "tooltipRaw": [
-                "无尽湮灭长袍",
-                "史诗",
-                "物品等级269",
-                "升级：英雄 4/6",
-                "拾取后绑定",
-                "胸部 布甲",
-                "76点护甲",
-                "+103 智力",
-                "+1383 耐力",
-                "+148 急速",
-                "+64 吸血",
-                "你尚未收藏过此外观"
-              ],
-              "link": "|cnIQ4:|Hitem:249912::::::::90:270::5:1:3524:1:28:3611:::::|h[无尽湮灭长袍]|h|r",
-              "iconText": "无"
-            },
-            {
               "id": 249920,
               "name": "至暗之夜的眼眸",
               "icon": 7636584,
@@ -12624,9 +13256,9 @@
               "itemSubType": "护甲",
               "ilvl": 276,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
                 1,
@@ -12697,118 +13329,43 @@
               ],
               "link": "|cnIQ4:|Hitem:249920::::::::90:270::5:1:3524:1:28:3611:::::|h[至暗之夜的眼眸]|h|r",
               "iconText": "至"
-            },
-            {
-              "id": 249810,
-              "name": "苍穹慰魂曲之影",
-              "icon": 7636696,
-              "iconName": "inv_12_trinket_raid_darkwell_intdps2",
-              "iconAsset": "/assets/icons/inv_12_trinket_raid_darkwell_intdps2.jpg",
-              "slot": "trinket",
-              "slotName": "饰品",
-              "armorType": "none",
-              "armorTypeName": "无甲种",
-              "itemType": "护甲",
-              "itemSubType": "护甲",
-              "ilvl": 269,
-              "specs": [
-                265,
-                266,
-                267
-              ],
-              "classes": [
-                5,
-                7,
-                8,
-                9,
-                11,
-                12,
-                13
-              ],
-              "quality": 4,
-              "upgradeTrack": "英雄 4/6",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": true
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "智力",
-                    "type": "intellect",
-                    "value": 98
-                  }
-                ],
-                "stamina": null,
-                "secondary": [],
-                "effects": {
-                  "equip": [
-                    "装备： 你的有害法术有很大几率从天空中召唤宇宙碎片，切割你的目标和一名附近的敌人，造成11503点宇宙伤害。\n如果任一敌人的生命值低于35%，你的急速会提高121，持续12秒，加速送他们走向末日。"
-                  ],
-                  "use": []
-                },
-                "white": {}
-              },
-              "source": {
-                "instanceId": 1308,
-                "instanceName": "进军奎尔丹纳斯",
-                "isRaid": true,
-                "encounterId": 2740,
-                "encounterName": "至暗之夜降临",
-                "difficulty": 15,
-                "difficultyName": "英雄",
-                "order": 16
-              },
-              "tooltipRaw": [
-                "苍穹慰魂曲之影",
-                "史诗",
-                "物品等级269",
-                "升级：英雄 4/6",
-                "拾取后绑定",
-                "装备唯一",
-                "饰品",
-                "+98 智力",
-                "装备： 你的有害法术有很大几率从天空中召唤宇宙碎片，切割你的目标和一名附近的敌人，造成11503点宇宙伤害。\n如果任一敌人的生命值低于35%，你的急速会提高121，持续12秒，加速送他们走向末日。"
-              ],
-              "link": "|cnIQ4:|Hitem:249810::::::::90:270::5:1:3524:1:28:3611:::::|h[苍穹慰魂曲之影]|h|r",
-              "iconText": "苍"
             }
           ]
         }
       ]
     },
     {
-      "id": "tier:warlock",
+      "id": "tier:hunter",
       "name": "套装",
       "type": "tier",
       "difficulty": 5,
       "order": 999,
       "encounters": [
         {
-          "id": "tier-set:warlock",
-          "name": "深渊焚化者之治",
+          "id": "tier-set:hunter",
+          "name": "原始哨兵的伪装",
           "order": 0,
           "items": [
             {
-              "id": 250042,
-              "name": "深渊焚化者的余烬之火",
-              "icon": 7367703,
-              "iconName": "inv_helm_cloth_raidwarlockmidnight_d_01",
-              "iconAsset": "/assets/icons/inv_helm_cloth_raidwarlockmidnight_d_01.jpg",
+              "id": 249988,
+              "name": "原始哨兵的巨口头盔",
+              "icon": 7371093,
+              "iconName": "inv_helm_mail_raidhuntermidnight_d_01",
+              "iconAsset": "/assets/icons/inv_helm_mail_raidhuntermidnight_d_01.jpg",
               "slot": "head",
               "slotName": "头部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
-              "itemSubType": "布甲",
+              "itemSubType": "锁甲",
               "ilvl": 263,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                9
+                3
               ],
               "quality": 4,
               "upgradeTrack": "英雄 2/6",
@@ -12819,9 +13376,9 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "key": "intellect",
-                    "type": "intellect",
-                    "name": "智力",
+                    "key": "agility",
+                    "type": "agility",
+                    "name": "敏捷",
                     "value": 97
                   }
                 ],
@@ -12836,13 +13393,13 @@
                     "key": "crit",
                     "type": "crit",
                     "name": "暴击",
-                    "value": 101
+                    "value": 97
                   },
                   {
-                    "key": "mastery",
-                    "type": "mastery",
-                    "name": "精通",
-                    "value": 43
+                    "key": "haste",
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 47
                   }
                 ],
                 "effects": {
@@ -12850,139 +13407,153 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 55
+                  "armor": 140
                 }
               },
               "source": {
-                "instanceId": "tier:warlock",
+                "instanceId": "tier:hunter",
                 "instanceName": "套装",
                 "isRaid": false,
-                "encounterId": "tier-set:warlock",
-                "encounterName": "深渊焚化者之治",
+                "encounterId": "tier-set:hunter",
+                "encounterName": "原始哨兵的伪装",
                 "difficulty": 5,
-                "difficultyName": "英雄 2/6",
+                "difficultyName": "虚影尖塔 · 英雄",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
-                "深渊焚化者的余烬之火",
+                "原始哨兵的巨口头盔",
                 "史诗",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
-                "头部 布甲",
-                "55点护甲",
-                "+97 智力",
+                "头部 锁甲",
+                "140点护甲",
+                "+97 敏捷",
                 "+1281 耐力",
-                "+101 爆击",
-                "+43 精通",
-                "深渊焚化者之治（0/5）",
-                "深渊焚化者的裹手",
-                "深渊焚化者的余烬之火",
-                "深渊焚化者的支柱",
-                "深渊焚化者的恐慌长袍",
-                "深渊焚化者的狂怒护肩",
+                "+97 爆击",
+                "+47 急速",
+                "原始哨兵的伪装（0/5）",
+                "原始哨兵的鳞甲",
+                "原始哨兵的利爪护手",
+                "原始哨兵的巨口头盔",
+                "原始哨兵的护腿",
+                "原始哨兵的战利品",
                 "套装奖励将根据玩家专精变化。",
-                "职业：术士",
+                "职业：猎人",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:250042::::::::90:0::5:1:3524:1:28:3606:::::",
-              "iconText": "深",
+              "link": "item:249988::::::::90:0::5:1:3524:1:28:3606:::::",
+              "iconText": "原",
+              "isBonusPiece": true,
+              "collectionKind": "bonus",
+              "appearance": {
+                "isBonusPiece": true,
+                "isCollected": false,
+                "itemModId": 1,
+                "slotId": 1,
+                "slotKey": "head",
+                "sourceId": 296876,
+                "transmogSetDescription": "英雄",
+                "transmogSetId": 5435,
+                "transmogSetLabel": "虚影尖塔",
+                "transmogSetName": "原始哨兵的伪装",
+                "visualId": 125948
+              },
               "tier": {
-                "setId": 1989,
-                "setName": "深渊焚化者之治",
+                "setId": 5435,
+                "setName": "原始哨兵的伪装",
                 "pieceCount": 9,
                 "pieces": [
-                  "深渊焚化者的余烬之火",
-                  "深渊焚化者的狂怒护肩",
-                  "深渊焚化者的恐慌长袍",
-                  "深渊焚化者的裹手",
-                  "深渊焚化者的支柱",
-                  "深渊焚化者的仪式披风",
-                  "深渊焚化者的镣铐",
-                  "深渊焚化者的炽燃核心",
-                  "深渊焚化者的灰烬行者"
+                  "原始哨兵的巨口头盔",
+                  "原始哨兵的战利品",
+                  "原始哨兵的鳞甲",
+                  "原始哨兵的利爪护手",
+                  "原始哨兵的护腿",
+                  "原始哨兵的脊刺披风",
+                  "原始哨兵的止血护腕",
+                  "原始哨兵的腰链",
+                  "原始哨兵的迅捷步靴"
                 ],
                 "bonusesBySpec": {
-                  "265": {
-                    "specId": 265,
-                    "specName": "痛苦",
-                    "twoPiece": "痛苦无常和腐蚀之种的伤害提高10%。",
-                    "fourPiece": "痛楚初始具有2层额外层数，其伤害提高20%。",
+                  "253": {
+                    "specId": 253,
+                    "specName": "野兽控制",
+                    "twoPiece": "狂野怒火的直接伤害提高25%。",
+                    "fourPiece": "狂野怒火召唤1只凶暴野兽，持续8秒。",
                     "spells": [
                       {
-                        "spellId": 1264869,
-                        "name": "Warlock Affliction 12.0 Class Set 2pc",
-                        "description": "痛苦无常和腐蚀之种的伤害提高10%。"
+                        "spellId": 1264825,
+                        "name": "Hunter Beast Mastery 12.0 Class Set 2pc",
+                        "description": "狂野怒火的直接伤害提高25%。"
                       },
                       {
-                        "spellId": 1264870,
-                        "name": "Warlock Affliction 12.0 Class Set 4pc",
-                        "description": "痛楚初始具有2层额外层数，其伤害提高20%。"
+                        "spellId": 1264826,
+                        "name": "Hunter Beast Mastery 12.0 Class Set 4pc",
+                        "description": "狂野怒火召唤1只凶暴野兽，持续8秒。"
                       }
                     ]
                   },
-                  "266": {
-                    "specId": 266,
-                    "specName": "恶魔学识",
-                    "twoPiece": "古尔丹之手的伤害提高15%。",
-                    "fourPiece": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。",
+                  "254": {
+                    "specId": 254,
+                    "specName": "射击",
+                    "twoPiece": "弹无虚发的伤害额外提高20%。",
+                    "fourPiece": "消耗弹无虚发有较小几率向你的目标释放一阵箭雨，对附近的敌人造成4451点伤害。",
                     "spells": [
                       {
-                        "spellId": 1264871,
-                        "name": "Warlock Demonology 12.0 Class Set 2pc",
-                        "description": "古尔丹之手的伤害提高15%。"
+                        "spellId": 1264828,
+                        "name": "Hunter Marksmanship 12.0 Class Set 2pc",
+                        "description": "弹无虚发的伤害额外提高20%。"
                       },
                       {
-                        "spellId": 1264872,
-                        "name": "Warlock Demonology 12.0 Class Set 4pc",
-                        "description": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。"
+                        "spellId": 1264829,
+                        "name": "Hunter Marksmanship 12.0 Class Set 4pc",
+                        "description": "消耗弹无虚发有较小几率向你的目标释放一阵箭雨，对附近的敌人造成4451点伤害。"
                       }
                     ]
                   },
-                  "267": {
-                    "specId": 267,
-                    "specName": "毁灭",
-                    "twoPiece": "混乱箭和火焰之雨的伤害提高5%。",
-                    "fourPiece": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。",
+                  "255": {
+                    "specId": 255,
+                    "specName": "生存",
+                    "twoPiece": "野火炸弹伤害提高10%。",
+                    "fourPiece": "野火炸弹会额外触发一次效果为100%的羁绊共狩。",
                     "spells": [
                       {
-                        "spellId": 1264873,
-                        "name": "Warlock Destruction 12.0 Class Set 2pc",
-                        "description": "混乱箭和火焰之雨的伤害提高5%。"
+                        "spellId": 1264830,
+                        "name": "Hunter Beast Survival 12.0 Class Set 2pc",
+                        "description": "野火炸弹伤害提高10%。"
                       },
                       {
-                        "spellId": 1264874,
-                        "name": "Warlock Destruction 12.0 Class Set 4pc",
-                        "description": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。"
+                        "spellId": 1264831,
+                        "name": "Hunter Beast Survival 12.0 Class Set 4pc",
+                        "description": "野火炸弹会额外触发一次效果为100%的羁绊共狩。"
                       }
                     ]
                   }
                 },
-                "sourceLabel": "套装",
-                "isBonusPiece": true
+                "sourceLabel": "套装"
               }
             },
             {
-              "id": 250040,
-              "name": "深渊焚化者的狂怒护肩",
-              "icon": 7367705,
-              "iconName": "inv_shoulder_cloth_raidwarlockmidnight_d_01",
-              "iconAsset": "/assets/icons/inv_shoulder_cloth_raidwarlockmidnight_d_01.jpg",
+              "id": 249986,
+              "name": "原始哨兵的战利品",
+              "icon": 7371095,
+              "iconName": "inv_shoulder_mail_raidhuntermidnight_d_01",
+              "iconAsset": "/assets/icons/inv_shoulder_mail_raidhuntermidnight_d_01.jpg",
               "slot": "shoulder",
               "slotName": "肩部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
-              "itemSubType": "布甲",
+              "itemSubType": "锁甲",
               "ilvl": 263,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                9
+                3
               ],
               "quality": 4,
               "upgradeTrack": "英雄 2/6",
@@ -12993,9 +13564,9 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "key": "intellect",
-                    "type": "intellect",
-                    "name": "智力",
+                    "key": "agility",
+                    "type": "agility",
+                    "name": "敏捷",
                     "value": 73
                   }
                 ],
@@ -13007,16 +13578,16 @@
                 },
                 "secondary": [
                   {
-                    "key": "mastery",
-                    "type": "mastery",
-                    "name": "精通",
-                    "value": 71
+                    "key": "haste",
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 72
                   },
                   {
                     "key": "versatility",
                     "type": "versatility",
                     "name": "全能",
-                    "value": 37
+                    "value": 36
                   }
                 ],
                 "effects": {
@@ -13024,139 +13595,153 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 51
+                  "armor": 128
                 }
               },
               "source": {
-                "instanceId": "tier:warlock",
+                "instanceId": "tier:hunter",
                 "instanceName": "套装",
                 "isRaid": false,
-                "encounterId": "tier-set:warlock",
-                "encounterName": "深渊焚化者之治",
+                "encounterId": "tier-set:hunter",
+                "encounterName": "原始哨兵的伪装",
                 "difficulty": 5,
-                "difficultyName": "英雄 2/6",
+                "difficultyName": "虚影尖塔 · 英雄",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
-                "深渊焚化者的狂怒护肩",
+                "原始哨兵的战利品",
                 "史诗",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
-                "肩部 布甲",
-                "51点护甲",
-                "+73 智力",
+                "肩部 锁甲",
+                "128点护甲",
+                "+73 敏捷",
                 "+961 耐力",
-                "+37 全能",
-                "+71 精通",
-                "深渊焚化者之治（0/5）",
-                "深渊焚化者的裹手",
-                "深渊焚化者的余烬之火",
-                "深渊焚化者的支柱",
-                "深渊焚化者的恐慌长袍",
-                "深渊焚化者的狂怒护肩",
+                "+72 急速",
+                "+36 全能",
+                "原始哨兵的伪装（0/5）",
+                "原始哨兵的鳞甲",
+                "原始哨兵的利爪护手",
+                "原始哨兵的巨口头盔",
+                "原始哨兵的护腿",
+                "原始哨兵的战利品",
                 "套装奖励将根据玩家专精变化。",
-                "职业：术士",
+                "职业：猎人",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:250040::::::::90:0::5:1:3524:1:28:3606:::::",
-              "iconText": "深",
+              "link": "item:249986::::::::90:0::5:1:3524:1:28:3606:::::",
+              "iconText": "原",
+              "isBonusPiece": true,
+              "collectionKind": "bonus",
+              "appearance": {
+                "isBonusPiece": true,
+                "isCollected": false,
+                "itemModId": 1,
+                "slotId": 3,
+                "slotKey": "shoulder",
+                "sourceId": 296852,
+                "transmogSetDescription": "英雄",
+                "transmogSetId": 5435,
+                "transmogSetLabel": "虚影尖塔",
+                "transmogSetName": "原始哨兵的伪装",
+                "visualId": 125949
+              },
               "tier": {
-                "setId": 1989,
-                "setName": "深渊焚化者之治",
+                "setId": 5435,
+                "setName": "原始哨兵的伪装",
                 "pieceCount": 9,
                 "pieces": [
-                  "深渊焚化者的余烬之火",
-                  "深渊焚化者的狂怒护肩",
-                  "深渊焚化者的恐慌长袍",
-                  "深渊焚化者的裹手",
-                  "深渊焚化者的支柱",
-                  "深渊焚化者的仪式披风",
-                  "深渊焚化者的镣铐",
-                  "深渊焚化者的炽燃核心",
-                  "深渊焚化者的灰烬行者"
+                  "原始哨兵的巨口头盔",
+                  "原始哨兵的战利品",
+                  "原始哨兵的鳞甲",
+                  "原始哨兵的利爪护手",
+                  "原始哨兵的护腿",
+                  "原始哨兵的脊刺披风",
+                  "原始哨兵的止血护腕",
+                  "原始哨兵的腰链",
+                  "原始哨兵的迅捷步靴"
                 ],
                 "bonusesBySpec": {
-                  "265": {
-                    "specId": 265,
-                    "specName": "痛苦",
-                    "twoPiece": "痛苦无常和腐蚀之种的伤害提高10%。",
-                    "fourPiece": "痛楚初始具有2层额外层数，其伤害提高20%。",
+                  "253": {
+                    "specId": 253,
+                    "specName": "野兽控制",
+                    "twoPiece": "狂野怒火的直接伤害提高25%。",
+                    "fourPiece": "狂野怒火召唤1只凶暴野兽，持续8秒。",
                     "spells": [
                       {
-                        "spellId": 1264869,
-                        "name": "Warlock Affliction 12.0 Class Set 2pc",
-                        "description": "痛苦无常和腐蚀之种的伤害提高10%。"
+                        "spellId": 1264825,
+                        "name": "Hunter Beast Mastery 12.0 Class Set 2pc",
+                        "description": "狂野怒火的直接伤害提高25%。"
                       },
                       {
-                        "spellId": 1264870,
-                        "name": "Warlock Affliction 12.0 Class Set 4pc",
-                        "description": "痛楚初始具有2层额外层数，其伤害提高20%。"
+                        "spellId": 1264826,
+                        "name": "Hunter Beast Mastery 12.0 Class Set 4pc",
+                        "description": "狂野怒火召唤1只凶暴野兽，持续8秒。"
                       }
                     ]
                   },
-                  "266": {
-                    "specId": 266,
-                    "specName": "恶魔学识",
-                    "twoPiece": "古尔丹之手的伤害提高15%。",
-                    "fourPiece": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。",
+                  "254": {
+                    "specId": 254,
+                    "specName": "射击",
+                    "twoPiece": "弹无虚发的伤害额外提高20%。",
+                    "fourPiece": "消耗弹无虚发有较小几率向你的目标释放一阵箭雨，对附近的敌人造成4451点伤害。",
                     "spells": [
                       {
-                        "spellId": 1264871,
-                        "name": "Warlock Demonology 12.0 Class Set 2pc",
-                        "description": "古尔丹之手的伤害提高15%。"
+                        "spellId": 1264828,
+                        "name": "Hunter Marksmanship 12.0 Class Set 2pc",
+                        "description": "弹无虚发的伤害额外提高20%。"
                       },
                       {
-                        "spellId": 1264872,
-                        "name": "Warlock Demonology 12.0 Class Set 4pc",
-                        "description": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。"
+                        "spellId": 1264829,
+                        "name": "Hunter Marksmanship 12.0 Class Set 4pc",
+                        "description": "消耗弹无虚发有较小几率向你的目标释放一阵箭雨，对附近的敌人造成4451点伤害。"
                       }
                     ]
                   },
-                  "267": {
-                    "specId": 267,
-                    "specName": "毁灭",
-                    "twoPiece": "混乱箭和火焰之雨的伤害提高5%。",
-                    "fourPiece": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。",
+                  "255": {
+                    "specId": 255,
+                    "specName": "生存",
+                    "twoPiece": "野火炸弹伤害提高10%。",
+                    "fourPiece": "野火炸弹会额外触发一次效果为100%的羁绊共狩。",
                     "spells": [
                       {
-                        "spellId": 1264873,
-                        "name": "Warlock Destruction 12.0 Class Set 2pc",
-                        "description": "混乱箭和火焰之雨的伤害提高5%。"
+                        "spellId": 1264830,
+                        "name": "Hunter Beast Survival 12.0 Class Set 2pc",
+                        "description": "野火炸弹伤害提高10%。"
                       },
                       {
-                        "spellId": 1264874,
-                        "name": "Warlock Destruction 12.0 Class Set 4pc",
-                        "description": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。"
+                        "spellId": 1264831,
+                        "name": "Hunter Beast Survival 12.0 Class Set 4pc",
+                        "description": "野火炸弹会额外触发一次效果为100%的羁绊共狩。"
                       }
                     ]
                   }
                 },
-                "sourceLabel": "套装",
-                "isBonusPiece": true
+                "sourceLabel": "套装"
               }
             },
             {
-              "id": 250045,
-              "name": "深渊焚化者的恐慌长袍",
-              "icon": 7367701,
-              "iconName": "inv_chest_cloth_raidwarlockmidnight_d_01",
-              "iconAsset": "/assets/icons/inv_chest_cloth_raidwarlockmidnight_d_01.jpg",
+              "id": 249991,
+              "name": "原始哨兵的鳞甲",
+              "icon": 7371091,
+              "iconName": "inv_chest_mail_raidhuntermidnight_d_01",
+              "iconAsset": "/assets/icons/inv_chest_mail_raidhuntermidnight_d_01.jpg",
               "slot": "chest",
               "slotName": "胸部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
-              "itemSubType": "布甲",
+              "itemSubType": "锁甲",
               "ilvl": 263,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                9
+                3
               ],
               "quality": 4,
               "upgradeTrack": "英雄 2/6",
@@ -13167,9 +13752,9 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "key": "intellect",
-                    "type": "intellect",
-                    "name": "智力",
+                    "key": "agility",
+                    "type": "agility",
+                    "name": "敏捷",
                     "value": 97
                   }
                 ],
@@ -13187,10 +13772,10 @@
                     "value": 100
                   },
                   {
-                    "key": "mastery",
-                    "type": "mastery",
-                    "name": "精通",
-                    "value": 44
+                    "key": "crit",
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 43
                   }
                 ],
                 "effects": {
@@ -13198,139 +13783,153 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 74
+                  "armor": 186
                 }
               },
               "source": {
-                "instanceId": "tier:warlock",
+                "instanceId": "tier:hunter",
                 "instanceName": "套装",
                 "isRaid": false,
-                "encounterId": "tier-set:warlock",
-                "encounterName": "深渊焚化者之治",
+                "encounterId": "tier-set:hunter",
+                "encounterName": "原始哨兵的伪装",
                 "difficulty": 5,
-                "difficultyName": "英雄 2/6",
+                "difficultyName": "虚影尖塔 · 英雄",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
-                "深渊焚化者的恐慌长袍",
+                "原始哨兵的鳞甲",
                 "史诗",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
-                "胸部 布甲",
-                "74点护甲",
-                "+97 智力",
+                "胸部 锁甲",
+                "186点护甲",
+                "+97 敏捷",
                 "+1281 耐力",
+                "+43 爆击",
                 "+100 急速",
-                "+44 精通",
-                "深渊焚化者之治（0/5）",
-                "深渊焚化者的裹手",
-                "深渊焚化者的余烬之火",
-                "深渊焚化者的支柱",
-                "深渊焚化者的恐慌长袍",
-                "深渊焚化者的狂怒护肩",
+                "原始哨兵的伪装（0/5）",
+                "原始哨兵的鳞甲",
+                "原始哨兵的利爪护手",
+                "原始哨兵的巨口头盔",
+                "原始哨兵的护腿",
+                "原始哨兵的战利品",
                 "套装奖励将根据玩家专精变化。",
-                "职业：术士",
+                "职业：猎人",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:250045::::::::90:0::5:1:3524:1:28:3606:::::",
-              "iconText": "深",
+              "link": "item:249991::::::::90:0::5:1:3524:1:28:3606:::::",
+              "iconText": "原",
+              "isBonusPiece": true,
+              "collectionKind": "bonus",
+              "appearance": {
+                "isBonusPiece": true,
+                "isCollected": false,
+                "itemModId": 1,
+                "slotId": 5,
+                "slotKey": "chest",
+                "sourceId": 296912,
+                "transmogSetDescription": "英雄",
+                "transmogSetId": 5435,
+                "transmogSetLabel": "虚影尖塔",
+                "transmogSetName": "原始哨兵的伪装",
+                "visualId": 125950
+              },
               "tier": {
-                "setId": 1989,
-                "setName": "深渊焚化者之治",
+                "setId": 5435,
+                "setName": "原始哨兵的伪装",
                 "pieceCount": 9,
                 "pieces": [
-                  "深渊焚化者的余烬之火",
-                  "深渊焚化者的狂怒护肩",
-                  "深渊焚化者的恐慌长袍",
-                  "深渊焚化者的裹手",
-                  "深渊焚化者的支柱",
-                  "深渊焚化者的仪式披风",
-                  "深渊焚化者的镣铐",
-                  "深渊焚化者的炽燃核心",
-                  "深渊焚化者的灰烬行者"
+                  "原始哨兵的巨口头盔",
+                  "原始哨兵的战利品",
+                  "原始哨兵的鳞甲",
+                  "原始哨兵的利爪护手",
+                  "原始哨兵的护腿",
+                  "原始哨兵的脊刺披风",
+                  "原始哨兵的止血护腕",
+                  "原始哨兵的腰链",
+                  "原始哨兵的迅捷步靴"
                 ],
                 "bonusesBySpec": {
-                  "265": {
-                    "specId": 265,
-                    "specName": "痛苦",
-                    "twoPiece": "痛苦无常和腐蚀之种的伤害提高10%。",
-                    "fourPiece": "痛楚初始具有2层额外层数，其伤害提高20%。",
+                  "253": {
+                    "specId": 253,
+                    "specName": "野兽控制",
+                    "twoPiece": "狂野怒火的直接伤害提高25%。",
+                    "fourPiece": "狂野怒火召唤1只凶暴野兽，持续8秒。",
                     "spells": [
                       {
-                        "spellId": 1264869,
-                        "name": "Warlock Affliction 12.0 Class Set 2pc",
-                        "description": "痛苦无常和腐蚀之种的伤害提高10%。"
+                        "spellId": 1264825,
+                        "name": "Hunter Beast Mastery 12.0 Class Set 2pc",
+                        "description": "狂野怒火的直接伤害提高25%。"
                       },
                       {
-                        "spellId": 1264870,
-                        "name": "Warlock Affliction 12.0 Class Set 4pc",
-                        "description": "痛楚初始具有2层额外层数，其伤害提高20%。"
+                        "spellId": 1264826,
+                        "name": "Hunter Beast Mastery 12.0 Class Set 4pc",
+                        "description": "狂野怒火召唤1只凶暴野兽，持续8秒。"
                       }
                     ]
                   },
-                  "266": {
-                    "specId": 266,
-                    "specName": "恶魔学识",
-                    "twoPiece": "古尔丹之手的伤害提高15%。",
-                    "fourPiece": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。",
+                  "254": {
+                    "specId": 254,
+                    "specName": "射击",
+                    "twoPiece": "弹无虚发的伤害额外提高20%。",
+                    "fourPiece": "消耗弹无虚发有较小几率向你的目标释放一阵箭雨，对附近的敌人造成4451点伤害。",
                     "spells": [
                       {
-                        "spellId": 1264871,
-                        "name": "Warlock Demonology 12.0 Class Set 2pc",
-                        "description": "古尔丹之手的伤害提高15%。"
+                        "spellId": 1264828,
+                        "name": "Hunter Marksmanship 12.0 Class Set 2pc",
+                        "description": "弹无虚发的伤害额外提高20%。"
                       },
                       {
-                        "spellId": 1264872,
-                        "name": "Warlock Demonology 12.0 Class Set 4pc",
-                        "description": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。"
+                        "spellId": 1264829,
+                        "name": "Hunter Marksmanship 12.0 Class Set 4pc",
+                        "description": "消耗弹无虚发有较小几率向你的目标释放一阵箭雨，对附近的敌人造成4451点伤害。"
                       }
                     ]
                   },
-                  "267": {
-                    "specId": 267,
-                    "specName": "毁灭",
-                    "twoPiece": "混乱箭和火焰之雨的伤害提高5%。",
-                    "fourPiece": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。",
+                  "255": {
+                    "specId": 255,
+                    "specName": "生存",
+                    "twoPiece": "野火炸弹伤害提高10%。",
+                    "fourPiece": "野火炸弹会额外触发一次效果为100%的羁绊共狩。",
                     "spells": [
                       {
-                        "spellId": 1264873,
-                        "name": "Warlock Destruction 12.0 Class Set 2pc",
-                        "description": "混乱箭和火焰之雨的伤害提高5%。"
+                        "spellId": 1264830,
+                        "name": "Hunter Beast Survival 12.0 Class Set 2pc",
+                        "description": "野火炸弹伤害提高10%。"
                       },
                       {
-                        "spellId": 1264874,
-                        "name": "Warlock Destruction 12.0 Class Set 4pc",
-                        "description": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。"
+                        "spellId": 1264831,
+                        "name": "Hunter Beast Survival 12.0 Class Set 4pc",
+                        "description": "野火炸弹会额外触发一次效果为100%的羁绊共狩。"
                       }
                     ]
                   }
                 },
-                "sourceLabel": "套装",
-                "isBonusPiece": true
+                "sourceLabel": "套装"
               }
             },
             {
-              "id": 250043,
-              "name": "深渊焚化者的裹手",
-              "icon": 7367702,
-              "iconName": "inv_glove_cloth_raidwarlockmidnight_d_01",
-              "iconAsset": "/assets/icons/inv_glove_cloth_raidwarlockmidnight_d_01.jpg",
+              "id": 249989,
+              "name": "原始哨兵的利爪护手",
+              "icon": 7371092,
+              "iconName": "inv_glove_mail_raidhuntermidnight_d_01",
+              "iconAsset": "/assets/icons/inv_glove_mail_raidhuntermidnight_d_01.jpg",
               "slot": "hand",
               "slotName": "手部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
-              "itemSubType": "布甲",
+              "itemSubType": "锁甲",
               "ilvl": 263,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                9
+                3
               ],
               "quality": 4,
               "upgradeTrack": "英雄 2/6",
@@ -13341,9 +13940,9 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "key": "intellect",
-                    "type": "intellect",
-                    "name": "智力",
+                    "key": "agility",
+                    "type": "agility",
+                    "name": "敏捷",
                     "value": 73
                   }
                 ],
@@ -13355,16 +13954,16 @@
                 },
                 "secondary": [
                   {
+                    "key": "mastery",
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 76
+                  },
+                  {
                     "key": "crit",
                     "type": "crit",
                     "name": "暴击",
-                    "value": 74
-                  },
-                  {
-                    "key": "haste",
-                    "type": "haste",
-                    "name": "急速",
-                    "value": 33
+                    "value": 32
                   }
                 ],
                 "effects": {
@@ -13372,139 +13971,153 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 41
+                  "armor": 105
                 }
               },
               "source": {
-                "instanceId": "tier:warlock",
+                "instanceId": "tier:hunter",
                 "instanceName": "套装",
                 "isRaid": false,
-                "encounterId": "tier-set:warlock",
-                "encounterName": "深渊焚化者之治",
+                "encounterId": "tier-set:hunter",
+                "encounterName": "原始哨兵的伪装",
                 "difficulty": 5,
-                "difficultyName": "英雄 2/6",
+                "difficultyName": "虚影尖塔 · 英雄",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
-                "深渊焚化者的裹手",
+                "原始哨兵的利爪护手",
                 "史诗",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
-                "手部 布甲",
-                "41点护甲",
-                "+73 智力",
+                "手部 锁甲",
+                "105点护甲",
+                "+73 敏捷",
                 "+961 耐力",
-                "+74 爆击",
-                "+33 急速",
-                "深渊焚化者之治（0/5）",
-                "深渊焚化者的裹手",
-                "深渊焚化者的余烬之火",
-                "深渊焚化者的支柱",
-                "深渊焚化者的恐慌长袍",
-                "深渊焚化者的狂怒护肩",
+                "+32 爆击",
+                "+76 精通",
+                "原始哨兵的伪装（0/5）",
+                "原始哨兵的鳞甲",
+                "原始哨兵的利爪护手",
+                "原始哨兵的巨口头盔",
+                "原始哨兵的护腿",
+                "原始哨兵的战利品",
                 "套装奖励将根据玩家专精变化。",
-                "职业：术士",
+                "职业：猎人",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:250043::::::::90:0::5:1:3524:1:28:3606:::::",
-              "iconText": "深",
+              "link": "item:249989::::::::90:0::5:1:3524:1:28:3606:::::",
+              "iconText": "原",
+              "isBonusPiece": true,
+              "collectionKind": "bonus",
+              "appearance": {
+                "isBonusPiece": true,
+                "isCollected": false,
+                "itemModId": 1,
+                "slotId": 10,
+                "slotKey": "hands",
+                "sourceId": 296888,
+                "transmogSetDescription": "英雄",
+                "transmogSetId": 5435,
+                "transmogSetLabel": "虚影尖塔",
+                "transmogSetName": "原始哨兵的伪装",
+                "visualId": 125955
+              },
               "tier": {
-                "setId": 1989,
-                "setName": "深渊焚化者之治",
+                "setId": 5435,
+                "setName": "原始哨兵的伪装",
                 "pieceCount": 9,
                 "pieces": [
-                  "深渊焚化者的余烬之火",
-                  "深渊焚化者的狂怒护肩",
-                  "深渊焚化者的恐慌长袍",
-                  "深渊焚化者的裹手",
-                  "深渊焚化者的支柱",
-                  "深渊焚化者的仪式披风",
-                  "深渊焚化者的镣铐",
-                  "深渊焚化者的炽燃核心",
-                  "深渊焚化者的灰烬行者"
+                  "原始哨兵的巨口头盔",
+                  "原始哨兵的战利品",
+                  "原始哨兵的鳞甲",
+                  "原始哨兵的利爪护手",
+                  "原始哨兵的护腿",
+                  "原始哨兵的脊刺披风",
+                  "原始哨兵的止血护腕",
+                  "原始哨兵的腰链",
+                  "原始哨兵的迅捷步靴"
                 ],
                 "bonusesBySpec": {
-                  "265": {
-                    "specId": 265,
-                    "specName": "痛苦",
-                    "twoPiece": "痛苦无常和腐蚀之种的伤害提高10%。",
-                    "fourPiece": "痛楚初始具有2层额外层数，其伤害提高20%。",
+                  "253": {
+                    "specId": 253,
+                    "specName": "野兽控制",
+                    "twoPiece": "狂野怒火的直接伤害提高25%。",
+                    "fourPiece": "狂野怒火召唤1只凶暴野兽，持续8秒。",
                     "spells": [
                       {
-                        "spellId": 1264869,
-                        "name": "Warlock Affliction 12.0 Class Set 2pc",
-                        "description": "痛苦无常和腐蚀之种的伤害提高10%。"
+                        "spellId": 1264825,
+                        "name": "Hunter Beast Mastery 12.0 Class Set 2pc",
+                        "description": "狂野怒火的直接伤害提高25%。"
                       },
                       {
-                        "spellId": 1264870,
-                        "name": "Warlock Affliction 12.0 Class Set 4pc",
-                        "description": "痛楚初始具有2层额外层数，其伤害提高20%。"
+                        "spellId": 1264826,
+                        "name": "Hunter Beast Mastery 12.0 Class Set 4pc",
+                        "description": "狂野怒火召唤1只凶暴野兽，持续8秒。"
                       }
                     ]
                   },
-                  "266": {
-                    "specId": 266,
-                    "specName": "恶魔学识",
-                    "twoPiece": "古尔丹之手的伤害提高15%。",
-                    "fourPiece": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。",
+                  "254": {
+                    "specId": 254,
+                    "specName": "射击",
+                    "twoPiece": "弹无虚发的伤害额外提高20%。",
+                    "fourPiece": "消耗弹无虚发有较小几率向你的目标释放一阵箭雨，对附近的敌人造成4451点伤害。",
                     "spells": [
                       {
-                        "spellId": 1264871,
-                        "name": "Warlock Demonology 12.0 Class Set 2pc",
-                        "description": "古尔丹之手的伤害提高15%。"
+                        "spellId": 1264828,
+                        "name": "Hunter Marksmanship 12.0 Class Set 2pc",
+                        "description": "弹无虚发的伤害额外提高20%。"
                       },
                       {
-                        "spellId": 1264872,
-                        "name": "Warlock Demonology 12.0 Class Set 4pc",
-                        "description": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。"
+                        "spellId": 1264829,
+                        "name": "Hunter Marksmanship 12.0 Class Set 4pc",
+                        "description": "消耗弹无虚发有较小几率向你的目标释放一阵箭雨，对附近的敌人造成4451点伤害。"
                       }
                     ]
                   },
-                  "267": {
-                    "specId": 267,
-                    "specName": "毁灭",
-                    "twoPiece": "混乱箭和火焰之雨的伤害提高5%。",
-                    "fourPiece": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。",
+                  "255": {
+                    "specId": 255,
+                    "specName": "生存",
+                    "twoPiece": "野火炸弹伤害提高10%。",
+                    "fourPiece": "野火炸弹会额外触发一次效果为100%的羁绊共狩。",
                     "spells": [
                       {
-                        "spellId": 1264873,
-                        "name": "Warlock Destruction 12.0 Class Set 2pc",
-                        "description": "混乱箭和火焰之雨的伤害提高5%。"
+                        "spellId": 1264830,
+                        "name": "Hunter Beast Survival 12.0 Class Set 2pc",
+                        "description": "野火炸弹伤害提高10%。"
                       },
                       {
-                        "spellId": 1264874,
-                        "name": "Warlock Destruction 12.0 Class Set 4pc",
-                        "description": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。"
+                        "spellId": 1264831,
+                        "name": "Hunter Beast Survival 12.0 Class Set 4pc",
+                        "description": "野火炸弹会额外触发一次效果为100%的羁绊共狩。"
                       }
                     ]
                   }
                 },
-                "sourceLabel": "套装",
-                "isBonusPiece": true
+                "sourceLabel": "套装"
               }
             },
             {
-              "id": 250041,
-              "name": "深渊焚化者的支柱",
-              "icon": 7367704,
-              "iconName": "inv_pant_cloth_raidwarlockmidnight_d_01",
-              "iconAsset": "/assets/icons/inv_pant_cloth_raidwarlockmidnight_d_01.jpg",
+              "id": 249987,
+              "name": "原始哨兵的护腿",
+              "icon": 7371094,
+              "iconName": "inv_pant_mail_raidhuntermidnight_d_01",
+              "iconAsset": "/assets/icons/inv_pant_mail_raidhuntermidnight_d_01.jpg",
               "slot": "legs",
               "slotName": "腿部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
-              "itemSubType": "布甲",
+              "itemSubType": "锁甲",
               "ilvl": 263,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                9
+                3
               ],
               "quality": 4,
               "upgradeTrack": "英雄 2/6",
@@ -13515,9 +14128,9 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "key": "intellect",
-                    "type": "intellect",
-                    "name": "智力",
+                    "key": "agility",
+                    "type": "agility",
+                    "name": "敏捷",
                     "value": 97
                   }
                 ],
@@ -13529,16 +14142,16 @@
                 },
                 "secondary": [
                   {
-                    "key": "haste",
-                    "type": "haste",
-                    "name": "急速",
-                    "value": 99
-                  },
-                  {
                     "key": "crit",
                     "type": "crit",
                     "name": "暴击",
-                    "value": 45
+                    "value": 96
+                  },
+                  {
+                    "key": "mastery",
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 47
                   }
                 ],
                 "effects": {
@@ -13546,139 +14159,153 @@
                   "use": []
                 },
                 "white": {
-                  "armor": 64
+                  "armor": 163
                 }
               },
               "source": {
-                "instanceId": "tier:warlock",
+                "instanceId": "tier:hunter",
                 "instanceName": "套装",
                 "isRaid": false,
-                "encounterId": "tier-set:warlock",
-                "encounterName": "深渊焚化者之治",
+                "encounterId": "tier-set:hunter",
+                "encounterName": "原始哨兵的伪装",
                 "difficulty": 5,
-                "difficultyName": "英雄 2/6",
+                "difficultyName": "虚影尖塔 · 英雄",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
-                "深渊焚化者的支柱",
+                "原始哨兵的护腿",
                 "史诗",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
-                "腿部 布甲",
-                "64点护甲",
-                "+97 智力",
+                "腿部 锁甲",
+                "163点护甲",
+                "+97 敏捷",
                 "+1281 耐力",
-                "+45 爆击",
-                "+99 急速",
-                "深渊焚化者之治（0/5）",
-                "深渊焚化者的裹手",
-                "深渊焚化者的余烬之火",
-                "深渊焚化者的支柱",
-                "深渊焚化者的恐慌长袍",
-                "深渊焚化者的狂怒护肩",
+                "+96 爆击",
+                "+47 精通",
+                "原始哨兵的伪装（0/5）",
+                "原始哨兵的鳞甲",
+                "原始哨兵的利爪护手",
+                "原始哨兵的巨口头盔",
+                "原始哨兵的护腿",
+                "原始哨兵的战利品",
                 "套装奖励将根据玩家专精变化。",
-                "职业：术士",
+                "职业：猎人",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:250041::::::::90:0::5:1:3524:1:28:3606:::::",
-              "iconText": "深",
+              "link": "item:249987::::::::90:0::5:1:3524:1:28:3606:::::",
+              "iconText": "原",
+              "isBonusPiece": true,
+              "collectionKind": "bonus",
+              "appearance": {
+                "isBonusPiece": true,
+                "isCollected": false,
+                "itemModId": 1,
+                "slotId": 7,
+                "slotKey": "legs",
+                "sourceId": 296864,
+                "transmogSetDescription": "英雄",
+                "transmogSetId": 5435,
+                "transmogSetLabel": "虚影尖塔",
+                "transmogSetName": "原始哨兵的伪装",
+                "visualId": 125952
+              },
               "tier": {
-                "setId": 1989,
-                "setName": "深渊焚化者之治",
+                "setId": 5435,
+                "setName": "原始哨兵的伪装",
                 "pieceCount": 9,
                 "pieces": [
-                  "深渊焚化者的余烬之火",
-                  "深渊焚化者的狂怒护肩",
-                  "深渊焚化者的恐慌长袍",
-                  "深渊焚化者的裹手",
-                  "深渊焚化者的支柱",
-                  "深渊焚化者的仪式披风",
-                  "深渊焚化者的镣铐",
-                  "深渊焚化者的炽燃核心",
-                  "深渊焚化者的灰烬行者"
+                  "原始哨兵的巨口头盔",
+                  "原始哨兵的战利品",
+                  "原始哨兵的鳞甲",
+                  "原始哨兵的利爪护手",
+                  "原始哨兵的护腿",
+                  "原始哨兵的脊刺披风",
+                  "原始哨兵的止血护腕",
+                  "原始哨兵的腰链",
+                  "原始哨兵的迅捷步靴"
                 ],
                 "bonusesBySpec": {
-                  "265": {
-                    "specId": 265,
-                    "specName": "痛苦",
-                    "twoPiece": "痛苦无常和腐蚀之种的伤害提高10%。",
-                    "fourPiece": "痛楚初始具有2层额外层数，其伤害提高20%。",
+                  "253": {
+                    "specId": 253,
+                    "specName": "野兽控制",
+                    "twoPiece": "狂野怒火的直接伤害提高25%。",
+                    "fourPiece": "狂野怒火召唤1只凶暴野兽，持续8秒。",
                     "spells": [
                       {
-                        "spellId": 1264869,
-                        "name": "Warlock Affliction 12.0 Class Set 2pc",
-                        "description": "痛苦无常和腐蚀之种的伤害提高10%。"
+                        "spellId": 1264825,
+                        "name": "Hunter Beast Mastery 12.0 Class Set 2pc",
+                        "description": "狂野怒火的直接伤害提高25%。"
                       },
                       {
-                        "spellId": 1264870,
-                        "name": "Warlock Affliction 12.0 Class Set 4pc",
-                        "description": "痛楚初始具有2层额外层数，其伤害提高20%。"
+                        "spellId": 1264826,
+                        "name": "Hunter Beast Mastery 12.0 Class Set 4pc",
+                        "description": "狂野怒火召唤1只凶暴野兽，持续8秒。"
                       }
                     ]
                   },
-                  "266": {
-                    "specId": 266,
-                    "specName": "恶魔学识",
-                    "twoPiece": "古尔丹之手的伤害提高15%。",
-                    "fourPiece": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。",
+                  "254": {
+                    "specId": 254,
+                    "specName": "射击",
+                    "twoPiece": "弹无虚发的伤害额外提高20%。",
+                    "fourPiece": "消耗弹无虚发有较小几率向你的目标释放一阵箭雨，对附近的敌人造成4451点伤害。",
                     "spells": [
                       {
-                        "spellId": 1264871,
-                        "name": "Warlock Demonology 12.0 Class Set 2pc",
-                        "description": "古尔丹之手的伤害提高15%。"
+                        "spellId": 1264828,
+                        "name": "Hunter Marksmanship 12.0 Class Set 2pc",
+                        "description": "弹无虚发的伤害额外提高20%。"
                       },
                       {
-                        "spellId": 1264872,
-                        "name": "Warlock Demonology 12.0 Class Set 4pc",
-                        "description": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。"
+                        "spellId": 1264829,
+                        "name": "Hunter Marksmanship 12.0 Class Set 4pc",
+                        "description": "消耗弹无虚发有较小几率向你的目标释放一阵箭雨，对附近的敌人造成4451点伤害。"
                       }
                     ]
                   },
-                  "267": {
-                    "specId": 267,
-                    "specName": "毁灭",
-                    "twoPiece": "混乱箭和火焰之雨的伤害提高5%。",
-                    "fourPiece": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。",
+                  "255": {
+                    "specId": 255,
+                    "specName": "生存",
+                    "twoPiece": "野火炸弹伤害提高10%。",
+                    "fourPiece": "野火炸弹会额外触发一次效果为100%的羁绊共狩。",
                     "spells": [
                       {
-                        "spellId": 1264873,
-                        "name": "Warlock Destruction 12.0 Class Set 2pc",
-                        "description": "混乱箭和火焰之雨的伤害提高5%。"
+                        "spellId": 1264830,
+                        "name": "Hunter Beast Survival 12.0 Class Set 2pc",
+                        "description": "野火炸弹伤害提高10%。"
                       },
                       {
-                        "spellId": 1264874,
-                        "name": "Warlock Destruction 12.0 Class Set 4pc",
-                        "description": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。"
+                        "spellId": 1264831,
+                        "name": "Hunter Beast Survival 12.0 Class Set 4pc",
+                        "description": "野火炸弹会额外触发一次效果为100%的羁绊共狩。"
                       }
                     ]
                   }
                 },
-                "sourceLabel": "套装",
-                "isBonusPiece": true
+                "sourceLabel": "套装"
               }
             },
             {
-              "id": 250037,
-              "name": "深渊焚化者的仪式披风",
-              "icon": 7367700,
-              "iconName": "inv_cape_cloth_raidwarlockmidnight_d_01",
-              "iconAsset": "/assets/icons/inv_cape_cloth_raidwarlockmidnight_d_01.jpg",
-              "slot": "back",
-              "slotName": "背部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
+              "id": 249983,
+              "name": "原始哨兵的脊刺披风",
+              "icon": 7371090,
+              "iconName": "inv_cape_mail_raidhuntermidnight_d_01",
+              "iconAsset": "/assets/icons/inv_cape_mail_raidhuntermidnight_d_01.jpg",
+              "slot": "cloak",
+              "slotName": "披风",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "布甲",
               "ilvl": 263,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                9
+                3
               ],
               "quality": 4,
               "upgradeTrack": "英雄 2/6",
@@ -13689,9 +14316,9 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "key": "intellect",
-                    "type": "intellect",
-                    "name": "智力",
+                    "key": "agility",
+                    "type": "agility",
+                    "name": "敏捷",
                     "value": 55
                   }
                 ],
@@ -13703,151 +14330,108 @@
                 },
                 "secondary": [
                   {
-                    "key": "mastery",
-                    "type": "mastery",
-                    "name": "精通",
-                    "value": 53
-                  },
-                  {
                     "key": "versatility",
                     "type": "versatility",
                     "name": "全能",
-                    "value": 28
+                    "value": 54
+                  },
+                  {
+                    "key": "haste",
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 26
                   }
                 ],
                 "effects": {
-                  "equip": "",
-                  "use": ""
+                  "equip": [],
+                  "use": []
                 },
                 "white": {
                   "armor": 51
                 }
               },
               "source": {
-                "instanceId": "tier:warlock",
+                "instanceId": "tier:hunter",
                 "instanceName": "套装",
                 "isRaid": false,
-                "encounterId": "tier-set:warlock",
-                "encounterName": "深渊焚化者之治",
+                "encounterId": "tier-set:hunter",
+                "encounterName": "原始哨兵的伪装",
                 "difficulty": 5,
-                "difficultyName": "英雄 2/6",
+                "difficultyName": "虚影尖塔 · 英雄",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
-                "深渊焚化者的仪式披风",
+                "原始哨兵的脊刺披风",
                 "史诗",
-                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
                 "背部",
                 "51点护甲",
-                "+55 智力",
+                "+55 敏捷",
                 "+721 耐力",
-                "+28 全能",
-                "+53 精通",
-                "职业：术士",
+                "+26 急速",
+                "+54 全能",
+                "职业：猎人",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:250037::::::::90:0::5:1:3524:1:28:3606:::::",
-              "iconText": "深",
+              "link": "item:249983::::::::90:0::5:1:3524:1:28:3606:::::",
+              "iconText": "原",
+              "isBonusPiece": false,
+              "collectionKind": "appearance",
+              "appearance": {
+                "isBonusPiece": false,
+                "isCollected": false,
+                "itemModId": 1,
+                "slotId": 15,
+                "slotKey": "back",
+                "sourceId": 296816,
+                "transmogSetDescription": "英雄",
+                "transmogSetId": 5435,
+                "transmogSetLabel": "虚影尖塔",
+                "transmogSetName": "原始哨兵的伪装",
+                "visualId": 125956
+              },
               "tier": {
-                "setId": 1989,
-                "setName": "深渊焚化者之治",
+                "setId": 5435,
+                "setName": "原始哨兵的伪装",
                 "pieceCount": 9,
                 "pieces": [
-                  "深渊焚化者的余烬之火",
-                  "深渊焚化者的狂怒护肩",
-                  "深渊焚化者的恐慌长袍",
-                  "深渊焚化者的裹手",
-                  "深渊焚化者的支柱",
-                  "深渊焚化者的仪式披风",
-                  "深渊焚化者的镣铐",
-                  "深渊焚化者的炽燃核心",
-                  "深渊焚化者的灰烬行者"
+                  "原始哨兵的巨口头盔",
+                  "原始哨兵的战利品",
+                  "原始哨兵的鳞甲",
+                  "原始哨兵的利爪护手",
+                  "原始哨兵的护腿",
+                  "原始哨兵的脊刺披风",
+                  "原始哨兵的止血护腕",
+                  "原始哨兵的腰链",
+                  "原始哨兵的迅捷步靴"
                 ],
-                "bonusesBySpec": {
-                  "265": {
-                    "specId": 265,
-                    "specName": "痛苦",
-                    "twoPiece": "痛苦无常和腐蚀之种的伤害提高10%。",
-                    "fourPiece": "痛楚初始具有2层额外层数，其伤害提高20%。",
-                    "spells": [
-                      {
-                        "spellId": 1264869,
-                        "name": "Warlock Affliction 12.0 Class Set 2pc",
-                        "description": "痛苦无常和腐蚀之种的伤害提高10%。"
-                      },
-                      {
-                        "spellId": 1264870,
-                        "name": "Warlock Affliction 12.0 Class Set 4pc",
-                        "description": "痛楚初始具有2层额外层数，其伤害提高20%。"
-                      }
-                    ]
-                  },
-                  "266": {
-                    "specId": 266,
-                    "specName": "恶魔学识",
-                    "twoPiece": "古尔丹之手的伤害提高15%。",
-                    "fourPiece": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。",
-                    "spells": [
-                      {
-                        "spellId": 1264871,
-                        "name": "Warlock Demonology 12.0 Class Set 2pc",
-                        "description": "古尔丹之手的伤害提高15%。"
-                      },
-                      {
-                        "spellId": 1264872,
-                        "name": "Warlock Demonology 12.0 Class Set 4pc",
-                        "description": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。"
-                      }
-                    ]
-                  },
-                  "267": {
-                    "specId": 267,
-                    "specName": "毁灭",
-                    "twoPiece": "混乱箭和火焰之雨的伤害提高5%。",
-                    "fourPiece": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。",
-                    "spells": [
-                      {
-                        "spellId": 1264873,
-                        "name": "Warlock Destruction 12.0 Class Set 2pc",
-                        "description": "混乱箭和火焰之雨的伤害提高5%。"
-                      },
-                      {
-                        "spellId": 1264874,
-                        "name": "Warlock Destruction 12.0 Class Set 4pc",
-                        "description": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。"
-                      }
-                    ]
-                  }
-                },
-                "sourceLabel": "套装",
-                "isBonusPiece": false,
-                "appearanceOnly": true
+                "bonusesBySpec": {},
+                "sourceLabel": "套装"
               }
             },
             {
-              "id": 250038,
-              "name": "深渊焚化者的镣铐",
-              "icon": 7367699,
-              "iconName": "inv_bracer_cloth_raidwarlockmidnight_d_01",
-              "iconAsset": "/assets/icons/inv_bracer_cloth_raidwarlockmidnight_d_01.jpg",
+              "id": 249984,
+              "name": "原始哨兵的止血护腕",
+              "icon": 7371089,
+              "iconName": "inv_bracer_mail_raidhuntermidnight_d_01",
+              "iconAsset": "/assets/icons/inv_bracer_mail_raidhuntermidnight_d_01.jpg",
               "slot": "wrist",
-              "slotName": "手腕",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
+              "slotName": "腕部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
-              "itemSubType": "布甲",
+              "itemSubType": "锁甲",
               "ilvl": 263,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                9
+                3
               ],
               "quality": 4,
               "upgradeTrack": "英雄 2/6",
@@ -13858,9 +14442,9 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "key": "intellect",
-                    "type": "intellect",
-                    "name": "智力",
+                    "key": "agility",
+                    "type": "agility",
+                    "name": "敏捷",
                     "value": 55
                   }
                 ],
@@ -13875,148 +14459,105 @@
                     "key": "haste",
                     "type": "haste",
                     "name": "急速",
-                    "value": 56
+                    "value": 54
                   },
                   {
                     "key": "crit",
                     "type": "crit",
                     "name": "暴击",
-                    "value": 25
+                    "value": 27
                   }
                 ],
                 "effects": {
-                  "equip": "",
-                  "use": ""
+                  "equip": [],
+                  "use": []
                 },
                 "white": {
-                  "armor": 37
+                  "armor": 93
                 }
               },
               "source": {
-                "instanceId": "tier:warlock",
+                "instanceId": "tier:hunter",
                 "instanceName": "套装",
                 "isRaid": false,
-                "encounterId": "tier-set:warlock",
-                "encounterName": "深渊焚化者之治",
+                "encounterId": "tier-set:hunter",
+                "encounterName": "原始哨兵的伪装",
                 "difficulty": 5,
-                "difficultyName": "英雄 2/6",
+                "difficultyName": "虚影尖塔 · 英雄",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
-                "深渊焚化者的镣铐",
+                "原始哨兵的止血护腕",
                 "史诗",
-                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
-                "腕部 布甲",
-                "37点护甲",
-                "+55 智力",
+                "腕部 锁甲",
+                "93点护甲",
+                "+55 敏捷",
                 "+721 耐力",
-                "+25 爆击",
-                "+56 急速",
-                "职业：术士",
+                "+27 爆击",
+                "+54 急速",
+                "职业：猎人",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:250038::::::::90:0::5:1:3524:1:28:3606:::::",
-              "iconText": "深",
+              "link": "item:249984::::::::90:0::5:1:3524:1:28:3606:::::",
+              "iconText": "原",
+              "isBonusPiece": false,
+              "collectionKind": "appearance",
+              "appearance": {
+                "isBonusPiece": false,
+                "isCollected": false,
+                "itemModId": 1,
+                "slotId": 9,
+                "slotKey": "wrist",
+                "sourceId": 296828,
+                "transmogSetDescription": "英雄",
+                "transmogSetId": 5435,
+                "transmogSetLabel": "虚影尖塔",
+                "transmogSetName": "原始哨兵的伪装",
+                "visualId": 125954
+              },
               "tier": {
-                "setId": 1989,
-                "setName": "深渊焚化者之治",
+                "setId": 5435,
+                "setName": "原始哨兵的伪装",
                 "pieceCount": 9,
                 "pieces": [
-                  "深渊焚化者的余烬之火",
-                  "深渊焚化者的狂怒护肩",
-                  "深渊焚化者的恐慌长袍",
-                  "深渊焚化者的裹手",
-                  "深渊焚化者的支柱",
-                  "深渊焚化者的仪式披风",
-                  "深渊焚化者的镣铐",
-                  "深渊焚化者的炽燃核心",
-                  "深渊焚化者的灰烬行者"
+                  "原始哨兵的巨口头盔",
+                  "原始哨兵的战利品",
+                  "原始哨兵的鳞甲",
+                  "原始哨兵的利爪护手",
+                  "原始哨兵的护腿",
+                  "原始哨兵的脊刺披风",
+                  "原始哨兵的止血护腕",
+                  "原始哨兵的腰链",
+                  "原始哨兵的迅捷步靴"
                 ],
-                "bonusesBySpec": {
-                  "265": {
-                    "specId": 265,
-                    "specName": "痛苦",
-                    "twoPiece": "痛苦无常和腐蚀之种的伤害提高10%。",
-                    "fourPiece": "痛楚初始具有2层额外层数，其伤害提高20%。",
-                    "spells": [
-                      {
-                        "spellId": 1264869,
-                        "name": "Warlock Affliction 12.0 Class Set 2pc",
-                        "description": "痛苦无常和腐蚀之种的伤害提高10%。"
-                      },
-                      {
-                        "spellId": 1264870,
-                        "name": "Warlock Affliction 12.0 Class Set 4pc",
-                        "description": "痛楚初始具有2层额外层数，其伤害提高20%。"
-                      }
-                    ]
-                  },
-                  "266": {
-                    "specId": 266,
-                    "specName": "恶魔学识",
-                    "twoPiece": "古尔丹之手的伤害提高15%。",
-                    "fourPiece": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。",
-                    "spells": [
-                      {
-                        "spellId": 1264871,
-                        "name": "Warlock Demonology 12.0 Class Set 2pc",
-                        "description": "古尔丹之手的伤害提高15%。"
-                      },
-                      {
-                        "spellId": 1264872,
-                        "name": "Warlock Demonology 12.0 Class Set 4pc",
-                        "description": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。"
-                      }
-                    ]
-                  },
-                  "267": {
-                    "specId": 267,
-                    "specName": "毁灭",
-                    "twoPiece": "混乱箭和火焰之雨的伤害提高5%。",
-                    "fourPiece": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。",
-                    "spells": [
-                      {
-                        "spellId": 1264873,
-                        "name": "Warlock Destruction 12.0 Class Set 2pc",
-                        "description": "混乱箭和火焰之雨的伤害提高5%。"
-                      },
-                      {
-                        "spellId": 1264874,
-                        "name": "Warlock Destruction 12.0 Class Set 4pc",
-                        "description": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。"
-                      }
-                    ]
-                  }
-                },
-                "sourceLabel": "套装",
-                "isBonusPiece": false,
-                "appearanceOnly": true
+                "bonusesBySpec": {},
+                "sourceLabel": "套装"
               }
             },
             {
-              "id": 250039,
-              "name": "深渊焚化者的炽燃核心",
-              "icon": 7367697,
-              "iconName": "inv_belt_cloth_raidwarlockmidnight_d_01",
-              "iconAsset": "/assets/icons/inv_belt_cloth_raidwarlockmidnight_d_01.jpg",
+              "id": 249985,
+              "name": "原始哨兵的腰链",
+              "icon": 7371087,
+              "iconName": "inv_belt_mail_raidhuntermidnight_d_01",
+              "iconAsset": "/assets/icons/inv_belt_mail_raidhuntermidnight_d_01.jpg",
               "slot": "waist",
               "slotName": "腰部",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
-              "itemSubType": "布甲",
+              "itemSubType": "锁甲",
               "ilvl": 263,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                9
+                3
               ],
               "quality": 4,
               "upgradeTrack": "英雄 2/6",
@@ -14027,9 +14568,9 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "key": "intellect",
-                    "type": "intellect",
-                    "name": "智力",
+                    "key": "agility",
+                    "type": "agility",
+                    "name": "敏捷",
                     "value": 73
                   }
                 ],
@@ -14047,146 +14588,102 @@
                     "value": 76
                   },
                   {
-                    "key": "mastery",
-                    "type": "mastery",
-                    "name": "精通",
-                    "value": 32
+                    "key": "haste",
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 31
                   }
                 ],
                 "effects": {
-                  "equip": "",
-                  "use": ""
+                  "equip": [],
+                  "use": []
                 },
                 "white": {
-                  "armor": 41
+                  "armor": 105
                 }
               },
               "source": {
-                "instanceId": "tier:warlock",
+                "instanceId": "tier:hunter",
                 "instanceName": "套装",
                 "isRaid": false,
-                "encounterId": "tier-set:warlock",
-                "encounterName": "深渊焚化者之治",
+                "encounterId": "tier-set:hunter",
+                "encounterName": "原始哨兵的伪装",
                 "difficulty": 5,
-                "difficultyName": "英雄 2/6",
+                "difficultyName": "虚影尖塔 · 英雄",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
-                "深渊焚化者的炽燃核心",
+                "原始哨兵的腰链",
                 "史诗",
-                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
-                "腰部 布甲",
-                "41点护甲",
-                "+73 智力",
+                "腰部 锁甲",
+                "105点护甲",
+                "+73 敏捷",
                 "+961 耐力",
                 "+76 爆击",
-                "+32 精通",
-                "职业：术士",
-                "需要等级 90",
+                "+31 急速",
+                "职业：猎人",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:250039::::::::90:0::5:1:3524:1:28:3606:::::",
-              "iconText": "深",
+              "link": "item:249985::::::::90:0::5:1:3524:1:28:3606:::::",
+              "iconText": "原",
+              "isBonusPiece": false,
+              "collectionKind": "appearance",
+              "appearance": {
+                "isBonusPiece": false,
+                "isCollected": false,
+                "itemModId": 1,
+                "slotId": 6,
+                "slotKey": "waist",
+                "sourceId": 296840,
+                "transmogSetDescription": "英雄",
+                "transmogSetId": 5435,
+                "transmogSetLabel": "虚影尖塔",
+                "transmogSetName": "原始哨兵的伪装",
+                "visualId": 125951
+              },
               "tier": {
-                "setId": 1989,
-                "setName": "深渊焚化者之治",
+                "setId": 5435,
+                "setName": "原始哨兵的伪装",
                 "pieceCount": 9,
                 "pieces": [
-                  "深渊焚化者的余烬之火",
-                  "深渊焚化者的狂怒护肩",
-                  "深渊焚化者的恐慌长袍",
-                  "深渊焚化者的裹手",
-                  "深渊焚化者的支柱",
-                  "深渊焚化者的仪式披风",
-                  "深渊焚化者的镣铐",
-                  "深渊焚化者的炽燃核心",
-                  "深渊焚化者的灰烬行者"
+                  "原始哨兵的巨口头盔",
+                  "原始哨兵的战利品",
+                  "原始哨兵的鳞甲",
+                  "原始哨兵的利爪护手",
+                  "原始哨兵的护腿",
+                  "原始哨兵的脊刺披风",
+                  "原始哨兵的止血护腕",
+                  "原始哨兵的腰链",
+                  "原始哨兵的迅捷步靴"
                 ],
-                "bonusesBySpec": {
-                  "265": {
-                    "specId": 265,
-                    "specName": "痛苦",
-                    "twoPiece": "痛苦无常和腐蚀之种的伤害提高10%。",
-                    "fourPiece": "痛楚初始具有2层额外层数，其伤害提高20%。",
-                    "spells": [
-                      {
-                        "spellId": 1264869,
-                        "name": "Warlock Affliction 12.0 Class Set 2pc",
-                        "description": "痛苦无常和腐蚀之种的伤害提高10%。"
-                      },
-                      {
-                        "spellId": 1264870,
-                        "name": "Warlock Affliction 12.0 Class Set 4pc",
-                        "description": "痛楚初始具有2层额外层数，其伤害提高20%。"
-                      }
-                    ]
-                  },
-                  "266": {
-                    "specId": 266,
-                    "specName": "恶魔学识",
-                    "twoPiece": "古尔丹之手的伤害提高15%。",
-                    "fourPiece": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。",
-                    "spells": [
-                      {
-                        "spellId": 1264871,
-                        "name": "Warlock Demonology 12.0 Class Set 2pc",
-                        "description": "古尔丹之手的伤害提高15%。"
-                      },
-                      {
-                        "spellId": 1264872,
-                        "name": "Warlock Demonology 12.0 Class Set 4pc",
-                        "description": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。"
-                      }
-                    ]
-                  },
-                  "267": {
-                    "specId": 267,
-                    "specName": "毁灭",
-                    "twoPiece": "混乱箭和火焰之雨的伤害提高5%。",
-                    "fourPiece": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。",
-                    "spells": [
-                      {
-                        "spellId": 1264873,
-                        "name": "Warlock Destruction 12.0 Class Set 2pc",
-                        "description": "混乱箭和火焰之雨的伤害提高5%。"
-                      },
-                      {
-                        "spellId": 1264874,
-                        "name": "Warlock Destruction 12.0 Class Set 4pc",
-                        "description": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。"
-                      }
-                    ]
-                  }
-                },
-                "sourceLabel": "套装",
-                "isBonusPiece": false,
-                "appearanceOnly": true
+                "bonusesBySpec": {},
+                "sourceLabel": "套装"
               }
             },
             {
-              "id": 250044,
-              "name": "深渊焚化者的灰烬行者",
-              "icon": 7367698,
-              "iconName": "inv_boot_cloth_raidwarlockmidnight_d_01",
-              "iconAsset": "/assets/icons/inv_boot_cloth_raidwarlockmidnight_d_01.jpg",
+              "id": 249990,
+              "name": "原始哨兵的迅捷步靴",
+              "icon": 7371088,
+              "iconName": "inv_boot_mail_raidhuntermidnight_d_01",
+              "iconAsset": "/assets/icons/inv_boot_mail_raidhuntermidnight_d_01.jpg",
               "slot": "feet",
-              "slotName": "脚",
-              "armorType": "cloth",
-              "armorTypeName": "布甲",
+              "slotName": "脚部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
-              "itemSubType": "布甲",
+              "itemSubType": "锁甲",
               "ilvl": 263,
               "specs": [
-                265,
-                266,
-                267
+                253,
+                254,
+                255
               ],
               "classes": [
-                9
+                3
               ],
               "quality": 4,
               "upgradeTrack": "英雄 2/6",
@@ -14197,9 +14694,9 @@
               "stats": {
                 "primaryStats": [
                   {
-                    "key": "intellect",
-                    "type": "intellect",
-                    "name": "智力",
+                    "key": "agility",
+                    "type": "agility",
+                    "name": "敏捷",
                     "value": 73
                   }
                 ],
@@ -14211,134 +14708,92 @@
                 },
                 "secondary": [
                   {
-                    "key": "haste",
-                    "type": "haste",
-                    "name": "急速",
-                    "value": 71
+                    "key": "crit",
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 75
                   },
                   {
                     "key": "mastery",
                     "type": "mastery",
                     "name": "精通",
-                    "value": 36
+                    "value": 33
                   }
                 ],
                 "effects": {
-                  "equip": "",
-                  "use": ""
+                  "equip": [],
+                  "use": []
                 },
                 "white": {
-                  "armor": 46
+                  "armor": 116
                 }
               },
               "source": {
-                "instanceId": "tier:warlock",
+                "instanceId": "tier:hunter",
                 "instanceName": "套装",
                 "isRaid": false,
-                "encounterId": "tier-set:warlock",
-                "encounterName": "深渊焚化者之治",
+                "encounterId": "tier-set:hunter",
+                "encounterName": "原始哨兵的伪装",
                 "difficulty": 5,
-                "difficultyName": "英雄 2/6",
+                "difficultyName": "虚影尖塔 · 英雄",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
-                "深渊焚化者的灰烬行者",
+                "原始哨兵的迅捷步靴",
                 "史诗",
-                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
-                "脚部 布甲",
-                "46点护甲",
-                "+73 智力",
+                "脚部 锁甲",
+                "116点护甲",
+                "+73 敏捷",
                 "+961 耐力",
-                "+71 急速",
-                "+36 精通",
-                "职业：术士",
+                "+75 爆击",
+                "+33 精通",
+                "职业：猎人",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:250044::::::::90:0::5:1:3524:1:28:3606:::::",
-              "iconText": "深",
+              "link": "item:249990::::::::90:0::5:1:3524:1:28:3606:::::",
+              "iconText": "原",
+              "isBonusPiece": false,
+              "collectionKind": "appearance",
+              "appearance": {
+                "isBonusPiece": false,
+                "isCollected": false,
+                "itemModId": 1,
+                "slotId": 8,
+                "slotKey": "feet",
+                "sourceId": 296900,
+                "transmogSetDescription": "英雄",
+                "transmogSetId": 5435,
+                "transmogSetLabel": "虚影尖塔",
+                "transmogSetName": "原始哨兵的伪装",
+                "visualId": 125953
+              },
               "tier": {
-                "setId": 1989,
-                "setName": "深渊焚化者之治",
+                "setId": 5435,
+                "setName": "原始哨兵的伪装",
                 "pieceCount": 9,
                 "pieces": [
-                  "深渊焚化者的余烬之火",
-                  "深渊焚化者的狂怒护肩",
-                  "深渊焚化者的恐慌长袍",
-                  "深渊焚化者的裹手",
-                  "深渊焚化者的支柱",
-                  "深渊焚化者的仪式披风",
-                  "深渊焚化者的镣铐",
-                  "深渊焚化者的炽燃核心",
-                  "深渊焚化者的灰烬行者"
+                  "原始哨兵的巨口头盔",
+                  "原始哨兵的战利品",
+                  "原始哨兵的鳞甲",
+                  "原始哨兵的利爪护手",
+                  "原始哨兵的护腿",
+                  "原始哨兵的脊刺披风",
+                  "原始哨兵的止血护腕",
+                  "原始哨兵的腰链",
+                  "原始哨兵的迅捷步靴"
                 ],
-                "bonusesBySpec": {
-                  "265": {
-                    "specId": 265,
-                    "specName": "痛苦",
-                    "twoPiece": "痛苦无常和腐蚀之种的伤害提高10%。",
-                    "fourPiece": "痛楚初始具有2层额外层数，其伤害提高20%。",
-                    "spells": [
-                      {
-                        "spellId": 1264869,
-                        "name": "Warlock Affliction 12.0 Class Set 2pc",
-                        "description": "痛苦无常和腐蚀之种的伤害提高10%。"
-                      },
-                      {
-                        "spellId": 1264870,
-                        "name": "Warlock Affliction 12.0 Class Set 4pc",
-                        "description": "痛楚初始具有2层额外层数，其伤害提高20%。"
-                      }
-                    ]
-                  },
-                  "266": {
-                    "specId": 266,
-                    "specName": "恶魔学识",
-                    "twoPiece": "古尔丹之手的伤害提高15%。",
-                    "fourPiece": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。",
-                    "spells": [
-                      {
-                        "spellId": 1264871,
-                        "name": "Warlock Demonology 12.0 Class Set 2pc",
-                        "description": "古尔丹之手的伤害提高15%。"
-                      },
-                      {
-                        "spellId": 1264872,
-                        "name": "Warlock Demonology 12.0 Class Set 4pc",
-                        "description": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。"
-                      }
-                    ]
-                  },
-                  "267": {
-                    "specId": 267,
-                    "specName": "毁灭",
-                    "twoPiece": "混乱箭和火焰之雨的伤害提高5%。",
-                    "fourPiece": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。",
-                    "spells": [
-                      {
-                        "spellId": 1264873,
-                        "name": "Warlock Destruction 12.0 Class Set 2pc",
-                        "description": "混乱箭和火焰之雨的伤害提高5%。"
-                      },
-                      {
-                        "spellId": 1264874,
-                        "name": "Warlock Destruction 12.0 Class Set 4pc",
-                        "description": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。"
-                      }
-                    ]
-                  }
-                },
-                "sourceLabel": "套装",
-                "isBonusPiece": false,
-                "appearanceOnly": true
+                "bonusesBySpec": {},
+                "sourceLabel": "套装"
               }
             }
           ]
         }
       ]
     }
-  ]
-}
+  ],
+  "dataVersion": "4.2.x"
+};

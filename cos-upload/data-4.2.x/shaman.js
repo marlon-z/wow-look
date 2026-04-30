@@ -1,5 +1,5 @@
 module.exports = {
-  "version": "12.0.1",
+  "version": "4.2.x",
   "addonVersion": "3.0.0",
   "updatedAt": "2026-04-22 21:59:03",
   "class": {
@@ -26,9 +26,8 @@ module.exports = {
     }
   ],
   "meta": {
-    "itemCount": 175,
-    "instanceCount": 12,
-    "tierItemCount": 9
+    "itemCount": 171,
+    "instanceCount": 12
   },
   "instances": [
     {
@@ -14957,7 +14956,7 @@ module.exports = {
                 "encounterId": "tier-set:shaman",
                 "encounterName": "原始核心之幔",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -14986,23 +14985,8 @@ module.exports = {
               ],
               "link": "item:249979::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "原",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 1,
-                "slotKey": "head",
-                "sourceId": 296768,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5459,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "原始核心之幔",
-                "visualId": 127077
-              },
               "tier": {
-                "setId": 5459,
+                "setId": 1988,
                 "setName": "原始核心之幔",
                 "pieceCount": 9,
                 "pieces": [
@@ -15013,7 +14997,7 @@ module.exports = {
                   "原始核心的护腿",
                   "原始核心的卫士披风",
                   "原始核心的护腕",
-                  "怒雷腰带",
+                  "原始核心的腰索",
                   "原始核心的马靴"
                 ],
                 "bonusesBySpec": {
@@ -15072,7 +15056,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -15152,7 +15137,7 @@ module.exports = {
                 "encounterId": "tier-set:shaman",
                 "encounterName": "原始核心之幔",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -15181,23 +15166,8 @@ module.exports = {
               ],
               "link": "item:249977::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "原",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 3,
-                "slotKey": "shoulder",
-                "sourceId": 296744,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5459,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "原始核心之幔",
-                "visualId": 127078
-              },
               "tier": {
-                "setId": 5459,
+                "setId": 1988,
                 "setName": "原始核心之幔",
                 "pieceCount": 9,
                 "pieces": [
@@ -15208,7 +15178,7 @@ module.exports = {
                   "原始核心的护腿",
                   "原始核心的卫士披风",
                   "原始核心的护腕",
-                  "怒雷腰带",
+                  "原始核心的腰索",
                   "原始核心的马靴"
                 ],
                 "bonusesBySpec": {
@@ -15267,7 +15237,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -15347,7 +15318,7 @@ module.exports = {
                 "encounterId": "tier-set:shaman",
                 "encounterName": "原始核心之幔",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -15376,23 +15347,8 @@ module.exports = {
               ],
               "link": "item:249982::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "原",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 5,
-                "slotKey": "chest",
-                "sourceId": 296802,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5459,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "原始核心之幔",
-                "visualId": 127079
-              },
               "tier": {
-                "setId": 5459,
+                "setId": 1988,
                 "setName": "原始核心之幔",
                 "pieceCount": 9,
                 "pieces": [
@@ -15403,7 +15359,7 @@ module.exports = {
                   "原始核心的护腿",
                   "原始核心的卫士披风",
                   "原始核心的护腕",
-                  "怒雷腰带",
+                  "原始核心的腰索",
                   "原始核心的马靴"
                 ],
                 "bonusesBySpec": {
@@ -15462,7 +15418,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -15542,7 +15499,7 @@ module.exports = {
                 "encounterId": "tier-set:shaman",
                 "encounterName": "原始核心之幔",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -15571,23 +15528,8 @@ module.exports = {
               ],
               "link": "item:249980::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "原",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 10,
-                "slotKey": "hands",
-                "sourceId": 296780,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5459,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "原始核心之幔",
-                "visualId": 127084
-              },
               "tier": {
-                "setId": 5459,
+                "setId": 1988,
                 "setName": "原始核心之幔",
                 "pieceCount": 9,
                 "pieces": [
@@ -15598,7 +15540,7 @@ module.exports = {
                   "原始核心的护腿",
                   "原始核心的卫士披风",
                   "原始核心的护腕",
-                  "怒雷腰带",
+                  "原始核心的腰索",
                   "原始核心的马靴"
                 ],
                 "bonusesBySpec": {
@@ -15657,7 +15599,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -15737,7 +15680,7 @@ module.exports = {
                 "encounterId": "tier-set:shaman",
                 "encounterName": "原始核心之幔",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -15766,23 +15709,8 @@ module.exports = {
               ],
               "link": "item:249978::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "原",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 7,
-                "slotKey": "legs",
-                "sourceId": 296754,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5459,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "原始核心之幔",
-                "visualId": 127081
-              },
               "tier": {
-                "setId": 5459,
+                "setId": 1988,
                 "setName": "原始核心之幔",
                 "pieceCount": 9,
                 "pieces": [
@@ -15793,7 +15721,7 @@ module.exports = {
                   "原始核心的护腿",
                   "原始核心的卫士披风",
                   "原始核心的护腕",
-                  "怒雷腰带",
+                  "原始核心的腰索",
                   "原始核心的马靴"
                 ],
                 "bonusesBySpec": {
@@ -15852,7 +15780,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -15861,10 +15790,10 @@ module.exports = {
               "icon": 7384533,
               "iconName": "inv_cape_mail_raidshamanmidnight_d_01",
               "iconAsset": "/assets/icons/inv_cape_mail_raidshamanmidnight_d_01.jpg",
-              "slot": "cloak",
-              "slotName": "披风",
-              "armorType": "none",
-              "armorTypeName": "无甲种",
+              "slot": "back",
+              "slotName": "背部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
               "itemSubType": "布甲",
               "ilvl": 263,
@@ -15918,8 +15847,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 51
@@ -15932,13 +15861,14 @@ module.exports = {
                 "encounterId": "tier-set:shaman",
                 "encounterName": "原始核心之幔",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "原始核心的卫士披风",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -15954,23 +15884,8 @@ module.exports = {
               ],
               "link": "item:249974::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "原",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 15,
-                "slotKey": "back",
-                "sourceId": 296708,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5459,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "原始核心之幔",
-                "visualId": 127085
-              },
               "tier": {
-                "setId": 5459,
+                "setId": 1988,
                 "setName": "原始核心之幔",
                 "pieceCount": 9,
                 "pieces": [
@@ -15981,11 +15896,68 @@ module.exports = {
                   "原始核心的护腿",
                   "原始核心的卫士披风",
                   "原始核心的护腕",
-                  "怒雷腰带",
+                  "原始核心的腰索",
                   "原始核心的马靴"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "262": {
+                    "specId": 262,
+                    "specName": "元素",
+                    "twoPiece": "施放风暴守护者会使急速提高15%，持续10秒。",
+                    "fourPiece": "风暴守护者额外获得1层，并使闪电箭和闪电链的伤害提高25%。",
+                    "spells": [
+                      {
+                        "spellId": 1264862,
+                        "name": "Shaman Elemental 12.0 Class Set 2pc",
+                        "description": "施放风暴守护者会使急速提高15%，持续10秒。"
+                      },
+                      {
+                        "spellId": 1264863,
+                        "name": "Shaman Elemental 12.0 Class Set 4pc",
+                        "description": "风暴守护者额外获得1层，并使闪电箭和闪电链的伤害提高25%。"
+                      }
+                    ]
+                  },
+                  "263": {
+                    "specId": 263,
+                    "specName": "增强",
+                    "twoPiece": "风暴打击造成的伤害提高15%，熔岩猛击造成的伤害提高15%。",
+                    "fourPiece": "毁灭闪电的武器强化效果使你的精通额外提高2%。",
+                    "spells": [
+                      {
+                        "spellId": 1264864,
+                        "name": "Shaman Enhancement 12.0 Class Set 2pc",
+                        "description": "风暴打击造成的伤害提高15%，熔岩猛击造成的伤害提高15%。"
+                      },
+                      {
+                        "spellId": 1264865,
+                        "name": "Shaman Enhancement 12.0 Class Set 4pc",
+                        "description": "毁灭闪电的武器强化效果使你的精通额外提高2%。"
+                      }
+                    ]
+                  },
+                  "264": {
+                    "specId": 264,
+                    "specName": "恢复",
+                    "twoPiece": "生命释放的冷却时间降低3.0秒，直接治疗效果提高100%。",
+                    "fourPiece": "生命释放会以100%的效果额外影响一个法术。",
+                    "spells": [
+                      {
+                        "spellId": 1264866,
+                        "name": "Shaman Restoration 12.0 Class Set 2pc",
+                        "description": "生命释放的冷却时间降低3.0秒，直接治疗效果提高100%。"
+                      },
+                      {
+                        "spellId": 1264867,
+                        "name": "Shaman Restoration 12.0 Class Set 4pc",
+                        "description": "生命释放会以100%的效果额外影响一个法术。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             },
             {
@@ -15995,7 +15967,7 @@ module.exports = {
               "iconName": "inv_bracer_mail_raidshamanmidnight_d_01",
               "iconAsset": "/assets/icons/inv_bracer_mail_raidshamanmidnight_d_01.jpg",
               "slot": "wrist",
-              "slotName": "腕部",
+              "slotName": "手腕",
               "armorType": "mail",
               "armorTypeName": "锁甲",
               "itemType": "护甲",
@@ -16051,8 +16023,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 93
@@ -16065,13 +16037,14 @@ module.exports = {
                 "encounterId": "tier-set:shaman",
                 "encounterName": "原始核心之幔",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "原始核心的护腕",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -16087,23 +16060,8 @@ module.exports = {
               ],
               "link": "item:249975::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "原",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 9,
-                "slotKey": "wrist",
-                "sourceId": 296720,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5459,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "原始核心之幔",
-                "visualId": 127083
-              },
               "tier": {
-                "setId": 5459,
+                "setId": 1988,
                 "setName": "原始核心之幔",
                 "pieceCount": 9,
                 "pieces": [
@@ -16114,16 +16072,73 @@ module.exports = {
                   "原始核心的护腿",
                   "原始核心的卫士披风",
                   "原始核心的护腕",
-                  "怒雷腰带",
+                  "原始核心的腰索",
                   "原始核心的马靴"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "262": {
+                    "specId": 262,
+                    "specName": "元素",
+                    "twoPiece": "施放风暴守护者会使急速提高15%，持续10秒。",
+                    "fourPiece": "风暴守护者额外获得1层，并使闪电箭和闪电链的伤害提高25%。",
+                    "spells": [
+                      {
+                        "spellId": 1264862,
+                        "name": "Shaman Elemental 12.0 Class Set 2pc",
+                        "description": "施放风暴守护者会使急速提高15%，持续10秒。"
+                      },
+                      {
+                        "spellId": 1264863,
+                        "name": "Shaman Elemental 12.0 Class Set 4pc",
+                        "description": "风暴守护者额外获得1层，并使闪电箭和闪电链的伤害提高25%。"
+                      }
+                    ]
+                  },
+                  "263": {
+                    "specId": 263,
+                    "specName": "增强",
+                    "twoPiece": "风暴打击造成的伤害提高15%，熔岩猛击造成的伤害提高15%。",
+                    "fourPiece": "毁灭闪电的武器强化效果使你的精通额外提高2%。",
+                    "spells": [
+                      {
+                        "spellId": 1264864,
+                        "name": "Shaman Enhancement 12.0 Class Set 2pc",
+                        "description": "风暴打击造成的伤害提高15%，熔岩猛击造成的伤害提高15%。"
+                      },
+                      {
+                        "spellId": 1264865,
+                        "name": "Shaman Enhancement 12.0 Class Set 4pc",
+                        "description": "毁灭闪电的武器强化效果使你的精通额外提高2%。"
+                      }
+                    ]
+                  },
+                  "264": {
+                    "specId": 264,
+                    "specName": "恢复",
+                    "twoPiece": "生命释放的冷却时间降低3.0秒，直接治疗效果提高100%。",
+                    "fourPiece": "生命释放会以100%的效果额外影响一个法术。",
+                    "spells": [
+                      {
+                        "spellId": 1264866,
+                        "name": "Shaman Restoration 12.0 Class Set 2pc",
+                        "description": "生命释放的冷却时间降低3.0秒，直接治疗效果提高100%。"
+                      },
+                      {
+                        "spellId": 1264867,
+                        "name": "Shaman Restoration 12.0 Class Set 4pc",
+                        "description": "生命释放会以100%的效果额外影响一个法术。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             },
             {
-              "id": 260375,
-              "name": "怒雷腰带",
+              "id": 249976,
+              "name": "原始核心的腰索",
               "icon": 7384530,
               "iconName": "inv_belt_mail_raidshamanmidnight_d_01",
               "iconAsset": "/assets/icons/inv_belt_mail_raidshamanmidnight_d_01.jpg",
@@ -16169,10 +16184,23 @@ module.exports = {
                   "name": "耐力",
                   "value": 961
                 },
-                "secondary": [],
+                "secondary": [
+                  {
+                    "key": "mastery",
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 71
+                  },
+                  {
+                    "key": "haste",
+                    "type": "haste",
+                    "name": "急速",
+                    "value": 37
+                  }
+                ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 105
@@ -16185,45 +16213,32 @@ module.exports = {
                 "encounterId": "tier-set:shaman",
                 "encounterName": "原始核心之幔",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
-                "怒雷腰带",
+                "原始核心的腰索",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
-                "装备后绑定",
+                "拾取后绑定",
                 "腰部 锁甲",
                 "105点护甲",
                 "+73 智力",
                 "+961 耐力",
-                "+73 随机属性1",
-                "+35 随机属性2",
+                "+37 急速",
+                "+71 精通",
                 "+73 敏捷",
+                "职业：萨满祭司",
                 "需要等级 90",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:260375::::::::90:0::5:1:3524:1:28:3606:::::",
-              "iconText": "怒",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 6,
-                "slotKey": "waist",
-                "sourceId": 302128,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5459,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "原始核心之幔",
-                "visualId": 127080
-              },
+              "link": "item:249976::::::::90:0::5:1:3524:1:28:3606:::::",
+              "iconText": "原",
               "tier": {
-                "setId": 5459,
+                "setId": 1988,
                 "setName": "原始核心之幔",
                 "pieceCount": 9,
                 "pieces": [
@@ -16234,11 +16249,68 @@ module.exports = {
                   "原始核心的护腿",
                   "原始核心的卫士披风",
                   "原始核心的护腕",
-                  "怒雷腰带",
+                  "原始核心的腰索",
                   "原始核心的马靴"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "262": {
+                    "specId": 262,
+                    "specName": "元素",
+                    "twoPiece": "施放风暴守护者会使急速提高15%，持续10秒。",
+                    "fourPiece": "风暴守护者额外获得1层，并使闪电箭和闪电链的伤害提高25%。",
+                    "spells": [
+                      {
+                        "spellId": 1264862,
+                        "name": "Shaman Elemental 12.0 Class Set 2pc",
+                        "description": "施放风暴守护者会使急速提高15%，持续10秒。"
+                      },
+                      {
+                        "spellId": 1264863,
+                        "name": "Shaman Elemental 12.0 Class Set 4pc",
+                        "description": "风暴守护者额外获得1层，并使闪电箭和闪电链的伤害提高25%。"
+                      }
+                    ]
+                  },
+                  "263": {
+                    "specId": 263,
+                    "specName": "增强",
+                    "twoPiece": "风暴打击造成的伤害提高15%，熔岩猛击造成的伤害提高15%。",
+                    "fourPiece": "毁灭闪电的武器强化效果使你的精通额外提高2%。",
+                    "spells": [
+                      {
+                        "spellId": 1264864,
+                        "name": "Shaman Enhancement 12.0 Class Set 2pc",
+                        "description": "风暴打击造成的伤害提高15%，熔岩猛击造成的伤害提高15%。"
+                      },
+                      {
+                        "spellId": 1264865,
+                        "name": "Shaman Enhancement 12.0 Class Set 4pc",
+                        "description": "毁灭闪电的武器强化效果使你的精通额外提高2%。"
+                      }
+                    ]
+                  },
+                  "264": {
+                    "specId": 264,
+                    "specName": "恢复",
+                    "twoPiece": "生命释放的冷却时间降低3.0秒，直接治疗效果提高100%。",
+                    "fourPiece": "生命释放会以100%的效果额外影响一个法术。",
+                    "spells": [
+                      {
+                        "spellId": 1264866,
+                        "name": "Shaman Restoration 12.0 Class Set 2pc",
+                        "description": "生命释放的冷却时间降低3.0秒，直接治疗效果提高100%。"
+                      },
+                      {
+                        "spellId": 1264867,
+                        "name": "Shaman Restoration 12.0 Class Set 4pc",
+                        "description": "生命释放会以100%的效果额外影响一个法术。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             },
             {
@@ -16248,7 +16320,7 @@ module.exports = {
               "iconName": "inv_boot_mail_raidshamanmidnight_d_01",
               "iconAsset": "/assets/icons/inv_boot_mail_raidshamanmidnight_d_01.jpg",
               "slot": "feet",
-              "slotName": "脚部",
+              "slotName": "脚",
               "armorType": "mail",
               "armorTypeName": "锁甲",
               "itemType": "护甲",
@@ -16304,8 +16376,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 116
@@ -16318,13 +16390,14 @@ module.exports = {
                 "encounterId": "tier-set:shaman",
                 "encounterName": "原始核心之幔",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "原始核心的马靴",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -16340,23 +16413,8 @@ module.exports = {
               ],
               "link": "item:249981::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "原",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 8,
-                "slotKey": "feet",
-                "sourceId": 296792,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5459,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "原始核心之幔",
-                "visualId": 127082
-              },
               "tier": {
-                "setId": 5459,
+                "setId": 1988,
                 "setName": "原始核心之幔",
                 "pieceCount": 9,
                 "pieces": [
@@ -16367,17 +16425,73 @@ module.exports = {
                   "原始核心的护腿",
                   "原始核心的卫士披风",
                   "原始核心的护腕",
-                  "怒雷腰带",
+                  "原始核心的腰索",
                   "原始核心的马靴"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "262": {
+                    "specId": 262,
+                    "specName": "元素",
+                    "twoPiece": "施放风暴守护者会使急速提高15%，持续10秒。",
+                    "fourPiece": "风暴守护者额外获得1层，并使闪电箭和闪电链的伤害提高25%。",
+                    "spells": [
+                      {
+                        "spellId": 1264862,
+                        "name": "Shaman Elemental 12.0 Class Set 2pc",
+                        "description": "施放风暴守护者会使急速提高15%，持续10秒。"
+                      },
+                      {
+                        "spellId": 1264863,
+                        "name": "Shaman Elemental 12.0 Class Set 4pc",
+                        "description": "风暴守护者额外获得1层，并使闪电箭和闪电链的伤害提高25%。"
+                      }
+                    ]
+                  },
+                  "263": {
+                    "specId": 263,
+                    "specName": "增强",
+                    "twoPiece": "风暴打击造成的伤害提高15%，熔岩猛击造成的伤害提高15%。",
+                    "fourPiece": "毁灭闪电的武器强化效果使你的精通额外提高2%。",
+                    "spells": [
+                      {
+                        "spellId": 1264864,
+                        "name": "Shaman Enhancement 12.0 Class Set 2pc",
+                        "description": "风暴打击造成的伤害提高15%，熔岩猛击造成的伤害提高15%。"
+                      },
+                      {
+                        "spellId": 1264865,
+                        "name": "Shaman Enhancement 12.0 Class Set 4pc",
+                        "description": "毁灭闪电的武器强化效果使你的精通额外提高2%。"
+                      }
+                    ]
+                  },
+                  "264": {
+                    "specId": 264,
+                    "specName": "恢复",
+                    "twoPiece": "生命释放的冷却时间降低3.0秒，直接治疗效果提高100%。",
+                    "fourPiece": "生命释放会以100%的效果额外影响一个法术。",
+                    "spells": [
+                      {
+                        "spellId": 1264866,
+                        "name": "Shaman Restoration 12.0 Class Set 2pc",
+                        "description": "生命释放的冷却时间降低3.0秒，直接治疗效果提高100%。"
+                      },
+                      {
+                        "spellId": 1264867,
+                        "name": "Shaman Restoration 12.0 Class Set 4pc",
+                        "description": "生命释放会以100%的效果额外影响一个法术。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             }
           ]
         }
       ]
     }
-  ],
-  "dataVersion": "4.2.x"
+  ]
 };

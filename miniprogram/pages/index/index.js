@@ -38,9 +38,10 @@ const {
 
 const POSTER_CANVAS_ID = 'favoritePosterCanvas';
 const POSTER_WIDTH = 750;
-const POSTER_MIN_HEIGHT = 1334;
+const POSTER_HEIGHT = 1000;
 const POSTER_BG = '/assets/poster/favorite-poster-bg.jpg';
-const POSTER_LOGO = '/assets/public/logo-poster.png';
+const POSTER_ITEMS_PER_PAGE = 10;
+const POSTER_PAGE_UNITS = 12;
 
 function drawRoundRect(ctx, x, y, width, height, radius, fillStyle, strokeStyle) {
   const r = Math.min(radius, width / 2, height / 2);
@@ -97,10 +98,86 @@ function drawEllipsisText(ctx, text, x, y, maxWidth) {
   ctx.fillText(`${output}…`, x, y);
 }
 
-function calculatePosterHeight(groups) {
-  const itemCount = groups.reduce((total, group) => total + group.items.length, 0);
-  const groupCount = groups.length;
-  return Math.max(POSTER_MIN_HEIGHT, 360 + groupCount * 58 + itemCount * 78 + 170);
+function drawStrokedText(ctx, text, x, y, strokeColor = 'rgba(0, 0, 0, 0.86)', strokeWidth = 5) {
+  if (ctx.setLineWidth) {
+    ctx.setLineWidth(strokeWidth);
+  } else {
+    ctx.lineWidth = strokeWidth;
+  }
+  if (ctx.setStrokeStyle) {
+    ctx.setStrokeStyle(strokeColor);
+  } else {
+    ctx.strokeStyle = strokeColor;
+  }
+  if (ctx.strokeText) {
+    ctx.strokeText(text, x, y);
+  }
+  ctx.fillText(text, x, y);
+}
+
+function drawPosterBrand(ctx) {
+  setPosterTextStyle(ctx, 48, '#f3e6c3', 'bold', 'center');
+  ctx.setShadow(0, 8, 18, 'rgba(0, 0, 0, 0.88)');
+  drawStrokedText(ctx, '我的艾泽拉斯装备库', POSTER_WIDTH / 2, 92, 'rgba(0, 0, 0, 0.92)', 7);
+  ctx.setShadow(0, 0, 0, 'transparent');
+}
+
+function getFavoriteGroupsTotal(groups) {
+  return groups.reduce((total, group) => total + group.items.length, 0);
+}
+
+function addGroupItemToPosterPage(page, sourceGroup, favorite) {
+  let pageGroup = page.groups[page.groups.length - 1];
+  if (!pageGroup || pageGroup.classKey !== sourceGroup.classKey) {
+    pageGroup = {
+      classKey: sourceGroup.classKey,
+      className: sourceGroup.className,
+      count: 0,
+      items: [],
+    };
+    page.groups.push(pageGroup);
+    page.units += 1;
+  }
+
+  pageGroup.items.push(favorite);
+  pageGroup.count += 1;
+  page.itemCount += 1;
+  page.units += 1;
+}
+
+function buildFavoritePosterPages(groups) {
+  const pages = [];
+  let page = {
+    groups: [],
+    itemCount: 0,
+    units: 0,
+  };
+
+  groups.forEach((group) => {
+    group.items.forEach((favorite) => {
+      const needsGroupTitle = !page.groups.length || page.groups[page.groups.length - 1].classKey !== group.classKey;
+      const nextUnits = page.units + 1 + (needsGroupTitle ? 1 : 0);
+      if (
+        page.itemCount > 0
+        && (page.itemCount >= POSTER_ITEMS_PER_PAGE || nextUnits > POSTER_PAGE_UNITS)
+      ) {
+        pages.push(page);
+        page = {
+          groups: [],
+          itemCount: 0,
+          units: 0,
+        };
+      }
+
+      addGroupItemToPosterPage(page, group, favorite);
+    });
+  });
+
+  if (page.itemCount > 0) {
+    pages.push(page);
+  }
+
+  return pages;
 }
 
 function enrichList(list, countMap) {
@@ -137,7 +214,7 @@ Page({
     selectedItem: null,
     showModal: false,
     isPosterGenerating: false,
-    posterCanvasHeight: POSTER_MIN_HEIGHT,
+    posterCanvasHeight: POSTER_HEIGHT,
     pageStyle: '',
   },
 
@@ -454,130 +531,152 @@ Page({
       return;
     }
 
-    const posterCanvasHeight = calculatePosterHeight(favoriteGroups);
+    const posterPages = buildFavoritePosterPages(favoriteGroups);
     this.setData({
       isPosterGenerating: true,
-      posterCanvasHeight,
+      posterCanvasHeight: POSTER_HEIGHT,
     }, () => {
       setTimeout(() => {
-        this.drawFavoritePoster(favoriteGroups, posterCanvasHeight);
+        this.createFavoritePosterImages(posterPages, favoriteGroups);
       }, 300);
     });
   },
 
-  drawFavoritePoster(favoriteGroups, posterHeight) {
+  createFavoritePosterImages(posterPages, favoriteGroups) {
+    const totalPages = posterPages.length;
+    const totalItems = getFavoriteGroupsTotal(favoriteGroups);
+    const totalClasses = favoriteGroups.length;
+    const saveTasks = posterPages.reduce((task, posterPage, index) => task.then(() => (
+      this.drawFavoritePosterPage(posterPage, {
+        pageIndex: index + 1,
+        totalPages,
+        totalItems,
+        totalClasses,
+      }).then((filePath) => this.savePosterFileToAlbum(filePath))
+    )), Promise.resolve());
+
+    saveTasks.then(() => {
+      this.setData({ isPosterGenerating: false });
+      wx.showToast({
+        title: totalPages > 1 ? `已保存${totalPages}张图片` : '已保存到相册',
+        icon: 'none',
+      });
+    }).catch((err) => {
+      console.error('save poster pages failed', err);
+      this.setData({ isPosterGenerating: false });
+      const errMsg = err && err.errMsg ? err.errMsg : '';
+      if (errMsg.indexOf('auth') !== -1 || errMsg.indexOf('authorize') !== -1) {
+        wx.showModal({
+          title: '需要相册权限',
+          content: '请允许保存到相册后再试。',
+          confirmText: '去设置',
+          success(res) {
+            if (res.confirm) {
+              wx.openSetting();
+            }
+          },
+        });
+        return;
+      }
+      wx.showToast({
+        title: totalPages > 1 ? '部分图片保存失败' : '保存图片失败',
+        icon: 'none',
+      });
+    });
+  },
+
+  drawFavoritePosterPage(posterPage, posterMeta) {
     const ctx = wx.createCanvasContext(POSTER_CANVAS_ID, this);
-    const summary = buildFavoriteShareSummary(favoriteGroups);
-    let y = 306;
+    const summary = `${posterMeta.totalItems} 件装备收藏 · ${posterMeta.totalClasses} 个职业 · 第 ${posterMeta.pageIndex}/${posterMeta.totalPages} 张`;
+    let y = 216;
 
-    ctx.clearRect(0, 0, POSTER_WIDTH, posterHeight);
-    ctx.drawImage(POSTER_BG, 0, 0, POSTER_WIDTH, posterHeight);
+    ctx.clearRect(0, 0, POSTER_WIDTH, POSTER_HEIGHT);
+    ctx.drawImage(POSTER_BG, 0, 0, POSTER_WIDTH, POSTER_HEIGHT);
 
-    drawRoundRect(ctx, 44, 240, 662, posterHeight - 360, 28, 'rgba(13, 10, 18, 0.76)', 'rgba(212, 168, 75, 0.32)');
-    drawRoundRect(ctx, 64, 258, 622, posterHeight - 396, 18, 'rgba(10, 8, 13, 0.38)', 'rgba(255, 255, 255, 0.05)');
+    drawRoundRect(ctx, 44, 156, 662, 722, 28, 'rgba(13, 10, 18, 0.76)', 'rgba(212, 168, 75, 0.32)');
+    drawRoundRect(ctx, 64, 176, 622, 682, 18, 'rgba(10, 8, 13, 0.38)', 'rgba(255, 255, 255, 0.05)');
 
-    ctx.drawImage(POSTER_LOGO, 214, 54, 322, 158);
-    setPosterTextStyle(ctx, 34, '#f3e6c3', 'bold', 'center');
-    ctx.fillText('收藏装备清单', POSTER_WIDTH / 2, 236);
-    setPosterTextStyle(ctx, 22, '#a69882', 'normal', 'left');
-    drawEllipsisText(ctx, summary, 95, 270, 560);
+    drawPosterBrand(ctx);
+    setPosterTextStyle(ctx, 22, '#a69882', 'normal', 'center');
+    ctx.setShadow(0, 4, 10, 'rgba(0, 0, 0, 0.82)');
+    drawStrokedText(ctx, summary, POSTER_WIDTH / 2, 128, 'rgba(0, 0, 0, 0.82)', 4);
+    ctx.setShadow(0, 0, 0, 'transparent');
 
-    favoriteGroups.forEach((group) => {
+    posterPage.groups.forEach((group) => {
       setPosterTextStyle(ctx, 26, '#ffbb12', 'bold');
       ctx.fillText(`◇ ${group.className}`, 84, y);
       setPosterTextStyle(ctx, 20, '#a79e8f', 'bold', 'right');
       ctx.fillText(`${group.count} 件`, 666, y);
-      y += 22;
+      y += 18;
 
       group.items.forEach((favorite) => {
-        drawRoundRect(ctx, 72, y, 606, 64, 14, 'rgba(32, 27, 38, 0.9)', 'rgba(255, 255, 255, 0.08)');
-        drawRoundRect(ctx, 90, y + 18, 64, 28, 6, 'rgba(255, 187, 18, 0.08)', 'rgba(255, 187, 18, 0.38)');
+        drawRoundRect(ctx, 72, y, 606, 52, 12, 'rgba(32, 27, 38, 0.9)', 'rgba(255, 255, 255, 0.08)');
+        drawRoundRect(ctx, 90, y + 12, 58, 28, 6, 'rgba(255, 187, 18, 0.08)', 'rgba(255, 187, 18, 0.38)');
 
         setPosterTextStyle(ctx, 19, '#ffbb12', 'bold', 'center');
-        drawEllipsisText(ctx, favorite.slotBadgeName || favorite.slotName || '装备', 122, y + 39, 56);
+        drawEllipsisText(ctx, favorite.slotBadgeName || favorite.slotName || '装备', 119, y + 33, 50);
 
-        setPosterTextStyle(ctx, 24, '#b55cff', 'bold', 'left');
-        drawEllipsisText(ctx, favorite.name, 174, y + 28, 340);
+        setPosterTextStyle(ctx, 22, '#b55cff', 'bold', 'left');
+        drawEllipsisText(ctx, favorite.name, 168, y + 24, 344);
 
-        setPosterTextStyle(ctx, 20, '#cfc1a6', 'bold', 'right');
-        ctx.fillText(`ilvl${favorite.ilvl || '-'}`, 652, y + 28);
+        setPosterTextStyle(ctx, 19, '#cfc1a6', 'bold', 'right');
+        ctx.fillText(`ilvl${favorite.ilvl || '-'}`, 652, y + 24);
 
-        setPosterTextStyle(ctx, 20, '#38f038', 'bold', 'left');
-        drawEllipsisText(ctx, favorite.statLine || '无常规副属性', 174, y + 54, 260);
+        setPosterTextStyle(ctx, 18, '#38f038', 'bold', 'left');
+        drawEllipsisText(ctx, favorite.statLine || '无常规副属性', 168, y + 45, 270);
 
-        setPosterTextStyle(ctx, 18, '#8d8579', 'normal', 'right');
-        drawEllipsisText(ctx, favorite.sourceName || favorite.encounterName || '装备来源', 652, y + 54, 160);
+        setPosterTextStyle(ctx, 17, '#8d8579', 'normal', 'right');
+        drawEllipsisText(ctx, favorite.sourceName || favorite.encounterName || '装备来源', 652, y + 45, 160);
 
-        y += 78;
+        y += 62;
       });
 
-      y += 22;
+      y += 18;
     });
 
-    setPosterTextStyle(ctx, 22, '#8f846f', 'normal', 'center');
-    ctx.fillText('艾泽配装 · 装备收藏清单', POSTER_WIDTH / 2, posterHeight - 86);
-    setPosterTextStyle(ctx, 18, '#5f574a', 'normal', 'center');
-    ctx.fillText('保存图片后可分享给好友或朋友圈', POSTER_WIDTH / 2, posterHeight - 54);
+    drawRoundRect(ctx, 214, POSTER_HEIGHT - 116, 322, 78, 18, 'rgba(0, 0, 0, 0.34)', 'rgba(212, 168, 75, 0.16)');
+    setPosterTextStyle(ctx, 22, '#b8aa8f', 'normal', 'center');
+    ctx.setShadow(0, 4, 10, 'rgba(0, 0, 0, 0.86)');
+    drawStrokedText(ctx, '微信搜索「艾泽配装」', POSTER_WIDTH / 2, POSTER_HEIGHT - 82, 'rgba(0, 0, 0, 0.86)', 4);
+    setPosterTextStyle(ctx, 18, '#857966', 'normal', 'center');
+    drawStrokedText(ctx, '收藏装备 · 分享配装思路', POSTER_WIDTH / 2, POSTER_HEIGHT - 52, 'rgba(0, 0, 0, 0.8)', 3);
+    ctx.setShadow(0, 0, 0, 'transparent');
 
-    ctx.draw(false, () => {
-      setTimeout(() => {
-        wx.canvasToTempFilePath({
-          canvasId: POSTER_CANVAS_ID,
-          x: 0,
-          y: 0,
-          width: POSTER_WIDTH,
-          height: posterHeight,
-          destWidth: POSTER_WIDTH,
-          destHeight: posterHeight,
-          fileType: 'png',
-          success: (res) => {
-            this.savePosterToAlbum(res.tempFilePath);
-          },
-          fail: (err) => {
-            console.error('create poster image failed', err);
-            this.setData({ isPosterGenerating: false });
-            wx.showToast({
-              title: '生成图片失败',
-              icon: 'none',
-            });
-          },
-        }, this);
-      }, 500);
+    return new Promise((resolve, reject) => {
+      ctx.draw(false, () => {
+        setTimeout(() => {
+          wx.canvasToTempFilePath({
+            canvasId: POSTER_CANVAS_ID,
+            x: 0,
+            y: 0,
+            width: POSTER_WIDTH,
+            height: POSTER_HEIGHT,
+            destWidth: POSTER_WIDTH,
+            destHeight: POSTER_HEIGHT,
+            fileType: 'png',
+            success: (res) => {
+              resolve(res.tempFilePath);
+            },
+            fail: (err) => {
+              console.error('create poster image failed', err);
+              reject(err);
+            },
+          }, this);
+        }, 500);
+      });
     });
   },
 
-  savePosterToAlbum(filePath) {
-    wx.saveImageToPhotosAlbum({
-      filePath,
-      success: () => {
-        this.setData({ isPosterGenerating: false });
-        wx.showToast({
-          title: '已保存到相册',
-          icon: 'none',
-        });
-      },
-      fail: (err) => {
-        console.error('save poster failed', err);
-        this.setData({ isPosterGenerating: false });
-        const errMsg = err && err.errMsg ? err.errMsg : '';
-        if (errMsg.indexOf('auth') !== -1 || errMsg.indexOf('authorize') !== -1) {
-          wx.showModal({
-            title: '需要相册权限',
-            content: '请允许保存到相册后再试。',
-            confirmText: '去设置',
-            success(res) {
-              if (res.confirm) {
-                wx.openSetting();
-              }
-            },
-          });
-          return;
-        }
-        wx.showToast({
-          title: '保存图片失败',
-          icon: 'none',
-        });
-      },
+  savePosterFileToAlbum(filePath) {
+    return new Promise((resolve, reject) => {
+      wx.saveImageToPhotosAlbum({
+        filePath,
+        success: resolve,
+        fail: (err) => {
+          console.error('save poster failed', err);
+          reject(err);
+        },
+      });
     });
   },
 

@@ -1,5 +1,5 @@
 module.exports = {
-  "version": "12.0.1",
+  "version": "4.2.x",
   "addonVersion": "3.0.0",
   "updatedAt": "2026-04-22 21:59:03",
   "class": {
@@ -26,9 +26,8 @@ module.exports = {
     }
   ],
   "meta": {
-    "itemCount": 152,
-    "instanceCount": 12,
-    "tierItemCount": 9
+    "itemCount": 148,
+    "instanceCount": 12
   },
   "instances": [
     {
@@ -12861,7 +12860,7 @@ module.exports = {
                 "encounterId": "tier-set:warlock",
                 "encounterName": "深渊焚化者之治",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -12889,23 +12888,8 @@ module.exports = {
               ],
               "link": "item:250042::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "深",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 1,
-                "slotKey": "head",
-                "sourceId": 297524,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5463,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "深渊焚化者之治",
-                "visualId": 126500
-              },
               "tier": {
-                "setId": 5463,
+                "setId": 1989,
                 "setName": "深渊焚化者之治",
                 "pieceCount": 9,
                 "pieces": [
@@ -12916,7 +12900,7 @@ module.exports = {
                   "深渊焚化者的支柱",
                   "深渊焚化者的仪式披风",
                   "深渊焚化者的镣铐",
-                  "狱火巨锁束带",
+                  "深渊焚化者的炽燃核心",
                   "深渊焚化者的灰烬行者"
                 ],
                 "bonusesBySpec": {
@@ -12975,7 +12959,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -13049,7 +13034,7 @@ module.exports = {
                 "encounterId": "tier-set:warlock",
                 "encounterName": "深渊焚化者之治",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -13077,23 +13062,8 @@ module.exports = {
               ],
               "link": "item:250040::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "深",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 3,
-                "slotKey": "shoulder",
-                "sourceId": 297500,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5463,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "深渊焚化者之治",
-                "visualId": 126501
-              },
               "tier": {
-                "setId": 5463,
+                "setId": 1989,
                 "setName": "深渊焚化者之治",
                 "pieceCount": 9,
                 "pieces": [
@@ -13104,7 +13074,7 @@ module.exports = {
                   "深渊焚化者的支柱",
                   "深渊焚化者的仪式披风",
                   "深渊焚化者的镣铐",
-                  "狱火巨锁束带",
+                  "深渊焚化者的炽燃核心",
                   "深渊焚化者的灰烬行者"
                 ],
                 "bonusesBySpec": {
@@ -13163,7 +13133,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -13237,7 +13208,7 @@ module.exports = {
                 "encounterId": "tier-set:warlock",
                 "encounterName": "深渊焚化者之治",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -13265,23 +13236,8 @@ module.exports = {
               ],
               "link": "item:250045::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "深",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 5,
-                "slotKey": "chest",
-                "sourceId": 297560,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5463,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "深渊焚化者之治",
-                "visualId": 126502
-              },
               "tier": {
-                "setId": 5463,
+                "setId": 1989,
                 "setName": "深渊焚化者之治",
                 "pieceCount": 9,
                 "pieces": [
@@ -13292,7 +13248,7 @@ module.exports = {
                   "深渊焚化者的支柱",
                   "深渊焚化者的仪式披风",
                   "深渊焚化者的镣铐",
-                  "狱火巨锁束带",
+                  "深渊焚化者的炽燃核心",
                   "深渊焚化者的灰烬行者"
                 ],
                 "bonusesBySpec": {
@@ -13351,7 +13307,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -13425,7 +13382,7 @@ module.exports = {
                 "encounterId": "tier-set:warlock",
                 "encounterName": "深渊焚化者之治",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -13453,23 +13410,8 @@ module.exports = {
               ],
               "link": "item:250043::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "深",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 10,
-                "slotKey": "hands",
-                "sourceId": 297536,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5463,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "深渊焚化者之治",
-                "visualId": 126507
-              },
               "tier": {
-                "setId": 5463,
+                "setId": 1989,
                 "setName": "深渊焚化者之治",
                 "pieceCount": 9,
                 "pieces": [
@@ -13480,7 +13422,7 @@ module.exports = {
                   "深渊焚化者的支柱",
                   "深渊焚化者的仪式披风",
                   "深渊焚化者的镣铐",
-                  "狱火巨锁束带",
+                  "深渊焚化者的炽燃核心",
                   "深渊焚化者的灰烬行者"
                 ],
                 "bonusesBySpec": {
@@ -13539,7 +13481,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -13613,7 +13556,7 @@ module.exports = {
                 "encounterId": "tier-set:warlock",
                 "encounterName": "深渊焚化者之治",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -13641,23 +13584,8 @@ module.exports = {
               ],
               "link": "item:250041::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "深",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 7,
-                "slotKey": "legs",
-                "sourceId": 297512,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5463,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "深渊焚化者之治",
-                "visualId": 126504
-              },
               "tier": {
-                "setId": 5463,
+                "setId": 1989,
                 "setName": "深渊焚化者之治",
                 "pieceCount": 9,
                 "pieces": [
@@ -13668,7 +13596,7 @@ module.exports = {
                   "深渊焚化者的支柱",
                   "深渊焚化者的仪式披风",
                   "深渊焚化者的镣铐",
-                  "狱火巨锁束带",
+                  "深渊焚化者的炽燃核心",
                   "深渊焚化者的灰烬行者"
                 ],
                 "bonusesBySpec": {
@@ -13727,7 +13655,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -13736,10 +13665,10 @@ module.exports = {
               "icon": 7367700,
               "iconName": "inv_cape_cloth_raidwarlockmidnight_d_01",
               "iconAsset": "/assets/icons/inv_cape_cloth_raidwarlockmidnight_d_01.jpg",
-              "slot": "cloak",
-              "slotName": "披风",
-              "armorType": "none",
-              "armorTypeName": "无甲种",
+              "slot": "back",
+              "slotName": "背部",
+              "armorType": "cloth",
+              "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "布甲",
               "ilvl": 263,
@@ -13787,8 +13716,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 51
@@ -13801,13 +13730,14 @@ module.exports = {
                 "encounterId": "tier-set:warlock",
                 "encounterName": "深渊焚化者之治",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "深渊焚化者的仪式披风",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -13822,23 +13752,8 @@ module.exports = {
               ],
               "link": "item:250037::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "深",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 15,
-                "slotKey": "back",
-                "sourceId": 297464,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5463,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "深渊焚化者之治",
-                "visualId": 126900
-              },
               "tier": {
-                "setId": 5463,
+                "setId": 1989,
                 "setName": "深渊焚化者之治",
                 "pieceCount": 9,
                 "pieces": [
@@ -13849,11 +13764,68 @@ module.exports = {
                   "深渊焚化者的支柱",
                   "深渊焚化者的仪式披风",
                   "深渊焚化者的镣铐",
-                  "狱火巨锁束带",
+                  "深渊焚化者的炽燃核心",
                   "深渊焚化者的灰烬行者"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "265": {
+                    "specId": 265,
+                    "specName": "痛苦",
+                    "twoPiece": "痛苦无常和腐蚀之种的伤害提高10%。",
+                    "fourPiece": "痛楚初始具有2层额外层数，其伤害提高20%。",
+                    "spells": [
+                      {
+                        "spellId": 1264869,
+                        "name": "Warlock Affliction 12.0 Class Set 2pc",
+                        "description": "痛苦无常和腐蚀之种的伤害提高10%。"
+                      },
+                      {
+                        "spellId": 1264870,
+                        "name": "Warlock Affliction 12.0 Class Set 4pc",
+                        "description": "痛楚初始具有2层额外层数，其伤害提高20%。"
+                      }
+                    ]
+                  },
+                  "266": {
+                    "specId": 266,
+                    "specName": "恶魔学识",
+                    "twoPiece": "古尔丹之手的伤害提高15%。",
+                    "fourPiece": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。",
+                    "spells": [
+                      {
+                        "spellId": 1264871,
+                        "name": "Warlock Demonology 12.0 Class Set 2pc",
+                        "description": "古尔丹之手的伤害提高15%。"
+                      },
+                      {
+                        "spellId": 1264872,
+                        "name": "Warlock Demonology 12.0 Class Set 4pc",
+                        "description": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。"
+                      }
+                    ]
+                  },
+                  "267": {
+                    "specId": 267,
+                    "specName": "毁灭",
+                    "twoPiece": "混乱箭和火焰之雨的伤害提高5%。",
+                    "fourPiece": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。",
+                    "spells": [
+                      {
+                        "spellId": 1264873,
+                        "name": "Warlock Destruction 12.0 Class Set 2pc",
+                        "description": "混乱箭和火焰之雨的伤害提高5%。"
+                      },
+                      {
+                        "spellId": 1264874,
+                        "name": "Warlock Destruction 12.0 Class Set 4pc",
+                        "description": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             },
             {
@@ -13863,7 +13835,7 @@ module.exports = {
               "iconName": "inv_bracer_cloth_raidwarlockmidnight_d_01",
               "iconAsset": "/assets/icons/inv_bracer_cloth_raidwarlockmidnight_d_01.jpg",
               "slot": "wrist",
-              "slotName": "腕部",
+              "slotName": "手腕",
               "armorType": "cloth",
               "armorTypeName": "布甲",
               "itemType": "护甲",
@@ -13913,8 +13885,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 37
@@ -13927,13 +13899,14 @@ module.exports = {
                 "encounterId": "tier-set:warlock",
                 "encounterName": "深渊焚化者之治",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "深渊焚化者的镣铐",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -13948,23 +13921,8 @@ module.exports = {
               ],
               "link": "item:250038::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "深",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 9,
-                "slotKey": "wrist",
-                "sourceId": 297476,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5463,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "深渊焚化者之治",
-                "visualId": 126506
-              },
               "tier": {
-                "setId": 5463,
+                "setId": 1989,
                 "setName": "深渊焚化者之治",
                 "pieceCount": 9,
                 "pieces": [
@@ -13975,16 +13933,73 @@ module.exports = {
                   "深渊焚化者的支柱",
                   "深渊焚化者的仪式披风",
                   "深渊焚化者的镣铐",
-                  "狱火巨锁束带",
+                  "深渊焚化者的炽燃核心",
                   "深渊焚化者的灰烬行者"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "265": {
+                    "specId": 265,
+                    "specName": "痛苦",
+                    "twoPiece": "痛苦无常和腐蚀之种的伤害提高10%。",
+                    "fourPiece": "痛楚初始具有2层额外层数，其伤害提高20%。",
+                    "spells": [
+                      {
+                        "spellId": 1264869,
+                        "name": "Warlock Affliction 12.0 Class Set 2pc",
+                        "description": "痛苦无常和腐蚀之种的伤害提高10%。"
+                      },
+                      {
+                        "spellId": 1264870,
+                        "name": "Warlock Affliction 12.0 Class Set 4pc",
+                        "description": "痛楚初始具有2层额外层数，其伤害提高20%。"
+                      }
+                    ]
+                  },
+                  "266": {
+                    "specId": 266,
+                    "specName": "恶魔学识",
+                    "twoPiece": "古尔丹之手的伤害提高15%。",
+                    "fourPiece": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。",
+                    "spells": [
+                      {
+                        "spellId": 1264871,
+                        "name": "Warlock Demonology 12.0 Class Set 2pc",
+                        "description": "古尔丹之手的伤害提高15%。"
+                      },
+                      {
+                        "spellId": 1264872,
+                        "name": "Warlock Demonology 12.0 Class Set 4pc",
+                        "description": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。"
+                      }
+                    ]
+                  },
+                  "267": {
+                    "specId": 267,
+                    "specName": "毁灭",
+                    "twoPiece": "混乱箭和火焰之雨的伤害提高5%。",
+                    "fourPiece": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。",
+                    "spells": [
+                      {
+                        "spellId": 1264873,
+                        "name": "Warlock Destruction 12.0 Class Set 2pc",
+                        "description": "混乱箭和火焰之雨的伤害提高5%。"
+                      },
+                      {
+                        "spellId": 1264874,
+                        "name": "Warlock Destruction 12.0 Class Set 4pc",
+                        "description": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             },
             {
-              "id": 260371,
-              "name": "狱火巨锁束带",
+              "id": 250039,
+              "name": "深渊焚化者的炽燃核心",
               "icon": 7367697,
               "iconName": "inv_belt_cloth_raidwarlockmidnight_d_01",
               "iconAsset": "/assets/icons/inv_belt_cloth_raidwarlockmidnight_d_01.jpg",
@@ -14024,10 +14039,23 @@ module.exports = {
                   "name": "耐力",
                   "value": 961
                 },
-                "secondary": [],
+                "secondary": [
+                  {
+                    "key": "crit",
+                    "type": "crit",
+                    "name": "暴击",
+                    "value": 76
+                  },
+                  {
+                    "key": "mastery",
+                    "type": "mastery",
+                    "name": "精通",
+                    "value": 32
+                  }
+                ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 41
@@ -14040,44 +14068,31 @@ module.exports = {
                 "encounterId": "tier-set:warlock",
                 "encounterName": "深渊焚化者之治",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
-                "狱火巨锁束带",
+                "深渊焚化者的炽燃核心",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
-                "装备后绑定",
+                "拾取后绑定",
                 "腰部 布甲",
                 "41点护甲",
                 "+73 智力",
                 "+961 耐力",
-                "+76 随机属性1",
-                "+32 随机属性2",
+                "+76 爆击",
+                "+32 精通",
+                "职业：术士",
                 "需要等级 90",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:260371::::::::90:0::5:1:3524:1:28:3606:::::",
-              "iconText": "狱",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 6,
-                "slotKey": "waist",
-                "sourceId": 302112,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5463,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "深渊焚化者之治",
-                "visualId": 126503
-              },
+              "link": "item:250039::::::::90:0::5:1:3524:1:28:3606:::::",
+              "iconText": "深",
               "tier": {
-                "setId": 5463,
+                "setId": 1989,
                 "setName": "深渊焚化者之治",
                 "pieceCount": 9,
                 "pieces": [
@@ -14088,11 +14103,68 @@ module.exports = {
                   "深渊焚化者的支柱",
                   "深渊焚化者的仪式披风",
                   "深渊焚化者的镣铐",
-                  "狱火巨锁束带",
+                  "深渊焚化者的炽燃核心",
                   "深渊焚化者的灰烬行者"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "265": {
+                    "specId": 265,
+                    "specName": "痛苦",
+                    "twoPiece": "痛苦无常和腐蚀之种的伤害提高10%。",
+                    "fourPiece": "痛楚初始具有2层额外层数，其伤害提高20%。",
+                    "spells": [
+                      {
+                        "spellId": 1264869,
+                        "name": "Warlock Affliction 12.0 Class Set 2pc",
+                        "description": "痛苦无常和腐蚀之种的伤害提高10%。"
+                      },
+                      {
+                        "spellId": 1264870,
+                        "name": "Warlock Affliction 12.0 Class Set 4pc",
+                        "description": "痛楚初始具有2层额外层数，其伤害提高20%。"
+                      }
+                    ]
+                  },
+                  "266": {
+                    "specId": 266,
+                    "specName": "恶魔学识",
+                    "twoPiece": "古尔丹之手的伤害提高15%。",
+                    "fourPiece": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。",
+                    "spells": [
+                      {
+                        "spellId": 1264871,
+                        "name": "Warlock Demonology 12.0 Class Set 2pc",
+                        "description": "古尔丹之手的伤害提高15%。"
+                      },
+                      {
+                        "spellId": 1264872,
+                        "name": "Warlock Demonology 12.0 Class Set 4pc",
+                        "description": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。"
+                      }
+                    ]
+                  },
+                  "267": {
+                    "specId": 267,
+                    "specName": "毁灭",
+                    "twoPiece": "混乱箭和火焰之雨的伤害提高5%。",
+                    "fourPiece": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。",
+                    "spells": [
+                      {
+                        "spellId": 1264873,
+                        "name": "Warlock Destruction 12.0 Class Set 2pc",
+                        "description": "混乱箭和火焰之雨的伤害提高5%。"
+                      },
+                      {
+                        "spellId": 1264874,
+                        "name": "Warlock Destruction 12.0 Class Set 4pc",
+                        "description": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             },
             {
@@ -14102,7 +14174,7 @@ module.exports = {
               "iconName": "inv_boot_cloth_raidwarlockmidnight_d_01",
               "iconAsset": "/assets/icons/inv_boot_cloth_raidwarlockmidnight_d_01.jpg",
               "slot": "feet",
-              "slotName": "脚部",
+              "slotName": "脚",
               "armorType": "cloth",
               "armorTypeName": "布甲",
               "itemType": "护甲",
@@ -14152,8 +14224,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 46
@@ -14166,13 +14238,14 @@ module.exports = {
                 "encounterId": "tier-set:warlock",
                 "encounterName": "深渊焚化者之治",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "深渊焚化者的灰烬行者",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -14187,23 +14260,8 @@ module.exports = {
               ],
               "link": "item:250044::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "深",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 8,
-                "slotKey": "feet",
-                "sourceId": 297548,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5463,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "深渊焚化者之治",
-                "visualId": 126505
-              },
               "tier": {
-                "setId": 5463,
+                "setId": 1989,
                 "setName": "深渊焚化者之治",
                 "pieceCount": 9,
                 "pieces": [
@@ -14214,17 +14272,73 @@ module.exports = {
                   "深渊焚化者的支柱",
                   "深渊焚化者的仪式披风",
                   "深渊焚化者的镣铐",
-                  "狱火巨锁束带",
+                  "深渊焚化者的炽燃核心",
                   "深渊焚化者的灰烬行者"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "265": {
+                    "specId": 265,
+                    "specName": "痛苦",
+                    "twoPiece": "痛苦无常和腐蚀之种的伤害提高10%。",
+                    "fourPiece": "痛楚初始具有2层额外层数，其伤害提高20%。",
+                    "spells": [
+                      {
+                        "spellId": 1264869,
+                        "name": "Warlock Affliction 12.0 Class Set 2pc",
+                        "description": "痛苦无常和腐蚀之种的伤害提高10%。"
+                      },
+                      {
+                        "spellId": 1264870,
+                        "name": "Warlock Affliction 12.0 Class Set 4pc",
+                        "description": "痛楚初始具有2层额外层数，其伤害提高20%。"
+                      }
+                    ]
+                  },
+                  "266": {
+                    "specId": 266,
+                    "specName": "恶魔学识",
+                    "twoPiece": "古尔丹之手的伤害提高15%。",
+                    "fourPiece": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。",
+                    "spells": [
+                      {
+                        "spellId": 1264871,
+                        "name": "Warlock Demonology 12.0 Class Set 2pc",
+                        "description": "古尔丹之手的伤害提高15%。"
+                      },
+                      {
+                        "spellId": 1264872,
+                        "name": "Warlock Demonology 12.0 Class Set 4pc",
+                        "description": "你的恐惧猎犬造成的伤害提高10%，持续时间延长3秒。"
+                      }
+                    ]
+                  },
+                  "267": {
+                    "specId": 267,
+                    "specName": "毁灭",
+                    "twoPiece": "混乱箭和火焰之雨的伤害提高5%。",
+                    "fourPiece": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。",
+                    "spells": [
+                      {
+                        "spellId": 1264873,
+                        "name": "Warlock Destruction 12.0 Class Set 2pc",
+                        "description": "混乱箭和火焰之雨的伤害提高5%。"
+                      },
+                      {
+                        "spellId": 1264874,
+                        "name": "Warlock Destruction 12.0 Class Set 4pc",
+                        "description": "燃烧额外生成2个灵魂碎片裂片，伤害提高10%。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             }
           ]
         }
       ]
     }
-  ],
-  "dataVersion": "4.2.x"
+  ]
 };

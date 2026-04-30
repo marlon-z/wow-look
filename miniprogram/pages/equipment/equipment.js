@@ -21,6 +21,18 @@ const {
   removeFavorite,
   clearFavorites,
 } = require('../../utils/favorites');
+const {
+  getBuildDraft,
+  startBuildDraft,
+  clearBuildDraft,
+  isBuildDraftItem,
+  toggleBuildDraftItem,
+  addBuildDraftItems,
+  removeBuildDraftItem,
+} = require('../../utils/build-draft');
+const {
+  buildFavoriteSharePayload,
+} = require('../../utils/favorite-share');
 
 Page({
   itemMap: {},
@@ -73,10 +85,23 @@ Page({
     favoriteGroups: [],
     pendingRemoveFavoriteKey: '',
     showFavorites: false,
+    buildRequestMode: false,
+    showBuildRequestIntro: false,
+    buildDraftList: [],
+    buildDraftGroups: [],
+    buildDraftCount: 0,
+    showBuildDraft: false,
+    favoritePickerList: [],
+    showFavoritePicker: false,
     pageStyle: '',
   },
 
   onLoad(options) {
+    if (options.shareFav) {
+      wx.redirectTo({ url: `/pages/index/index?shareFav=${encodeURIComponent(options.shareFav)}` });
+      return;
+    }
+
     const classKey = options.classKey || 'monk';
     const classMeta = getClassMeta(classKey) || getClassMeta('monk');
     const visualAssets = getClassVisualAssets((classMeta && classMeta.key) || 'monk');
@@ -87,7 +112,13 @@ Page({
       heroBannerAsset: visualAssets.banner,
       classEmblemAsset: visualAssets.emblem,
       openItemId: options.openItemId || null,
+      buildRequestMode: options.requestBuild === '1',
+      showBuildRequestIntro: options.requestBuild === '1',
     });
+    if (options.requestBuild === '1') {
+      startBuildDraft(classKey, options.className || (classMeta && classMeta.name) || '武僧');
+      this.refreshBuildDraft();
+    }
     this.loadData(classKey);
   },
 
@@ -96,11 +127,15 @@ Page({
       this.refreshFavoriteFlags();
     }
     this.refreshFavorites();
+    if (this.data.buildRequestMode) {
+      this.refreshBuildDraft();
+    }
   },
 
   loadData(classKey) {
     loadClassData(classKey).then((data) => {
       const favorites = getFavorites();
+      const buildDraft = getBuildDraft();
       const allItems = data
         ? flattenItems(data.instances || []).map((item) => ({
           ...item,
@@ -114,6 +149,7 @@ Page({
           rightMeta: item.slot === 'weapon' ? item.itemSubType : (item.armorType !== 'none' ? item.armorTypeName : item.slotName),
           iconText: item.iconText || (item.name ? item.name.slice(0, 1) : '装'),
           isFavorite: isFavorite(classKey, item.id, favorites),
+          isBuildSelected: isBuildDraftItem(classKey, item.id, buildDraft),
         }))
         : [];
       this.itemMap = {};
@@ -148,9 +184,11 @@ Page({
 
   refreshFavoriteFlags() {
     const favorites = getFavorites();
+    const buildDraft = getBuildDraft();
     const allItems = this.data.allItems.map((item) => ({
       ...item,
       isFavorite: isFavorite(this.data.classKey, item.id, favorites),
+      isBuildSelected: isBuildDraftItem(this.data.classKey, item.id, buildDraft),
     }));
     this.itemMap = {};
     allItems.forEach((item) => {
@@ -161,7 +199,11 @@ Page({
       selectedItem: this.data.selectedItem
         ? {
           ...this.data.selectedItem,
-          isFavorite: isFavorite(this.data.classKey, this.data.selectedItem.id, favorites),
+          isFavorite: this.data.buildRequestMode
+            ? isBuildDraftItem(this.data.classKey, this.data.selectedItem.id, buildDraft)
+            : isFavorite(this.data.classKey, this.data.selectedItem.id, favorites),
+          favoriteOnText: this.data.buildRequestMode ? '已加入' : '已收藏',
+          favoriteOffText: this.data.buildRequestMode ? '加入本次' : '收藏',
         }
         : null,
     }, () => this.applyFilters());
@@ -380,7 +422,11 @@ Page({
       pageStyle: 'overflow:hidden;height:100vh;',
       selectedItem: buildItemDetail({
         ...item,
-        isFavorite: isFavorite(this.data.classKey, item.id),
+        isFavorite: this.data.buildRequestMode
+          ? isBuildDraftItem(this.data.classKey, item.id)
+          : isFavorite(this.data.classKey, item.id),
+        favoriteOnText: this.data.buildRequestMode ? '已加入' : '已收藏',
+        favoriteOffText: this.data.buildRequestMode ? '加入本次' : '收藏',
         classKey: this.data.classKey,
         className: this.data.className,
       }, this.data.selectedSpec, this.data.specs),
@@ -443,6 +489,61 @@ Page({
     });
   },
 
+  refreshBuildDraft() {
+    const draft = getBuildDraft();
+    const buildDraftList = draft.classKey === this.data.classKey ? draft.items : [];
+    const buildDraftGroups = buildFavoriteGroups(buildDraftList);
+
+    this.setData({
+      buildDraftList,
+      buildDraftGroups,
+      buildDraftCount: buildDraftList.length,
+    });
+
+    if (this.data.allItems.length) {
+      const allItems = this.data.allItems.map((item) => ({
+        ...item,
+        isBuildSelected: draft.classKey === this.data.classKey && isBuildDraftItem(this.data.classKey, item.id, draft),
+      }));
+      this.itemMap = {};
+      allItems.forEach((item) => {
+        this.itemMap[item.id] = item;
+      });
+      this.setData({
+        allItems,
+        selectedItem: this.data.selectedItem
+          ? {
+            ...this.data.selectedItem,
+            isFavorite: draft.classKey === this.data.classKey && isBuildDraftItem(this.data.classKey, this.data.selectedItem.id, draft),
+            favoriteOnText: '已加入',
+            favoriteOffText: '加入本次',
+          }
+          : null,
+      }, () => this.applyFilters());
+    }
+
+    if (this.data.showFavoritePicker) {
+      this.refreshFavoritePickerList();
+    }
+  },
+
+  toggleBuildDraftSelection(itemId) {
+    const item = this.itemMap[itemId];
+    const detail = this.data.selectedItem && this.data.selectedItem.id === itemId ? this.data.selectedItem : null;
+    const sourceItem = item || detail;
+    if (!sourceItem) {
+      return;
+    }
+
+    const snapshot = buildFavoriteSnapshot(this.data.classKey, this.data.className, sourceItem);
+    const result = toggleBuildDraftItem(this.data.classKey, this.data.className, snapshot);
+    this.refreshBuildDraft();
+    wx.showToast({
+      title: result.isSelected ? '已加入本次配装' : '已移出本次配装',
+      icon: 'none',
+    });
+  },
+
   refreshCachedFavoriteState(classKey, itemId, isItemFavorite) {
     if (classKey === this.data.classKey && this.itemMap[itemId]) {
       this.itemMap[itemId] = {
@@ -463,6 +564,11 @@ Page({
   },
 
   toggleFavoriteItem(itemId) {
+    if (this.data.buildRequestMode) {
+      this.toggleBuildDraftSelection(itemId);
+      return;
+    }
+
     const item = this.itemMap[itemId];
     if (!item && this.data.selectedItem && this.data.selectedItem.id === itemId) {
       const detail = this.data.selectedItem;
@@ -515,7 +621,7 @@ Page({
     this.setData({
       showModal: false,
       selectedItem: null,
-      pageStyle: this.data.showFavorites ? 'overflow:hidden;height:100vh;' : '',
+      pageStyle: this.data.showFavorites || this.data.showBuildDraft || this.data.showFavoritePicker ? 'overflow:hidden;height:100vh;' : '',
     });
   },
 
@@ -540,7 +646,7 @@ Page({
     this.setData({
       showFavorites: false,
       pendingRemoveFavoriteKey: '',
-      pageStyle: this.data.showModal ? 'overflow:hidden;height:100vh;' : '',
+      pageStyle: this.data.showModal || this.data.showBuildDraft || this.data.showFavoritePicker ? 'overflow:hidden;height:100vh;' : '',
     });
   },
 
@@ -588,6 +694,150 @@ Page({
     });
   },
 
+  startNewBuildDraft() {
+    const resetDraft = () => {
+      clearBuildDraft();
+      startBuildDraft(this.data.classKey, this.data.className, false);
+      this.setData({ showBuildRequestIntro: false });
+      this.refreshBuildDraft();
+      wx.showToast({
+        title: '已新建本次配装',
+        icon: 'none',
+      });
+    };
+
+    if (!this.data.buildDraftCount) {
+      resetDraft();
+      return;
+    }
+
+    wx.showModal({
+      title: '新建本次配装',
+      content: '会清空当前本次配装清单，普通收藏夹不受影响。',
+      confirmText: '新建',
+      confirmColor: '#d4a84b',
+      success: (res) => {
+        if (res.confirm) {
+          resetDraft();
+        }
+      },
+    });
+  },
+
+  dismissBuildRequestIntro() {
+    this.setData({ showBuildRequestIntro: false });
+  },
+
+  openBuildDraft() {
+    this.refreshBuildDraft();
+    this.setData({
+      showBuildDraft: true,
+      showBuildRequestIntro: false,
+      pageStyle: 'overflow:hidden;height:100vh;',
+    });
+  },
+
+  closeBuildDraft() {
+    this.setData({
+      showBuildDraft: false,
+      pageStyle: this.data.showModal || this.data.showFavorites || this.data.showFavoritePicker ? 'overflow:hidden;height:100vh;' : '',
+    });
+  },
+
+  removeBuildDraftFavorite(event) {
+    const { key } = event.currentTarget.dataset;
+    if (!key) {
+      return;
+    }
+    removeBuildDraftItem(key);
+    this.refreshBuildDraft();
+  },
+
+  clearBuildDraftItems() {
+    if (!this.data.buildDraftCount) {
+      return;
+    }
+    wx.showModal({
+      title: '清空本次配装',
+      content: '只清空本次临时配装，不会影响你的收藏夹。',
+      confirmText: '清空',
+      confirmColor: '#e05050',
+      success: (res) => {
+        if (!res.confirm) {
+          return;
+        }
+        clearBuildDraft();
+        startBuildDraft(this.data.classKey, this.data.className, false);
+        this.refreshBuildDraft();
+      },
+    });
+  },
+
+  buildFavoritePickerList() {
+    const draft = getBuildDraft();
+    return getFavorites()
+      .filter((favorite) => favorite.classKey === this.data.classKey)
+      .map((favorite) => ({
+        ...favorite,
+        isPicked: isBuildDraftItem(this.data.classKey, favorite.itemId, draft),
+      }));
+  },
+
+  refreshFavoritePickerList() {
+    const favoritePickerList = this.buildFavoritePickerList();
+    this.setData({ favoritePickerList });
+  },
+
+  openFavoritePicker() {
+    const favoritePickerList = this.buildFavoritePickerList();
+    if (!favoritePickerList.length) {
+      wx.showToast({
+        title: '该职业暂无收藏',
+        icon: 'none',
+      });
+      return;
+    }
+    this.setData({
+      favoritePickerList,
+      showFavoritePicker: true,
+      showBuildRequestIntro: false,
+      pageStyle: 'overflow:hidden;height:100vh;',
+    });
+  },
+
+  closeFavoritePicker() {
+    this.setData({
+      showFavoritePicker: false,
+      pageStyle: this.data.showModal || this.data.showFavorites || this.data.showBuildDraft ? 'overflow:hidden;height:100vh;' : '',
+    });
+  },
+
+  addFavoritePickerItem(event) {
+    const { key } = event.currentTarget.dataset;
+    const favorite = this.data.favoritePickerList.find((item) => item.key === key);
+    if (!favorite) {
+      return;
+    }
+    const result = addBuildDraftItems(this.data.classKey, this.data.className, [favorite]);
+    this.refreshBuildDraft();
+    wx.showToast({
+      title: result.addedCount ? '已加入本次配装' : '已在本次配装中',
+      icon: 'none',
+    });
+  },
+
+  addAllFavoritePickerItems() {
+    if (!this.data.favoritePickerList.length) {
+      return;
+    }
+    const result = addBuildDraftItems(this.data.classKey, this.data.className, this.data.favoritePickerList);
+    this.refreshBuildDraft();
+    wx.showToast({
+      title: result.addedCount ? `已加入${result.addedCount}件` : '已全部加入',
+      icon: 'none',
+    });
+  },
+
   onFavoriteItemTap(event) {
     const { itemId, classKey, className } = event.currentTarget.dataset;
     if (!itemId || !classKey) {
@@ -611,7 +861,11 @@ Page({
         pageStyle: 'overflow:hidden;height:100vh;',
         selectedItem: buildItemDetail({
           ...item,
-          isFavorite: isFavorite(classKey, item.id),
+          isFavorite: this.data.buildRequestMode && classKey === this.data.classKey
+            ? isBuildDraftItem(classKey, item.id)
+            : isFavorite(classKey, item.id),
+          favoriteOnText: this.data.buildRequestMode && classKey === this.data.classKey ? '已加入' : '已收藏',
+          favoriteOffText: this.data.buildRequestMode && classKey === this.data.classKey ? '加入本次' : '收藏',
           classKey,
           className: className || cache.className,
         }, classKey === this.data.classKey ? this.data.selectedSpec : null, cache.specs),
@@ -625,17 +879,50 @@ Page({
     });
   },
 
+  buildRequestSharePath() {
+    return `/pages/equipment/equipment?classKey=${this.data.classKey}&className=${this.data.className}&requestBuild=1`;
+  },
+
+  buildRequestShareTitle() {
+    return `大佬，大佬，能帮我配一套${this.data.className}的装备吗？球球了 🥺🙏`;
+  },
+
+  buildDraftSharePath() {
+    const payload = buildFavoriteSharePayload(this.data.buildDraftList);
+    return payload ? `/pages/index/index?shareFav=${encodeURIComponent(payload)}` : '';
+  },
+
   onShareAppMessage() {
+    if (this.data.buildRequestMode && this.data.buildDraftCount) {
+      const path = this.buildDraftSharePath();
+      if (path) {
+        return {
+          title: `我帮你配了一套${this.data.className}装备`,
+          path,
+        };
+      }
+    }
+
     return {
-      title: `当赛季${this.data.className}装备一键速查，副本掉落全收录`,
-      path: `/pages/equipment/equipment?classKey=${this.data.classKey}&className=${this.data.className}`,
+      title: this.buildRequestShareTitle(),
+      path: this.buildRequestSharePath(),
     };
   },
 
   onShareTimeline() {
+    if (this.data.buildRequestMode && this.data.buildDraftCount) {
+      const payload = buildFavoriteSharePayload(this.data.buildDraftList);
+      if (payload) {
+        return {
+          title: `我帮你配了一套${this.data.className}装备`,
+          query: `shareFav=${encodeURIComponent(payload)}`,
+        };
+      }
+    }
+
     return {
-      title: `当赛季${this.data.className}装备一键速查，副本掉落全收录`,
-      query: `classKey=${this.data.classKey}&className=${this.data.className}`,
+      title: this.buildRequestShareTitle(),
+      query: `classKey=${this.data.classKey}&className=${this.data.className}&requestBuild=1`,
     };
   },
 

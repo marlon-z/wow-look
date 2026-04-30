@@ -9,6 +9,11 @@
     "navigationBarTitleText": "艾泽配装",
     "navigationBarTextStyle": "white"
   },
+  "permission": {
+    "scope.writePhotosAlbum": {
+      "desc": "用于保存收藏装备海报到相册"
+    }
+  },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

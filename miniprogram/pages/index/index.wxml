@@ -51,15 +51,21 @@
 
   <view wx:if="{{showFavorites}}" class="favorite-mask" bindtap="closeFavorites">
     <view class="favorite-panel" catchtap="clearPendingRemoveFavorite">
-      <view class="favorite-panel-head">
-        <view class="favorite-title-wrap">
-          <view class="favorite-title-icon icon-star-filled"></view>
-          <text class="favorite-title">收藏夹</text>
-          <text class="favorite-count">共 {{favoriteCount}} 件</text>
-        </view>
-        <view class="favorite-head-actions">
-          <view wx:if="{{favoriteGroups.length}}" class="favorite-clear-mini" catchtap="clearFavoriteItems">清空</view>
+      <view class="favorite-panel-head favorite-panel-head-stacked">
+        <view class="favorite-head-main">
+          <view class="favorite-title-wrap">
+            <view class="favorite-title-icon icon-star-filled"></view>
+            <text class="favorite-title">收藏夹</text>
+            <text class="favorite-count">共 {{favoriteCount}} 件</text>
+          </view>
           <view class="favorite-close" catchtap="closeFavorites">×</view>
+        </view>
+        <view wx:if="{{favoriteGroups.length}}" class="favorite-head-actions favorite-action-row">
+          <button wx:if="{{favoriteGroups.length}}" class="favorite-share-mini" open-type="share" catchtap="clearPendingRemoveFavorite">
+            <text>分享收藏</text>
+          </button>
+          <view wx:if="{{favoriteGroups.length}}" class="favorite-poster-mini" catchtap="createFavoritePoster">{{isPosterGenerating ? '生成中' : '保存图片'}}</view>
+          <view wx:if="{{favoriteGroups.length}}" class="favorite-clear-mini" catchtap="clearFavoriteItems">清空</view>
         </view>
       </view>
       <view class="favorite-divider"></view>
@@ -120,6 +126,80 @@
     </view>
   </view>
 
+  <view wx:if="{{showSharedFavorites}}" class="favorite-mask" bindtap="closeSharedFavorites">
+    <view class="favorite-panel shared-favorite-panel" catchtap="preventClose">
+      <view class="favorite-panel-head">
+        <view class="favorite-title-wrap shared-title-wrap">
+          <view class="favorite-title-icon icon-star-filled"></view>
+          <view class="shared-title-block">
+            <text class="favorite-title">好友分享的装备收藏</text>
+            <text wx:if="{{sharedFavoriteSummary}}" class="shared-summary">{{sharedFavoriteSummary}}</text>
+          </view>
+        </view>
+        <view class="favorite-close" catchtap="closeSharedFavorites">×</view>
+      </view>
+      <view class="favorite-divider"></view>
+
+      <view wx:if="{{isSharedFavoriteLoading}}" class="favorite-empty shared-state">
+        <view class="favorite-empty-icon icon-star-outline"></view>
+        <text class="favorite-empty-text">正在加载分享内容</text>
+      </view>
+
+      <view wx:elif="{{sharedFavoriteError}}" class="favorite-empty shared-state">
+        <view class="favorite-empty-icon icon-star-outline"></view>
+        <text class="favorite-empty-text">{{sharedFavoriteError}}</text>
+      </view>
+
+      <block wx:else>
+        <scroll-view class="favorite-list shared-favorite-list" scroll-y enhanced show-scrollbar="{{false}}">
+          <view wx:for="{{sharedFavoriteGroups}}" wx:for-item="group" wx:key="classKey" class="favorite-group">
+            <view class="favorite-group-head">
+              <text class="favorite-group-title">{{group.className}}</text>
+              <text class="favorite-group-count">{{group.count}} 件</text>
+            </view>
+            <view
+              wx:for="{{group.items}}"
+              wx:for-item="favorite"
+              wx:key="key"
+              class="favorite-item"
+              catchtap="onFavoriteItemTap"
+              data-item-id="{{favorite.itemId}}"
+              data-class-key="{{favorite.classKey}}"
+              data-class-name="{{favorite.className}}"
+            >
+              <view class="favorite-icon-wrap">
+                <image wx:if="{{favorite.iconAsset}}" class="favorite-icon-img" src="{{favorite.iconAsset}}" mode="aspectFill" />
+                <text wx:else class="favorite-icon-letter">{{favorite.iconText}}</text>
+                <view class="favorite-icon-border"></view>
+              </view>
+              <view class="favorite-item-body">
+                <view class="favorite-row favorite-row-1">
+                  <text class="favorite-name">{{favorite.name}}</text>
+                  <view class="favorite-row-actions">
+                    <text class="favorite-slot">{{favorite.slotBadgeName || favorite.slotName}}</text>
+                  </view>
+                </view>
+                <view class="favorite-row favorite-row-2">
+                  <text class="favorite-stat">{{favorite.statLine}}</text>
+                </view>
+                <view class="favorite-row favorite-row-3">
+                  <text class="favorite-meta-line">{{favorite.className}} · ilvl{{favorite.ilvl}}</text>
+                  <view class="favorite-source-wrap">
+                    <text class="favorite-source">{{favorite.sourceName}}</text>
+                    <text class="favorite-arrow">›</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+        <view class="shared-action-bar">
+          <button class="shared-import-btn" bindtap="importSharedFavorites">保存到我的收藏夹</button>
+        </view>
+      </block>
+    </view>
+  </view>
+
   <view wx:if="{{showAnnouncement}}" class="announcement-mask" bindtap="closeAnnouncement">
     <view class="announcement-panel" catchtap="preventClose">
       <view class="announcement-head">
@@ -151,4 +231,10 @@
     bind:close="closeModal"
     bind:favorite="onDetailFavoriteTap"
   />
+
+  <canvas
+    canvas-id="favoritePosterCanvas"
+    class="favorite-poster-canvas"
+    style="width: 750px; height: {{posterCanvasHeight}}px;"
+  ></canvas>
 </view>

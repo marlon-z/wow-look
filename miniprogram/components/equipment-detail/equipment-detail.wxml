@@ -25,7 +25,7 @@
             catchtap="onFavoriteTap"
           >
             <view class="favorite-icon"></view>
-            <text class="favorite-text">{{item.isFavorite ? '已收藏' : '收藏'}}</text>
+            <text class="favorite-text">{{item.isFavorite ? (item.favoriteOnText || '已收藏') : (item.favoriteOffText || '收藏')}}</text>
           </view>
         </view>
         <text wx:if="{{item.upgradeTrack}}" class="tt-line">升级：{{item.upgradeTrack}}</text>

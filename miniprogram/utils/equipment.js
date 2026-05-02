@@ -1,5 +1,6 @@
 const SLOT_ORDER = [
   'head',
+  'neck',
   'shoulder',
   'cloak',
   'chest',
@@ -8,7 +9,6 @@ const SLOT_ORDER = [
   'waist',
   'legs',
   'feet',
-  'neck',
   'finger',
   'trinket',
   'weapon',
@@ -16,6 +16,7 @@ const SLOT_ORDER = [
 
 const SLOT_OPTIONS = [
   { type: 'head', name: '头' },
+  { type: 'neck', name: '项链' },
   { type: 'shoulder', name: '肩' },
   { type: 'cloak', name: '披' },
   { type: 'chest', name: '胸' },
@@ -24,7 +25,6 @@ const SLOT_OPTIONS = [
   { type: 'waist', name: '腰' },
   { type: 'legs', name: '腿' },
   { type: 'feet', name: '脚' },
-  { type: 'neck', name: '链' },
   { type: 'finger', name: '戒' },
   { type: 'trinket', name: '饰' },
   { type: 'weapon', name: '武' },
@@ -39,6 +39,9 @@ function normalizeSlotType(slot) {
 }
 
 function normalizeSlotName(slot, slotName) {
+  if (normalizeSlotType(slot) === 'neck' || slotName === '项链' || slotName === '颈') {
+    return '项链';
+  }
   if (normalizeSlotType(slot) === 'wrist' || slotName === '手腕' || slotName === '护腕') {
     return '腕';
   }
@@ -49,6 +52,9 @@ function normalizeSlotName(slot, slotName) {
 }
 
 function buildSlotBadgeName(slot, slotName) {
+  if (normalizeSlotType(slot) === 'neck' || slotName === '项' || slotName === '项链' || slotName === '颈') {
+    return '项链';
+  }
   if (normalizeSlotType(slot) === 'wrist' || slotName === '腕' || slotName === '手腕' || slotName === '护腕') {
     return '护腕';
   }

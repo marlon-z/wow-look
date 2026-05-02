@@ -378,6 +378,7 @@ Page({
     favoriteCount: 0,
     favoriteList: [],
     favoriteGroups: [],
+    favoriteSortMode: 'slot',
     pendingRemoveFavoriteKey: '',
     showFavorites: false,
     sharedFavoriteList: [],
@@ -428,18 +429,32 @@ Page({
     this.refreshFavorites();
   },
 
-  refreshFavorites() {
+  refreshFavorites(sortMode = this.data.favoriteSortMode) {
     const favoriteList = getFavorites();
     this.setData({
       favoriteList,
-      favoriteGroups: buildFavoriteGroups(favoriteList),
+      favoriteGroups: buildFavoriteGroups(favoriteList, sortMode),
       favoriteCount: favoriteList.length,
     });
   },
 
-  openFavorites() {
-    this.refreshFavorites();
+  toggleFavoriteSort() {
+    const favoriteSortMode = this.data.favoriteSortMode === 'slot' ? 'time' : 'slot';
     this.setData({
+      favoriteSortMode,
+      pendingRemoveFavoriteKey: '',
+      favoriteGroups: buildFavoriteGroups(this.data.favoriteList, favoriteSortMode),
+    });
+  },
+
+  openFavorites() {
+    const favoriteSortMode = 'slot';
+    const favoriteList = getFavorites();
+    this.setData({
+      favoriteSortMode,
+      favoriteList,
+      favoriteGroups: buildFavoriteGroups(favoriteList, favoriteSortMode),
+      favoriteCount: favoriteList.length,
       showFavorites: true,
       pageStyle: 'overflow:hidden;height:100vh;',
     });
@@ -660,7 +675,7 @@ Page({
   },
 
   removeFavoriteItem(event) {
-    const { key } = event.currentTarget.dataset;
+    const { key } = (event.detail || event.currentTarget.dataset);
     if (this.data.pendingRemoveFavoriteKey !== key) {
       this.setData({ pendingRemoveFavoriteKey: key });
       return;
@@ -697,7 +712,7 @@ Page({
 
   createFavoritePoster() {
     const favoriteList = this.data.favoriteList.length ? this.data.favoriteList : getFavorites();
-    const favoriteGroups = buildFavoriteGroups(favoriteList);
+    const favoriteGroups = buildFavoriteGroups(favoriteList, this.data.favoriteSortMode);
     if (!favoriteGroups.length) {
       wx.showToast({
         title: '还没有收藏装备',
@@ -850,7 +865,7 @@ Page({
   },
 
   onFavoriteItemTap(event) {
-    const { itemId, classKey, className } = event.currentTarget.dataset;
+    const { itemId, classKey, className } = (event.detail || event.currentTarget.dataset);
     if (!itemId || !classKey) {
       return;
     }

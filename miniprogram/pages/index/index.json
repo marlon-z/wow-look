@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "艾泽配装",
   "usingComponents": {
-    "equipment-detail": "/components/equipment-detail/equipment-detail"
+    "equipment-detail": "/components/equipment-detail/equipment-detail",
+    "favorite-panel": "/components/favorite-panel/favorite-panel"
   }
 }

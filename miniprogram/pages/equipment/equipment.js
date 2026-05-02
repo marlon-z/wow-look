@@ -32,6 +32,7 @@ const {
 } = require('../../utils/build-draft');
 const {
   buildFavoriteSharePayload,
+  buildFavoriteShareTitle,
 } = require('../../utils/favorite-share');
 
 Page({
@@ -83,6 +84,7 @@ Page({
     favoriteCount: 0,
     favoriteList: [],
     favoriteGroups: [],
+    favoriteSortMode: 'slot',
     pendingRemoveFavoriteKey: '',
     showFavorites: false,
     buildRequestMode: false,
@@ -625,18 +627,32 @@ Page({
     });
   },
 
-  refreshFavorites() {
+  refreshFavorites(sortMode = this.data.favoriteSortMode) {
     const favoriteList = getFavorites();
     this.setData({
       favoriteList,
-      favoriteGroups: buildFavoriteGroups(favoriteList),
+      favoriteGroups: buildFavoriteGroups(favoriteList, sortMode),
       favoriteCount: favoriteList.length,
     });
   },
 
-  openFavorites() {
-    this.refreshFavorites();
+  toggleFavoriteSort() {
+    const favoriteSortMode = this.data.favoriteSortMode === 'slot' ? 'time' : 'slot';
     this.setData({
+      favoriteSortMode,
+      pendingRemoveFavoriteKey: '',
+      favoriteGroups: buildFavoriteGroups(this.data.favoriteList, favoriteSortMode),
+    });
+  },
+
+  openFavorites() {
+    const favoriteSortMode = 'slot';
+    const favoriteList = getFavorites();
+    this.setData({
+      favoriteSortMode,
+      favoriteList,
+      favoriteGroups: buildFavoriteGroups(favoriteList, favoriteSortMode),
+      favoriteCount: favoriteList.length,
       showFavorites: true,
       pageStyle: 'overflow:hidden;height:100vh;',
     });
@@ -657,7 +673,7 @@ Page({
   },
 
   removeFavoriteItem(event) {
-    const { key } = event.currentTarget.dataset;
+    const { key } = (event.detail || event.currentTarget.dataset);
     if (this.data.pendingRemoveFavoriteKey !== key) {
       this.setData({ pendingRemoveFavoriteKey: key });
       return;
@@ -839,7 +855,7 @@ Page({
   },
 
   onFavoriteItemTap(event) {
-    const { itemId, classKey, className } = event.currentTarget.dataset;
+    const { itemId, classKey, className } = (event.detail || event.currentTarget.dataset);
     if (!itemId || !classKey) {
       return;
     }
@@ -892,7 +908,18 @@ Page({
     return payload ? `/pages/index/index?shareFav=${encodeURIComponent(payload)}` : '';
   },
 
-  onShareAppMessage() {
+  onShareAppMessage(options = {}) {
+    if (options.from === 'button') {
+      const favoriteList = this.data.favoriteList.length ? this.data.favoriteList : getFavorites();
+      const payload = buildFavoriteSharePayload(favoriteList);
+      if (payload) {
+        return {
+          title: buildFavoriteShareTitle(favoriteList),
+          path: `/pages/index/index?shareFav=${encodeURIComponent(payload)}`,
+        };
+      }
+    }
+
     if (this.data.buildRequestMode && this.data.buildDraftCount) {
       const path = this.buildDraftSharePath();
       if (path) {
@@ -910,6 +937,16 @@ Page({
   },
 
   onShareTimeline() {
+    if (this.data.showFavorites && this.data.favoriteList.length) {
+      const payload = buildFavoriteSharePayload(this.data.favoriteList);
+      if (payload) {
+        return {
+          title: buildFavoriteShareTitle(this.data.favoriteList),
+          query: `shareFav=${encodeURIComponent(payload)}`,
+        };
+      }
+    }
+
     if (this.data.buildRequestMode && this.data.buildDraftCount) {
       const payload = buildFavoriteSharePayload(this.data.buildDraftList);
       if (payload) {

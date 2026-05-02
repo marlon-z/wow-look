@@ -1,0 +1,93 @@
+<view wx:if="{{visible}}" class="favorite-mask" bindtap="handleClose">
+  <view class="favorite-panel" catchtap="handlePanelTap">
+    <view class="favorite-panel-head favorite-panel-head-stacked">
+      <view class="favorite-head-main">
+        <view class="favorite-title-wrap">
+          <view class="favorite-title-icon icon-star-filled"></view>
+          <text class="favorite-title">收藏夹</text>
+          <text class="favorite-count">共 {{favoriteCount}} 件</text>
+        </view>
+        <view
+          wx:if="{{favoriteGroups.length}}"
+          class="favorite-sort-btn {{favoriteSortMode === 'time' ? 'active' : ''}}"
+          catchtap="handleToggleSort"
+          aria-label="{{favoriteSortMode === 'slot' ? '按添加时间排序' : '按部位排序'}}"
+        >
+          <view class="favorite-sort-icon">
+            <view class="favorite-sort-arrow-up"></view>
+            <view class="favorite-sort-arrow-down"></view>
+          </view>
+        </view>
+        <view class="favorite-close" catchtap="handleClose">×</view>
+      </view>
+      <view wx:if="{{favoriteGroups.length}}" class="favorite-head-actions favorite-action-row">
+        <button class="favorite-share-mini" open-type="share" data-share-type="favorites" catchtap="handleClearPending">
+          <text>分享收藏</text>
+        </button>
+        <view class="favorite-poster-mini" catchtap="createFavoritePoster">{{isPosterGenerating ? '生成中' : '保存图片'}}</view>
+        <view class="favorite-clear-mini" catchtap="handleClearFavorites">清空</view>
+      </view>
+    </view>
+    <view class="favorite-divider"></view>
+
+    <block wx:if="{{favoriteGroups.length}}">
+      <scroll-view class="favorite-list" scroll-y enhanced show-scrollbar="{{false}}">
+        <view wx:for="{{favoriteGroups}}" wx:for-item="group" wx:key="classKey" class="favorite-group">
+          <view class="favorite-group-head">
+            <text class="favorite-group-title">{{group.className}}</text>
+            <text class="favorite-group-count">{{group.count}} 件</text>
+          </view>
+          <view
+            wx:for="{{group.items}}"
+            wx:for-item="favorite"
+            wx:key="key"
+            class="favorite-item"
+            catchtap="handleItemTap"
+            data-item-id="{{favorite.itemId}}"
+            data-class-key="{{favorite.classKey}}"
+            data-class-name="{{favorite.className}}"
+          >
+            <view class="favorite-icon-wrap">
+              <image wx:if="{{favorite.iconAsset}}" class="favorite-icon-img" src="{{favorite.iconAsset}}" mode="aspectFill" />
+              <text wx:else class="favorite-icon-letter">{{favorite.iconText}}</text>
+              <view class="favorite-icon-border"></view>
+            </view>
+            <view class="favorite-item-body">
+              <view class="favorite-row favorite-row-1">
+                <text class="favorite-name">{{favorite.name}}</text>
+                <view class="favorite-row-actions">
+                  <text class="favorite-slot">{{favorite.slotBadgeName || favorite.slotName}}</text>
+                  <view class="favorite-remove-btn {{pendingRemoveFavoriteKey === favorite.key ? 'confirm' : ''}}" catchtap="handleRemoveFavorite" data-key="{{favorite.key}}">
+                    <view class="favorite-remove-icon-sm"></view>
+                    <text wx:if="{{pendingRemoveFavoriteKey === favorite.key}}" class="favorite-remove-confirm-text">确认</text>
+                  </view>
+                </view>
+              </view>
+              <view class="favorite-row favorite-row-2">
+                <text class="favorite-stat">{{favorite.statLine}}</text>
+              </view>
+              <view class="favorite-row favorite-row-3">
+                <text class="favorite-meta-line">{{favorite.className}} · ilvl{{favorite.ilvl}}</text>
+                <view class="favorite-source-wrap">
+                  <text class="favorite-source">{{favorite.sourceName}}</text>
+                  <text class="favorite-arrow">›</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </block>
+
+    <view wx:else class="favorite-empty">
+      <view class="favorite-empty-icon icon-star-outline"></view>
+      <text class="favorite-empty-text">还没有收藏装备</text>
+    </view>
+  </view>
+
+  <canvas
+    canvas-id="favoritePosterCanvas"
+    class="favorite-poster-canvas"
+    style="width: 750px; height: {{posterCanvasHeight}}px;"
+  ></canvas>
+</view>

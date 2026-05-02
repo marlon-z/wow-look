@@ -389,74 +389,17 @@
     </view>
   </view>
 
-<view wx:if="{{showFavorites}}" class="favorite-mask" bindtap="closeFavorites">
-    <view class="favorite-panel" catchtap="clearPendingRemoveFavorite">
-      <view class="favorite-panel-head">
-        <view class="favorite-title-wrap">
-          <view class="favorite-title-icon icon-star-filled"></view>
-          <text class="favorite-title">收藏夹</text>
-          <text class="favorite-count">共 {{favoriteCount}} 件</text>
-        </view>
-        <view class="favorite-head-actions">
-          <view wx:if="{{favoriteGroups.length}}" class="favorite-clear-mini" catchtap="clearFavoriteItems">清空</view>
-          <view class="favorite-close" catchtap="closeFavorites">×</view>
-        </view>
-      </view>
-      <view class="favorite-divider"></view>
-
-      <block wx:if="{{favoriteGroups.length}}">
-        <scroll-view class="favorite-list" scroll-y enhanced show-scrollbar="{{false}}">
-          <view wx:for="{{favoriteGroups}}" wx:for-item="group" wx:key="classKey" class="favorite-group">
-            <view class="favorite-group-head">
-              <text class="favorite-group-title">{{group.className}}</text>
-              <text class="favorite-group-count">{{group.count}} 件</text>
-            </view>
-            <view
-              wx:for="{{group.items}}"
-              wx:for-item="favorite"
-              wx:key="key"
-              class="favorite-item"
-              catchtap="onFavoriteItemTap"
-              data-item-id="{{favorite.itemId}}"
-              data-class-key="{{favorite.classKey}}"
-              data-class-name="{{favorite.className}}"
-            >
-              <view class="favorite-icon-wrap">
-                <image wx:if="{{favorite.iconAsset}}" class="favorite-icon-img" src="{{favorite.iconAsset}}" mode="aspectFill" />
-                <text wx:else class="favorite-icon-letter">{{favorite.iconText}}</text>
-                <view class="favorite-icon-border"></view>
-              </view>
-              <view class="favorite-item-body">
-                <view class="favorite-row favorite-row-1">
-                  <text class="favorite-name">{{favorite.name}}</text>
-                  <view class="favorite-row-actions">
-                    <text class="favorite-slot">{{favorite.slotBadgeName || favorite.slotName}}</text>
-                    <view class="favorite-remove-btn {{pendingRemoveFavoriteKey === favorite.key ? 'confirm' : ''}}" catchtap="removeFavoriteItem" data-key="{{favorite.key}}">
-                      <view class="favorite-remove-icon-sm"></view>
-                      <text wx:if="{{pendingRemoveFavoriteKey === favorite.key}}" class="favorite-remove-confirm-text">确认</text>
-                    </view>
-                  </view>
-                </view>
-                <view class="favorite-row favorite-row-2">
-                  <text class="favorite-stat">{{favorite.statLine}}</text>
-                </view>
-                <view class="favorite-row favorite-row-3">
-                  <text class="favorite-meta-line">{{favorite.className}} · ilvl{{favorite.ilvl}}</text>
-                  <view class="favorite-source-wrap">
-                    <text class="favorite-source">{{favorite.sourceName}}</text>
-                    <text class="favorite-arrow">›</text>
-                  </view>
-                </view>
-              </view>
-            </view>
-          </view>
-        </scroll-view>
-      </block>
-
-      <view wx:else class="favorite-empty">
-        <view class="favorite-empty-icon icon-star-outline"></view>
-        <text class="favorite-empty-text">还没有收藏装备</text>
-      </view>
-    </view>
-  </view>
+  <favorite-panel
+    visible="{{showFavorites}}"
+    favorite-count="{{favoriteCount}}"
+    favorite-groups="{{favoriteGroups}}"
+    favorite-sort-mode="{{favoriteSortMode}}"
+    pending-remove-favorite-key="{{pendingRemoveFavoriteKey}}"
+    bind:close="closeFavorites"
+    bind:clearpending="clearPendingRemoveFavorite"
+    bind:togglesort="toggleFavoriteSort"
+    bind:clear="clearFavoriteItems"
+    bind:remove="removeFavoriteItem"
+    bind:itemtap="onFavoriteItemTap"
+  />
 </view>

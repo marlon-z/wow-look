@@ -6,10 +6,10 @@
   "appid": "wx644803a8d505de2b",
   "setting": {
     "urlCheck": false,
-    "es6": false,
+    "es6": true,
     "postcss": true,
     "minified": true,
-    "enhance": false,
+    "enhance": true,
     "packNpmManually": false,
     "minifyWXSS": true,
     "minifyWXML": true,

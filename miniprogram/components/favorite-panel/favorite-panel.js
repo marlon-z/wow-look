@@ -87,6 +87,23 @@ function drawStrokedText(ctx, text, x, y, strokeColor = 'rgba(0, 0, 0, 0.86)', s
   ctx.fillText(text, x, y);
 }
 
+function drawPosterGroupTitle(ctx, title, x, y) {
+  const centerX = x + 8;
+  const centerY = y - 8;
+  const size = 7;
+
+  ctx.beginPath();
+  ctx.moveTo(centerX, centerY - size);
+  ctx.lineTo(centerX + size, centerY);
+  ctx.lineTo(centerX, centerY + size);
+  ctx.lineTo(centerX - size, centerY);
+  ctx.closePath();
+  ctx.setStrokeStyle('#ffbb12');
+  ctx.setLineWidth(2);
+  ctx.stroke();
+  ctx.fillText(title, x + 24, y);
+}
+
 function createPosterGlow(ctx, x, y, radius, stops) {
   const gradient = ctx.createRadialGradient
     ? ctx.createRadialGradient(x, y, 20, x, y, radius)
@@ -419,7 +436,7 @@ Component({
 
         posterPage.groups.forEach((group) => {
           setPosterTextStyle(ctx, 26, '#ffbb12', 'bold');
-          ctx.fillText(`◇ ${group.className}`, 84, y);
+          drawPosterGroupTitle(ctx, group.className, 84, y);
           setPosterTextStyle(ctx, 20, '#a79e8f', 'bold', 'right');
           ctx.fillText(`${group.count} 件`, 666, y);
           y += 18;

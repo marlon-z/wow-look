@@ -40,7 +40,7 @@
       <view class="build-action-secondary" bindtap="openFavoritePicker">从收藏夹选择</view>
       <view class="build-action-secondary" bindtap="openBuildDraft">查看本次配装</view>
     </view>
-    <view class="build-request-close" bindtap="dismissBuildRequestIntro">×</view>
+    <view class="build-request-close" bindtap="dismissBuildRequestIntro"></view>
   </view>
 
   <view wx:if="{{buildRequestMode && !showBuildRequestIntro}}" class="build-draft-strip">
@@ -53,7 +53,7 @@
 
   <view class="filter-panel">
     <view class="search-box">
-      <text class="search-icon">⌕</text>
+      <view class="search-icon"></view>
       <input
         class="search-input"
         placeholder="搜索装备、副本或首领"
@@ -65,7 +65,7 @@
 
     <view class="filter-row">
       <view class="filter-head">
-        <text class="filter-symbol">♚</text>
+        <view class="filter-symbol filter-symbol-spec"></view>
         <text class="filter-label">专精</text>
       </view>
       <view class="chip-grid">
@@ -81,7 +81,7 @@
 
     <view class="filter-row">
       <view class="filter-head">
-        <text class="filter-symbol">✴</text>
+        <view class="filter-symbol filter-symbol-stat"></view>
         <text class="filter-label">副属性</text>
       </view>
       <view class="chip-grid">
@@ -97,7 +97,7 @@
 
     <view class="filter-row">
       <view class="filter-head">
-        <text class="filter-symbol">◉</text>
+        <view class="filter-symbol filter-symbol-view"></view>
         <text class="filter-label">视图</text>
       </view>
       <view class="chip-grid">
@@ -113,7 +113,7 @@
 
     <view class="filter-row">
       <view class="filter-head">
-        <text class="filter-symbol">▤</text>
+        <view class="filter-symbol filter-symbol-source"></view>
         <text class="filter-label">来源</text>
       </view>
       <view class="chip-grid">
@@ -129,7 +129,7 @@
 
     <view class="filter-row">
       <view class="filter-head">
-        <text class="filter-symbol">♞</text>
+        <view class="filter-symbol filter-symbol-slot"></view>
         <text class="filter-label">部位</text>
       </view>
       <scroll-view class="chip-scroll-x" scroll-x="true" enhanced show-scrollbar="{{false}}">
@@ -147,7 +147,7 @@
 
     <view class="filter-row filter-row-last">
       <view class="filter-head">
-        <text class="filter-symbol">♜</text>
+        <view class="filter-symbol filter-symbol-instance"></view>
         <text class="filter-label">副本</text>
       </view>
       <scroll-view class="chip-scroll-x" scroll-x="true" enhanced show-scrollbar="{{false}}">
@@ -187,7 +187,7 @@
         <block wx:if="{{selectedViewMode === 'slot'}}">
           <view class="group-head">
             <view class="group-title-wrap">
-              <text class="group-badge">♚</text>
+              <view class="group-badge"></view>
               <text class="group-title">{{item.slotName}}</text>
             </view>
             <text class="group-count">共 {{item.items.length}} 件</text>
@@ -270,7 +270,7 @@
         <view class="favorite-head-actions">
           <button wx:if="{{buildDraftCount}}" class="build-share-mini" open-type="share">分享本次配装</button>
           <view wx:if="{{buildDraftCount}}" class="favorite-clear-mini" catchtap="clearBuildDraftItems">清空</view>
-          <view class="favorite-close" catchtap="closeBuildDraft">×</view>
+          <view class="favorite-close" catchtap="closeBuildDraft"></view>
         </view>
       </view>
       <view class="favorite-divider"></view>
@@ -340,7 +340,7 @@
         </view>
         <view class="favorite-head-actions">
           <view wx:if="{{favoritePickerList.length}}" class="favorite-clear-mini build-import-all" catchtap="addAllFavoritePickerItems">全部加入</view>
-          <view class="favorite-close" catchtap="closeFavoritePicker">×</view>
+          <view class="favorite-close" catchtap="closeFavoritePicker"></view>
         </view>
       </view>
       <view class="favorite-divider"></view>

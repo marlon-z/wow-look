@@ -1,6 +1,6 @@
 <view wx:if="{{visible && item}}" class="modal-mask" bindtap="close">
   <view class="modal-card" catchtap="preventClose">
-    <view class="modal-close" bindtap="close">×</view>
+    <view class="modal-close" bindtap="close"></view>
 
     <view class="tt-header">
       <view class="tt-icon-wrap">
@@ -31,7 +31,10 @@
         <text wx:if="{{item.upgradeTrack}}" class="tt-line">升级：{{item.upgradeTrack}}</text>
         <text class="tt-line">{{item.slotName}}<block wx:if="{{item.itemSubType}}"> · {{item.itemSubType}}</block></text>
         <text wx:if="{{item.tooltipFlags.uniqueEquipped}}" class="tt-line">装备唯一</text>
-        <text wx:if="{{item.tooltipFlags.prismaticSocket}}" class="tt-line socket-line">◇ 棱彩插槽</text>
+        <view wx:if="{{item.tooltipFlags.prismaticSocket}}" class="tt-line socket-line">
+          <view class="socket-icon"></view>
+          <text>棱彩插槽</text>
+        </view>
       </view>
 
       <view class="tt-divider"></view>
@@ -45,13 +48,13 @@
 
         <block wx:for="{{item.stats.primaryStats}}" wx:key="type">
           <view class="stat-row">
-            <text class="stat-bullet">♦</text>
+            <view class="stat-bullet"></view>
             <text class="tt-line white-line">+{{item.value}} {{item.name}}</text>
           </view>
         </block>
 
         <view wx:if="{{item.stats.stamina}}" class="stat-row">
-          <text class="stat-bullet">♦</text>
+          <view class="stat-bullet"></view>
           <text class="tt-line white-line">+{{item.stats.stamina.value}} {{item.stats.stamina.name}}</text>
         </view>
 
@@ -67,7 +70,7 @@
 
       <view wx:if="{{item.tierInfo}}" class="tt-section">
         <view class="tt-extra-block">
-          <text class="tt-extra-icon">✦</text>
+          <view class="tt-extra-icon tt-extra-icon-set"></view>
           <view class="tt-extra-col">
             <text class="tt-extra-line gold-text">{{item.tierInfo.setName}}（{{item.tierInfo.pieces.length}}件）</text>
             <text wx:if="{{item.tierInfo.specName}}" class="tt-extra-line">当前专精：{{item.tierInfo.specName}}</text>
@@ -75,13 +78,13 @@
             <text wx:if="{{item.tierInfo.twoPiece}}" class="tt-extra-line green-text">(2) 套装：{{item.tierInfo.twoPiece}}</text>
             <text wx:if="{{item.tierInfo.fourPiece}}" class="tt-extra-line green-text">(4) 套装：{{item.tierInfo.fourPiece}}</text>
           </view>
-          <text class="tt-extra-watermark">✶</text>
+          <view class="tt-extra-watermark"></view>
         </view>
       </view>
 
       <view wx:if="{{item.equipEffects.length || item.useEffects.length || item.filteredRaw.length}}" class="tt-section">
         <view class="tt-extra-block">
-          <text class="tt-extra-icon">◈</text>
+          <view class="tt-extra-icon tt-extra-icon-effect"></view>
           <view class="tt-extra-col">
             <block wx:for="{{item.equipEffects}}" wx:key="*this">
               <text class="tt-extra-line green-text">装备：{{item}}</text>
@@ -93,7 +96,7 @@
               <text class="tt-extra-line">{{item}}</text>
             </block>
           </view>
-          <text class="tt-extra-watermark">✶</text>
+          <view class="tt-extra-watermark"></view>
         </view>
       </view>
 
@@ -101,11 +104,11 @@
 
       <view class="tt-footer-wrap">
         <view class="tt-bot-item" wx:if="{{item.specText}}">
-          <text class="tt-bot-icon">✦</text>
+          <view class="tt-bot-icon tt-bot-icon-spec"></view>
           <text>拾取专精：{{item.specText}}</text>
         </view>
         <view class="tt-bot-item" wx:if="{{item.instanceName}}">
-          <text class="tt-bot-icon">⬡</text>
+          <view class="tt-bot-icon tt-bot-icon-source"></view>
           <text>{{item.instanceName}}<block wx:if="{{item.encounterName}}"> · {{item.encounterName}}</block></text>
         </view>
         <text class="tt-bot-dim">{{item.source.difficultyName || '史诗'}} · ID {{item.id}}</text>

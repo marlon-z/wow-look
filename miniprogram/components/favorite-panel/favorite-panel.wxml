@@ -18,7 +18,7 @@
             <view class="favorite-sort-arrow-down"></view>
           </view>
         </view>
-        <view class="favorite-close" catchtap="handleClose">×</view>
+        <view class="favorite-close" catchtap="handleClose"></view>
       </view>
       <view wx:if="{{favoriteGroups.length}}" class="favorite-head-actions favorite-action-row">
         <button class="favorite-share-mini" open-type="share" data-share-type="favorites" catchtap="handleClearPending">

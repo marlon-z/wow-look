@@ -73,7 +73,7 @@
             <text wx:if="{{sharedFavoriteSummary}}" class="shared-summary">{{sharedFavoriteSummary}}</text>
           </view>
         </view>
-        <view class="favorite-close" catchtap="closeSharedFavorites">×</view>
+        <view class="favorite-close" catchtap="closeSharedFavorites"></view>
       </view>
       <view class="favorite-divider"></view>
 
@@ -147,7 +147,7 @@
             <text class="announcement-meta">{{announcement.version}} · {{announcement.date}}</text>
           </view>
         </view>
-        <view class="favorite-close announcement-close" catchtap="closeAnnouncement">×</view>
+        <view class="favorite-close announcement-close" catchtap="closeAnnouncement"></view>
       </view>
       <view class="favorite-divider"></view>
       <view class="announcement-body">

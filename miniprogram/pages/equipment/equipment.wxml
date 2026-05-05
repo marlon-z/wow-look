@@ -24,7 +24,11 @@
       <view class="hero-summary-row">
         <text class="hero-count">{{resultCount}}</text>
         <text class="hero-count-unit">件装备</text>
-        <button class="hero-share-btn" open-type="share">{{buildRequestMode && buildDraftCount ? '分享本次配装' : '请好友配装'}}</button>
+        <button
+          class="hero-share-btn"
+          open-type="share"
+          data-share-type="{{buildRequestMode && buildDraftCount ? 'build-draft' : 'build-request'}}"
+        >{{buildRequestMode && buildDraftCount ? '分享本次配装' : '请好友配装'}}</button>
       </view>
       <text class="hero-desc">{{activeFiltersText}}</text>
     </view>
@@ -261,15 +265,17 @@
 
   <view wx:if="{{showBuildDraft}}" class="favorite-mask" bindtap="closeBuildDraft">
     <view class="favorite-panel build-draft-panel" catchtap="preventClose">
-      <view class="favorite-panel-head">
-        <view class="favorite-title-wrap">
+      <view class="favorite-panel-head build-panel-head">
+        <view class="favorite-title-wrap build-panel-title-wrap">
           <view class="favorite-title-icon icon-star-filled"></view>
           <text class="favorite-title">本次配装</text>
           <text class="favorite-count">共 {{buildDraftCount}} 件</text>
         </view>
-        <view class="favorite-head-actions">
-          <button wx:if="{{buildDraftCount}}" class="build-share-mini" open-type="share">分享本次配装</button>
-          <view wx:if="{{buildDraftCount}}" class="favorite-clear-mini" catchtap="clearBuildDraftItems">清空</view>
+        <view class="build-panel-head-side">
+          <view wx:if="{{buildDraftCount}}" class="favorite-head-actions build-panel-actions">
+            <button wx:if="{{buildDraftCount}}" class="build-share-mini" open-type="share" data-share-type="build-draft">分享配装</button>
+            <view wx:if="{{buildDraftCount}}" class="favorite-clear-mini build-clear-mini" catchtap="clearBuildDraftItems">清空</view>
+          </view>
           <view class="favorite-close" catchtap="closeBuildDraft"></view>
         </view>
       </view>
@@ -332,14 +338,16 @@
 
   <view wx:if="{{showFavoritePicker}}" class="favorite-mask" bindtap="closeFavoritePicker">
     <view class="favorite-panel build-draft-panel" catchtap="preventClose">
-      <view class="favorite-panel-head">
-        <view class="favorite-title-wrap">
+      <view class="favorite-panel-head build-panel-head">
+        <view class="favorite-title-wrap build-panel-title-wrap">
           <view class="favorite-title-icon icon-star-filled"></view>
           <text class="favorite-title">从收藏夹选择</text>
           <text class="favorite-count">共 {{favoritePickerList.length}} 件</text>
         </view>
-        <view class="favorite-head-actions">
-          <view wx:if="{{favoritePickerList.length}}" class="favorite-clear-mini build-import-all" catchtap="addAllFavoritePickerItems">全部加入</view>
+        <view class="build-panel-head-side">
+          <view wx:if="{{favoritePickerList.length}}" class="favorite-head-actions build-panel-actions">
+            <view wx:if="{{favoritePickerList.length}}" class="favorite-clear-mini build-import-all" catchtap="addAllFavoritePickerItems">全部加入</view>
+          </view>
           <view class="favorite-close" catchtap="closeFavoritePicker"></view>
         </view>
       </view>

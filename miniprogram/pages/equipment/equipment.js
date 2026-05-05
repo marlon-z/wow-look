@@ -118,7 +118,7 @@ Page({
       showBuildRequestIntro: options.requestBuild === '1',
     });
     if (options.requestBuild === '1') {
-      startBuildDraft(classKey, options.className || (classMeta && classMeta.name) || '武僧');
+      startBuildDraft(classKey, options.className || (classMeta && classMeta.name) || '武僧', false);
       this.refreshBuildDraft();
     }
     this.loadData(classKey);
@@ -909,7 +909,11 @@ Page({
   },
 
   onShareAppMessage(options = {}) {
-    if (options.from === 'button') {
+    const shareType = options.target && options.target.dataset
+      ? options.target.dataset.shareType
+      : '';
+
+    if (shareType === 'favorites') {
       const favoriteList = this.data.favoriteList.length ? this.data.favoriteList : getFavorites();
       const payload = buildFavoriteSharePayload(favoriteList);
       if (payload) {
@@ -920,7 +924,7 @@ Page({
       }
     }
 
-    if (this.data.buildRequestMode && this.data.buildDraftCount) {
+    if (shareType === 'build-draft' || (!shareType && this.data.buildRequestMode && this.data.buildDraftCount)) {
       const path = this.buildDraftSharePath();
       if (path) {
         return {
@@ -928,6 +932,13 @@ Page({
           path,
         };
       }
+    }
+
+    if (shareType === 'build-request') {
+      return {
+        title: this.buildRequestShareTitle(),
+        path: this.buildRequestSharePath(),
+      };
     }
 
     return {

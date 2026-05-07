@@ -1,0 +1,2559 @@
+module.exports = {
+  "locale": "ko-KR",
+  "apiLocale": "ko_KR",
+  "source": "blizzard-game-data-api",
+  "region": "kr",
+  "namespace": "static-kr",
+  "generatedAt": "2026-05-07T06:25:10.775Z",
+  "classKey": "hunter",
+  "items": {
+    "49807": {
+      "id": 49807,
+      "name": "크리크의 딱정벌레 단도",
+      "sourceName": "科瑞克的甲虫刀",
+      "quality": "영웅",
+      "inventoryType": "한손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "단검",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "49810": {
+      "id": 49810,
+      "name": "거친 좀비 허리띠",
+      "sourceName": "凶尸腰索",
+      "quality": "영웅",
+      "inventoryType": "허리",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "49811": {
+      "id": 49811,
+      "name": "검은용가죽 짧은바지",
+      "sourceName": "黑色龙皮褶裙",
+      "quality": "영웅",
+      "inventoryType": "다리",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "49812": {
+      "id": 49812,
+      "name": "훔친 결혼반지",
+      "sourceName": "被盗的婚戒",
+      "quality": "영웅",
+      "inventoryType": "손가락",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "49813": {
+      "id": 49813,
+      "name": "서리파멸 소총",
+      "sourceName": "霜灾火枪",
+      "quality": "영웅",
+      "inventoryType": "원거리 장비",
+      "itemClass": "무기",
+      "itemSubclass": "총",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "49823": {
+      "id": 49823,
+      "name": "쓰러진 추기경의 망토",
+      "sourceName": "阵亡主教斗篷",
+      "quality": "영웅",
+      "inventoryType": "등",
+      "itemClass": "방어구",
+      "itemSubclass": "천",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "49824": {
+      "id": 49824,
+      "name": "쫓겨난 발키르의 뿔",
+      "sourceName": "被遗弃的瓦格里之角",
+      "quality": "영웅",
+      "inventoryType": "머리",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "50228": {
+      "id": 50228,
+      "name": "뾰족한 이미르하임 목장식",
+      "sourceName": "尖刺伊米亚颈饰",
+      "quality": "영웅",
+      "inventoryType": "목",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "50233": {
+      "id": 50233,
+      "name": "쫓겨난 발키르의 어깨보호대",
+      "sourceName": "被遗弃的瓦格里肩甲",
+      "quality": "영웅",
+      "inventoryType": "어깨",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "151307": {
+      "id": 151307,
+      "name": "공허 추적자의 계약",
+      "sourceName": "虚空追猎者的契约",
+      "quality": "희귀",
+      "inventoryType": "장신구",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 250966,
+          "name": "공허 추적자의 부름",
+          "description": "사용 효과: 공허 추적자를 둘 소환하여 두 방향에서 대상을 공격하게 하고, 이동 경로상의 모든 적에게 최대 1,844의 물리 피해를 입힙니다. (1분 30초 후 재사용 가능)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "151308": {
+      "id": 151308,
+      "name": "에레다스 귀족의 인장",
+      "sourceName": "艾瑞达斯贵族印戒",
+      "quality": "희귀",
+      "inventoryType": "손가락",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": 1331,
+      "setName": "벨렌의 탄식"
+    },
+    "151309": {
+      "id": 151309,
+      "name": "뒤틀리는 공허의 목걸이",
+      "sourceName": "扭曲虚空项链",
+      "quality": "희귀",
+      "inventoryType": "목",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "151311": {
+      "id": 151311,
+      "name": "삼두정의 고리",
+      "sourceName": "执政团指轮",
+      "quality": "희귀",
+      "inventoryType": "손가락",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": 1331,
+      "setName": "벨렌의 탄식"
+    },
+    "151320": {
+      "id": 151320,
+      "name": "공허로 뒤덮인 디딤장화",
+      "sourceName": "虚空涂层战靴",
+      "quality": "희귀",
+      "inventoryType": "발",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "151321": {
+      "id": 151321,
+      "name": "검은송곳니 비늘 손목보호구",
+      "sourceName": "黯牙鳞甲护腕",
+      "quality": "희귀",
+      "inventoryType": "손목",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "151322": {
+      "id": 151322,
+      "name": "공허에 물든 손장갑",
+      "sourceName": "虚空之触手套",
+      "quality": "희귀",
+      "inventoryType": "손",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "151323": {
+      "id": 151323,
+      "name": "공허 사냥꾼의 견갑",
+      "sourceName": "虚空猎手肩甲",
+      "quality": "희귀",
+      "inventoryType": "어깨",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 253802,
+          "name": "공허 사냥꾼",
+          "description": "착용 효과: 돌연변이에 대한 지능이 2만큼 증가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "151325": {
+      "id": 151325,
+      "name": "공허 고리 로브",
+      "sourceName": "虚空之环长袍",
+      "quality": "희귀",
+      "inventoryType": "가슴",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193701": {
+      "id": 193701,
+      "name": "알게타르 수수께끼 상자",
+      "sourceName": "艾杰斯亚谜题盒",
+      "quality": "희귀",
+      "inventoryType": "장신구",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 383781,
+          "name": "알게타르 수수께끼",
+          "description": "사용 효과: 수수께끼를 풀어 20초 동안 특화가 112만큼 증가합니다. (2분 후 재사용 가능)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "193704": {
+      "id": 193704,
+      "name": "비늘 학위 어깨덮개",
+      "sourceName": "坚鳞毕业护肩",
+      "quality": "희귀",
+      "inventoryType": "어깨",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193708": {
+      "id": 193708,
+      "name": "백금 별의 고리",
+      "sourceName": "白金星辰指环",
+      "quality": "희귀",
+      "inventoryType": "손가락",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "이스카라의 타투키아카에게 가져가면 관심을 보일 것 같습니다.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193712": {
+      "id": 193712,
+      "name": "물약으로 얼룩진 망토",
+      "sourceName": "药渍披风",
+      "quality": "희귀",
+      "inventoryType": "등",
+      "itemClass": "방어구",
+      "itemSubclass": "천",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193715": {
+      "id": 193715,
+      "name": "폭발적인 성장의 장화",
+      "sourceName": "爆裂生长之靴",
+      "quality": "희귀",
+      "inventoryType": "발",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193722": {
+      "id": 193722,
+      "name": "하늘빛 경쟁의 허리띠",
+      "sourceName": "碧蓝竞技腰带",
+      "quality": "희귀",
+      "inventoryType": "허리",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193723": {
+      "id": 193723,
+      "name": "흑요석 골대지킴이 뾰족지팡이",
+      "sourceName": "黑曜守门塔杖",
+      "quality": "희귀",
+      "inventoryType": "양손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "지팡이",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "241044": {
+      "id": 241044,
+      "name": "아르거시안 상자",
+      "sourceName": "阿古斯箱子",
+      "quality": "고급",
+      "inventoryType": "착용 불가",
+      "itemClass": "하우징",
+      "itemSubclass": "하우징 장식",
+      "binding": "전투부대 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1230953,
+          "name": "아르거시안 상자 획득",
+          "description": "사용 효과: 이 장식을 집 보관함에 추가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249278": {
+      "id": 249278,
+      "name": "알른멸시 뾰족지팡이",
+      "sourceName": "艾蔑尖塔法杖",
+      "quality": "영웅",
+      "inventoryType": "양손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "지팡이",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249279": {
+      "id": 249279,
+      "name": "태양의 일격 소총",
+      "sourceName": "阳炎打击步枪",
+      "quality": "영웅",
+      "inventoryType": "원거리 장비",
+      "itemClass": "무기",
+      "itemSubclass": "총",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249284": {
+      "id": 249284,
+      "name": "벨로렌의 날렵한 갈퀴발톱",
+      "sourceName": "贝洛朗的迅捷之爪",
+      "quality": "영웅",
+      "inventoryType": "한손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "단검",
+      "binding": "획득 시 귀속",
+      "description": "불꽃이 번쩍이고 그림자가 내려앉습니다. 이 이상 빠른 것은 찾아보기 어렵죠.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249288": {
+      "id": 249288,
+      "name": "순찰대장의 치명적인 곡궁",
+      "sourceName": "游侠队长的致命反曲弓",
+      "quality": "영웅",
+      "inventoryType": "원거리 장비",
+      "itemClass": "무기",
+      "itemSubclass": "활",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249302": {
+      "id": 249302,
+      "name": "피할 수 없는 손아귀",
+      "sourceName": "殒命缠身",
+      "quality": "영웅",
+      "inventoryType": "양손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "장창",
+      "binding": "획득 시 귀속",
+      "description": "그 어떤 사냥감도 도망치지 못합니다.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249303": {
+      "id": 249303,
+      "name": "심판받은 자의 허리줄",
+      "sourceName": "被审判者的腰索",
+      "quality": "영웅",
+      "inventoryType": "허리",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "당신은... 자격을 인정받았습니다.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249304": {
+      "id": 249304,
+      "name": "몰락한 왕의 소매장식",
+      "sourceName": "陨落之王的护腕",
+      "quality": "영웅",
+      "inventoryType": "손목",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249310": {
+      "id": 249310,
+      "name": "공허결속의 로브",
+      "sourceName": "虚缚长袍",
+      "quality": "영웅",
+      "inventoryType": "가슴",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249317": {
+      "id": 249317,
+      "name": "광란의 질책",
+      "sourceName": "狂乱斥责",
+      "quality": "영웅",
+      "inventoryType": "머리",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249318": {
+      "id": 249318,
+      "name": "무위방랑자의 섬뜩한 견장",
+      "sourceName": "虚无行者的恐惧肩章",
+      "quality": "영웅",
+      "inventoryType": "어깨",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249320": {
+      "id": 249320,
+      "name": "암연의 발덮개",
+      "sourceName": "遮蔽战靴",
+      "quality": "영웅",
+      "inventoryType": "발",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249324": {
+      "id": 249324,
+      "name": "영원의 불꽃 비늘보호대",
+      "sourceName": "永恒之火鳞甲",
+      "quality": "영웅",
+      "inventoryType": "다리",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249325": {
+      "id": 249325,
+      "name": "풀어헤쳐진 광전사의 손장갑",
+      "sourceName": "无拘狂暴者的护手",
+      "quality": "영웅",
+      "inventoryType": "손",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "그녀가 마음의 짐을 덜 수 있었던 유일한 곳은 전장이었습니다. 적어도 예전에는요.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249335": {
+      "id": 249335,
+      "name": "전제군주의 깃발",
+      "sourceName": "元首的战旗",
+      "quality": "영웅",
+      "inventoryType": "등",
+      "itemClass": "방어구",
+      "itemSubclass": "천",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249336": {
+      "id": 249336,
+      "name": "굶주린 야수의 인장",
+      "sourceName": "饥饿野兽指环",
+      "quality": "영웅",
+      "inventoryType": "손가락",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249337": {
+      "id": 249337,
+      "name": "뒤틀린 악의의 리본",
+      "sourceName": "盘绕恶意丝带",
+      "quality": "영웅",
+      "inventoryType": "목",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249343": {
+      "id": 249343,
+      "name": "알른 선견자의 응시",
+      "sourceName": "艾林先知的凝视",
+      "quality": "영웅",
+      "inventoryType": "장신구",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "신실한 이들도 감히 시선을 두지 못하는 곳이 있습니다.",
+      "spells": [
+        {
+          "id": 1256896,
+          "name": "알른 선견자의 응시",
+          "description": "착용 효과: 공격 및 치유 능력 사용 시 일정 확률로 12초 동안 알른시야가 부여됩니다. 효과가 활성화된 동안 주문 및 능력 시전 시 불안정한 알른멸시를 현신시켜 12초 동안 지능이 2만큼 증가합니다. 여러 번 사용 시 효과가 중첩됩니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249344": {
+      "id": 249344,
+      "name": "빛의 부대기",
+      "sourceName": "圣光连队的旌旗",
+      "quality": "영웅",
+      "inventoryType": "장신구",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "전진하라, 빛의 선봉대여!",
+      "spells": [
+        {
+          "id": 1251817,
+          "name": "빛의 부대기",
+          "description": "착용 효과: 빛의 선봉대에 자원했습니다.\r\n\r\n"
+        },
+        {
+          "id": 1259633,
+          "name": "돌격!",
+          "description": "사용 효과: 돌격의 선봉에 서 15초 동안 가속이 74만큼 증가합니다. 6초 동안 40미터 내 모든 빛의 선봉대 자원자의 이동 속도가 18만큼 증가합니다. (1분 30초 후 재사용 가능)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249345": {
+      "id": 249345,
+      "name": "순찰대장의 오색 휘장",
+      "sourceName": "游侠将军的虹彩徽章",
+      "quality": "영웅",
+      "inventoryType": "장신구",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1260266,
+          "name": "은빛강타 교묘한 사격",
+          "description": "사용 효과: 은빛강타 교묘한 사격을 날려 대상과 주위의 적 하나에게 치명타 및 극대화 공격을 가해 1,207의 비전 피해를 입힙니다. 시전자의 치명타 및 극대화율에 따라 추가로 증가합니다.\r\n\r\n치명타 및 극대화 공격을 적중시키면 높은 확률로 이 효과의 재사용 대기시간이 5초만큼 감소합니다. (3분 후 재사용 가능)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249349": {
+      "id": 249349,
+      "name": "알른주조 균열꽃",
+      "sourceName": "艾林锻造的裂隙绽放",
+      "quality": "영웅",
+      "inventoryType": "착용 불가",
+      "itemClass": "기타",
+      "itemSubclass": "잡동사니",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1261839,
+          "name": "균열꽃",
+          "description": "사용 효과: 자신의 직업에 적합한 세트 가슴보호구 귀속 아이템을 합성합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249353": {
+      "id": 249353,
+      "name": "공허주조 허기의 무위핵",
+      "sourceName": "虚空锻造的饥饿虚核",
+      "quality": "영웅",
+      "inventoryType": "착용 불가",
+      "itemClass": "기타",
+      "itemSubclass": "잡동사니",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1261838,
+          "name": "허기의 무위핵",
+          "description": "사용 효과: 자신의 직업에 적합한 세트 손보호구 귀속 아이템을 합성합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249357": {
+      "id": 249357,
+      "name": "공허주조 광신의 무위핵",
+      "sourceName": "虚空锻造的狂热虚核",
+      "quality": "영웅",
+      "inventoryType": "착용 불가",
+      "itemClass": "기타",
+      "itemSubclass": "잡동사니",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1261837,
+          "name": "광신의 무위핵",
+          "description": "사용 효과: 자신의 직업에 적합한 세트 머리보호구 귀속 아이템을 합성합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249361": {
+      "id": 249361,
+      "name": "공허주조 타락의 무위핵",
+      "sourceName": "虚空锻造的腐化虚核",
+      "quality": "영웅",
+      "inventoryType": "착용 불가",
+      "itemClass": "기타",
+      "itemSubclass": "잡동사니",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1261832,
+          "name": "타락의 무위핵",
+          "description": "사용 효과: 자신의 직업에 적합한 세트 다리보호구 귀속 아이템을 합성합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249365": {
+      "id": 249365,
+      "name": "공허주조 해체의 무위핵",
+      "sourceName": "虚空锻造的解离虚核",
+      "quality": "영웅",
+      "inventoryType": "착용 불가",
+      "itemClass": "기타",
+      "itemSubclass": "잡동사니",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1261831,
+          "name": "해체의 무위핵",
+          "description": "사용 효과: 자신의 직업에 적합한 세트 어깨보호구 귀속 아이템을 합성합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249367": {
+      "id": 249367,
+      "name": "울리는 공허 수집품",
+      "sourceName": "鸣响虚空珍玩",
+      "quality": "영웅",
+      "inventoryType": "착용 불가",
+      "itemClass": "재료",
+      "itemSubclass": "상황 토큰",
+      "binding": "획득 시 귀속",
+      "description": "쿠엘다나스 진격로 입구 근처에서 키라나를 찾아가 강력한 직업 세트 방어구로 교환할 수 있습니다.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249368": {
+      "id": 249368,
+      "name": "영원한 공허노래 사슬",
+      "sourceName": "永恒虚空之歌项链",
+      "quality": "영웅",
+      "inventoryType": "목",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1271211,
+          "name": "영원한 공허노래 사슬",
+          "description": "착용 효과: 암흑 피해를 입히면 일정 확률로 공허추적자 독침을 방출해 대상에게 10초에 걸쳐 103의 암흑 피해를 입힙니다. 다시 부여하면 남은 피해량이 다음 독침 효과에 합산됩니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249369": {
+      "id": 249369,
+      "name": "빛의 결속",
+      "sourceName": "圣光纽带",
+      "quality": "영웅",
+      "inventoryType": "손가락",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249370": {
+      "id": 249370,
+      "name": "용족 무위단망토",
+      "sourceName": "龙族虚无披风",
+      "quality": "영웅",
+      "inventoryType": "등",
+      "itemClass": "방어구",
+      "itemSubclass": "천",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249371": {
+      "id": 249371,
+      "name": "멸시파멸 허리보호대",
+      "sourceName": "灾祸克星护腰",
+      "quality": "영웅",
+      "inventoryType": "허리",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249377": {
+      "id": 249377,
+      "name": "어둠걸이의 발보호대",
+      "sourceName": "涉暗踏靴",
+      "quality": "영웅",
+      "inventoryType": "발",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249805": {
+      "id": 249805,
+      "name": "꿈결을 벗어난 신의 수액이 흐르는 자취",
+      "sourceName": "未梦之神的污泥残迹",
+      "quality": "영웅",
+      "inventoryType": "장신구",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "수액이 절대 멈추지 않는 듯합니다.",
+      "spells": [
+        {
+          "id": 1256790,
+          "name": "꿈결을 벗어난 신의 수액이 흐르는 자취",
+          "description": "착용 효과: 높은 확률로 대상에게 불안정한 타액을 흩뿌려 1초마다 4의 자연 피해를 입힙니다. 최대 5번까지 중첩됩니다.\r\n\r\n5번 중첩 시 또는 적이 사망하면 타랙이 급격하게 소진되어 주위의 적에게 371의 자연 피해를 나누어 입힙니다. 추가 적 하나당 공격력이 30%만큼, 최대 150%만큼 증가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249806": {
+      "id": 249806,
+      "name": "광휘의 꽁지깃",
+      "sourceName": "光耀飞羽",
+      "quality": "영웅",
+      "inventoryType": "장신구",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1260592,
+          "name": "광휘의 꽁지깃",
+          "description": "착용 효과: 꽁지깃의 광휘로 특화가 30만큼 증가하고, 60초에 걸쳐 감소한 후 백열을 발하며 다시 타오릅니다. 또한 전투 중이 아닐 때 꽁지깃의 힘이 재생됩니다."
+        },
+        {
+          "id": 1265805,
+          "name": "암영의 꽁지깃",
+          "description": "사용 효과: 전투 중이 아닐 때 꽁지깃의 양면성을 일깨워 암영의 꽁지깃으로 변신시킵니다. (5분 후 재사용 가능)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249914": {
+      "id": 249914,
+      "name": "망각의 가면",
+      "sourceName": "湮灭伪装",
+      "quality": "영웅",
+      "inventoryType": "머리",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249919": {
+      "id": 249919,
+      "name": "희망의 신도레이 고리",
+      "sourceName": "辛多雷希望指环",
+      "quality": "영웅",
+      "inventoryType": "손가락",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249920": {
+      "id": 249920,
+      "name": "한밤의 눈",
+      "sourceName": "至暗之夜的眼眸",
+      "quality": "영웅",
+      "inventoryType": "손가락",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1266505,
+          "name": "한밤의 눈",
+          "description": "착용 효과: 최대 생명력의 15%를 넘는 암흑 피해를 받으면 최대 240의 피해를 흡수하는 방벽이 부여됩니다. 방벽이 지속되는 동안 광역회피가 10만큼 증가합니다. 이 효과는 30초에 한 번씩만 발동합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249925": {
+      "id": 249925,
+      "name": "굶주린 승리",
+      "sourceName": "饥渴凯旋",
+      "quality": "영웅",
+      "inventoryType": "한손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "단검",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249983": {
+      "id": 249983,
+      "name": "원시 파수꾼의 가시",
+      "sourceName": "原始哨兵的脊刺披风",
+      "quality": "영웅",
+      "inventoryType": "등",
+      "itemClass": "방어구",
+      "itemSubclass": "천",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249984": {
+      "id": 249984,
+      "name": "원시 파수꾼의 지혈대",
+      "sourceName": "原始哨兵的止血护腕",
+      "quality": "영웅",
+      "inventoryType": "손목",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249985": {
+      "id": 249985,
+      "name": "원시 파수꾼의 허리끈",
+      "sourceName": "原始哨兵的腰链",
+      "quality": "영웅",
+      "inventoryType": "허리",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249986": {
+      "id": 249986,
+      "name": "원시 파수꾼의 전리품",
+      "sourceName": "原始哨兵的战利品",
+      "quality": "영웅",
+      "inventoryType": "어깨",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": 1982,
+      "setName": "원시 파수꾼의 위장"
+    },
+    "249987": {
+      "id": 249987,
+      "name": "원시 파수꾼의 다리보호대",
+      "sourceName": "原始哨兵的护腿",
+      "quality": "영웅",
+      "inventoryType": "다리",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": 1982,
+      "setName": "원시 파수꾼의 위장"
+    },
+    "249988": {
+      "id": 249988,
+      "name": "원시 파수꾼의 아귀",
+      "sourceName": "原始哨兵的巨口头盔",
+      "quality": "영웅",
+      "inventoryType": "머리",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": 1982,
+      "setName": "원시 파수꾼의 위장"
+    },
+    "249989": {
+      "id": 249989,
+      "name": "원시 파수꾼의 갈퀴보호대",
+      "sourceName": "原始哨兵的利爪护手",
+      "quality": "영웅",
+      "inventoryType": "손",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": 1982,
+      "setName": "원시 파수꾼의 위장"
+    },
+    "249990": {
+      "id": 249990,
+      "name": "원시 파수꾼의 날쌘 발걸음",
+      "sourceName": "原始哨兵的迅捷步靴",
+      "quality": "영웅",
+      "inventoryType": "발",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249991": {
+      "id": 249991,
+      "name": "원시 파수꾼의 비늘판금",
+      "sourceName": "原始哨兵的鳞甲",
+      "quality": "영웅",
+      "inventoryType": "가슴",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": 1982,
+      "setName": "원시 파수꾼의 위장"
+    },
+    "250144": {
+      "id": 250144,
+      "name": "잿불날개 깃털",
+      "sourceName": "烬翼羽毛",
+      "quality": "희귀",
+      "inventoryType": "장신구",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250508,
+          "name": "잿불날개 열파",
+          "description": "사용 효과: 잿불날개 열파를 방출해 15초 동안 가속을 68만큼 증가시킵니다.\r\n\r\n낮은 확률로 잿불날개의 화염에 걸려 다른 보조 능력치 중 하나가 10초 동안 21만큼 감소합니다. (2분 후 재사용 가능)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "250226": {
+      "id": 250226,
+      "name": "내장걸쇠의 뒤틀린 갈고리",
+      "sourceName": "拉奇的弯曲钩爪",
+      "quality": "희귀",
+      "inventoryType": "장신구",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1254193,
+          "name": "내장걸쇠의 뒤틀린 갈고리",
+          "description": "사용 효과: 대상 방향으로 거대한 갈고리를 날려 경로상의 적을 베어 각각 577의 물리 피해를 입힙니다. 갈고리가 대상에게 적중하면 주위 7미터 내의 적에게 385의 물리 피해를 나누어 입힙니다. (1분 30초 후 재사용 가능)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "250227": {
+      "id": 250227,
+      "name": "크롤루크의 전쟁 깃발",
+      "sourceName": "克罗鲁科的战旗",
+      "quality": "희귀",
+      "inventoryType": "장신구",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250563,
+          "name": "크롤루크의 전쟁 깃발",
+          "description": "착용 효과: 근접 공격 시 일정 확률로 정예 도끼투척병을 소환합니다. 도끼투척병은 대상에게 도끼를 던져 1,498의 물리 피해를 입힙니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "250247": {
+      "id": 250247,
+      "name": "심연의 찬가의 아뮬렛",
+      "sourceName": "深渊赞歌护符",
+      "quality": "영웅",
+      "inventoryType": "목",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "250256": {
+      "id": 250256,
+      "name": "바람의 심장",
+      "sourceName": "风之心",
+      "quality": "희귀",
+      "inventoryType": "장신구",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250599,
+          "name": "바람의 심장",
+          "description": "착용 효과: 주문 및 능력 사용 시 일정 확률로 바람의 심장이 깨어나 강풍이 시전자를 감싸며, 10초 동안 가속을 22만큼 증가시킵니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "250257": {
+      "id": 250257,
+      "name": "가라앉는 공허의 눈",
+      "sourceName": "沉溺虚空之眼",
+      "quality": "희귀",
+      "inventoryType": "장신구",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250601,
+          "name": "가라앉는 공허의 눈",
+          "description": "착용 효과: 공격 주문 및 능력 사용 시 일정 확률로 대상의 내면에 공허의 균열을 열어 분출시키고, 주위의 적에게 194의 암흑 피해를 나누어 입힙니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "250258": {
+      "id": 250258,
+      "name": "괴로워하는 영혼의 그릇",
+      "sourceName": "折磨之魂容器",
+      "quality": "희귀",
+      "inventoryType": "장신구",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "유리를 두드리지 마세요. 저쪽에서 아주 싫어합니다.",
+      "spells": [
+        {
+          "id": 1250602,
+          "name": "영혼의 그릇",
+          "description": "착용 효과: 주문 및 능력 사용 시 일정 확률로 그릇에 담긴 영혼을 깨웁니다. 영혼을 흡수할 때마다 1분 동안 지능이 3만큼 증가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "251077": {
+      "id": 251077,
+      "name": "뿌리감시관의 가지",
+      "sourceName": "护根者的枝干",
+      "quality": "희귀",
+      "inventoryType": "양손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "지팡이",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251079": {
+      "id": 251079,
+      "name": "호박석잎 팔보호구",
+      "sourceName": "琥珀叶护腕",
+      "quality": "희귀",
+      "inventoryType": "손목",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251084": {
+      "id": 251084,
+      "name": "채찍뱀 발덮개",
+      "sourceName": "鞭线铁靴",
+      "quality": "희귀",
+      "inventoryType": "발",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251089": {
+      "id": 251089,
+      "name": "잊힌 명예의 손장갑",
+      "sourceName": "遗誉护手",
+      "quality": "희귀",
+      "inventoryType": "손",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251093": {
+      "id": 251093,
+      "name": "소외된 빛",
+      "sourceName": "圣光的遗落",
+      "quality": "희귀",
+      "inventoryType": "손가락",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": 1971,
+      "setName": "공허불빛 결속"
+    },
+    "251095": {
+      "id": 251095,
+      "name": "태풍의 심장",
+      "sourceName": "飓风之心",
+      "quality": "희귀",
+      "inventoryType": "원거리 장비",
+      "itemClass": "무기",
+      "itemSubclass": "활",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251096": {
+      "id": 251096,
+      "name": "괴로운 비탄의 펜던트",
+      "sourceName": "悲恸吊坠",
+      "quality": "희귀",
+      "inventoryType": "목",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251097": {
+      "id": 251097,
+      "name": "화살의 비행 어깨덮개",
+      "sourceName": "飞箭肩甲",
+      "quality": "희귀",
+      "inventoryType": "어깨",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251104": {
+      "id": 251104,
+      "name": "질서정연한 행실의 다리보호구",
+      "sourceName": "秩序守恒护腿",
+      "quality": "희귀",
+      "inventoryType": "다리",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251110": {
+      "id": 251110,
+      "name": "선래쉬의 태양띠",
+      "sourceName": "日鞭的炎阳腰带",
+      "quality": "희귀",
+      "inventoryType": "허리",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251114": {
+      "id": 251114,
+      "name": "공허왜곡 수액사슬",
+      "sourceName": "虚空扭曲软泥甲",
+      "quality": "희귀",
+      "inventoryType": "가슴",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251115": {
+      "id": 251115,
+      "name": "분기점의 고리",
+      "sourceName": "分叉指环",
+      "quality": "희귀",
+      "inventoryType": "손가락",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251119": {
+      "id": 251119,
+      "name": "회오리의 안면",
+      "sourceName": "漩涡护面",
+      "quality": "희귀",
+      "inventoryType": "머리",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251122": {
+      "id": 251122,
+      "name": "어둠칼날 절단기",
+      "sourceName": "影斩切割者",
+      "quality": "희귀",
+      "inventoryType": "한손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "도검",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251161": {
+      "id": 251161,
+      "name": "영혼사냥꾼의 장막",
+      "sourceName": "猎魂者的斗篷",
+      "quality": "희귀",
+      "inventoryType": "등",
+      "itemClass": "방어구",
+      "itemSubclass": "천",
+      "binding": "획득 시 귀속",
+      "description": "썩은가지만이 전수받는 뒤틀린 의식의 유물입니다.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251162": {
+      "id": 251162,
+      "name": "배신자의 갈퀴발톱",
+      "sourceName": "叛徒之爪",
+      "quality": "희귀",
+      "inventoryType": "양손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "장창",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251170": {
+      "id": 251170,
+      "name": "교활매듭 긴바지",
+      "sourceName": "邪纹长裤",
+      "quality": "희귀",
+      "inventoryType": "다리",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251174": {
+      "id": 251174,
+      "name": "기만자의 부식활",
+      "sourceName": "欺诈者的腐烂之弓",
+      "quality": "희귀",
+      "inventoryType": "원거리 장비",
+      "itemClass": "무기",
+      "itemSubclass": "활",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251175": {
+      "id": 251175,
+      "name": "영혼역병 가로날도끼",
+      "sourceName": "灵魂枯萎劈刀",
+      "quality": "희귀",
+      "inventoryType": "한손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "도끼",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251176": {
+      "id": 251176,
+      "name": "부활자의 무게",
+      "sourceName": "复生者的重担",
+      "quality": "희귀",
+      "inventoryType": "어깨",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251179": {
+      "id": 251179,
+      "name": "썩어가는 흉갑",
+      "sourceName": "腐败胸甲",
+      "quality": "희귀",
+      "inventoryType": "가슴",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251206": {
+      "id": 251206,
+      "name": "융제매듭 망토",
+      "sourceName": "流光织锦披风",
+      "quality": "희귀",
+      "inventoryType": "등",
+      "itemClass": "방어구",
+      "itemSubclass": "천",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251209": {
+      "id": 251209,
+      "name": "핵감시관 소매장식",
+      "sourceName": "核心守卫臂甲",
+      "quality": "희귀",
+      "inventoryType": "손목",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251212": {
+      "id": 251212,
+      "name": "찬란한 분리검",
+      "sourceName": "熠耀利刃",
+      "quality": "희귀",
+      "inventoryType": "한손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "단검",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251215": {
+      "id": 251215,
+      "name": "천상의 기만의 경갑",
+      "sourceName": "神圣诡计护胫",
+      "quality": "희귀",
+      "inventoryType": "다리",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251217": {
+      "id": 251217,
+      "name": "공허의 맞물림",
+      "sourceName": "虚空的遮蔽",
+      "quality": "희귀",
+      "inventoryType": "손가락",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": 1971,
+      "setName": "공허불빛 결속"
+    },
+    "252420": {
+      "id": 252420,
+      "name": "태양섬광 분광경",
+      "sourceName": "太阳耀斑棱镜",
+      "quality": "희귀",
+      "inventoryType": "장신구",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1254640,
+          "name": "태양섬광 분광경",
+          "description": "착용 효과: 공격 능력 사용 시 일정 확률로 분광경의 찬란한 빛을 방출해 10초 동안 치명타 및 극대화가 13만큼 증가합니다. 또한 대상이 잃은 생명력 1%당 1만큼, 최대 16까지 추가로 증가합니다. "
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "256625": {
+      "id": 256625,
+      "name": "도안: 사술매듭 가닥",
+      "sourceName": "图样：妖纹束腰",
+      "quality": "영웅",
+      "inventoryType": "착용 불가",
+      "itemClass": "제조법",
+      "itemSubclass": "가죽세공",
+      "binding": "",
+      "description": "사술매듭 가닥 만드는 법을 배웁니다.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "256653": {
+      "id": 256653,
+      "name": "도안: 순찰대 사령관의 손장갑",
+      "sourceName": "图样：游侠将军之握",
+      "quality": "영웅",
+      "inventoryType": "착용 불가",
+      "itemClass": "제조법",
+      "itemSubclass": "가죽세공",
+      "binding": "",
+      "description": "순찰대 사령관의 손장갑 만드는 법을 배웁니다.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "256656": {
+      "id": 256656,
+      "name": "도안: 세계지기의 껍질죔쇠띠",
+      "sourceName": "图样：世界照护者的树皮腰扣",
+      "quality": "영웅",
+      "inventoryType": "착용 불가",
+      "itemClass": "제조법",
+      "itemSubclass": "가죽세공",
+      "binding": "",
+      "description": "세계지기의 껍질죔쇠띠 만드는 법을 배웁니다.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "256683": {
+      "id": 256683,
+      "name": "실버문 훈련용 허수아비",
+      "sourceName": "银月城训练假人",
+      "quality": "고급",
+      "inventoryType": "착용 불가",
+      "itemClass": "하우징",
+      "itemSubclass": "하우징 장식",
+      "binding": "전투부대 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1260663,
+          "name": "실버문 훈련용 허수아비 획득",
+          "description": "사용 효과: 이 장식을 집 보관함에 추가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "256715": {
+      "id": 256715,
+      "name": "디자인: 탈라시안 불사조 변환 장치",
+      "sourceName": "图鉴：萨拉斯凤凰饰环",
+      "quality": "희귀",
+      "inventoryType": "착용 불가",
+      "itemClass": "제조법",
+      "itemSubclass": "보석세공",
+      "binding": "",
+      "description": "탈라시안 불사조 변환 장치 만드는 법을 배웁니다.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "256716": {
+      "id": 256716,
+      "name": "디자인: 오색 집중의 눈동자",
+      "sourceName": "图鉴：棱光聚焦之虹",
+      "quality": "희귀",
+      "inventoryType": "착용 불가",
+      "itemClass": "제조법",
+      "itemSubclass": "보석세공",
+      "binding": "",
+      "description": "오색 집중의 눈동자 만드는 법을 배웁니다.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "256750": {
+      "id": 256750,
+      "name": "주문식: 무기 마법부여 - 세계혼의 요람",
+      "sourceName": "公式：附魔武器 - 世界之魂的摇篮",
+      "quality": "희귀",
+      "inventoryType": "착용 불가",
+      "itemClass": "제조법",
+      "itemSubclass": "마법부여",
+      "binding": "",
+      "description": "세계혼의 요람 마법을 부여하는 법을 배웁니다.",
+      "spells": [
+        {
+          "id": 1236079,
+          "name": "무기 마법부여 - 세계혼의 요람",
+          "description": "사용 효과: 세계혼의 요람 마법을 부여하는 법을 배웁니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "256755": {
+      "id": 256755,
+      "name": "주문식: 가슴보호구 마법부여 - 마법학자의 징표",
+      "sourceName": "公式：附魔胸甲 - 魔导师印记",
+      "quality": "희귀",
+      "inventoryType": "착용 불가",
+      "itemClass": "제조법",
+      "itemSubclass": "마법부여",
+      "binding": "",
+      "description": "마법학자의 징표 마법을 부여하는 법을 배웁니다.",
+      "spells": [
+        {
+          "id": 1236082,
+          "name": "가슴보호구 마법부여 - 마법학자의 징표",
+          "description": "사용 효과: 마법학자의 징표 마법을 부여하는 법을 배웁니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "256759": {
+      "id": 256759,
+      "name": "주문식: 무기 마법부여 - 신도레이의 불꽃",
+      "sourceName": "公式：附魔武器 - 辛多雷之焰",
+      "quality": "희귀",
+      "inventoryType": "착용 불가",
+      "itemClass": "제조법",
+      "itemSubclass": "마법부여",
+      "binding": "",
+      "description": "신도레이의 불꽃 마법을 부여하는 법을 배웁니다.",
+      "spells": [
+        {
+          "id": 1236094,
+          "name": "무기 마법부여 - 신도레이의 불꽃",
+          "description": "사용 효과: 신도레이의 불꽃 마법을 부여하는 법을 배웁니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "258033": {
+      "id": 258033,
+      "name": "도안: 비전매듭 안감",
+      "sourceName": "图样：奥纹内衬",
+      "quality": "희귀",
+      "inventoryType": "착용 불가",
+      "itemClass": "제조법",
+      "itemSubclass": "재봉술",
+      "binding": "",
+      "description": "비전매듭 안감 만드는 법을 배웁니다.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258123": {
+      "id": 258123,
+      "name": "도안: 태양불꽃 비단 마법실타래",
+      "sourceName": "图样：阳炎丝绸魔线",
+      "quality": "희귀",
+      "inventoryType": "착용 불가",
+      "itemClass": "제조법",
+      "itemSubclass": "재봉술",
+      "binding": "",
+      "description": "태양불꽃 비단 마법실타래 만드는 법을 배웁니다.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258125": {
+      "id": 258125,
+      "name": "도안: 태양불꽃 장식띠",
+      "sourceName": "图样：阳炎腰带",
+      "quality": "영웅",
+      "inventoryType": "착용 불가",
+      "itemClass": "제조법",
+      "itemSubclass": "재봉술",
+      "binding": "",
+      "description": "태양불꽃 장식띠 만드는 법을 배웁니다.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258412": {
+      "id": 258412,
+      "name": "폭풍구체자의 석궁",
+      "sourceName": "塑风者十字弩",
+      "quality": "희귀",
+      "inventoryType": "원거리 장비",
+      "itemClass": "무기",
+      "itemSubclass": "석궁",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258436": {
+      "id": 258436,
+      "name": "불타는 태양의 칼날",
+      "sourceName": "灼日之锋",
+      "quality": "희귀",
+      "inventoryType": "한손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "단검",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258484": {
+      "id": 258484,
+      "name": "비릭스의 태양창",
+      "sourceName": "维里克斯的炎枪",
+      "quality": "희귀",
+      "inventoryType": "양손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "장창",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258517": {
+      "id": 258517,
+      "name": "도면: 기사단장의 방책",
+      "sourceName": "设计图：骑士指挥官的雄关",
+      "quality": "희귀",
+      "inventoryType": "착용 불가",
+      "itemClass": "제조법",
+      "itemSubclass": "대장기술",
+      "binding": "",
+      "description": "기사단장의 방책 만드는 법을 배웁니다.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258519": {
+      "id": 258519,
+      "name": "도면: 마법학자의 고별",
+      "sourceName": "设计图：魔导师的送别",
+      "quality": "희귀",
+      "inventoryType": "착용 불가",
+      "itemClass": "제조법",
+      "itemSubclass": "대장기술",
+      "binding": "",
+      "description": "마법학자의 고별 만드는 법을 배웁니다.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258521": {
+      "id": 258521,
+      "name": "도면: 혈기사의 자극",
+      "sourceName": "设计图：血骑士的强击矛",
+      "quality": "희귀",
+      "inventoryType": "착용 불가",
+      "itemClass": "제조법",
+      "itemSubclass": "대장기술",
+      "binding": "",
+      "description": "혈기사의 자극 만드는 법을 배웁니다.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258522": {
+      "id": 258522,
+      "name": "도면: 만개벼림 거대도끼",
+      "sourceName": "设计图：绽铸大斧",
+      "quality": "희귀",
+      "inventoryType": "착용 불가",
+      "itemClass": "제조법",
+      "itemSubclass": "대장기술",
+      "binding": "",
+      "description": "만개벼림 거대도끼 만드는 법을 배웁니다.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258529": {
+      "id": 258529,
+      "name": "비전발톱 창",
+      "sourceName": "奥术之爪长矛",
+      "quality": "희귀",
+      "inventoryType": "양손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "장창",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258575": {
+      "id": 258575,
+      "name": "강도 높은 미늘 큰망토",
+      "sourceName": "刚鳞大氅",
+      "quality": "희귀",
+      "inventoryType": "등",
+      "itemClass": "방어구",
+      "itemSubclass": "천",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258576": {
+      "id": 258576,
+      "name": "뾰족눈 가슴보호대",
+      "sourceName": "锐眼胸甲",
+      "quality": "희귀",
+      "inventoryType": "가슴",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258582": {
+      "id": 258582,
+      "name": "강도 높은 미늘 장화",
+      "sourceName": "刚鳞长靴",
+      "quality": "희귀",
+      "inventoryType": "발",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258585": {
+      "id": 258585,
+      "name": "뾰족눈 광투구",
+      "sourceName": "锐眼头盔",
+      "quality": "희귀",
+      "inventoryType": "머리",
+      "itemClass": "방어구",
+      "itemSubclass": "사슬",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258744": {
+      "id": 258744,
+      "name": "하늘탑 원형 탁자",
+      "sourceName": "通天峰圆形桌子",
+      "quality": "고급",
+      "inventoryType": "착용 불가",
+      "itemClass": "하우징",
+      "itemSubclass": "하우징 장식",
+      "binding": "전투부대 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1263929,
+          "name": "하늘탑 원형 탁자 획득",
+          "description": "사용 효과: 이 장식을 집 보관함에 추가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "260231": {
+      "id": 260231,
+      "name": "영롱한 매타조",
+      "sourceName": "光亮陆行鸟",
+      "quality": "영웅",
+      "inventoryType": "착용 불가",
+      "itemClass": "기타",
+      "itemSubclass": "탈것",
+      "binding": "획득 시 귀속",
+      "description": "탈것 소환하는 법을 배웁니다.",
+      "spells": [
+        {
+          "id": 1265784,
+          "name": "영롱한 매타조",
+          "description": "사용 효과: 탈것 소환하는 법을 배웁니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "260235": {
+      "id": 260235,
+      "name": "암영의 꽁지깃",
+      "sourceName": "幽影羽毛",
+      "quality": "영웅",
+      "inventoryType": "장신구",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1265809,
+          "name": "암영의 꽁지깃",
+          "description": "착용 효과: 꽁지깃의 암울로 치명타 및 극대화가 30만큼 증가하며, 60초에 걸쳐 감소한 후 완전한 어둠으로 돌아갑니다. 또한 전투 중이 아닐 때 꽁지깃의 힘이 재생됩니다."
+        },
+        {
+          "id": 1265806,
+          "name": "광휘의 꽁지깃",
+          "description": "사용 효과: 전투 중이 아닐 때 꽁지깃의 양면성을 일깨워 광휘의 꽁지깃으로 변신시킵니다. (5분 후 재사용 가능)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "260312": {
+      "id": 260312,
+      "name": "저항하는 수호자의 외투",
+      "sourceName": "挑战防御者斗篷",
+      "quality": "희귀",
+      "inventoryType": "등",
+      "itemClass": "방어구",
+      "itemSubclass": "천",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "260359": {
+      "id": 260359,
+      "name": "발드라켄 책장",
+      "sourceName": "瓦德拉肯书柜",
+      "quality": "고급",
+      "inventoryType": "착용 불가",
+      "itemClass": "하우징",
+      "itemSubclass": "하우징 장식",
+      "binding": "전투부대 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1266209,
+          "name": "발드라켄 책장 획득",
+          "description": "사용 효과: 이 장식을 집 보관함에 추가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "260423": {
+      "id": 260423,
+      "name": "아라토르의 신속한 기억",
+      "sourceName": "阿拉托尔的迅疾纪念",
+      "quality": "영웅",
+      "inventoryType": "한손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "도검",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "262914": {
+      "id": 262914,
+      "name": "유령 매타조",
+      "sourceName": "幽灵陆行鸟",
+      "quality": "영웅",
+      "inventoryType": "착용 불가",
+      "itemClass": "기타",
+      "itemSubclass": "탈것",
+      "binding": "획득 시 귀속",
+      "description": "탈것 소환하는 법을 배웁니다.",
+      "spells": [
+        {
+          "id": 1263635,
+          "name": "유령 매타조",
+          "description": "사용 효과: 탈것 소환하는 법을 배웁니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "262957": {
+      "id": 262957,
+      "name": "너덜너덜한 선봉대 깃발",
+      "sourceName": "破损的先锋战旗",
+      "quality": "희귀",
+      "inventoryType": "착용 불가",
+      "itemClass": "하우징",
+      "itemSubclass": "하우징 장식",
+      "binding": "전투부대 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1269607,
+          "name": "너덜너덜한 선봉대 깃발 획득",
+          "description": "사용 효과: 이 장식을 집 보관함에 추가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "263230": {
+      "id": 263230,
+      "name": "마법학자의 책장",
+      "sourceName": "魔导师的书架",
+      "quality": "고급",
+      "inventoryType": "착용 불가",
+      "itemClass": "하우징",
+      "itemSubclass": "하우징 장식",
+      "binding": "전투부대 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1270131,
+          "name": "마법학자의 책장 획득",
+          "description": "사용 효과: 이 장식을 집 보관함에 추가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264187": {
+      "id": 264187,
+      "name": "축복받은 불사조 알",
+      "sourceName": "受祝福的凤凰蛋",
+      "quality": "희귀",
+      "inventoryType": "착용 불가",
+      "itemClass": "하우징",
+      "itemSubclass": "하우징 장식",
+      "binding": "전투부대 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1271354,
+          "name": "축복받은 불사조 알 획득",
+          "description": "사용 효과: 이 장식을 집 보관함에 추가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264246": {
+      "id": 264246,
+      "name": "음산한 무지갯빛 균열버섯",
+      "sourceName": "诡异的虹彩裂隙菇",
+      "quality": "희귀",
+      "inventoryType": "착용 불가",
+      "itemClass": "하우징",
+      "itemSubclass": "하우징 장식",
+      "binding": "전투부대 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1271491,
+          "name": "음산한 무지갯빛 균열버섯 획득",
+          "description": "사용 효과: 이 장식을 집 보관함에 추가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264338": {
+      "id": 264338,
+      "name": "도마나르 제어 장치",
+      "sourceName": "多曼纳尔控制台",
+      "quality": "고급",
+      "inventoryType": "착용 불가",
+      "itemClass": "하우징",
+      "itemSubclass": "하우징 장식",
+      "binding": "전투부대 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1271726,
+          "name": "도마나르 제어 장치 획득",
+          "description": "사용 효과: 이 장식을 집 보관함에 추가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264491": {
+      "id": 264491,
+      "name": "공허결속 수용실",
+      "sourceName": "虚缚牢笼",
+      "quality": "희귀",
+      "inventoryType": "착용 불가",
+      "itemClass": "하우징",
+      "itemSubclass": "하우징 장식",
+      "binding": "전투부대 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272054,
+          "name": "공허결속 수용실 획득",
+          "description": "사용 효과: 이 장식을 집 보관함에 추가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264492": {
+      "id": 264492,
+      "name": "혼돈의 공허 아귀",
+      "sourceName": "混沌虚空渊门",
+      "quality": "희귀",
+      "inventoryType": "착용 불가",
+      "itemClass": "하우징",
+      "itemSubclass": "하우징 장식",
+      "binding": "전투부대 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272055,
+          "name": "혼돈의 공허 아귀 획득",
+          "description": "사용 효과: 이 장식을 집 보관함에 추가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264494": {
+      "id": 264494,
+      "name": "띠매듭 도마나르 보관 상자",
+      "sourceName": "镶边多曼纳尔储物箱",
+      "quality": "희귀",
+      "inventoryType": "착용 불가",
+      "itemClass": "하우징",
+      "itemSubclass": "하우징 장식",
+      "binding": "전투부대 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272057,
+          "name": "띠매듭 도마나르 보관 상자 획득",
+          "description": "사용 효과: 이 장식을 집 보관함에 추가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264497": {
+      "id": 264497,
+      "name": "전제군주의 고문 수정",
+      "sourceName": "元首的折磨水晶",
+      "quality": "희귀",
+      "inventoryType": "착용 불가",
+      "itemClass": "하우징",
+      "itemSubclass": "하우징 장식",
+      "binding": "전투부대 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272060,
+          "name": "전제군주의 고문 수정 획득",
+          "description": "사용 효과: 이 장식을 집 보관함에 추가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264498": {
+      "id": 264498,
+      "name": "전격의 트리고어 알",
+      "sourceName": "流电三喉龙蛋",
+      "quality": "희귀",
+      "inventoryType": "착용 불가",
+      "itemClass": "하우징",
+      "itemSubclass": "하우징 장식",
+      "binding": "전투부대 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272061,
+          "name": "전격의 트리고어 알 획득",
+          "description": "사용 효과: 이 장식을 집 보관함에 추가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264672": {
+      "id": 264672,
+      "name": "우주적 의식용 돌",
+      "sourceName": "宇宙仪式之石",
+      "quality": "희귀",
+      "inventoryType": "착용 불가",
+      "itemClass": "기타",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272307,
+          "name": "우주의 의식",
+          "description": "사용 효과: 이 장난감을 장난감 상자에 추가합니다.\n\n플레이어의 시체를 공허에 바치는 의식을 거행합니다. (10분 후 재사용 가능)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264717": {
+      "id": 264717,
+      "name": "아마니 수호물 사술",
+      "sourceName": "阿曼尼防护妖术",
+      "quality": "고급",
+      "inventoryType": "착용 불가",
+      "itemClass": "하우징",
+      "itemSubclass": "하우징 장식",
+      "binding": "전투부대 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272513,
+          "name": "아마니 수호물 사술 획득",
+          "description": "사용 효과: 이 장식을 집 보관함에 추가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "265949": {
+      "id": 265949,
+      "name": "쿠엘다나스 진격로 정복자의 금빛 트로피",
+      "sourceName": "进军奎尔丹纳斯征服者的耀金战利品",
+      "quality": "영웅",
+      "inventoryType": "착용 불가",
+      "itemClass": "하우징",
+      "itemSubclass": "하우징 장식",
+      "binding": "전투부대 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1277440,
+          "name": "쿠엘다나스 진격로 정복자의 금빛 트로피 획득",
+          "description": "사용 효과: 이 장식을 집 보관함에 추가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "265950": {
+      "id": 265950,
+      "name": "꿈의 균열 정복자의 금빛 트로피",
+      "sourceName": "梦境裂隙征服者的耀金战利品",
+      "quality": "영웅",
+      "inventoryType": "착용 불가",
+      "itemClass": "하우징",
+      "itemSubclass": "하우징 장식",
+      "binding": "전투부대 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1277441,
+          "name": "꿈의 균열 정복자의 금빛 트로피 획득",
+          "description": "사용 효과: 이 장식을 집 보관함에 추가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "265951": {
+      "id": 265951,
+      "name": "공허첨탑 정복자의 금빛 트로피",
+      "sourceName": "虚影尖塔征服者的耀金战利品",
+      "quality": "영웅",
+      "inventoryType": "착용 불가",
+      "itemClass": "하우징",
+      "itemSubclass": "하우징 장식",
+      "binding": "전투부대 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1277442,
+          "name": "공허첨탑 정복자의 금빛 트로피 획득",
+          "description": "사용 효과: 이 장식을 집 보관함에 추가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "267007": {
+      "id": 267007,
+      "name": "아케루스의 눈",
+      "sourceName": "阿彻鲁斯之眼",
+      "quality": "고급",
+      "inventoryType": "착용 불가",
+      "itemClass": "하우징",
+      "itemSubclass": "하우징 장식",
+      "binding": "전투부대 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1278997,
+          "name": "아케루스의 눈 획득",
+          "description": "사용 효과: 이 장식을 집 보관함에 추가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "267645": {
+      "id": 267645,
+      "name": "꿈의 균열 정복자의 은빛 트로피",
+      "sourceName": "梦境裂隙征服者的闪银战利品",
+      "quality": "영웅",
+      "inventoryType": "착용 불가",
+      "itemClass": "하우징",
+      "itemSubclass": "하우징 장식",
+      "binding": "전투부대 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1280916,
+          "name": "꿈의 균열 정복자의 은빛 트로피 획득",
+          "description": "사용 효과: 이 장식을 집 보관함에 추가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "267646": {
+      "id": 267646,
+      "name": "쿠엘다나스 진격로 정복자의 은빛 트로피",
+      "sourceName": "进军奎尔丹纳斯征服者的闪银战利品",
+      "quality": "영웅",
+      "inventoryType": "착용 불가",
+      "itemClass": "하우징",
+      "itemSubclass": "하우징 장식",
+      "binding": "전투부대 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1280917,
+          "name": "쿠엘다나스 진격로 정복자의 은빛 트로피 획득",
+          "description": "사용 효과: 이 장식을 집 보관함에 추가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268049": {
+      "id": 268049,
+      "name": "공허첨탑 정복자의 은빛 트로피",
+      "sourceName": "虚影尖塔征服者的闪银战利品",
+      "quality": "영웅",
+      "inventoryType": "착용 불가",
+      "itemClass": "하우징",
+      "itemSubclass": "하우징 장식",
+      "binding": "전투부대 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1281392,
+          "name": "공허첨탑 정복자의 은빛 트로피 획득",
+          "description": "사용 효과: 이 장식을 집 보관함에 추가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "269269": {
+      "id": 269269,
+      "name": "포식의 의식 첨탑",
+      "sourceName": "吞噬军团仪式高塔",
+      "quality": "희귀",
+      "inventoryType": "착용 불가",
+      "itemClass": "하우징",
+      "itemSubclass": "하우징 장식",
+      "binding": "전투부대 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1285071,
+          "name": "포식의 의식 첨탑 획득",
+          "description": "사용 효과: 이 장식을 집 보관함에 추가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    }
+  },
+  "itemSets": {
+    "1331": {
+      "id": 1331,
+      "name": "벨렌의 탄식",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "세트 효과: 광역회피가 증가합니다."
+        }
+      ]
+    },
+    "1971": {
+      "id": 1971,
+      "name": "공허불빛 결속",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "세트 효과: 해로운 주문 및 능력 사용 시 일정 확률로 대상에게 황혼 탄막을 방출합니다."
+        }
+      ]
+    },
+    "1982": {
+      "id": 1982,
+      "name": "원시 파수꾼의 위장",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "세트 효과: 야수의 격노의 직접 피해가 25%만큼 증가합니다."
+        },
+        {
+          "requiredCount": 4,
+          "displayString": "세트 효과: 야수의 격노 사용 시 8초 동안 광포한 야수 1마리를 소환합니다."
+        }
+      ]
+    }
+  },
+  "errors": {}
+};

@@ -1,0 +1,15 @@
+[  268519ms] [ERROR] load overview failed TypeError: Failed to fetch
+    at fetchJson (http://localhost:8787/app.js?v=20260507-i18n-ui-3:339:26)
+    at loadOverview (http://localhost:8787/app.js?v=20260507-i18n-ui-3:346:28)
+    at boot (http://localhost:8787/app.js?v=20260507-i18n-ui-3:1661:3)
+    at http://localhost:8787/app.js?v=20260507-i18n-ui-3:1667:1 @ http://localhost:8787/app.js?v=20260507-i18n-ui-3:347
+[  477034ms] [ERROR] load overview failed TypeError: Failed to fetch
+    at fetchJson (http://localhost:8787/app.js?v=20260507-i18n-ui-3:339:26)
+    at loadOverview (http://localhost:8787/app.js?v=20260507-i18n-ui-3:346:28)
+    at boot (http://localhost:8787/app.js?v=20260507-i18n-ui-3:1661:3)
+    at http://localhost:8787/app.js?v=20260507-i18n-ui-3:1667:1 @ http://localhost:8787/app.js?v=20260507-i18n-ui-3:347
+[  546043ms] [ERROR] load overview failed TypeError: Failed to fetch
+    at fetchJson (http://localhost:8787/app.js?v=20260507-i18n-ui-3:339:26)
+    at loadOverview (http://localhost:8787/app.js?v=20260507-i18n-ui-3:346:28)
+    at boot (http://localhost:8787/app.js?v=20260507-i18n-ui-3:1661:3)
+    at http://localhost:8787/app.js?v=20260507-i18n-ui-3:1667:1 @ http://localhost:8787/app.js?v=20260507-i18n-ui-3:347

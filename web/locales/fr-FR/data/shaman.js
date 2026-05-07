@@ -1,0 +1,2920 @@
+module.exports = {
+  "locale": "fr-FR",
+  "apiLocale": "fr_FR",
+  "source": "blizzard-game-data-api",
+  "region": "eu",
+  "namespace": "static-eu",
+  "generatedAt": "2026-05-07T06:25:08.800Z",
+  "classKey": "shaman",
+  "items": {
+    "49810": {
+      "id": 49810,
+      "name": "Ceinture de zombie rêche",
+      "sourceName": "凶尸腰索",
+      "quality": "Épique",
+      "inventoryType": "Taille",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "49811": {
+      "id": 49811,
+      "name": "Braies en peau de dragon noir",
+      "sourceName": "黑色龙皮褶裙",
+      "quality": "Épique",
+      "inventoryType": "Jambes",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "49812": {
+      "id": 49812,
+      "name": "Anneau de mariage dérobé",
+      "sourceName": "被盗的婚戒",
+      "quality": "Épique",
+      "inventoryType": "Doigt",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "49823": {
+      "id": 49823,
+      "name": "Cape du cardinal déchu",
+      "sourceName": "阵亡主教斗篷",
+      "quality": "Épique",
+      "inventoryType": "Dos",
+      "itemClass": "Armure",
+      "itemSubclass": "Tissu",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "49824": {
+      "id": 49824,
+      "name": "Cornes de val'kyr éconduite",
+      "sourceName": "被遗弃的瓦格里之角",
+      "quality": "Épique",
+      "inventoryType": "Tête",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "50227": {
+      "id": 50227,
+      "name": "Aiguille de chirurgien",
+      "sourceName": "医用长针",
+      "quality": "Épique",
+      "inventoryType": "À une main",
+      "itemClass": "Arme",
+      "itemSubclass": "Dague",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "50228": {
+      "id": 50228,
+      "name": "Sautoir ymirheim barbelé",
+      "sourceName": "尖刺伊米亚颈饰",
+      "quality": "Épique",
+      "inventoryType": "Cou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "50233": {
+      "id": 50233,
+      "name": "Garde-épaules de Val'kyr éconduit",
+      "sourceName": "被遗弃的瓦格里肩甲",
+      "quality": "Épique",
+      "inventoryType": "Épaule",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "50259": {
+      "id": 50259,
+      "name": "Cristal de glace perpétuelle",
+      "sourceName": "永冻冰晶",
+      "quality": "Épique",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 71563,
+          "name": "Précision mortelle",
+          "description": "Utiliser : Augmente votre score de Coup critique de 52 pendant 20 s. Chaque fois que l’un de vos sorts non périodiques inflige un coup critique, le bonus au score de Coup critique est réduit de 10. (3 min de recharge)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "151307": {
+      "id": 151307,
+      "name": "Contrat de traqueur du Vide",
+      "sourceName": "虚空追猎者的契约",
+      "quality": "Rare",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 250966,
+          "name": "Appel du traqueur du Vide",
+          "description": "Utiliser : Vous invoquez deux traqueurs du Vide qui frappent votre cible depuis deux directions différentes et infligent jusqu’à 1844 points de dégâts physiques aux adversaires sur leur trajectoire. (1 min 30 s de recharge)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "151308": {
+      "id": 151308,
+      "name": "Sceau de noblesse d’Érédath",
+      "sourceName": "艾瑞达斯贵族印戒",
+      "quality": "Rare",
+      "inventoryType": "Doigt",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": 1331,
+      "setName": "Lamentation de Velen"
+    },
+    "151309": {
+      "id": 151309,
+      "name": "Collier du Vide distordu",
+      "sourceName": "扭曲虚空项链",
+      "quality": "Rare",
+      "inventoryType": "Cou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "151310": {
+      "id": 151310,
+      "name": "Disrupteur de réalités",
+      "sourceName": "现实突破者",
+      "quality": "Rare",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 250846,
+          "name": "Tentacule du Vide",
+          "description": "Équipé : Vos sorts de dégâts ont une chance d’invoquer près de la cible un tentacule du Vide, qui inflige peu après 166 points de dégâts d’ombre aux adversaires se trouvant à moins de 4 m."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "151311": {
+      "id": 151311,
+      "name": "Bague du triumvirat",
+      "sourceName": "执政团指轮",
+      "quality": "Rare",
+      "inventoryType": "Doigt",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": 1331,
+      "setName": "Lamentation de Velen"
+    },
+    "151320": {
+      "id": 151320,
+      "name": "Croquenots recouverts de Vide",
+      "sourceName": "虚空涂层战靴",
+      "quality": "Rare",
+      "inventoryType": "Pieds",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "151321": {
+      "id": 151321,
+      "name": "Garde-poignets en écailles de sombrecroc",
+      "sourceName": "黯牙鳞甲护腕",
+      "quality": "Rare",
+      "inventoryType": "Poignets",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "151322": {
+      "id": 151322,
+      "name": "Poignes touchées par le Vide",
+      "sourceName": "虚空之触手套",
+      "quality": "Rare",
+      "inventoryType": "Mains",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "151323": {
+      "id": 151323,
+      "name": "Espauliers du chasseur du Vide",
+      "sourceName": "虚空猎手肩甲",
+      "quality": "Rare",
+      "inventoryType": "Épaule",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 253802,
+          "name": "Chasseur du Vide",
+          "description": "Équipé : Augmente votre Intelligence contre les aberrations de 2 %."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "151325": {
+      "id": 151325,
+      "name": "Robe rivetée de Vide",
+      "sourceName": "虚空之环长袍",
+      "quality": "Rare",
+      "inventoryType": "Torse",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "151340": {
+      "id": 151340,
+      "name": "Echo de L'ura",
+      "sourceName": "鲁拉的回响",
+      "quality": "Rare",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 250768,
+          "name": "Murmures de L'ura",
+          "description": "Utiliser : Vous écoutez les murmures de L’ura pendant 45 s, ce qui confère à vos sorts de soin une chance de rendre 419 points de vie supplémentaires. (3 min de recharge)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "193701": {
+      "id": 193701,
+      "name": "Boîte à secret d’Algeth’ar",
+      "sourceName": "艾杰斯亚谜题盒",
+      "quality": "Rare",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 383781,
+          "name": "Énigme d’Algeth’ar",
+          "description": "Utiliser : Vous résolvez une énigme, ce qui augmente votre Maîtrise de 112 pendant 20 s. (2 min de recharge)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "193704": {
+      "id": 193704,
+      "name": "Spallières de remise des diplômes en écailles",
+      "sourceName": "坚鳞毕业护肩",
+      "quality": "Rare",
+      "inventoryType": "Épaule",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193707": {
+      "id": 193707,
+      "name": "Note finale",
+      "sourceName": "期末考分",
+      "quality": "Rare",
+      "inventoryType": "Deux mains",
+      "itemClass": "Arme",
+      "itemSubclass": "Bâton",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193708": {
+      "id": 193708,
+      "name": "Anneau orné d’une étoile en platine",
+      "sourceName": "白金星辰指环",
+      "quality": "Rare",
+      "inventoryType": "Doigt",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "Tattukiaka d’Iskaara s’intéressera sûrement à ce genre de chose.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193712": {
+      "id": 193712,
+      "name": "Cape tachée de potion",
+      "sourceName": "药渍披风",
+      "quality": "Rare",
+      "inventoryType": "Dos",
+      "itemClass": "Armure",
+      "itemSubclass": "Tissu",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193715": {
+      "id": 193715,
+      "name": "Bottes de croissance explosive",
+      "sourceName": "爆裂生长之靴",
+      "quality": "Rare",
+      "inventoryType": "Pieds",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193718": {
+      "id": 193718,
+      "name": "Sifflet d’entraînement d’émeraude",
+      "sourceName": "翡翠教练的哨子",
+      "quality": "Rare",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 398396,
+          "name": "Sifflet d’entraînement d’émeraude",
+          "description": "Utiliser : Sélectionne un personnage-joueur allié à entraîner. (1 s de recharge)"
+        },
+        {
+          "id": 383798,
+          "name": "Sifflet d’entraînement d’émeraude",
+          "description": "Équipé : Vos sorts et techniques bénéfiques ont une chance de vous stimuler, votre camarade d’entraînement et vous, et de vous conférer un bonus de Maîtrise de 31 pendant 10 s.\r\n"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "193722": {
+      "id": 193722,
+      "name": "Ceinture de compétition d’azur",
+      "sourceName": "碧蓝竞技腰带",
+      "quality": "Rare",
+      "inventoryType": "Taille",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "241044": {
+      "id": 241044,
+      "name": "Caisse argusséenne",
+      "sourceName": "阿古斯箱子",
+      "quality": "Inhabituel",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Logis",
+      "itemSubclass": "Élément de décoration",
+      "binding": "Lié au bataillon",
+      "description": "",
+      "spells": [
+        {
+          "id": 1230953,
+          "name": "Récupérer une caisse argusséenne",
+          "description": "Utiliser : Placez cet élément de décoration dans votre coffre de maison."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249275": {
+      "id": 249275,
+      "name": "Barricade de noble détermination",
+      "sourceName": "高尚决心壁垒",
+      "quality": "Épique",
+      "inventoryType": "Main gauche",
+      "itemClass": "Armure",
+      "itemSubclass": "Bouclier",
+      "binding": "Lié quand ramassé",
+      "description": "« La destruction est la seule noblesse qui soit. » — Imperator Averzian",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249283": {
+      "id": 249283,
+      "name": "Belo’melorn la Serre brisée",
+      "sourceName": "贝罗梅洛恩，破碎之爪",
+      "quality": "Épique",
+      "inventoryType": "À une main",
+      "itemClass": "Arme",
+      "itemSubclass": "Dague",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249286": {
+      "id": 249286,
+      "name": "Brasero de la complainte dissonante",
+      "sourceName": "不谐挽歌火杖",
+      "quality": "Épique",
+      "inventoryType": "Deux mains",
+      "itemClass": "Arme",
+      "itemSubclass": "Bâton",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249287": {
+      "id": 249287,
+      "name": "Caresse des frères de couvée",
+      "sourceName": "同巢爱抚",
+      "quality": "Épique",
+      "inventoryType": "À une main",
+      "itemClass": "Arme",
+      "itemSubclass": "Masse",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249293": {
+      "id": 249293,
+      "name": "Poids du commandement",
+      "sourceName": "指挥的重担",
+      "quality": "Épique",
+      "inventoryType": "À une main",
+      "itemClass": "Arme",
+      "itemSubclass": "Masse",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249298": {
+      "id": 249298,
+      "name": "Lames de poings du tourmenteur",
+      "sourceName": "折磨者的刃拳",
+      "quality": "Épique",
+      "inventoryType": "À une main",
+      "itemClass": "Arme",
+      "itemSubclass": "Arme de pugilat",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249303": {
+      "id": 249303,
+      "name": "Corde cintrée du jugement",
+      "sourceName": "被审判者的腰索",
+      "quality": "Épique",
+      "inventoryType": "Taille",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "Vous êtes… à la hauteur.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249304": {
+      "id": 249304,
+      "name": "Crispins du roi déchu",
+      "sourceName": "陨落之王的护腕",
+      "quality": "Épique",
+      "inventoryType": "Poignets",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249310": {
+      "id": 249310,
+      "name": "Robe de lien du Vide",
+      "sourceName": "虚缚长袍",
+      "quality": "Épique",
+      "inventoryType": "Torse",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249317": {
+      "id": 249317,
+      "name": "Semonce de frénésie",
+      "sourceName": "狂乱斥责",
+      "quality": "Épique",
+      "inventoryType": "Tête",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249318": {
+      "id": 249318,
+      "name": "Épaulettes d’effroi de marchenéant",
+      "sourceName": "虚无行者的恐惧肩章",
+      "quality": "Épique",
+      "inventoryType": "Épaule",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249320": {
+      "id": 249320,
+      "name": "Solerets d’obscurcissement",
+      "sourceName": "遮蔽战靴",
+      "quality": "Épique",
+      "inventoryType": "Pieds",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249324": {
+      "id": 249324,
+      "name": "Gardécaille de la flamme éternelle",
+      "sourceName": "永恒之火鳞甲",
+      "quality": "Épique",
+      "inventoryType": "Jambes",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249325": {
+      "id": 249325,
+      "name": "Poignes de la berserker détachée",
+      "sourceName": "无拘狂暴者的护手",
+      "quality": "Épique",
+      "inventoryType": "Mains",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "Le combat était le seul endroit où elle pouvait se laisser aller. Mais ça, c’était avant.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249335": {
+      "id": 249335,
+      "name": "Bannière de l’imperator",
+      "sourceName": "元首的战旗",
+      "quality": "Épique",
+      "inventoryType": "Dos",
+      "itemClass": "Armure",
+      "itemSubclass": "Tissu",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249336": {
+      "id": 249336,
+      "name": "Chevalière de la bête affamée",
+      "sourceName": "饥饿野兽指环",
+      "quality": "Épique",
+      "inventoryType": "Doigt",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249337": {
+      "id": 249337,
+      "name": "Ruban de malveillance enroulée",
+      "sourceName": "盘绕恶意丝带",
+      "quality": "Épique",
+      "inventoryType": "Cou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249340": {
+      "id": 249340,
+      "name": "Bandelettes de folie cosmique",
+      "sourceName": "宇宙疯狂裹布",
+      "quality": "Épique",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "Est-ce vraiment de la folie que de sacrifier votre monde pour la victoire ?",
+      "spells": [
+        {
+          "id": 1259153,
+          "name": "Bandelettes de folie cosmique",
+          "description": "Utiliser : Vous vous effilochez désespérément en 2 s pour lancer un barrage de 11 projectiles cosmiques sur votre cible, selon votre Hâte. Chaque projectile inflige 225 points de dégâts cosmiques répartis entre les adversaires proches. Dégâts augmentés de 30 % par personnage adverse supplémentaire, jusqu’à un maximum de 150 %.\r\n\r\nLa mort de personnages alliés augmente encore le degré de folie, ce qui réduit le temps de recharge de 60 s. (2 min de recharge)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249341": {
+      "id": 249341,
+      "name": "Saturateur du Vide instable",
+      "sourceName": "不稳定的虚空弥散器",
+      "quality": "Épique",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1258535,
+          "name": "Saturateur du Vide instable",
+          "description": "Équipé : Vos sorts et techniques de soins ont de fortes chances de vous conférer Suffusion du Vide pendant 12 s, augmentant votre Intelligence de 14, plus 0 par tranche de 1 % de points de vie manquants à la cible. Plusieurs suffusions peuvent s’appliquer simultanément."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249343": {
+      "id": 249343,
+      "name": "Regard de prophète d’Aln",
+      "sourceName": "艾林先知的凝视",
+      "quality": "Épique",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "Il existe certains endroits où les fidèles n’osent pas plonger leur regard.",
+      "spells": [
+        {
+          "id": 1256896,
+          "name": "Regard de prophète d’Aln",
+          "description": "Équipé : Les dégâts que vous infligez et les soins que vous prodiguez ont une chance de vous conférer Acuité d’Aln pendant 12 s. Pendant la durée d’activation, l’utilisation de sorts et de techniques fait apparaître des rejets d’Aln instables et consomme leur essence pour vous conférer un bonus de 2 d'Intelligence pendant 12 s. Cet effet peut être appliqué plusieurs fois simultanément."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249344": {
+      "id": 249344,
+      "name": "Guidon de la compagnie de la Lumière",
+      "sourceName": "圣光连队的旌旗",
+      "quality": "Épique",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "Chargez, avant-garde de la Lumière !",
+      "spells": [
+        {
+          "id": 1251817,
+          "name": "Guidon de la compagnie de la Lumière",
+          "description": "Équipé : Vous faites partie des volontaires de l’avant-garde de la Lumière.\r\n\r\n"
+        },
+        {
+          "id": 1259633,
+          "name": "Chargez !",
+          "description": "Utiliser : Vous menez la charge pour bénéficier d’un bonus de Hâte de 74 pendant 15 s. Les volontaires de l’avant-garde de la Lumière à moins de 40 m bénéficient également d’un bonus de Vitesse de 18 pendant 6 s. (1 min 30 s de recharge)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249345": {
+      "id": 249345,
+      "name": "Insigne iridescent de capitaine des forestiers",
+      "sourceName": "游侠将军的虹彩徽章",
+      "quality": "Épique",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1260266,
+          "name": "Coup piégé de frappe-argent",
+          "description": "Utiliser : Vous déclenchez un coup piégé de frappe-argent, qui assène un coup critique à votre cible et à un personnage adverse proche en leur infligeant 1207 points de dégâts des arcanes. Ces dégâts sont encore augmentés suivant vos chances de coup critique.\r\n\r\nVos coups critiques ont de fortes chances de réduire ce temps de recharge de 5 s. (3 min de recharge)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249346": {
+      "id": 249346,
+      "name": "Ultime regard de Vaelgor",
+      "sourceName": "威厄高尔的最终凝视",
+      "quality": "Épique",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1260459,
+          "name": "Vision du Néant",
+          "description": "Utiliser : Vous saisissez le pouvoir draconique de l’œil, vous conférant un bonus de Maîtrise de 148 qui se réduit sur 15 s, et vous permettant de voir les personnages adverses cachés. (1 min 30 s de recharge)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249349": {
+      "id": 249349,
+      "name": "Fleur-de-faille moulée d’Aln",
+      "sourceName": "艾林锻造的裂隙绽放",
+      "quality": "Épique",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Divers",
+      "itemSubclass": "Camelote",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1261839,
+          "name": "Fleur-de-faille",
+          "description": "Utiliser : Vous synthétisez un objet d’ensemble pour le torse. Il vous sera lié et adapté à votre classe."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249353": {
+      "id": 249353,
+      "name": "Cœur-de-néant affamé moulé de Vide",
+      "sourceName": "虚空锻造的饥饿虚核",
+      "quality": "Épique",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Divers",
+      "itemSubclass": "Camelote",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1261838,
+          "name": "Cœur-de-néant affamé",
+          "description": "Utiliser : Vous synthétisez un objet d’ensemble pour les mains. Il vous sera lié et adapté à votre classe."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249357": {
+      "id": 249357,
+      "name": "Cœur-de-néant fanatique moulé de Vide",
+      "sourceName": "虚空锻造的狂热虚核",
+      "quality": "Épique",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Divers",
+      "itemSubclass": "Camelote",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1261837,
+          "name": "Cœur-de-néant fanatique",
+          "description": "Utiliser : Vous synthétisez un objet d’ensemble pour la tête. Il vous sera lié et adapté à votre classe."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249361": {
+      "id": 249361,
+      "name": "Cœur-de-néant corrompu moulé de Vide",
+      "sourceName": "虚空锻造的腐化虚核",
+      "quality": "Épique",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Divers",
+      "itemSubclass": "Camelote",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1261832,
+          "name": "Cœur-de-néant corrompu",
+          "description": "Utiliser : Vous synthétisez un objet d’ensemble pour les jambes. Il vous sera lié et adapté à votre classe."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249365": {
+      "id": 249365,
+      "name": "Cœur-de-néant fragilisé moulé de Vide",
+      "sourceName": "虚空锻造的解离虚核",
+      "quality": "Épique",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Divers",
+      "itemSubclass": "Camelote",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1261831,
+          "name": "Cœur-de-néant fragilisé",
+          "description": "Utiliser : Vous synthétisez un objet d’ensemble pour les épaules. Il vous sera lié et adapté à votre classe."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249367": {
+      "id": 249367,
+      "name": "Bibelot du Vide carillonnant",
+      "sourceName": "鸣响虚空珍玩",
+      "quality": "Épique",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Composant",
+      "itemSubclass": "Jeton de contexte",
+      "binding": "Lié quand ramassé",
+      "description": "Retrouvez Kirana devant l’entrée de la marche sur Quel’Danas pour obtenir ce puissant ensemble de classe.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249368": {
+      "id": 249368,
+      "name": "Chaîne éternelle de Chantevide",
+      "sourceName": "永恒虚空之歌项链",
+      "quality": "Épique",
+      "inventoryType": "Cou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1271211,
+          "name": "Chaîne éternelle de Chantevide",
+          "description": "Équipé : Infliger des dégâts d’ombre a une chance d’appliquer une piqûre de traqueur du Vide infligeant 103 points de dégâts d’ombre à votre cible en 10 s. Si l’effet est réappliqué, les dégâts restants s’ajoutent à la prochaine piqûre."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249369": {
+      "id": 249369,
+      "name": "Lien de Lumière",
+      "sourceName": "圣光纽带",
+      "quality": "Épique",
+      "inventoryType": "Doigt",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249370": {
+      "id": 249370,
+      "name": "Cape du Néant draconique",
+      "sourceName": "龙族虚无披风",
+      "quality": "Épique",
+      "inventoryType": "Dos",
+      "itemClass": "Armure",
+      "itemSubclass": "Tissu",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249371": {
+      "id": 249371,
+      "name": "Sangle fléau-du-dédain",
+      "sourceName": "灾祸克星护腰",
+      "quality": "Épique",
+      "inventoryType": "Taille",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249377": {
+      "id": 249377,
+      "name": "Bottines marchobscure",
+      "sourceName": "涉暗踏靴",
+      "quality": "Épique",
+      "inventoryType": "Pieds",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249805": {
+      "id": 249805,
+      "name": "Vestige suintant de la divinité ineffable",
+      "sourceName": "未梦之神的污泥残迹",
+      "quality": "Épique",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "Il ne cesse de suinter.",
+      "spells": [
+        {
+          "id": 1256790,
+          "name": "Vestige suintant de la divinité ineffable",
+          "description": "Équipé : Vous avez de fortes chances d’éclabousser votre cible de mucus volatil, infligeant 4 points de dégâts de nature par seconde. Cumulable jusqu’à 5 fois.\r\n\r\nDès 5 charges ou la mort de l’adversaire, le mucus se consume violemment pour infliger 371 points de dégâts de nature répartis entre les adversaires proches. Dégâts augmentés de 30 % par personnage adverse supplémentaire, jusqu’à un maximum de 150 %."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249806": {
+      "id": 249806,
+      "name": "Plume rayonnante",
+      "sourceName": "光耀飞羽",
+      "quality": "Épique",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1260592,
+          "name": "Plume rayonnante",
+          "description": "Équipé : Le rayonnement de la plume vous confère un bonus de maîtrise de 30, qui décroît en 60 s avant de retrouver toute son incandescence. Le pouvoir de la plume se régénère également hors combat."
+        },
+        {
+          "id": 1265805,
+          "name": "Plume ombreuse",
+          "description": "Utiliser : Hors combat, vous pouvez invoquer la double nature de la plume pour la transformer en plume ombreuse. (5 min de recharge)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249808": {
+      "id": 249808,
+      "name": "Litanie de courroux lumaveuglé",
+      "sourceName": "光盲圣怒的连祷",
+      "quality": "Épique",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "Êtes-vous du côté de la Lumière ?",
+      "spells": [
+        {
+          "id": 1258283,
+          "name": "Flambeau de courroux lumaveuglé",
+          "description": "Utiliser : Vous récitez une litanie pour appliquer Flambeau de courroux lumaveuglé à un personnage adverse pendant 30 s. Vos 5 prochains sorts néfastes provoquent une explosion de Lumière qui inflige 289 points de dégâts du sacré à la cible.\r\n\r\nTant qu’il résiste, un bouclier d’un montant égal protège 5 personnages alliés blessés, absorbant 50 % des dégâts subis. (1 min 30 s de recharge)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249809": {
+      "id": 249809,
+      "name": "Ruban de l’Arpenteur des ombres",
+      "sourceName": "双界行者的丝带",
+      "quality": "Épique",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "« Souhaitez-vous en savoir plus sur le Vide ? Il a de nombreuses leçons à nous transmettre au milieu de ses chuchotements exaspérants. » — Arpenteur des ombres",
+      "spells": [
+        {
+          "id": 1259314,
+          "name": "Ruban de l’Arpenteur des ombres",
+          "description": "Équipé : Lorsque vous lancez des sorts, vous avez de fortes chances de vous laisser tenter par le pouvoir du Vide, ce qui augmente votre Intelligence de 19 pendant 10 s.\r\n\r\nChaque tentation augmente définitivement cet effet de 5 %, jusqu’à 10 fois. Le bonus diminue rapidement dès que vous quittez le combat."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249810": {
+      "id": 249810,
+      "name": "Ombre du requiem empyréen",
+      "sourceName": "苍穹慰魂曲之影",
+      "quality": "Épique",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1259518,
+          "name": "Ombre du requiem empyréen",
+          "description": "Équipé : Vos sorts néfastes ont de fortes chances de faire tomber du ciel des éclats cosmiques qui lacèrent votre cible ainsi qu’un personnage adverse proche, infligeant 385 points de dégâts cosmiques.\r\n\r\nSi les points de vie de l’une ou l’autre des cibles sont inférieurs à 35 %, vous bénéficiez d’un bonus de hâte de 14 pendant 12 s tandis que vous les poussez vers leur destinée."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249811": {
+      "id": 249811,
+      "name": "Lumière du crescendo cosmique",
+      "sourceName": "宇宙波动之光",
+      "quality": "Épique",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "À une époque, son chant remplissait les cœurs d’espoir.",
+      "spells": [
+        {
+          "id": 1258672,
+          "name": "Lumière du crescendo cosmique",
+          "description": "Équipé : Vos soins ont de fortes chances d’appliquer Crescendo cosmique à un personnage adverse proche, infligeant 1 points de dégâts cosmiques toutes les 3 s jusqu’à sa mort. Cumulable jusqu’à 25 fois.\r\n\r\nVous fredonnez un cantique cosmique toutes les 2 s, ce qui consomme une charge de Crescendo cosmique si les points de vie d’un personnage allié sont inférieurs à 60 % et rend 228 points de vie répartis entre ce personnage et un maximum de 4 personnages alliés blessés. Les soins prodigués augmentent de 30 % par personnage allié supplémentaire, jusqu’à un maximum de 150 %."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249914": {
+      "id": 249914,
+      "name": "Semblance de l’oubli",
+      "sourceName": "湮灭伪装",
+      "quality": "Épique",
+      "inventoryType": "Tête",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249919": {
+      "id": 249919,
+      "name": "Bague d’espoir sin’dorei",
+      "sourceName": "辛多雷希望指环",
+      "quality": "Épique",
+      "inventoryType": "Doigt",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249920": {
+      "id": 249920,
+      "name": "Œil de minuit",
+      "sourceName": "至暗之夜的眼眸",
+      "quality": "Épique",
+      "inventoryType": "Doigt",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1266505,
+          "name": "Œil de minuit",
+          "description": "Équipé : Lorsque vous subissez un montant de dégâts d’ombre supérieur à 15 % de votre maximum de points de vie, vous bénéficiez d’une barrière absorbant jusqu’à 240 points de dégâts et augmentant votre Évitement de 10 tant qu’elle résiste. Cet effet peut se produire toutes les 30 s."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249921": {
+      "id": 249921,
+      "name": "Garde-aube thalassien",
+      "sourceName": "萨拉斯护晨者",
+      "quality": "Épique",
+      "inventoryType": "Main gauche",
+      "itemClass": "Armure",
+      "itemSubclass": "Bouclier",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249974": {
+      "id": 249974,
+      "name": "Garde du noyau primordial",
+      "sourceName": "原始核心的卫士披风",
+      "quality": "Épique",
+      "inventoryType": "Dos",
+      "itemClass": "Armure",
+      "itemSubclass": "Tissu",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249975": {
+      "id": 249975,
+      "name": "Crispins du noyau primordial",
+      "sourceName": "原始核心的护腕",
+      "quality": "Épique",
+      "inventoryType": "Poignets",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249976": {
+      "id": 249976,
+      "name": "Ceinture du noyau primordial",
+      "sourceName": "原始核心的腰索",
+      "quality": "Épique",
+      "inventoryType": "Taille",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249977": {
+      "id": 249977,
+      "name": "Tempêtes du noyau primordial",
+      "sourceName": "原始核心的风暴护肩",
+      "quality": "Épique",
+      "inventoryType": "Épaule",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": 1988,
+      "setName": "Mantelet du noyau primordial"
+    },
+    "249978": {
+      "id": 249978,
+      "name": "Jambières du noyau primordial",
+      "sourceName": "原始核心的护腿",
+      "quality": "Épique",
+      "inventoryType": "Jambes",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": 1988,
+      "setName": "Mantelet du noyau primordial"
+    },
+    "249979": {
+      "id": 249979,
+      "name": "Locus du noyau primordial",
+      "sourceName": "原始核心的轨迹头盔",
+      "quality": "Épique",
+      "inventoryType": "Tête",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": 1988,
+      "setName": "Mantelet du noyau primordial"
+    },
+    "249980": {
+      "id": 249980,
+      "name": "Empoignes-terre du noyau primordial",
+      "sourceName": "原始核心的大地之握",
+      "quality": "Épique",
+      "inventoryType": "Mains",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": 1988,
+      "setName": "Mantelet du noyau primordial"
+    },
+    "249981": {
+      "id": 249981,
+      "name": "Solerets du noyau primordial",
+      "sourceName": "原始核心的马靴",
+      "quality": "Épique",
+      "inventoryType": "Pieds",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249982": {
+      "id": 249982,
+      "name": "Étreinte du noyau primordial",
+      "sourceName": "原始核心的拥抱胸甲",
+      "quality": "Épique",
+      "inventoryType": "Torse",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": 1988,
+      "setName": "Mantelet du noyau primordial"
+    },
+    "250144": {
+      "id": 250144,
+      "name": "Plume de braisaile",
+      "sourceName": "烬翼羽毛",
+      "quality": "Rare",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250508,
+          "name": "Vague de chaleur de braisaile",
+          "description": "Utiliser : Génère une Vague de chaleur de braisaile qui augmente votre Hâte de 68 pendant 15 s.\r\n\r\nVous avez une faible chance de subir Brûlure de braisaile, qui réduit l’une de vos autres caractéristiques secondaires de 21 pendant 10 s. (2 min de recharge)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "250223": {
+      "id": 250223,
+      "name": "Charme d’attrape-âme",
+      "sourceName": "捕魂者的咒符",
+      "quality": "Rare",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "Le fétiche nécromantique de Vordaza est recouvert de gravures indéchiffrables, et a une aura pesante et menaçante.",
+      "spells": [
+        {
+          "id": 1250541,
+          "name": "Écho de la malédiction éternelle",
+          "description": "Équipé : Vos sorts de dégâts ont une chance de hanter la cible, lui infligeant 338 points de dégâts d’ombre en 12 s s.\r\n\r\nSi la cible meurt alors qu’elle est hantée, l’effet est transféré à un personnage adverse proche et inflige 150 % des dégâts d’ombre pendant la durée restante."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "250226": {
+      "id": 250226,
+      "name": "Crochet tordu de Clenche",
+      "sourceName": "拉奇的弯曲钩爪",
+      "quality": "Rare",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1254193,
+          "name": "Crochet tordu de Clenche",
+          "description": "Utiliser : Lance vers votre cible un énorme crochet qui frappe les adversaires sur sa trajectoire et inflige 577 points de dégâts physiques. Lorsque le crochet touche la cible, il inflige 385 points de dégâts physiques répartis entre les adversaires à moins de 7 m. (1 min 30 s de recharge)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "250227": {
+      "id": 250227,
+      "name": "Bannière de guerre de Kroluk",
+      "sourceName": "克罗鲁科的战旗",
+      "quality": "Rare",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250563,
+          "name": "Bannière de guerre de Kroluk",
+          "description": "Équipé : Vos attaques en mêlée ont une chance d’invoquer une élite du lancer de haches qui en jette une sur votre cible, infligeant 1498 points de dégâts physiques."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "250246": {
+      "id": 250246,
+      "name": "Orbe de ravitaillement",
+      "sourceName": "充能宝珠",
+      "quality": "Rare",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1254752,
+          "name": "Orbe de ravitaillement",
+          "description": "Équipé : Vos sorts et techniques ont une chance de libérer un orbe d’énergie qui rebondit entre 5 personnages alliés proches au maximum, augmentant leur Polyvalence de 5 pendant 12 s. Si un personnage allié a moins de 50 % de points de vie, l’orbe le soigne de 80 à la place."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "250247": {
+      "id": 250247,
+      "name": "Amulette de l’hymne abyssal",
+      "sourceName": "深渊赞歌护符",
+      "quality": "Épique",
+      "inventoryType": "Cou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "250253": {
+      "id": 250253,
+      "name": "Murmures de l’âme crépusculaire",
+      "sourceName": "暮色怨灵的低语",
+      "quality": "Rare",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250596,
+          "name": "Murmures de l’âme crépusculaire",
+          "description": "Équipé : Vos sorts et techniques de soins ont une chance de libérer une âme crépusculaire. Cette dernière bondit vers votre cible et lui rend des points de vie pendant 378.\r\n\r\nSi la cible a moins de 40 % de points de vie, l’âme crépusculaire la renforce davantage et lui confère un bonus de 7 à la Polyvalence pendant 10 s."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "250256": {
+      "id": 250256,
+      "name": "Cœur du vent",
+      "sourceName": "风之心",
+      "quality": "Rare",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250599,
+          "name": "Cœur du vent",
+          "description": "Équipé : Vos sorts et techniques ont une chance de réveiller le cœur du vent, ce qui vous entoure de vents puissants augmentant votre Hâte de 22 pendant 10 s."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "250257": {
+      "id": 250257,
+      "name": "Œil du Vide submergeant",
+      "sourceName": "沉溺虚空之眼",
+      "quality": "Rare",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250601,
+          "name": "Œil du Vide submergeant",
+          "description": "Équipé : Vos sorts et techniques de dégâts ont une chance d’ouvrir une faille vers le Vide dans votre cible, infligeant 194 points de dégâts d’ombre répartis entre les adversaires proches."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "250258": {
+      "id": 250258,
+      "name": "Réceptacle des âmes torturées",
+      "sourceName": "折磨之魂容器",
+      "quality": "Rare",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "Ne tapez pas sur le verre, elles n’aiment pas ça.",
+      "spells": [
+        {
+          "id": 1250602,
+          "name": "Réceptacle des âmes",
+          "description": "Équipé : Vos sorts et techniques ont une chance d’éveiller une âme piégée dans le réceptacle. Chaque âme récupérée accroît votre Intelligence de 3 pendant 1 min."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "251079": {
+      "id": 251079,
+      "name": "Brassards ambrefronde",
+      "sourceName": "琥珀叶护腕",
+      "quality": "Rare",
+      "inventoryType": "Poignets",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251083": {
+      "id": 251083,
+      "name": "Casse-tête d’excavation",
+      "sourceName": "挖掘大槌",
+      "quality": "Rare",
+      "inventoryType": "À une main",
+      "itemClass": "Arme",
+      "itemSubclass": "Masse",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251084": {
+      "id": 251084,
+      "name": "Solerets fouette-bobine",
+      "sourceName": "鞭线铁靴",
+      "quality": "Rare",
+      "inventoryType": "Pieds",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251089": {
+      "id": 251089,
+      "name": "Poignes d’honneur oublié",
+      "sourceName": "遗誉护手",
+      "quality": "Rare",
+      "inventoryType": "Mains",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251093": {
+      "id": 251093,
+      "name": "Omission de la Lumière",
+      "sourceName": "圣光的遗落",
+      "quality": "Rare",
+      "inventoryType": "Doigt",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": 1971,
+      "setName": "Liens de Lumière du Vide"
+    },
+    "251096": {
+      "id": 251096,
+      "name": "Pendentif de chagrin lancinant",
+      "sourceName": "悲恸吊坠",
+      "quality": "Rare",
+      "inventoryType": "Cou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251097": {
+      "id": 251097,
+      "name": "Spallières du vol de la flèche",
+      "sourceName": "飞箭肩甲",
+      "quality": "Rare",
+      "inventoryType": "Épaule",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251104": {
+      "id": 251104,
+      "name": "Jambières de conduite exemplaire",
+      "sourceName": "秩序守恒护腿",
+      "quality": "Rare",
+      "inventoryType": "Jambes",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251105": {
+      "id": 251105,
+      "name": "Bouclier du brise-sort",
+      "sourceName": "破法者之盾",
+      "quality": "Rare",
+      "inventoryType": "Main gauche",
+      "itemClass": "Armure",
+      "itemSubclass": "Bouclier",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251110": {
+      "id": 251110,
+      "name": "Solécharpe de Cinglesoleil",
+      "sourceName": "日鞭的炎阳腰带",
+      "quality": "Rare",
+      "inventoryType": "Taille",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251111": {
+      "id": 251111,
+      "name": "Aiguillon scinde-voile",
+      "sourceName": "裂纱钉刺",
+      "quality": "Rare",
+      "inventoryType": "À une main",
+      "itemClass": "Arme",
+      "itemSubclass": "Dague",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251114": {
+      "id": 251114,
+      "name": "Cotte de limon déformée par le Vide",
+      "sourceName": "虚空扭曲软泥甲",
+      "quality": "Rare",
+      "inventoryType": "Torse",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251115": {
+      "id": 251115,
+      "name": "Bague de bifurcation",
+      "sourceName": "分叉指环",
+      "quality": "Rare",
+      "inventoryType": "Doigt",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251119": {
+      "id": 251119,
+      "name": "Visage du vortex",
+      "sourceName": "漩涡护面",
+      "quality": "Rare",
+      "inventoryType": "Tête",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251161": {
+      "id": 251161,
+      "name": "Voile de la chasseuse d’âmes",
+      "sourceName": "猎魂者的斗篷",
+      "quality": "Rare",
+      "inventoryType": "Dos",
+      "itemClass": "Armure",
+      "itemSubclass": "Tissu",
+      "binding": "Lié quand ramassé",
+      "description": "Une relique des rituels corrompus dont les Vilebranches ont le secret.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251163": {
+      "id": 251163,
+      "name": "Malégriffes du berserker",
+      "sourceName": "狂战士的妖爪",
+      "quality": "Rare",
+      "inventoryType": "À une main",
+      "itemClass": "Arme",
+      "itemSubclass": "Arme de pugilat",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251170": {
+      "id": 251170,
+      "name": "Chausses en tisse-mal",
+      "sourceName": "邪纹长裤",
+      "quality": "Rare",
+      "inventoryType": "Jambes",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251175": {
+      "id": 251175,
+      "name": "Fendoir fléau-de-l’âme",
+      "sourceName": "灵魂枯萎劈刀",
+      "quality": "Rare",
+      "inventoryType": "À une main",
+      "itemClass": "Arme",
+      "itemSubclass": "Hache",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251176": {
+      "id": 251176,
+      "name": "Poids de réanimation",
+      "sourceName": "复生者的重担",
+      "quality": "Rare",
+      "inventoryType": "Épaule",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251178": {
+      "id": 251178,
+      "name": "Laméfice de cérémonie",
+      "sourceName": "仪式妖术之刃",
+      "quality": "Rare",
+      "inventoryType": "À une main",
+      "itemClass": "Arme",
+      "itemSubclass": "Dague",
+      "binding": "Lié quand ramassé",
+      "description": "Une lame utilisée lors de l’infâme cérémonie pour ressusciter et renforcer Rak’thul.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251179": {
+      "id": 251179,
+      "name": "Cuirasse putréfiée",
+      "sourceName": "腐败胸甲",
+      "quality": "Rare",
+      "inventoryType": "Torse",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251201": {
+      "id": 251201,
+      "name": "Outil multifonction de noyétincelle",
+      "sourceName": "核闪多用仪",
+      "quality": "Rare",
+      "inventoryType": "Deux mains",
+      "itemClass": "Arme",
+      "itemSubclass": "Bâton",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251202": {
+      "id": 251202,
+      "name": "Réflecteur de reflux",
+      "sourceName": "溢流反射盾",
+      "quality": "Rare",
+      "inventoryType": "Main gauche",
+      "itemClass": "Armure",
+      "itemSubclass": "Bouclier",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251206": {
+      "id": 251206,
+      "name": "Cape tisseflux",
+      "sourceName": "流光织锦披风",
+      "quality": "Rare",
+      "inventoryType": "Dos",
+      "itemClass": "Armure",
+      "itemSubclass": "Tissu",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251207": {
+      "id": 251207,
+      "name": "Gourdin du fléau-d’effroi",
+      "sourceName": "恐惧连枷重锤",
+      "quality": "Rare",
+      "inventoryType": "À une main",
+      "itemClass": "Arme",
+      "itemSubclass": "Masse",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251209": {
+      "id": 251209,
+      "name": "Crispins de garde-cœur",
+      "sourceName": "核心守卫臂甲",
+      "quality": "Rare",
+      "inventoryType": "Poignets",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251215": {
+      "id": 251215,
+      "name": "Grèves de la ruse divine",
+      "sourceName": "神圣诡计护胫",
+      "quality": "Rare",
+      "inventoryType": "Jambes",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251217": {
+      "id": 251217,
+      "name": "Occlusion du Vide",
+      "sourceName": "虚空的遮蔽",
+      "quality": "Rare",
+      "inventoryType": "Doigt",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": 1971,
+      "setName": "Liens de Lumière du Vide"
+    },
+    "252411": {
+      "id": 252411,
+      "name": "Héliolite rayonnante",
+      "sourceName": "光耀日长石",
+      "quality": "Rare",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1254624,
+          "name": "Bénédiction radieuse",
+          "description": "Utiliser : Baigne une cible alliée de lumière radieuse, ce qui rend 670 de ses points de vie et l’imprègne pendant 20 s.\r\nTant que la cible est imprégnée, vos sorts et techniques de soins la soignent également à hauteur de 26. (2 min de recharge)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "252420": {
+      "id": 252420,
+      "name": "Prisme d’éruption solaire",
+      "sourceName": "太阳耀斑棱镜",
+      "quality": "Rare",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1254640,
+          "name": "Prisme d’éruption solaire",
+          "description": "Équipé : Vos techniques infligeant des dégâts ont une chance de déchaîner la lumière radieuse du prisme, augmentant votre score de Coup critique de 13 pendant 10 s, plus un supplément de 1 par tranche de 1 % de points de vie manquants à la cible, jusqu’à un maximum de 16. "
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "256625": {
+      "id": 256625,
+      "name": "Patron : brin sort-tramé",
+      "sourceName": "图样：妖纹束腰",
+      "quality": "Épique",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Recette",
+      "itemSubclass": "Travail du cuir",
+      "binding": "",
+      "description": "Vous apprend à confectionner un brin sort-tramé.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "256653": {
+      "id": 256653,
+      "name": "Patron : poignes du général des forestiers",
+      "sourceName": "图样：游侠将军之握",
+      "quality": "Épique",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Recette",
+      "itemSubclass": "Travail du cuir",
+      "binding": "",
+      "description": "Vous apprend à confectionner des poignes du général des forestiers.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "256656": {
+      "id": 256656,
+      "name": "Patron : fermoir d’écorce de soigne-monde",
+      "sourceName": "图样：世界照护者的树皮腰扣",
+      "quality": "Épique",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Recette",
+      "itemSubclass": "Travail du cuir",
+      "binding": "",
+      "description": "Vous apprend à confectionner un fermoir d’écorce de soigne-monde.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "256683": {
+      "id": 256683,
+      "name": "Mannequin d’entraînement de Lune-d’Argent",
+      "sourceName": "银月城训练假人",
+      "quality": "Inhabituel",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Logis",
+      "itemSubclass": "Élément de décoration",
+      "binding": "Lié au bataillon",
+      "description": "",
+      "spells": [
+        {
+          "id": 1260663,
+          "name": "Récupérer un mannequin d’entraînement de Lune-d’Argent",
+          "description": "Utiliser : Placez cet élément de décoration dans votre coffre de maison."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "256715": {
+      "id": 256715,
+      "name": "Dessin : torque de phénix thalassien",
+      "sourceName": "图鉴：萨拉斯凤凰饰环",
+      "quality": "Rare",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Recette",
+      "itemSubclass": "Joaillerie",
+      "binding": "",
+      "description": "Vous apprend à fabriquer un torque de phénix thalassien.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "256716": {
+      "id": 256716,
+      "name": "Dessin : iris de focalisation prismatique",
+      "sourceName": "图鉴：棱光聚焦之虹",
+      "quality": "Rare",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Recette",
+      "itemSubclass": "Joaillerie",
+      "binding": "",
+      "description": "Vous apprend à façonner un iris de focalisation prismatique.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "256750": {
+      "id": 256750,
+      "name": "Formule : enchantement d’arme – berceau d’Âme-monde",
+      "sourceName": "公式：附魔武器 - 世界之魂的摇篮",
+      "quality": "Rare",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Recette",
+      "itemSubclass": "Enchantement",
+      "binding": "",
+      "description": "Vous apprend à appliquer l’enchantement Berceau d’Âme-monde.",
+      "spells": [
+        {
+          "id": 1236079,
+          "name": "Enchantement d’arme – berceau d’Âme-monde",
+          "description": "Utiliser : Vous apprend à appliquer l’enchantement Berceau d’Âme-monde."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "256755": {
+      "id": 256755,
+      "name": "Formule : enchantement de plastron – marque de magistère",
+      "sourceName": "公式：附魔胸甲 - 魔导师印记",
+      "quality": "Rare",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Recette",
+      "itemSubclass": "Enchantement",
+      "binding": "",
+      "description": "Vous apprend à appliquer l’enchantement Marque de magistère.",
+      "spells": [
+        {
+          "id": 1236082,
+          "name": "Enchantement de plastron – marque de magistère",
+          "description": "Utiliser : Vous apprend à appliquer l’enchantement Marque de magistère."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "256759": {
+      "id": 256759,
+      "name": "Formule : enchantement d’arme – flammes des Sin’dorei",
+      "sourceName": "公式：附魔武器 - 辛多雷之焰",
+      "quality": "Rare",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Recette",
+      "itemSubclass": "Enchantement",
+      "binding": "",
+      "description": "Vous apprend à appliquer l’enchantement Flammes des Sin’dorei.",
+      "spells": [
+        {
+          "id": 1236094,
+          "name": "Enchantement d’arme – flammes des Sin’dorei",
+          "description": "Utiliser : Vous apprend à appliquer l’enchantement Flammes des Sin’dorei."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "258033": {
+      "id": 258033,
+      "name": "Patron : doublure en tisse-arcane",
+      "sourceName": "图样：奥纹内衬",
+      "quality": "Rare",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Recette",
+      "itemSubclass": "Couture",
+      "binding": "",
+      "description": "Vous apprend à fabriquer une doublure en tisse-arcane.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258047": {
+      "id": 258047,
+      "name": "Cime de l’assemblage furieux",
+      "sourceName": "狂怒构装体之杖",
+      "quality": "Rare",
+      "inventoryType": "Deux mains",
+      "itemClass": "Arme",
+      "itemSubclass": "Bâton",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258049": {
+      "id": 258049,
+      "name": "Rempart indomptable de Viryx",
+      "sourceName": "维里克斯的不屈壁垒",
+      "quality": "Rare",
+      "inventoryType": "Main gauche",
+      "itemClass": "Armure",
+      "itemSubclass": "Bouclier",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258050": {
+      "id": 258050,
+      "name": "Arcanique du grand sage",
+      "sourceName": "高阶贤者的奥法拳套",
+      "quality": "Rare",
+      "inventoryType": "À une main",
+      "itemClass": "Arme",
+      "itemSubclass": "Arme de pugilat",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258123": {
+      "id": 258123,
+      "name": "Patron : fil ensorcelé de soie du feu solaire",
+      "sourceName": "图样：阳炎丝绸魔线",
+      "quality": "Rare",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Recette",
+      "itemSubclass": "Couture",
+      "binding": "",
+      "description": "Vous apprend à fabriquer du fil ensorcelé de soie du feu solaire.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258125": {
+      "id": 258125,
+      "name": "Patron : écharpe du feu solaire",
+      "sourceName": "图样：阳炎腰带",
+      "quality": "Épique",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Recette",
+      "itemSubclass": "Couture",
+      "binding": "",
+      "description": "Vous apprend à confectionner une écharpe du feu solaire.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258438": {
+      "id": 258438,
+      "name": "Griffes solaires incandescentes",
+      "sourceName": "炽热日爪",
+      "quality": "Rare",
+      "inventoryType": "À une main",
+      "itemClass": "Arme",
+      "itemSubclass": "Arme de pugilat",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258514": {
+      "id": 258514,
+      "name": "Flèche ombreuse de Zuraal",
+      "sourceName": "祖拉尔的暗影尖塔",
+      "quality": "Rare",
+      "inventoryType": "Deux mains",
+      "itemClass": "Arme",
+      "itemSubclass": "Bâton",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258517": {
+      "id": 258517,
+      "name": "Plans : palissade de chevalier-commandant",
+      "sourceName": "设计图：骑士指挥官的雄关",
+      "quality": "Rare",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Recette",
+      "itemSubclass": "Forge",
+      "binding": "",
+      "description": "Vous apprend à forger une palissade de chevalier-commandant.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258519": {
+      "id": 258519,
+      "name": "Plans : adieux de magistère",
+      "sourceName": "设计图：魔导师的送别",
+      "quality": "Rare",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Recette",
+      "itemSubclass": "Forge",
+      "binding": "",
+      "description": "Vous apprend à forger des adieux de magistère.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258521": {
+      "id": 258521,
+      "name": "Plans : impulsion de chevalier de sang",
+      "sourceName": "设计图：血骑士的强击矛",
+      "quality": "Rare",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Recette",
+      "itemSubclass": "Forge",
+      "binding": "",
+      "description": "Vous apprend à forger une impulsion de chevalier de sang.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258522": {
+      "id": 258522,
+      "name": "Plans : bardiche forgeflore",
+      "sourceName": "设计图：绽铸大斧",
+      "quality": "Rare",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Recette",
+      "itemSubclass": "Forge",
+      "binding": "",
+      "description": "Vous apprend à forger une bardiche forgeflore.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258524": {
+      "id": 258524,
+      "name": "Poignes du vice-roi sombre",
+      "sourceName": "黑暗总督之握",
+      "quality": "Rare",
+      "inventoryType": "À une main",
+      "itemClass": "Arme",
+      "itemSubclass": "Arme de pugilat",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258531": {
+      "id": 258531,
+      "name": "Gardécaille de Tricérabec",
+      "sourceName": "克罗兹鳞片护盾",
+      "quality": "Rare",
+      "inventoryType": "Main gauche",
+      "itemClass": "Armure",
+      "itemSubclass": "Bouclier",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258575": {
+      "id": 258575,
+      "name": "Grande cape en écailles rigides",
+      "sourceName": "刚鳞大氅",
+      "quality": "Rare",
+      "inventoryType": "Dos",
+      "itemClass": "Armure",
+      "itemSubclass": "Tissu",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258576": {
+      "id": 258576,
+      "name": "Corselet de l’œil perçant",
+      "sourceName": "锐眼胸甲",
+      "quality": "Rare",
+      "inventoryType": "Torse",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258582": {
+      "id": 258582,
+      "name": "Bottes en écailles rigides",
+      "sourceName": "刚鳞长靴",
+      "quality": "Rare",
+      "inventoryType": "Pieds",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258585": {
+      "id": 258585,
+      "name": "Lueur de l’œil perçant",
+      "sourceName": "锐眼头盔",
+      "quality": "Rare",
+      "inventoryType": "Tête",
+      "itemClass": "Armure",
+      "itemSubclass": "Mailles",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258744": {
+      "id": 258744,
+      "name": "Table circulaire d’Orée-du-Ciel",
+      "sourceName": "通天峰圆形桌子",
+      "quality": "Inhabituel",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Logis",
+      "itemSubclass": "Élément de décoration",
+      "binding": "Lié au bataillon",
+      "description": "",
+      "spells": [
+        {
+          "id": 1263929,
+          "name": "Récupérer une table circulaire d’Orée-du-Ciel",
+          "description": "Utiliser : Placez cet élément de décoration dans votre coffre de maison."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "260231": {
+      "id": 260231,
+      "name": "Faucon-pérégrin lumineux",
+      "sourceName": "光亮陆行鸟",
+      "quality": "Épique",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Divers",
+      "itemSubclass": "Monture",
+      "binding": "Lié quand ramassé",
+      "description": "Vous apprend à invoquer cette monture.",
+      "spells": [
+        {
+          "id": 1265784,
+          "name": "Faucon-pérégrin lumineux",
+          "description": "Utiliser : Vous apprend à invoquer cette monture."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "260235": {
+      "id": 260235,
+      "name": "Plume ombreuse",
+      "sourceName": "幽影羽毛",
+      "quality": "Épique",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1265809,
+          "name": "Plume ombreuse",
+          "description": "Équipé : L’obscurité de la plume vous confère un bonus au score de Coup critique de 30, qui décroît en 60 s avant de retrouver toute sa noirceur. Le pouvoir de la plume se régénère également hors combat."
+        },
+        {
+          "id": 1265806,
+          "name": "Plume rayonnante",
+          "description": "Utiliser : Hors combat, vous pouvez invoquer la double nature de la plume pour la transformer en plume rayonnante. (5 min de recharge)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "260312": {
+      "id": 260312,
+      "name": "Drapé de défense réfractaire",
+      "sourceName": "挑战防御者斗篷",
+      "quality": "Rare",
+      "inventoryType": "Dos",
+      "itemClass": "Armure",
+      "itemSubclass": "Tissu",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "260359": {
+      "id": 260359,
+      "name": "Bibliothèque de Valdrakken",
+      "sourceName": "瓦德拉肯书柜",
+      "quality": "Inhabituel",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Logis",
+      "itemSubclass": "Élément de décoration",
+      "binding": "Lié au bataillon",
+      "description": "",
+      "spells": [
+        {
+          "id": 1266209,
+          "name": "Récupérer une bibliothèque de Valdrakken",
+          "description": "Utiliser : Placez cet élément de décoration dans votre coffre de maison."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "262914": {
+      "id": 262914,
+      "name": "Faucon-pérégrin spectral",
+      "sourceName": "幽灵陆行鸟",
+      "quality": "Épique",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Divers",
+      "itemSubclass": "Monture",
+      "binding": "Lié quand ramassé",
+      "description": "Vous apprend à invoquer cette monture.",
+      "spells": [
+        {
+          "id": 1263635,
+          "name": "Faucon-pérégrin spectral",
+          "description": "Utiliser : Vous apprend à invoquer cette monture."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "262957": {
+      "id": 262957,
+      "name": "Bannière de l’avant-garde en lambeaux",
+      "sourceName": "破损的先锋战旗",
+      "quality": "Rare",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Logis",
+      "itemSubclass": "Élément de décoration",
+      "binding": "Lié au bataillon",
+      "description": "",
+      "spells": [
+        {
+          "id": 1269607,
+          "name": "Récupérer une bannière de l’avant-garde en lambeaux",
+          "description": "Utiliser : Placez cet élément de décoration dans votre coffre de maison."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "263230": {
+      "id": 263230,
+      "name": "Étagère de livres de magistère",
+      "sourceName": "魔导师的书架",
+      "quality": "Inhabituel",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Logis",
+      "itemSubclass": "Élément de décoration",
+      "binding": "Lié au bataillon",
+      "description": "",
+      "spells": [
+        {
+          "id": 1270131,
+          "name": "Récupérer une étagère de livres de magistère",
+          "description": "Utiliser : Placez cet élément de décoration dans votre coffre de maison."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264187": {
+      "id": 264187,
+      "name": "Œuf de phénix béni",
+      "sourceName": "受祝福的凤凰蛋",
+      "quality": "Rare",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Logis",
+      "itemSubclass": "Élément de décoration",
+      "binding": "Lié au bataillon",
+      "description": "",
+      "spells": [
+        {
+          "id": 1271354,
+          "name": "Récupérer un œuf de phénix béni",
+          "description": "Utiliser : Placez cet élément de décoration dans votre coffre de maison."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264246": {
+      "id": 264246,
+      "name": "Champifaille iridescent étrange",
+      "sourceName": "诡异的虹彩裂隙菇",
+      "quality": "Rare",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Logis",
+      "itemSubclass": "Élément de décoration",
+      "binding": "Lié au bataillon",
+      "description": "",
+      "spells": [
+        {
+          "id": 1271491,
+          "name": "Récupérer un champifaille iridescent étrange",
+          "description": "Utiliser : Placez cet élément de décoration dans votre coffre de maison."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264338": {
+      "id": 264338,
+      "name": "Console de contrôle domanaar",
+      "sourceName": "多曼纳尔控制台",
+      "quality": "Inhabituel",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Logis",
+      "itemSubclass": "Élément de décoration",
+      "binding": "Lié au bataillon",
+      "description": "",
+      "spells": [
+        {
+          "id": 1271726,
+          "name": "Récupérer une console de contrôle domanaar",
+          "description": "Utiliser : Placez cet élément de décoration dans votre coffre de maison."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264491": {
+      "id": 264491,
+      "name": "Cellule de détention liée par le Vide",
+      "sourceName": "虚缚牢笼",
+      "quality": "Rare",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Logis",
+      "itemSubclass": "Élément de décoration",
+      "binding": "Lié au bataillon",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272054,
+          "name": "Récupérer une cellule de détention liée par le Vide",
+          "description": "Utiliser : Placez cet élément de décoration dans votre coffre de maison."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264492": {
+      "id": 264492,
+      "name": "Gueule du Vide chaotique",
+      "sourceName": "混沌虚空渊门",
+      "quality": "Rare",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Logis",
+      "itemSubclass": "Élément de décoration",
+      "binding": "Lié au bataillon",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272055,
+          "name": "Récupérer une gueule du Vide chaotique",
+          "description": "Utiliser : Placez cet élément de décoration dans votre coffre de maison."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264494": {
+      "id": 264494,
+      "name": "Caisse de stockage domanaar ficelée",
+      "sourceName": "镶边多曼纳尔储物箱",
+      "quality": "Rare",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Logis",
+      "itemSubclass": "Élément de décoration",
+      "binding": "Lié au bataillon",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272057,
+          "name": "Récupérer une caisse de stockage domanaar ficelée",
+          "description": "Utiliser : Placez cet élément de décoration dans votre coffre de maison."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264497": {
+      "id": 264497,
+      "name": "Cristal de tourment de l’imperator",
+      "sourceName": "元首的折磨水晶",
+      "quality": "Rare",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Logis",
+      "itemSubclass": "Élément de décoration",
+      "binding": "Lié au bataillon",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272060,
+          "name": "Récupérer un cristal de tourment de l’imperator",
+          "description": "Utiliser : Placez cet élément de décoration dans votre coffre de maison."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264498": {
+      "id": 264498,
+      "name": "Œuf de trigore voltaïque",
+      "sourceName": "流电三喉龙蛋",
+      "quality": "Rare",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Logis",
+      "itemSubclass": "Élément de décoration",
+      "binding": "Lié au bataillon",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272061,
+          "name": "Récupérer un œuf de trigore voltaïque",
+          "description": "Utiliser : Placez cet élément de décoration dans votre coffre de maison."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264672": {
+      "id": 264672,
+      "name": "Pierre rituelle cosmique",
+      "sourceName": "宇宙仪式之石",
+      "quality": "Rare",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Divers",
+      "itemSubclass": "Autres",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272307,
+          "name": "Rituel cosmique",
+          "description": "Utiliser : ajoute ce jouet à votre collection.\n\nVous effectuez un rituel pour offrir le cadavre d’un personnage-joueur au Vide. (10 min de recharge)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264717": {
+      "id": 264717,
+      "name": "Attrape-maléfices amani",
+      "sourceName": "阿曼尼防护妖术",
+      "quality": "Inhabituel",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Logis",
+      "itemSubclass": "Élément de décoration",
+      "binding": "Lié au bataillon",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272513,
+          "name": "Récupérer un attrape-maléfices amani",
+          "description": "Utiliser : Placez cet élément de décoration dans votre coffre de maison."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "265949": {
+      "id": 265949,
+      "name": "Trophée doré de triomphe de la marche sur Quel’Danas",
+      "sourceName": "进军奎尔丹纳斯征服者的耀金战利品",
+      "quality": "Épique",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Logis",
+      "itemSubclass": "Élément de décoration",
+      "binding": "Lié au bataillon",
+      "description": "",
+      "spells": [
+        {
+          "id": 1277440,
+          "name": "Récupérer le trophée doré de triomphe de la marche sur Quel’Danas",
+          "description": "Utiliser : Placez cet élément de décoration dans votre coffre de maison."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "265950": {
+      "id": 265950,
+      "name": "Trophée doré de triomphe de la faille du Rêve",
+      "sourceName": "梦境裂隙征服者的耀金战利品",
+      "quality": "Épique",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Logis",
+      "itemSubclass": "Élément de décoration",
+      "binding": "Lié au bataillon",
+      "description": "",
+      "spells": [
+        {
+          "id": 1277441,
+          "name": "Récupérer un trophée doré de triomphe de la faille du Rêve",
+          "description": "Utiliser : Placez cet élément de décoration dans votre coffre de maison."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "265951": {
+      "id": 265951,
+      "name": "Trophée doré de triomphe de la flèche du Vide",
+      "sourceName": "虚影尖塔征服者的耀金战利品",
+      "quality": "Épique",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Logis",
+      "itemSubclass": "Élément de décoration",
+      "binding": "Lié au bataillon",
+      "description": "",
+      "spells": [
+        {
+          "id": 1277442,
+          "name": "Récupérer un trophée doré de triomphe de la flèche du Vide",
+          "description": "Utiliser : Placez cet élément de décoration dans votre coffre de maison."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "267007": {
+      "id": 267007,
+      "name": "Œil d'Achérus",
+      "sourceName": "阿彻鲁斯之眼",
+      "quality": "Inhabituel",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Logis",
+      "itemSubclass": "Élément de décoration",
+      "binding": "Lié au bataillon",
+      "description": "",
+      "spells": [
+        {
+          "id": 1278997,
+          "name": "Récupérer l’Œil d’Achérus",
+          "description": "Utiliser : Placez cet élément de décoration dans votre coffre de maison."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "267645": {
+      "id": 267645,
+      "name": "Trophée argenté de triomphe de la faille du Rêve",
+      "sourceName": "梦境裂隙征服者的闪银战利品",
+      "quality": "Épique",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Logis",
+      "itemSubclass": "Élément de décoration",
+      "binding": "Lié au bataillon",
+      "description": "",
+      "spells": [
+        {
+          "id": 1280916,
+          "name": "Récupérer un trophée argenté de triomphe de la faille du Rêve",
+          "description": "Utiliser : Placez cet élément de décoration dans votre coffre de maison."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "267646": {
+      "id": 267646,
+      "name": "Trophée argenté de triomphe de la marche sur Quel’Danas",
+      "sourceName": "进军奎尔丹纳斯征服者的闪银战利品",
+      "quality": "Épique",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Logis",
+      "itemSubclass": "Élément de décoration",
+      "binding": "Lié au bataillon",
+      "description": "",
+      "spells": [
+        {
+          "id": 1280917,
+          "name": "Récupérer le trophée argenté de triomphe de la marche sur Quel’Danas",
+          "description": "Utiliser : Placez cet élément de décoration dans votre coffre de maison."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268049": {
+      "id": 268049,
+      "name": "Trophée argenté de triomphe de la flèche du Vide",
+      "sourceName": "虚影尖塔征服者的闪银战利品",
+      "quality": "Épique",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Logis",
+      "itemSubclass": "Élément de décoration",
+      "binding": "Lié au bataillon",
+      "description": "",
+      "spells": [
+        {
+          "id": 1281392,
+          "name": "Récupérer un trophée argenté de triomphe de la flèche du Vide",
+          "description": "Utiliser : Placez cet élément de décoration dans votre coffre de maison."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "269269": {
+      "id": 269269,
+      "name": "Flèche rituelle dévorante",
+      "sourceName": "吞噬军团仪式高塔",
+      "quality": "Rare",
+      "inventoryType": "Objet hors équipement",
+      "itemClass": "Logis",
+      "itemSubclass": "Élément de décoration",
+      "binding": "Lié au bataillon",
+      "description": "",
+      "spells": [
+        {
+          "id": 1285071,
+          "name": "Récupérer une flèche rituelle dévorante",
+          "description": "Utiliser : Placez cet élément de décoration dans votre coffre de maison."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    }
+  },
+  "itemSets": {
+    "1331": {
+      "id": 1331,
+      "name": "Lamentation de Velen",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Complet : Augmente l’Évitement."
+        }
+      ]
+    },
+    "1971": {
+      "id": 1971,
+      "name": "Liens de Lumière du Vide",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Complet : Vos sorts et techniques néfastes ont une chance de lancer un Barrage du Crépuscule sur votre cible."
+        }
+      ]
+    },
+    "1988": {
+      "id": 1988,
+      "name": "Mantelet du noyau primordial",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Complet : Le lancement de Gardien des tempêtes confère 15 % de Hâte pendant 10 s."
+        },
+        {
+          "requiredCount": 4,
+          "displayString": "Complet : Gardien des tempêtes confère 1 charge supplémentaire et augmente les dégâts d’Éclair et Chaîne d’éclairs de 25 %."
+        }
+      ]
+    }
+  },
+  "errors": {}
+};

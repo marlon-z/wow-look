@@ -1,17 +1,220 @@
 module.exports = {
   "locale": "en-US",
+  "apiLocale": "en_US",
   "source": "blizzard-game-data-api",
   "region": "us",
   "namespace": "static-us",
-  "generatedAt": "2026-05-06T08:57:35.482Z",
+  "generatedAt": "2026-05-07T06:25:02.752Z",
   "classKey": "warlock",
   "items": {
+    "49805": {
+      "id": 49805,
+      "name": "Ice-Steeped Sandals",
+      "sourceName": "踏冰软鞋",
+      "quality": "Epic",
+      "inventoryType": "Feet",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "49809": {
+      "id": 49809,
+      "name": "Wristguards of Subterranean Moss",
+      "sourceName": "墓苔护腕",
+      "quality": "Epic",
+      "inventoryType": "Wrist",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "49812": {
+      "id": 49812,
+      "name": "Purloined Wedding Ring",
+      "sourceName": "被盗的婚戒",
+      "quality": "Epic",
+      "inventoryType": "Finger",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "49823": {
+      "id": 49823,
+      "name": "Cloak of the Fallen Cardinal",
+      "sourceName": "阵亡主教斗篷",
+      "quality": "Epic",
+      "inventoryType": "Back",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "49825": {
+      "id": 49825,
+      "name": "Palebone Robes",
+      "sourceName": "灰骨法袍",
+      "quality": "Epic",
+      "inventoryType": "Chest",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "50227": {
+      "id": 50227,
+      "name": "Surgeon's Needle",
+      "sourceName": "医用长针",
+      "quality": "Epic",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Dagger",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "50228": {
+      "id": 50228,
+      "name": "Barbed Ymirheim Choker",
+      "sourceName": "尖刺伊米亚颈饰",
+      "quality": "Epic",
+      "inventoryType": "Neck",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "50259": {
+      "id": 50259,
+      "name": "Nevermelting Ice Crystal",
+      "sourceName": "永冻冰晶",
+      "quality": "Epic",
+      "inventoryType": "Trinket",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 71563,
+          "name": "Deadly Precision",
+          "description": "Use: Increases your Critical Strike by 52 for 20 sec. Every time one of your non-periodic spells deals a critical strike, the bonus is reduced by 10. (3 Min Cooldown)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "50263": {
+      "id": 50263,
+      "name": "Braid of Salt and Fire",
+      "sourceName": "降魔束带",
+      "quality": "Epic",
+      "inventoryType": "Waist",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "151299": {
+      "id": 151299,
+      "name": "Viceroy's Umbral Mantle",
+      "sourceName": "总督的幽影护肩",
+      "quality": "Rare",
+      "inventoryType": "Shoulder",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": 1332,
+      "setName": "Umbra-Weaver's Portent"
+    },
     "151300": {
       "id": 151300,
       "name": "Handwraps of the Ascended",
       "sourceName": "晋升者裹手",
       "quality": "Rare",
       "inventoryType": "Hands",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "151301": {
+      "id": 151301,
+      "name": "Slippers of Growing Despair",
+      "sourceName": "滋长绝望软鞋",
+      "quality": "Rare",
+      "inventoryType": "Feet",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "151302": {
+      "id": 151302,
+      "name": "Cord of Unraveling Reality",
+      "sourceName": "瓦解现实束带",
+      "quality": "Rare",
+      "inventoryType": "Waist",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": 1332,
+      "setName": "Umbra-Weaver's Portent"
+    },
+    "151303": {
+      "id": 151303,
+      "name": "Voidbender Robe",
+      "sourceName": "虚空扭曲者长袍",
+      "quality": "Rare",
+      "inventoryType": "Chest",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": 1332,
+      "setName": "Umbra-Weaver's Portent"
+    },
+    "151305": {
+      "id": 151305,
+      "name": "Entropic Wristwraps",
+      "sourceName": "熵能裹腕",
+      "quality": "Rare",
+      "inventoryType": "Wrist",
       "itemClass": "Armor",
       "itemSubclass": "Cloth",
       "binding": "Binds when picked up",
@@ -34,6 +237,20 @@ module.exports = {
       "setId": 1331,
       "setName": "Velen's Lament"
     },
+    "151309": {
+      "id": 151309,
+      "name": "Necklace of the Twisting Void",
+      "sourceName": "扭曲虚空项链",
+      "quality": "Rare",
+      "inventoryType": "Neck",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "151310": {
       "id": 151310,
       "name": "Reality Breacher",
@@ -54,12 +271,138 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "151311": {
+      "id": 151311,
+      "name": "Band of the Triumvirate",
+      "sourceName": "执政团指轮",
+      "quality": "Rare",
+      "inventoryType": "Finger",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": 1331,
+      "setName": "Velen's Lament"
+    },
     "151337": {
       "id": 151337,
       "name": "Shadow-Weaver's Crown",
       "sourceName": "织影者之冠",
       "quality": "Rare",
       "inventoryType": "Head",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193703": {
+      "id": 193703,
+      "name": "Organized Pontificator's Mask",
+      "sourceName": "陈词学究的面具",
+      "quality": "Rare",
+      "inventoryType": "Head",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193707": {
+      "id": 193707,
+      "name": "Final Grade",
+      "sourceName": "期末考分",
+      "quality": "Rare",
+      "inventoryType": "Two-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Staff",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193708": {
+      "id": 193708,
+      "name": "Platinum Star Band",
+      "sourceName": "白金星辰指环",
+      "quality": "Rare",
+      "inventoryType": "Finger",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "Tattukiaka in Iskaara would be interested in this sort of thing.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193709": {
+      "id": 193709,
+      "name": "Vexamus' Expulsion Rod",
+      "sourceName": "维克萨姆斯的开除杖",
+      "quality": "Rare",
+      "inventoryType": "Held In Off-hand",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193710": {
+      "id": 193710,
+      "name": "Spellboon Saber",
+      "sourceName": "惠魔佩剑",
+      "quality": "Rare",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Sword",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193712": {
+      "id": 193712,
+      "name": "Potion-Stained Cloak",
+      "sourceName": "药渍披风",
+      "quality": "Rare",
+      "inventoryType": "Back",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193713": {
+      "id": 193713,
+      "name": "Experimental Safety Gloves",
+      "sourceName": "实验性安全手套",
+      "quality": "Rare",
+      "inventoryType": "Hands",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193720": {
+      "id": 193720,
+      "name": "Bronze Challenger's Robe",
+      "sourceName": "青铜挑战者长袍",
+      "quality": "Rare",
+      "inventoryType": "Chest",
       "itemClass": "Armor",
       "itemSubclass": "Cloth",
       "binding": "Binds when picked up",
@@ -88,6 +431,714 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "249276": {
+      "id": 249276,
+      "name": "Grimoire of the Eternal Light",
+      "sourceName": "永恒之光魔典",
+      "quality": "Epic",
+      "inventoryType": "Held In Off-hand",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "Full of the Light's wisdom, but an inattentive adherent may wander into mouths better left unexplored.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249283": {
+      "id": 249283,
+      "name": "Belo'melorn, the Shattered Talon",
+      "sourceName": "贝罗梅洛恩，破碎之爪",
+      "quality": "Epic",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Dagger",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249286": {
+      "id": 249286,
+      "name": "Brazier of the Dissonant Dirge",
+      "sourceName": "不谐挽歌火杖",
+      "quality": "Epic",
+      "inventoryType": "Two-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Staff",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249294": {
+      "id": 249294,
+      "name": "Blade of the Blind Verdict",
+      "sourceName": "盲目裁决之刃",
+      "quality": "Epic",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Sword",
+      "binding": "Binds when picked up",
+      "description": "\"The Light's flame spares no one.\" - Venel Lightblood",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249305": {
+      "id": 249305,
+      "name": "Slippers of the Midnight Flame",
+      "sourceName": "午夜烈焰便鞋",
+      "quality": "Epic",
+      "inventoryType": "Feet",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249308": {
+      "id": 249308,
+      "name": "Despotic Raiment",
+      "sourceName": "豪横服饰",
+      "quality": "Epic",
+      "inventoryType": "Chest",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249315": {
+      "id": 249315,
+      "name": "Voracious Wristwraps",
+      "sourceName": "暴食护腕",
+      "quality": "Epic",
+      "inventoryType": "Wrist",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249319": {
+      "id": 249319,
+      "name": "Endless March Waistwrap",
+      "sourceName": "无尽进军裹腰",
+      "quality": "Epic",
+      "inventoryType": "Waist",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249323": {
+      "id": 249323,
+      "name": "Leggings of the Devouring Advance",
+      "sourceName": "吞噬大进护腿",
+      "quality": "Epic",
+      "inventoryType": "Legs",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249328": {
+      "id": 249328,
+      "name": "Echoing Void Mantle",
+      "sourceName": "虚空回响衬肩",
+      "quality": "Epic",
+      "inventoryType": "Shoulder",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249329": {
+      "id": 249329,
+      "name": "Gaze of the Unrestrained",
+      "sourceName": "放纵者的凝视",
+      "quality": "Epic",
+      "inventoryType": "Head",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249330": {
+      "id": 249330,
+      "name": "War Chaplain's Grips",
+      "sourceName": "战争牧师的护手",
+      "quality": "Epic",
+      "inventoryType": "Hands",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249335": {
+      "id": 249335,
+      "name": "Imperator's Banner",
+      "sourceName": "元首的战旗",
+      "quality": "Epic",
+      "inventoryType": "Back",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249336": {
+      "id": 249336,
+      "name": "Signet of the Starved Beast",
+      "sourceName": "饥饿野兽指环",
+      "quality": "Epic",
+      "inventoryType": "Finger",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249337": {
+      "id": 249337,
+      "name": "Ribbon of Coiled Malice",
+      "sourceName": "盘绕恶意丝带",
+      "quality": "Epic",
+      "inventoryType": "Neck",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249340": {
+      "id": 249340,
+      "name": "Wraps of Cosmic Madness",
+      "sourceName": "宇宙疯狂裹布",
+      "quality": "Epic",
+      "inventoryType": "Trinket",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "Is it mad to sacrifice your world for victory?",
+      "spells": [
+        {
+          "id": 1259153,
+          "name": "Wraps of Cosmic Madness",
+          "description": "Use: Desperately unravel yourself over 2 sec to unleash a barrage of 11 cosmic missiles at your target, increased by your haste. Each deals 225 Cosmic damage split between nearby enemies. Damage increased by 30% per additional enemy, up to 150%.\r\n\r\nAllied deaths induce further madness, reducing the cooldown by 60 sec. (2 Min Cooldown)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249343": {
+      "id": 249343,
+      "name": "Gaze of the Alnseer",
+      "sourceName": "艾林先知的凝视",
+      "quality": "Epic",
+      "inventoryType": "Trinket",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "There are some places the faithful dare not look.",
+      "spells": [
+        {
+          "id": 1256896,
+          "name": "Gaze of the Alnseer",
+          "description": "Equip: Your damage and healing has a chance to grant you Alnsight for 12 sec. While active, casting spells and abilities manifests unstable Alnscorned and consumes their essence to grant you 2 Intellect for 12 sec. Multiple applications may overlap."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249346": {
+      "id": 249346,
+      "name": "Vaelgor's Final Stare",
+      "sourceName": "威厄高尔的最终凝视",
+      "quality": "Epic",
+      "inventoryType": "Trinket",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1260459,
+          "name": "Nullsight",
+          "description": "Use: Seize the eye's draconic power, granting you 148 Mastery diminishing over 15 sec and allowing you to see hidden enemies. (1 Min 30 Sec Cooldown)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249347": {
+      "id": 249347,
+      "name": "Alnwoven Riftbloom",
+      "sourceName": "艾林编织的裂隙绽放",
+      "quality": "Epic",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Miscellaneous",
+      "itemSubclass": "Junk",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1261839,
+          "name": "Riftbloom",
+          "description": "Use: Synthesize a soulbound set chest item appropriate for your class."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249351": {
+      "id": 249351,
+      "name": "Voidwoven Hungering Nullcore",
+      "sourceName": "虚空编织的饥饿虚核",
+      "quality": "Epic",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Miscellaneous",
+      "itemSubclass": "Junk",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1261838,
+          "name": "Hungering Nullcore",
+          "description": "Use: Synthesize a soulbound set hand item appropriate for your class."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249355": {
+      "id": 249355,
+      "name": "Voidwoven Fanatical Nullcore",
+      "sourceName": "虚空编织的狂热虚核",
+      "quality": "Epic",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Miscellaneous",
+      "itemSubclass": "Junk",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1261837,
+          "name": "Fanatical Nullcore",
+          "description": "Use: Synthesize a soulbound set head item appropriate for your class."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249359": {
+      "id": 249359,
+      "name": "Voidwoven Corrupted Nullcore",
+      "sourceName": "虚空编织的腐化虚核",
+      "quality": "Epic",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Miscellaneous",
+      "itemSubclass": "Junk",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1261832,
+          "name": "Corrupted Nullcore",
+          "description": "Use: Synthesize a soulbound set leg item appropriate for your class."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249363": {
+      "id": 249363,
+      "name": "Voidwoven Unraveled Nullcore",
+      "sourceName": "虚空编织的解离虚核",
+      "quality": "Epic",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Miscellaneous",
+      "itemSubclass": "Junk",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1261831,
+          "name": "Unraveled Nullcore",
+          "description": "Use: Synthesize a soulbound set shoulder item appropriate for your class."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249367": {
+      "id": 249367,
+      "name": "Chiming Void Curio",
+      "sourceName": "鸣响虚空珍玩",
+      "quality": "Epic",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Reagent",
+      "itemSubclass": "Context Token",
+      "binding": "Binds when picked up",
+      "description": "Find Kirana near the entrance to the March on Quel'Danas to trade this for powerful class set armor.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249368": {
+      "id": 249368,
+      "name": "Eternal Voidsong Chain",
+      "sourceName": "永恒虚空之歌项链",
+      "quality": "Epic",
+      "inventoryType": "Neck",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1271211,
+          "name": "Eternal Voidsong Chain",
+          "description": "Equip: Dealing Shadow damage has a chance to unleash a Voidstalker Sting, dealing 103 Shadow damage to your target over 10 sec. If reapplied, any remaining damage is added to the next Sting."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249369": {
+      "id": 249369,
+      "name": "Bond of Light",
+      "sourceName": "圣光纽带",
+      "quality": "Epic",
+      "inventoryType": "Finger",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249370": {
+      "id": 249370,
+      "name": "Draconic Nullcape",
+      "sourceName": "龙族虚无披风",
+      "quality": "Epic",
+      "inventoryType": "Back",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249373": {
+      "id": 249373,
+      "name": "Dream-Scorched Striders",
+      "sourceName": "梦境灼烧长靴",
+      "quality": "Epic",
+      "inventoryType": "Feet",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249376": {
+      "id": 249376,
+      "name": "Whisper-Inscribed Sash",
+      "sourceName": "铭刻低语腰带",
+      "quality": "Epic",
+      "inventoryType": "Waist",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249809": {
+      "id": 249809,
+      "name": "Locus-Walker's Ribbon",
+      "sourceName": "双界行者的丝带",
+      "quality": "Epic",
+      "inventoryType": "Trinket",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "\"Do you wish to learn more of the Void? It has many lessons to teach us amongst its maddening whispers.\" - Locus-Walker",
+      "spells": [
+        {
+          "id": 1259314,
+          "name": "Locus-Walker's Ribbon",
+          "description": "Equip: Casting spells has a high chance to tempt you with the power of the Void, increasing your Intellect by 19 for 10 sec.\r\n\r\nEach temptation permanently increases this effect by 5%, up to 10 times, diminishing quickly upon leaving combat."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249810": {
+      "id": 249810,
+      "name": "Shadow of the Empyrean Requiem",
+      "sourceName": "苍穹慰魂曲之影",
+      "quality": "Epic",
+      "inventoryType": "Trinket",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1259518,
+          "name": "Shadow of the Empyrean Requiem",
+          "description": "Equip: Your harmful spells have a high chance to call cosmic shards from the heavens to slice your target and one nearby enemy for 385 Cosmic damage.\r\n\r\nIf either enemy is below 35% health, gain 14 Haste for 12 sec as you speed them to their fate."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249912": {
+      "id": 249912,
+      "name": "Robes of Endless Oblivion",
+      "sourceName": "无尽湮灭长袍",
+      "quality": "Epic",
+      "inventoryType": "Chest",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249919": {
+      "id": 249919,
+      "name": "Sin'dorei Band of Hope",
+      "sourceName": "辛多雷希望指环",
+      "quality": "Epic",
+      "inventoryType": "Finger",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249920": {
+      "id": 249920,
+      "name": "Eye of Midnight",
+      "sourceName": "至暗之夜的眼眸",
+      "quality": "Epic",
+      "inventoryType": "Finger",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1266505,
+          "name": "Eye of Midnight",
+          "description": "Equip: Taking Shadow damage greater than 15% of your maximum health grants you a barrier absorbing up to 240 damage and increasing your Avoidance by 10 while it holds. This effect may occur every 30 sec."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249922": {
+      "id": 249922,
+      "name": "Tome of Alnscorned Regret",
+      "sourceName": "艾蔑悔恨魔典",
+      "quality": "Epic",
+      "inventoryType": "Held In Off-hand",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "Are you certain you wish to understand the Alnscorned? To make their pain your own?",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "250037": {
+      "id": 250037,
+      "name": "Abyssal Immolator's Ritual Mantle",
+      "sourceName": "深渊焚化者的仪式披风",
+      "quality": "Epic",
+      "inventoryType": "Back",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "250038": {
+      "id": 250038,
+      "name": "Abyssal Immolator's Shackles",
+      "sourceName": "深渊焚化者的镣铐",
+      "quality": "Epic",
+      "inventoryType": "Wrist",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "250039": {
+      "id": 250039,
+      "name": "Abyssal Immolator's Blazing Core",
+      "sourceName": "深渊焚化者的炽燃核心",
+      "quality": "Epic",
+      "inventoryType": "Waist",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "250040": {
+      "id": 250040,
+      "name": "Abyssal Immolator's Fury",
+      "sourceName": "深渊焚化者的狂怒护肩",
+      "quality": "Epic",
+      "inventoryType": "Shoulder",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": 1989,
+      "setName": "Reign of the Abyssal Immolator"
+    },
+    "250041": {
+      "id": 250041,
+      "name": "Abyssal Immolator's Pillars",
+      "sourceName": "深渊焚化者的支柱",
+      "quality": "Epic",
+      "inventoryType": "Legs",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": 1989,
+      "setName": "Reign of the Abyssal Immolator"
+    },
+    "250042": {
+      "id": 250042,
+      "name": "Abyssal Immolator's Smoldering Flames",
+      "sourceName": "深渊焚化者的余烬之火",
+      "quality": "Epic",
+      "inventoryType": "Head",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": 1989,
+      "setName": "Reign of the Abyssal Immolator"
+    },
+    "250043": {
+      "id": 250043,
+      "name": "Abyssal Immolator's Grasps",
+      "sourceName": "深渊焚化者的裹手",
+      "quality": "Epic",
+      "inventoryType": "Hands",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": 1989,
+      "setName": "Reign of the Abyssal Immolator"
+    },
+    "250044": {
+      "id": 250044,
+      "name": "Abyssal Immolator's Ashwalkers",
+      "sourceName": "深渊焚化者的灰烬行者",
+      "quality": "Epic",
+      "inventoryType": "Feet",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "250045": {
+      "id": 250045,
+      "name": "Abyssal Immolator's Dreadrobe",
+      "sourceName": "深渊焚化者的恐慌长袍",
+      "quality": "Epic",
+      "inventoryType": "Chest",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": 1989,
+      "setName": "Reign of the Abyssal Immolator"
+    },
+    "250144": {
+      "id": 250144,
+      "name": "Emberwing Feather",
+      "sourceName": "烬翼羽毛",
+      "quality": "Rare",
+      "inventoryType": "Trinket",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250508,
+          "name": "Emberwing Heatwave",
+          "description": "Use: Unleash an Emberwing Heatwave, increasing your Haste by 68 for 15 sec.\r\n\r\nYou have a low chance to suffer an Emberwing Burn, reducing one of your other secondary stats by 21 for 10 sec. (2 Min Cooldown)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
     "250223": {
       "id": 250223,
       "name": "Soulcatcher's Charm",
@@ -105,6 +1156,608 @@ module.exports = {
           "description": "Equip: Your damaging spells have a chance to haunt the target, dealing 338 Shadow damage over 12 sec.\r\n\r\nIf the target dies while haunted, the effect transfers to a nearby enemy, inflicting 150% of the Shadow damage over the remaining duration."
         }
       ],
+      "setId": null,
+      "setName": ""
+    },
+    "250247": {
+      "id": 250247,
+      "name": "Amulet of the Abyssal Hymn",
+      "sourceName": "深渊赞歌护符",
+      "quality": "Epic",
+      "inventoryType": "Neck",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "250256": {
+      "id": 250256,
+      "name": "Heart of Wind",
+      "sourceName": "风之心",
+      "quality": "Rare",
+      "inventoryType": "Trinket",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250599,
+          "name": "Heart of Wind",
+          "description": "Equip: Your spells and abilities have a chance to awaken the Heart of Wind, surrounding you with strong gales that increase your Haste by 22 for 10 sec."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "250257": {
+      "id": 250257,
+      "name": "Eye of the Drowning Void",
+      "sourceName": "沉溺虚空之眼",
+      "quality": "Rare",
+      "inventoryType": "Trinket",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250601,
+          "name": "Eye of the Drowning Void",
+          "description": "Equip: Your damaging spells and abilities have a chance to tear open a rift of the Void within your target, erupting for 194 Shadow damage split among nearby enemies."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "250258": {
+      "id": 250258,
+      "name": "Vessel of Tortured Souls",
+      "sourceName": "折磨之魂容器",
+      "quality": "Rare",
+      "inventoryType": "Trinket",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "Don't tap the glass. They don't like that.",
+      "spells": [
+        {
+          "id": 1250602,
+          "name": "Vessel of Souls",
+          "description": "Equip: Your spells and abilities have a chance to awaken a soul within the vessel. Each soul you collect increases your Intellect by 3 for 1 min."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "251080": {
+      "id": 251080,
+      "name": "Brambledawn Halo",
+      "sourceName": "棘晨光晕",
+      "quality": "Rare",
+      "inventoryType": "Head",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251085": {
+      "id": 251085,
+      "name": "Mantle of Dark Devotion",
+      "sourceName": "黑暗奉献护肩",
+      "quality": "Rare",
+      "inventoryType": "Shoulder",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251090": {
+      "id": 251090,
+      "name": "Commander's Faded Breeches",
+      "sourceName": "指挥官的褪色长裤",
+      "quality": "Rare",
+      "inventoryType": "Legs",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251093": {
+      "id": 251093,
+      "name": "Omission of Light",
+      "sourceName": "圣光的遗落",
+      "quality": "Rare",
+      "inventoryType": "Finger",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": 1971,
+      "setName": "Voidlight Bindings"
+    },
+    "251094": {
+      "id": 251094,
+      "name": "Sigil of the Restless Heart",
+      "sourceName": "无眠之心印记",
+      "quality": "Rare",
+      "inventoryType": "Held In Off-hand",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251096": {
+      "id": 251096,
+      "name": "Pendant of Aching Grief",
+      "sourceName": "悲恸吊坠",
+      "quality": "Rare",
+      "inventoryType": "Neck",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251102": {
+      "id": 251102,
+      "name": "Clasp of Compliance",
+      "sourceName": "顺从束带",
+      "quality": "Rare",
+      "inventoryType": "Waist",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251108": {
+      "id": 251108,
+      "name": "Wraps of Watchful Wrath",
+      "sourceName": "警惕之怒裹布",
+      "quality": "Rare",
+      "inventoryType": "Wrist",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251111": {
+      "id": 251111,
+      "name": "Splitshroud Stinger",
+      "sourceName": "裂纱钉刺",
+      "quality": "Rare",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Dagger",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251115": {
+      "id": 251115,
+      "name": "Bifurcation Band",
+      "sourceName": "分叉指环",
+      "quality": "Rare",
+      "inventoryType": "Finger",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251120": {
+      "id": 251120,
+      "name": "Wraps of Umbral Descent",
+      "sourceName": "幽影沉降裹布",
+      "quality": "Rare",
+      "inventoryType": "Chest",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251161": {
+      "id": 251161,
+      "name": "Shroud of the Soulhunter",
+      "sourceName": "猎魂者的斗篷",
+      "quality": "Rare",
+      "inventoryType": "Back",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "A relic of the twisted rituals secret to the Vilebranch.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251167": {
+      "id": 251167,
+      "name": "Nightprey Stalkers",
+      "sourceName": "夜猎追踪靴",
+      "quality": "Rare",
+      "inventoryType": "Feet",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "These footwraps give Witherbark hunters sure, silent steps when stalking their prey",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251172": {
+      "id": 251172,
+      "name": "Vilehex Bonds",
+      "sourceName": "邪恶妖术束带",
+      "quality": "Rare",
+      "inventoryType": "Hands",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251178": {
+      "id": 251178,
+      "name": "Ceremonial Hexblade",
+      "sourceName": "仪式妖术之刃",
+      "quality": "Rare",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Dagger",
+      "binding": "Binds when picked up",
+      "description": "A blade used in the foul ceremony to raise and empower Rak'thul.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251201": {
+      "id": 251201,
+      "name": "Corespark Multitool",
+      "sourceName": "核闪多用仪",
+      "quality": "Rare",
+      "inventoryType": "Two-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Staff",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251205": {
+      "id": 251205,
+      "name": "Leyline Leggings",
+      "sourceName": "魔网护腿",
+      "quality": "Rare",
+      "inventoryType": "Legs",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251206": {
+      "id": 251206,
+      "name": "Fluxweave Cloak",
+      "sourceName": "流光织锦披风",
+      "quality": "Rare",
+      "inventoryType": "Back",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251211": {
+      "id": 251211,
+      "name": "Fractured Fingerguards",
+      "sourceName": "碎裂护指",
+      "quality": "Rare",
+      "inventoryType": "Hands",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251213": {
+      "id": 251213,
+      "name": "Nysarra's Mantle",
+      "sourceName": "奈萨拉披肩",
+      "quality": "Rare",
+      "inventoryType": "Shoulder",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251217": {
+      "id": 251217,
+      "name": "Occlusion of Void",
+      "sourceName": "虚空的遮蔽",
+      "quality": "Rare",
+      "inventoryType": "Finger",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": 1971,
+      "setName": "Voidlight Bindings"
+    },
+    "256625": {
+      "id": 256625,
+      "name": "Pattern: Hexwoven Strand",
+      "sourceName": "图样：妖纹束腰",
+      "quality": "Epic",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Recipe",
+      "itemSubclass": "Leatherworking",
+      "binding": "",
+      "description": "Teaches you how to craft Hexwoven Strand.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "256653": {
+      "id": 256653,
+      "name": "Pattern: Ranger-General's Grips",
+      "sourceName": "图样：游侠将军之握",
+      "quality": "Epic",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Recipe",
+      "itemSubclass": "Leatherworking",
+      "binding": "",
+      "description": "Teaches you how to craft Ranger-General's Grips.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "256656": {
+      "id": 256656,
+      "name": "Pattern: World Tender's Barkclasp",
+      "sourceName": "图样：世界照护者的树皮腰扣",
+      "quality": "Epic",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Recipe",
+      "itemSubclass": "Leatherworking",
+      "binding": "",
+      "description": "Teaches you how to craft World Tender's Barkclasp.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "256683": {
+      "id": 256683,
+      "name": "Silvermoon Training Dummy",
+      "sourceName": "银月城训练假人",
+      "quality": "Uncommon",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Housing",
+      "itemSubclass": "Decor",
+      "binding": "Binds to Warband",
+      "description": "",
+      "spells": [
+        {
+          "id": 1260663,
+          "name": "Collect Silvermoon Training Dummy",
+          "description": "Use: Add this Decor to your House Chest."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "256715": {
+      "id": 256715,
+      "name": "Design: Thalassian Phoenix Torque",
+      "sourceName": "图鉴：萨拉斯凤凰饰环",
+      "quality": "Rare",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Recipe",
+      "itemSubclass": "Jewelcrafting",
+      "binding": "",
+      "description": "Teaches you how to craft Thalassian Phoenix Torque.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "256716": {
+      "id": 256716,
+      "name": "Design: Prismatic Focusing Iris",
+      "sourceName": "图鉴：棱光聚焦之虹",
+      "quality": "Rare",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Recipe",
+      "itemSubclass": "Jewelcrafting",
+      "binding": "",
+      "description": "Teaches you how to craft Prismatic Focusing Iris.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "256750": {
+      "id": 256750,
+      "name": "Formula: Enchant Weapon - Worldsoul Cradle",
+      "sourceName": "公式：附魔武器 - 世界之魂的摇篮",
+      "quality": "Rare",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Recipe",
+      "itemSubclass": "Enchanting",
+      "binding": "",
+      "description": "Teaches you how to perform the Worldsoul Cradle enchantment.",
+      "spells": [
+        {
+          "id": 1236079,
+          "name": "Enchant Weapon - Worldsoul Cradle",
+          "description": "Use: Teaches you how to perform the Worldsoul Cradle enchantment."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "256755": {
+      "id": 256755,
+      "name": "Formula: Enchant Chest - Mark of the Magister",
+      "sourceName": "公式：附魔胸甲 - 魔导师印记",
+      "quality": "Rare",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Recipe",
+      "itemSubclass": "Enchanting",
+      "binding": "",
+      "description": "Teaches you how to perform the Mark of the Magister enchantment.",
+      "spells": [
+        {
+          "id": 1236082,
+          "name": "Enchant Chest - Mark of the Magister",
+          "description": "Use: Teaches you how to perform the Mark of the Magister enchantment."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "256759": {
+      "id": 256759,
+      "name": "Formula: Enchant Weapon - Flames of the Sin'dorei",
+      "sourceName": "公式：附魔武器 - 辛多雷之焰",
+      "quality": "Rare",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Recipe",
+      "itemSubclass": "Enchanting",
+      "binding": "",
+      "description": "Teaches you how to perform the Flames of the Sin'dorei enchantment.",
+      "spells": [
+        {
+          "id": 1236094,
+          "name": "Enchant Weapon - Flames of the Sin'dorei",
+          "description": "Use: Teaches you how to perform the Flames of the Sin'dorei enchantment."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "258033": {
+      "id": 258033,
+      "name": "Pattern: Arcanoweave Lining",
+      "sourceName": "图样：奥纹内衬",
+      "quality": "Rare",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Recipe",
+      "itemSubclass": "Tailoring",
+      "binding": "",
+      "description": "Teaches you how to craft Arcanoweave Lining.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258047": {
+      "id": 258047,
+      "name": "Spire of the Furious Construct",
+      "sourceName": "狂怒构装体之杖",
+      "quality": "Rare",
+      "inventoryType": "Two-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Staff",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258123": {
+      "id": 258123,
+      "name": "Pattern: Sunfire Silk Spellthread",
+      "sourceName": "图样：阳炎丝绸魔线",
+      "quality": "Rare",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Recipe",
+      "itemSubclass": "Tailoring",
+      "binding": "",
+      "description": "Teaches you how to craft Sunfire Silk Spellthread.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258125": {
+      "id": 258125,
+      "name": "Pattern: Sunfire Sash",
+      "sourceName": "图样：阳炎腰带",
+      "quality": "Epic",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Recipe",
+      "itemSubclass": "Tailoring",
+      "binding": "",
+      "description": "Teaches you how to craft Sunfire Sash.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258218": {
+      "id": 258218,
+      "name": "Skybreaker's Blade",
+      "sourceName": "碎天者之刃",
+      "quality": "Rare",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Sword",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258472": {
+      "id": 258472,
+      "name": "Rukhran's Solar Reliquary",
+      "sourceName": "鲁克兰的阳炎圣物",
+      "quality": "Rare",
+      "inventoryType": "Held In Off-hand",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
       "setId": null,
       "setName": ""
     },
@@ -135,6 +1788,640 @@ module.exports = {
       "spells": [],
       "setId": null,
       "setName": ""
+    },
+    "258517": {
+      "id": 258517,
+      "name": "Plans: Knight-Commander's Palisade",
+      "sourceName": "设计图：骑士指挥官的雄关",
+      "quality": "Rare",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Recipe",
+      "itemSubclass": "Blacksmithing",
+      "binding": "",
+      "description": "Teaches you how to craft Knight-Commander's Palisade.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258519": {
+      "id": 258519,
+      "name": "Plans: Magister's Valediction",
+      "sourceName": "设计图：魔导师的送别",
+      "quality": "Rare",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Recipe",
+      "itemSubclass": "Blacksmithing",
+      "binding": "",
+      "description": "Teaches you how to craft Magister's Valediction.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258521": {
+      "id": 258521,
+      "name": "Plans: Blood Knight's Impetus",
+      "sourceName": "设计图：血骑士的强击矛",
+      "quality": "Rare",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Recipe",
+      "itemSubclass": "Blacksmithing",
+      "binding": "",
+      "description": "Teaches you how to craft Blood Knight's Impetus.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258522": {
+      "id": 258522,
+      "name": "Plans: Bloomforged Greataxe",
+      "sourceName": "设计图：绽铸大斧",
+      "quality": "Rare",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Recipe",
+      "itemSubclass": "Blacksmithing",
+      "binding": "",
+      "description": "Teaches you how to craft Bloomforged Greataxe.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258523": {
+      "id": 258523,
+      "name": "Nezhar's Netherclaw",
+      "sourceName": "奈扎尔的虚空爪",
+      "quality": "Rare",
+      "inventoryType": "Held In Off-hand",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258574": {
+      "id": 258574,
+      "name": "Legwraps of Swirling Light",
+      "sourceName": "流光裹腿",
+      "quality": "Rare",
+      "inventoryType": "Legs",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258575": {
+      "id": 258575,
+      "name": "Rigid Scale Greatcloak",
+      "sourceName": "刚鳞大氅",
+      "quality": "Rare",
+      "inventoryType": "Back",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258578": {
+      "id": 258578,
+      "name": "Lightbinder Shoulderguards",
+      "sourceName": "缚光者护肩",
+      "quality": "Rare",
+      "inventoryType": "Shoulder",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258580": {
+      "id": 258580,
+      "name": "Bracers of Blazing Light",
+      "sourceName": "闪耀光芒护腕",
+      "quality": "Rare",
+      "inventoryType": "Wrist",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258584": {
+      "id": 258584,
+      "name": "Lightbinder Treads",
+      "sourceName": "缚光者便鞋",
+      "quality": "Rare",
+      "inventoryType": "Feet",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258744": {
+      "id": 258744,
+      "name": "Skyreach Circular Table",
+      "sourceName": "通天峰圆形桌子",
+      "quality": "Uncommon",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Housing",
+      "itemSubclass": "Decor",
+      "binding": "Binds to Warband",
+      "description": "",
+      "spells": [
+        {
+          "id": 1263929,
+          "name": "Collect Skyreach Circular Table",
+          "description": "Use: Add this Decor to your House Chest."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "260231": {
+      "id": 260231,
+      "name": "Lucent Hawkstrider",
+      "sourceName": "光亮陆行鸟",
+      "quality": "Epic",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Miscellaneous",
+      "itemSubclass": "Mount",
+      "binding": "Binds when picked up",
+      "description": "Teaches you how to summon this mount.",
+      "spells": [
+        {
+          "id": 1265784,
+          "name": "Lucent Hawkstrider",
+          "description": "Use: Teaches you how to summon this mount."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "260312": {
+      "id": 260312,
+      "name": "Defiant Defender's Drape",
+      "sourceName": "挑战防御者斗篷",
+      "quality": "Rare",
+      "inventoryType": "Back",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "260359": {
+      "id": 260359,
+      "name": "Valdrakken Bookcase",
+      "sourceName": "瓦德拉肯书柜",
+      "quality": "Uncommon",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Housing",
+      "itemSubclass": "Decor",
+      "binding": "Binds to Warband",
+      "description": "",
+      "spells": [
+        {
+          "id": 1266209,
+          "name": "Collect Valdrakken Bookcase",
+          "description": "Use: Add this Decor to your House Chest."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "262914": {
+      "id": 262914,
+      "name": "Spectral Hawkstrider",
+      "sourceName": "幽灵陆行鸟",
+      "quality": "Epic",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Miscellaneous",
+      "itemSubclass": "Mount",
+      "binding": "Binds when picked up",
+      "description": "Teaches you how to summon this mount.",
+      "spells": [
+        {
+          "id": 1263635,
+          "name": "Spectral Hawkstrider",
+          "description": "Use: Teaches you how to summon this mount."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "262957": {
+      "id": 262957,
+      "name": "Tattered Vanguard Banner",
+      "sourceName": "破损的先锋战旗",
+      "quality": "Rare",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Housing",
+      "itemSubclass": "Decor",
+      "binding": "Binds to Warband",
+      "description": "",
+      "spells": [
+        {
+          "id": 1269607,
+          "name": "Collect Tattered Vanguard Banner",
+          "description": "Use: Add this Decor to your House Chest."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "263230": {
+      "id": 263230,
+      "name": "Magister's Bookshelf",
+      "sourceName": "魔导师的书架",
+      "quality": "Uncommon",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Housing",
+      "itemSubclass": "Decor",
+      "binding": "Binds to Warband",
+      "description": "",
+      "spells": [
+        {
+          "id": 1270131,
+          "name": "Collect Magister's Bookshelf",
+          "description": "Use: Add this Decor to your House Chest."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264187": {
+      "id": 264187,
+      "name": "Blessed Phoenix Egg",
+      "sourceName": "受祝福的凤凰蛋",
+      "quality": "Rare",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Housing",
+      "itemSubclass": "Decor",
+      "binding": "Binds to Warband",
+      "description": "",
+      "spells": [
+        {
+          "id": 1271354,
+          "name": "Collect Blessed Phoenix Egg",
+          "description": "Use: Add this Decor to your House Chest."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264246": {
+      "id": 264246,
+      "name": "Eerie Iridescent Riftshroom",
+      "sourceName": "诡异的虹彩裂隙菇",
+      "quality": "Rare",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Housing",
+      "itemSubclass": "Decor",
+      "binding": "Binds to Warband",
+      "description": "",
+      "spells": [
+        {
+          "id": 1271491,
+          "name": "Collect Eerie Iridescent Riftshroom",
+          "description": "Use: Add this Decor to your House Chest."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264338": {
+      "id": 264338,
+      "name": "Domanaar Control Console",
+      "sourceName": "多曼纳尔控制台",
+      "quality": "Uncommon",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Housing",
+      "itemSubclass": "Decor",
+      "binding": "Binds to Warband",
+      "description": "",
+      "spells": [
+        {
+          "id": 1271726,
+          "name": "Collect Domanaar Control Console",
+          "description": "Use: Add this Decor to your House Chest."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264491": {
+      "id": 264491,
+      "name": "Voidbound Holding Cell",
+      "sourceName": "虚缚牢笼",
+      "quality": "Rare",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Housing",
+      "itemSubclass": "Decor",
+      "binding": "Binds to Warband",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272054,
+          "name": "Collect Voidbound Holding Cell",
+          "description": "Use: Add this Decor to your House Chest."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264492": {
+      "id": 264492,
+      "name": "Chaotic Void Maw",
+      "sourceName": "混沌虚空渊门",
+      "quality": "Rare",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Housing",
+      "itemSubclass": "Decor",
+      "binding": "Binds to Warband",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272055,
+          "name": "Collect Chaotic Void Maw",
+          "description": "Use: Add this Decor to your House Chest."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264494": {
+      "id": 264494,
+      "name": "Banded Domanaar Storage Crate",
+      "sourceName": "镶边多曼纳尔储物箱",
+      "quality": "Rare",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Housing",
+      "itemSubclass": "Decor",
+      "binding": "Binds to Warband",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272057,
+          "name": "Collect Banded Domanaar Storage Crate",
+          "description": "Use: Add this Decor to your House Chest."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264497": {
+      "id": 264497,
+      "name": "Imperator's Torment Crystal",
+      "sourceName": "元首的折磨水晶",
+      "quality": "Rare",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Housing",
+      "itemSubclass": "Decor",
+      "binding": "Binds to Warband",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272060,
+          "name": "Collect Imperator's Torment Crystal",
+          "description": "Use: Add this Decor to your House Chest."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264498": {
+      "id": 264498,
+      "name": "Voltaic Trigore Egg",
+      "sourceName": "流电三喉龙蛋",
+      "quality": "Rare",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Housing",
+      "itemSubclass": "Decor",
+      "binding": "Binds to Warband",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272061,
+          "name": "Collect Voltaic Trigore Egg",
+          "description": "Use: Add this Decor to your House Chest."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264672": {
+      "id": 264672,
+      "name": "Cosmic Ritual Stone",
+      "sourceName": "宇宙仪式之石",
+      "quality": "Rare",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Miscellaneous",
+      "itemSubclass": "Other",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272307,
+          "name": "Cosmic Ritual",
+          "description": "Use: Adds this toy to your Toy Box.\n\nPerform a ritual dedicating a player's corpse to the Void. (10 Min Cooldown)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264717": {
+      "id": 264717,
+      "name": "Amani Warding Hex",
+      "sourceName": "阿曼尼防护妖术",
+      "quality": "Uncommon",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Housing",
+      "itemSubclass": "Decor",
+      "binding": "Binds to Warband",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272513,
+          "name": "Collect Amani Warding Hex",
+          "description": "Use: Add this Decor to your House Chest."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "265949": {
+      "id": 265949,
+      "name": "March on Quel'Danas Vanquisher's Aureate Trophy",
+      "sourceName": "进军奎尔丹纳斯征服者的耀金战利品",
+      "quality": "Epic",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Housing",
+      "itemSubclass": "Decor",
+      "binding": "Binds to Warband",
+      "description": "",
+      "spells": [
+        {
+          "id": 1277440,
+          "name": "Collect March on Quel'Danas Vanquisher's Aureate Trophy",
+          "description": "Use: Add this decor to your House Chest."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "265950": {
+      "id": 265950,
+      "name": "Dreamrift Vanquisher's Aureate Trophy",
+      "sourceName": "梦境裂隙征服者的耀金战利品",
+      "quality": "Epic",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Housing",
+      "itemSubclass": "Decor",
+      "binding": "Binds to Warband",
+      "description": "",
+      "spells": [
+        {
+          "id": 1277441,
+          "name": "Collect Dreamrift Vanquisher's Aureate Trophy",
+          "description": "Use: Add this decor to your House Chest."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "265951": {
+      "id": 265951,
+      "name": "Voidspire Vanquisher's Aureate Trophy",
+      "sourceName": "虚影尖塔征服者的耀金战利品",
+      "quality": "Epic",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Housing",
+      "itemSubclass": "Decor",
+      "binding": "Binds to Warband",
+      "description": "",
+      "spells": [
+        {
+          "id": 1277442,
+          "name": "Collect Voidspire Vanquisher's Aureate Trophy",
+          "description": "Use: Add this decor to your House Chest."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "267007": {
+      "id": 267007,
+      "name": "Eye of Acherus",
+      "sourceName": "阿彻鲁斯之眼",
+      "quality": "Uncommon",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Housing",
+      "itemSubclass": "Decor",
+      "binding": "Binds to Warband",
+      "description": "",
+      "spells": [
+        {
+          "id": 1278997,
+          "name": "Collect Eye of Acherus",
+          "description": "Use: Add this decor to your House Chest."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "267645": {
+      "id": 267645,
+      "name": "Dreamrift Vanquisher's Argent Trophy",
+      "sourceName": "梦境裂隙征服者的闪银战利品",
+      "quality": "Epic",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Housing",
+      "itemSubclass": "Decor",
+      "binding": "Binds to Warband",
+      "description": "",
+      "spells": [
+        {
+          "id": 1280916,
+          "name": "Collect Dreamrift Vanquisher's Argent Trophy",
+          "description": "Use: Add this Decor to your House Chest."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "267646": {
+      "id": 267646,
+      "name": "March on Quel'Danas Vanquisher's Argent Trophy",
+      "sourceName": "进军奎尔丹纳斯征服者的闪银战利品",
+      "quality": "Epic",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Housing",
+      "itemSubclass": "Decor",
+      "binding": "Binds to Warband",
+      "description": "",
+      "spells": [
+        {
+          "id": 1280917,
+          "name": "Collect March on Quel'Danas Vanquisher's Argent Trophy",
+          "description": "Use: Add this Decor to your House Chest."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268049": {
+      "id": 268049,
+      "name": "Voidspire Vanquisher's Argent Trophy",
+      "sourceName": "虚影尖塔征服者的闪银战利品",
+      "quality": "Epic",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Housing",
+      "itemSubclass": "Decor",
+      "binding": "Binds to Warband",
+      "description": "",
+      "spells": [
+        {
+          "id": 1281392,
+          "name": "Collect Voidspire Vanquisher's Argent Trophy",
+          "description": "Use: Add this Decor to your House Chest."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "269269": {
+      "id": 269269,
+      "name": "Devouring Ritual Spire",
+      "sourceName": "吞噬军团仪式高塔",
+      "quality": "Rare",
+      "inventoryType": "Non-equippable",
+      "itemClass": "Housing",
+      "itemSubclass": "Decor",
+      "binding": "Binds to Warband",
+      "description": "",
+      "spells": [
+        {
+          "id": 1285071,
+          "name": "Collect Devouring Ritual Spire",
+          "description": "Use: Add this Decor to your House Chest."
+        }
+      ],
+      "setId": null,
+      "setName": ""
     }
   },
   "itemSets": {
@@ -145,6 +2432,44 @@ module.exports = {
         {
           "requiredCount": 2,
           "displayString": "Set: Increases Avoidance."
+        }
+      ]
+    },
+    "1332": {
+      "id": 1332,
+      "name": "Umbra-Weaver's Portent",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Set: Your spells have a chance to grant you Umbral Shift, reducing all Shadow damage taken for 18 sec."
+        },
+        {
+          "requiredCount": 3,
+          "displayString": "Set: Umbral Shift also increases your Mastery."
+        }
+      ]
+    },
+    "1971": {
+      "id": 1971,
+      "name": "Voidlight Bindings",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Set: Your harmful spells and abilities have a chance to unleash a Twilight Barrage at your target."
+        }
+      ]
+    },
+    "1989": {
+      "id": 1989,
+      "name": "Reign of the Abyssal Immolator",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Set: Unstable Affliction and Seed of Corruption damage increased by 10%."
+        },
+        {
+          "requiredCount": 4,
+          "displayString": "Set: Agony starts at 2 additional stacks, and its damage is increased by 20%."
         }
       ]
     }

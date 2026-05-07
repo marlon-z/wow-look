@@ -1,0 +1,1619 @@
+- main [ref=e3]:
+  - generic [ref=e4]:
+    - button "‹" [ref=e5] [cursor=pointer]
+    - strong [ref=e7]: 圣骑士
+    - generic [ref=e8]:
+      - generic [ref=e9]:
+        - generic [ref=e10]: 语言
+        - combobox "语言" [ref=e11]:
+          - option "简体中文" [selected]
+          - option "繁體中文"
+          - option "English US"
+          - option "English UK"
+          - option "Deutsch"
+          - option "Français"
+          - option "Español EU"
+          - option "Español LATAM"
+          - option "Português BR"
+          - option "한국어"
+          - option "Italiano"
+          - option "Русский"
+      - button "收藏夹" [ref=e12] [cursor=pointer]: 收藏夹
+  - generic [ref=e16]:
+    - generic [ref=e17]:
+      - generic [ref=e18]: "180"
+      - generic [ref=e19]: 件装备
+      - button "请好友配装" [ref=e20] [cursor=pointer]
+    - paragraph [ref=e21]: 当前显示该职业全部可用装备
+  - generic [ref=e22]:
+    - textbox [ref=e25]:
+      - /placeholder: 搜索装备、副本或首领
+    - generic [ref=e26]:
+      - strong [ref=e29]: 专精
+      - generic [ref=e30]:
+        - button "神圣" [ref=e31] [cursor=pointer]
+        - button "防护" [ref=e32] [cursor=pointer]
+        - button "惩戒" [ref=e33] [cursor=pointer]
+    - generic [ref=e34]:
+      - strong [ref=e37]: 副属性
+      - generic [ref=e38]:
+        - button "暴击" [ref=e39] [cursor=pointer]
+        - button "急速" [ref=e40] [cursor=pointer]
+        - button "精通" [ref=e41] [cursor=pointer]
+        - button "全能" [ref=e42] [cursor=pointer]
+    - generic [ref=e43]:
+      - strong [ref=e46]: 视图
+      - generic [ref=e47]:
+        - button "按部位" [ref=e48] [cursor=pointer]
+        - button "按来源" [ref=e49] [cursor=pointer]
+    - generic [ref=e50]:
+      - strong [ref=e53]: 来源
+      - generic [ref=e54]:
+        - button "全部" [ref=e55] [cursor=pointer]
+        - button "地下城" [ref=e56] [cursor=pointer]
+        - button "团本" [ref=e57] [cursor=pointer]
+        - button "套装" [ref=e58] [cursor=pointer]
+    - generic [ref=e59]:
+      - strong [ref=e62]: 部位
+      - generic [ref=e63]:
+        - button "头" [ref=e64] [cursor=pointer]
+        - button "项链" [ref=e65] [cursor=pointer]
+        - button "肩" [ref=e66] [cursor=pointer]
+        - button "披" [ref=e67] [cursor=pointer]
+        - button "胸" [ref=e68] [cursor=pointer]
+        - button "腕" [ref=e69] [cursor=pointer]
+        - button "手" [ref=e70] [cursor=pointer]
+        - button "腰" [ref=e71] [cursor=pointer]
+        - button "腿" [ref=e72] [cursor=pointer]
+        - button "脚" [ref=e73] [cursor=pointer]
+        - button "戒" [ref=e74] [cursor=pointer]
+        - button "饰" [ref=e75] [cursor=pointer]
+        - button "武" [ref=e76] [cursor=pointer]
+    - generic [ref=e77]:
+      - strong [ref=e80]: 副本
+      - generic [ref=e81]:
+        - button "执政团之座" [ref=e82] [cursor=pointer]
+        - button "通天峰" [ref=e83] [cursor=pointer]
+        - button "秘萨拉洞窟" [ref=e84] [cursor=pointer]
+        - button "风行者之塔" [ref=e85] [cursor=pointer]
+        - button "萨隆矿坑" [ref=e86] [cursor=pointer]
+        - button "魔导师平台" [ref=e87] [cursor=pointer]
+        - button "希纳斯节点" [ref=e88] [cursor=pointer]
+        - button "艾杰斯亚学院" [ref=e89] [cursor=pointer]
+        - button "梦境裂隙" [ref=e90] [cursor=pointer]
+        - button "虚空尖塔" [ref=e91] [cursor=pointer]
+        - button "奎尔丹纳斯进军" [ref=e92] [cursor=pointer]
+        - button "套装" [ref=e93] [cursor=pointer]
+    - generic [ref=e94]:
+      - generic [ref=e95]: 当前显示该职业全部可用装备
+      - button "重置" [ref=e96] [cursor=pointer]
+  - generic [ref=e97]:
+    - generic [ref=e98]:
+      - generic [ref=e99]:
+        - heading "头" [level=2] [ref=e101]
+        - generic [ref=e102]: 6 件装备
+      - generic [ref=e103]:
+        - article [ref=e104]:
+          - generic [ref=e106]:
+            - generic [ref=e107]:
+              - heading "黑暗使徒之冠" [level=3] [ref=e108]
+              - generic [ref=e109]:
+                - button "收藏" [ref=e110] [cursor=pointer]: 收藏
+                - generic [ref=e112]: 头
+            - paragraph [ref=e113]: 暴击76 / 精通54
+            - generic [ref=e114]:
+              - generic [ref=e115]: 板甲 · ilvl246
+              - generic [ref=e116]: 执政团之座 ›
+        - article [ref=e117]:
+          - generic [ref=e119]:
+            - generic [ref=e120]:
+              - heading "裂胆巨盔" [level=3] [ref=e121]
+              - generic [ref=e122]:
+                - button "收藏" [ref=e123] [cursor=pointer]: 收藏
+                - generic [ref=e125]: 头
+            - paragraph [ref=e126]: 精通76 / 全能54
+            - generic [ref=e127]:
+              - generic [ref=e128]: 板甲 · ilvl246
+              - generic [ref=e129]: 通天峰 ›
+        - article [ref=e130]:
+          - generic [ref=e132]:
+            - generic [ref=e133]:
+              - heading "造箭师的褪色面铠" [level=3] [ref=e134]
+              - generic [ref=e135]:
+                - button "收藏" [ref=e136] [cursor=pointer]: 收藏
+                - generic [ref=e138]: 头
+            - paragraph [ref=e139]: 急速76 / 全能54
+            - generic [ref=e140]:
+              - generic [ref=e141]: 板甲 · ilvl246
+              - generic [ref=e142]: 风行者之塔 ›
+        - article [ref=e143]:
+          - generic [ref=e145]:
+            - generic [ref=e146]:
+              - heading "骷髅领主的狼牙头盔" [level=3] [ref=e147]
+              - generic [ref=e148]:
+                - button "收藏" [ref=e149] [cursor=pointer]: 收藏
+                - generic [ref=e151]: 头
+            - paragraph [ref=e152]: 暴击59 / 急速70
+            - generic [ref=e153]:
+              - generic [ref=e154]: 板甲 · ilvl246
+              - generic [ref=e155]: 萨隆矿坑 ›
+        - article [ref=e156]:
+          - generic [ref=e158]:
+            - generic [ref=e159]:
+              - heading "破碎暴君之冠" [level=3] [ref=e160]
+              - generic [ref=e161]:
+                - button "收藏" [ref=e162] [cursor=pointer]: 收藏
+                - generic [ref=e164]: 头
+            - paragraph [ref=e165]: 急速44 / 全能105
+            - generic [ref=e166]:
+              - generic [ref=e167]: 板甲 · ilvl269
+              - generic [ref=e168]: 虚空尖塔 ›
+        - article [ref=e169]:
+          - generic [ref=e171]:
+            - generic [ref=e172]:
+              - heading "光耀裁决的坚定凝视" [level=3] [ref=e173]
+              - generic [ref=e174]:
+                - button "收藏" [ref=e175] [cursor=pointer]: 收藏
+                - generic [ref=e177]: 头
+            - paragraph [ref=e178]: 急速98 / 精通46
+            - generic [ref=e179]:
+              - generic [ref=e180]: 板甲 · ilvl263
+              - generic [ref=e181]: 套装 ›
+    - generic [ref=e182]:
+      - generic [ref=e183]:
+        - heading "项链" [level=2] [ref=e185]
+        - generic [ref=e186]: 6 件装备
+      - generic [ref=e187]:
+        - article [ref=e188]:
+          - generic [ref=e190]:
+            - generic [ref=e191]:
+              - heading "扭曲虚空项链" [level=3] [ref=e192]
+              - generic [ref=e193]:
+                - button "收藏" [ref=e194] [cursor=pointer]: 收藏
+                - generic [ref=e196]: 项链
+            - paragraph [ref=e197]: 急速115 / 全能90
+            - generic [ref=e198]:
+              - generic [ref=e199]: 项链 · ilvl246
+              - generic [ref=e200]: 执政团之座 ›
+        - article [ref=e201]:
+          - generic [ref=e203]:
+            - generic [ref=e204]:
+              - heading "悲恸吊坠" [level=3] [ref=e205]
+              - generic [ref=e206]:
+                - button "收藏" [ref=e207] [cursor=pointer]: 收藏
+                - generic [ref=e209]: 项链
+            - paragraph [ref=e210]: 急速82 / 全能123
+            - generic [ref=e211]:
+              - generic [ref=e212]: 项链 · ilvl246
+              - generic [ref=e213]: 风行者之塔 ›
+        - article [ref=e214]:
+          - generic [ref=e216]:
+            - generic [ref=e217]:
+              - heading "尖刺伊米亚颈饰" [level=3] [ref=e218]
+              - generic [ref=e219]:
+                - button "收藏" [ref=e220] [cursor=pointer]: 收藏
+                - generic [ref=e222]: 项链
+            - paragraph [ref=e223]: 暴击132 / 急速73
+            - generic [ref=e224]:
+              - generic [ref=e225]: 项链 · ilvl246
+              - generic [ref=e226]: 萨隆矿坑 ›
+        - article [ref=e227]:
+          - generic [ref=e229]:
+            - generic [ref=e230]:
+              - heading "盘绕恶意丝带" [level=3] [ref=e231]
+              - generic [ref=e232]:
+                - button "收藏" [ref=e233] [cursor=pointer]: 收藏
+                - generic [ref=e235]: 项链
+            - paragraph [ref=e236]: 暴击191 / 急速66
+            - generic [ref=e237]:
+              - generic [ref=e238]: 项链 · ilvl269
+              - generic [ref=e239]: 虚空尖塔 ›
+        - article [ref=e240]:
+          - generic [ref=e242]:
+            - generic [ref=e243]:
+              - heading "永恒虚空之歌项链" [level=3] [ref=e244]
+              - generic [ref=e245]:
+                - button "收藏" [ref=e246] [cursor=pointer]: 收藏
+                - generic [ref=e248]: 项链
+            - paragraph [ref=e249]: 急速230 / 精通44
+            - generic [ref=e250]:
+              - generic [ref=e251]: 项链 · ilvl276
+              - generic [ref=e252]: 虚空尖塔 ›
+        - article [ref=e253]:
+          - generic [ref=e255]:
+            - generic [ref=e256]:
+              - heading "深渊赞歌护符" [level=3] [ref=e257]
+              - generic [ref=e258]:
+                - button "收藏" [ref=e259] [cursor=pointer]: 收藏
+                - generic [ref=e261]: 项链
+            - paragraph [ref=e262]: 急速37 / 精通221
+            - generic [ref=e263]:
+              - generic [ref=e264]: 项链 · ilvl269
+              - generic [ref=e265]: 奎尔丹纳斯进军 ›
+    - generic [ref=e266]:
+      - generic [ref=e267]:
+        - heading "肩" [level=2] [ref=e269]
+        - generic [ref=e270]: 6 件装备
+      - generic [ref=e271]:
+        - article [ref=e272]:
+          - generic [ref=e274]:
+            - generic [ref=e275]:
+              - heading "灼烧射线肩甲" [level=3] [ref=e276]
+              - generic [ref=e277]:
+                - button "收藏" [ref=e278] [cursor=pointer]: 收藏
+                - generic [ref=e280]: 肩
+            - paragraph [ref=e281]: 急速44 / 精通53
+            - generic [ref=e282]:
+              - generic [ref=e283]: 板甲 · ilvl246
+              - generic [ref=e284]: 通天峰 ›
+        - article [ref=e285]:
+          - generic [ref=e287]:
+            - generic [ref=e288]:
+              - heading "融合怪的挽具" [level=3] [ref=e289]
+              - generic [ref=e290]:
+                - button "收藏" [ref=e291] [cursor=pointer]: 收藏
+                - generic [ref=e293]: 肩
+            - paragraph [ref=e294]: 急速36 / 精通61
+            - generic [ref=e295]:
+              - generic [ref=e296]: 板甲 · ilvl246
+              - generic [ref=e297]: 秘萨拉洞窟 ›
+        - article [ref=e298]:
+          - generic [ref=e300]:
+            - generic [ref=e301]:
+              - heading "霜血肩甲" [level=3] [ref=e302]
+              - generic [ref=e303]:
+                - button "收藏" [ref=e304] [cursor=pointer]: 收藏
+                - generic [ref=e306]: 肩
+            - paragraph [ref=e307]: 暴击34 / 精通63
+            - generic [ref=e308]:
+              - generic [ref=e309]: 板甲 · ilvl246
+              - generic [ref=e310]: 萨隆矿坑 ›
+        - article [ref=e311]:
+          - generic [ref=e313]:
+            - generic [ref=e314]:
+              - heading "烈焰肩章" [level=3] [ref=e315]
+              - generic [ref=e316]:
+                - button "收藏" [ref=e317] [cursor=pointer]: 收藏
+                - generic [ref=e319]: 肩
+            - paragraph [ref=e320]: 暴击59 / 急速38
+            - generic [ref=e321]:
+              - generic [ref=e322]: 板甲 · ilvl246
+              - generic [ref=e323]: 希纳斯节点 ›
+        - article [ref=e324]:
+          - generic [ref=e326]:
+            - generic [ref=e327]:
+              - heading "光之审判肩甲" [level=3] [ref=e328]
+              - generic [ref=e329]:
+                - button "收藏" [ref=e330] [cursor=pointer]: 收藏
+                - generic [ref=e332]: 肩
+            - paragraph [ref=e333]: 暴击75 / 急速36
+            - generic [ref=e334]:
+              - generic [ref=e335]: 板甲 · ilvl269
+              - generic [ref=e336]: 虚空尖塔 ›
+        - article [ref=e337]:
+          - generic [ref=e339]:
+            - generic [ref=e340]:
+              - heading "光耀裁决的天命护肩" [level=3] [ref=e341]
+              - generic [ref=e342]:
+                - button "收藏" [ref=e343] [cursor=pointer]: 收藏
+                - generic [ref=e345]: 肩
+            - paragraph [ref=e346]: 暴击76 / 精通31
+            - generic [ref=e347]:
+              - generic [ref=e348]: 板甲 · ilvl263
+              - generic [ref=e349]: 套装 ›
+    - generic [ref=e350]:
+      - generic [ref=e351]:
+        - heading "披" [level=2] [ref=e353]
+        - generic [ref=e354]: 9 件装备
+      - generic [ref=e355]:
+        - article [ref=e356]:
+          - generic [ref=e358]:
+            - generic [ref=e359]:
+              - heading "刚鳞大氅" [level=3] [ref=e360]
+              - generic [ref=e361]:
+                - button "收藏" [ref=e362] [cursor=pointer]: 收藏
+                - generic [ref=e364]: 披
+            - paragraph [ref=e365]: 暴击40 / 精通33
+            - generic [ref=e366]:
+              - generic [ref=e367]: 披 · ilvl246
+              - generic [ref=e368]: 通天峰 ›
+        - article [ref=e369]:
+          - generic [ref=e371]:
+            - generic [ref=e372]:
+              - heading "猎魂者的斗篷" [level=3] [ref=e373]
+              - generic [ref=e374]:
+                - button "收藏" [ref=e375] [cursor=pointer]: 收藏
+                - generic [ref=e377]: 披
+            - paragraph [ref=e378]: 暴击27 / 全能46
+            - generic [ref=e379]:
+              - generic [ref=e380]: 披 · ilvl246
+              - generic [ref=e381]: 秘萨拉洞窟 ›
+        - article [ref=e382]:
+          - generic [ref=e384]:
+            - generic [ref=e385]:
+              - heading "阵亡主教斗篷" [level=3] [ref=e386]
+              - generic [ref=e387]:
+                - button "收藏" [ref=e388] [cursor=pointer]: 收藏
+                - generic [ref=e390]: 披
+            - paragraph [ref=e391]: 暴击33 / 全能40
+            - generic [ref=e392]:
+              - generic [ref=e393]: 披 · ilvl246
+              - generic [ref=e394]: 萨隆矿坑 ›
+        - article [ref=e395]:
+          - generic [ref=e397]:
+            - generic [ref=e398]:
+              - heading "挑战防御者斗篷" [level=3] [ref=e399]
+              - generic [ref=e400]:
+                - button "收藏" [ref=e401] [cursor=pointer]: 收藏
+                - generic [ref=e403]: 披
+            - paragraph [ref=e404]: 暴击33 / 急速40
+            - generic [ref=e405]:
+              - generic [ref=e406]: 披 · ilvl246
+              - generic [ref=e407]: 魔导师平台 ›
+        - article [ref=e408]:
+          - generic [ref=e410]:
+            - generic [ref=e411]:
+              - heading "流光织锦披风" [level=3] [ref=e412]
+              - generic [ref=e413]:
+                - button "收藏" [ref=e414] [cursor=pointer]: 收藏
+                - generic [ref=e416]: 披
+            - paragraph [ref=e417]: 精通44 / 全能29
+            - generic [ref=e418]:
+              - generic [ref=e419]: 披 · ilvl246
+              - generic [ref=e420]: 希纳斯节点 ›
+        - article [ref=e421]:
+          - generic [ref=e423]:
+            - generic [ref=e424]:
+              - heading "药渍披风" [level=3] [ref=e425]
+              - generic [ref=e426]:
+                - button "收藏" [ref=e427] [cursor=pointer]: 收藏
+                - generic [ref=e429]: 披
+            - paragraph [ref=e430]: 急速29 / 全能44
+            - generic [ref=e431]:
+              - generic [ref=e432]: 披 · ilvl246
+              - generic [ref=e433]: 艾杰斯亚学院 ›
+        - article [ref=e434]:
+          - generic [ref=e436]:
+            - generic [ref=e437]:
+              - heading "元首的战旗" [level=3] [ref=e438]
+              - generic [ref=e439]:
+                - button "收藏" [ref=e440] [cursor=pointer]: 收藏
+                - generic [ref=e442]: 披
+            - paragraph [ref=e443]: 暴击54 / 全能29
+            - generic [ref=e444]:
+              - generic [ref=e445]: 披 · ilvl269
+              - generic [ref=e446]: 虚空尖塔 ›
+        - article [ref=e447]:
+          - generic [ref=e449]:
+            - generic [ref=e450]:
+              - heading "龙族虚无披风" [level=3] [ref=e451]
+              - generic [ref=e452]:
+                - button "收藏" [ref=e453] [cursor=pointer]: 收藏
+                - generic [ref=e455]: 披
+            - paragraph [ref=e456]: 急速56 / 精通27
+            - generic [ref=e457]:
+              - generic [ref=e458]: 披 · ilvl269
+              - generic [ref=e459]: 虚空尖塔 ›
+        - article [ref=e460]:
+          - generic [ref=e462]:
+            - generic [ref=e463]:
+              - heading "光耀裁决的重型披风" [level=3] [ref=e464]
+              - generic [ref=e465]:
+                - button "收藏" [ref=e466] [cursor=pointer]: 收藏
+                - generic [ref=e468]: 披
+            - paragraph [ref=e469]: 全能54 / 急速27
+            - generic [ref=e470]:
+              - generic [ref=e471]: 板甲 · ilvl263
+              - generic [ref=e472]: 套装 ›
+    - generic [ref=e473]:
+      - generic [ref=e474]:
+        - heading "胸" [level=2] [ref=e476]
+        - generic [ref=e477]: 6 件装备
+      - generic [ref=e478]:
+        - article [ref=e479]:
+          - generic [ref=e481]:
+            - generic [ref=e482]:
+              - heading "黑暗之触胸甲" [level=3] [ref=e483]
+              - generic [ref=e484]:
+                - button "收藏" [ref=e485] [cursor=pointer]: 收藏
+                - generic [ref=e487]: 胸
+            - paragraph [ref=e488]: 急速57 / 精通72
+            - generic [ref=e489]:
+              - generic [ref=e490]: 板甲 · ilvl246
+              - generic [ref=e491]: 执政团之座 ›
+        - article [ref=e492]:
+          - generic [ref=e494]:
+            - generic [ref=e495]:
+              - heading "冰龙胸骨" [level=3] [ref=e496]
+              - generic [ref=e497]:
+                - button "收藏" [ref=e498] [cursor=pointer]: 收藏
+                - generic [ref=e500]: 胸
+            - paragraph [ref=e501]: 暴击68 / 急速62
+            - generic [ref=e502]:
+              - generic [ref=e503]: 板甲 · ilvl246
+              - generic [ref=e504]: 萨隆矿坑 ›
+        - article [ref=e505]:
+          - generic [ref=e507]:
+            - generic [ref=e508]:
+              - heading "奥术守护者胸铠" [level=3] [ref=e509]
+              - generic [ref=e510]:
+                - button "收藏" [ref=e511] [cursor=pointer]: 收藏
+                - generic [ref=e513]: 胸
+            - paragraph [ref=e514]: 暴击54 / 全能76
+            - generic [ref=e515]:
+              - generic [ref=e516]: 板甲 · ilvl246
+              - generic [ref=e517]: 魔导师平台 ›
+        - article [ref=e518]:
+          - generic [ref=e520]:
+            - generic [ref=e521]:
+              - heading "确证学识胸铠" [level=3] [ref=e522]
+              - generic [ref=e523]:
+                - button "收藏" [ref=e524] [cursor=pointer]: 收藏
+                - generic [ref=e526]: 胸
+            - paragraph [ref=e527]: 暴击51 / 全能79
+            - generic [ref=e528]:
+              - generic [ref=e529]: 板甲 · ilvl246
+              - generic [ref=e530]: 艾杰斯亚学院 ›
+        - article [ref=e531]:
+          - generic [ref=e533]:
+            - generic [ref=e534]:
+              - heading "日缚胸铠" [level=3] [ref=e535]
+              - generic [ref=e536]:
+                - button "收藏" [ref=e537] [cursor=pointer]: 收藏
+                - generic [ref=e539]: 胸
+            - paragraph [ref=e540]: 暴击51 / 急速97
+            - generic [ref=e541]:
+              - generic [ref=e542]: 板甲 · ilvl269
+              - generic [ref=e543]: 虚空尖塔 ›
+        - article [ref=e544]:
+          - generic [ref=e546]:
+            - generic [ref=e547]:
+              - heading "光耀裁决的神圣战甲" [level=3] [ref=e548]
+              - generic [ref=e549]:
+                - button "收藏" [ref=e550] [cursor=pointer]: 收藏
+                - generic [ref=e552]: 胸
+            - paragraph [ref=e553]: 精通94 / 急速49
+            - generic [ref=e554]:
+              - generic [ref=e555]: 板甲 · ilvl263
+              - generic [ref=e556]: 套装 ›
+    - generic [ref=e557]:
+      - generic [ref=e558]:
+        - heading "腕" [level=2] [ref=e560]
+        - generic [ref=e561]: 5 件装备
+      - generic [ref=e562]:
+        - article [ref=e563]:
+          - generic [ref=e565]:
+            - generic [ref=e566]:
+              - heading "失落希望臂甲" [level=3] [ref=e567]
+              - generic [ref=e568]:
+                - button "收藏" [ref=e569] [cursor=pointer]: 收藏
+                - generic [ref=e571]: 腕
+            - paragraph [ref=e572]: 暴击27 / 急速46
+            - generic [ref=e573]:
+              - generic [ref=e574]: 板甲 · ilvl246
+              - generic [ref=e575]: 执政团之座 ›
+        - article [ref=e576]:
+          - generic [ref=e578]:
+            - generic [ref=e579]:
+              - heading "巨魔猎手腕铠" [level=3] [ref=e580]
+              - generic [ref=e581]:
+                - button "收藏" [ref=e582] [cursor=pointer]: 收藏
+                - generic [ref=e584]: 腕
+            - paragraph [ref=e585]: 急速27 / 精通46
+            - generic [ref=e586]:
+              - generic [ref=e587]: 板甲 · ilvl246
+              - generic [ref=e588]: 秘萨拉洞窟 ›
+        - article [ref=e589]:
+          - generic [ref=e591]:
+            - generic [ref=e592]:
+              - heading "卡斯雷瑟的裹腕" [level=3] [ref=e593]
+              - generic [ref=e594]:
+                - button "收藏" [ref=e595] [cursor=pointer]: 收藏
+                - generic [ref=e597]: 腕
+            - paragraph [ref=e598]: 暴击26 / 全能47
+            - generic [ref=e599]:
+              - generic [ref=e600]: 板甲 · ilvl246
+              - generic [ref=e601]: 希纳斯节点 ›
+        - article [ref=e602]:
+          - generic [ref=e604]:
+            - generic [ref=e605]:
+              - heading "圣光进军护腕" [level=3] [ref=e606]
+              - generic [ref=e607]:
+                - button "收藏" [ref=e608] [cursor=pointer]: 收藏
+                - generic [ref=e610]: 腕
+            - paragraph [ref=e611]: 急速59 / 精通24
+            - generic [ref=e612]:
+              - generic [ref=e613]: 板甲 · ilvl269
+              - generic [ref=e614]: 虚空尖塔 ›
+        - article [ref=e615]:
+          - generic [ref=e617]:
+            - generic [ref=e618]:
+              - heading "光耀裁决的护腕" [level=3] [ref=e619]
+              - generic [ref=e620]:
+                - button "收藏" [ref=e621] [cursor=pointer]: 收藏
+                - generic [ref=e623]: 腕
+            - paragraph [ref=e624]: 暴击54 / 急速27
+            - generic [ref=e625]:
+              - generic [ref=e626]: 板甲 · ilvl263
+              - generic [ref=e627]: 套装 ›
+    - generic [ref=e628]:
+      - generic [ref=e629]:
+        - heading "手" [level=2] [ref=e631]
+        - generic [ref=e632]: 5 件装备
+      - generic [ref=e633]:
+        - article [ref=e634]:
+          - generic [ref=e636]:
+            - generic [ref=e637]:
+              - heading "灵爪手甲" [level=3] [ref=e638]
+              - generic [ref=e639]:
+                - button "收藏" [ref=e640] [cursor=pointer]: 收藏
+                - generic [ref=e642]: 手
+            - paragraph [ref=e643]: 急速53 / 全能44
+            - generic [ref=e644]:
+              - generic [ref=e645]: 板甲 · ilvl246
+              - generic [ref=e646]: 执政团之座 ›
+        - article [ref=e647]:
+          - generic [ref=e649]:
+            - generic [ref=e650]:
+              - heading "猩红手甲" [level=3] [ref=e651]
+              - generic [ref=e652]:
+                - button "收藏" [ref=e653] [cursor=pointer]: 收藏
+                - generic [ref=e655]: 手
+            - paragraph [ref=e656]: 暴击55 / 精通42
+            - generic [ref=e657]:
+              - generic [ref=e658]: 板甲 · ilvl246
+              - generic [ref=e659]: 通天峰 ›
+        - article [ref=e660]:
+          - generic [ref=e662]:
+            - generic [ref=e663]:
+              - heading "烬林护手" [level=3] [ref=e664]
+              - generic [ref=e665]:
+                - button "收藏" [ref=e666] [cursor=pointer]: 收藏
+                - generic [ref=e668]: 手
+            - paragraph [ref=e669]: 暴击59 / 急速38
+            - generic [ref=e670]:
+              - generic [ref=e671]: 板甲 · ilvl246
+              - generic [ref=e672]: 风行者之塔 ›
+        - article [ref=e673]:
+          - generic [ref=e675]:
+            - generic [ref=e676]:
+              - heading "余烬之子护手" [level=3] [ref=e677]
+              - generic [ref=e678]:
+                - button "收藏" [ref=e679] [cursor=pointer]: 收藏
+                - generic [ref=e681]: 手
+            - paragraph [ref=e682]: 暴击73 / 全能38
+            - generic [ref=e683]:
+              - generic [ref=e684]: 板甲 · ilvl269
+              - generic [ref=e685]: 奎尔丹纳斯进军 ›
+        - article [ref=e686]:
+          - generic [ref=e688]:
+            - generic [ref=e689]:
+              - heading "光耀裁决的护手" [level=3] [ref=e690]
+              - generic [ref=e691]:
+                - button "收藏" [ref=e692] [cursor=pointer]: 收藏
+                - generic [ref=e694]: 手
+            - paragraph [ref=e695]: 急速73 / 全能34
+            - generic [ref=e696]:
+              - generic [ref=e697]: 板甲 · ilvl263
+              - generic [ref=e698]: 套装 ›
+    - generic [ref=e699]:
+      - generic [ref=e700]:
+        - heading "腰" [level=2] [ref=e702]
+        - generic [ref=e703]: 7 件装备
+      - generic [ref=e704]:
+        - article [ref=e705]:
+          - generic [ref=e707]:
+            - generic [ref=e708]:
+              - heading "影卫腰带" [level=3] [ref=e709]
+              - generic [ref=e710]:
+                - button "收藏" [ref=e711] [cursor=pointer]: 收藏
+                - generic [ref=e713]: 腰
+            - paragraph [ref=e714]: 急速38 / 精通59
+            - generic [ref=e715]:
+              - generic [ref=e716]: 板甲 · ilvl246
+              - generic [ref=e717]: 执政团之座 ›
+        - article [ref=e718]:
+          - generic [ref=e720]:
+            - generic [ref=e721]:
+              - heading "裂钩防御者" [level=3] [ref=e722]
+              - generic [ref=e723]:
+                - button "收藏" [ref=e724] [cursor=pointer]: 收藏
+                - generic [ref=e726]: 腰
+            - paragraph [ref=e727]: 暴击34 / 急速63
+            - generic [ref=e728]:
+              - generic [ref=e729]: 板甲 · ilvl246
+              - generic [ref=e730]: 风行者之塔 ›
+        - article [ref=e731]:
+          - generic [ref=e733]:
+            - generic [ref=e734]:
+              - heading "曲金腰带" [level=3] [ref=e735]
+              - generic [ref=e736]:
+                - button "收藏" [ref=e737] [cursor=pointer]: 收藏
+                - generic [ref=e739]: 腰
+            - paragraph [ref=e740]: 暴击44 / 急速53
+            - generic [ref=e741]:
+              - generic [ref=e742]: 板甲 · ilvl246
+              - generic [ref=e743]: 萨隆矿坑 ›
+        - article [ref=e744]:
+          - generic [ref=e746]:
+            - generic [ref=e747]:
+              - heading "影裂腰铠" [level=3] [ref=e748]
+              - generic [ref=e749]:
+                - button "收藏" [ref=e750] [cursor=pointer]: 收藏
+                - generic [ref=e752]: 腰
+            - paragraph [ref=e753]: 急速36 / 全能61
+            - generic [ref=e754]:
+              - generic [ref=e755]: 板甲 · ilvl246
+              - generic [ref=e756]: 魔导师平台 ›
+        - article [ref=e757]:
+          - generic [ref=e759]:
+            - generic [ref=e760]:
+              - heading "艾佐拉克的幽暗腰铠" [level=3] [ref=e761]
+              - generic [ref=e762]:
+                - button "收藏" [ref=e763] [cursor=pointer]: 收藏
+                - generic [ref=e765]: 腰
+            - paragraph [ref=e766]: 急速77 / 精通34
+            - generic [ref=e767]:
+              - generic [ref=e768]: 板甲 · ilvl269
+              - generic [ref=e769]: 虚空尖塔 ›
+        - article [ref=e770]:
+          - generic [ref=e772]:
+            - generic [ref=e773]:
+              - heading "仇恨束缚腰链" [level=3] [ref=e774]
+              - generic [ref=e775]:
+                - button "收藏" [ref=e776] [cursor=pointer]: 收藏
+                - generic [ref=e778]: 腰
+            - paragraph [ref=e779]: 暴击33 / 精通78
+            - generic [ref=e780]:
+              - generic [ref=e781]: 板甲 · ilvl269
+              - generic [ref=e782]: 虚空尖塔 ›
+        - article [ref=e783]:
+          - generic [ref=e785]:
+            - generic [ref=e786]:
+              - heading "光耀裁决的无畏徽记" [level=3] [ref=e787]
+              - generic [ref=e788]:
+                - button "收藏" [ref=e789] [cursor=pointer]: 收藏
+                - generic [ref=e791]: 腰
+            - paragraph [ref=e792]: 精通76 / 急速31
+            - generic [ref=e793]:
+              - generic [ref=e794]: 板甲 · ilvl263
+              - generic [ref=e795]: 套装 ›
+    - generic [ref=e796]:
+      - generic [ref=e797]:
+        - heading "腿" [level=2] [ref=e799]
+        - generic [ref=e800]: 6 件装备
+      - generic [ref=e801]:
+        - article [ref=e802]:
+          - generic [ref=e804]:
+            - generic [ref=e805]:
+              - heading "暮色残留腿铠" [level=3] [ref=e806]
+              - generic [ref=e807]:
+                - button "收藏" [ref=e808] [cursor=pointer]: 收藏
+                - generic [ref=e810]: 腿
+            - paragraph [ref=e811]: 暴击48 / 精通82
+            - generic [ref=e812]:
+              - generic [ref=e813]: 板甲 · ilvl246
+              - generic [ref=e814]: 魔导师平台 ›
+        - article [ref=e815]:
+          - generic [ref=e817]:
+            - generic [ref=e818]:
+              - heading "光痕腿铠" [level=3] [ref=e819]
+              - generic [ref=e820]:
+                - button "收藏" [ref=e821] [cursor=pointer]: 收藏
+                - generic [ref=e823]: 腿
+            - paragraph [ref=e824]: 急速54 / 全能76
+            - generic [ref=e825]:
+              - generic [ref=e826]: 板甲 · ilvl246
+              - generic [ref=e827]: 希纳斯节点 ›
+        - article [ref=e828]:
+          - generic [ref=e830]:
+            - generic [ref=e831]:
+              - heading "敬仰教授护胫" [level=3] [ref=e832]
+              - generic [ref=e833]:
+                - button "收藏" [ref=e834] [cursor=pointer]: 收藏
+                - generic [ref=e836]: 腿
+            - paragraph [ref=e837]: 暴击48 / 全能82
+            - generic [ref=e838]:
+              - generic [ref=e839]: 板甲 · ilvl246
+              - generic [ref=e840]: 艾杰斯亚学院 ›
+        - article [ref=e841]:
+          - generic [ref=e843]:
+            - generic [ref=e844]:
+              - heading "光血护胫" [level=3] [ref=e845]
+              - generic [ref=e846]:
+                - button "收藏" [ref=e847] [cursor=pointer]: 收藏
+                - generic [ref=e849]: 腿
+            - paragraph [ref=e850]: 急速47 / 精通102
+            - generic [ref=e851]:
+              - generic [ref=e852]: 板甲 · ilvl269
+              - generic [ref=e853]: 虚空尖塔 ›
+        - article [ref=e854]:
+          - generic [ref=e856]:
+            - generic [ref=e857]:
+              - heading "灭绝腿铠" [level=3] [ref=e858]
+              - generic [ref=e859]:
+                - button "收藏" [ref=e860] [cursor=pointer]: 收藏
+                - generic [ref=e862]: 腿
+            - paragraph [ref=e863]: 精通148
+            - generic [ref=e864]:
+              - generic [ref=e865]: 板甲 · ilvl269
+              - generic [ref=e866]: 奎尔丹纳斯进军 ›
+        - article [ref=e867]:
+          - generic [ref=e869]:
+            - generic [ref=e870]:
+              - heading "光耀裁决的护胫" [level=3] [ref=e871]
+              - generic [ref=e872]:
+                - button "收藏" [ref=e873] [cursor=pointer]: 收藏
+                - generic [ref=e875]: 腿
+            - paragraph [ref=e876]: 急速102 / 暴击42
+            - generic [ref=e877]:
+              - generic [ref=e878]: 板甲 · ilvl263
+              - generic [ref=e879]: 套装 ›
+    - generic [ref=e880]:
+      - generic [ref=e881]:
+        - heading "脚" [level=2] [ref=e883]
+        - generic [ref=e884]: 7 件装备
+      - generic [ref=e885]:
+        - article [ref=e886]:
+          - generic [ref=e888]:
+            - generic [ref=e889]:
+              - heading "陷阱干扰靴" [level=3] [ref=e890]
+              - generic [ref=e891]:
+                - button "收藏" [ref=e892] [cursor=pointer]: 收藏
+                - generic [ref=e894]: 脚
+            - paragraph [ref=e895]: 精通40 / 全能57
+            - generic [ref=e896]:
+              - generic [ref=e897]: 板甲 · ilvl246
+              - generic [ref=e898]: 执政团之座 ›
+        - article [ref=e899]:
+          - generic [ref=e901]:
+            - generic [ref=e902]:
+              - heading "厄运裹足" [level=3] [ref=e903]
+              - generic [ref=e904]:
+                - button "收藏" [ref=e905] [cursor=pointer]: 收藏
+                - generic [ref=e907]: 脚
+            - paragraph [ref=e908]: 急速59 / 精通38
+            - generic [ref=e909]:
+              - generic [ref=e910]: 板甲 · ilvl246
+              - generic [ref=e911]: 秘萨拉洞窟 ›
+        - article [ref=e912]:
+          - generic [ref=e914]:
+            - generic [ref=e915]:
+              - heading "愤怒复仇战靴" [level=3] [ref=e916]
+              - generic [ref=e917]:
+                - button "收藏" [ref=e918] [cursor=pointer]: 收藏
+                - generic [ref=e920]: 脚
+            - paragraph [ref=e921]: 暴击57 / 全能40
+            - generic [ref=e922]:
+              - generic [ref=e923]: 板甲 · ilvl246
+              - generic [ref=e924]: 风行者之塔 ›
+        - article [ref=e925]:
+          - generic [ref=e927]:
+            - generic [ref=e928]:
+              - heading "圣誓践踏靴" [level=3] [ref=e929]
+              - generic [ref=e930]:
+                - button "收藏" [ref=e931] [cursor=pointer]: 收藏
+                - generic [ref=e933]: 脚
+            - paragraph [ref=e934]: 急速36 / 精通61
+            - generic [ref=e935]:
+              - generic [ref=e936]: 板甲 · ilvl246
+              - generic [ref=e937]: 魔导师平台 ›
+        - article [ref=e938]:
+          - generic [ref=e940]:
+            - generic [ref=e941]:
+              - heading "未成形者护胫" [level=3] [ref=e942]
+              - generic [ref=e943]:
+                - button "收藏" [ref=e944] [cursor=pointer]: 收藏
+                - generic [ref=e946]: 脚
+            - paragraph [ref=e947]: 暴击75 / 精通37
+            - generic [ref=e948]:
+              - generic [ref=e949]: 板甲 · ilvl269
+              - generic [ref=e950]: 梦境裂隙 ›
+        - article [ref=e951]:
+          - generic [ref=e953]:
+            - generic [ref=e954]:
+              - heading "寄生虫践踏靴" [level=3] [ref=e955]
+              - generic [ref=e956]:
+                - button "收藏" [ref=e957] [cursor=pointer]: 收藏
+                - generic [ref=e959]: 脚
+            - paragraph [ref=e960]: 急速33 / 精通78
+            - generic [ref=e961]:
+              - generic [ref=e962]: 板甲 · ilvl269
+              - generic [ref=e963]: 虚空尖塔 ›
+        - article [ref=e964]:
+          - generic [ref=e966]:
+            - generic [ref=e967]:
+              - heading "光耀裁决的战靴" [level=3] [ref=e968]
+              - generic [ref=e969]:
+                - button "收藏" [ref=e970] [cursor=pointer]: 收藏
+                - generic [ref=e972]: 脚
+            - paragraph [ref=e973]: 急速70 / 精通37
+            - generic [ref=e974]:
+              - generic [ref=e975]: 板甲 · ilvl263
+              - generic [ref=e976]: 套装 ›
+    - generic [ref=e977]:
+      - generic [ref=e978]:
+        - heading "戒" [level=2] [ref=e980]
+        - generic [ref=e981]: 11 件装备
+      - generic [ref=e982]:
+        - article [ref=e983]:
+          - generic [ref=e985]:
+            - generic [ref=e986]:
+              - heading "艾瑞达斯贵族印戒" [level=3] [ref=e987]
+              - generic [ref=e988]:
+                - button "收藏" [ref=e989] [cursor=pointer]: 收藏
+                - generic [ref=e991]: 戒
+            - paragraph [ref=e992]: 暴击80 / 全能125
+            - generic [ref=e993]:
+              - generic [ref=e994]: 戒 · ilvl246
+              - generic [ref=e995]: 执政团之座 ›
+        - article [ref=e996]:
+          - generic [ref=e998]:
+            - generic [ref=e999]:
+              - heading "执政团指轮" [level=3] [ref=e1000]
+              - generic [ref=e1001]:
+                - button "收藏" [ref=e1002] [cursor=pointer]: 收藏
+                - generic [ref=e1004]: 戒
+            - paragraph [ref=e1005]: 急速117 / 全能88
+            - generic [ref=e1006]:
+              - generic [ref=e1007]: 戒 · ilvl246
+              - generic [ref=e1008]: 执政团之座 ›
+        - article [ref=e1009]:
+          - generic [ref=e1011]:
+            - generic [ref=e1012]:
+              - heading "被盗的婚戒" [level=3] [ref=e1013]
+              - generic [ref=e1014]:
+                - button "收藏" [ref=e1015] [cursor=pointer]: 收藏
+                - generic [ref=e1017]: 戒
+            - paragraph [ref=e1018]: 暴击117 / 急速88
+            - generic [ref=e1019]:
+              - generic [ref=e1020]: 戒 · ilvl246
+              - generic [ref=e1021]: 萨隆矿坑 ›
+        - article [ref=e1022]:
+          - generic [ref=e1024]:
+            - generic [ref=e1025]:
+              - heading "分叉指环" [level=3] [ref=e1026]
+              - generic [ref=e1027]:
+                - button "收藏" [ref=e1028] [cursor=pointer]: 收藏
+                - generic [ref=e1030]: 戒
+            - paragraph [ref=e1031]: 急速76 / 精通129
+            - generic [ref=e1032]:
+              - generic [ref=e1033]: 戒 · ilvl246
+              - generic [ref=e1034]: 魔导师平台 ›
+        - article [ref=e1035]:
+          - generic [ref=e1037]:
+            - generic [ref=e1038]:
+              - heading "圣光的遗落" [level=3] [ref=e1039]
+              - generic [ref=e1040]:
+                - button "收藏" [ref=e1041] [cursor=pointer]: 收藏
+                - generic [ref=e1043]: 戒
+            - paragraph [ref=e1044]: 急速120 / 精通85
+            - generic [ref=e1045]:
+              - generic [ref=e1046]: 戒 · ilvl246
+              - generic [ref=e1047]: 希纳斯节点 ›
+        - article [ref=e1048]:
+          - generic [ref=e1050]:
+            - generic [ref=e1051]:
+              - heading "虚空的遮蔽" [level=3] [ref=e1052]
+              - generic [ref=e1053]:
+                - button "收藏" [ref=e1054] [cursor=pointer]: 收藏
+                - generic [ref=e1056]: 戒
+            - paragraph [ref=e1057]: 暴击144 / 急速62
+            - generic [ref=e1058]:
+              - generic [ref=e1059]: 戒 · ilvl246
+              - generic [ref=e1060]: 希纳斯节点 ›
+        - article [ref=e1061]:
+          - generic [ref=e1063]:
+            - generic [ref=e1064]:
+              - heading "白金星辰指环" [level=3] [ref=e1065]
+              - generic [ref=e1066]:
+                - button "收藏" [ref=e1067] [cursor=pointer]: 收藏
+                - generic [ref=e1069]: 戒
+            - paragraph [ref=e1070]: 暴击135 / 精通70
+            - generic [ref=e1071]:
+              - generic [ref=e1072]: 戒 · ilvl246
+              - generic [ref=e1073]: 艾杰斯亚学院 ›
+        - article [ref=e1074]:
+          - generic [ref=e1076]:
+            - generic [ref=e1077]:
+              - heading "饥饿野兽指环" [level=3] [ref=e1078]
+              - generic [ref=e1079]:
+                - button "收藏" [ref=e1080] [cursor=pointer]: 收藏
+                - generic [ref=e1082]: 戒
+            - paragraph [ref=e1083]: 暴击202 / 全能55
+            - generic [ref=e1084]:
+              - generic [ref=e1085]: 戒 · ilvl269
+              - generic [ref=e1086]: 虚空尖塔 ›
+        - article [ref=e1087]:
+          - generic [ref=e1089]:
+            - generic [ref=e1090]:
+              - heading "圣光纽带" [level=3] [ref=e1091]
+              - generic [ref=e1092]:
+                - button "收藏" [ref=e1093] [cursor=pointer]: 收藏
+                - generic [ref=e1095]: 戒
+            - paragraph [ref=e1096]: 急速48 / 精通210
+            - generic [ref=e1097]:
+              - generic [ref=e1098]: 戒 · ilvl269
+              - generic [ref=e1099]: 虚空尖塔 ›
+        - article [ref=e1100]:
+          - generic [ref=e1102]:
+            - generic [ref=e1103]:
+              - heading "辛多雷希望指环" [level=3] [ref=e1104]
+              - generic [ref=e1105]:
+                - button "收藏" [ref=e1106] [cursor=pointer]: 收藏
+                - generic [ref=e1108]: 戒
+            - paragraph [ref=e1109]: 暴击211 / 精通46
+            - generic [ref=e1110]:
+              - generic [ref=e1111]: 戒 · ilvl269
+              - generic [ref=e1112]: 奎尔丹纳斯进军 ›
+        - article [ref=e1113]:
+          - generic [ref=e1115]:
+            - generic [ref=e1116]:
+              - heading "至暗之夜的眼眸" [level=3] [ref=e1117]
+              - generic [ref=e1118]:
+                - button "收藏" [ref=e1119] [cursor=pointer]: 收藏
+                - generic [ref=e1121]: 戒
+            - paragraph [ref=e1122]: 急速273
+            - generic [ref=e1123]:
+              - generic [ref=e1124]: 戒 · ilvl276
+              - generic [ref=e1125]: 奎尔丹纳斯进军 ›
+    - generic [ref=e1126]:
+      - generic [ref=e1127]:
+        - heading "饰" [level=2] [ref=e1129]
+        - generic [ref=e1130]: 33 件装备
+      - generic [ref=e1131]:
+        - article [ref=e1132]:
+          - generic [ref=e1134]:
+            - generic [ref=e1135]:
+              - heading "纯净虚空之瓶" [level=3] [ref=e1136]
+              - generic [ref=e1137]:
+                - button "收藏" [ref=e1138] [cursor=pointer]: 收藏
+                - generic [ref=e1140]: 饰
+            - paragraph [ref=e1141]: 使用
+            - generic [ref=e1142]:
+              - generic [ref=e1143]: 饰 · ilvl246
+              - generic [ref=e1144]: 执政团之座 ›
+        - article [ref=e1145]:
+          - generic [ref=e1147]:
+            - generic [ref=e1148]:
+              - heading "虚空追猎者的契约" [level=3] [ref=e1149]
+              - generic [ref=e1150]:
+                - button "收藏" [ref=e1151] [cursor=pointer]: 收藏
+                - generic [ref=e1153]: 饰
+            - paragraph [ref=e1154]: 使用
+            - generic [ref=e1155]:
+              - generic [ref=e1156]: 饰 · ilvl246
+              - generic [ref=e1157]: 执政团之座 ›
+        - article [ref=e1158]:
+          - generic [ref=e1160]:
+            - generic [ref=e1161]:
+              - heading "鲁拉的回响" [level=3] [ref=e1162]
+              - generic [ref=e1163]:
+                - button "收藏" [ref=e1164] [cursor=pointer]: 收藏
+                - generic [ref=e1166]: 饰
+            - paragraph [ref=e1167]: 使用
+            - generic [ref=e1168]:
+              - generic [ref=e1169]: 饰 · ilvl246
+              - generic [ref=e1170]: 执政团之座 ›
+        - article [ref=e1171]:
+          - generic [ref=e1173]:
+            - generic [ref=e1174]:
+              - heading "太阳之核点燃器" [level=3] [ref=e1175]
+              - generic [ref=e1176]:
+                - button "收藏" [ref=e1177] [cursor=pointer]: 收藏
+                - generic [ref=e1179]: 饰
+            - paragraph [ref=e1180]: 使用
+            - generic [ref=e1181]:
+              - generic [ref=e1182]: 饰 · ilvl246
+              - generic [ref=e1183]: 通天峰 ›
+        - article [ref=e1184]:
+          - generic [ref=e1186]:
+            - generic [ref=e1187]:
+              - heading "光耀日长石" [level=3] [ref=e1188]
+              - generic [ref=e1189]:
+                - button "收藏" [ref=e1190] [cursor=pointer]: 收藏
+                - generic [ref=e1192]: 饰
+            - paragraph [ref=e1193]: 使用
+            - generic [ref=e1194]:
+              - generic [ref=e1195]: 饰 · ilvl246
+              - generic [ref=e1196]: 通天峰 ›
+        - article [ref=e1197]:
+          - generic [ref=e1199]:
+            - generic [ref=e1200]:
+              - heading "太阳耀斑棱镜" [level=3] [ref=e1201]
+              - generic [ref=e1202]:
+                - button "收藏" [ref=e1203] [cursor=pointer]: 收藏
+                - generic [ref=e1205]: 饰
+            - paragraph [ref=e1206]: 装备
+            - generic [ref=e1207]:
+              - generic [ref=e1208]: 饰 · ilvl246
+              - generic [ref=e1209]: 通天峰 ›
+        - article [ref=e1210]:
+          - generic [ref=e1212]:
+            - generic [ref=e1213]:
+              - heading "折磨之魂容器" [level=3] [ref=e1214]
+              - generic [ref=e1215]:
+                - button "收藏" [ref=e1216] [cursor=pointer]: 收藏
+                - generic [ref=e1218]: 饰
+            - paragraph [ref=e1219]: 精通93
+            - generic [ref=e1220]:
+              - generic [ref=e1221]: 饰 · ilvl246
+              - generic [ref=e1222]: 秘萨拉洞窟 ›
+        - article [ref=e1223]:
+          - generic [ref=e1225]:
+            - generic [ref=e1226]:
+              - heading "烬翼羽毛" [level=3] [ref=e1227]
+              - generic [ref=e1228]:
+                - button "收藏" [ref=e1229] [cursor=pointer]: 收藏
+                - generic [ref=e1231]: 饰
+            - paragraph [ref=e1232]: 使用
+            - generic [ref=e1233]:
+              - generic [ref=e1234]: 饰 · ilvl246
+              - generic [ref=e1235]: 风行者之塔 ›
+        - article [ref=e1236]:
+          - generic [ref=e1238]:
+            - generic [ref=e1239]:
+              - heading "拉奇的弯曲钩爪" [level=3] [ref=e1240]
+              - generic [ref=e1241]:
+                - button "收藏" [ref=e1242] [cursor=pointer]: 收藏
+                - generic [ref=e1244]: 饰
+            - paragraph [ref=e1245]: 使用
+            - generic [ref=e1246]:
+              - generic [ref=e1247]: 饰 · ilvl246
+              - generic [ref=e1248]: 风行者之塔 ›
+        - article [ref=e1249]:
+          - generic [ref=e1251]:
+            - generic [ref=e1252]:
+              - heading "克罗鲁科的战旗" [level=3] [ref=e1253]
+              - generic [ref=e1254]:
+                - button "收藏" [ref=e1255] [cursor=pointer]: 收藏
+                - generic [ref=e1257]: 饰
+            - paragraph [ref=e1258]: 装备
+            - generic [ref=e1259]:
+              - generic [ref=e1260]: 饰 · ilvl246
+              - generic [ref=e1261]: 风行者之塔 ›
+        - article [ref=e1262]:
+          - generic [ref=e1264]:
+            - generic [ref=e1265]:
+              - heading "风之心" [level=3] [ref=e1266]
+              - generic [ref=e1267]:
+                - button "收藏" [ref=e1268] [cursor=pointer]: 收藏
+                - generic [ref=e1270]: 饰
+            - paragraph [ref=e1271]: 装备
+            - generic [ref=e1272]:
+              - generic [ref=e1273]: 饰 · ilvl246
+              - generic [ref=e1274]: 风行者之塔 ›
+        - article [ref=e1275]:
+          - generic [ref=e1277]:
+            - generic [ref=e1278]:
+              - heading "腐烂液球" [level=3] [ref=e1279]
+              - generic [ref=e1280]:
+                - button "收藏" [ref=e1281] [cursor=pointer]: 收藏
+                - generic [ref=e1283]: 饰
+            - paragraph [ref=e1284]: 使用
+            - generic [ref=e1285]:
+              - generic [ref=e1286]: 饰 · ilvl246
+              - generic [ref=e1287]: 萨隆矿坑 ›
+        - article [ref=e1288]:
+          - generic [ref=e1290]:
+            - generic [ref=e1291]:
+              - heading "永冻冰晶" [level=3] [ref=e1292]
+              - generic [ref=e1293]:
+                - button "收藏" [ref=e1294] [cursor=pointer]: 收藏
+                - generic [ref=e1296]: 饰
+            - paragraph [ref=e1297]: 使用
+            - generic [ref=e1298]:
+              - generic [ref=e1299]: 饰 · ilvl246
+              - generic [ref=e1300]: 萨隆矿坑 ›
+        - article [ref=e1301]:
+          - generic [ref=e1303]:
+            - generic [ref=e1304]:
+              - heading "充能宝珠" [level=3] [ref=e1305]
+              - generic [ref=e1306]:
+                - button "收藏" [ref=e1307] [cursor=pointer]: 收藏
+                - generic [ref=e1309]: 饰
+            - paragraph [ref=e1310]: 装备
+            - generic [ref=e1311]:
+              - generic [ref=e1312]: 饰 · ilvl246
+              - generic [ref=e1313]: 魔导师平台 ›
+        - article [ref=e1314]:
+          - generic [ref=e1316]:
+            - generic [ref=e1317]:
+              - heading "水母复制器" [level=3] [ref=e1318]
+              - generic [ref=e1319]:
+                - button "收藏" [ref=e1320] [cursor=pointer]: 收藏
+                - generic [ref=e1322]: 饰
+            - paragraph [ref=e1323]: 装备
+            - generic [ref=e1324]:
+              - generic [ref=e1325]: 饰 · ilvl246
+              - generic [ref=e1326]: 魔导师平台 ›
+        - article [ref=e1327]:
+          - generic [ref=e1329]:
+            - generic [ref=e1330]:
+              - heading "暮色怨灵的低语" [level=3] [ref=e1331]
+              - generic [ref=e1332]:
+                - button "收藏" [ref=e1333] [cursor=pointer]: 收藏
+                - generic [ref=e1335]: 饰
+            - paragraph [ref=e1336]: 装备
+            - generic [ref=e1337]:
+              - generic [ref=e1338]: 饰 · ilvl246
+              - generic [ref=e1339]: 希纳斯节点 ›
+        - article [ref=e1340]:
+          - generic [ref=e1342]:
+            - generic [ref=e1343]:
+              - heading "圣光印记" [level=3] [ref=e1344]
+              - generic [ref=e1345]:
+                - button "收藏" [ref=e1346] [cursor=pointer]: 收藏
+                - generic [ref=e1348]: 饰
+            - paragraph [ref=e1349]: 装备
+            - generic [ref=e1350]:
+              - generic [ref=e1351]: 饰 · ilvl246
+              - generic [ref=e1352]: 希纳斯节点 ›
+        - article [ref=e1353]:
+          - generic [ref=e1355]:
+            - generic [ref=e1356]:
+              - heading "巨龙竞技装备" [level=3] [ref=e1357]
+              - generic [ref=e1358]:
+                - button "收藏" [ref=e1359] [cursor=pointer]: 收藏
+                - generic [ref=e1361]: 饰
+            - paragraph [ref=e1362]: 使用
+            - generic [ref=e1363]:
+              - generic [ref=e1364]: 饰 · ilvl246
+              - generic [ref=e1365]: 艾杰斯亚学院 ›
+        - article [ref=e1366]:
+          - generic [ref=e1368]:
+            - generic [ref=e1369]:
+              - heading "翡翠教练的哨子" [level=3] [ref=e1370]
+              - generic [ref=e1371]:
+                - button "收藏" [ref=e1372] [cursor=pointer]: 收藏
+                - generic [ref=e1374]: 饰
+            - paragraph [ref=e1375]: 使用
+            - generic [ref=e1376]:
+              - generic [ref=e1377]: 饰 · ilvl246
+              - generic [ref=e1378]: 艾杰斯亚学院 ›
+        - article [ref=e1379]:
+          - generic [ref=e1381]:
+            - generic [ref=e1382]:
+              - heading "艾杰斯亚谜题盒" [level=3] [ref=e1383]
+              - generic [ref=e1384]:
+                - button "收藏" [ref=e1385] [cursor=pointer]: 收藏
+                - generic [ref=e1387]: 饰
+            - paragraph [ref=e1388]: 使用
+            - generic [ref=e1389]:
+              - generic [ref=e1390]: 饰 · ilvl246
+              - generic [ref=e1391]: 艾杰斯亚学院 ›
+        - article [ref=e1392]:
+          - generic [ref=e1394]: 未
+          - generic [ref=e1395]:
+            - generic [ref=e1396]:
+              - heading "未梦之神的污泥残迹" [level=3] [ref=e1397]
+              - generic [ref=e1398]:
+                - button "收藏" [ref=e1399] [cursor=pointer]: 收藏
+                - generic [ref=e1401]: 饰
+            - paragraph [ref=e1402]: 装备
+            - generic [ref=e1403]:
+              - generic [ref=e1404]: 饰 · ilvl269
+              - generic [ref=e1405]: 梦境裂隙 ›
+        - article [ref=e1406]:
+          - generic [ref=e1408]:
+            - generic [ref=e1409]:
+              - heading "艾林先知的凝视" [level=3] [ref=e1410]
+              - generic [ref=e1411]:
+                - button "收藏" [ref=e1412] [cursor=pointer]: 收藏
+                - generic [ref=e1414]: 饰
+            - paragraph [ref=e1415]: 精通106
+            - generic [ref=e1416]:
+              - generic [ref=e1417]: 饰 · ilvl269
+              - generic [ref=e1418]: 梦境裂隙 ›
+        - article [ref=e1419]:
+          - generic [ref=e1421]:
+            - generic [ref=e1422]:
+              - heading "圣光连队的旌旗" [level=3] [ref=e1423]
+              - generic [ref=e1424]:
+                - button "收藏" [ref=e1425] [cursor=pointer]: 收藏
+                - generic [ref=e1427]: 饰
+            - paragraph [ref=e1428]: 使用
+            - generic [ref=e1429]:
+              - generic [ref=e1430]: 饰 · ilvl269
+              - generic [ref=e1431]: 虚空尖塔 ›
+        - article [ref=e1432]:
+          - generic [ref=e1434]:
+            - generic [ref=e1435]:
+              - heading "上古饥渴之心" [level=3] [ref=e1436]
+              - generic [ref=e1437]:
+                - button "收藏" [ref=e1438] [cursor=pointer]: 收藏
+                - generic [ref=e1440]: 饰
+            - paragraph [ref=e1441]: 装备
+            - generic [ref=e1442]:
+              - generic [ref=e1443]: 饰 · ilvl269
+              - generic [ref=e1444]: 虚空尖塔 ›
+        - article [ref=e1445]:
+          - generic [ref=e1447]:
+            - generic [ref=e1448]:
+              - heading "不稳定的虚空弥散器" [level=3] [ref=e1449]
+              - generic [ref=e1450]:
+                - button "收藏" [ref=e1451] [cursor=pointer]: 收藏
+                - generic [ref=e1453]: 饰
+            - paragraph [ref=e1454]: 急速106
+            - generic [ref=e1455]:
+              - generic [ref=e1456]: 饰 · ilvl269
+              - generic [ref=e1457]: 虚空尖塔 ›
+        - article [ref=e1458]:
+          - generic [ref=e1460]:
+            - generic [ref=e1461]:
+              - heading "威厄高尔的最终凝视" [level=3] [ref=e1462]
+              - generic [ref=e1463]:
+                - button "收藏" [ref=e1464] [cursor=pointer]: 收藏
+                - generic [ref=e1466]: 饰
+            - paragraph [ref=e1467]: 使用
+            - generic [ref=e1468]:
+              - generic [ref=e1469]: 饰 · ilvl269
+              - generic [ref=e1470]: 虚空尖塔 ›
+        - article [ref=e1471]:
+          - generic [ref=e1473]:
+            - generic [ref=e1474]:
+              - heading "溅暗恐惧之鳞" [level=3] [ref=e1475]
+              - generic [ref=e1476]:
+                - button "收藏" [ref=e1477] [cursor=pointer]: 收藏
+                - generic [ref=e1479]: 饰
+            - paragraph [ref=e1480]: 暴击106
+            - generic [ref=e1481]:
+              - generic [ref=e1482]: 饰 · ilvl269
+              - generic [ref=e1483]: 虚空尖塔 ›
+        - article [ref=e1484]:
+          - generic [ref=e1486]:
+            - generic [ref=e1487]:
+              - heading "光盲圣怒的连祷" [level=3] [ref=e1488]
+              - generic [ref=e1489]:
+                - button "收藏" [ref=e1490] [cursor=pointer]: 收藏
+                - generic [ref=e1492]: 饰
+            - paragraph [ref=e1493]: 使用
+            - generic [ref=e1494]:
+              - generic [ref=e1495]: 饰 · ilvl269
+              - generic [ref=e1496]: 虚空尖塔 ›
+        - article [ref=e1497]:
+          - generic [ref=e1499]:
+            - generic [ref=e1500]:
+              - heading "双界行者的丝带" [level=3] [ref=e1501]
+              - generic [ref=e1502]:
+                - button "收藏" [ref=e1503] [cursor=pointer]: 收藏
+                - generic [ref=e1505]: 饰
+            - paragraph [ref=e1506]: 精通106
+            - generic [ref=e1507]:
+              - generic [ref=e1508]: 饰 · ilvl269
+              - generic [ref=e1509]: 虚空尖塔 ›
+        - article [ref=e1510]:
+          - generic [ref=e1512]:
+            - generic [ref=e1513]:
+              - heading "光耀飞羽" [level=3] [ref=e1514]
+              - generic [ref=e1515]:
+                - button "收藏" [ref=e1516] [cursor=pointer]: 收藏
+                - generic [ref=e1518]: 饰
+            - paragraph [ref=e1519]: 使用
+            - generic [ref=e1520]:
+              - generic [ref=e1521]: 饰 · ilvl269
+              - generic [ref=e1522]: 奎尔丹纳斯进军 ›
+        - article [ref=e1523]:
+          - generic [ref=e1525]:
+            - generic [ref=e1526]:
+              - heading "幽影羽毛" [level=3] [ref=e1527]
+              - generic [ref=e1528]:
+                - button "收藏" [ref=e1529] [cursor=pointer]: 收藏
+                - generic [ref=e1531]: 饰
+            - paragraph [ref=e1532]: 使用
+            - generic [ref=e1533]:
+              - generic [ref=e1534]: 饰 · ilvl269
+              - generic [ref=e1535]: 奎尔丹纳斯进军 ›
+        - article [ref=e1536]:
+          - generic [ref=e1538]:
+            - generic [ref=e1539]:
+              - heading "永恒之卵" [level=3] [ref=e1540]
+              - generic [ref=e1541]:
+                - button "收藏" [ref=e1542] [cursor=pointer]: 收藏
+                - generic [ref=e1544]: 饰
+            - paragraph [ref=e1545]: 装备
+            - generic [ref=e1546]:
+              - generic [ref=e1547]: 饰 · ilvl269
+              - generic [ref=e1548]: 奎尔丹纳斯进军 ›
+        - article [ref=e1549]:
+          - generic [ref=e1551]:
+            - generic [ref=e1552]:
+              - heading "宇宙波动之光" [level=3] [ref=e1553]
+              - generic [ref=e1554]:
+                - button "收藏" [ref=e1555] [cursor=pointer]: 收藏
+                - generic [ref=e1557]: 饰
+            - paragraph [ref=e1558]: 装备
+            - generic [ref=e1559]:
+              - generic [ref=e1560]: 饰 · ilvl269
+              - generic [ref=e1561]: 奎尔丹纳斯进军 ›
+    - generic [ref=e1562]:
+      - generic [ref=e1563]:
+        - heading "武" [level=2] [ref=e1565]
+        - generic [ref=e1566]: 26 件装备
+      - generic [ref=e1567]:
+        - article [ref=e1568]:
+          - generic [ref=e1570]:
+            - generic [ref=e1571]:
+              - heading "无尽之夜权杖" [level=3] [ref=e1572]
+              - generic [ref=e1573]:
+                - button "收藏" [ref=e1574] [cursor=pointer]: 收藏
+                - generic [ref=e1576]: 武
+            - paragraph [ref=e1577]: 暴击25 / 急速39
+            - generic [ref=e1578]:
+              - generic [ref=e1579]: 单手锤 · ilvl246
+              - generic [ref=e1580]: 执政团之座 ›
+        - article [ref=e1581]:
+          - generic [ref=e1583]:
+            - generic [ref=e1584]:
+              - heading "斩轮大剑" [level=3] [ref=e1585]
+              - generic [ref=e1586]:
+                - button "收藏" [ref=e1587] [cursor=pointer]: 收藏
+                - generic [ref=e1589]: 武
+            - paragraph [ref=e1590]: 精通70 / 全能59
+            - generic [ref=e1591]:
+              - generic [ref=e1592]: 双手剑 · ilvl246
+              - generic [ref=e1593]: 通天峰 ›
+        - article [ref=e1594]:
+          - generic [ref=e1596]:
+            - generic [ref=e1597]:
+              - heading "碎天者之刃" [level=3] [ref=e1598]
+              - generic [ref=e1599]:
+                - button "收藏" [ref=e1600] [cursor=pointer]: 收藏
+                - generic [ref=e1602]: 武
+            - paragraph [ref=e1603]: 暴击30 / 精通35
+            - generic [ref=e1604]:
+              - generic [ref=e1605]: 单手剑 · ilvl246
+              - generic [ref=e1606]: 通天峰 ›
+        - article [ref=e1607]:
+          - generic [ref=e1609]:
+            - generic [ref=e1610]:
+              - heading "折喙者弯刀" [level=3] [ref=e1611]
+              - generic [ref=e1612]:
+                - button "收藏" [ref=e1613] [cursor=pointer]: 收藏
+                - generic [ref=e1615]: 武
+            - paragraph [ref=e1616]: 暴击34 / 全能31
+            - generic [ref=e1617]:
+              - generic [ref=e1618]: 单手剑 · ilvl246
+              - generic [ref=e1619]: 通天峰 ›
+        - article [ref=e1620]:
+          - generic [ref=e1622]:
+            - generic [ref=e1623]:
+              - heading "维里克斯的不屈壁垒" [level=3] [ref=e1624]
+              - generic [ref=e1625]:
+                - button "收藏" [ref=e1626] [cursor=pointer]: 收藏
+                - generic [ref=e1628]: 武
+            - paragraph [ref=e1629]: 暴击34 / 精通31
+            - generic [ref=e1630]:
+              - generic [ref=e1631]: 盾牌 · ilvl246
+              - generic [ref=e1632]: 通天峰 ›
+        - article [ref=e1633]:
+          - generic [ref=e1635]:
+            - generic [ref=e1636]:
+              - heading "裂命者的弯刀" [level=3] [ref=e1637]
+              - generic [ref=e1638]:
+                - button "收藏" [ref=e1639] [cursor=pointer]: 收藏
+                - generic [ref=e1641]: 武
+            - paragraph [ref=e1642]: 暴击48 / 精通82
+            - generic [ref=e1643]:
+              - generic [ref=e1644]: 双手剑 · ilvl246
+              - generic [ref=e1645]: 秘萨拉洞窟 ›
+        - article [ref=e1646]:
+          - generic [ref=e1648]:
+            - generic [ref=e1649]:
+              - heading "烬晓卫士之剑" [level=3] [ref=e1650]
+              - generic [ref=e1651]:
+                - button "收藏" [ref=e1652] [cursor=pointer]: 收藏
+                - generic [ref=e1654]: 武
+            - paragraph [ref=e1655]: 精通84 / 全能45
+            - generic [ref=e1656]:
+              - generic [ref=e1657]: 双手剑 · ilvl246
+              - generic [ref=e1658]: 风行者之塔 ›
+        - article [ref=e1659]:
+          - generic [ref=e1661]:
+            - generic [ref=e1662]:
+              - heading "挖掘大槌" [level=3] [ref=e1663]
+              - generic [ref=e1664]:
+                - button "收藏" [ref=e1665] [cursor=pointer]: 收藏
+                - generic [ref=e1667]: 武
+            - paragraph [ref=e1668]: 暴击41 / 精通24
+            - generic [ref=e1669]:
+              - generic [ref=e1670]: 单手锤 · ilvl246
+              - generic [ref=e1671]: 风行者之塔 ›
+        - article [ref=e1672]:
+          - generic [ref=e1674]:
+            - generic [ref=e1675]:
+              - heading "战损砍刀" [level=3] [ref=e1676]
+              - generic [ref=e1677]:
+                - button "收藏" [ref=e1678] [cursor=pointer]: 收藏
+                - generic [ref=e1680]: 武
+            - paragraph [ref=e1681]: 暴击41 / 全能24
+            - generic [ref=e1682]:
+              - generic [ref=e1683]: 单手斧 · ilvl246
+              - generic [ref=e1684]: 风行者之塔 ›
+        - article [ref=e1685]:
+          - generic [ref=e1687]:
+            - generic [ref=e1688]:
+              - heading "千钧" [level=3] [ref=e1689]
+              - generic [ref=e1690]:
+                - button "收藏" [ref=e1691] [cursor=pointer]: 收藏
+                - generic [ref=e1693]: 武
+            - paragraph [ref=e1694]: 暴击84 / 急速45
+            - generic [ref=e1695]:
+              - generic [ref=e1696]: 双手锤 · ilvl246
+              - generic [ref=e1697]: 萨隆矿坑 ›
+        - article [ref=e1698]:
+          - generic [ref=e1700]:
+            - generic [ref=e1701]:
+              - heading "渎职之槌" [level=3] [ref=e1702]
+              - generic [ref=e1703]:
+                - button "收藏" [ref=e1704] [cursor=pointer]: 收藏
+                - generic [ref=e1706]: 武
+            - paragraph [ref=e1707]: 急速25 / 精通39
+            - generic [ref=e1708]:
+              - generic [ref=e1709]: 单手锤 · ilvl246
+              - generic [ref=e1710]: 魔导师平台 ›
+        - article [ref=e1711]:
+          - generic [ref=e1713]:
+            - generic [ref=e1714]:
+              - heading "破法者之盾" [level=3] [ref=e1715]
+              - generic [ref=e1716]:
+                - button "收藏" [ref=e1717] [cursor=pointer]: 收藏
+                - generic [ref=e1719]: 武
+            - paragraph [ref=e1720]: 暴击27 / 精通38
+            - generic [ref=e1721]:
+              - generic [ref=e1722]: 盾牌 · ilvl246
+              - generic [ref=e1723]: 魔导师平台 ›
+        - article [ref=e1724]:
+          - generic [ref=e1726]:
+            - generic [ref=e1727]:
+              - heading "旋风虚空裂斧" [level=3] [ref=e1728]
+              - generic [ref=e1729]:
+                - button "收藏" [ref=e1730] [cursor=pointer]: 收藏
+                - generic [ref=e1732]: 武
+            - paragraph [ref=e1733]: 急速79 / 精通51
+            - generic [ref=e1734]:
+              - generic [ref=e1735]: 双手斧 · ilvl246
+              - generic [ref=e1736]: 魔导师平台 ›
+        - article [ref=e1737]:
+          - generic [ref=e1739]:
+            - generic [ref=e1740]:
+              - heading "溢流反射盾" [level=3] [ref=e1741]
+              - generic [ref=e1742]:
+                - button "收藏" [ref=e1743] [cursor=pointer]: 收藏
+                - generic [ref=e1745]: 武
+            - paragraph [ref=e1746]: 暴击23 / 全能42
+            - generic [ref=e1747]:
+              - generic [ref=e1748]: 盾牌 · ilvl246
+              - generic [ref=e1749]: 希纳斯节点 ›
+        - article [ref=e1750]:
+          - generic [ref=e1752]:
+            - generic [ref=e1753]:
+              - heading "惠魔佩剑" [level=3] [ref=e1754]
+              - generic [ref=e1755]:
+                - button "收藏" [ref=e1756] [cursor=pointer]: 收藏
+                - generic [ref=e1758]: 武
+            - paragraph [ref=e1759]: 急速39 / 精通25
+            - generic [ref=e1760]:
+              - generic [ref=e1761]: 单手剑 · ilvl246
+              - generic [ref=e1762]: 艾杰斯亚学院 ›
+        - article [ref=e1763]:
+          - generic [ref=e1765]:
+            - generic [ref=e1766]:
+              - heading "殇魔弯刀" [level=3] [ref=e1767]
+              - generic [ref=e1768]:
+                - button "收藏" [ref=e1769] [cursor=pointer]: 收藏
+                - generic [ref=e1771]: 武
+            - paragraph [ref=e1772]: 急速39 / 全能25
+            - generic [ref=e1773]:
+              - generic [ref=e1774]: 单手剑 · ilvl246
+              - generic [ref=e1775]: 艾杰斯亚学院 ›
+        - article [ref=e1776]:
+          - generic [ref=e1778]:
+            - generic [ref=e1779]:
+              - heading "艾杰斯亚修篱斧" [level=3] [ref=e1780]
+              - generic [ref=e1781]:
+                - button "收藏" [ref=e1782] [cursor=pointer]: 收藏
+                - generic [ref=e1784]: 武
+            - paragraph [ref=e1785]: 精通84 / 全能45
+            - generic [ref=e1786]:
+              - generic [ref=e1787]: 双手斧 · ilvl246
+              - generic [ref=e1788]: 艾杰斯亚学院 ›
+        - article [ref=e1789]:
+          - generic [ref=e1791]:
+            - generic [ref=e1792]:
+              - heading "克罗兹鳞片护盾" [level=3] [ref=e1793]
+              - generic [ref=e1794]:
+                - button "收藏" [ref=e1795] [cursor=pointer]: 收藏
+                - generic [ref=e1797]: 武
+            - paragraph [ref=e1798]: 精通23 / 全能42
+            - generic [ref=e1799]:
+              - generic [ref=e1800]: 盾牌 · ilvl246
+              - generic [ref=e1801]: 艾杰斯亚学院 ›
+        - article [ref=e1802]:
+          - generic [ref=e1804]:
+            - generic [ref=e1805]:
+              - heading "指挥的重担" [level=3] [ref=e1806]
+              - generic [ref=e1807]:
+                - button "收藏" [ref=e1808] [cursor=pointer]: 收藏
+                - generic [ref=e1810]: 武
+            - paragraph [ref=e1811]: 暴击48 / 全能26
+            - generic [ref=e1812]:
+              - generic [ref=e1813]: 单手锤 · ilvl269
+              - generic [ref=e1814]: 虚空尖塔 ›
+        - article [ref=e1815]:
+          - generic [ref=e1817]:
+            - generic [ref=e1818]:
+              - heading "高尚决心壁垒" [level=3] [ref=e1819]
+              - generic [ref=e1820]:
+                - button "收藏" [ref=e1821] [cursor=pointer]: 收藏
+                - generic [ref=e1823]: 武
+            - paragraph [ref=e1824]: 暴击22 / 全能52
+            - generic [ref=e1825]:
+              - generic [ref=e1826]: 盾牌 · ilvl269
+              - generic [ref=e1827]: 虚空尖塔 ›
+        - article [ref=e1828]:
+          - generic [ref=e1830]:
+            - generic [ref=e1831]:
+              - heading "终焉暮光之刃" [level=3] [ref=e1832]
+              - generic [ref=e1833]:
+                - button "收藏" [ref=e1834] [cursor=pointer]: 收藏
+                - generic [ref=e1836]: 武
+            - paragraph [ref=e1837]: 暴击50 / 精通24
+            - generic [ref=e1838]:
+              - generic [ref=e1839]: 单手剑 · ilvl269
+              - generic [ref=e1840]: 虚空尖塔 ›
+        - article [ref=e1841]:
+          - generic [ref=e1843]:
+            - generic [ref=e1844]:
+              - heading "贝莱梅的最终审判" [level=3] [ref=e1845]
+              - generic [ref=e1846]:
+                - button "收藏" [ref=e1847] [cursor=pointer]: 收藏
+                - generic [ref=e1849]: 武
+            - paragraph [ref=e1850]: 暴击44 / 精通104
+            - generic [ref=e1851]:
+              - generic [ref=e1852]: 双手锤 · ilvl269
+              - generic [ref=e1853]: 虚空尖塔 ›
+        - article [ref=e1854]:
+          - generic [ref=e1856]:
+            - generic [ref=e1857]:
+              - heading "盲目裁决之刃" [level=3] [ref=e1858]
+              - generic [ref=e1859]:
+                - button "收藏" [ref=e1860] [cursor=pointer]: 收藏
+                - generic [ref=e1862]: 武
+            - paragraph [ref=e1863]: 急速49 / 精通25
+            - generic [ref=e1864]:
+              - generic [ref=e1865]: 单手剑 · ilvl269
+              - generic [ref=e1866]: 虚空尖塔 ›
+        - article [ref=e1867]:
+          - generic [ref=e1869]:
+            - generic [ref=e1870]:
+              - heading "图拉扬的虚假回响" [level=3] [ref=e1871]
+              - generic [ref=e1872]:
+                - button "收藏" [ref=e1873] [cursor=pointer]: 收藏
+                - generic [ref=e1875]: 武
+            - paragraph [ref=e1876]: 暴击21 / 急速53
+            - generic [ref=e1877]:
+              - generic [ref=e1878]: 单手锤 · ilvl269
+              - generic [ref=e1879]: 虚空尖塔 ›
+        - article [ref=e1880]:
+          - generic [ref=e1882]:
+            - generic [ref=e1883]:
+              - heading "萨拉斯护晨者" [level=3] [ref=e1884]
+              - generic [ref=e1885]:
+                - button "收藏" [ref=e1886] [cursor=pointer]: 收藏
+                - generic [ref=e1888]: 武
+            - paragraph [ref=e1889]: 暴击22 / 全能52
+            - generic [ref=e1890]:
+              - generic [ref=e1891]: 盾牌 · ilvl269
+              - generic [ref=e1892]: 奎尔丹纳斯进军 ›
+        - article [ref=e1893]:
+          - generic [ref=e1895]:
+            - generic [ref=e1896]:
+              - heading "阿拉恩达尔，黎明之歌" [level=3] [ref=e1897]
+              - generic [ref=e1898]:
+                - button "收藏" [ref=e1899] [cursor=pointer]: 收藏
+                - generic [ref=e1901]: 武
+            - paragraph [ref=e1902]: 急速148
+            - generic [ref=e1903]:
+              - generic [ref=e1904]: 双手斧 · ilvl269
+              - generic [ref=e1905]: 奎尔丹纳斯进军 ›

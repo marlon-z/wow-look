@@ -1,5 +1,5 @@
 import { ASSET_BASE, DATA_BASE, LOCALE_DATA_BASE, STORAGE_KEYS } from './config.js';
-import { SUPPORTED_LOCALES, createI18n, getLocaleName, resolveLocale } from './i18n.js';
+import { SUPPORTED_LOCALES, createI18n, getLocaleName, resolveLocale } from './i18n.js?v=20260507-share-ui';
 
 const CLASS_LIST = [
   { id: 1, key: 'warrior', name: '战士', shortName: '战士', armorType: 'plate', armorTypeName: '板甲', color: '#C69B6D', abbr: '战', assetCode: 'zs' },
@@ -121,6 +121,7 @@ const state = {
   selectedItem: null,
   overlay: '',
   toast: '',
+  manualShareUrl: '',
   favoriteSortMode: 'slot',
   pendingRemoveFavoriteKey: '',
   sharedFavoriteList: [],
@@ -158,8 +159,11 @@ function isChineseLocale() {
   return state.locale === 'zh-CN' || state.locale === 'zh-TW';
 }
 
-function dataLocaleKey(locale = state.locale) {
-  return locale === 'en-US' || locale === 'en-GB' ? 'en-US' : '';
+function dataLocaleKeys(locale = state.locale) {
+  const resolved = resolveLocale(locale);
+  if (resolved === 'zh-CN') return [];
+  if (resolved === 'en-GB') return ['en-GB', 'en-US'];
+  return [resolved];
 }
 
 function hasCjk(value) {
@@ -356,18 +360,22 @@ async function loadClassData(classKey) {
 }
 
 async function loadClassLocale(classKey, locale = state.locale) {
-  const localeKey = dataLocaleKey(locale);
-  if (!localeKey) return null;
-  const cacheKey = `${localeKey}:${classKey}`;
-  if (state.classLocaleCache[cacheKey] !== undefined) return state.classLocaleCache[cacheKey];
-  try {
-    const data = await fetchJson(`${LOCALE_DATA_BASE}/${localeKey}/data/${classKey}.json`);
-    state.classLocaleCache[cacheKey] = data;
-    return data;
-  } catch {
-    state.classLocaleCache[cacheKey] = null;
-    return null;
+  const localeKeys = dataLocaleKeys(locale);
+  for (const localeKey of localeKeys) {
+    const cacheKey = `${localeKey}:${classKey}`;
+    if (state.classLocaleCache[cacheKey] !== undefined) {
+      if (state.classLocaleCache[cacheKey]) return state.classLocaleCache[cacheKey];
+      continue;
+    }
+    try {
+      const data = await fetchJson(`${LOCALE_DATA_BASE}/${localeKey}/data/${classKey}.json`);
+      state.classLocaleCache[cacheKey] = data;
+      return data;
+    } catch {
+      state.classLocaleCache[cacheKey] = null;
+    }
   }
+  return null;
 }
 
 function normalizeSlotType(slot) {
@@ -835,7 +843,7 @@ function getActiveFiltersText() {
   if (spec) parts.push(specLabel(spec));
   if (state.filters.selectedSourceTypes.length) parts.push(state.filters.selectedSourceTypes.map((type) => t(`sourceTypes.${type}`)).join('/'));
   const instance = buildInstanceOptions(state.classData?.instances || []).find((item) => String(item.id) === String(state.filters.selectedInstanceId));
-  if (instance) parts.push(instance.name);
+  if (instance) parts.push(instanceLabel(instance));
   state.filters.selectedSlots.forEach((slot) => parts.push(t(`slots.${slot}`)));
   state.filters.stats.filter((item) => item.state === 'include').forEach((stat) => parts.push(t(`stats.${stat.type}`)));
   state.filters.stats.filter((item) => item.state === 'exclude').forEach((stat) => parts.push(`-${t(`stats.${stat.type}`)}`));
@@ -1079,7 +1087,7 @@ function renderFilterPanel() {
       ${renderChipRow('filters.view', VIEW_MODES.map((type) => ({ id: type, label: t(`views.${type}`), on: state.filters.selectedViewMode === type, action: 'viewMode' })))}
       ${renderChipRow('filters.source', SOURCE_OPTIONS.map((type) => ({ id: type, label: t(`sourceTypes.${type}`), on: type === 'all' ? !state.filters.selectedSourceTypes.length : state.filters.selectedSourceTypes.includes(type), action: 'sourceType' })))}
       ${renderChipRow('filters.slot', SLOT_OPTIONS.map((slot) => ({ id: slot.type, label: t(`slots.${slot.type}`), on: state.filters.selectedSlots.includes(slot.type), action: 'slot' })), true)}
-      ${renderChipRow('filters.instance', visibleInstanceOptions().map((instance) => ({ id: instance.id, label: instance.name, on: String(state.filters.selectedInstanceId) === String(instance.id), action: 'instance' })), true)}
+      ${renderChipRow('filters.instance', visibleInstanceOptions().map((instance) => ({ id: instance.id, label: instanceLabel(instance), on: String(state.filters.selectedInstanceId) === String(instance.id), action: 'instance' })), true)}
       <div class="filter-actions">
         <span>${escapeHtml(getActiveFiltersText())}</span>
         <button data-action="reset">${escapeHtml(t('reset'))}</button>
@@ -1158,6 +1166,7 @@ function renderOverlays() {
     state.overlay === 'announcement' ? renderAnnouncement() : '',
     state.overlay === 'favorites' ? renderFavoritesPanel() : '',
     state.overlay === 'shared' ? renderSharedFavoritesPanel() : '',
+    state.overlay === 'manualShare' ? renderManualSharePanel() : '',
     state.overlay === 'detail' && state.selectedItem ? renderDetailModal(state.selectedItem) : '',
     state.overlay === 'buildDraft' ? renderBuildDraftPanel() : '',
     state.overlay === 'favoritePicker' ? renderFavoritePickerPanel() : '',
@@ -1220,6 +1229,19 @@ function renderSharedFavoritesPanel() {
     `;
   }
   return renderOverlayFrame(t('sharedFavorites'), content);
+}
+
+function renderManualSharePanel() {
+  const body = `
+    <div class="manual-share-body">
+      <p>${escapeHtml(t('manualShareDesc'))}</p>
+      <textarea readonly data-action="manualShareText">${escapeHtml(state.manualShareUrl)}</textarea>
+      <div class="panel-actions">
+        <button data-action="copyManualShare">${escapeHtml(t('copyLink'))}</button>
+      </div>
+    </div>
+  `;
+  return renderOverlayFrame(t('manualShareTitle'), body);
 }
 
 function renderFavoriteGroup(group, removable) {
@@ -1487,26 +1509,71 @@ function importSharedFavorites() {
   refreshItemFlags();
 }
 
-async function shareUrl(url) {
+async function copyTextToClipboard(text) {
   try {
-    if (navigator.share) {
-      await navigator.share({ title: t('appName'), url });
-    } else {
-      await navigator.clipboard.writeText(url);
-      showToast(t('share'));
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text);
+      return true;
     }
+  } catch {}
+  try {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'fixed';
+    textarea.style.left = '-9999px';
+    textarea.style.top = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    const copied = document.execCommand('copy');
+    document.body.removeChild(textarea);
+    return copied;
   } catch {
-    try {
-      await navigator.clipboard.writeText(url);
-      showToast(t('share'));
-    } catch {}
+    return false;
   }
+}
+
+async function shareUrl(url) {
+  const shareData = { title: t('appName'), url };
+  try {
+    if (navigator.share && (!navigator.canShare || navigator.canShare(shareData))) {
+      await navigator.share(shareData);
+      showToast(t('shareLinkCopied'));
+      return;
+    }
+  } catch (err) {
+    if (err?.name === 'AbortError') return;
+  }
+
+  if (await copyTextToClipboard(url)) {
+    showToast(t('shareLinkCopied'));
+    return;
+  }
+
+  state.manualShareUrl = url;
+  state.overlay = 'manualShare';
+  render();
+  showToast(t('shareUnavailable'));
 }
 
 function absoluteUrlWithShare(payload) {
   const url = new URL(location.href);
+  const remote = url.searchParams.get('remote');
+  url.search = '';
+  if (remote) url.searchParams.set('remote', remote);
   url.searchParams.set('shareFav', payload);
   url.hash = '';
+  return url.toString();
+}
+
+function absoluteBuildRequestUrl() {
+  const url = new URL(location.href);
+  const remote = url.searchParams.get('remote');
+  url.search = '';
+  if (remote) url.searchParams.set('remote', remote);
+  url.searchParams.set('classKey', state.classKey);
+  url.searchParams.set('requestBuild', '1');
+  url.hash = `class=${state.classKey}&requestBuild=1`;
   return url.toString();
 }
 
@@ -1537,7 +1604,7 @@ function handleClick(event) {
   }
   if (action === 'announcement') { state.overlay = 'announcement'; render(); }
   if (action === 'favorites') { state.overlay = 'favorites'; render(); }
-  if (action === 'closeOverlay') { state.overlay = ''; state.selectedItem = null; render(); }
+  if (action === 'closeOverlay') { state.overlay = ''; state.selectedItem = null; state.manualShareUrl = ''; render(); }
   if (action === 'item') openDetail(target.dataset.id);
   if (action === 'favoriteItem' || action === 'detailFavorite') toggleCurrentFavorite(target.dataset.id);
   if (action === 'spec') { state.filters.selectedSpec = state.filters.selectedSpec === Number(target.dataset.id) ? null : Number(target.dataset.id); render(); }
@@ -1582,19 +1649,18 @@ function handleClick(event) {
   if (action === 'shareFavorites') {
     const payload = buildFavoriteSharePayload(getFavorites());
     if (payload) shareUrl(absoluteUrlWithShare(payload));
+    else showToast(t('nothingToShare'));
   }
   if (action === 'importShared') importSharedFavorites();
   if (action === 'shareRequest') {
-    const url = new URL(location.href);
-    url.searchParams.set('classKey', state.classKey);
-    url.searchParams.set('requestBuild', '1');
-    url.hash = `class=${state.classKey}&requestBuild=1`;
-    shareUrl(url.toString());
+    shareUrl(absoluteBuildRequestUrl());
   }
   if (action === 'shareBuild') {
     const payload = buildFavoriteSharePayload(getBuildDraft().items);
     if (payload) shareUrl(absoluteUrlWithShare(payload));
+    else showToast(t('buildShareEmpty'));
   }
+  if (action === 'copyManualShare') copyTextToClipboard(state.manualShareUrl).then((copied) => showToast(copied ? t('shareLinkCopied') : t('shareUnavailable')));
   if (action === 'dismissBuildIntro') { state.showBuildRequestIntro = false; render(); }
   if (action === 'newBuild') { startBuildDraft(state.classKey, state.classData?.class?.name || '', false); state.showBuildRequestIntro = false; refreshItemFlags(); render(); }
   if (action === 'buildDraft') { state.overlay = 'buildDraft'; render(); }

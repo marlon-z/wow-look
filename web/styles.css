@@ -546,10 +546,9 @@ button {
 }
 
 .chip-scroll-wrap {
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  padding-bottom: 5px;
-  scrollbar-width: none;
+  flex-wrap: wrap;
+  overflow: visible;
+  padding-bottom: 0;
 }
 
 .chip-scroll-wrap::-webkit-scrollbar {
@@ -862,6 +861,7 @@ button {
 }
 
 .announcement-body,
+.manual-share-body,
 .favorite-list,
 .tt-body,
 .shared-action-bar,
@@ -877,6 +877,27 @@ button {
 
 .panel-actions {
   padding-bottom: 6px;
+}
+
+.manual-share-body p {
+  margin: 0 0 12px;
+  color: var(--muted);
+}
+
+.manual-share-body textarea {
+  width: 100%;
+  min-height: 118px;
+  resize: vertical;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 168, 75, 0.28);
+  background: rgba(5, 4, 8, 0.48);
+  color: var(--cream);
+  font: 13px/1.45 ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+}
+
+.manual-share-body .panel-actions {
+  padding: 12px 0 0;
 }
 
 .panel-actions .danger,
@@ -1181,6 +1202,13 @@ button {
   .filter-head {
     width: 82px;
     font-size: 13px;
+  }
+
+  .chip-scroll-wrap {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 5px;
+    scrollbar-width: none;
   }
 
   .chip {

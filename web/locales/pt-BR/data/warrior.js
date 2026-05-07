@@ -1,0 +1,2693 @@
+module.exports = {
+  "locale": "pt-BR",
+  "apiLocale": "pt_BR",
+  "source": "blizzard-game-data-api",
+  "region": "us",
+  "namespace": "static-us",
+  "generatedAt": "2026-05-07T06:25:10.621Z",
+  "classKey": "warrior",
+  "items": {
+    "49802": {
+      "id": 49802,
+      "name": "Martelo de Duas Toneladas do Criomal",
+      "sourceName": "千钧",
+      "quality": "Épico",
+      "inventoryType": "Duas mãos",
+      "itemClass": "Arma",
+      "itemSubclass": "Maça",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "49808": {
+      "id": 49808,
+      "name": "Cinto Dobrado de Ouro",
+      "sourceName": "曲金腰带",
+      "quality": "Épico",
+      "inventoryType": "Cintura",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "49812": {
+      "id": 49812,
+      "name": "Aliança de Casamento Furtada",
+      "sourceName": "被盗的婚戒",
+      "quality": "Épico",
+      "inventoryType": "Dedo",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "49819": {
+      "id": 49819,
+      "name": "Crânio do Senhor Esqueletal",
+      "sourceName": "骷髅领主的狼牙头盔",
+      "quality": "Épico",
+      "inventoryType": "Cabeça",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "49823": {
+      "id": 49823,
+      "name": "Manto do Cardeal Caído",
+      "sourceName": "阵亡主教斗篷",
+      "quality": "Épico",
+      "inventoryType": "Costas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tecido",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "50228": {
+      "id": 50228,
+      "name": "Gargantilha Farpada de Ymarheim",
+      "sourceName": "尖刺伊米亚颈饰",
+      "quality": "Épico",
+      "inventoryType": "Pescoço",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "50234": {
+      "id": 50234,
+      "name": "Placa d'Ombros do Sangue Congelado",
+      "sourceName": "霜血肩甲",
+      "quality": "Épico",
+      "inventoryType": "Ombros",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "50272": {
+      "id": 50272,
+      "name": "Costelas de Serpe Gélida",
+      "sourceName": "冰龙胸骨",
+      "quality": "Épico",
+      "inventoryType": "Torso",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "151307": {
+      "id": 151307,
+      "name": "Contrato de Espreitador do Caos",
+      "sourceName": "虚空追猎者的契约",
+      "quality": "Raro",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 250966,
+          "name": "Chamado do Espreitador do Caos",
+          "description": "Usar: Convoca dois Espreitadores do Caos para atacar o alvo de duas direções, causando até 1.844 de dano Físico a todos os inimigos no caminho. (1 min 30 s de recarga)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "151308": {
+      "id": 151308,
+      "name": "Selo da Nobreza de Eredath",
+      "sourceName": "艾瑞达斯贵族印戒",
+      "quality": "Raro",
+      "inventoryType": "Dedo",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": 1331,
+      "setName": "Lamento de Velen"
+    },
+    "151309": {
+      "id": 151309,
+      "name": "Colar do Caos Rodopiante",
+      "sourceName": "扭曲虚空项链",
+      "quality": "Raro",
+      "inventoryType": "Pescoço",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "151311": {
+      "id": 151311,
+      "name": "Elo do Triunvirato",
+      "sourceName": "执政团指轮",
+      "quality": "Raro",
+      "inventoryType": "Dedo",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": 1331,
+      "setName": "Lamento de Velen"
+    },
+    "151312": {
+      "id": 151312,
+      "name": "Ampola de Puro Caos",
+      "sourceName": "纯净虚空之瓶",
+      "quality": "Raro",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 250765,
+          "name": "Caos Sorvedouro",
+          "description": "Usar: Energia do Caos se acumula aos seus pés por 10 s, causando 602 de dano de Sombra as alvos que ficarem dentro da área afetada. Você recebe uma cura equivalente a 300% do dano causado.\r\n (1 min 30 s de recarga)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "151327": {
+      "id": 151327,
+      "name": "Cinturão da Guarda Sombria",
+      "sourceName": "影卫腰带",
+      "quality": "Raro",
+      "inventoryType": "Cintura",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "151328": {
+      "id": 151328,
+      "name": "Avambraços da Esperança Perdida",
+      "sourceName": "失落希望臂甲",
+      "quality": "Raro",
+      "inventoryType": "Pulsos",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "151329": {
+      "id": 151329,
+      "name": "Peitoral do Toque Sombrio",
+      "sourceName": "黑暗之触胸甲",
+      "quality": "Raro",
+      "inventoryType": "Torso",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "151330": {
+      "id": 151330,
+      "name": "Calçados da Armadilha",
+      "sourceName": "陷阱干扰靴",
+      "quality": "Raro",
+      "inventoryType": "Pés",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "151332": {
+      "id": 151332,
+      "name": "Manoplas da Garra do Caos",
+      "sourceName": "灵爪手甲",
+      "quality": "Raro",
+      "inventoryType": "Mãos",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 253793,
+          "name": "Garra do Caos",
+          "description": "Equipado: Seus ataques automáticos têm chance de causar mais 65 de dano de Sombra."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "151333": {
+      "id": 151333,
+      "name": "Coroa do Enviado Sombrio",
+      "sourceName": "黑暗使徒之冠",
+      "quality": "Raro",
+      "inventoryType": "Cabeça",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193701": {
+      "id": 193701,
+      "name": "Caixa-enigma de Algeth'ar",
+      "sourceName": "艾杰斯亚谜题盒",
+      "quality": "Raro",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 383781,
+          "name": "Enigma de Algeth'ar",
+          "description": "Usar: Soluciona um enigma, aumentando em 112 a sua Maestria por 20 s. (2 min de recarga)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "193705": {
+      "id": 193705,
+      "name": "Peitoral do Conhecimento Comprovado",
+      "sourceName": "确证学识胸铠",
+      "quality": "Raro",
+      "inventoryType": "Torso",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193706": {
+      "id": 193706,
+      "name": "Grevas do Professor Venerado",
+      "sourceName": "敬仰教授护胫",
+      "quality": "Raro",
+      "inventoryType": "Pernas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193708": {
+      "id": 193708,
+      "name": "Elo da Estrela de Platina",
+      "sourceName": "白金星辰指环",
+      "quality": "Raro",
+      "inventoryType": "Dedo",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "Tattukiaka, em Iskaara, deve se interessar por eses tipo de coisa.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193711": {
+      "id": 193711,
+      "name": "Alfanje do Feitiço Maldito",
+      "sourceName": "殇魔弯刀",
+      "quality": "Raro",
+      "inventoryType": "Uma Mão",
+      "itemClass": "Arma",
+      "itemSubclass": "Espada",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193712": {
+      "id": 193712,
+      "name": "Manto Manchado de Poção",
+      "sourceName": "药渍披风",
+      "quality": "Raro",
+      "inventoryType": "Costas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tecido",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193716": {
+      "id": 193716,
+      "name": "Cutelo de Algeth'ar",
+      "sourceName": "艾杰斯亚修篱斧",
+      "quality": "Raro",
+      "inventoryType": "Duas mãos",
+      "itemClass": "Arma",
+      "itemSubclass": "Machado",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "193719": {
+      "id": 193719,
+      "name": "Equipamento de Jogos Dragônicos",
+      "sourceName": "巨龙竞技装备",
+      "quality": "Raro",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "Aqui na Academia Algeth'ar, jogamos apenas o nosso melhor jogo.",
+      "spells": [
+        {
+          "id": 386692,
+          "name": "Equipamento de Jogos Dragônicos",
+          "description": "Usar: Solta as bolas dos Jogos Dragônicos no campo. Ao esbarrar com elas, você as chuta contra o alvo inimigo, causando 1.387 de dano Físico. (2 min de recarga)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241044": {
+      "id": 241044,
+      "name": "Caixote Argussiano",
+      "sourceName": "阿古斯箱子",
+      "quality": "Incomum",
+      "inventoryType": "Não equipável",
+      "itemClass": "Moradia",
+      "itemSubclass": "Decoração",
+      "binding": "Vincula ao Bando de Guerra",
+      "description": "",
+      "spells": [
+        {
+          "id": 1230953,
+          "name": "Coletar Caixote Argussiano",
+          "description": "Usar: Coloca esta decoração no baú da sua casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249275": {
+      "id": 249275,
+      "name": "Baluarte da Determinação Nobre",
+      "sourceName": "高尚决心壁垒",
+      "quality": "Épico",
+      "inventoryType": "Mão Secundária",
+      "itemClass": "Armadura",
+      "itemSubclass": "Escudo",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "\"A única nobreza é a destruição.\" – Imperador Averzian",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249277": {
+      "id": 249277,
+      "name": "Julgamento Final de Bellamia",
+      "sourceName": "贝莱梅的最终审判",
+      "quality": "Épico",
+      "inventoryType": "Duas mãos",
+      "itemClass": "Arma",
+      "itemSubclass": "Maça",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249281": {
+      "id": 249281,
+      "name": "Lâmina do Crepúsculo Final",
+      "sourceName": "终焉暮光之刃",
+      "quality": "Épico",
+      "inventoryType": "Uma Mão",
+      "itemClass": "Arma",
+      "itemSubclass": "Espada",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249295": {
+      "id": 249295,
+      "name": "Eco Falso de Turalyon",
+      "sourceName": "图拉扬的虚假回响",
+      "quality": "Épico",
+      "inventoryType": "Uma Mão",
+      "itemClass": "Arma",
+      "itemSubclass": "Maça",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249296": {
+      "id": 249296,
+      "name": "Alah'endal, a Canção da Aurora",
+      "sourceName": "阿拉恩达尔，黎明之歌",
+      "quality": "Épico",
+      "inventoryType": "Duas mãos",
+      "itemClass": "Arma",
+      "itemSubclass": "Machado",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249307": {
+      "id": 249307,
+      "name": "Agarres Natiardentes",
+      "sourceName": "余烬之子护手",
+      "quality": "Épico",
+      "inventoryType": "Mãos",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249309": {
+      "id": 249309,
+      "name": "Peitoral Tocado Solúrico",
+      "sourceName": "日缚胸铠",
+      "quality": "Épico",
+      "inventoryType": "Torso",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249311": {
+      "id": 249311,
+      "name": "Grevas Sanguiluz",
+      "sourceName": "光血护胫",
+      "quality": "Épico",
+      "inventoryType": "Pernas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249313": {
+      "id": 249313,
+      "name": "Espaldares Julgados pela Luz",
+      "sourceName": "光之审判肩甲",
+      "quality": "Épico",
+      "inventoryType": "Ombros",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249316": {
+      "id": 249316,
+      "name": "Coroa do Tirano Fraturado",
+      "sourceName": "破碎暴君之冠",
+      "quality": "Épico",
+      "inventoryType": "Cabeça",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "Uma coroa sem reino.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249326": {
+      "id": 249326,
+      "name": "Braçadeiras da Marcha da Luz",
+      "sourceName": "圣光进军护腕",
+      "quality": "Épico",
+      "inventoryType": "Pulsos",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249331": {
+      "id": 249331,
+      "name": "Cinturão Umbroso de Ezzorak",
+      "sourceName": "艾佐拉克的幽暗腰铠",
+      "quality": "Épico",
+      "inventoryType": "Cintura",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249332": {
+      "id": 249332,
+      "name": "Pisoteadores de Parasita",
+      "sourceName": "寄生虫践踏靴",
+      "quality": "Épico",
+      "inventoryType": "Pés",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249335": {
+      "id": 249335,
+      "name": "Estandarte do Imperador",
+      "sourceName": "元首的战旗",
+      "quality": "Épico",
+      "inventoryType": "Costas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tecido",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249336": {
+      "id": 249336,
+      "name": "Sinete da Fera Faminta",
+      "sourceName": "饥饿野兽指环",
+      "quality": "Épico",
+      "inventoryType": "Dedo",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249337": {
+      "id": 249337,
+      "name": "Fita de Malícia Espiralada",
+      "sourceName": "盘绕恶意丝带",
+      "quality": "Épico",
+      "inventoryType": "Pescoço",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249339": {
+      "id": 249339,
+      "name": "Escamedo Espirrada de Penumbra",
+      "sourceName": "溅暗恐惧之鳞",
+      "quality": "Épico",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1260633,
+          "name": "Escamedo Espirrada de Penumbra",
+          "description": "Usar: Libera uma explosão de Caos voraz, causando 3.489 de dano de Sombra dividido entre inimigos próximos e absorvendo até 50% do dano recebido até que uma quantidade equivalente de dano seja evitada.\r\n\r\nDano aumentado em 30% por inimigo adicional, até um máximo de 150%. (2 min de recarga)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249342": {
+      "id": 249342,
+      "name": "Coração da Fome Antiga",
+      "sourceName": "上古饥渴之心",
+      "quality": "Épico",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251822,
+          "name": "Coração da Fome Antiga",
+          "description": "Equipado: Ataques têm chance de aumentar em 83 seu Acerto Crítico e tamanho, diminuindo ao longo de 12 s."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249343": {
+      "id": 249343,
+      "name": "Olhar do Vidente-de-aln",
+      "sourceName": "艾林先知的凝视",
+      "quality": "Épico",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "Há lugares para os quais os fiéis não ousam olhar.",
+      "spells": [
+        {
+          "id": 1256896,
+          "name": "Olhar do Vidente-de-aln",
+          "description": "Equipado: Dano e cura têm chance de conceder Visão-aln por 12 s. Enquanto ativa, lançar feitiços e habilidades manifesta Alnescarnecidos instáveis e consome suas essências para conceder 2 de Intelecto por 12 s. Várias aplicações podem acumular."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249344": {
+      "id": 249344,
+      "name": "Guião da Companhia da Luz",
+      "sourceName": "圣光连队的旌旗",
+      "quality": "Épico",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "Avante, a Vanguarda da Luz!",
+      "spells": [
+        {
+          "id": 1251817,
+          "name": "Guião da Companhia da Luz",
+          "description": "Equipado: Você se voluntariou para a Vanguarda da Luz.\r\n\r\n"
+        },
+        {
+          "id": 1259633,
+          "name": "Atacar!",
+          "description": "Usar: Lidera a ofensiva para ganhar 74 de Aceleração por 15 s. Todos os voluntários da Vanguarda da Luz em um raio de 40 m também ganham 18 de Velocidade por 6 s. (1 min 30 s de recarga)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249350": {
+      "id": 249350,
+      "name": "Fenda Florescente Forjada por Aln",
+      "sourceName": "艾林铸造的裂隙绽放",
+      "quality": "Épico",
+      "inventoryType": "Não equipável",
+      "itemClass": "Diversos",
+      "itemSubclass": "Sucata",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1261839,
+          "name": "Fenda Florescente",
+          "description": "Usar: Sintetiza um item para o torso do conjunto vinculado adequado para a sua classe."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249354": {
+      "id": 249354,
+      "name": "Núcleo Nulo Voraz Forjado no Caos",
+      "sourceName": "虚空铸造的饥饿虚核",
+      "quality": "Épico",
+      "inventoryType": "Não equipável",
+      "itemClass": "Diversos",
+      "itemSubclass": "Sucata",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1261838,
+          "name": "Núcleo Nulo Voraz",
+          "description": "Usar: Sintetiza um item para a mão do conjunto vinculado adequado para a sua classe."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249358": {
+      "id": 249358,
+      "name": "Núcleo Nulo Fanático Forjado no Caos",
+      "sourceName": "虚空铸造的狂热虚核",
+      "quality": "Épico",
+      "inventoryType": "Não equipável",
+      "itemClass": "Diversos",
+      "itemSubclass": "Sucata",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1261837,
+          "name": "Núcleo Nulo Fanático",
+          "description": "Usar: Sintetiza um item para a cabeça do conjunto vinculado adequado para a sua classe."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249362": {
+      "id": 249362,
+      "name": "Núcleo Nulo Corrompido Forjado no Caos",
+      "sourceName": "虚空铸造的腐化虚核",
+      "quality": "Épico",
+      "inventoryType": "Não equipável",
+      "itemClass": "Diversos",
+      "itemSubclass": "Sucata",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1261832,
+          "name": "Núcleo Nulo Corrompido",
+          "description": "Usar: Sintetiza um item para as pernas do conjunto vinculado adequado para a sua classe."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249366": {
+      "id": 249366,
+      "name": "Núcleo Nulo Desvelado Forjado no Caos",
+      "sourceName": "虚空铸造的解离虚核",
+      "quality": "Épico",
+      "inventoryType": "Não equipável",
+      "itemClass": "Diversos",
+      "itemSubclass": "Sucata",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1261831,
+          "name": "Núcleo Nulo Desvelado",
+          "description": "Usar: Sintetiza um item para os ombros do conjunto vinculado adequado para a sua classe."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249367": {
+      "id": 249367,
+      "name": "Badulaque do Caos Ressonante",
+      "sourceName": "鸣响虚空珍玩",
+      "quality": "Épico",
+      "inventoryType": "Não equipável",
+      "itemClass": "Reagente",
+      "itemSubclass": "Ficha Contextual",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "Encontre Kirana perto da entrada da Marcha em Quel'Danas para trocar este item por um poderoso conjunto de armadura de classe.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249368": {
+      "id": 249368,
+      "name": "Corrente de Sonicaos Eterna",
+      "sourceName": "永恒虚空之歌项链",
+      "quality": "Épico",
+      "inventoryType": "Pescoço",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1271211,
+          "name": "Corrente de Sonicaos Eterna",
+          "description": "Equipado: Causar dano de Sombra tem chance de liberar uma Ferroada de Espreitador do Caos, causando 103 de dano de Sombra ao alvo ao longo de 10 s. Se for aplicado de novo, o dano restante é somado à próxima Ferroada."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249369": {
+      "id": 249369,
+      "name": "Elo da Luz",
+      "sourceName": "圣光纽带",
+      "quality": "Épico",
+      "inventoryType": "Dedo",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249370": {
+      "id": 249370,
+      "name": "Nulicapa Dracônica",
+      "sourceName": "龙族虚无披风",
+      "quality": "Épico",
+      "inventoryType": "Costas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tecido",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249380": {
+      "id": 249380,
+      "name": "Cintura-encadeada Atada pelo Ódio",
+      "sourceName": "仇恨束缚腰链",
+      "quality": "Épico",
+      "inventoryType": "Cintura",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249381": {
+      "id": 249381,
+      "name": "Grevas dos Não Formados",
+      "sourceName": "未成形者护胫",
+      "quality": "Épico",
+      "inventoryType": "Pés",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249805": {
+      "id": 249805,
+      "name": "Vestígio Gosmento da Divindade Insonhada",
+      "sourceName": "未梦之神的污泥残迹",
+      "quality": "Épico",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "A gosma parece não ter fim.",
+      "spells": [
+        {
+          "id": 1256790,
+          "name": "Vestígio Gosmento da Divindade Insonhada",
+          "description": "Equipado: Você tem uma alta chance de cuspir muco volátil em seu alvo, causando 4 de dano de Natureza por segundo e acumulando até 5 vezes.\r\n\r\nChegando a 5 aplicações ou à morte do inimigo, o muco se consome violentamente para causar 371 de dano de Natureza dividido entre os inimigos próximos.Dano aumentado em 30% por inimigo adicional, até um máximo de 150%."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249806": {
+      "id": 249806,
+      "name": "Pluma Resplandecente",
+      "sourceName": "光耀飞羽",
+      "quality": "Épico",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1260592,
+          "name": "Pluma Resplandecente",
+          "description": "Equipado: O resplendor da Pluma concede 30 de Maestria, enfraquecendo ao longo de 60 s antes de reacender toda sua incandescência. O poder da Pluma também regenera fora de combate."
+        },
+        {
+          "id": 1265805,
+          "name": "Pluma Umbrática",
+          "description": "Usar: Quando fora de combate, invoca a natureza dúbia da Pluma para transformá-la em uma Pluma Umbrática. (5 min de recarga)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249807": {
+      "id": 249807,
+      "name": "O Ovo Eterno",
+      "sourceName": "永恒之卵",
+      "quality": "Épico",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1256391,
+          "name": "O Ovo Eterno",
+          "description": "Equipado: Suas habilidades têm uma chance de conceder uma casca protetora, absorvendo até 25% do dano recebido por 6 s ou até que 1.197 de dano tenha sido evitado. Se a casca expirar sem que quebre, concede 41 de Aceleração por 12 s."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249915": {
+      "id": 249915,
+      "name": "Guardas da Extinção",
+      "sourceName": "灭绝腿铠",
+      "quality": "Épico",
+      "inventoryType": "Pernas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "Alguém tem que ser o último a permanecer de pé.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249919": {
+      "id": 249919,
+      "name": "Elo da Esperança Sin'dorei",
+      "sourceName": "辛多雷希望指环",
+      "quality": "Épico",
+      "inventoryType": "Dedo",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249920": {
+      "id": 249920,
+      "name": "Olho da Meia-noite",
+      "sourceName": "至暗之夜的眼眸",
+      "quality": "Épico",
+      "inventoryType": "Dedo",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1266505,
+          "name": "Olho da Meia-noite",
+          "description": "Equipado: Receber dano de Sombra maior que 15% do seu máximo de pontos de vida concede uma barreira que absorve até 240 de dano e aumenta em 10 sua Evasão enquanto durar. Esse efeito pode ocorrer a cada 30 s."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "249921": {
+      "id": 249921,
+      "name": "Guarda d'Aurora Talassiana",
+      "sourceName": "萨拉斯护晨者",
+      "quality": "Épico",
+      "inventoryType": "Mão Secundária",
+      "itemClass": "Armadura",
+      "itemSubclass": "Escudo",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249947": {
+      "id": 249947,
+      "name": "Grã-dragonas do Destruidor da Noite",
+      "sourceName": "终夜者的重型披风",
+      "quality": "Épico",
+      "inventoryType": "Costas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tecido",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249948": {
+      "id": 249948,
+      "name": "Embraces Bélicos do Destruidor da Noite",
+      "sourceName": "终夜者的战带",
+      "quality": "Épico",
+      "inventoryType": "Pulsos",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249949": {
+      "id": 249949,
+      "name": "Cinturão do Destruidor da Noite",
+      "sourceName": "终夜者的护腰",
+      "quality": "Épico",
+      "inventoryType": "Cintura",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249950": {
+      "id": 249950,
+      "name": "Brafoneiras do Destruidor da Noite",
+      "sourceName": "终夜者的肩铠",
+      "quality": "Épico",
+      "inventoryType": "Ombros",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": 1990,
+      "setName": "Fúria do Destruidor da Noite"
+    },
+    "249951": {
+      "id": 249951,
+      "name": "Chausses do Destruidor da Noite",
+      "sourceName": "终夜者的腿铠",
+      "quality": "Épico",
+      "inventoryType": "Pernas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": 1990,
+      "setName": "Fúria do Destruidor da Noite"
+    },
+    "249952": {
+      "id": 249952,
+      "name": "Presas do Destruidor da Noite",
+      "sourceName": "终夜者的獠牙头盔",
+      "quality": "Épico",
+      "inventoryType": "Cabeça",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": 1990,
+      "setName": "Fúria do Destruidor da Noite"
+    },
+    "249953": {
+      "id": 249953,
+      "name": "Punhos do Destruidor da Noite",
+      "sourceName": "终夜者的铁拳",
+      "quality": "Épico",
+      "inventoryType": "Mãos",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": 1990,
+      "setName": "Fúria do Destruidor da Noite"
+    },
+    "249954": {
+      "id": 249954,
+      "name": "Grandes Botas do Destruidor da Noite",
+      "sourceName": "终夜者的重靴",
+      "quality": "Épico",
+      "inventoryType": "Pés",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "249955": {
+      "id": 249955,
+      "name": "Peitoral do Destruidor da Noite",
+      "sourceName": "终夜者的胸铠",
+      "quality": "Épico",
+      "inventoryType": "Torso",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": 1990,
+      "setName": "Fúria do Destruidor da Noite"
+    },
+    "250226": {
+      "id": 250226,
+      "name": "Gancho Torto de Agaturro",
+      "sourceName": "拉奇的弯曲钩爪",
+      "quality": "Raro",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1254193,
+          "name": "Gancho Torto de Agaturro",
+          "description": "Usar: Arremessa um gancho gigantesco em direção ao seu alvo, atingindo inimigos pelo caminho e causando 577 de dano Físico a cada um deles. Quando o gancho entra em contato com o alvo, ele causa 385 de dano Físico dividido entre os inimigos em um raio de 7 m. (1 min 30 s de recarga)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "250227": {
+      "id": 250227,
+      "name": "Estandarte de Guerra de Kroluk",
+      "sourceName": "克罗鲁科的战旗",
+      "quality": "Raro",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250563,
+          "name": "Estandarte de Guerra de Kroluk",
+          "description": "Equipado: Seus ataques corpo a corpo têm chance de evocar um Lançador de Machado de elite que arremessa um machado no seu alvo, causando 1.498 de dano Físico."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "250241": {
+      "id": 250241,
+      "name": "Marca da Luz",
+      "sourceName": "圣光印记",
+      "quality": "Raro",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250582,
+          "name": "Marca da Luz",
+          "description": "Equipado: Seus ataques têm uma chance de desferir um Golpe Radiante contra o alvo, causando 128 de dano Sagrado dividido entre os inimigos próximos.\r\n"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "250242": {
+      "id": 250242,
+      "name": "Replicador de Geleia",
+      "sourceName": "水母复制器",
+      "quality": "Raro",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250584,
+          "name": "Replicador de Geleia",
+          "description": "Equipado: Receber dano tem chance de formar um escudo de geleia por 10 s, absorvendo 40% do dano recebido, até 774.\r\n\r\n\r\nSe seus pontos de vida ficarem abaixo de 35%, a geleia instintivamente se engrossa ao seu redor por 5 s, absorvendo até 335 de dano. Este efeito só pode ser ativado uma vez a cada 1 min.\r\n\r\n"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "250247": {
+      "id": 250247,
+      "name": "Amuleto do Hino Abissal",
+      "sourceName": "深渊赞歌护符",
+      "quality": "Épico",
+      "inventoryType": "Pescoço",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "250256": {
+      "id": 250256,
+      "name": "Coração do Vento",
+      "sourceName": "风之心",
+      "quality": "Raro",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250599,
+          "name": "Coração do Vento",
+          "description": "Equipado: Seus feitiços e habilidades têm chance de despertar o Coração do Vento, que envolve você com uma ventania forte que aumenta em 22 sua aceleração por 10 s."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "250258": {
+      "id": 250258,
+      "name": "Receptáculo das Almas Torturadas",
+      "sourceName": "折磨之魂容器",
+      "quality": "Raro",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "Não bata no vidro. Elas não gostam.",
+      "spells": [
+        {
+          "id": 1250602,
+          "name": "Receptáculo das Almas",
+          "description": "Equipado: Seus feitiços e habilidades têm chance de despertar uma alma dentro do receptáculo. Cada alma que você coletar concede 3 de Intelecto por 1 min."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "251078": {
+      "id": 251078,
+      "name": "Guardião de Brasaurora",
+      "sourceName": "烬晓卫士之剑",
+      "quality": "Raro",
+      "inventoryType": "Duas mãos",
+      "itemClass": "Arma",
+      "itemSubclass": "Espada",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251081": {
+      "id": 251081,
+      "name": "Agarres Silviardentes",
+      "sourceName": "烬林护手",
+      "quality": "Raro",
+      "inventoryType": "Mãos",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251086": {
+      "id": 251086,
+      "name": "Protetor do Gancho Estripador",
+      "sourceName": "裂钩防御者",
+      "quality": "Raro",
+      "inventoryType": "Cintura",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251088": {
+      "id": 251088,
+      "name": "Cutelo Belirroto",
+      "sourceName": "战损砍刀",
+      "quality": "Raro",
+      "inventoryType": "Uma Mão",
+      "itemClass": "Arma",
+      "itemSubclass": "Machado",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251091": {
+      "id": 251091,
+      "name": "Escarpes da Fúria Vingativa",
+      "sourceName": "愤怒复仇战靴",
+      "quality": "Raro",
+      "inventoryType": "Pés",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251093": {
+      "id": 251093,
+      "name": "Omissão da Luz",
+      "sourceName": "圣光的遗落",
+      "quality": "Raro",
+      "inventoryType": "Dedo",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": 1971,
+      "setName": "Amarras da Luz Caótica"
+    },
+    "251096": {
+      "id": 251096,
+      "name": "Pingente da Mágoa Lancinante",
+      "sourceName": "悲恸吊坠",
+      "quality": "Raro",
+      "inventoryType": "Pescoço",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251098": {
+      "id": 251098,
+      "name": "Viseira Desvanecida do Flecheiro",
+      "sourceName": "造箭师的褪色面铠",
+      "quality": "Raro",
+      "inventoryType": "Cabeça",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251100": {
+      "id": 251100,
+      "name": "Marreta do Malfeito",
+      "sourceName": "渎职之槌",
+      "quality": "Raro",
+      "inventoryType": "Uma Mão",
+      "itemClass": "Arma",
+      "itemSubclass": "Maça",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251101": {
+      "id": 251101,
+      "name": "Carapaça do Guardião Arcano",
+      "sourceName": "奥术守护者胸铠",
+      "quality": "Raro",
+      "inventoryType": "Torso",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251105": {
+      "id": 251105,
+      "name": "Reduto do Quebra-feitiço",
+      "sourceName": "破法者之盾",
+      "quality": "Raro",
+      "inventoryType": "Mão Secundária",
+      "itemClass": "Armadura",
+      "itemSubclass": "Escudo",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251107": {
+      "id": 251107,
+      "name": "Pisoteadores Jurados",
+      "sourceName": "圣誓践踏靴",
+      "quality": "Raro",
+      "inventoryType": "Pés",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251112": {
+      "id": 251112,
+      "name": "Cinturão Fende-sombras",
+      "sourceName": "影裂腰铠",
+      "quality": "Raro",
+      "inventoryType": "Cintura",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251115": {
+      "id": 251115,
+      "name": "Elo da Bifurcação",
+      "sourceName": "分叉指环",
+      "quality": "Raro",
+      "inventoryType": "Dedo",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251117": {
+      "id": 251117,
+      "name": "Talhacaos Rodopiante",
+      "sourceName": "旋风虚空裂斧",
+      "quality": "Raro",
+      "inventoryType": "Duas mãos",
+      "itemClass": "Arma",
+      "itemSubclass": "Machado",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251118": {
+      "id": 251118,
+      "name": "Coxotes do Crepúsculo Perene",
+      "sourceName": "暮色残留腿铠",
+      "quality": "Raro",
+      "inventoryType": "Pernas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251157": {
+      "id": 251157,
+      "name": "Espaldares Calcinantes",
+      "sourceName": "烈焰肩章",
+      "quality": "Raro",
+      "inventoryType": "Ombros",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251161": {
+      "id": 251161,
+      "name": "Mortalha do Caçador de Almas",
+      "sourceName": "猎魂者的斗篷",
+      "quality": "Raro",
+      "inventoryType": "Costas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tecido",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "Uma relíquia dos rituais secretos e deturpados dos Ramatorpes.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251164": {
+      "id": 251164,
+      "name": "Arnês do Amálgama",
+      "sourceName": "融合怪的挽具",
+      "quality": "Raro",
+      "inventoryType": "Ombros",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251168": {
+      "id": 251168,
+      "name": "Alfanje do Arrebatador",
+      "sourceName": "裂命者的弯刀",
+      "quality": "Raro",
+      "inventoryType": "Duas mãos",
+      "itemClass": "Arma",
+      "itemSubclass": "Espada",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251169": {
+      "id": 251169,
+      "name": "Palmilhas do Destino Funesto",
+      "sourceName": "厄运裹足",
+      "quality": "Raro",
+      "inventoryType": "Pés",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "Os Ramatorpes trilham o perigoso caminho entre a vida e a morte.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251202": {
+      "id": 251202,
+      "name": "Refletor de Refluxo",
+      "sourceName": "溢流反射盾",
+      "quality": "Raro",
+      "inventoryType": "Mão Secundária",
+      "itemClass": "Armadura",
+      "itemSubclass": "Escudo",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251203": {
+      "id": 251203,
+      "name": "Vínculo de Kasreth",
+      "sourceName": "卡斯雷瑟的裹腕",
+      "quality": "Raro",
+      "inventoryType": "Pulsos",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251206": {
+      "id": 251206,
+      "name": "Manto de Fluxotrama",
+      "sourceName": "流光织锦披风",
+      "quality": "Raro",
+      "inventoryType": "Costas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tecido",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251208": {
+      "id": 251208,
+      "name": "Cuísses Mutiladas pela Luz",
+      "sourceName": "光痕腿铠",
+      "quality": "Raro",
+      "inventoryType": "Pernas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "251217": {
+      "id": 251217,
+      "name": "Obstrução do Caos",
+      "sourceName": "虚空的遮蔽",
+      "quality": "Raro",
+      "inventoryType": "Dedo",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": 1971,
+      "setName": "Amarras da Luz Caótica"
+    },
+    "252418": {
+      "id": 252418,
+      "name": "Ignição do Imo Solar",
+      "sourceName": "太阳之核点燃器",
+      "quality": "Raro",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1254638,
+          "name": "Ignição do Imo Solar",
+          "description": "Usar: Acende o Imo Solar dentro de você por 15 s, formando um escudo radiante que absorve 50% do dano recebido, até 827. Concede até 23 de Versatilidade por 10 s s se o escudo expirar, com base em seu poder restante. (1 min 30 s de recarga)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "252420": {
+      "id": 252420,
+      "name": "Prisma Flamissolar",
+      "sourceName": "太阳耀斑棱镜",
+      "quality": "Raro",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1254640,
+          "name": "Prisma Flamissolar",
+          "description": "Equipado: Suas habilidades de dano têm chance de liberar a luz radiante do prisma, aumentando seus Acertos Críticos em 13 por 10 s s, aumentada em 1 para cada 1% de redução dos pontos de vidados pontos de vida perdidos do alvo, até um máximo de 16. "
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "252421": {
+      "id": 252421,
+      "name": "Glóbulo Putrefato",
+      "sourceName": "腐烂液球",
+      "quality": "Épico",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1254641,
+          "name": "Glóbulo Putrefato",
+          "description": "Usar: Cobre-se com pústulas fétidas, absorvendo 767 de dano por 15 s. A cada vez que o escudo perde 25% do seu valor, uma pústula explode, causando 19 de dano de Peste dividido entre inimigos próximos.\r\n\r\nCaso todas as pústulas explodam, a explosão final causa 11 de dano de Peste adicional. (2 min de recarga)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "256625": {
+      "id": 256625,
+      "name": "Molde: Faixa de Bagatame",
+      "sourceName": "图样：妖纹束腰",
+      "quality": "Épico",
+      "inventoryType": "Não equipável",
+      "itemClass": "Receita",
+      "itemSubclass": "Couraria",
+      "binding": "",
+      "description": "Ensina a fazer Faixa de Bagatame.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "256653": {
+      "id": 256653,
+      "name": "Molde: Guantes da General-patrulheira",
+      "sourceName": "图样：游侠将军之握",
+      "quality": "Épico",
+      "inventoryType": "Não equipável",
+      "itemClass": "Receita",
+      "itemSubclass": "Couraria",
+      "binding": "",
+      "description": "Ensina a fazer Guantes da General-patrulheira.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "256656": {
+      "id": 256656,
+      "name": "Molde: Arvofecho do Conservador de Mundos",
+      "sourceName": "图样：世界照护者的树皮腰扣",
+      "quality": "Épico",
+      "inventoryType": "Não equipável",
+      "itemClass": "Receita",
+      "itemSubclass": "Couraria",
+      "binding": "",
+      "description": "Ensina a fazer Arvofecho do Conservador de Mundos.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "256683": {
+      "id": 256683,
+      "name": "Boneco de Treinamento de Luaprata",
+      "sourceName": "银月城训练假人",
+      "quality": "Incomum",
+      "inventoryType": "Não equipável",
+      "itemClass": "Moradia",
+      "itemSubclass": "Decoração",
+      "binding": "Vincula ao Bando de Guerra",
+      "description": "",
+      "spells": [
+        {
+          "id": 1260663,
+          "name": "Coletar Boneco de Treinamento de Luaprata",
+          "description": "Usar: Coloca esta decoração no baú da sua casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "256715": {
+      "id": 256715,
+      "name": "Desenho: Torque de Fênix Talassiana",
+      "sourceName": "图鉴：萨拉斯凤凰饰环",
+      "quality": "Raro",
+      "inventoryType": "Não equipável",
+      "itemClass": "Receita",
+      "itemSubclass": "Joalheria",
+      "binding": "",
+      "description": "Ensina a fazer Torque de Fênix Talassiana.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "256716": {
+      "id": 256716,
+      "name": "Desenho: Íris Focalizadora Prismática",
+      "sourceName": "图鉴：棱光聚焦之虹",
+      "quality": "Raro",
+      "inventoryType": "Não equipável",
+      "itemClass": "Receita",
+      "itemSubclass": "Joalheria",
+      "binding": "",
+      "description": "Ensina a fazer Íris Focalizadora Prismática.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "256750": {
+      "id": 256750,
+      "name": "Fórmula: Encantamento de Berço da Alma do Mundo - Arma",
+      "sourceName": "公式：附魔武器 - 世界之魂的摇篮",
+      "quality": "Raro",
+      "inventoryType": "Não equipável",
+      "itemClass": "Receita",
+      "itemSubclass": "Encantamento",
+      "binding": "",
+      "description": "Ensina a realizar o encantamento Berço da Alma do Mundo.",
+      "spells": [
+        {
+          "id": 1236079,
+          "name": "Encantamento de Berço da Alma do Mundo - Arma",
+          "description": "Usar: Ensina a realizar o encantamento Berço da Alma do Mundo."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "256755": {
+      "id": 256755,
+      "name": "Fórmula: Encantamento da Marca do Magíster - Torso",
+      "sourceName": "公式：附魔胸甲 - 魔导师印记",
+      "quality": "Raro",
+      "inventoryType": "Não equipável",
+      "itemClass": "Receita",
+      "itemSubclass": "Encantamento",
+      "binding": "",
+      "description": "Ensina a realizar o encantamento Marca do Magíster.",
+      "spells": [
+        {
+          "id": 1236082,
+          "name": "Encantamento da Marca do Magíster - Torso",
+          "description": "Usar: Ensina a realizar o encantamento Marca do Magíster."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "256759": {
+      "id": 256759,
+      "name": "Fórmula: Encantamento das Chamas dos Sin'dorei - Arma",
+      "sourceName": "公式：附魔武器 - 辛多雷之焰",
+      "quality": "Raro",
+      "inventoryType": "Não equipável",
+      "itemClass": "Receita",
+      "itemSubclass": "Encantamento",
+      "binding": "",
+      "description": "Ensina a realizar o encantamento Chamas dos Sin'dorei.",
+      "spells": [
+        {
+          "id": 1236094,
+          "name": "Encantamento das Chamas dos Sin'dorei - Arma",
+          "description": "Usar: Ensina a realizar o encantamento Chamas dos Sin'dorei."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "258033": {
+      "id": 258033,
+      "name": "Molde: Forro de Arcanotrama",
+      "sourceName": "图样：奥纹内衬",
+      "quality": "Raro",
+      "inventoryType": "Não equipável",
+      "itemClass": "Receita",
+      "itemSubclass": "Alfaiataria",
+      "binding": "",
+      "description": "Ensina a fazer Forro de Arcanotrama.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258046": {
+      "id": 258046,
+      "name": "Montante Destruidora de Chakram",
+      "sourceName": "斩轮大剑",
+      "quality": "Raro",
+      "inventoryType": "Duas mãos",
+      "itemClass": "Arma",
+      "itemSubclass": "Espada",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258048": {
+      "id": 258048,
+      "name": "Cimitarra Bicador",
+      "sourceName": "折喙者弯刀",
+      "quality": "Raro",
+      "inventoryType": "Uma Mão",
+      "itemClass": "Arma",
+      "itemSubclass": "Espada",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258049": {
+      "id": 258049,
+      "name": "Baluarte Indomável de Viryx",
+      "sourceName": "维里克斯的不屈壁垒",
+      "quality": "Raro",
+      "inventoryType": "Mão Secundária",
+      "itemClass": "Armadura",
+      "itemSubclass": "Escudo",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258123": {
+      "id": 258123,
+      "name": "Molde: Magilinha de Seda de Fogo Solar",
+      "sourceName": "图样：阳炎丝绸魔线",
+      "quality": "Raro",
+      "inventoryType": "Não equipável",
+      "itemClass": "Receita",
+      "itemSubclass": "Alfaiataria",
+      "binding": "",
+      "description": "Ensina a fazer Magilinha de Seda de Fogo Solar.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258125": {
+      "id": 258125,
+      "name": "Molde: Faixa de Fogo Solar",
+      "sourceName": "图样：阳炎腰带",
+      "quality": "Épico",
+      "inventoryType": "Não equipável",
+      "itemClass": "Receita",
+      "itemSubclass": "Alfaiataria",
+      "binding": "",
+      "description": "Ensina a fazer Faixa de Fogo Solar.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258517": {
+      "id": 258517,
+      "name": "Instruções: Paliçada do Cavaleiro Comandante",
+      "sourceName": "设计图：骑士指挥官的雄关",
+      "quality": "Raro",
+      "inventoryType": "Não equipável",
+      "itemClass": "Receita",
+      "itemSubclass": "Ferraria",
+      "binding": "",
+      "description": "Ensina a fazer Paliçada do Cavaleiro Comandante.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258519": {
+      "id": 258519,
+      "name": "Instruções: Despedida do Magíster",
+      "sourceName": "设计图：魔导师的送别",
+      "quality": "Raro",
+      "inventoryType": "Não equipável",
+      "itemClass": "Receita",
+      "itemSubclass": "Ferraria",
+      "binding": "",
+      "description": "Ensina a fazer Despedida do Magíster.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258521": {
+      "id": 258521,
+      "name": "Instruções: Ímpeto do Cavaleiro Sangrento",
+      "sourceName": "设计图：血骑士的强击矛",
+      "quality": "Raro",
+      "inventoryType": "Não equipável",
+      "itemClass": "Receita",
+      "itemSubclass": "Ferraria",
+      "binding": "",
+      "description": "Ensina a fazer Ímpeto do Cavaleiro Sangrento.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258522": {
+      "id": 258522,
+      "name": "Instruções: Machadão de Floraforja",
+      "sourceName": "设计图：绽铸大斧",
+      "quality": "Raro",
+      "inventoryType": "Não equipável",
+      "itemClass": "Receita",
+      "itemSubclass": "Ferraria",
+      "binding": "",
+      "description": "Ensina a fazer Machadão de Floraforja.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258525": {
+      "id": 258525,
+      "name": "Cetro da Noite Infinda",
+      "sourceName": "无尽之夜权杖",
+      "quality": "Raro",
+      "inventoryType": "Uma Mão",
+      "itemClass": "Arma",
+      "itemSubclass": "Maça",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258531": {
+      "id": 258531,
+      "name": "Guarda Escamosa de Crawth",
+      "sourceName": "克罗兹鳞片护盾",
+      "quality": "Raro",
+      "inventoryType": "Mão Secundária",
+      "itemClass": "Armadura",
+      "itemSubclass": "Escudo",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258575": {
+      "id": 258575,
+      "name": "Grande Manto de Escamas Rígidas",
+      "sourceName": "刚鳞大氅",
+      "quality": "Raro",
+      "inventoryType": "Costas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tecido",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258579": {
+      "id": 258579,
+      "name": "Grande Elmo Quebra-tripas",
+      "sourceName": "裂胆巨盔",
+      "quality": "Raro",
+      "inventoryType": "Cabeça",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258583": {
+      "id": 258583,
+      "name": "Manoplas de Encarnadina",
+      "sourceName": "猩红手甲",
+      "quality": "Raro",
+      "inventoryType": "Mãos",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258587": {
+      "id": 258587,
+      "name": "Espaldares do Raio Calcinante",
+      "sourceName": "灼烧射线肩甲",
+      "quality": "Raro",
+      "inventoryType": "Ombros",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "258744": {
+      "id": 258744,
+      "name": "Mesa Circular de Beira-céu",
+      "sourceName": "通天峰圆形桌子",
+      "quality": "Incomum",
+      "inventoryType": "Não equipável",
+      "itemClass": "Moradia",
+      "itemSubclass": "Decoração",
+      "binding": "Vincula ao Bando de Guerra",
+      "description": "",
+      "spells": [
+        {
+          "id": 1263929,
+          "name": "Coletar Mesa Circular de Beira-céu",
+          "description": "Usar: Coloca esta decoração no baú da sua casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "260231": {
+      "id": 260231,
+      "name": "Falcostruz Luzidio",
+      "sourceName": "光亮陆行鸟",
+      "quality": "Épico",
+      "inventoryType": "Não equipável",
+      "itemClass": "Diversos",
+      "itemSubclass": "Montaria",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "Ensina a evocar esta montaria.",
+      "spells": [
+        {
+          "id": 1265784,
+          "name": "Falcostruz Luzidio",
+          "description": "Usar: Ensina a evocar esta montaria."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "260235": {
+      "id": 260235,
+      "name": "Pluma Umbrática",
+      "sourceName": "幽影羽毛",
+      "quality": "Épico",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1265809,
+          "name": "Pluma Umbrática",
+          "description": "Equipado: A penumbra da Pluma concede 30 de acerto crítico, enfraquecendo ao longo de 60 s antes de voltar à escuridão absoluta. O poder da Pluma também regenera fora de combate."
+        },
+        {
+          "id": 1265806,
+          "name": "Pluma Resplandecente",
+          "description": "Usar: Quando fora de combate, invoca a natureza dúbia da Pluma para transformá-la em uma Pluma Resplandecente. (5 min de recarga)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "260312": {
+      "id": 260312,
+      "name": "Clâmide do Defensor Desafiador",
+      "sourceName": "挑战防御者斗篷",
+      "quality": "Raro",
+      "inventoryType": "Costas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tecido",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "260359": {
+      "id": 260359,
+      "name": "Estante de Livros de Valdrakken",
+      "sourceName": "瓦德拉肯书柜",
+      "quality": "Incomum",
+      "inventoryType": "Não equipável",
+      "itemClass": "Moradia",
+      "itemSubclass": "Decoração",
+      "binding": "Vincula ao Bando de Guerra",
+      "description": "",
+      "spells": [
+        {
+          "id": 1266209,
+          "name": "Coletar Estante de Livros de Valdrakken",
+          "description": "Usar: Coloca esta decoração no baú da sua casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "262914": {
+      "id": 262914,
+      "name": "Falcostruz Espectral",
+      "sourceName": "幽灵陆行鸟",
+      "quality": "Épico",
+      "inventoryType": "Não equipável",
+      "itemClass": "Diversos",
+      "itemSubclass": "Montaria",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "Ensina a evocar esta montaria.",
+      "spells": [
+        {
+          "id": 1263635,
+          "name": "Falcostruz Espectral",
+          "description": "Usar: Ensina a evocar esta montaria."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "262957": {
+      "id": 262957,
+      "name": "Estandarte Esfarrapado da Vanguarda",
+      "sourceName": "破损的先锋战旗",
+      "quality": "Raro",
+      "inventoryType": "Não equipável",
+      "itemClass": "Moradia",
+      "itemSubclass": "Decoração",
+      "binding": "Vincula ao Bando de Guerra",
+      "description": "",
+      "spells": [
+        {
+          "id": 1269607,
+          "name": "Coletar Estandarte Esfarrapado da Vanguarda",
+          "description": "Usar: Coloca esta decoração no baú da sua casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "263193": {
+      "id": 263193,
+      "name": "Embraces do Predatroll",
+      "sourceName": "巨魔猎手腕铠",
+      "quality": "Raro",
+      "inventoryType": "Pulsos",
+      "itemClass": "Armadura",
+      "itemSubclass": "Placas",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "Marcas de garras da amada mascote de Muro'jin, Nekraxx, talham a superfície destes embraces.",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "263230": {
+      "id": 263230,
+      "name": "Estante de Livros do Magíster",
+      "sourceName": "魔导师的书架",
+      "quality": "Incomum",
+      "inventoryType": "Não equipável",
+      "itemClass": "Moradia",
+      "itemSubclass": "Decoração",
+      "binding": "Vincula ao Bando de Guerra",
+      "description": "",
+      "spells": [
+        {
+          "id": 1270131,
+          "name": "Coletar Estante de Livros do Magíster",
+          "description": "Usar: Coloca esta decoração no baú da sua casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264187": {
+      "id": 264187,
+      "name": "Ovo de Fênix Abençoado",
+      "sourceName": "受祝福的凤凰蛋",
+      "quality": "Raro",
+      "inventoryType": "Não equipável",
+      "itemClass": "Moradia",
+      "itemSubclass": "Decoração",
+      "binding": "Vincula ao Bando de Guerra",
+      "description": "",
+      "spells": [
+        {
+          "id": 1271354,
+          "name": "Coletar Ovo de Fênix Abençoado",
+          "description": "Usar: Coloca esta decoração no baú da sua casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264246": {
+      "id": 264246,
+      "name": "Cogufenda Iridescente Fantasmagórico",
+      "sourceName": "诡异的虹彩裂隙菇",
+      "quality": "Raro",
+      "inventoryType": "Não equipável",
+      "itemClass": "Moradia",
+      "itemSubclass": "Decoração",
+      "binding": "Vincula ao Bando de Guerra",
+      "description": "",
+      "spells": [
+        {
+          "id": 1271491,
+          "name": "Coletar Cogufenda Iridescente Fantasmagórico",
+          "description": "Usar: Coloca esta decoração no baú da sua casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264338": {
+      "id": 264338,
+      "name": "Painel de Controle Domanaar",
+      "sourceName": "多曼纳尔控制台",
+      "quality": "Incomum",
+      "inventoryType": "Não equipável",
+      "itemClass": "Moradia",
+      "itemSubclass": "Decoração",
+      "binding": "Vincula ao Bando de Guerra",
+      "description": "",
+      "spells": [
+        {
+          "id": 1271726,
+          "name": "Coletar Painel de Controle Domanaar",
+          "description": "Usar: Coloca esta decoração no baú da sua casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264491": {
+      "id": 264491,
+      "name": "Cela de Detenção Vinculada ao Caos",
+      "sourceName": "虚缚牢笼",
+      "quality": "Raro",
+      "inventoryType": "Não equipável",
+      "itemClass": "Moradia",
+      "itemSubclass": "Decoração",
+      "binding": "Vincula ao Bando de Guerra",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272054,
+          "name": "Coletar Cela de Detenção Vinculada ao Caos",
+          "description": "Usar: Coloca esta decoração no baú da sua casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264492": {
+      "id": 264492,
+      "name": "Gorja do Caos Entrópico",
+      "sourceName": "混沌虚空渊门",
+      "quality": "Raro",
+      "inventoryType": "Não equipável",
+      "itemClass": "Moradia",
+      "itemSubclass": "Decoração",
+      "binding": "Vincula ao Bando de Guerra",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272055,
+          "name": "Coletar Gorja do Caos Entrópico",
+          "description": "Usar: Coloca esta decoração no baú da sua casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264494": {
+      "id": 264494,
+      "name": "Caixote de Armazenamento Domanaar Reforçado",
+      "sourceName": "镶边多曼纳尔储物箱",
+      "quality": "Raro",
+      "inventoryType": "Não equipável",
+      "itemClass": "Moradia",
+      "itemSubclass": "Decoração",
+      "binding": "Vincula ao Bando de Guerra",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272057,
+          "name": "Coletar Caixote de Armazenamento Domanaar Reforçado",
+          "description": "Usar: Coloca esta decoração no baú da sua casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264497": {
+      "id": 264497,
+      "name": "Cristal de Tormento do Imperador",
+      "sourceName": "元首的折磨水晶",
+      "quality": "Raro",
+      "inventoryType": "Não equipável",
+      "itemClass": "Moradia",
+      "itemSubclass": "Decoração",
+      "binding": "Vincula ao Bando de Guerra",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272060,
+          "name": "Coletar Cristal de Tormento do Imperador",
+          "description": "Usar: Coloca esta decoração no baú da sua casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264498": {
+      "id": 264498,
+      "name": "Ovo de Trígora Voltaica",
+      "sourceName": "流电三喉龙蛋",
+      "quality": "Raro",
+      "inventoryType": "Não equipável",
+      "itemClass": "Moradia",
+      "itemSubclass": "Decoração",
+      "binding": "Vincula ao Bando de Guerra",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272061,
+          "name": "Coletar Ovo de Trígora Voltaica",
+          "description": "Usar: Coloca esta decoração no baú da sua casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264672": {
+      "id": 264672,
+      "name": "Pedra Ritualística Cósmica",
+      "sourceName": "宇宙仪式之石",
+      "quality": "Raro",
+      "inventoryType": "Não equipável",
+      "itemClass": "Diversos",
+      "itemSubclass": "Outro",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272307,
+          "name": "Ritual Cósmico",
+          "description": "Usar: Adiciona este brinquedo à sua Caixa de Brinquedo.\n\nRealiza um ritual para dedicar o cadáver de um jogador ao Caos. (10 min de recarga)"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "264717": {
+      "id": 264717,
+      "name": "Bagata de Proteção Amani",
+      "sourceName": "阿曼尼防护妖术",
+      "quality": "Incomum",
+      "inventoryType": "Não equipável",
+      "itemClass": "Moradia",
+      "itemSubclass": "Decoração",
+      "binding": "Vincula ao Bando de Guerra",
+      "description": "",
+      "spells": [
+        {
+          "id": 1272513,
+          "name": "Coletar Bagata de Proteção Amani",
+          "description": "Usar: Coloca esta decoração no baú da sua casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "265949": {
+      "id": 265949,
+      "name": "Troféu Reluzente do Subjugador da Marcha em Quel'Danas",
+      "sourceName": "进军奎尔丹纳斯征服者的耀金战利品",
+      "quality": "Épico",
+      "inventoryType": "Não equipável",
+      "itemClass": "Moradia",
+      "itemSubclass": "Decoração",
+      "binding": "Vincula ao Bando de Guerra",
+      "description": "",
+      "spells": [
+        {
+          "id": 1277440,
+          "name": "Coletar Troféu Reluzente do Subjugador da Marcha em Quel'Danas",
+          "description": "Usar: Coloca esta decoração no baú da sua casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "265950": {
+      "id": 265950,
+      "name": "Troféu Reluzente do Subjugador da Fenda Onírica",
+      "sourceName": "梦境裂隙征服者的耀金战利品",
+      "quality": "Épico",
+      "inventoryType": "Não equipável",
+      "itemClass": "Moradia",
+      "itemSubclass": "Decoração",
+      "binding": "Vincula ao Bando de Guerra",
+      "description": "",
+      "spells": [
+        {
+          "id": 1277441,
+          "name": "Coletar Troféu Reluzente do Subjugador da Fenda Onírica",
+          "description": "Usar: Coloca esta decoração no baú da sua casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "265951": {
+      "id": 265951,
+      "name": "Troféu Reluzente do Subjugador da Torre do Caos",
+      "sourceName": "虚影尖塔征服者的耀金战利品",
+      "quality": "Épico",
+      "inventoryType": "Não equipável",
+      "itemClass": "Moradia",
+      "itemSubclass": "Decoração",
+      "binding": "Vincula ao Bando de Guerra",
+      "description": "",
+      "spells": [
+        {
+          "id": 1277442,
+          "name": "Coletar Troféu Reluzente do Subjugador da Torre do Caos",
+          "description": "Usar: Coloca esta decoração no baú da sua casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "267007": {
+      "id": 267007,
+      "name": "Olho de Áquerus",
+      "sourceName": "阿彻鲁斯之眼",
+      "quality": "Incomum",
+      "inventoryType": "Não equipável",
+      "itemClass": "Moradia",
+      "itemSubclass": "Decoração",
+      "binding": "Vincula ao Bando de Guerra",
+      "description": "",
+      "spells": [
+        {
+          "id": 1278997,
+          "name": "Coletar Olho de Áquerus",
+          "description": "Usar: Coloca esta decoração no baú da sua casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "267645": {
+      "id": 267645,
+      "name": "Troféu Argênteo do Subjugador da Fenda Onírica",
+      "sourceName": "梦境裂隙征服者的闪银战利品",
+      "quality": "Épico",
+      "inventoryType": "Não equipável",
+      "itemClass": "Moradia",
+      "itemSubclass": "Decoração",
+      "binding": "Vincula ao Bando de Guerra",
+      "description": "",
+      "spells": [
+        {
+          "id": 1280916,
+          "name": "Coletar Troféu Argênteo do Subjugador da Fenda Onírica",
+          "description": "Usar: Coloca esta decoração no baú da sua casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "267646": {
+      "id": 267646,
+      "name": "Troféu Argênteo do Subjugador da Marcha em Quel'Danas",
+      "sourceName": "进军奎尔丹纳斯征服者的闪银战利品",
+      "quality": "Épico",
+      "inventoryType": "Não equipável",
+      "itemClass": "Moradia",
+      "itemSubclass": "Decoração",
+      "binding": "Vincula ao Bando de Guerra",
+      "description": "",
+      "spells": [
+        {
+          "id": 1280917,
+          "name": "Coletar Troféu Argênteo do Subjugador da Marcha em Quel'Danas",
+          "description": "Usar: Coloca esta decoração no baú da sua casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268049": {
+      "id": 268049,
+      "name": "Troféu Argênteo do Subjugador da Torre do Caos",
+      "sourceName": "虚影尖塔征服者的闪银战利品",
+      "quality": "Épico",
+      "inventoryType": "Não equipável",
+      "itemClass": "Moradia",
+      "itemSubclass": "Decoração",
+      "binding": "Vincula ao Bando de Guerra",
+      "description": "",
+      "spells": [
+        {
+          "id": 1281392,
+          "name": "Coletar Troféu Argênteo do Subjugador da Torre do Caos",
+          "description": "Usar: Coloca esta decoração no baú da sua casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "269269": {
+      "id": 269269,
+      "name": "Pináculo Ritual Devorador",
+      "sourceName": "吞噬军团仪式高塔",
+      "quality": "Raro",
+      "inventoryType": "Não equipável",
+      "itemClass": "Moradia",
+      "itemSubclass": "Decoração",
+      "binding": "Vincula ao Bando de Guerra",
+      "description": "",
+      "spells": [
+        {
+          "id": 1285071,
+          "name": "Coletar Pináculo Ritual Devorador",
+          "description": "Usar: Coloca esta decoração no baú da sua casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    }
+  },
+  "itemSets": {
+    "1331": {
+      "id": 1331,
+      "name": "Lamento de Velen",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Conjunto: Aumenta a Evasão."
+        }
+      ]
+    },
+    "1971": {
+      "id": 1971,
+      "name": "Amarras da Luz Caótica",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Conjunto: Suas habilidades e feitiços nocivos têm chance de liberar uma Barragem Crepuscular contra o seu alvo."
+        }
+      ]
+    },
+    "1990": {
+      "id": 1990,
+      "name": "Fúria do Destruidor da Noite",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Conjunto: Dano de Golpe Mortal e Cutilada aumentado em 5%. Golpe Colossal aumenta em mais 5% o dano recebido."
+        },
+        {
+          "requiredCount": 4,
+          "displayString": "Conjunto: Causar dano a um alvo afetado por Golpe Colossal com um Golpe Mortal ou Cutilada que atinjam 3 alvos ou mais prolonga em 1,0 s a duração de Golpe Colossal neles."
+        }
+      ]
+    }
+  },
+  "errors": {}
+};

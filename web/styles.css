@@ -178,44 +178,103 @@ button {
 }
 
 .home-header {
-  margin-top: 52px;
-  margin-bottom: 34px;
+  position: relative;
+  margin-top: 60px;
+  margin-bottom: 20px;
   width: min(720px, 92vw);
   text-align: center;
+  z-index: 1;
+}
+
+.home-header::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140%;
+  height: 220%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse at center, rgba(255, 187, 18, 0.12) 0%, rgba(181, 92, 255, 0.04) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .brand-logo {
+  position: relative;
   margin: 0;
-  color: #f4d16a;
-  font-size: clamp(58px, 11vw, 112px);
-  font-weight: 1000;
-  line-height: 0.88;
-  letter-spacing: 0;
-  text-transform: none;
-  text-shadow:
-    0 2px 0 #6a3c0b,
-    0 12px 28px rgba(0, 0, 0, 0.72),
-    0 0 34px rgba(255, 187, 18, 0.24);
-  background: linear-gradient(180deg, #fff5c8 0%, #ffbb12 45%, #a96612 100%);
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: clamp(42px, 9vw, 82px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  
+  /* Complex metallic gradient for the text */
+  background: linear-gradient(
+    to bottom,
+    #fffced 0%,
+    #fce484 20%,
+    #e4a822 45%,
+    #633804 55%,
+    #d19a22 75%,
+    #ffe79a 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  
+  /* 3D Extrusion and intense glow using drop-shadow */
+  filter: 
+    drop-shadow(0px 2px 0px #2a1505)
+    drop-shadow(0px 4px 0px #1c0e02)
+    drop-shadow(0px 6px 2px rgba(0, 0, 0, 0.8))
+    drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.9))
+    drop-shadow(0px 0px 45px rgba(255, 150, 0, 0.4));
 }
 
 .prompt-wrap {
-  margin-bottom: 30px;
-  color: #dfd4c1;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 40px;
+  padding: 10px 40px;
+  color: #ffdf85;
+  font-family: "Georgia", "Times New Roman", serif;
   font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 5px;
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+  font-weight: 600;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+  
+  /* Magical rune banner background */
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(25, 18, 28, 0.8) 25%, 
+    rgba(40, 25, 15, 0.9) 50%, 
+    rgba(25, 18, 28, 0.8) 75%, 
+    transparent 100%
+  );
+  border-top: 1px solid rgba(255, 187, 18, 0.15);
+  border-bottom: 1px solid rgba(255, 187, 18, 0.15);
 }
 
 .prompt-wrap::before,
 .prompt-wrap::after {
-  content: "-";
-  margin: 0 14px;
-  color: rgba(223, 212, 193, 0.32);
+  content: "✧";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 187, 18, 0.8);
+  font-size: 16px;
+  text-shadow: 0 0 10px rgba(255, 187, 18, 1);
+}
+
+.prompt-wrap::before {
+  left: 10px;
+}
+
+.prompt-wrap::after {
+  right: 10px;
 }
 
 .class-grid-wrap {

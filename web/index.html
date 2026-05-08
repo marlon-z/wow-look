@@ -1,15 +1,105 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#09080d">
-    <title>艾泽配装 · WoWLook</title>
+    <title>SeasonLoot — WoW Loot Table & Gear Drops by Class</title>
+    <meta name="description" content="Free WoW loot table for Midnight Season 1. Filter gear drops by class, slot, stats & source. Browse dungeon and raid loot, save favorites & share your build. | SeasonLoot">
+    <meta name="keywords" content="wow loot table, wow gear drops, wow bis list, wow midnight loot, wow dungeon drops, wow raid loot, seasonloot">
     <link rel="icon" href="./assets/public/logo.png">
-    <link rel="stylesheet" href="./styles.css?v=20260508-text-logo">
+    <link rel="canonical" href="https://seasonloot.com/">
+    <link rel="alternate" hreflang="en" href="https://seasonloot.com/?lang=en-US">
+    <link rel="alternate" hreflang="zh" href="https://seasonloot.com/?lang=zh-CN">
+    <link rel="alternate" hreflang="de" href="https://seasonloot.com/?lang=de-DE">
+    <link rel="alternate" hreflang="fr" href="https://seasonloot.com/?lang=fr-FR">
+    <link rel="alternate" hreflang="es" href="https://seasonloot.com/?lang=es-ES">
+    <link rel="alternate" hreflang="pt" href="https://seasonloot.com/?lang=pt-BR">
+    <link rel="alternate" hreflang="it" href="https://seasonloot.com/?lang=it-IT">
+    <link rel="alternate" hreflang="ru" href="https://seasonloot.com/?lang=ru-RU">
+    <link rel="alternate" hreflang="ko" href="https://seasonloot.com/?lang=ko-KR">
+    <link rel="alternate" hreflang="x-default" href="https://seasonloot.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SeasonLoot — WoW Loot Table & Gear Drops">
+    <meta property="og:description" content="Filter WoW Midnight Season 1 loot by class, slot & stats. Free, no addon required.">
+    <meta property="og:image" content="https://seasonloot.com/assets/public/og-card.png">
+    <meta property="og:url" content="https://seasonloot.com/">
+    <meta property="og:site_name" content="SeasonLoot">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SeasonLoot — WoW Loot Table & Gear Drops">
+    <meta name="twitter:description" content="Filter WoW Midnight Season 1 loot by class, slot & stats. Free, no addon required.">
+    <meta name="twitter:image" content="https://seasonloot.com/assets/public/og-card.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SeasonLoot",
+      "url": "https://seasonloot.com/",
+      "description": "Free WoW loot table tool — browse and filter Midnight Season 1 gear drops by class, equipment slot, stats, and source.",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "inLanguage": ["en", "zh-CN", "zh-TW", "de", "fr", "es", "pt", "it", "ru", "ko"],
+      "featureList": [
+        "Filter gear by class",
+        "Filter gear by equipment slot",
+        "Filter gear by stats (crit, haste, mastery, versatility)",
+        "Filter gear by source (dungeon, raid, tier set)",
+        "Save favorite items",
+        "Share gear builds"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is SeasonLoot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SeasonLoot is a free online WoW loot table tool that lets you browse and filter Midnight Season 1 gear drops by class, slot, stats, and source — no addon or login required."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I filter gear drops by class?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Select your class from the homepage grid (all 13 classes supported). The tool automatically shows only gear your class can equip, filterable by slot, stats, and dungeon/raid source."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does SeasonLoot support multiple languages?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. SeasonLoot supports 10 languages including English, Chinese, German, French, Spanish, Portuguese, Italian, Russian, and Korean with official Blizzard API localized item names."
+          }
+        }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="./styles.css?v=20260508-seo">
   </head>
   <body>
     <div id="app"></div>
-    <script type="module" src="./app.js?v=20260508-text-logo"></script>
+    <noscript>
+      <h1>SeasonLoot — WoW Loot Table for Midnight Season 1</h1>
+      <p>Browse gear drops for all 13 classes in World of Warcraft Midnight Season 1. Filter loot by equipment slot, secondary stats (crit, haste, mastery, versatility), and source (dungeon, raid, tier set). Save favorites and share your build — free, no addon required.</p>
+      <h2>Supported Classes</h2>
+      <ul>
+        <li>Warrior</li><li>Paladin</li><li>Hunter</li><li>Rogue</li><li>Priest</li>
+        <li>Death Knight</li><li>Shaman</li><li>Mage</li><li>Warlock</li>
+        <li>Monk</li><li>Druid</li><li>Demon Hunter</li><li>Evoker</li>
+      </ul>
+    </noscript>
+    <script type="module" src="./app.js?v=20260508-seo"></script>
   </body>
 </html>

@@ -1,5 +1,5 @@
-import { ASSET_BASE, DATA_BASE, LOCALE_DATA_BASE, STORAGE_KEYS } from './config.js';
-import { SUPPORTED_LOCALES, createI18n, getLocaleName, resolveLocale } from './i18n.js?v=20260507-share-ui';
+import { ASSET_BASE, DATA_BASE, LOCALE_DATA_BASE, STORAGE_KEYS } from './config.js?v=20260508-seo';
+import { SUPPORTED_LOCALES, createI18n, getLocaleName, resolveLocale } from './i18n.js?v=20260508-seo';
 
 const CLASS_LIST = [
   { id: 1, key: 'warrior', name: '战士', shortName: '战士', armorType: 'plate', armorTypeName: '板甲', color: '#C69B6D', abbr: '战', assetCode: 'zs' },
@@ -24,6 +24,15 @@ const SOURCE_OPTIONS = ['all', 'dungeon', 'raid', 'tier'];
 const VIEW_MODES = ['slot', 'source'];
 const FAVORITE_SLOT_ORDER = ['头', '项', '肩', '披', '胸', '腕', '手', '腰', '腿', '脚', '戒指', '饰品', '武器'];
 const MAX_SHARED_FAVORITES = 20;
+const DEFAULT_SITE_NAME = 'SeasonLoot';
+const SEO_ORIGIN = (() => {
+  const canonicalHref = document.querySelector('link[rel="canonical"]')?.href;
+  try {
+    return canonicalHref ? new URL(canonicalHref).origin : window.location.origin;
+  } catch {
+    return window.location.origin;
+  }
+})();
 const NAME_PHRASES = [
   ['莱登选民的骇人面容', 'Ra-den Chosen\'s Dread Visage'],
   ['断法暗影面具', 'Spellbreaker Shadow Mask'],
@@ -107,7 +116,7 @@ const NAME_PHRASES = [
 ];
 
 const state = {
-  locale: resolveLocale(localStorage.getItem(STORAGE_KEYS.locale) || navigator.language),
+  locale: resolveLocale(new URLSearchParams(window.location.search).get('lang') || document.documentElement.lang || localStorage.getItem(STORAGE_KEYS.locale) || navigator.language),
   overview: null,
   classKey: '',
   classData: null,
@@ -144,6 +153,69 @@ const state = {
 
 let i18n = createI18n(state.locale);
 const app = document.querySelector('#app');
+
+function stripSeoBrand(value = '') {
+  return String(value).replace(/\s*\|\s*SeasonLoot\s*$/u, '').trim();
+}
+
+function buildPageHref(classKey = '', locale = state.locale) {
+  const relativePath = classKey
+    ? (state.classKey ? `../${classKey}/` : `./${classKey}/`)
+    : (state.classKey ? '../' : './');
+  const url = new URL(relativePath, window.location.href);
+  const currentSearch = new URLSearchParams(window.location.search);
+  const nextSearch = new URLSearchParams();
+
+  if (locale && locale !== 'en-US') nextSearch.set('lang', locale);
+  if (currentSearch.get('remote') === '1') nextSearch.set('remote', '1');
+
+  url.search = nextSearch.toString();
+  url.hash = '';
+  return `${url.pathname}${url.search ? `?${url.searchParams.toString()}` : ''}`;
+}
+
+function buildCanonicalUrl(classKey = '') {
+  return classKey ? `${SEO_ORIGIN}/${classKey}/` : `${SEO_ORIGIN}/`;
+}
+
+function setMetaContent(selector, content) {
+  const element = document.querySelector(selector);
+  if (element && content) element.setAttribute('content', content);
+}
+
+function setLinkHref(selector, href) {
+  const element = document.querySelector(selector);
+  if (element && href) element.setAttribute('href', href);
+}
+
+function getSeoModel() {
+  if (state.classKey) {
+    const name = classLabel(state.classKey, state.classData?.class?.name || state.classKey);
+    const title = t('seoClassTitle', { className: name });
+    const description = t('seoClassDesc', { className: name });
+    return {
+      heading: stripSeoBrand(title) || name,
+      title: (title && title !== 'seoClassTitle') ? title : `${name} — ${DEFAULT_SITE_NAME}`,
+      description: (description && description !== 'seoClassDesc') ? description : '',
+      canonicalUrl: buildCanonicalUrl(state.classKey),
+      socialUrl: buildCanonicalUrl(state.classKey),
+      socialTitle: stripSeoBrand(title) || `${name} — ${DEFAULT_SITE_NAME}`,
+      socialDescription: stripSeoBrand(description) || '',
+    };
+  }
+
+  const pageTitle = t('seoPageTitle');
+  const pageDescription = t('seoMetaDesc');
+  return {
+    heading: t('seoTitle') || stripSeoBrand(pageTitle) || DEFAULT_SITE_NAME,
+    title: (pageTitle && pageTitle !== 'seoPageTitle') ? pageTitle : DEFAULT_SITE_NAME,
+    description: (pageDescription && pageDescription !== 'seoMetaDesc') ? pageDescription : '',
+    canonicalUrl: buildCanonicalUrl(),
+    socialUrl: buildCanonicalUrl(),
+    socialTitle: stripSeoBrand(pageTitle) || DEFAULT_SITE_NAME,
+    socialDescription: stripSeoBrand(pageDescription) || '',
+  };
+}
 
 function t(path, vars) {
   return i18n.t(path, vars);
@@ -854,8 +926,9 @@ function getActiveFiltersText() {
 function parseRoute() {
   const query = new URLSearchParams(window.location.search);
   const hash = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+  const appEl = document.getElementById('app');
   return {
-    classKey: hash.get('class') || query.get('classKey') || '',
+    classKey: hash.get('class') || query.get('classKey') || (appEl && appEl.dataset.class) || '',
     shareFav: query.get('shareFav') || hash.get('shareFav') || '',
     requestBuild: query.get('requestBuild') === '1' || hash.get('requestBuild') === '1',
   };
@@ -904,6 +977,11 @@ async function openClass(classKey, options = {}) {
 }
 
 function setHash(values, rerender = true) {
+  if (document.getElementById('app')?.dataset.class) {
+    history.replaceState(null, '', `${location.pathname}${location.search}`);
+    if (rerender) render();
+    return;
+  }
   const params = new URLSearchParams();
   Object.entries(values).forEach(([key, value]) => {
     if (value) params.set(key, value);
@@ -940,6 +1018,7 @@ function showToast(message) {
 
 function render() {
   if (!app) return;
+  updateSeoMeta();
   const routeClass = state.classKey;
   app.innerHTML = `
     <img class="global-site-bg" src="${assetUrl('/assets/public/bg.jpg')}" alt="">
@@ -983,18 +1062,41 @@ function renderHomeView() {
             ${row.map((item) => {
               const assets = getClassVisualAssets(item.key);
               return `
-                <button class="class-cell" data-action="class" data-class="${item.key}">
+                <a class="class-cell" href="${buildPageHref(item.key)}" data-action="class" data-class="${item.key}">
                   <img class="class-emblem" src="${assets.emblem}" alt="">
                   <span class="class-label" style="color:${item.color}">${escapeHtml(classLabel(item.key, item.shortName))}</span>
                   <small>${countMap[item.key] || 0}</small>
-                </button>
+                </a>
               `;
             }).join('')}
           </div>
         `).join('')}
       </section>
+      ${renderSeoIntro()}
       <footer class="footer-note"><i></i><span>${escapeHtml(t('dataNote'))}</span><i></i></footer>
     </main>
+  `;
+}
+
+function renderSeoIntro() {
+  const title = t('seoTitle');
+  if (!title) return '';
+  const desc = t('seoDesc') || '';
+  const faqTitle = t('seoFaqTitle') || 'FAQ';
+  const faqs = i18n.raw('seoFaq') || [];
+  return `
+    <section class="seo-intro">
+      <h2>${escapeHtml(title)}</h2>
+      <p>${escapeHtml(desc)}</p>
+      ${faqs.length ? `
+        <details class="seo-faq">
+          <summary>${escapeHtml(faqTitle)}</summary>
+          <dl>
+            ${faqs.map(([q, a]) => `<dt>${escapeHtml(q)}</dt><dd>${escapeHtml(a)}</dd>`).join('')}
+          </dl>
+        </details>
+      ` : ''}
+    </section>
   `;
 }
 
@@ -1006,10 +1108,11 @@ function renderEquipmentView() {
   const draft = getBuildDraft();
   const { filteredItems, groups } = getFilteredView();
   const activeText = getActiveFiltersText();
+  const seoModel = getSeoModel();
   return `
     <main class="page-shell equipment-page">
       <header class="top-bar">
-        <button class="back-btn" data-action="home">‹</button>
+        <a class="back-btn" href="${buildPageHref()}" data-action="home" aria-label="Back to home">‹</a>
         <div class="top-title-wrap">
           <img class="top-emblem" src="${assets.emblem}" alt="">
           <strong style="color:${classMeta.color || '#ffbb12'}">${escapeHtml(className)}</strong>
@@ -1024,6 +1127,7 @@ function renderEquipmentView() {
         <img class="hero-banner" src="${assets.banner}" alt="">
         <div class="hero-shade"></div>
         <div class="hero-panel-content">
+          <h1 class="hero-page-title">${escapeHtml(seoModel.heading)}</h1>
           <div class="hero-summary-row">
             <span class="hero-count">${filteredItems.length}</span>
             <span class="hero-count-unit">${escapeHtml(t('resultUnit'))}</span>
@@ -1606,17 +1710,13 @@ function handleClick(event) {
   event.preventDefault();
   event.stopPropagation();
 
-  if (action === 'class') openClass(target.dataset.class);
+  if (action === 'class') {
+    window.location.href = target.getAttribute('href') || buildPageHref(target.dataset.class);
+    return;
+  }
   if (action === 'home') {
-    state.classKey = '';
-    state.classData = null;
-    state.overlay = '';
-    const url = new URL(location.href);
-    const remote = url.searchParams.get('remote');
-    url.search = remote ? `?remote=${remote}` : '';
-    url.hash = '';
-    history.replaceState(null, '', url.toString());
-    render();
+    window.location.href = target.getAttribute('href') || buildPageHref();
+    return;
   }
   if (action === 'announcement') { state.overlay = 'announcement'; render(); }
   if (action === 'favorites') { state.overlay = 'favorites'; render(); }
@@ -1718,7 +1818,33 @@ async function applyLocale(locale) {
       state.selectedItem = buildItemDetail(state.itemMap[state.selectedItem.id], state.filters.selectedSpec, state.classData?.specs || []);
     }
   }
+  updateSeoMeta();
+  updateLangUrl();
   render();
+}
+
+function updateLangUrl() {
+  const url = new URL(window.location.href);
+  if (state.locale === 'en-US') {
+    url.searchParams.delete('lang');
+  } else {
+    url.searchParams.set('lang', state.locale);
+  }
+  history.replaceState(null, '', url.toString());
+}
+
+function updateSeoMeta() {
+  const seoModel = getSeoModel();
+  document.title = seoModel.title;
+  setMetaContent('meta[name="description"]', seoModel.description);
+  setMetaContent('meta[property="og:title"]', seoModel.socialTitle);
+  setMetaContent('meta[property="og:description"]', seoModel.socialDescription);
+  setMetaContent('meta[property="og:url"]', seoModel.socialUrl);
+  setMetaContent('meta[name="twitter:title"]', seoModel.socialTitle);
+  setMetaContent('meta[name="twitter:description"]', seoModel.socialDescription);
+  setLinkHref('link[rel="canonical"]', seoModel.canonicalUrl);
+  const htmlLang = state.locale.split('-')[0];
+  document.documentElement.lang = htmlLang;
 }
 
 function handleChange(event) {
@@ -1732,6 +1858,7 @@ async function boot() {
   app.addEventListener('click', handleClick);
   app.addEventListener('input', handleInput);
   app.addEventListener('change', handleChange);
+  updateSeoMeta();
   const route = parseRoute();
   loadOverview();
   if (route.classKey) await openClass(route.classKey, { requestBuild: route.requestBuild });

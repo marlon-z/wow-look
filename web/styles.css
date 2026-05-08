@@ -303,6 +303,8 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: inherit;
+  text-decoration: none;
   transition: transform 0.15s, border-color 0.15s, background 0.15s;
 }
 
@@ -329,6 +331,59 @@ button {
   margin-top: 4px;
   color: #625a4f;
   font-weight: 800;
+}
+
+.seo-intro {
+  margin: 40px auto 0;
+  padding: 24px 20px;
+  max-width: 640px;
+  color: var(--dim);
+  font-size: 13px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.seo-intro h2 {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0 0 8px;
+  font-weight: 500;
+}
+
+.seo-intro p {
+  margin: 0 0 12px;
+}
+
+.seo-faq {
+  text-align: left;
+  margin-top: 8px;
+}
+
+.seo-faq summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+  list-style: none;
+}
+
+.seo-faq summary::marker,
+.seo-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.seo-faq dl {
+  margin: 12px 0 0;
+}
+
+.seo-faq dt {
+  font-weight: 500;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+.seo-faq dd {
+  margin: 2px 0 0;
 }
 
 .footer-note {
@@ -373,11 +428,15 @@ button {
 .back-btn {
   width: 44px;
   height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 0;
   background: transparent;
   color: #f5ead0;
   font-size: 46px;
   line-height: 0.6;
+  text-decoration: none;
 }
 
 .top-title-wrap {
@@ -436,6 +495,16 @@ button {
 .hero-panel-content {
   position: relative;
   padding: 72px 28px 28px;
+}
+
+.hero-page-title {
+  margin: 0 0 14px;
+  max-width: 18ch;
+  color: #fff4d2;
+  font-size: clamp(24px, 4vw, 42px);
+  line-height: 1.08;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
 }
 
 .hero-summary-row {

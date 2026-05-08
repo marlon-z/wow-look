@@ -974,7 +974,7 @@ function renderHomeView() {
         <button class="pill-button" data-action="favorites"><span class="icon star"></span>${escapeHtml(t('favorites'))}${favorites.length ? `<b>${favorites.length}</b>` : ''}</button>
       </div>
       <section class="home-header">
-        <img class="logo-img" src="${assetUrl('/assets/public/logo.png')}" alt="${escapeHtml(t('appName'))}">
+        <h1 class="brand-logo">SeasonLoot</h1>
       </section>
       <div class="prompt-wrap"><span>${escapeHtml(t('chooseClass'))}</span></div>
       <section class="class-grid-wrap">
@@ -1048,7 +1048,7 @@ function renderBuildIntroOrStrip(draft, className) {
     return `
       <section class="build-request-card">
         <button class="panel-x" data-action="dismissBuildIntro"></button>
-        <div>
+        <div class="build-request-copy">
           <h3>${escapeHtml(t('buildRequestIntroTitle', { className }))}</h3>
           <p>${escapeHtml(t('buildRequestIntroDesc'))}</p>
         </div>
@@ -1174,11 +1174,12 @@ function renderOverlays() {
 }
 
 function renderOverlayFrame(title, body, options = {}) {
+  const subtitle = options.subtitle ? `<span class="overlay-count-badge">${escapeHtml(options.subtitle)}</span>` : '';
   return `
     <div class="modal-mask" data-action="closeOverlay">
       <section class="overlay-panel ${options.className || ''}" data-stop>
         <header class="overlay-head">
-          <div><h2>${escapeHtml(title)}</h2>${options.subtitle ? `<p>${escapeHtml(options.subtitle)}</p>` : ''}</div>
+          <div class="overlay-title-line"><h2>${escapeHtml(title)}</h2>${subtitle}</div>
           <button class="panel-x" data-action="closeOverlay"></button>
         </header>
         <div class="panel-divider"></div>
@@ -1216,7 +1217,7 @@ function renderFavoritesPanel() {
     ${action}
     ${groups.length ? `<div class="favorite-list">${groups.map((group) => renderFavoriteGroup(group, true)).join('')}</div>` : `<div class="favorite-empty">${escapeHtml(t('favoritesEmpty'))}</div>`}
   `;
-  return renderOverlayFrame(t('favorites'), body, { subtitle: `${favorites.length}` });
+  return renderOverlayFrame(t('favorites'), body, { subtitle: t('selectedCount', { count: favorites.length }) });
 }
 
 function renderSharedFavoritesPanel() {
@@ -1254,17 +1255,24 @@ function renderFavoriteGroup(group, removable) {
 }
 
 function renderFavoriteItem(favorite, removable) {
+  const slotLabel = favorite.slotType ? t(`slots.${favorite.slotType}`) : (favorite.slotBadgeName || favorite.slotName);
+  const sourceLabel = instanceNameLabel(favorite.sourceName) || favorite.sourceName || favorite.encounterName || '';
   return `
-    <article class="favorite-item" data-action="favoriteTap" data-item-id="${escapeHtml(favorite.itemId)}" data-class="${escapeHtml(favorite.classKey)}">
+    <article class="favorite-item favorite-entry" data-action="favoriteTap" data-item-id="${escapeHtml(favorite.itemId)}" data-class="${escapeHtml(favorite.classKey)}">
       <div class="favorite-icon-wrap">
         ${favorite.iconAsset ? `<img src="${escapeHtml(favorite.iconAsset)}" alt="">` : `<span>${escapeHtml(favorite.iconText || '装')}</span>`}
       </div>
       <div class="favorite-item-body">
-        <div class="favorite-row"><strong>${escapeHtml(itemNameLabel(favorite))}</strong><span>${escapeHtml(favorite.slotType ? t(`slots.${favorite.slotType}`) : (favorite.slotBadgeName || favorite.slotName))}</span></div>
+        <div class="favorite-row"><strong>${escapeHtml(itemNameLabel(favorite))}</strong></div>
         <p>${escapeHtml(favorite.statLine || t('noSecondary'))}</p>
-        <div class="favorite-row meta"><span>${escapeHtml(classLabel(favorite.classKey, favorite.className))} · ilvl${escapeHtml(favorite.ilvl)}</span><span>${escapeHtml(instanceNameLabel(favorite.sourceName) || favorite.sourceName || favorite.encounterName || '')} ›</span></div>
+        <div class="favorite-row meta">
+          <span class="favorite-meta-left">${escapeHtml(classLabel(favorite.classKey, favorite.className))} · ilvl${escapeHtml(favorite.ilvl)}</span>
+        </div>
       </div>
-      ${removable ? `<button class="remove-dot" data-action="removeFavorite" data-key="${escapeHtml(favorite.key)}"></button>` : ''}
+      <div class="favorite-item-actions">
+        <div class="favorite-item-controls"><span class="favorite-slot-badge">${escapeHtml(slotLabel)}</span>${removable ? `<button class="remove-dot" data-action="removeFavorite" data-key="${escapeHtml(favorite.key)}"></button>` : ''}</div>
+        ${sourceLabel ? `<span class="favorite-source-chip"><span>${escapeHtml(sourceLabel)}</span><i></i></span>` : ''}
+      </div>
     </article>
   `;
 }
@@ -1361,20 +1369,23 @@ function renderBuildDraftPanel() {
   const body = groups.length
     ? `<div class="panel-actions"><button data-action="shareBuild">${escapeHtml(t('buildShare'))}</button><button class="danger" data-action="clearBuildDraft">${escapeHtml(t('clear'))}</button></div><div class="favorite-list">${groups.map((group) => renderBuildGroup(group)).join('')}</div>`
     : `<div class="favorite-empty">${escapeHtml(t('buildEmpty'))}</div>`;
-  return renderOverlayFrame(t('buildDraft'), body, { subtitle: `${draft.items.length}` });
+  return renderOverlayFrame(t('buildDraft'), body, { subtitle: t('selectedCount', { count: draft.items.length }) });
 }
 
 function renderBuildGroup(group) {
   return `
     <section class="favorite-group">
       <header><strong>${escapeHtml(classLabel(group.classKey, group.className))}</strong><span>${escapeHtml(t('selectedCount', { count: group.count }))}</span></header>
-      ${group.items.map((favorite) => `
-        <article class="favorite-item" data-action="favoriteTap" data-item-id="${escapeHtml(favorite.itemId)}" data-class="${escapeHtml(favorite.classKey)}">
+      ${group.items.map((favorite) => {
+        const slotLabel = favorite.slotType ? t(`slots.${favorite.slotType}`) : (favorite.slotBadgeName || favorite.slotName);
+        return `
+        <article class="favorite-item build-item" data-action="favoriteTap" data-item-id="${escapeHtml(favorite.itemId)}" data-class="${escapeHtml(favorite.classKey)}">
           <div class="favorite-icon-wrap">${favorite.iconAsset ? `<img src="${escapeHtml(favorite.iconAsset)}" alt="">` : `<span>${escapeHtml(favorite.iconText || '装')}</span>`}</div>
-          <div class="favorite-item-body"><div class="favorite-row"><strong>${escapeHtml(itemNameLabel(favorite))}</strong><span>${escapeHtml(favorite.slotType ? t(`slots.${favorite.slotType}`) : (favorite.slotBadgeName || favorite.slotName))}</span></div><p>${escapeHtml(favorite.statLine || t('noSecondary'))}</p></div>
-          <button class="remove-dot" data-action="removeBuildItem" data-key="${escapeHtml(favorite.key)}"></button>
+          <div class="favorite-item-body"><div class="favorite-row"><strong>${escapeHtml(itemNameLabel(favorite))}</strong></div><p>${escapeHtml(favorite.statLine || t('noSecondary'))}</p></div>
+          <div class="favorite-item-actions"><span class="favorite-slot-badge">${escapeHtml(slotLabel)}</span><button class="remove-dot" data-action="removeBuildItem" data-key="${escapeHtml(favorite.key)}"></button></div>
         </article>
-      `).join('')}
+      `;
+      }).join('')}
     </section>
   `;
 }
@@ -1383,7 +1394,7 @@ function renderFavoritePickerPanel() {
   const body = state.favoritePickerList.length
     ? `<div class="panel-actions"><button data-action="addAllFavoritePicker">${escapeHtml(t('all'))}</button></div><div class="favorite-list">${state.favoritePickerList.map((favorite) => renderPickerItem(favorite)).join('')}</div>`
     : `<div class="favorite-empty">${escapeHtml(t('favoritesEmpty'))}</div>`;
-  return renderOverlayFrame(t('fromFavorites'), body, { subtitle: `${state.favoritePickerList.length}` });
+  return renderOverlayFrame(t('fromFavorites'), body, { subtitle: t('selectedCount', { count: state.favoritePickerList.length }) });
 }
 
 function renderPickerItem(favorite) {
@@ -1533,10 +1544,15 @@ async function copyTextToClipboard(text) {
   }
 }
 
+function shouldUseNativeShare() {
+  if (!navigator.share) return false;
+  return window.matchMedia('(pointer: coarse)').matches || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
 async function shareUrl(url) {
   const shareData = { title: t('appName'), url };
   try {
-    if (navigator.share && (!navigator.canShare || navigator.canShare(shareData))) {
+    if (shouldUseNativeShare() && (!navigator.canShare || navigator.canShare(shareData))) {
       await navigator.share(shareData);
       showToast(t('shareLinkCopied'));
       return;

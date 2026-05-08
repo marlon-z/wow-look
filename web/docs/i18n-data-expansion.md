@@ -312,10 +312,13 @@ copyTextToClipboard()         复制链接，含 textarea 兜底
 浏览器分享策略：
 
 ```text
-navigator.share 可用：调用系统分享面板
-navigator.share 不可用：复制链接到剪贴板
+移动端/触摸设备且 navigator.share 可用：调用系统分享面板
+桌面端：直接复制链接到剪贴板
+非触摸设备即使暴露 navigator.share，也不调用系统分享面板
 剪贴板被拦截：显示“分享链接”面板，让用户手动复制
 ```
+
+Windows 桌面浏览器可能暴露 `navigator.share()`，但系统分享面板经常返回“无法显示所有共享方法”。网页端已固定为桌面复制链接，避免触发该系统弹窗。
 
 当前纯前端方案适合第一版上线。它的限制是链接会随装备数量变长，所以 `MAX_SHARED_FAVORITES` 继续限制为 20。后续如果要支持更长清单、过期时间、访问统计或短链接，再增加 Cloudflare Worker + KV：
 

@@ -38,7 +38,38 @@ When the season data changes:
 1. Regenerate `cos-upload/data-4.2.x` and `cos-upload/assets`.
 2. Upload that same content to the mini program COS bucket.
 3. Copy the same folders into `web/`.
-4. Deploy `web/` to Cloudflare Pages.
+4. Update `seo.config.json` if the data directory, version, cache bust, or locale URL map changed.
+5. Regenerate static SEO pages:
+
+```powershell
+node generate-seo-pages.js
+```
+
+6. Deploy `web/` to Cloudflare Pages.
+
+## Multilingual SEO Pages
+
+SEO pages are generated from `seo.config.json`, `data-4.2.x/`, and `locales/*/data/`.
+
+Default English URLs stay short:
+
+```text
+/
+/warrior/
+```
+
+Localized URLs use language prefixes:
+
+```text
+/de/
+/de/warrior/
+/ko/
+/ko/warrior/
+/zh-cn/
+/zh-cn/warrior/
+```
+
+The generator also writes `sitemap.xml` and `robots.txt`. Run it after any data or locale overlay update.
 
 ## English Data Overlay
 

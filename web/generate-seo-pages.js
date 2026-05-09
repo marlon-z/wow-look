@@ -1,79 +1,94 @@
 const fs = require('fs');
 const path = require('path');
+const vm = require('vm');
 
 const WEB_DIR = __dirname;
-const DATA_DIR = path.join(WEB_DIR, 'data-4.2.x');
-const LOCALE_DIR = path.join(WEB_DIR, 'locales', 'en-US', 'data');
-const BASE_URL = 'https://seasonloot.com';
-const CACHE_BUST = '20260508-seo';
-
-const EN_CLASSES = {
-  warrior: 'Warrior', paladin: 'Paladin', hunter: 'Hunter', rogue: 'Rogue',
-  priest: 'Priest', deathknight: 'Death Knight', shaman: 'Shaman', mage: 'Mage',
-  warlock: 'Warlock', monk: 'Monk', druid: 'Druid', demonhunter: 'Demon Hunter',
-  evoker: 'Evoker',
-};
-
-const EN_SPECS = {
-  71: 'Arms', 72: 'Fury', 73: 'Protection',
-  65: 'Holy', 66: 'Protection', 70: 'Retribution',
-  253: 'Beast Mastery', 254: 'Marksmanship', 255: 'Survival',
-  259: 'Assassination', 260: 'Outlaw', 261: 'Subtlety',
-  256: 'Discipline', 257: 'Holy', 258: 'Shadow',
-  250: 'Blood', 251: 'Frost', 252: 'Unholy',
-  262: 'Elemental', 263: 'Enhancement', 264: 'Restoration',
-  62: 'Arcane', 63: 'Fire', 64: 'Frost',
-  265: 'Affliction', 266: 'Demonology', 267: 'Destruction',
-  268: 'Brewmaster', 269: 'Windwalker', 270: 'Mistweaver',
-  102: 'Balance', 103: 'Feral', 104: 'Guardian', 105: 'Restoration',
-  577: 'Havoc', 581: 'Vengeance',
-  1467: 'Devastation', 1468: 'Preservation', 1473: 'Augmentation', 1474: 'Devourer',
-};
-
-const EN_INSTANCES = {
-  945: 'Seat of the Triumvirate', 476: 'Skyreach', 1315: 'Mythsara Caverns',
-  1299: "Windrunner's Tower", 278: 'Pit of Saron', 1300: "Magisters' Terrace",
-  1316: 'Node Shinas', 1201: "Algeth'ar Academy",
-  1314: 'Dream Rift', 1307: 'Void Spire', 1308: "March on Quel'Danas",
-  0: 'Class Sets',
-};
-
-const SLOT_NAMES = {
-  head: 'Head', neck: 'Neck', shoulder: 'Shoulder', cloak: 'Cloak', back: 'Cloak',
-  chest: 'Chest', wrist: 'Wrist', hand: 'Hands', hands: 'Hands', waist: 'Waist',
-  legs: 'Legs', feet: 'Feet', finger: 'Ring', trinket: 'Trinket',
-  weapon: 'Weapon', 'one-hand': 'Weapon', 'two-hand': 'Weapon', 'main-hand': 'Weapon',
-  'off-hand': 'Off-Hand', shield: 'Shield', ranged: 'Ranged',
-};
-
-const STAT_NAMES = { crit: 'Crit', haste: 'Haste', mastery: 'Mastery', versatility: 'Vers' };
-
-const ARMOR_TYPES = { plate: 'Plate', mail: 'Mail', leather: 'Leather', cloth: 'Cloth' };
-
-const HREFLANG_MAP = [
-  { hreflang: 'en', locale: 'en-US' },
-  { hreflang: 'zh', locale: 'zh-CN' },
-  { hreflang: 'de', locale: 'de-DE' },
-  { hreflang: 'fr', locale: 'fr-FR' },
-  { hreflang: 'es', locale: 'es-ES' },
-  { hreflang: 'pt', locale: 'pt-BR' },
-  { hreflang: 'it', locale: 'it-IT' },
-  { hreflang: 'ru', locale: 'ru-RU' },
-  { hreflang: 'ko', locale: 'ko-KR' },
-];
+const CONFIG_PATH = path.join(WEB_DIR, 'seo.config.json');
+const I18N_PATH = path.join(WEB_DIR, 'i18n.js');
 
 function readJSON(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 }
 
-function escapeHtml(str) {
-  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+function writeFile(filePath, content) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, content, 'utf-8');
+}
+
+function escapeHtml(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function escapeXml(value) {
+  return escapeHtml(value).replace(/'/g, '&apos;');
+}
+
+function stripSeoBrand(value = '') {
+  return String(value).replace(/\s*\|\s*SeasonLoot\s*$/u, '').trim();
+}
+
+function loadI18n() {
+  const source = fs.readFileSync(I18N_PATH, 'utf-8')
+    .replace(/\bexport\s+/g, '')
+    + '\nmodule.exports = { SUPPORTED_LOCALES, getLocaleName, resolveLocale, createI18n };';
+  const sandbox = { module: { exports: {} }, console };
+  vm.runInNewContext(source, sandbox, { filename: I18N_PATH });
+  return sandbox.module.exports;
+}
+
+const config = readJSON(CONFIG_PATH);
+const i18nModule = loadI18n();
+const DATA_DIR = path.join(WEB_DIR, config.dataDir);
+const DEFAULT_LOCALE = config.defaultLocale;
+const localeConfigs = config.locales.filter((item) => i18nModule.SUPPORTED_LOCALES.includes(item.locale));
+const localeByCode = Object.fromEntries(localeConfigs.map((item) => [item.locale, item]));
+
+function localeConfig(locale) {
+  return localeByCode[locale] || localeByCode[DEFAULT_LOCALE];
+}
+
+function urlPath(locale, classKey = '') {
+  const localeInfo = localeConfig(locale);
+  const segments = [];
+  if (localeInfo.slug) segments.push(localeInfo.slug);
+  if (classKey) segments.push(classKey);
+  return `/${segments.join('/')}${segments.length ? '/' : ''}`;
+}
+
+function absoluteUrl(locale, classKey = '') {
+  return `${config.baseUrl}${urlPath(locale, classKey)}`;
+}
+
+function pageDepth(locale, classKey = '') {
+  const localeInfo = localeConfig(locale);
+  return (localeInfo.slug ? 1 : 0) + (classKey ? 1 : 0);
+}
+
+function relativeBase(locale, classKey = '') {
+  const depth = pageDepth(locale, classKey);
+  return depth ? Array.from({ length: depth }, () => '..').join('/') : '.';
+}
+
+function assetHref(locale, classKey, assetPath) {
+  return `${relativeBase(locale, classKey)}${assetPath}`;
+}
+
+function hreflangTags(classKey = '') {
+  const tags = localeConfigs.map((item) =>
+    `<link rel="alternate" hreflang="${item.hreflang}" href="${absoluteUrl(item.locale, classKey)}">`
+  );
+  tags.push(`<link rel="alternate" hreflang="x-default" href="${absoluteUrl(DEFAULT_LOCALE, classKey)}">`);
+  return tags.join('\n    ');
 }
 
 function flattenItems(instances) {
   const items = [];
   const seen = new Set();
-  for (const inst of instances) {
+  for (const inst of instances || []) {
     for (const enc of inst.encounters || []) {
       for (const item of enc.items || []) {
         if (!seen.has(item.id)) {
@@ -86,211 +101,386 @@ function flattenItems(instances) {
   return items;
 }
 
-function getSecondaryStats(item) {
-  const secondary = item.stats?.secondary || [];
-  return secondary.map(s => STAT_NAMES[s.type] || s.type).filter(Boolean);
+function localizedClassName(locale, classKey, fallback) {
+  const i18n = i18nModule.createI18n(locale);
+  return i18n.raw(`data.classes.${classKey}`) || fallback || classKey;
 }
 
-function getEnglishName(itemId, localeData) {
-  const entry = localeData.items?.[String(itemId)];
-  return entry?.name || null;
+function localizedSpecName(locale, spec) {
+  const i18n = i18nModule.createI18n(locale);
+  return i18n.raw(`data.specs.${spec.id}`) || spec.name || '';
 }
 
-function getInstanceName(instanceId) {
-  if (typeof instanceId === 'string' && instanceId.startsWith('tier:')) return 'Class Sets';
-  return EN_INSTANCES[instanceId] || null;
+function localizedInstanceName(locale, instanceId, fallback) {
+  const i18n = i18nModule.createI18n(locale);
+  if (typeof instanceId === 'string' && instanceId.startsWith('tier:')) {
+    return i18n.raw('data.instances.tier') || i18n.t('sourceTypes.tier');
+  }
+  return i18n.raw(`data.instances.${instanceId}`) || fallback || '';
 }
 
-function getSlotGroup(slot) {
-  if (!slot) return null;
-  const s = slot.toLowerCase();
-  if (SLOT_NAMES[s]) return SLOT_NAMES[s];
-  if (s.includes('weapon') || s.includes('hand')) return 'Weapon';
-  return null;
+function localizedArmorType(locale, armorType) {
+  const i18n = i18nModule.createI18n(locale);
+  return i18n.raw(`data.armorTypes.${armorType}`) || armorType || '';
 }
 
-function buildNoscript(className, classData, localeData, overview) {
-  const items = flattenItems(classData.instances || []);
-  const armorType = ARMOR_TYPES[classData.class?.armorType] || '';
-  const specs = (classData.specs || []).map(s => EN_SPECS[s.id] || s.name).join(', ');
-
-  const grouped = {};
-  for (const item of items) {
-    const slotGroup = getSlotGroup(item.slot);
-    if (!slotGroup) continue;
-    if (!grouped[slotGroup]) grouped[slotGroup] = [];
-    grouped[slotGroup].push(item);
-  }
-
-  for (const slot of Object.keys(grouped)) {
-    grouped[slot].sort((a, b) => (b.ilvl || 0) - (a.ilvl || 0));
-    grouped[slot] = grouped[slot].slice(0, 8);
-  }
-
-  const slotOrder = ['Head', 'Neck', 'Shoulder', 'Cloak', 'Chest', 'Wrist', 'Hands', 'Waist', 'Legs', 'Feet', 'Ring', 'Trinket', 'Weapon', 'Off-Hand', 'Shield'];
-  let html = '';
-  html += `<h1>WoW ${escapeHtml(className)} Loot Table &mdash; Midnight Season 1</h1>\n`;
-  html += `<p>${escapeHtml(className)} (${escapeHtml(armorType)} armor) has ${items.length}+ gear drops across 8 dungeons and 3 raids in WoW Midnight Season 1. Specializations: ${escapeHtml(specs)}.</p>\n`;
-
-  html += `<h2>${escapeHtml(className)} Gear by Slot</h2>\n`;
-  for (const slot of slotOrder) {
-    const slotItems = grouped[slot];
-    if (!slotItems || slotItems.length === 0) continue;
-    html += `<h3>${escapeHtml(slot)}</h3>\n<ul>\n`;
-    for (const item of slotItems) {
-      const name = getEnglishName(item.id, localeData) || `Item #${item.id}`;
-      const stats = getSecondaryStats(item);
-      const statsStr = stats.length ? ` (${stats.join(', ')})` : '';
-      const source = getInstanceName(item.instanceId) || item.instanceName || '';
-      html += `<li>${escapeHtml(name)} - ilvl ${item.ilvl || '?'}${escapeHtml(statsStr)} - ${escapeHtml(source)}</li>\n`;
-    }
-    html += `</ul>\n`;
-  }
-
-  html += `<h2>Dungeon &amp; Raid Sources</h2>\n<ul>\n`;
-  const dungeons = overview.scope?.dungeons || [];
-  const raids = overview.scope?.raids || [];
-  for (const d of dungeons) {
-    html += `<li>${escapeHtml(EN_INSTANCES[d.id] || d.name)}</li>\n`;
-  }
-  for (const r of raids) {
-    html += `<li>${escapeHtml(EN_INSTANCES[r.id] || r.name)}</li>\n`;
-  }
-  html += `</ul>\n`;
-
-  return html;
+function localizedStat(locale, statType) {
+  const i18n = i18nModule.createI18n(locale);
+  return i18n.t(`stats.${statType}`);
 }
 
-function buildJsonLd(className, classKey, classData, localeData) {
-  const items = flattenItems(classData.instances || []);
-  items.sort((a, b) => (b.ilvl || 0) - (a.ilvl || 0));
-  const top20 = items.slice(0, 20);
+const SLOT_MAP = {
+  head: 'head',
+  neck: 'neck',
+  shoulder: 'shoulder',
+  cloak: 'cloak',
+  back: 'cloak',
+  chest: 'chest',
+  wrist: 'wrist',
+  hand: 'hand',
+  hands: 'hand',
+  waist: 'waist',
+  legs: 'legs',
+  feet: 'feet',
+  finger: 'finger',
+  trinket: 'trinket',
+  weapon: 'weapon',
+  'one-hand': 'weapon',
+  'two-hand': 'weapon',
+  'main-hand': 'weapon',
+  'off-hand': 'weapon',
+  shield: 'weapon',
+  ranged: 'weapon',
+};
 
-  const itemList = {
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    name: `${className} Loot Table — WoW Midnight Season 1`,
-    description: `Complete list of ${className} gear drops from dungeons and raids in World of Warcraft Midnight Season 1.`,
-    url: `${BASE_URL}/${classKey}/`,
-    numberOfItems: items.length,
-    itemListElement: top20.map((item, i) => {
-      const name = getEnglishName(item.id, localeData) || `Item #${item.id}`;
-      const stats = getSecondaryStats(item);
-      const slotName = getSlotGroup(item.slot) || item.slot || '';
-      return {
-        '@type': 'ListItem',
-        position: i + 1,
-        name,
-        description: `ilvl ${item.ilvl || '?'} ${slotName} - ${stats.join(', ')}`,
-      };
-    }),
+const SLOT_ORDER = ['head', 'neck', 'shoulder', 'cloak', 'chest', 'wrist', 'hand', 'waist', 'legs', 'feet', 'finger', 'trinket', 'weapon'];
+
+function slotKey(slot) {
+  if (!slot) return 'unknown';
+  const normalized = String(slot).toLowerCase();
+  return SLOT_MAP[normalized] || (normalized.includes('weapon') || normalized.includes('hand') ? 'weapon' : 'unknown');
+}
+
+function localizedSlot(locale, key) {
+  const i18n = i18nModule.createI18n(locale);
+  return i18n.t(`slots.${key}`);
+}
+
+function readLocaleData(locale, classKey) {
+  const localeFile = path.join(WEB_DIR, 'locales', locale, 'data', `${classKey}.json`);
+  const defaultFile = path.join(WEB_DIR, 'locales', DEFAULT_LOCALE, 'data', `${classKey}.json`);
+  if (fs.existsSync(localeFile)) return readJSON(localeFile);
+  if (fs.existsSync(defaultFile)) return readJSON(defaultFile);
+  return { items: {} };
+}
+
+function localizedItemName(itemId, localeData, fallbackData) {
+  return localeData.items?.[String(itemId)]?.name
+    || fallbackData.items?.[String(itemId)]?.name
+    || `Item #${itemId}`;
+}
+
+function secondaryStats(item) {
+  return (item.stats?.secondary || []).map((stat) => stat.type).filter(Boolean);
+}
+
+function localizedMeta(locale, className = '') {
+  const i18n = i18nModule.createI18n(locale);
+  if (className) {
+    const title = i18n.t('seoClassTitle', { className });
+    const description = i18n.t('seoClassDesc', { className });
+    return {
+      title,
+      heading: stripSeoBrand(title),
+      description,
+      socialTitle: stripSeoBrand(title),
+      socialDescription: stripSeoBrand(description),
+    };
+  }
+  const title = i18n.t('seoPageTitle');
+  const description = i18n.t('seoMetaDesc');
+  return {
+    title,
+    heading: i18n.t('seoTitle') || stripSeoBrand(title),
+    description,
+    socialTitle: stripSeoBrand(title),
+    socialDescription: stripSeoBrand(description),
   };
-
-  const armorType = ARMOR_TYPES[classData.class?.armorType] || '';
-  const instanceCount = (classData.instances || []).length;
-
-  const faq = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: `What gear can a ${className} get in Midnight Season 1?`,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: `${className}s can equip ${armorType} armor and access ${items.length}+ gear drops across ${instanceCount} instances in Midnight Season 1, including dungeon and raid loot.`,
-        },
-      },
-      {
-        '@type': 'Question',
-        name: `How do I find ${className} loot by stat?`,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: `Use the filter bar to select crit, haste, mastery, or versatility. SeasonLoot shows which secondary stats each ${className} item has so you can target your preferred gear.`,
-        },
-      },
-    ],
-  };
-
-  return `<script type="application/ld+json">\n${JSON.stringify(itemList, null, 2)}\n</script>\n<script type="application/ld+json">\n${JSON.stringify(faq, null, 2)}\n</script>`;
 }
 
-function buildClassPage(classKey, className, classData, localeData, overview) {
-  const itemCount = (overview.classes.find(c => c.key === classKey) || {}).itemCount || 0;
-  const lowerClass = className.toLowerCase();
-
-  const hreflangs = HREFLANG_MAP.map(h =>
-    `<link rel="alternate" hreflang="${h.hreflang}" href="${BASE_URL}/${classKey}/?lang=${h.locale}">`
-  ).join('\n    ');
-
-  const jsonLd = buildJsonLd(className, classKey, classData, localeData);
-  const noscript = buildNoscript(className, classData, localeData, overview);
-
+function htmlShell({ locale, classKey = '', title, description, canonical, ogUrl, jsonLd, bodyAttrs = '', appAttrs = '', noscript }) {
+  const asset = (assetPath) => assetHref(locale, classKey, assetPath);
   return `<!doctype html>
-<html lang="en">
+<html lang="${escapeHtml(locale)}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#09080d">
-    <title>WoW ${escapeHtml(className)} Loot Table &mdash; Midnight Season 1 | SeasonLoot</title>
-    <meta name="description" content="Browse ${itemCount}+ ${escapeHtml(className)} gear drops in WoW Midnight Season 1. Filter by slot, stats &amp; source across 8 dungeons and 3 raids. | SeasonLoot">
-    <meta name="keywords" content="wow ${lowerClass} loot table, wow ${lowerClass} gear, wow ${lowerClass} bis, ${lowerClass} midnight drops, ${lowerClass} dungeon loot">
-    <link rel="icon" href="../assets/public/logo.png">
-    <link rel="canonical" href="${BASE_URL}/${classKey}/">
-    ${hreflangs}
-    <link rel="alternate" hreflang="x-default" href="${BASE_URL}/${classKey}/">
+    <title>${escapeHtml(title)}</title>
+    <meta name="description" content="${escapeHtml(description)}">
+    <link rel="icon" href="${asset('/assets/public/logo.png')}">
+    <link rel="canonical" href="${canonical}">
+    ${hreflangTags(classKey)}
     <meta property="og:type" content="website">
-    <meta property="og:title" content="WoW ${escapeHtml(className)} Loot Table &mdash; Midnight Season 1 | SeasonLoot">
-    <meta property="og:description" content="Browse ${itemCount}+ ${escapeHtml(className)} gear drops. Filter by slot, stats &amp; source.">
-    <meta property="og:image" content="${BASE_URL}/assets/public/og-card.png">
-    <meta property="og:url" content="${BASE_URL}/${classKey}/">
-    <meta property="og:site_name" content="SeasonLoot">
+    <meta property="og:title" content="${escapeHtml(stripSeoBrand(title))}">
+    <meta property="og:description" content="${escapeHtml(stripSeoBrand(description))}">
+    <meta property="og:image" content="${config.baseUrl}/assets/public/og-card.png">
+    <meta property="og:url" content="${ogUrl}">
+    <meta property="og:site_name" content="${escapeHtml(config.siteName)}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="WoW ${escapeHtml(className)} Loot Table &mdash; Midnight Season 1 | SeasonLoot">
-    <meta name="twitter:description" content="Browse ${itemCount}+ ${escapeHtml(className)} gear drops. Filter by slot, stats &amp; source.">
-    <meta name="twitter:image" content="${BASE_URL}/assets/public/og-card.png">
+    <meta name="twitter:title" content="${escapeHtml(stripSeoBrand(title))}">
+    <meta name="twitter:description" content="${escapeHtml(stripSeoBrand(description))}">
+    <meta name="twitter:image" content="${config.baseUrl}/assets/public/og-card.png">
     ${jsonLd}
-    <link rel="stylesheet" href="../styles.css?v=${CACHE_BUST}">
+    <link rel="stylesheet" href="${asset('/styles.css')}?v=${config.cacheBust}">
   </head>
-  <body>
-    <div id="app" data-class="${classKey}"></div>
+  <body${bodyAttrs}>
+    <div id="app" data-locale="${escapeHtml(locale)}"${appAttrs}></div>
     <noscript>
       ${noscript}
     </noscript>
-    <script type="module" src="../app.js?v=${CACHE_BUST}"></script>
+    <script type="module" src="${asset('/app.js')}?v=${config.cacheBust}"></script>
   </body>
 </html>
 `;
 }
 
+function homeJsonLd(locale, meta) {
+  const i18n = i18nModule.createI18n(locale);
+  return `<script type="application/ld+json">
+${JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: config.siteName,
+  url: absoluteUrl(locale),
+  description: stripSeoBrand(meta.description),
+  applicationCategory: 'GameApplication',
+  operatingSystem: 'Web Browser',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  inLanguage: locale,
+  featureList: [
+    i18n.t('filters.spec'),
+    i18n.t('filters.slot'),
+    i18n.t('filters.stat'),
+    i18n.t('filters.source'),
+  ],
+}, null, 2)}
+</script>`;
+}
+
+function homeNoscript(locale, overview) {
+  const i18n = i18nModule.createI18n(locale);
+  const classes = (overview.classes || [])
+    .map((cls) => `<li><a href="${urlPath(locale, cls.key)}">${escapeHtml(localizedClassName(locale, cls.key, cls.name))}</a> (${cls.itemCount || 0})</li>`)
+    .join('\n');
+  return `<h1>${escapeHtml(i18n.t('seoTitle'))}</h1>
+<p>${escapeHtml(i18n.t('seoDesc'))}</p>
+<h2>${escapeHtml(i18n.t('filters.spec'))}</h2>
+<ul>
+${classes}
+</ul>`;
+}
+
+function buildHomePage(locale, overview) {
+  const meta = localizedMeta(locale);
+  const canonical = absoluteUrl(locale);
+  return htmlShell({
+    locale,
+    title: meta.title,
+    description: meta.description,
+    canonical,
+    ogUrl: canonical,
+    jsonLd: homeJsonLd(locale, meta),
+    noscript: homeNoscript(locale, overview),
+  });
+}
+
+function classJsonLd(locale, classKey, className, classData, localeData, fallbackData, canonical) {
+  const items = flattenItems(classData.instances);
+  items.sort((a, b) => (b.ilvl || 0) - (a.ilvl || 0));
+  const topItems = items.slice(0, 40);
+  const breadcrumbHome = locale === DEFAULT_LOCALE ? config.baseUrl : absoluteUrl(locale);
+  const meta = localizedMeta(locale, className);
+  return `<script type="application/ld+json">
+${JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: meta.heading,
+  description: stripSeoBrand(meta.description),
+  url: canonical,
+  numberOfItems: items.length,
+  itemListElement: topItems.map((item, index) => {
+    const stats = secondaryStats(item).map((stat) => localizedStat(locale, stat));
+    return {
+      '@type': 'ListItem',
+      position: index + 1,
+      name: localizedItemName(item.id, localeData, fallbackData),
+      description: [
+        `ilvl ${item.ilvl || '?'}`,
+        localizedSlot(locale, slotKey(item.slot)),
+        stats.join(', '),
+        localizedInstanceName(locale, item.instanceId, item.instanceName),
+      ].filter(Boolean).join(' - '),
+    };
+  }),
+}, null, 2)}
+</script>
+<script type="application/ld+json">
+${JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: config.siteName, item: breadcrumbHome },
+    { '@type': 'ListItem', position: 2, name: className, item: canonical },
+  ],
+}, null, 2)}
+</script>`;
+}
+
+function classNoscript(locale, classKey, className, classData, localeData, fallbackData, overview) {
+  const i18n = i18nModule.createI18n(locale);
+  const meta = localizedMeta(locale, className);
+  const items = flattenItems(classData.instances);
+  const armorType = localizedArmorType(locale, classData.class?.armorType);
+  const specs = (classData.specs || []).map((spec) => localizedSpecName(locale, spec)).filter(Boolean).join(', ');
+
+  const grouped = {};
+  for (const item of items) {
+    const key = slotKey(item.slot);
+    if (key === 'unknown') continue;
+    grouped[key] ||= [];
+    grouped[key].push(item);
+  }
+
+  for (const key of Object.keys(grouped)) {
+    grouped[key].sort((a, b) => (b.ilvl || 0) - (a.ilvl || 0));
+    grouped[key] = grouped[key].slice(0, 10);
+  }
+
+  const sections = SLOT_ORDER.map((key) => {
+    const slotItems = grouped[key];
+    if (!slotItems?.length) return '';
+    const rows = slotItems.map((item) => {
+      const stats = secondaryStats(item).map((stat) => localizedStat(locale, stat));
+      const statsText = stats.length ? ` (${stats.join(', ')})` : '';
+      const source = localizedInstanceName(locale, item.instanceId, item.instanceName);
+      return `<li>${escapeHtml(localizedItemName(item.id, localeData, fallbackData))} - ilvl ${escapeHtml(item.ilvl || '?')}${escapeHtml(statsText)} - ${escapeHtml(source)}</li>`;
+    }).join('\n');
+    return `<h3>${escapeHtml(localizedSlot(locale, key))}</h3>
+<ul>
+${rows}
+</ul>`;
+  }).filter(Boolean).join('\n');
+
+  const sourceRows = [
+    ...(overview.scope?.dungeons || []),
+    ...(overview.scope?.raids || []),
+  ].map((source) => `<li>${escapeHtml(localizedInstanceName(locale, source.id, source.name))}</li>`).join('\n');
+
+  return `<h1>${escapeHtml(meta.heading)}</h1>
+<p>${escapeHtml(stripSeoBrand(meta.description))}</p>
+<p>${escapeHtml(className)}${armorType ? ` - ${escapeHtml(armorType)}` : ''}. ${escapeHtml(specs)}</p>
+<h2>${escapeHtml(className)} ${escapeHtml(i18n.t('filters.slot'))}</h2>
+${sections}
+<h2>${escapeHtml(i18n.t('filters.source'))}</h2>
+<ul>
+${sourceRows}
+</ul>`;
+}
+
+function buildClassPage(locale, classKey, classData, overview, fallbackData) {
+  const className = localizedClassName(locale, classKey, classData.class?.name);
+  const meta = localizedMeta(locale, className);
+  const canonical = absoluteUrl(locale, classKey);
+  const localeData = readLocaleData(locale, classKey);
+  return htmlShell({
+    locale,
+    classKey,
+    title: meta.title,
+    description: meta.description,
+    canonical,
+    ogUrl: canonical,
+    appAttrs: ` data-class="${escapeHtml(classKey)}"`,
+    jsonLd: classJsonLd(locale, classKey, className, classData, localeData, fallbackData, canonical),
+    noscript: classNoscript(locale, classKey, className, classData, localeData, fallbackData, overview),
+  });
+}
+
+function sitemapEntry(locale, classKey = '', lastmod) {
+  const loc = absoluteUrl(locale, classKey);
+  const alternates = [
+    ...localeConfigs.map((item) => `    <xhtml:link rel="alternate" hreflang="${escapeXml(item.hreflang)}" href="${escapeXml(absoluteUrl(item.locale, classKey))}" />`),
+    `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(absoluteUrl(DEFAULT_LOCALE, classKey))}" />`,
+  ].join('\n');
+  return `  <url>
+    <loc>${escapeXml(loc)}</loc>
+    <lastmod>${escapeXml(lastmod)}</lastmod>
+${alternates}
+  </url>`;
+}
+
+function buildSitemap(overview) {
+  const lastmod = String(overview.updatedAt || new Date().toISOString()).slice(0, 10);
+  const entries = [];
+  for (const locale of localeConfigs.map((item) => item.locale)) {
+    entries.push(sitemapEntry(locale, '', lastmod));
+  }
+  for (const cls of overview.classes || []) {
+    for (const locale of localeConfigs.map((item) => item.locale)) {
+      entries.push(sitemapEntry(locale, cls.key, lastmod));
+    }
+  }
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${entries.join('\n')}
+</urlset>
+`;
+}
+
+function writePage(locale, classKey, html) {
+  const localeInfo = localeConfig(locale);
+  const segments = [];
+  if (localeInfo.slug) segments.push(localeInfo.slug);
+  if (classKey) segments.push(classKey);
+  const outDir = segments.length ? path.join(WEB_DIR, ...segments) : WEB_DIR;
+  writeFile(path.join(outDir, 'index.html'), html);
+}
+
 function main() {
   const overview = readJSON(path.join(DATA_DIR, 'overview.json'));
-  let count = 0;
+  let pageCount = 0;
 
-  for (const cls of overview.classes) {
+  for (const locale of localeConfigs.map((item) => item.locale)) {
+    writePage(locale, '', buildHomePage(locale, overview));
+    pageCount++;
+  }
+
+  for (const cls of overview.classes || []) {
     const classKey = cls.key;
-    const className = EN_CLASSES[classKey] || cls.name;
-
     const classDataPath = path.join(DATA_DIR, `${classKey}.json`);
     if (!fs.existsSync(classDataPath)) {
       console.warn(`Skipping ${classKey}: data file not found`);
       continue;
     }
     const classData = readJSON(classDataPath);
+    const fallbackData = readLocaleData(DEFAULT_LOCALE, classKey);
 
-    const localeDataPath = path.join(LOCALE_DIR, `${classKey}.json`);
-    const localeData = fs.existsSync(localeDataPath) ? readJSON(localeDataPath) : { items: {} };
-
-    const outDir = path.join(WEB_DIR, classKey);
-    if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
-
-    const html = buildClassPage(classKey, className, classData, localeData, overview);
-    fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf-8');
-    count++;
-    console.log(`Generated: ${classKey}/index.html`);
+    for (const locale of localeConfigs.map((item) => item.locale)) {
+      writePage(locale, classKey, buildClassPage(locale, classKey, classData, overview, fallbackData));
+      pageCount++;
+    }
   }
 
-  console.log(`\nDone! Generated ${count} class pages.`);
+  writeFile(path.join(WEB_DIR, 'sitemap.xml'), buildSitemap(overview));
+  writeFile(path.join(WEB_DIR, 'robots.txt'), `User-agent: *
+Allow: /
+
+Sitemap: ${config.baseUrl}/sitemap.xml
+`);
+
+  console.log(`Generated ${pageCount} localized SEO pages.`);
+  console.log('Generated sitemap.xml and robots.txt.');
 }
 
 main();

@@ -1,0 +1,22 @@
+{
+  "baseUrl": "https://seasonloot.com",
+  "siteName": "SeasonLoot",
+  "currentVersion": "4.2.x",
+  "dataDir": "data-4.2.x",
+  "cacheBust": "20260509-multilingual-seo",
+  "defaultLocale": "en-US",
+  "locales": [
+    { "locale": "en-US", "slug": "", "hreflang": "en-US" },
+    { "locale": "en-GB", "slug": "en-gb", "hreflang": "en-GB" },
+    { "locale": "de-DE", "slug": "de", "hreflang": "de-DE" },
+    { "locale": "fr-FR", "slug": "fr", "hreflang": "fr-FR" },
+    { "locale": "es-ES", "slug": "es", "hreflang": "es-ES" },
+    { "locale": "es-MX", "slug": "es-mx", "hreflang": "es-MX" },
+    { "locale": "pt-BR", "slug": "pt-br", "hreflang": "pt-BR" },
+    { "locale": "it-IT", "slug": "it", "hreflang": "it-IT" },
+    { "locale": "ru-RU", "slug": "ru", "hreflang": "ru-RU" },
+    { "locale": "ko-KR", "slug": "ko", "hreflang": "ko-KR" },
+    { "locale": "zh-CN", "slug": "zh-cn", "hreflang": "zh-CN" },
+    { "locale": "zh-TW", "slug": "zh-tw", "hreflang": "zh-TW" }
+  ]
+}

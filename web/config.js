@@ -3,8 +3,14 @@ export const REMOTE_COS_BASE = 'https://wowlook-1308073800.cos.ap-guangzhou.myqc
 const params = new URLSearchParams(window.location.search);
 const useRemoteCos = params.get('remote') === '1';
 
-const isSubPage = /^\/[a-z]+(?:\/(?:index\.html)?)?$/i.test(location.pathname);
-const LOCAL_BASE = isSubPage ? '..' : '.';
+function localBaseFromPath(pathname) {
+  const normalized = pathname.replace(/\/index\.html$/i, '/');
+  const segments = normalized.split('/').filter(Boolean);
+  if (!segments.length) return '.';
+  return Array.from({ length: segments.length }, () => '..').join('/');
+}
+
+const LOCAL_BASE = localBaseFromPath(location.pathname);
 
 export const DATA_VERSION = '4.2.x';
 export const DATA_DIR_NAME = `data-${DATA_VERSION}`;

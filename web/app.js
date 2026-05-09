@@ -1,5 +1,5 @@
-import { ASSET_BASE, DATA_BASE, LOCALE_DATA_BASE, STORAGE_KEYS } from './config.js?v=20260508-seo';
-import { SUPPORTED_LOCALES, createI18n, getLocaleName, resolveLocale } from './i18n.js?v=20260508-seo';
+import { ASSET_BASE, DATA_BASE, LOCALE_DATA_BASE, STORAGE_KEYS } from './config.js?v=20260509-multilingual-seo';
+import { SUPPORTED_LOCALES, createI18n, getLocaleName, resolveLocale } from './i18n.js?v=20260509-multilingual-seo';
 
 const CLASS_LIST = [
   { id: 1, key: 'warrior', name: '战士', shortName: '战士', armorType: 'plate', armorTypeName: '板甲', color: '#C69B6D', abbr: '战', assetCode: 'zs' },
@@ -25,6 +25,22 @@ const VIEW_MODES = ['slot', 'source'];
 const FAVORITE_SLOT_ORDER = ['头', '项', '肩', '披', '胸', '腕', '手', '腰', '腿', '脚', '戒指', '饰品', '武器'];
 const MAX_SHARED_FAVORITES = 20;
 const DEFAULT_SITE_NAME = 'SeasonLoot';
+const DEFAULT_LOCALE = 'en-US';
+const LOCALE_ROUTES = {
+  'en-US': '',
+  'en-GB': 'en-gb',
+  'de-DE': 'de',
+  'fr-FR': 'fr',
+  'es-ES': 'es',
+  'es-MX': 'es-mx',
+  'pt-BR': 'pt-br',
+  'it-IT': 'it',
+  'ru-RU': 'ru',
+  'ko-KR': 'ko',
+  'zh-CN': 'zh-cn',
+  'zh-TW': 'zh-tw',
+};
+const ROUTE_LOCALES = Object.fromEntries(Object.entries(LOCALE_ROUTES).map(([locale, slug]) => [slug, locale]));
 const SEO_ORIGIN = (() => {
   const canonicalHref = document.querySelector('link[rel="canonical"]')?.href;
   try {
@@ -116,7 +132,7 @@ const NAME_PHRASES = [
 ];
 
 const state = {
-  locale: resolveLocale(new URLSearchParams(window.location.search).get('lang') || document.documentElement.lang || localStorage.getItem(STORAGE_KEYS.locale) || navigator.language),
+  locale: resolveLocale(new URLSearchParams(window.location.search).get('lang') || document.getElementById('app')?.dataset.locale || document.documentElement.lang || localStorage.getItem(STORAGE_KEYS.locale) || navigator.language),
   overview: null,
   classKey: '',
   classData: null,
@@ -158,16 +174,17 @@ function stripSeoBrand(value = '') {
   return String(value).replace(/\s*\|\s*SeasonLoot\s*$/u, '').trim();
 }
 
-function buildPageHref(classKey = '', locale = state.locale) {
-  const relativePath = classKey
-    ? (state.classKey ? `../${classKey}/` : `./${classKey}/`)
-    : (state.classKey ? '../' : './');
-  const url = new URL(relativePath, window.location.href);
+function buildPageHref(classKey = '', locale = state.locale, options = {}) {
+  const resolvedLocale = resolveLocale(locale || DEFAULT_LOCALE);
+  const localeSlug = LOCALE_ROUTES[resolvedLocale] || '';
+  const segments = [];
+  if (localeSlug) segments.push(localeSlug);
+  if (classKey) segments.push(classKey);
+  const url = new URL(`/${segments.join('/')}${segments.length ? '/' : ''}`, window.location.origin);
   const currentSearch = new URLSearchParams(window.location.search);
   const nextSearch = new URLSearchParams();
 
-  if (locale && locale !== 'en-US') nextSearch.set('lang', locale);
-  if (currentSearch.get('remote') === '1') nextSearch.set('remote', '1');
+  if (options.preserveRemote !== false && currentSearch.get('remote') === '1') nextSearch.set('remote', '1');
 
   url.search = nextSearch.toString();
   url.hash = '';
@@ -175,7 +192,7 @@ function buildPageHref(classKey = '', locale = state.locale) {
 }
 
 function buildCanonicalUrl(classKey = '') {
-  return classKey ? `${SEO_ORIGIN}/${classKey}/` : `${SEO_ORIGIN}/`;
+  return `${SEO_ORIGIN}${buildPageHref(classKey, state.locale, { preserveRemote: false })}`;
 }
 
 function setMetaContent(selector, content) {
@@ -927,8 +944,11 @@ function parseRoute() {
   const query = new URLSearchParams(window.location.search);
   const hash = new URLSearchParams(window.location.hash.replace(/^#/, ''));
   const appEl = document.getElementById('app');
+  const pathSegments = window.location.pathname.split('/').filter(Boolean);
+  const firstSegment = pathSegments[0]?.toLowerCase() || '';
+  const pathClass = ROUTE_LOCALES[firstSegment] ? pathSegments[1] : pathSegments[0];
   return {
-    classKey: hash.get('class') || query.get('classKey') || (appEl && appEl.dataset.class) || '',
+    classKey: hash.get('class') || query.get('classKey') || (appEl && appEl.dataset.class) || pathClass || '',
     shareFav: query.get('shareFav') || hash.get('shareFav') || '',
     requestBuild: query.get('requestBuild') === '1' || hash.get('requestBuild') === '1',
   };
@@ -1824,13 +1844,8 @@ async function applyLocale(locale) {
 }
 
 function updateLangUrl() {
-  const url = new URL(window.location.href);
-  if (state.locale === 'en-US') {
-    url.searchParams.delete('lang');
-  } else {
-    url.searchParams.set('lang', state.locale);
-  }
-  history.replaceState(null, '', url.toString());
+  const nextPath = buildPageHref(state.classKey, state.locale);
+  history.replaceState(null, '', `${nextPath}${window.location.hash || ''}`);
 }
 
 function updateSeoMeta() {
@@ -1843,8 +1858,7 @@ function updateSeoMeta() {
   setMetaContent('meta[name="twitter:title"]', seoModel.socialTitle);
   setMetaContent('meta[name="twitter:description"]', seoModel.socialDescription);
   setLinkHref('link[rel="canonical"]', seoModel.canonicalUrl);
-  const htmlLang = state.locale.split('-')[0];
-  document.documentElement.lang = htmlLang;
+  document.documentElement.lang = state.locale;
 }
 
 function handleChange(event) {

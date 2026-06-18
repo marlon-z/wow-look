@@ -4,3 +4,5 @@ Thumbs.db
 .cache/
 WoWLookExport3.lua
 WoWLookExport3 copy.lua
+WoWLookTierExport.lua
+WoWLookTierExport copy*.lua

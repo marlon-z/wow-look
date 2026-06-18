@@ -1,5 +1,5 @@
 module.exports = {
-  "version": "12.0.1",
+  "version": "4.2.x",
   "addonVersion": "3.0.0",
   "updatedAt": "2026-04-22 21:59:03",
   "class": {
@@ -26,9 +26,8 @@ module.exports = {
     }
   ],
   "meta": {
-    "itemCount": 185,
-    "instanceCount": 12,
-    "tierItemCount": 9
+    "itemCount": 186,
+    "instanceCount": 13
   },
   "instances": [
     {
@@ -15837,7 +15836,7 @@ module.exports = {
                 "encounterId": "tier-set:monk",
                 "encounterName": "莱登选民之道",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -15860,29 +15859,14 @@ module.exports = {
                 "莱登选民的骇人面容",
                 "莱登选民的迅捷扫腿",
                 "莱登选民的灵气之石",
-                "套装：复苏之雾的治疗效果提高20%。",
-                "套装：施放雷光聚神茶时，会为一个附近的盟友施加持续20秒的复苏之雾。",
+                "套装：醉酿投的伤害提高10%。火焰之息的伤害提高10%。",
+                "套装：醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1700点火焰伤害。",
                 "职业：武僧"
               ],
               "link": "item:250015::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "莱",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": true,
-                "itemModId": 1,
-                "slotId": 1,
-                "slotKey": "head",
-                "sourceId": 297200,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5443,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "莱登选民之道",
-                "visualId": 125559
-              },
               "tier": {
-                "setId": 5443,
+                "setId": 1984,
                 "setName": "莱登选民之道",
                 "pieceCount": 9,
                 "pieces": [
@@ -15901,7 +15885,7 @@ module.exports = {
                     "specId": 268,
                     "specName": "酒仙",
                     "twoPiece": "醉酿投的伤害提高10%。火焰之息的伤害提高10%。",
-                    "fourPiece": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1483点火焰伤害。",
+                    "fourPiece": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1700点火焰伤害。",
                     "spells": [
                       {
                         "spellId": 1264838,
@@ -15911,7 +15895,7 @@ module.exports = {
                       {
                         "spellId": 1264839,
                         "name": "Monk Brewmaster 12.0 Class Set 4pc",
-                        "description": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1483点火焰伤害。"
+                        "description": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1700点火焰伤害。"
                       }
                     ]
                   },
@@ -15952,7 +15936,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -16032,7 +16017,7 @@ module.exports = {
                 "encounterId": "tier-set:monk",
                 "encounterName": "莱登选民之道",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -16055,30 +16040,15 @@ module.exports = {
                 "莱登选民的骇人面容",
                 "莱登选民的迅捷扫腿",
                 "莱登选民的灵气之石",
-                "套装：复苏之雾的治疗效果提高20%。",
-                "套装：施放雷光聚神茶时，会为一个附近的盟友施加持续20秒的复苏之雾。",
+                "套装：醉酿投的伤害提高10%。火焰之息的伤害提高10%。",
+                "套装：醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1700点火焰伤害。",
                 "职业：武僧",
                 "你尚未收藏过此外观"
               ],
               "link": "item:250013::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "莱",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 3,
-                "slotKey": "shoulder",
-                "sourceId": 297176,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5443,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "莱登选民之道",
-                "visualId": 125560
-              },
               "tier": {
-                "setId": 5443,
+                "setId": 1984,
                 "setName": "莱登选民之道",
                 "pieceCount": 9,
                 "pieces": [
@@ -16097,7 +16067,7 @@ module.exports = {
                     "specId": 268,
                     "specName": "酒仙",
                     "twoPiece": "醉酿投的伤害提高10%。火焰之息的伤害提高10%。",
-                    "fourPiece": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1483点火焰伤害。",
+                    "fourPiece": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1700点火焰伤害。",
                     "spells": [
                       {
                         "spellId": 1264838,
@@ -16107,7 +16077,7 @@ module.exports = {
                       {
                         "spellId": 1264839,
                         "name": "Monk Brewmaster 12.0 Class Set 4pc",
-                        "description": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1483点火焰伤害。"
+                        "description": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1700点火焰伤害。"
                       }
                     ]
                   },
@@ -16148,7 +16118,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -16228,7 +16199,7 @@ module.exports = {
                 "encounterId": "tier-set:monk",
                 "encounterName": "莱登选民之道",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -16251,29 +16222,14 @@ module.exports = {
                 "莱登选民的骇人面容",
                 "莱登选民的迅捷扫腿",
                 "莱登选民的灵气之石",
-                "套装：复苏之雾的治疗效果提高20%。",
-                "套装：施放雷光聚神茶时，会为一个附近的盟友施加持续20秒的复苏之雾。",
+                "套装：醉酿投的伤害提高10%。火焰之息的伤害提高10%。",
+                "套装：醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1700点火焰伤害。",
                 "职业：武僧"
               ],
               "link": "item:250018::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "莱",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": true,
-                "itemModId": 1,
-                "slotId": 5,
-                "slotKey": "chest",
-                "sourceId": 297236,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5443,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "莱登选民之道",
-                "visualId": 125561
-              },
               "tier": {
-                "setId": 5443,
+                "setId": 1984,
                 "setName": "莱登选民之道",
                 "pieceCount": 9,
                 "pieces": [
@@ -16292,7 +16248,7 @@ module.exports = {
                     "specId": 268,
                     "specName": "酒仙",
                     "twoPiece": "醉酿投的伤害提高10%。火焰之息的伤害提高10%。",
-                    "fourPiece": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1483点火焰伤害。",
+                    "fourPiece": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1700点火焰伤害。",
                     "spells": [
                       {
                         "spellId": 1264838,
@@ -16302,7 +16258,7 @@ module.exports = {
                       {
                         "spellId": 1264839,
                         "name": "Monk Brewmaster 12.0 Class Set 4pc",
-                        "description": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1483点火焰伤害。"
+                        "description": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1700点火焰伤害。"
                       }
                     ]
                   },
@@ -16343,7 +16299,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -16423,7 +16380,7 @@ module.exports = {
                 "encounterId": "tier-set:monk",
                 "encounterName": "莱登选民之道",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -16446,29 +16403,14 @@ module.exports = {
                 "莱登选民的骇人面容",
                 "莱登选民的迅捷扫腿",
                 "莱登选民的灵气之石",
-                "套装：复苏之雾的治疗效果提高20%。",
-                "套装：施放雷光聚神茶时，会为一个附近的盟友施加持续20秒的复苏之雾。",
+                "套装：醉酿投的伤害提高10%。火焰之息的伤害提高10%。",
+                "套装：醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1700点火焰伤害。",
                 "职业：武僧"
               ],
               "link": "item:250016::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "莱",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": true,
-                "itemModId": 1,
-                "slotId": 10,
-                "slotKey": "hands",
-                "sourceId": 297212,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5443,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "莱登选民之道",
-                "visualId": 125566
-              },
               "tier": {
-                "setId": 5443,
+                "setId": 1984,
                 "setName": "莱登选民之道",
                 "pieceCount": 9,
                 "pieces": [
@@ -16487,7 +16429,7 @@ module.exports = {
                     "specId": 268,
                     "specName": "酒仙",
                     "twoPiece": "醉酿投的伤害提高10%。火焰之息的伤害提高10%。",
-                    "fourPiece": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1483点火焰伤害。",
+                    "fourPiece": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1700点火焰伤害。",
                     "spells": [
                       {
                         "spellId": 1264838,
@@ -16497,7 +16439,7 @@ module.exports = {
                       {
                         "spellId": 1264839,
                         "name": "Monk Brewmaster 12.0 Class Set 4pc",
-                        "description": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1483点火焰伤害。"
+                        "description": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1700点火焰伤害。"
                       }
                     ]
                   },
@@ -16538,7 +16480,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -16618,7 +16561,7 @@ module.exports = {
                 "encounterId": "tier-set:monk",
                 "encounterName": "莱登选民之道",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -16641,29 +16584,14 @@ module.exports = {
                 "莱登选民的骇人面容",
                 "莱登选民的迅捷扫腿",
                 "莱登选民的灵气之石",
-                "套装：复苏之雾的治疗效果提高20%。",
-                "套装：施放雷光聚神茶时，会为一个附近的盟友施加持续20秒的复苏之雾。",
+                "套装：醉酿投的伤害提高10%。火焰之息的伤害提高10%。",
+                "套装：醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1700点火焰伤害。",
                 "职业：武僧"
               ],
               "link": "item:250014::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "莱",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": true,
-                "itemModId": 1,
-                "slotId": 7,
-                "slotKey": "legs",
-                "sourceId": 297188,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5443,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "莱登选民之道",
-                "visualId": 125563
-              },
               "tier": {
-                "setId": 5443,
+                "setId": 1984,
                 "setName": "莱登选民之道",
                 "pieceCount": 9,
                 "pieces": [
@@ -16682,7 +16610,7 @@ module.exports = {
                     "specId": 268,
                     "specName": "酒仙",
                     "twoPiece": "醉酿投的伤害提高10%。火焰之息的伤害提高10%。",
-                    "fourPiece": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1483点火焰伤害。",
+                    "fourPiece": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1700点火焰伤害。",
                     "spells": [
                       {
                         "spellId": 1264838,
@@ -16692,7 +16620,7 @@ module.exports = {
                       {
                         "spellId": 1264839,
                         "name": "Monk Brewmaster 12.0 Class Set 4pc",
-                        "description": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1483点火焰伤害。"
+                        "description": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1700点火焰伤害。"
                       }
                     ]
                   },
@@ -16733,7 +16661,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -16742,10 +16671,10 @@ module.exports = {
               "icon": 7430731,
               "iconName": "inv_cape_leather_raidmonkmidnight_d_01",
               "iconAsset": "/assets/icons/inv_cape_leather_raidmonkmidnight_d_01.jpg",
-              "slot": "cloak",
-              "slotName": "披风",
-              "armorType": "none",
-              "armorTypeName": "无甲种",
+              "slot": "back",
+              "slotName": "背部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
               "itemType": "护甲",
               "itemSubType": "布甲",
               "ilvl": 263,
@@ -16799,8 +16728,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 51
@@ -16813,13 +16742,14 @@ module.exports = {
                 "encounterId": "tier-set:monk",
                 "encounterName": "莱登选民之道",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "莱登选民的风裹披风",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -16835,23 +16765,8 @@ module.exports = {
               ],
               "link": "item:250010::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "莱",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 15,
-                "slotKey": "back",
-                "sourceId": 297140,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5443,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "莱登选民之道",
-                "visualId": 125567
-              },
               "tier": {
-                "setId": 5443,
+                "setId": 1984,
                 "setName": "莱登选民之道",
                 "pieceCount": 9,
                 "pieces": [
@@ -16865,8 +16780,65 @@ module.exports = {
                   "莱登选民的风暴印记",
                   "莱登选民的风暴踏靴"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "268": {
+                    "specId": 268,
+                    "specName": "酒仙",
+                    "twoPiece": "醉酿投的伤害提高10%。火焰之息的伤害提高10%。",
+                    "fourPiece": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1700点火焰伤害。",
+                    "spells": [
+                      {
+                        "spellId": 1264838,
+                        "name": "Monk Brewmaster 12.0 Class Set 2pc",
+                        "description": "醉酿投的伤害提高10%。火焰之息的伤害提高10%。"
+                      },
+                      {
+                        "spellId": 1264839,
+                        "name": "Monk Brewmaster 12.0 Class Set 4pc",
+                        "description": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1700点火焰伤害。"
+                      }
+                    ]
+                  },
+                  "269": {
+                    "specId": 269,
+                    "specName": "踏风",
+                    "twoPiece": "风领主之击和升龙霸的伤害提高30%。",
+                    "fourPiece": "风领主之击和升龙霸的冷却时间缩短5秒。",
+                    "spells": [
+                      {
+                        "spellId": 1264842,
+                        "name": "Monk Windwalker12.0 Class Set 2pc",
+                        "description": "风领主之击和升龙霸的伤害提高30%。"
+                      },
+                      {
+                        "spellId": 1264843,
+                        "name": "Monk Windwalker12.0 Class Set 4pc",
+                        "description": "风领主之击和升龙霸的冷却时间缩短5秒。"
+                      }
+                    ]
+                  },
+                  "270": {
+                    "specId": 270,
+                    "specName": "织雾",
+                    "twoPiece": "复苏之雾的治疗效果提高20%。",
+                    "fourPiece": "施放雷光聚神茶时，会为一个附近的盟友施加持续20秒的复苏之雾。",
+                    "spells": [
+                      {
+                        "spellId": 1264840,
+                        "name": "Monk Mistweaver 12.0 Class Set 2pc",
+                        "description": "复苏之雾的治疗效果提高20%。"
+                      },
+                      {
+                        "spellId": 1264841,
+                        "name": "Monk Mistweaver 12.0 Class Set 4pc",
+                        "description": "施放雷光聚神茶时，会为一个附近的盟友施加持续20秒的复苏之雾。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             },
             {
@@ -16876,7 +16848,7 @@ module.exports = {
               "iconName": "inv_bracer_leather_raidmonkmidnight_d_01",
               "iconAsset": "/assets/icons/inv_bracer_leather_raidmonkmidnight_d_01.jpg",
               "slot": "wrist",
-              "slotName": "腕部",
+              "slotName": "手腕",
               "armorType": "leather",
               "armorTypeName": "皮甲",
               "itemType": "护甲",
@@ -16932,8 +16904,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 63
@@ -16946,13 +16918,14 @@ module.exports = {
                 "encounterId": "tier-set:monk",
                 "encounterName": "莱登选民之道",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "莱登选民的猛击护臂",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -16968,23 +16941,8 @@ module.exports = {
               ],
               "link": "item:250011::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "莱",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 9,
-                "slotKey": "wrist",
-                "sourceId": 297152,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5443,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "莱登选民之道",
-                "visualId": 125565
-              },
               "tier": {
-                "setId": 5443,
+                "setId": 1984,
                 "setName": "莱登选民之道",
                 "pieceCount": 9,
                 "pieces": [
@@ -16998,8 +16956,65 @@ module.exports = {
                   "莱登选民的风暴印记",
                   "莱登选民的风暴踏靴"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "268": {
+                    "specId": 268,
+                    "specName": "酒仙",
+                    "twoPiece": "醉酿投的伤害提高10%。火焰之息的伤害提高10%。",
+                    "fourPiece": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1700点火焰伤害。",
+                    "spells": [
+                      {
+                        "spellId": 1264838,
+                        "name": "Monk Brewmaster 12.0 Class Set 2pc",
+                        "description": "醉酿投的伤害提高10%。火焰之息的伤害提高10%。"
+                      },
+                      {
+                        "spellId": 1264839,
+                        "name": "Monk Brewmaster 12.0 Class Set 4pc",
+                        "description": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1700点火焰伤害。"
+                      }
+                    ]
+                  },
+                  "269": {
+                    "specId": 269,
+                    "specName": "踏风",
+                    "twoPiece": "风领主之击和升龙霸的伤害提高30%。",
+                    "fourPiece": "风领主之击和升龙霸的冷却时间缩短5秒。",
+                    "spells": [
+                      {
+                        "spellId": 1264842,
+                        "name": "Monk Windwalker12.0 Class Set 2pc",
+                        "description": "风领主之击和升龙霸的伤害提高30%。"
+                      },
+                      {
+                        "spellId": 1264843,
+                        "name": "Monk Windwalker12.0 Class Set 4pc",
+                        "description": "风领主之击和升龙霸的冷却时间缩短5秒。"
+                      }
+                    ]
+                  },
+                  "270": {
+                    "specId": 270,
+                    "specName": "织雾",
+                    "twoPiece": "复苏之雾的治疗效果提高20%。",
+                    "fourPiece": "施放雷光聚神茶时，会为一个附近的盟友施加持续20秒的复苏之雾。",
+                    "spells": [
+                      {
+                        "spellId": 1264840,
+                        "name": "Monk Mistweaver 12.0 Class Set 2pc",
+                        "description": "复苏之雾的治疗效果提高20%。"
+                      },
+                      {
+                        "spellId": 1264841,
+                        "name": "Monk Mistweaver 12.0 Class Set 4pc",
+                        "description": "施放雷光聚神茶时，会为一个附近的盟友施加持续20秒的复苏之雾。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             },
             {
@@ -17065,8 +17080,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 71
@@ -17079,13 +17094,14 @@ module.exports = {
                 "encounterId": "tier-set:monk",
                 "encounterName": "莱登选民之道",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "莱登选民的风暴印记",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -17101,23 +17117,8 @@ module.exports = {
               ],
               "link": "item:250012::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "莱",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 6,
-                "slotKey": "waist",
-                "sourceId": 297164,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5443,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "莱登选民之道",
-                "visualId": 125562
-              },
               "tier": {
-                "setId": 5443,
+                "setId": 1984,
                 "setName": "莱登选民之道",
                 "pieceCount": 9,
                 "pieces": [
@@ -17131,8 +17132,65 @@ module.exports = {
                   "莱登选民的风暴印记",
                   "莱登选民的风暴踏靴"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "268": {
+                    "specId": 268,
+                    "specName": "酒仙",
+                    "twoPiece": "醉酿投的伤害提高10%。火焰之息的伤害提高10%。",
+                    "fourPiece": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1700点火焰伤害。",
+                    "spells": [
+                      {
+                        "spellId": 1264838,
+                        "name": "Monk Brewmaster 12.0 Class Set 2pc",
+                        "description": "醉酿投的伤害提高10%。火焰之息的伤害提高10%。"
+                      },
+                      {
+                        "spellId": 1264839,
+                        "name": "Monk Brewmaster 12.0 Class Set 4pc",
+                        "description": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1700点火焰伤害。"
+                      }
+                    ]
+                  },
+                  "269": {
+                    "specId": 269,
+                    "specName": "踏风",
+                    "twoPiece": "风领主之击和升龙霸的伤害提高30%。",
+                    "fourPiece": "风领主之击和升龙霸的冷却时间缩短5秒。",
+                    "spells": [
+                      {
+                        "spellId": 1264842,
+                        "name": "Monk Windwalker12.0 Class Set 2pc",
+                        "description": "风领主之击和升龙霸的伤害提高30%。"
+                      },
+                      {
+                        "spellId": 1264843,
+                        "name": "Monk Windwalker12.0 Class Set 4pc",
+                        "description": "风领主之击和升龙霸的冷却时间缩短5秒。"
+                      }
+                    ]
+                  },
+                  "270": {
+                    "specId": 270,
+                    "specName": "织雾",
+                    "twoPiece": "复苏之雾的治疗效果提高20%。",
+                    "fourPiece": "施放雷光聚神茶时，会为一个附近的盟友施加持续20秒的复苏之雾。",
+                    "spells": [
+                      {
+                        "spellId": 1264840,
+                        "name": "Monk Mistweaver 12.0 Class Set 2pc",
+                        "description": "复苏之雾的治疗效果提高20%。"
+                      },
+                      {
+                        "spellId": 1264841,
+                        "name": "Monk Mistweaver 12.0 Class Set 4pc",
+                        "description": "施放雷光聚神茶时，会为一个附近的盟友施加持续20秒的复苏之雾。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             },
             {
@@ -17142,7 +17200,7 @@ module.exports = {
               "iconName": "inv_boot_leather_raidmonkmidnight_d_01",
               "iconAsset": "/assets/icons/inv_boot_leather_raidmonkmidnight_d_01.jpg",
               "slot": "feet",
-              "slotName": "脚部",
+              "slotName": "脚",
               "armorType": "leather",
               "armorTypeName": "皮甲",
               "itemType": "护甲",
@@ -17198,8 +17256,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 79
@@ -17212,13 +17270,14 @@ module.exports = {
                 "encounterId": "tier-set:monk",
                 "encounterName": "莱登选民之道",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "莱登选民的风暴踏靴",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -17234,23 +17293,8 @@ module.exports = {
               ],
               "link": "item:250017::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "莱",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 8,
-                "slotKey": "feet",
-                "sourceId": 297224,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5443,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "莱登选民之道",
-                "visualId": 125564
-              },
               "tier": {
-                "setId": 5443,
+                "setId": 1984,
                 "setName": "莱登选民之道",
                 "pieceCount": 9,
                 "pieces": [
@@ -17264,14 +17308,550 @@ module.exports = {
                   "莱登选民的风暴印记",
                   "莱登选民的风暴踏靴"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "268": {
+                    "specId": 268,
+                    "specName": "酒仙",
+                    "twoPiece": "醉酿投的伤害提高10%。火焰之息的伤害提高10%。",
+                    "fourPiece": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1700点火焰伤害。",
+                    "spells": [
+                      {
+                        "spellId": 1264838,
+                        "name": "Monk Brewmaster 12.0 Class Set 2pc",
+                        "description": "醉酿投的伤害提高10%。火焰之息的伤害提高10%。"
+                      },
+                      {
+                        "spellId": 1264839,
+                        "name": "Monk Brewmaster 12.0 Class Set 4pc",
+                        "description": "醉酿投的能量消耗降低5点，当它击中受到火焰之息影响的目标时会造成额外1700点火焰伤害。"
+                      }
+                    ]
+                  },
+                  "269": {
+                    "specId": 269,
+                    "specName": "踏风",
+                    "twoPiece": "风领主之击和升龙霸的伤害提高30%。",
+                    "fourPiece": "风领主之击和升龙霸的冷却时间缩短5秒。",
+                    "spells": [
+                      {
+                        "spellId": 1264842,
+                        "name": "Monk Windwalker12.0 Class Set 2pc",
+                        "description": "风领主之击和升龙霸的伤害提高30%。"
+                      },
+                      {
+                        "spellId": 1264843,
+                        "name": "Monk Windwalker12.0 Class Set 4pc",
+                        "description": "风领主之击和升龙霸的冷却时间缩短5秒。"
+                      }
+                    ]
+                  },
+                  "270": {
+                    "specId": 270,
+                    "specName": "织雾",
+                    "twoPiece": "复苏之雾的治疗效果提高20%。",
+                    "fourPiece": "施放雷光聚神茶时，会为一个附近的盟友施加持续20秒的复苏之雾。",
+                    "spells": [
+                      {
+                        "spellId": 1264840,
+                        "name": "Monk Mistweaver 12.0 Class Set 2pc",
+                        "description": "复苏之雾的治疗效果提高20%。"
+                      },
+                      {
+                        "spellId": 1264841,
+                        "name": "Monk Mistweaver 12.0 Class Set 4pc",
+                        "description": "施放雷光聚神茶时，会为一个附近的盟友施加持续20秒的复苏之雾。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             }
           ]
         }
       ]
+    },
+    {
+      "id": 1305,
+      "name": "孢陨幽境",
+      "type": "raid",
+      "difficulty": 15,
+      "order": 5,
+      "encounters": [
+        {
+          "id": 2711,
+          "name": "腐沼",
+          "order": 1,
+          "items": [
+            {
+              "id": 268283,
+              "name": "溃烂之花冠冕",
+              "icon": 7445749,
+              "iconName": "inv_helm_leather_raiddruidmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_helm_leather_raiddruidmidnight_d_01.jpg",
+              "slot": "head",
+              "slotName": "头部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                268,
+                269,
+                270
+              ],
+              "classes": [
+                4,
+                10,
+                11,
+                12
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 119
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 119
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1685
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 56
+                  },
+                  {
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 105
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 107
+                }
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 5
+              },
+              "tooltipRaw": [
+                "溃烂之花冠冕",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "头部 皮甲",
+                "107点护甲",
+                "+119 敏捷",
+                "+1685 耐力",
+                "+56 爆击",
+                "+105 急速",
+                "+119 智力"
+              ],
+              "link": "|cnIQ4:|Hitem:268283::::::::90:104::5:1:3524:1:28:6117:::::|h[溃烂之花冠冕]|h|r",
+              "iconText": "溃"
+            },
+            {
+              "id": 268291,
+              "name": "腐沼的孢子之心",
+              "icon": 7636601,
+              "iconName": "inv_12_jewelry_rutaani_necklace_blue",
+              "iconAsset": "/assets/icons/inv_12_jewelry_rutaani_necklace_blue.jpg",
+              "slot": "neck",
+              "slotName": "项链",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                268,
+                269,
+                270
+              ],
+              "classes": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": true,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 948
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 44
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 250
+                  }
+                ],
+                "effects": {
+                  "equip": [
+                    "装备： 你的治疗有几率生成保护性伞菌，吸收37765点伤害，最多持续12秒。如果被打破，伞菌会爆炸并对附近的敌人造成3439点自然伤害。"
+                  ],
+                  "use": []
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 6
+              },
+              "tooltipRaw": [
+                "腐沼的孢子之心",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "颈部",
+                "+948 耐力",
+                "+44 爆击",
+                "+250 精通",
+                "棱彩插槽",
+                "装备： 你的治疗有几率生成保护性伞菌，吸收37765点伤害，最多持续12秒。如果被打破，伞菌会爆炸并对附近的敌人造成3439点自然伤害。"
+              ],
+              "link": "|cnIQ4:|Hitem:268291::::::::90:104::5:1:3524:1:28:6117:::::|h[腐沼的孢子之心]|h|r",
+              "iconText": "腐"
+            },
+            {
+              "id": 268286,
+              "name": "腐臭巨人的腰带",
+              "icon": 7446698,
+              "iconName": "inv_belt_leather_raidroguemidnight_d_01",
+              "iconAsset": "/assets/icons/inv_belt_leather_raidroguemidnight_d_01.jpg",
+              "slot": "waist",
+              "slotName": "腰部",
+              "armorType": "leather",
+              "armorTypeName": "皮甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                268,
+                269,
+                270
+              ],
+              "classes": [
+                4,
+                10,
+                11,
+                12
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 90
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 90
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1264
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 84
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 37
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 81
+                }
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 10
+              },
+              "tooltipRaw": [
+                "腐臭巨人的腰带",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "腰部 皮甲",
+                "81点护甲",
+                "+90 敏捷",
+                "+1264 耐力",
+                "+84 爆击",
+                "+37 精通",
+                "+90 智力",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:268286::::::::90:104::5:1:3524:1:28:6117:::::|h[腐臭巨人的腰带]|h|r",
+              "iconText": "腐"
+            },
+            {
+              "id": 268290,
+              "name": "唤孢者的绽放指环",
+              "icon": 7636604,
+              "iconName": "inv_12_jewelry_rutaani_ring_blue",
+              "iconAsset": "/assets/icons/inv_12_jewelry_rutaani_ring_blue.jpg",
+              "slot": "finger",
+              "slotName": "戒指",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                268,
+                269,
+                270
+              ],
+              "classes": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": true,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 948
+                },
+                "secondary": [
+                  {
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 244
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 50
+                  }
+                ],
+                "effects": {
+                  "equip": [
+                    "装备： 造成自然伤害有几率施加朽花，在15秒内造成2192点自然伤害。如果敌人已经受到你的朽花影响，则将其消耗，造成剩余伤害的120%。"
+                  ],
+                  "use": []
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 14
+              },
+              "tooltipRaw": [
+                "唤孢者的绽放指环",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "装备唯一",
+                "手指",
+                "+948 耐力",
+                "+244 急速",
+                "+50 精通",
+                "棱彩插槽",
+                "装备： 造成自然伤害有几率施加朽花，在15秒内造成2192点自然伤害。如果敌人已经受到你的朽花影响，则将其消耗，造成剩余伤害的120%。"
+              ],
+              "link": "|cnIQ4:|Hitem:268290::::::::90:104::5:1:3524:1:28:6117:::::|h[唤孢者的绽放指环]|h|r",
+              "iconText": "唤"
+            },
+            {
+              "id": 268292,
+              "name": "孢子大王的菌丝徽记",
+              "icon": 7702761,
+              "iconName": "inv_1207_fungarianraid_trinket",
+              "iconAsset": "/assets/icons/inv_1207_fungarianraid_trinket.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                268,
+                269,
+                270
+              ],
+              "classes": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "力量",
+                    "type": "strength",
+                    "value": 114
+                  },
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 114
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 114
+                  }
+                ],
+                "stamina": null,
+                "secondary": [],
+                "effects": {
+                  "equip": [
+                    "装备： 你的法术和技能有几率滋养菌丝，为你提供324点随机次要属性和吸血，持续12秒。"
+                  ],
+                  "use": []
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 15
+              },
+              "tooltipRaw": [
+                "孢子大王的菌丝徽记",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "装备唯一",
+                "饰品",
+                "+114 敏捷",
+                "+114 智力",
+                "+114 力量",
+                "装备： 你的法术和技能有几率滋养菌丝，为你提供324点随机次要属性和吸血，持续12秒。"
+              ],
+              "link": "|cnIQ4:|Hitem:268292::::::::90:104::5:1:3524:1:28:6117:::::|h[孢子大王的菌丝徽记]|h|r",
+              "iconText": "孢"
+            }
+          ]
+        }
+      ]
     }
-  ],
-  "dataVersion": "4.2.x"
+  ]
 };

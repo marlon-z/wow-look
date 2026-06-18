@@ -1,5 +1,5 @@
 module.exports = {
-  "version": "12.0.1",
+  "version": "4.2.x",
   "addonVersion": "3.0.0",
   "updatedAt": "2026-04-22 21:59:03",
   "class": {
@@ -26,9 +26,8 @@ module.exports = {
     }
   ],
   "meta": {
-    "itemCount": 162,
-    "instanceCount": 12,
-    "tierItemCount": 9
+    "itemCount": 163,
+    "instanceCount": 13
   },
   "instances": [
     {
@@ -13862,7 +13861,7 @@ module.exports = {
                 "encounterId": "tier-set:evoker",
                 "encounterName": "黑爪龙人的制服",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -13890,23 +13889,8 @@ module.exports = {
               ],
               "link": "item:249997::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "黑",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 1,
-                "slotKey": "head",
-                "sourceId": 296984,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5431,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "黑爪龙人的制服",
-                "visualId": 126191
-              },
               "tier": {
-                "setId": 5431,
+                "setId": 1981,
                 "setName": "黑爪龙人的制服",
                 "pieceCount": 9,
                 "pieces": [
@@ -13976,7 +13960,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -14050,7 +14035,7 @@ module.exports = {
                 "encounterId": "tier-set:evoker",
                 "encounterName": "黑爪龙人的制服",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -14078,23 +14063,8 @@ module.exports = {
               ],
               "link": "item:249995::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "黑",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 3,
-                "slotKey": "shoulder",
-                "sourceId": 296960,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5431,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "黑爪龙人的制服",
-                "visualId": 126192
-              },
               "tier": {
-                "setId": 5431,
+                "setId": 1981,
                 "setName": "黑爪龙人的制服",
                 "pieceCount": 9,
                 "pieces": [
@@ -14164,7 +14134,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -14238,7 +14209,7 @@ module.exports = {
                 "encounterId": "tier-set:evoker",
                 "encounterName": "黑爪龙人的制服",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -14266,23 +14237,8 @@ module.exports = {
               ],
               "link": "item:250000::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "黑",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 5,
-                "slotKey": "chest",
-                "sourceId": 297020,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5431,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "黑爪龙人的制服",
-                "visualId": 126193
-              },
               "tier": {
-                "setId": 5431,
+                "setId": 1981,
                 "setName": "黑爪龙人的制服",
                 "pieceCount": 9,
                 "pieces": [
@@ -14352,7 +14308,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -14426,7 +14383,7 @@ module.exports = {
                 "encounterId": "tier-set:evoker",
                 "encounterName": "黑爪龙人的制服",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -14454,23 +14411,8 @@ module.exports = {
               ],
               "link": "item:249998::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "黑",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 10,
-                "slotKey": "hands",
-                "sourceId": 296996,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5431,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "黑爪龙人的制服",
-                "visualId": 126198
-              },
               "tier": {
-                "setId": 5431,
+                "setId": 1981,
                 "setName": "黑爪龙人的制服",
                 "pieceCount": 9,
                 "pieces": [
@@ -14540,7 +14482,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -14614,7 +14557,7 @@ module.exports = {
                 "encounterId": "tier-set:evoker",
                 "encounterName": "黑爪龙人的制服",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -14642,23 +14585,8 @@ module.exports = {
               ],
               "link": "item:249996::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "黑",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 7,
-                "slotKey": "legs",
-                "sourceId": 296972,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5431,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "黑爪龙人的制服",
-                "visualId": 126195
-              },
               "tier": {
-                "setId": 5431,
+                "setId": 1981,
                 "setName": "黑爪龙人的制服",
                 "pieceCount": 9,
                 "pieces": [
@@ -14728,7 +14656,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -14737,10 +14666,10 @@ module.exports = {
               "icon": 7307675,
               "iconName": "inv_cape_mail_raidevokermidnight_d_01",
               "iconAsset": "/assets/icons/inv_cape_mail_raidevokermidnight_d_01.jpg",
-              "slot": "cloak",
-              "slotName": "披风",
-              "armorType": "none",
-              "armorTypeName": "无甲种",
+              "slot": "back",
+              "slotName": "背部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
               "itemType": "护甲",
               "itemSubType": "布甲",
               "ilvl": 263,
@@ -14788,8 +14717,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 51
@@ -14802,13 +14731,14 @@ module.exports = {
                 "encounterId": "tier-set:evoker",
                 "encounterName": "黑爪龙人的制服",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "黑爪龙人的帷幕",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -14823,23 +14753,8 @@ module.exports = {
               ],
               "link": "item:249992::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "黑",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 15,
-                "slotKey": "back",
-                "sourceId": 296924,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5431,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "黑爪龙人的制服",
-                "visualId": 126199
-              },
               "tier": {
-                "setId": 5431,
+                "setId": 1981,
                 "setName": "黑爪龙人的制服",
                 "pieceCount": 9,
                 "pieces": [
@@ -14853,8 +14768,65 @@ module.exports = {
                   "黑爪龙人的护腰",
                   "黑爪龙人的法术踏靴"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "1467": {
+                    "specId": 1467,
+                    "specName": "湮灭",
+                    "twoPiece": "碧蓝横扫伤害提高50%，并且对其主要目标的伤害额外提高100%。",
+                    "fourPiece": "永恒之涌额外获得1层碧蓝横扫充能。施放碧蓝横扫使永恒之涌的冷却时间缩短2.0秒。",
+                    "spells": [
+                      {
+                        "spellId": 1264821,
+                        "name": "Evoker Devastation 12.0 Class Set 2pc",
+                        "description": "碧蓝横扫伤害提高50%，并且对其主要目标的伤害额外提高100%。"
+                      },
+                      {
+                        "spellId": 1264822,
+                        "name": "Evoker Devastation 12.0 Class Set 4pc",
+                        "description": "永恒之涌额外获得1层碧蓝横扫充能。施放碧蓝横扫使永恒之涌的冷却时间缩短2.0秒。"
+                      }
+                    ]
+                  },
+                  "1468": {
+                    "specId": 1468,
+                    "specName": "恩护",
+                    "twoPiece": "青翠之拥的治疗效果提高20%，冷却时间缩短2秒。",
+                    "fourPiece": "青翠之拥在你的目标身上绽放一道效果为100%的翡翠之花。",
+                    "spells": [
+                      {
+                        "spellId": 1264823,
+                        "name": "Evoker Preservation 12.0 Class Set 2pc",
+                        "description": "青翠之拥的治疗效果提高20%，冷却时间缩短2秒。"
+                      },
+                      {
+                        "spellId": 1264824,
+                        "name": "Evoker Preservation 12.0 Class Set 4pc",
+                        "description": "青翠之拥在你的目标身上绽放一道效果为100%的翡翠之花。"
+                      }
+                    ]
+                  },
+                  "1473": {
+                    "specId": 1473,
+                    "specName": "增辉",
+                    "twoPiece": "喷发伤害提高10%，并且使黑檀之力额外延长0.1秒。",
+                    "fourPiece": "黑檀之力激活时，强化法术造成的伤害提高10%，冷却速度加快10%。",
+                    "spells": [
+                      {
+                        "spellId": 1264819,
+                        "name": "Evoker Augmentation 12.0 Class Set 2pc",
+                        "description": "喷发伤害提高10%，并且使黑檀之力额外延长0.1秒。"
+                      },
+                      {
+                        "spellId": 1264820,
+                        "name": "Evoker Augmentation 12.0 Class Set 4pc",
+                        "description": "黑檀之力激活时，强化法术造成的伤害提高10%，冷却速度加快10%。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             },
             {
@@ -14864,7 +14836,7 @@ module.exports = {
               "iconName": "inv_bracer_mail_raidevokermidnight_d_01",
               "iconAsset": "/assets/icons/inv_bracer_mail_raidevokermidnight_d_01.jpg",
               "slot": "wrist",
-              "slotName": "腕部",
+              "slotName": "手腕",
               "armorType": "mail",
               "armorTypeName": "锁甲",
               "itemType": "护甲",
@@ -14914,8 +14886,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 93
@@ -14928,13 +14900,14 @@ module.exports = {
                 "encounterId": "tier-set:evoker",
                 "encounterName": "黑爪龙人的制服",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "黑爪龙人的护腕",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -14949,23 +14922,8 @@ module.exports = {
               ],
               "link": "item:249993::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "黑",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 9,
-                "slotKey": "wrist",
-                "sourceId": 296936,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5431,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "黑爪龙人的制服",
-                "visualId": 126197
-              },
               "tier": {
-                "setId": 5431,
+                "setId": 1981,
                 "setName": "黑爪龙人的制服",
                 "pieceCount": 9,
                 "pieces": [
@@ -14979,8 +14937,65 @@ module.exports = {
                   "黑爪龙人的护腰",
                   "黑爪龙人的法术踏靴"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "1467": {
+                    "specId": 1467,
+                    "specName": "湮灭",
+                    "twoPiece": "碧蓝横扫伤害提高50%，并且对其主要目标的伤害额外提高100%。",
+                    "fourPiece": "永恒之涌额外获得1层碧蓝横扫充能。施放碧蓝横扫使永恒之涌的冷却时间缩短2.0秒。",
+                    "spells": [
+                      {
+                        "spellId": 1264821,
+                        "name": "Evoker Devastation 12.0 Class Set 2pc",
+                        "description": "碧蓝横扫伤害提高50%，并且对其主要目标的伤害额外提高100%。"
+                      },
+                      {
+                        "spellId": 1264822,
+                        "name": "Evoker Devastation 12.0 Class Set 4pc",
+                        "description": "永恒之涌额外获得1层碧蓝横扫充能。施放碧蓝横扫使永恒之涌的冷却时间缩短2.0秒。"
+                      }
+                    ]
+                  },
+                  "1468": {
+                    "specId": 1468,
+                    "specName": "恩护",
+                    "twoPiece": "青翠之拥的治疗效果提高20%，冷却时间缩短2秒。",
+                    "fourPiece": "青翠之拥在你的目标身上绽放一道效果为100%的翡翠之花。",
+                    "spells": [
+                      {
+                        "spellId": 1264823,
+                        "name": "Evoker Preservation 12.0 Class Set 2pc",
+                        "description": "青翠之拥的治疗效果提高20%，冷却时间缩短2秒。"
+                      },
+                      {
+                        "spellId": 1264824,
+                        "name": "Evoker Preservation 12.0 Class Set 4pc",
+                        "description": "青翠之拥在你的目标身上绽放一道效果为100%的翡翠之花。"
+                      }
+                    ]
+                  },
+                  "1473": {
+                    "specId": 1473,
+                    "specName": "增辉",
+                    "twoPiece": "喷发伤害提高10%，并且使黑檀之力额外延长0.1秒。",
+                    "fourPiece": "黑檀之力激活时，强化法术造成的伤害提高10%，冷却速度加快10%。",
+                    "spells": [
+                      {
+                        "spellId": 1264819,
+                        "name": "Evoker Augmentation 12.0 Class Set 2pc",
+                        "description": "喷发伤害提高10%，并且使黑檀之力额外延长0.1秒。"
+                      },
+                      {
+                        "spellId": 1264820,
+                        "name": "Evoker Augmentation 12.0 Class Set 4pc",
+                        "description": "黑檀之力激活时，强化法术造成的伤害提高10%，冷却速度加快10%。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             },
             {
@@ -15040,8 +15055,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 105
@@ -15054,13 +15069,14 @@ module.exports = {
                 "encounterId": "tier-set:evoker",
                 "encounterName": "黑爪龙人的制服",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "黑爪龙人的护腰",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -15075,23 +15091,8 @@ module.exports = {
               ],
               "link": "item:249994::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "黑",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 6,
-                "slotKey": "waist",
-                "sourceId": 296948,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5431,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "黑爪龙人的制服",
-                "visualId": 126194
-              },
               "tier": {
-                "setId": 5431,
+                "setId": 1981,
                 "setName": "黑爪龙人的制服",
                 "pieceCount": 9,
                 "pieces": [
@@ -15105,8 +15106,65 @@ module.exports = {
                   "黑爪龙人的护腰",
                   "黑爪龙人的法术踏靴"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "1467": {
+                    "specId": 1467,
+                    "specName": "湮灭",
+                    "twoPiece": "碧蓝横扫伤害提高50%，并且对其主要目标的伤害额外提高100%。",
+                    "fourPiece": "永恒之涌额外获得1层碧蓝横扫充能。施放碧蓝横扫使永恒之涌的冷却时间缩短2.0秒。",
+                    "spells": [
+                      {
+                        "spellId": 1264821,
+                        "name": "Evoker Devastation 12.0 Class Set 2pc",
+                        "description": "碧蓝横扫伤害提高50%，并且对其主要目标的伤害额外提高100%。"
+                      },
+                      {
+                        "spellId": 1264822,
+                        "name": "Evoker Devastation 12.0 Class Set 4pc",
+                        "description": "永恒之涌额外获得1层碧蓝横扫充能。施放碧蓝横扫使永恒之涌的冷却时间缩短2.0秒。"
+                      }
+                    ]
+                  },
+                  "1468": {
+                    "specId": 1468,
+                    "specName": "恩护",
+                    "twoPiece": "青翠之拥的治疗效果提高20%，冷却时间缩短2秒。",
+                    "fourPiece": "青翠之拥在你的目标身上绽放一道效果为100%的翡翠之花。",
+                    "spells": [
+                      {
+                        "spellId": 1264823,
+                        "name": "Evoker Preservation 12.0 Class Set 2pc",
+                        "description": "青翠之拥的治疗效果提高20%，冷却时间缩短2秒。"
+                      },
+                      {
+                        "spellId": 1264824,
+                        "name": "Evoker Preservation 12.0 Class Set 4pc",
+                        "description": "青翠之拥在你的目标身上绽放一道效果为100%的翡翠之花。"
+                      }
+                    ]
+                  },
+                  "1473": {
+                    "specId": 1473,
+                    "specName": "增辉",
+                    "twoPiece": "喷发伤害提高10%，并且使黑檀之力额外延长0.1秒。",
+                    "fourPiece": "黑檀之力激活时，强化法术造成的伤害提高10%，冷却速度加快10%。",
+                    "spells": [
+                      {
+                        "spellId": 1264819,
+                        "name": "Evoker Augmentation 12.0 Class Set 2pc",
+                        "description": "喷发伤害提高10%，并且使黑檀之力额外延长0.1秒。"
+                      },
+                      {
+                        "spellId": 1264820,
+                        "name": "Evoker Augmentation 12.0 Class Set 4pc",
+                        "description": "黑檀之力激活时，强化法术造成的伤害提高10%，冷却速度加快10%。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             },
             {
@@ -15116,7 +15174,7 @@ module.exports = {
               "iconName": "inv_boot_mail_raidevokermidnight_d_01",
               "iconAsset": "/assets/icons/inv_boot_mail_raidevokermidnight_d_01.jpg",
               "slot": "feet",
-              "slotName": "脚部",
+              "slotName": "脚",
               "armorType": "mail",
               "armorTypeName": "锁甲",
               "itemType": "护甲",
@@ -15166,8 +15224,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 116
@@ -15180,13 +15238,14 @@ module.exports = {
                 "encounterId": "tier-set:evoker",
                 "encounterName": "黑爪龙人的制服",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "黑爪龙人的法术踏靴",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -15201,23 +15260,8 @@ module.exports = {
               ],
               "link": "item:249999::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "黑",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 8,
-                "slotKey": "feet",
-                "sourceId": 297008,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5431,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "黑爪龙人的制服",
-                "visualId": 126196
-              },
               "tier": {
-                "setId": 5431,
+                "setId": 1981,
                 "setName": "黑爪龙人的制服",
                 "pieceCount": 9,
                 "pieces": [
@@ -15231,14 +15275,549 @@ module.exports = {
                   "黑爪龙人的护腰",
                   "黑爪龙人的法术踏靴"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "1467": {
+                    "specId": 1467,
+                    "specName": "湮灭",
+                    "twoPiece": "碧蓝横扫伤害提高50%，并且对其主要目标的伤害额外提高100%。",
+                    "fourPiece": "永恒之涌额外获得1层碧蓝横扫充能。施放碧蓝横扫使永恒之涌的冷却时间缩短2.0秒。",
+                    "spells": [
+                      {
+                        "spellId": 1264821,
+                        "name": "Evoker Devastation 12.0 Class Set 2pc",
+                        "description": "碧蓝横扫伤害提高50%，并且对其主要目标的伤害额外提高100%。"
+                      },
+                      {
+                        "spellId": 1264822,
+                        "name": "Evoker Devastation 12.0 Class Set 4pc",
+                        "description": "永恒之涌额外获得1层碧蓝横扫充能。施放碧蓝横扫使永恒之涌的冷却时间缩短2.0秒。"
+                      }
+                    ]
+                  },
+                  "1468": {
+                    "specId": 1468,
+                    "specName": "恩护",
+                    "twoPiece": "青翠之拥的治疗效果提高20%，冷却时间缩短2秒。",
+                    "fourPiece": "青翠之拥在你的目标身上绽放一道效果为100%的翡翠之花。",
+                    "spells": [
+                      {
+                        "spellId": 1264823,
+                        "name": "Evoker Preservation 12.0 Class Set 2pc",
+                        "description": "青翠之拥的治疗效果提高20%，冷却时间缩短2秒。"
+                      },
+                      {
+                        "spellId": 1264824,
+                        "name": "Evoker Preservation 12.0 Class Set 4pc",
+                        "description": "青翠之拥在你的目标身上绽放一道效果为100%的翡翠之花。"
+                      }
+                    ]
+                  },
+                  "1473": {
+                    "specId": 1473,
+                    "specName": "增辉",
+                    "twoPiece": "喷发伤害提高10%，并且使黑檀之力额外延长0.1秒。",
+                    "fourPiece": "黑檀之力激活时，强化法术造成的伤害提高10%，冷却速度加快10%。",
+                    "spells": [
+                      {
+                        "spellId": 1264819,
+                        "name": "Evoker Augmentation 12.0 Class Set 2pc",
+                        "description": "喷发伤害提高10%，并且使黑檀之力额外延长0.1秒。"
+                      },
+                      {
+                        "spellId": 1264820,
+                        "name": "Evoker Augmentation 12.0 Class Set 4pc",
+                        "description": "黑檀之力激活时，强化法术造成的伤害提高10%，冷却速度加快10%。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             }
           ]
         }
       ]
+    },
+    {
+      "id": 1305,
+      "name": "孢陨幽境",
+      "type": "raid",
+      "difficulty": 15,
+      "order": 5,
+      "encounters": [
+        {
+          "id": 2711,
+          "name": "腐沼",
+          "order": 1,
+          "items": [
+            {
+              "id": 268291,
+              "name": "腐沼的孢子之心",
+              "icon": 7636601,
+              "iconName": "inv_12_jewelry_rutaani_necklace_blue",
+              "iconAsset": "/assets/icons/inv_12_jewelry_rutaani_necklace_blue.jpg",
+              "slot": "neck",
+              "slotName": "项链",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                1467,
+                1468,
+                1473
+              ],
+              "classes": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": true,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 948
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 44
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 250
+                  }
+                ],
+                "effects": {
+                  "equip": [
+                    "装备： 你的治疗有几率生成保护性伞菌，吸收37765点伤害，最多持续12秒。如果被打破，伞菌会爆炸并对附近的敌人造成3439点自然伤害。"
+                  ],
+                  "use": []
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 6
+              },
+              "tooltipRaw": [
+                "腐沼的孢子之心",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "颈部",
+                "+948 耐力",
+                "+44 爆击",
+                "+250 精通",
+                "棱彩插槽",
+                "装备： 你的治疗有几率生成保护性伞菌，吸收37765点伤害，最多持续12秒。如果被打破，伞菌会爆炸并对附近的敌人造成3439点自然伤害。"
+              ],
+              "link": "|cnIQ4:|Hitem:268291::::::::90:104::5:1:3524:1:28:6117:::::|h[腐沼的孢子之心]|h|r",
+              "iconText": "腐"
+            },
+            {
+              "id": 268288,
+              "name": "真菌人荒谬腿甲",
+              "icon": 7307679,
+              "iconName": "inv_pant_mail_raidevokermidnight_d_01",
+              "iconAsset": "/assets/icons/inv_pant_mail_raidevokermidnight_d_01.jpg",
+              "slot": "legs",
+              "slotName": "腿部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                1467,
+                1468,
+                1473
+              ],
+              "classes": [
+                3,
+                7,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 119
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 119
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1685
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 111
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 50
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 185
+                }
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 11
+              },
+              "tooltipRaw": [
+                "真菌人荒谬腿甲",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "腿部 锁甲",
+                "185点护甲",
+                "+119 敏捷",
+                "+1685 耐力",
+                "+111 爆击",
+                "+50 精通",
+                "+119 智力",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:268288::::::::90:104::5:1:3524:1:28:6117:::::|h[真菌人荒谬腿甲]|h|r",
+              "iconText": "真"
+            },
+            {
+              "id": 268287,
+              "name": "怨毒魔怪践踏靴",
+              "icon": 7384531,
+              "iconName": "inv_boot_mail_raidshamanmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_boot_mail_raidshamanmidnight_d_01.jpg",
+              "slot": "feet",
+              "slotName": "脚部",
+              "armorType": "mail",
+              "armorTypeName": "锁甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                1467,
+                1468,
+                1473
+              ],
+              "classes": [
+                3,
+                7,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 90
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 90
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1264
+                },
+                "secondary": [
+                  {
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 42
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 79
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 132
+                }
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 13
+              },
+              "tooltipRaw": [
+                "怨毒魔怪践踏靴",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "脚部 锁甲",
+                "132点护甲",
+                "+90 敏捷",
+                "+1264 耐力",
+                "+42 急速",
+                "+79 精通",
+                "+90 智力",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:268287::::::::90:104::5:1:3524:1:28:6117:::::|h[怨毒魔怪践踏靴]|h|r",
+              "iconText": "怨"
+            },
+            {
+              "id": 268290,
+              "name": "唤孢者的绽放指环",
+              "icon": 7636604,
+              "iconName": "inv_12_jewelry_rutaani_ring_blue",
+              "iconAsset": "/assets/icons/inv_12_jewelry_rutaani_ring_blue.jpg",
+              "slot": "finger",
+              "slotName": "戒指",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                1467,
+                1468,
+                1473
+              ],
+              "classes": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": true,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 948
+                },
+                "secondary": [
+                  {
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 244
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 50
+                  }
+                ],
+                "effects": {
+                  "equip": [
+                    "装备： 造成自然伤害有几率施加朽花，在15秒内造成2192点自然伤害。如果敌人已经受到你的朽花影响，则将其消耗，造成剩余伤害的120%。"
+                  ],
+                  "use": []
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 14
+              },
+              "tooltipRaw": [
+                "唤孢者的绽放指环",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "装备唯一",
+                "手指",
+                "+948 耐力",
+                "+244 急速",
+                "+50 精通",
+                "棱彩插槽",
+                "装备： 造成自然伤害有几率施加朽花，在15秒内造成2192点自然伤害。如果敌人已经受到你的朽花影响，则将其消耗，造成剩余伤害的120%。"
+              ],
+              "link": "|cnIQ4:|Hitem:268290::::::::90:104::5:1:3524:1:28:6117:::::|h[唤孢者的绽放指环]|h|r",
+              "iconText": "唤"
+            },
+            {
+              "id": 268292,
+              "name": "孢子大王的菌丝徽记",
+              "icon": 7702761,
+              "iconName": "inv_1207_fungarianraid_trinket",
+              "iconAsset": "/assets/icons/inv_1207_fungarianraid_trinket.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                1467,
+                1468,
+                1473
+              ],
+              "classes": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "力量",
+                    "type": "strength",
+                    "value": 114
+                  },
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 114
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 114
+                  }
+                ],
+                "stamina": null,
+                "secondary": [],
+                "effects": {
+                  "equip": [
+                    "装备： 你的法术和技能有几率滋养菌丝，为你提供324点随机次要属性和吸血，持续12秒。"
+                  ],
+                  "use": []
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 15
+              },
+              "tooltipRaw": [
+                "孢子大王的菌丝徽记",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "装备唯一",
+                "饰品",
+                "+114 敏捷",
+                "+114 智力",
+                "+114 力量",
+                "装备： 你的法术和技能有几率滋养菌丝，为你提供324点随机次要属性和吸血，持续12秒。"
+              ],
+              "link": "|cnIQ4:|Hitem:268292::::::::90:104::5:1:3524:1:28:6117:::::|h[孢子大王的菌丝徽记]|h|r",
+              "iconText": "孢"
+            }
+          ]
+        }
+      ]
     }
-  ],
-  "dataVersion": "4.2.x"
+  ]
 };

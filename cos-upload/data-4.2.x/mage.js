@@ -1,5 +1,5 @@
 module.exports = {
-  "version": "12.0.1",
+  "version": "4.2.x",
   "addonVersion": "3.0.0",
   "updatedAt": "2026-04-22 21:59:03",
   "class": {
@@ -26,9 +26,8 @@ module.exports = {
     }
   ],
   "meta": {
-    "itemCount": 152,
-    "instanceCount": 12,
-    "tierItemCount": 9
+    "itemCount": 153,
+    "instanceCount": 13
   },
   "instances": [
     {
@@ -12861,7 +12860,7 @@ module.exports = {
                 "encounterId": "tier-set:mage",
                 "encounterName": "虚空粉碎者协律",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -12889,23 +12888,8 @@ module.exports = {
               ],
               "link": "item:250060::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "虚",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 1,
-                "slotKey": "head",
-                "sourceId": 297740,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5439,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "虚空粉碎者协律",
-                "visualId": 125456
-              },
               "tier": {
-                "setId": 5439,
+                "setId": 1983,
                 "setName": "虚空粉碎者协律",
                 "pieceCount": 9,
                 "pieces": [
@@ -12975,7 +12959,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -13049,7 +13034,7 @@ module.exports = {
                 "encounterId": "tier-set:mage",
                 "encounterName": "虚空粉碎者协律",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -13077,23 +13062,8 @@ module.exports = {
               ],
               "link": "item:250058::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "虚",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 3,
-                "slotKey": "shoulder",
-                "sourceId": 297716,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5439,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "虚空粉碎者协律",
-                "visualId": 125457
-              },
               "tier": {
-                "setId": 5439,
+                "setId": 1983,
                 "setName": "虚空粉碎者协律",
                 "pieceCount": 9,
                 "pieces": [
@@ -13163,7 +13133,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -13237,7 +13208,7 @@ module.exports = {
                 "encounterId": "tier-set:mage",
                 "encounterName": "虚空粉碎者协律",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -13265,23 +13236,8 @@ module.exports = {
               ],
               "link": "item:250063::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "虚",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 5,
-                "slotKey": "chest",
-                "sourceId": 297776,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5439,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "虚空粉碎者协律",
-                "visualId": 125458
-              },
               "tier": {
-                "setId": 5439,
+                "setId": 1983,
                 "setName": "虚空粉碎者协律",
                 "pieceCount": 9,
                 "pieces": [
@@ -13351,7 +13307,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -13425,7 +13382,7 @@ module.exports = {
                 "encounterId": "tier-set:mage",
                 "encounterName": "虚空粉碎者协律",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -13453,23 +13410,8 @@ module.exports = {
               ],
               "link": "item:250061::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "虚",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 10,
-                "slotKey": "hands",
-                "sourceId": 297752,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5439,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "虚空粉碎者协律",
-                "visualId": 125463
-              },
               "tier": {
-                "setId": 5439,
+                "setId": 1983,
                 "setName": "虚空粉碎者协律",
                 "pieceCount": 9,
                 "pieces": [
@@ -13539,7 +13481,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -13613,7 +13556,7 @@ module.exports = {
                 "encounterId": "tier-set:mage",
                 "encounterName": "虚空粉碎者协律",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -13641,23 +13584,8 @@ module.exports = {
               ],
               "link": "item:250059::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "虚",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 7,
-                "slotKey": "legs",
-                "sourceId": 297728,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5439,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "虚空粉碎者协律",
-                "visualId": 125460
-              },
               "tier": {
-                "setId": 5439,
+                "setId": 1983,
                 "setName": "虚空粉碎者协律",
                 "pieceCount": 9,
                 "pieces": [
@@ -13727,7 +13655,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -13736,10 +13665,10 @@ module.exports = {
               "icon": 7444040,
               "iconName": "inv_cape_cloth_raidmagemidnight_d_01",
               "iconAsset": "/assets/icons/inv_cape_cloth_raidmagemidnight_d_01.jpg",
-              "slot": "cloak",
-              "slotName": "披风",
-              "armorType": "none",
-              "armorTypeName": "无甲种",
+              "slot": "back",
+              "slotName": "背部",
+              "armorType": "cloth",
+              "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "布甲",
               "ilvl": 263,
@@ -13787,8 +13716,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 51
@@ -13801,13 +13730,14 @@ module.exports = {
                 "encounterId": "tier-set:mage",
                 "encounterName": "虚空粉碎者协律",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "虚空粉碎者的加密披风",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -13822,23 +13752,8 @@ module.exports = {
               ],
               "link": "item:250055::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "虚",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 15,
-                "slotKey": "back",
-                "sourceId": 297680,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5439,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "虚空粉碎者协律",
-                "visualId": 125464
-              },
               "tier": {
-                "setId": 5439,
+                "setId": 1983,
                 "setName": "虚空粉碎者协律",
                 "pieceCount": 9,
                 "pieces": [
@@ -13852,8 +13767,65 @@ module.exports = {
                   "虚空粉碎者的贤者腰索",
                   "虚空粉碎者的便鞋"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "62": {
+                    "specId": 62,
+                    "specName": "奥术",
+                    "twoPiece": "每层奥术充能使你的爆击几率提高1.0%。",
+                    "fourPiece": "你的奥术法术的爆击伤害提高10%。",
+                    "spells": [
+                      {
+                        "spellId": 1264832,
+                        "name": "Mage Arcane 12.0 Class Set 2pc",
+                        "description": "每层奥术充能使你的爆击几率提高1.0%。"
+                      },
+                      {
+                        "spellId": 1264833,
+                        "name": "Mage Arcane 12.0 Class Set 4pc",
+                        "description": "你的奥术法术的爆击伤害提高10%。"
+                      }
+                    ]
+                  },
+                  "63": {
+                    "specId": 63,
+                    "specName": "火焰",
+                    "twoPiece": "炎爆术和烈焰风暴造成的伤害提高6%。",
+                    "fourPiece": "施放炎爆术或烈焰风暴会使火焰冲击的冷却时间缩短0.30秒。",
+                    "spells": [
+                      {
+                        "spellId": 1264834,
+                        "name": "Mage Fire 12.0 Class Set 2pc",
+                        "description": "炎爆术和烈焰风暴造成的伤害提高6%。"
+                      },
+                      {
+                        "spellId": 1264835,
+                        "name": "Mage Fire 12.0 Class Set 4pc",
+                        "description": "施放炎爆术或烈焰风暴会使火焰冲击的冷却时间缩短0.30秒。"
+                      }
+                    ]
+                  },
+                  "64": {
+                    "specId": 64,
+                    "specName": "冰霜",
+                    "twoPiece": "冰风暴的伤害提高10%，并且有10%的几率使你获得寒冰指的效果。",
+                    "fourPiece": "寒冰指使碎裂的伤害提高15%。",
+                    "spells": [
+                      {
+                        "spellId": 1264836,
+                        "name": "Mage Frost 12.0 Class Set 2pc",
+                        "description": "冰风暴的伤害提高10%，并且有10%的几率使你获得寒冰指的效果。"
+                      },
+                      {
+                        "spellId": 1264837,
+                        "name": "Mage Frost 12.0 Class Set 4pc",
+                        "description": "寒冰指使碎裂的伤害提高15%。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             },
             {
@@ -13863,7 +13835,7 @@ module.exports = {
               "iconName": "inv_bracer_cloth_raidmagemidnight_d_01",
               "iconAsset": "/assets/icons/inv_bracer_cloth_raidmagemidnight_d_01.jpg",
               "slot": "wrist",
-              "slotName": "腕部",
+              "slotName": "手腕",
               "armorType": "cloth",
               "armorTypeName": "布甲",
               "itemType": "护甲",
@@ -13913,8 +13885,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 37
@@ -13927,13 +13899,14 @@ module.exports = {
                 "encounterId": "tier-set:mage",
                 "encounterName": "虚空粉碎者协律",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "虚空粉碎者护腕",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -13948,23 +13921,8 @@ module.exports = {
               ],
               "link": "item:250056::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "虚",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 9,
-                "slotKey": "wrist",
-                "sourceId": 297692,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5439,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "虚空粉碎者协律",
-                "visualId": 125462
-              },
               "tier": {
-                "setId": 5439,
+                "setId": 1983,
                 "setName": "虚空粉碎者协律",
                 "pieceCount": 9,
                 "pieces": [
@@ -13978,8 +13936,65 @@ module.exports = {
                   "虚空粉碎者的贤者腰索",
                   "虚空粉碎者的便鞋"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "62": {
+                    "specId": 62,
+                    "specName": "奥术",
+                    "twoPiece": "每层奥术充能使你的爆击几率提高1.0%。",
+                    "fourPiece": "你的奥术法术的爆击伤害提高10%。",
+                    "spells": [
+                      {
+                        "spellId": 1264832,
+                        "name": "Mage Arcane 12.0 Class Set 2pc",
+                        "description": "每层奥术充能使你的爆击几率提高1.0%。"
+                      },
+                      {
+                        "spellId": 1264833,
+                        "name": "Mage Arcane 12.0 Class Set 4pc",
+                        "description": "你的奥术法术的爆击伤害提高10%。"
+                      }
+                    ]
+                  },
+                  "63": {
+                    "specId": 63,
+                    "specName": "火焰",
+                    "twoPiece": "炎爆术和烈焰风暴造成的伤害提高6%。",
+                    "fourPiece": "施放炎爆术或烈焰风暴会使火焰冲击的冷却时间缩短0.30秒。",
+                    "spells": [
+                      {
+                        "spellId": 1264834,
+                        "name": "Mage Fire 12.0 Class Set 2pc",
+                        "description": "炎爆术和烈焰风暴造成的伤害提高6%。"
+                      },
+                      {
+                        "spellId": 1264835,
+                        "name": "Mage Fire 12.0 Class Set 4pc",
+                        "description": "施放炎爆术或烈焰风暴会使火焰冲击的冷却时间缩短0.30秒。"
+                      }
+                    ]
+                  },
+                  "64": {
+                    "specId": 64,
+                    "specName": "冰霜",
+                    "twoPiece": "冰风暴的伤害提高10%，并且有10%的几率使你获得寒冰指的效果。",
+                    "fourPiece": "寒冰指使碎裂的伤害提高15%。",
+                    "spells": [
+                      {
+                        "spellId": 1264836,
+                        "name": "Mage Frost 12.0 Class Set 2pc",
+                        "description": "冰风暴的伤害提高10%，并且有10%的几率使你获得寒冰指的效果。"
+                      },
+                      {
+                        "spellId": 1264837,
+                        "name": "Mage Frost 12.0 Class Set 4pc",
+                        "description": "寒冰指使碎裂的伤害提高15%。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             },
             {
@@ -14039,8 +14054,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 41
@@ -14053,13 +14068,14 @@ module.exports = {
                 "encounterId": "tier-set:mage",
                 "encounterName": "虚空粉碎者协律",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "虚空粉碎者的贤者腰索",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -14074,23 +14090,8 @@ module.exports = {
               ],
               "link": "item:250057::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "虚",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 6,
-                "slotKey": "waist",
-                "sourceId": 297704,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5439,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "虚空粉碎者协律",
-                "visualId": 125459
-              },
               "tier": {
-                "setId": 5439,
+                "setId": 1983,
                 "setName": "虚空粉碎者协律",
                 "pieceCount": 9,
                 "pieces": [
@@ -14104,8 +14105,65 @@ module.exports = {
                   "虚空粉碎者的贤者腰索",
                   "虚空粉碎者的便鞋"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "62": {
+                    "specId": 62,
+                    "specName": "奥术",
+                    "twoPiece": "每层奥术充能使你的爆击几率提高1.0%。",
+                    "fourPiece": "你的奥术法术的爆击伤害提高10%。",
+                    "spells": [
+                      {
+                        "spellId": 1264832,
+                        "name": "Mage Arcane 12.0 Class Set 2pc",
+                        "description": "每层奥术充能使你的爆击几率提高1.0%。"
+                      },
+                      {
+                        "spellId": 1264833,
+                        "name": "Mage Arcane 12.0 Class Set 4pc",
+                        "description": "你的奥术法术的爆击伤害提高10%。"
+                      }
+                    ]
+                  },
+                  "63": {
+                    "specId": 63,
+                    "specName": "火焰",
+                    "twoPiece": "炎爆术和烈焰风暴造成的伤害提高6%。",
+                    "fourPiece": "施放炎爆术或烈焰风暴会使火焰冲击的冷却时间缩短0.30秒。",
+                    "spells": [
+                      {
+                        "spellId": 1264834,
+                        "name": "Mage Fire 12.0 Class Set 2pc",
+                        "description": "炎爆术和烈焰风暴造成的伤害提高6%。"
+                      },
+                      {
+                        "spellId": 1264835,
+                        "name": "Mage Fire 12.0 Class Set 4pc",
+                        "description": "施放炎爆术或烈焰风暴会使火焰冲击的冷却时间缩短0.30秒。"
+                      }
+                    ]
+                  },
+                  "64": {
+                    "specId": 64,
+                    "specName": "冰霜",
+                    "twoPiece": "冰风暴的伤害提高10%，并且有10%的几率使你获得寒冰指的效果。",
+                    "fourPiece": "寒冰指使碎裂的伤害提高15%。",
+                    "spells": [
+                      {
+                        "spellId": 1264836,
+                        "name": "Mage Frost 12.0 Class Set 2pc",
+                        "description": "冰风暴的伤害提高10%，并且有10%的几率使你获得寒冰指的效果。"
+                      },
+                      {
+                        "spellId": 1264837,
+                        "name": "Mage Frost 12.0 Class Set 4pc",
+                        "description": "寒冰指使碎裂的伤害提高15%。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             },
             {
@@ -14115,7 +14173,7 @@ module.exports = {
               "iconName": "inv_boot_cloth_raidmagemidnight_d_01",
               "iconAsset": "/assets/icons/inv_boot_cloth_raidmagemidnight_d_01.jpg",
               "slot": "feet",
-              "slotName": "脚部",
+              "slotName": "脚",
               "armorType": "cloth",
               "armorTypeName": "布甲",
               "itemType": "护甲",
@@ -14165,8 +14223,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 46
@@ -14179,13 +14237,14 @@ module.exports = {
                 "encounterId": "tier-set:mage",
                 "encounterName": "虚空粉碎者协律",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "虚空粉碎者的便鞋",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -14200,23 +14259,8 @@ module.exports = {
               ],
               "link": "item:250062::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "虚",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 8,
-                "slotKey": "feet",
-                "sourceId": 297764,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5439,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "虚空粉碎者协律",
-                "visualId": 125461
-              },
               "tier": {
-                "setId": 5439,
+                "setId": 1983,
                 "setName": "虚空粉碎者协律",
                 "pieceCount": 9,
                 "pieces": [
@@ -14230,14 +14274,537 @@ module.exports = {
                   "虚空粉碎者的贤者腰索",
                   "虚空粉碎者的便鞋"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "62": {
+                    "specId": 62,
+                    "specName": "奥术",
+                    "twoPiece": "每层奥术充能使你的爆击几率提高1.0%。",
+                    "fourPiece": "你的奥术法术的爆击伤害提高10%。",
+                    "spells": [
+                      {
+                        "spellId": 1264832,
+                        "name": "Mage Arcane 12.0 Class Set 2pc",
+                        "description": "每层奥术充能使你的爆击几率提高1.0%。"
+                      },
+                      {
+                        "spellId": 1264833,
+                        "name": "Mage Arcane 12.0 Class Set 4pc",
+                        "description": "你的奥术法术的爆击伤害提高10%。"
+                      }
+                    ]
+                  },
+                  "63": {
+                    "specId": 63,
+                    "specName": "火焰",
+                    "twoPiece": "炎爆术和烈焰风暴造成的伤害提高6%。",
+                    "fourPiece": "施放炎爆术或烈焰风暴会使火焰冲击的冷却时间缩短0.30秒。",
+                    "spells": [
+                      {
+                        "spellId": 1264834,
+                        "name": "Mage Fire 12.0 Class Set 2pc",
+                        "description": "炎爆术和烈焰风暴造成的伤害提高6%。"
+                      },
+                      {
+                        "spellId": 1264835,
+                        "name": "Mage Fire 12.0 Class Set 4pc",
+                        "description": "施放炎爆术或烈焰风暴会使火焰冲击的冷却时间缩短0.30秒。"
+                      }
+                    ]
+                  },
+                  "64": {
+                    "specId": 64,
+                    "specName": "冰霜",
+                    "twoPiece": "冰风暴的伤害提高10%，并且有10%的几率使你获得寒冰指的效果。",
+                    "fourPiece": "寒冰指使碎裂的伤害提高15%。",
+                    "spells": [
+                      {
+                        "spellId": 1264836,
+                        "name": "Mage Frost 12.0 Class Set 2pc",
+                        "description": "冰风暴的伤害提高10%，并且有10%的几率使你获得寒冰指的效果。"
+                      },
+                      {
+                        "spellId": 1264837,
+                        "name": "Mage Frost 12.0 Class Set 4pc",
+                        "description": "寒冰指使碎裂的伤害提高15%。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             }
           ]
         }
       ]
+    },
+    {
+      "id": 1305,
+      "name": "孢陨幽境",
+      "type": "raid",
+      "difficulty": 15,
+      "order": 5,
+      "encounters": [
+        {
+          "id": 2711,
+          "name": "腐沼",
+          "order": 1,
+          "items": [
+            {
+              "id": 268291,
+              "name": "腐沼的孢子之心",
+              "icon": 7636601,
+              "iconName": "inv_12_jewelry_rutaani_necklace_blue",
+              "iconAsset": "/assets/icons/inv_12_jewelry_rutaani_necklace_blue.jpg",
+              "slot": "neck",
+              "slotName": "项链",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                62,
+                63,
+                64
+              ],
+              "classes": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": true,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 948
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 44
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 250
+                  }
+                ],
+                "effects": {
+                  "equip": [
+                    "装备： 你的治疗有几率生成保护性伞菌，吸收37765点伤害，最多持续12秒。如果被打破，伞菌会爆炸并对附近的敌人造成3439点自然伤害。"
+                  ],
+                  "use": []
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 6
+              },
+              "tooltipRaw": [
+                "腐沼的孢子之心",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "颈部",
+                "+948 耐力",
+                "+44 爆击",
+                "+250 精通",
+                "棱彩插槽",
+                "装备： 你的治疗有几率生成保护性伞菌，吸收37765点伤害，最多持续12秒。如果被打破，伞菌会爆炸并对附近的敌人造成3439点自然伤害。"
+              ],
+              "link": "|cnIQ4:|Hitem:268291::::::::90:104::5:1:3524:1:28:6117:::::|h[腐沼的孢子之心]|h|r",
+              "iconText": "腐"
+            },
+            {
+              "id": 268284,
+              "name": "丝菌师的腐朽长袍",
+              "icon": 7444041,
+              "iconName": "inv_chest_cloth_raidmagemidnight_d_01",
+              "iconAsset": "/assets/icons/inv_chest_cloth_raidmagemidnight_d_01.jpg",
+              "slot": "chest",
+              "slotName": "胸部",
+              "armorType": "cloth",
+              "armorTypeName": "布甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                62,
+                63,
+                64
+              ],
+              "classes": [
+                5,
+                8,
+                9
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 119
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1685
+                },
+                "secondary": [
+                  {
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 107
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 54
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 83
+                }
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 7
+              },
+              "tooltipRaw": [
+                "丝菌师的腐朽长袍",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "胸部 布甲",
+                "83点护甲",
+                "+119 智力",
+                "+1685 耐力",
+                "+107 急速",
+                "+54 精通",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:268284::::::::90:104::5:1:3524:1:28:6117:::::|h[丝菌师的腐朽长袍]|h|r",
+              "iconText": "丝"
+            },
+            {
+              "id": 268282,
+              "name": "奢华沃壤踏靴",
+              "icon": 7448848,
+              "iconName": "inv_boot_cloth_raidpriestmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_boot_cloth_raidpriestmidnight_d_01.jpg",
+              "slot": "feet",
+              "slotName": "脚部",
+              "armorType": "cloth",
+              "armorTypeName": "布甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                62,
+                63,
+                64
+              ],
+              "classes": [
+                5,
+                8,
+                9
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 90
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1264
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 36
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 85
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 52
+                }
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 12
+              },
+              "tooltipRaw": [
+                "奢华沃壤踏靴",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "脚部 布甲",
+                "52点护甲",
+                "+90 智力",
+                "+1264 耐力",
+                "+36 爆击",
+                "+85 精通",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:268282::::::::90:104::5:1:3524:1:28:6117:::::|h[奢华沃壤踏靴]|h|r",
+              "iconText": "奢"
+            },
+            {
+              "id": 268290,
+              "name": "唤孢者的绽放指环",
+              "icon": 7636604,
+              "iconName": "inv_12_jewelry_rutaani_ring_blue",
+              "iconAsset": "/assets/icons/inv_12_jewelry_rutaani_ring_blue.jpg",
+              "slot": "finger",
+              "slotName": "戒指",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                62,
+                63,
+                64
+              ],
+              "classes": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": true,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 948
+                },
+                "secondary": [
+                  {
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 244
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 50
+                  }
+                ],
+                "effects": {
+                  "equip": [
+                    "装备： 造成自然伤害有几率施加朽花，在15秒内造成2192点自然伤害。如果敌人已经受到你的朽花影响，则将其消耗，造成剩余伤害的120%。"
+                  ],
+                  "use": []
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 14
+              },
+              "tooltipRaw": [
+                "唤孢者的绽放指环",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "装备唯一",
+                "手指",
+                "+948 耐力",
+                "+244 急速",
+                "+50 精通",
+                "棱彩插槽",
+                "装备： 造成自然伤害有几率施加朽花，在15秒内造成2192点自然伤害。如果敌人已经受到你的朽花影响，则将其消耗，造成剩余伤害的120%。"
+              ],
+              "link": "|cnIQ4:|Hitem:268290::::::::90:104::5:1:3524:1:28:6117:::::|h[唤孢者的绽放指环]|h|r",
+              "iconText": "唤"
+            },
+            {
+              "id": 268292,
+              "name": "孢子大王的菌丝徽记",
+              "icon": 7702761,
+              "iconName": "inv_1207_fungarianraid_trinket",
+              "iconAsset": "/assets/icons/inv_1207_fungarianraid_trinket.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                62,
+                63,
+                64
+              ],
+              "classes": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "力量",
+                    "type": "strength",
+                    "value": 114
+                  },
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 114
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 114
+                  }
+                ],
+                "stamina": null,
+                "secondary": [],
+                "effects": {
+                  "equip": [
+                    "装备： 你的法术和技能有几率滋养菌丝，为你提供324点随机次要属性和吸血，持续12秒。"
+                  ],
+                  "use": []
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 15
+              },
+              "tooltipRaw": [
+                "孢子大王的菌丝徽记",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "装备唯一",
+                "饰品",
+                "+114 敏捷",
+                "+114 智力",
+                "+114 力量",
+                "装备： 你的法术和技能有几率滋养菌丝，为你提供324点随机次要属性和吸血，持续12秒。"
+              ],
+              "link": "|cnIQ4:|Hitem:268292::::::::90:104::5:1:3524:1:28:6117:::::|h[孢子大王的菌丝徽记]|h|r",
+              "iconText": "孢"
+            }
+          ]
+        }
+      ]
     }
-  ],
-  "dataVersion": "4.2.x"
+  ]
 };

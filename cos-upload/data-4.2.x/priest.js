@@ -1,5 +1,5 @@
 module.exports = {
-  "version": "12.0.1",
+  "version": "4.2.x",
   "addonVersion": "3.0.0",
   "updatedAt": "2026-04-22 21:59:03",
   "class": {
@@ -26,9 +26,8 @@ module.exports = {
     }
   ],
   "meta": {
-    "itemCount": 159,
-    "instanceCount": 12,
-    "tierItemCount": 9
+    "itemCount": 160,
+    "instanceCount": 13
   },
   "instances": [
     {
@@ -13344,7 +13343,7 @@ module.exports = {
                 "encounterId": "tier-set:priest",
                 "encounterName": "盲誓的重负",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -13372,23 +13371,8 @@ module.exports = {
               ],
               "link": "item:250051::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "盲",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 1,
-                "slotKey": "head",
-                "sourceId": 297632,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5451,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "盲誓的重负",
-                "visualId": 126930
-              },
               "tier": {
-                "setId": 5451,
+                "setId": 1986,
                 "setName": "盲誓的重负",
                 "pieceCount": 9,
                 "pieces": [
@@ -13458,7 +13442,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -13532,7 +13517,7 @@ module.exports = {
                 "encounterId": "tier-set:priest",
                 "encounterName": "盲誓的重负",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -13560,23 +13545,8 @@ module.exports = {
               ],
               "link": "item:250049::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "盲",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 3,
-                "slotKey": "shoulder",
-                "sourceId": 297608,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5451,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "盲誓的重负",
-                "visualId": 126931
-              },
               "tier": {
-                "setId": 5451,
+                "setId": 1986,
                 "setName": "盲誓的重负",
                 "pieceCount": 9,
                 "pieces": [
@@ -13646,7 +13616,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -13720,7 +13691,7 @@ module.exports = {
                 "encounterId": "tier-set:priest",
                 "encounterName": "盲誓的重负",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -13748,23 +13719,8 @@ module.exports = {
               ],
               "link": "item:250054::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "盲",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 5,
-                "slotKey": "chest",
-                "sourceId": 297668,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5451,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "盲誓的重负",
-                "visualId": 126932
-              },
               "tier": {
-                "setId": 5451,
+                "setId": 1986,
                 "setName": "盲誓的重负",
                 "pieceCount": 9,
                 "pieces": [
@@ -13834,7 +13790,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -13908,7 +13865,7 @@ module.exports = {
                 "encounterId": "tier-set:priest",
                 "encounterName": "盲誓的重负",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -13936,23 +13893,8 @@ module.exports = {
               ],
               "link": "item:250052::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "盲",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 10,
-                "slotKey": "hands",
-                "sourceId": 297644,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5451,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "盲誓的重负",
-                "visualId": 126937
-              },
               "tier": {
-                "setId": 5451,
+                "setId": 1986,
                 "setName": "盲誓的重负",
                 "pieceCount": 9,
                 "pieces": [
@@ -14022,7 +13964,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -14096,7 +14039,7 @@ module.exports = {
                 "encounterId": "tier-set:priest",
                 "encounterName": "盲誓的重负",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -14124,23 +14067,8 @@ module.exports = {
               ],
               "link": "item:250050::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "盲",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 7,
-                "slotKey": "legs",
-                "sourceId": 297620,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5451,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "盲誓的重负",
-                "visualId": 126934
-              },
               "tier": {
-                "setId": 5451,
+                "setId": 1986,
                 "setName": "盲誓的重负",
                 "pieceCount": 9,
                 "pieces": [
@@ -14210,7 +14138,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -14219,10 +14148,10 @@ module.exports = {
               "icon": 7448850,
               "iconName": "inv_cape_cloth_raidpriestmidnight_d_01",
               "iconAsset": "/assets/icons/inv_cape_cloth_raidpriestmidnight_d_01.jpg",
-              "slot": "cloak",
-              "slotName": "披风",
-              "armorType": "none",
-              "armorTypeName": "无甲种",
+              "slot": "back",
+              "slotName": "背部",
+              "armorType": "cloth",
+              "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "布甲",
               "ilvl": 263,
@@ -14270,8 +14199,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 51
@@ -14284,13 +14213,14 @@ module.exports = {
                 "encounterId": "tier-set:priest",
                 "encounterName": "盲誓的重负",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "盲誓裹布",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -14305,23 +14235,8 @@ module.exports = {
               ],
               "link": "item:250046::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "盲",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 15,
-                "slotKey": "back",
-                "sourceId": 297572,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5451,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "盲誓的重负",
-                "visualId": 126938
-              },
               "tier": {
-                "setId": 5451,
+                "setId": 1986,
                 "setName": "盲誓的重负",
                 "pieceCount": 9,
                 "pieces": [
@@ -14335,8 +14250,65 @@ module.exports = {
                   "盲誓珠宝腰带",
                   "盲誓软鞋"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "256": {
+                    "specId": 256,
+                    "specName": "戒律",
+                    "twoPiece": "快速治疗、暗影愈合和真言术：耀的治疗效果提高25%。",
+                    "fourPiece": "由快速治疗和真言术：耀施加的救赎效果额外持续3秒。",
+                    "spells": [
+                      {
+                        "spellId": 1264850,
+                        "name": "Priest Discipline 12.0 Class Set 2pc",
+                        "description": "快速治疗、暗影愈合和真言术：耀的治疗效果提高25%。"
+                      },
+                      {
+                        "spellId": 1264851,
+                        "name": "Priest Discipline 12.0 Class Set 4pc",
+                        "description": "由快速治疗和真言术：耀施加的救赎效果额外持续3秒。"
+                      }
+                    ]
+                  },
+                  "257": {
+                    "specId": 257,
+                    "specName": "神圣",
+                    "twoPiece": "施放祈福有很高几率召唤一个神圣镜像。",
+                    "fourPiece": "神圣镜像的持续时间延长3.0秒，造成的治疗和伤害提高30%。",
+                    "spells": [
+                      {
+                        "spellId": 1264852,
+                        "name": "Priest Holy 12.0 Class Set 2pc",
+                        "description": "施放祈福有很高几率召唤一个神圣镜像。"
+                      },
+                      {
+                        "spellId": 1264853,
+                        "name": "Priest Holy 12.0 Class Set 4pc",
+                        "description": "神圣镜像的持续时间延长3.0秒，造成的治疗和伤害提高30%。"
+                      }
+                    ]
+                  },
+                  "258": {
+                    "specId": 258,
+                    "specName": "暗影",
+                    "twoPiece": "暗言术：癫造成的伤害提高10%，狂乱值消耗降低5。",
+                    "fourPiece": "暗影幻灵和虚空幻灵造成的伤害提高40%。",
+                    "spells": [
+                      {
+                        "spellId": 1264854,
+                        "name": "Priest Shadow 12.0 Class Set 2pc",
+                        "description": "暗言术：癫造成的伤害提高10%，狂乱值消耗降低5。"
+                      },
+                      {
+                        "spellId": 1264855,
+                        "name": "Priest Shadow 12.0 Class Set 4pc",
+                        "description": "暗影幻灵和虚空幻灵造成的伤害提高40%。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             },
             {
@@ -14346,7 +14318,7 @@ module.exports = {
               "iconName": "inv_bracer_cloth_raidpriestmidnight_d_01",
               "iconAsset": "/assets/icons/inv_bracer_cloth_raidpriestmidnight_d_01.jpg",
               "slot": "wrist",
-              "slotName": "腕部",
+              "slotName": "手腕",
               "armorType": "cloth",
               "armorTypeName": "布甲",
               "itemType": "护甲",
@@ -14396,8 +14368,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 37
@@ -14410,13 +14382,14 @@ module.exports = {
                 "encounterId": "tier-set:priest",
                 "encounterName": "盲誓的重负",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "盲誓护腕",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -14431,23 +14404,8 @@ module.exports = {
               ],
               "link": "item:250047::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "盲",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 9,
-                "slotKey": "wrist",
-                "sourceId": 297584,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5451,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "盲誓的重负",
-                "visualId": 126936
-              },
               "tier": {
-                "setId": 5451,
+                "setId": 1986,
                 "setName": "盲誓的重负",
                 "pieceCount": 9,
                 "pieces": [
@@ -14461,8 +14419,65 @@ module.exports = {
                   "盲誓珠宝腰带",
                   "盲誓软鞋"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "256": {
+                    "specId": 256,
+                    "specName": "戒律",
+                    "twoPiece": "快速治疗、暗影愈合和真言术：耀的治疗效果提高25%。",
+                    "fourPiece": "由快速治疗和真言术：耀施加的救赎效果额外持续3秒。",
+                    "spells": [
+                      {
+                        "spellId": 1264850,
+                        "name": "Priest Discipline 12.0 Class Set 2pc",
+                        "description": "快速治疗、暗影愈合和真言术：耀的治疗效果提高25%。"
+                      },
+                      {
+                        "spellId": 1264851,
+                        "name": "Priest Discipline 12.0 Class Set 4pc",
+                        "description": "由快速治疗和真言术：耀施加的救赎效果额外持续3秒。"
+                      }
+                    ]
+                  },
+                  "257": {
+                    "specId": 257,
+                    "specName": "神圣",
+                    "twoPiece": "施放祈福有很高几率召唤一个神圣镜像。",
+                    "fourPiece": "神圣镜像的持续时间延长3.0秒，造成的治疗和伤害提高30%。",
+                    "spells": [
+                      {
+                        "spellId": 1264852,
+                        "name": "Priest Holy 12.0 Class Set 2pc",
+                        "description": "施放祈福有很高几率召唤一个神圣镜像。"
+                      },
+                      {
+                        "spellId": 1264853,
+                        "name": "Priest Holy 12.0 Class Set 4pc",
+                        "description": "神圣镜像的持续时间延长3.0秒，造成的治疗和伤害提高30%。"
+                      }
+                    ]
+                  },
+                  "258": {
+                    "specId": 258,
+                    "specName": "暗影",
+                    "twoPiece": "暗言术：癫造成的伤害提高10%，狂乱值消耗降低5。",
+                    "fourPiece": "暗影幻灵和虚空幻灵造成的伤害提高40%。",
+                    "spells": [
+                      {
+                        "spellId": 1264854,
+                        "name": "Priest Shadow 12.0 Class Set 2pc",
+                        "description": "暗言术：癫造成的伤害提高10%，狂乱值消耗降低5。"
+                      },
+                      {
+                        "spellId": 1264855,
+                        "name": "Priest Shadow 12.0 Class Set 4pc",
+                        "description": "暗影幻灵和虚空幻灵造成的伤害提高40%。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             },
             {
@@ -14522,8 +14537,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 41
@@ -14536,13 +14551,14 @@ module.exports = {
                 "encounterId": "tier-set:priest",
                 "encounterName": "盲誓的重负",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "盲誓珠宝腰带",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -14557,23 +14573,8 @@ module.exports = {
               ],
               "link": "item:250048::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "盲",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 6,
-                "slotKey": "waist",
-                "sourceId": 297596,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5451,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "盲誓的重负",
-                "visualId": 126933
-              },
               "tier": {
-                "setId": 5451,
+                "setId": 1986,
                 "setName": "盲誓的重负",
                 "pieceCount": 9,
                 "pieces": [
@@ -14587,8 +14588,65 @@ module.exports = {
                   "盲誓珠宝腰带",
                   "盲誓软鞋"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "256": {
+                    "specId": 256,
+                    "specName": "戒律",
+                    "twoPiece": "快速治疗、暗影愈合和真言术：耀的治疗效果提高25%。",
+                    "fourPiece": "由快速治疗和真言术：耀施加的救赎效果额外持续3秒。",
+                    "spells": [
+                      {
+                        "spellId": 1264850,
+                        "name": "Priest Discipline 12.0 Class Set 2pc",
+                        "description": "快速治疗、暗影愈合和真言术：耀的治疗效果提高25%。"
+                      },
+                      {
+                        "spellId": 1264851,
+                        "name": "Priest Discipline 12.0 Class Set 4pc",
+                        "description": "由快速治疗和真言术：耀施加的救赎效果额外持续3秒。"
+                      }
+                    ]
+                  },
+                  "257": {
+                    "specId": 257,
+                    "specName": "神圣",
+                    "twoPiece": "施放祈福有很高几率召唤一个神圣镜像。",
+                    "fourPiece": "神圣镜像的持续时间延长3.0秒，造成的治疗和伤害提高30%。",
+                    "spells": [
+                      {
+                        "spellId": 1264852,
+                        "name": "Priest Holy 12.0 Class Set 2pc",
+                        "description": "施放祈福有很高几率召唤一个神圣镜像。"
+                      },
+                      {
+                        "spellId": 1264853,
+                        "name": "Priest Holy 12.0 Class Set 4pc",
+                        "description": "神圣镜像的持续时间延长3.0秒，造成的治疗和伤害提高30%。"
+                      }
+                    ]
+                  },
+                  "258": {
+                    "specId": 258,
+                    "specName": "暗影",
+                    "twoPiece": "暗言术：癫造成的伤害提高10%，狂乱值消耗降低5。",
+                    "fourPiece": "暗影幻灵和虚空幻灵造成的伤害提高40%。",
+                    "spells": [
+                      {
+                        "spellId": 1264854,
+                        "name": "Priest Shadow 12.0 Class Set 2pc",
+                        "description": "暗言术：癫造成的伤害提高10%，狂乱值消耗降低5。"
+                      },
+                      {
+                        "spellId": 1264855,
+                        "name": "Priest Shadow 12.0 Class Set 4pc",
+                        "description": "暗影幻灵和虚空幻灵造成的伤害提高40%。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             },
             {
@@ -14598,7 +14656,7 @@ module.exports = {
               "iconName": "inv_boot_cloth_raidpriestmidnight_d_01",
               "iconAsset": "/assets/icons/inv_boot_cloth_raidpriestmidnight_d_01.jpg",
               "slot": "feet",
-              "slotName": "脚部",
+              "slotName": "脚",
               "armorType": "cloth",
               "armorTypeName": "布甲",
               "itemType": "护甲",
@@ -14648,8 +14706,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 46
@@ -14662,13 +14720,14 @@ module.exports = {
                 "encounterId": "tier-set:priest",
                 "encounterName": "盲誓的重负",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "盲誓软鞋",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -14683,23 +14742,8 @@ module.exports = {
               ],
               "link": "item:250053::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "盲",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 8,
-                "slotKey": "feet",
-                "sourceId": 297656,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5451,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "盲誓的重负",
-                "visualId": 126935
-              },
               "tier": {
-                "setId": 5451,
+                "setId": 1986,
                 "setName": "盲誓的重负",
                 "pieceCount": 9,
                 "pieces": [
@@ -14713,14 +14757,537 @@ module.exports = {
                   "盲誓珠宝腰带",
                   "盲誓软鞋"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "256": {
+                    "specId": 256,
+                    "specName": "戒律",
+                    "twoPiece": "快速治疗、暗影愈合和真言术：耀的治疗效果提高25%。",
+                    "fourPiece": "由快速治疗和真言术：耀施加的救赎效果额外持续3秒。",
+                    "spells": [
+                      {
+                        "spellId": 1264850,
+                        "name": "Priest Discipline 12.0 Class Set 2pc",
+                        "description": "快速治疗、暗影愈合和真言术：耀的治疗效果提高25%。"
+                      },
+                      {
+                        "spellId": 1264851,
+                        "name": "Priest Discipline 12.0 Class Set 4pc",
+                        "description": "由快速治疗和真言术：耀施加的救赎效果额外持续3秒。"
+                      }
+                    ]
+                  },
+                  "257": {
+                    "specId": 257,
+                    "specName": "神圣",
+                    "twoPiece": "施放祈福有很高几率召唤一个神圣镜像。",
+                    "fourPiece": "神圣镜像的持续时间延长3.0秒，造成的治疗和伤害提高30%。",
+                    "spells": [
+                      {
+                        "spellId": 1264852,
+                        "name": "Priest Holy 12.0 Class Set 2pc",
+                        "description": "施放祈福有很高几率召唤一个神圣镜像。"
+                      },
+                      {
+                        "spellId": 1264853,
+                        "name": "Priest Holy 12.0 Class Set 4pc",
+                        "description": "神圣镜像的持续时间延长3.0秒，造成的治疗和伤害提高30%。"
+                      }
+                    ]
+                  },
+                  "258": {
+                    "specId": 258,
+                    "specName": "暗影",
+                    "twoPiece": "暗言术：癫造成的伤害提高10%，狂乱值消耗降低5。",
+                    "fourPiece": "暗影幻灵和虚空幻灵造成的伤害提高40%。",
+                    "spells": [
+                      {
+                        "spellId": 1264854,
+                        "name": "Priest Shadow 12.0 Class Set 2pc",
+                        "description": "暗言术：癫造成的伤害提高10%，狂乱值消耗降低5。"
+                      },
+                      {
+                        "spellId": 1264855,
+                        "name": "Priest Shadow 12.0 Class Set 4pc",
+                        "description": "暗影幻灵和虚空幻灵造成的伤害提高40%。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             }
           ]
         }
       ]
+    },
+    {
+      "id": 1305,
+      "name": "孢陨幽境",
+      "type": "raid",
+      "difficulty": 15,
+      "order": 5,
+      "encounters": [
+        {
+          "id": 2711,
+          "name": "腐沼",
+          "order": 1,
+          "items": [
+            {
+              "id": 268291,
+              "name": "腐沼的孢子之心",
+              "icon": 7636601,
+              "iconName": "inv_12_jewelry_rutaani_necklace_blue",
+              "iconAsset": "/assets/icons/inv_12_jewelry_rutaani_necklace_blue.jpg",
+              "slot": "neck",
+              "slotName": "项链",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                256,
+                257,
+                258
+              ],
+              "classes": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": true,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 948
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 44
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 250
+                  }
+                ],
+                "effects": {
+                  "equip": [
+                    "装备： 你的治疗有几率生成保护性伞菌，吸收37765点伤害，最多持续12秒。如果被打破，伞菌会爆炸并对附近的敌人造成3439点自然伤害。"
+                  ],
+                  "use": []
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 6
+              },
+              "tooltipRaw": [
+                "腐沼的孢子之心",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "颈部",
+                "+948 耐力",
+                "+44 爆击",
+                "+250 精通",
+                "棱彩插槽",
+                "装备： 你的治疗有几率生成保护性伞菌，吸收37765点伤害，最多持续12秒。如果被打破，伞菌会爆炸并对附近的敌人造成3439点自然伤害。"
+              ],
+              "link": "|cnIQ4:|Hitem:268291::::::::90:104::5:1:3524:1:28:6117:::::|h[腐沼的孢子之心]|h|r",
+              "iconText": "腐"
+            },
+            {
+              "id": 268284,
+              "name": "丝菌师的腐朽长袍",
+              "icon": 7444041,
+              "iconName": "inv_chest_cloth_raidmagemidnight_d_01",
+              "iconAsset": "/assets/icons/inv_chest_cloth_raidmagemidnight_d_01.jpg",
+              "slot": "chest",
+              "slotName": "胸部",
+              "armorType": "cloth",
+              "armorTypeName": "布甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                256,
+                257,
+                258
+              ],
+              "classes": [
+                5,
+                8,
+                9
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 119
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1685
+                },
+                "secondary": [
+                  {
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 107
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 54
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 83
+                }
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 7
+              },
+              "tooltipRaw": [
+                "丝菌师的腐朽长袍",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "胸部 布甲",
+                "83点护甲",
+                "+119 智力",
+                "+1685 耐力",
+                "+107 急速",
+                "+54 精通",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:268284::::::::90:104::5:1:3524:1:28:6117:::::|h[丝菌师的腐朽长袍]|h|r",
+              "iconText": "丝"
+            },
+            {
+              "id": 268282,
+              "name": "奢华沃壤踏靴",
+              "icon": 7448848,
+              "iconName": "inv_boot_cloth_raidpriestmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_boot_cloth_raidpriestmidnight_d_01.jpg",
+              "slot": "feet",
+              "slotName": "脚部",
+              "armorType": "cloth",
+              "armorTypeName": "布甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                256,
+                257,
+                258
+              ],
+              "classes": [
+                5,
+                8,
+                9
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 90
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1264
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 36
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 85
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 52
+                }
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 12
+              },
+              "tooltipRaw": [
+                "奢华沃壤踏靴",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "脚部 布甲",
+                "52点护甲",
+                "+90 智力",
+                "+1264 耐力",
+                "+36 爆击",
+                "+85 精通",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:268282::::::::90:104::5:1:3524:1:28:6117:::::|h[奢华沃壤踏靴]|h|r",
+              "iconText": "奢"
+            },
+            {
+              "id": 268290,
+              "name": "唤孢者的绽放指环",
+              "icon": 7636604,
+              "iconName": "inv_12_jewelry_rutaani_ring_blue",
+              "iconAsset": "/assets/icons/inv_12_jewelry_rutaani_ring_blue.jpg",
+              "slot": "finger",
+              "slotName": "戒指",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                256,
+                257,
+                258
+              ],
+              "classes": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": true,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 948
+                },
+                "secondary": [
+                  {
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 244
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 50
+                  }
+                ],
+                "effects": {
+                  "equip": [
+                    "装备： 造成自然伤害有几率施加朽花，在15秒内造成2192点自然伤害。如果敌人已经受到你的朽花影响，则将其消耗，造成剩余伤害的120%。"
+                  ],
+                  "use": []
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 14
+              },
+              "tooltipRaw": [
+                "唤孢者的绽放指环",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "装备唯一",
+                "手指",
+                "+948 耐力",
+                "+244 急速",
+                "+50 精通",
+                "棱彩插槽",
+                "装备： 造成自然伤害有几率施加朽花，在15秒内造成2192点自然伤害。如果敌人已经受到你的朽花影响，则将其消耗，造成剩余伤害的120%。"
+              ],
+              "link": "|cnIQ4:|Hitem:268290::::::::90:104::5:1:3524:1:28:6117:::::|h[唤孢者的绽放指环]|h|r",
+              "iconText": "唤"
+            },
+            {
+              "id": 268292,
+              "name": "孢子大王的菌丝徽记",
+              "icon": 7702761,
+              "iconName": "inv_1207_fungarianraid_trinket",
+              "iconAsset": "/assets/icons/inv_1207_fungarianraid_trinket.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                256,
+                257,
+                258
+              ],
+              "classes": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "力量",
+                    "type": "strength",
+                    "value": 114
+                  },
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 114
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 114
+                  }
+                ],
+                "stamina": null,
+                "secondary": [],
+                "effects": {
+                  "equip": [
+                    "装备： 你的法术和技能有几率滋养菌丝，为你提供324点随机次要属性和吸血，持续12秒。"
+                  ],
+                  "use": []
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 15
+              },
+              "tooltipRaw": [
+                "孢子大王的菌丝徽记",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "装备唯一",
+                "饰品",
+                "+114 敏捷",
+                "+114 智力",
+                "+114 力量",
+                "装备： 你的法术和技能有几率滋养菌丝，为你提供324点随机次要属性和吸血，持续12秒。"
+              ],
+              "link": "|cnIQ4:|Hitem:268292::::::::90:104::5:1:3524:1:28:6117:::::|h[孢子大王的菌丝徽记]|h|r",
+              "iconText": "孢"
+            }
+          ]
+        }
+      ]
     }
-  ],
-  "dataVersion": "4.2.x"
+  ]
 };

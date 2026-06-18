@@ -1,10 +1,10 @@
 module.exports = {
-  "version": "12.0.1",
+  "version": "4.2.x",
   "addonVersion": "3.0.0",
   "updatedAt": "2026-04-22 21:59:03",
   "scope": {
     "dungeonCount": 8,
-    "raidCount": 3,
+    "raidCount": 4,
     "dungeons": [
       {
         "difficulty": 23,
@@ -92,6 +92,13 @@ module.exports = {
         "isRaid": true,
         "name": "进军奎尔丹纳斯",
         "order": 4
+      },
+      {
+        "difficulty": 15,
+        "id": 1305,
+        "isRaid": true,
+        "name": "孢陨幽境",
+        "order": 5
       }
     ],
     "skippedRaids": [
@@ -107,8 +114,8 @@ module.exports = {
       "id": 1,
       "key": "warrior",
       "name": "战士",
-      "itemCount": 163,
-      "tierItemCount": 9,
+      "itemCount": 168,
+      "tierItemCount": 5,
       "color": "#C69B6D",
       "abbr": "战",
       "armorTypeName": "板甲"
@@ -117,8 +124,8 @@ module.exports = {
       "id": 2,
       "key": "paladin",
       "name": "圣骑士",
-      "itemCount": 180,
-      "tierItemCount": 9,
+      "itemCount": 185,
+      "tierItemCount": 5,
       "color": "#F48CBA",
       "abbr": "骑",
       "armorTypeName": "板甲"
@@ -127,8 +134,8 @@ module.exports = {
       "id": 3,
       "key": "hunter",
       "name": "猎人",
-      "itemCount": 156,
-      "tierItemCount": 9,
+      "itemCount": 161,
+      "tierItemCount": 5,
       "color": "#AAD372",
       "abbr": "猎",
       "armorTypeName": "锁甲"
@@ -137,8 +144,8 @@ module.exports = {
       "id": 4,
       "key": "rogue",
       "name": "盗贼",
-      "itemCount": 148,
-      "tierItemCount": 9,
+      "itemCount": 153,
+      "tierItemCount": 5,
       "color": "#FFF468",
       "abbr": "贼",
       "armorTypeName": "皮甲"
@@ -147,8 +154,8 @@ module.exports = {
       "id": 5,
       "key": "priest",
       "name": "牧师",
-      "itemCount": 159,
-      "tierItemCount": 9,
+      "itemCount": 164,
+      "tierItemCount": 5,
       "color": "#FFFFFF",
       "abbr": "牧",
       "armorTypeName": "布甲"
@@ -157,8 +164,8 @@ module.exports = {
       "id": 6,
       "key": "deathknight",
       "name": "死亡骑士",
-      "itemCount": 157,
-      "tierItemCount": 9,
+      "itemCount": 162,
+      "tierItemCount": 5,
       "color": "#C41E3A",
       "abbr": "骑",
       "armorTypeName": "板甲"
@@ -167,8 +174,8 @@ module.exports = {
       "id": 7,
       "key": "shaman",
       "name": "萨满祭司",
-      "itemCount": 175,
-      "tierItemCount": 9,
+      "itemCount": 180,
+      "tierItemCount": 5,
       "color": "#0070DD",
       "abbr": "萨",
       "armorTypeName": "锁甲"
@@ -177,8 +184,8 @@ module.exports = {
       "id": 8,
       "key": "mage",
       "name": "法师",
-      "itemCount": 152,
-      "tierItemCount": 9,
+      "itemCount": 157,
+      "tierItemCount": 5,
       "color": "#3FC7EB",
       "abbr": "法",
       "armorTypeName": "布甲"
@@ -187,8 +194,8 @@ module.exports = {
       "id": 9,
       "key": "warlock",
       "name": "术士",
-      "itemCount": 152,
-      "tierItemCount": 9,
+      "itemCount": 157,
+      "tierItemCount": 5,
       "color": "#8788EE",
       "abbr": "术",
       "armorTypeName": "布甲"
@@ -197,8 +204,8 @@ module.exports = {
       "id": 10,
       "key": "monk",
       "name": "武僧",
-      "itemCount": 185,
-      "tierItemCount": 9,
+      "itemCount": 190,
+      "tierItemCount": 5,
       "color": "#00FF98",
       "abbr": "僧",
       "armorTypeName": "皮甲"
@@ -207,8 +214,8 @@ module.exports = {
       "id": 11,
       "key": "druid",
       "name": "德鲁伊",
-      "itemCount": 182,
-      "tierItemCount": 9,
+      "itemCount": 187,
+      "tierItemCount": 5,
       "color": "#FF7C0A",
       "abbr": "德",
       "armorTypeName": "皮甲"
@@ -217,8 +224,8 @@ module.exports = {
       "id": 12,
       "key": "demonhunter",
       "name": "恶魔猎手",
-      "itemCount": 163,
-      "tierItemCount": 9,
+      "itemCount": 168,
+      "tierItemCount": 5,
       "color": "#A330C9",
       "abbr": "猎",
       "armorTypeName": "皮甲"
@@ -227,12 +234,11 @@ module.exports = {
       "id": 13,
       "key": "evoker",
       "name": "唤魔师",
-      "itemCount": 162,
-      "tierItemCount": 9,
+      "itemCount": 167,
+      "tierItemCount": 5,
       "color": "#33937F",
       "abbr": "唤",
       "armorTypeName": "锁甲"
     }
-  ],
-  "dataVersion": "4.2.x"
+  ]
 };

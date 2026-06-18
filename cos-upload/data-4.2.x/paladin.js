@@ -1,5 +1,5 @@
 module.exports = {
-  "version": "12.0.1",
+  "version": "4.2.x",
   "addonVersion": "3.0.0",
   "updatedAt": "2026-04-22 21:59:03",
   "class": {
@@ -26,9 +26,8 @@ module.exports = {
     }
   ],
   "meta": {
-    "itemCount": 180,
-    "instanceCount": 12,
-    "tierItemCount": 9
+    "itemCount": 181,
+    "instanceCount": 13
   },
   "instances": [
     {
@@ -15329,7 +15328,7 @@ module.exports = {
                 "encounterId": "tier-set:paladin",
                 "encounterName": "光耀裁决的套装",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -15358,23 +15357,8 @@ module.exports = {
               ],
               "link": "item:249961::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "光",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 1,
-                "slotKey": "head",
-                "sourceId": 296552,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5447,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "光耀裁决的套装",
-                "visualId": 127348
-              },
               "tier": {
-                "setId": 5447,
+                "setId": 1985,
                 "setName": "光耀裁决的套装",
                 "pieceCount": 9,
                 "pieces": [
@@ -15444,7 +15428,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -15524,7 +15509,7 @@ module.exports = {
                 "encounterId": "tier-set:paladin",
                 "encounterName": "光耀裁决的套装",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -15553,23 +15538,8 @@ module.exports = {
               ],
               "link": "item:249959::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "光",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 3,
-                "slotKey": "shoulder",
-                "sourceId": 296528,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5447,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "光耀裁决的套装",
-                "visualId": 127349
-              },
               "tier": {
-                "setId": 5447,
+                "setId": 1985,
                 "setName": "光耀裁决的套装",
                 "pieceCount": 9,
                 "pieces": [
@@ -15639,7 +15609,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -15719,7 +15690,7 @@ module.exports = {
                 "encounterId": "tier-set:paladin",
                 "encounterName": "光耀裁决的套装",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -15748,23 +15719,8 @@ module.exports = {
               ],
               "link": "item:249964::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "光",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 5,
-                "slotKey": "chest",
-                "sourceId": 296588,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5447,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "光耀裁决的套装",
-                "visualId": 127350
-              },
               "tier": {
-                "setId": 5447,
+                "setId": 1985,
                 "setName": "光耀裁决的套装",
                 "pieceCount": 9,
                 "pieces": [
@@ -15834,7 +15790,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -15914,7 +15871,7 @@ module.exports = {
                 "encounterId": "tier-set:paladin",
                 "encounterName": "光耀裁决的套装",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -15943,23 +15900,8 @@ module.exports = {
               ],
               "link": "item:249962::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "光",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 10,
-                "slotKey": "hands",
-                "sourceId": 296564,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5447,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "光耀裁决的套装",
-                "visualId": 127355
-              },
               "tier": {
-                "setId": 5447,
+                "setId": 1985,
                 "setName": "光耀裁决的套装",
                 "pieceCount": 9,
                 "pieces": [
@@ -16029,7 +15971,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -16109,7 +16052,7 @@ module.exports = {
                 "encounterId": "tier-set:paladin",
                 "encounterName": "光耀裁决的套装",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
@@ -16138,23 +16081,8 @@ module.exports = {
               ],
               "link": "item:249960::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "光",
-              "isBonusPiece": true,
-              "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 7,
-                "slotKey": "legs",
-                "sourceId": 296540,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5447,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "光耀裁决的套装",
-                "visualId": 127352
-              },
               "tier": {
-                "setId": 5447,
+                "setId": 1985,
                 "setName": "光耀裁决的套装",
                 "pieceCount": 9,
                 "pieces": [
@@ -16224,7 +16152,8 @@ module.exports = {
                     ]
                   }
                 },
-                "sourceLabel": "套装"
+                "sourceLabel": "套装",
+                "isBonusPiece": true
               }
             },
             {
@@ -16233,10 +16162,10 @@ module.exports = {
               "icon": 7319580,
               "iconName": "inv_cape_plate_raidpaladinmidnight_d_01",
               "iconAsset": "/assets/icons/inv_cape_plate_raidpaladinmidnight_d_01.jpg",
-              "slot": "cloak",
-              "slotName": "披风",
-              "armorType": "none",
-              "armorTypeName": "无甲种",
+              "slot": "back",
+              "slotName": "背部",
+              "armorType": "plate",
+              "armorTypeName": "板甲",
               "itemType": "护甲",
               "itemSubType": "布甲",
               "ilvl": 263,
@@ -16290,8 +16219,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 51
@@ -16304,13 +16233,14 @@ module.exports = {
                 "encounterId": "tier-set:paladin",
                 "encounterName": "光耀裁决的套装",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "光耀裁决的重型披风",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -16325,23 +16255,8 @@ module.exports = {
               ],
               "link": "item:249956::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "光",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 15,
-                "slotKey": "back",
-                "sourceId": 296492,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5447,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "光耀裁决的套装",
-                "visualId": 127356
-              },
               "tier": {
-                "setId": 5447,
+                "setId": 1985,
                 "setName": "光耀裁决的套装",
                 "pieceCount": 9,
                 "pieces": [
@@ -16355,8 +16270,65 @@ module.exports = {
                   "光耀裁决的无畏徽记",
                   "光耀裁决的战靴"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "65": {
+                    "specId": 65,
+                    "specName": "神圣",
+                    "twoPiece": "神圣震击的治疗效果提高15%。",
+                    "fourPiece": "神圣震击额外转移20%的治疗量到你的圣光道标中。",
+                    "spells": [
+                      {
+                        "spellId": 1264844,
+                        "name": "Paladin Holy 12.0 Class Set 2pc",
+                        "description": "神圣震击的治疗效果提高15%。"
+                      },
+                      {
+                        "spellId": 1264845,
+                        "name": "Paladin Holy 12.0 Class Set 4pc",
+                        "description": "神圣震击额外转移20%的治疗量到你的圣光道标中。"
+                      }
+                    ]
+                  },
+                  "66": {
+                    "specId": 66,
+                    "specName": "防护",
+                    "twoPiece": "正义盾击造成的伤害提高20%。",
+                    "fourPiece": "施放正义盾击后，你的下一个复仇者之盾造成的伤害提高5%。最多叠加5层。",
+                    "spells": [
+                      {
+                        "spellId": 1264846,
+                        "name": "Paladin Protection 12.0 Class Set 2pc",
+                        "description": "正义盾击造成的伤害提高20%。"
+                      },
+                      {
+                        "spellId": 1264847,
+                        "name": "Paladin Protection 12.0 Class Set 4pc",
+                        "description": "施放正义盾击后，你的下一个复仇者之盾造成的伤害提高5%。最多叠加5层。"
+                      }
+                    ]
+                  },
+                  "70": {
+                    "specId": 70,
+                    "specName": "惩戒",
+                    "twoPiece": "异端逐除的伤害提高20%。",
+                    "fourPiece": "圣殿骑士的裁决会施加异端逐除，效果为100%，而神圣风暴施加异端逐除的效果为50%。",
+                    "spells": [
+                      {
+                        "spellId": 1264848,
+                        "name": "Paladin Retribution 12.0 Class Set 2pc",
+                        "description": "异端逐除的伤害提高20%。"
+                      },
+                      {
+                        "spellId": 1264849,
+                        "name": "Paladin Retribution 12.0 Class Set 4pc",
+                        "description": "圣殿骑士的裁决会施加异端逐除，效果为100%，而神圣风暴施加异端逐除的效果为50%。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             },
             {
@@ -16366,7 +16338,7 @@ module.exports = {
               "iconName": "inv_bracer_plate_raidpaladinmidnight_d_01",
               "iconAsset": "/assets/icons/inv_bracer_plate_raidpaladinmidnight_d_01.jpg",
               "slot": "wrist",
-              "slotName": "腕部",
+              "slotName": "手腕",
               "armorType": "plate",
               "armorTypeName": "板甲",
               "itemType": "护甲",
@@ -16422,8 +16394,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 140
@@ -16436,13 +16408,14 @@ module.exports = {
                 "encounterId": "tier-set:paladin",
                 "encounterName": "光耀裁决的套装",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "光耀裁决的护腕",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -16458,23 +16431,8 @@ module.exports = {
               ],
               "link": "item:249957::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "光",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 9,
-                "slotKey": "wrist",
-                "sourceId": 296504,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5447,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "光耀裁决的套装",
-                "visualId": 127354
-              },
               "tier": {
-                "setId": 5447,
+                "setId": 1985,
                 "setName": "光耀裁决的套装",
                 "pieceCount": 9,
                 "pieces": [
@@ -16488,8 +16446,65 @@ module.exports = {
                   "光耀裁决的无畏徽记",
                   "光耀裁决的战靴"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "65": {
+                    "specId": 65,
+                    "specName": "神圣",
+                    "twoPiece": "神圣震击的治疗效果提高15%。",
+                    "fourPiece": "神圣震击额外转移20%的治疗量到你的圣光道标中。",
+                    "spells": [
+                      {
+                        "spellId": 1264844,
+                        "name": "Paladin Holy 12.0 Class Set 2pc",
+                        "description": "神圣震击的治疗效果提高15%。"
+                      },
+                      {
+                        "spellId": 1264845,
+                        "name": "Paladin Holy 12.0 Class Set 4pc",
+                        "description": "神圣震击额外转移20%的治疗量到你的圣光道标中。"
+                      }
+                    ]
+                  },
+                  "66": {
+                    "specId": 66,
+                    "specName": "防护",
+                    "twoPiece": "正义盾击造成的伤害提高20%。",
+                    "fourPiece": "施放正义盾击后，你的下一个复仇者之盾造成的伤害提高5%。最多叠加5层。",
+                    "spells": [
+                      {
+                        "spellId": 1264846,
+                        "name": "Paladin Protection 12.0 Class Set 2pc",
+                        "description": "正义盾击造成的伤害提高20%。"
+                      },
+                      {
+                        "spellId": 1264847,
+                        "name": "Paladin Protection 12.0 Class Set 4pc",
+                        "description": "施放正义盾击后，你的下一个复仇者之盾造成的伤害提高5%。最多叠加5层。"
+                      }
+                    ]
+                  },
+                  "70": {
+                    "specId": 70,
+                    "specName": "惩戒",
+                    "twoPiece": "异端逐除的伤害提高20%。",
+                    "fourPiece": "圣殿骑士的裁决会施加异端逐除，效果为100%，而神圣风暴施加异端逐除的效果为50%。",
+                    "spells": [
+                      {
+                        "spellId": 1264848,
+                        "name": "Paladin Retribution 12.0 Class Set 2pc",
+                        "description": "异端逐除的伤害提高20%。"
+                      },
+                      {
+                        "spellId": 1264849,
+                        "name": "Paladin Retribution 12.0 Class Set 4pc",
+                        "description": "圣殿骑士的裁决会施加异端逐除，效果为100%，而神圣风暴施加异端逐除的效果为50%。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             },
             {
@@ -16555,8 +16570,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 158
@@ -16569,13 +16584,14 @@ module.exports = {
                 "encounterId": "tier-set:paladin",
                 "encounterName": "光耀裁决的套装",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "光耀裁决的无畏徽记",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -16591,23 +16607,8 @@ module.exports = {
               ],
               "link": "item:249958::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "光",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 6,
-                "slotKey": "waist",
-                "sourceId": 296516,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5447,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "光耀裁决的套装",
-                "visualId": 127351
-              },
               "tier": {
-                "setId": 5447,
+                "setId": 1985,
                 "setName": "光耀裁决的套装",
                 "pieceCount": 9,
                 "pieces": [
@@ -16621,8 +16622,65 @@ module.exports = {
                   "光耀裁决的无畏徽记",
                   "光耀裁决的战靴"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "65": {
+                    "specId": 65,
+                    "specName": "神圣",
+                    "twoPiece": "神圣震击的治疗效果提高15%。",
+                    "fourPiece": "神圣震击额外转移20%的治疗量到你的圣光道标中。",
+                    "spells": [
+                      {
+                        "spellId": 1264844,
+                        "name": "Paladin Holy 12.0 Class Set 2pc",
+                        "description": "神圣震击的治疗效果提高15%。"
+                      },
+                      {
+                        "spellId": 1264845,
+                        "name": "Paladin Holy 12.0 Class Set 4pc",
+                        "description": "神圣震击额外转移20%的治疗量到你的圣光道标中。"
+                      }
+                    ]
+                  },
+                  "66": {
+                    "specId": 66,
+                    "specName": "防护",
+                    "twoPiece": "正义盾击造成的伤害提高20%。",
+                    "fourPiece": "施放正义盾击后，你的下一个复仇者之盾造成的伤害提高5%。最多叠加5层。",
+                    "spells": [
+                      {
+                        "spellId": 1264846,
+                        "name": "Paladin Protection 12.0 Class Set 2pc",
+                        "description": "正义盾击造成的伤害提高20%。"
+                      },
+                      {
+                        "spellId": 1264847,
+                        "name": "Paladin Protection 12.0 Class Set 4pc",
+                        "description": "施放正义盾击后，你的下一个复仇者之盾造成的伤害提高5%。最多叠加5层。"
+                      }
+                    ]
+                  },
+                  "70": {
+                    "specId": 70,
+                    "specName": "惩戒",
+                    "twoPiece": "异端逐除的伤害提高20%。",
+                    "fourPiece": "圣殿骑士的裁决会施加异端逐除，效果为100%，而神圣风暴施加异端逐除的效果为50%。",
+                    "spells": [
+                      {
+                        "spellId": 1264848,
+                        "name": "Paladin Retribution 12.0 Class Set 2pc",
+                        "description": "异端逐除的伤害提高20%。"
+                      },
+                      {
+                        "spellId": 1264849,
+                        "name": "Paladin Retribution 12.0 Class Set 4pc",
+                        "description": "圣殿骑士的裁决会施加异端逐除，效果为100%，而神圣风暴施加异端逐除的效果为50%。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             },
             {
@@ -16632,7 +16690,7 @@ module.exports = {
               "iconName": "inv_boot_plate_raidpaladinmidnight_d_01",
               "iconAsset": "/assets/icons/inv_boot_plate_raidpaladinmidnight_d_01.jpg",
               "slot": "feet",
-              "slotName": "脚部",
+              "slotName": "脚",
               "armorType": "plate",
               "armorTypeName": "板甲",
               "itemType": "护甲",
@@ -16688,8 +16746,8 @@ module.exports = {
                   }
                 ],
                 "effects": {
-                  "equip": [],
-                  "use": []
+                  "equip": "",
+                  "use": ""
                 },
                 "white": {
                   "armor": 175
@@ -16702,13 +16760,14 @@ module.exports = {
                 "encounterId": "tier-set:paladin",
                 "encounterName": "光耀裁决的套装",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "英雄 2/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "光耀裁决的战靴",
                 "史诗",
+                "|cFF 0FF 0英雄|r",
                 "物品等级263",
                 "升级：英雄 2/6",
                 "拾取后绑定",
@@ -16724,23 +16783,8 @@ module.exports = {
               ],
               "link": "item:249963::::::::90:0::5:1:3524:1:28:3606:::::",
               "iconText": "光",
-              "isBonusPiece": false,
-              "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 8,
-                "slotKey": "feet",
-                "sourceId": 296576,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5447,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "光耀裁决的套装",
-                "visualId": 127353
-              },
               "tier": {
-                "setId": 5447,
+                "setId": 1985,
                 "setName": "光耀裁决的套装",
                 "pieceCount": 9,
                 "pieces": [
@@ -16754,14 +16798,548 @@ module.exports = {
                   "光耀裁决的无畏徽记",
                   "光耀裁决的战靴"
                 ],
-                "bonusesBySpec": {},
-                "sourceLabel": "套装"
+                "bonusesBySpec": {
+                  "65": {
+                    "specId": 65,
+                    "specName": "神圣",
+                    "twoPiece": "神圣震击的治疗效果提高15%。",
+                    "fourPiece": "神圣震击额外转移20%的治疗量到你的圣光道标中。",
+                    "spells": [
+                      {
+                        "spellId": 1264844,
+                        "name": "Paladin Holy 12.0 Class Set 2pc",
+                        "description": "神圣震击的治疗效果提高15%。"
+                      },
+                      {
+                        "spellId": 1264845,
+                        "name": "Paladin Holy 12.0 Class Set 4pc",
+                        "description": "神圣震击额外转移20%的治疗量到你的圣光道标中。"
+                      }
+                    ]
+                  },
+                  "66": {
+                    "specId": 66,
+                    "specName": "防护",
+                    "twoPiece": "正义盾击造成的伤害提高20%。",
+                    "fourPiece": "施放正义盾击后，你的下一个复仇者之盾造成的伤害提高5%。最多叠加5层。",
+                    "spells": [
+                      {
+                        "spellId": 1264846,
+                        "name": "Paladin Protection 12.0 Class Set 2pc",
+                        "description": "正义盾击造成的伤害提高20%。"
+                      },
+                      {
+                        "spellId": 1264847,
+                        "name": "Paladin Protection 12.0 Class Set 4pc",
+                        "description": "施放正义盾击后，你的下一个复仇者之盾造成的伤害提高5%。最多叠加5层。"
+                      }
+                    ]
+                  },
+                  "70": {
+                    "specId": 70,
+                    "specName": "惩戒",
+                    "twoPiece": "异端逐除的伤害提高20%。",
+                    "fourPiece": "圣殿骑士的裁决会施加异端逐除，效果为100%，而神圣风暴施加异端逐除的效果为50%。",
+                    "spells": [
+                      {
+                        "spellId": 1264848,
+                        "name": "Paladin Retribution 12.0 Class Set 2pc",
+                        "description": "异端逐除的伤害提高20%。"
+                      },
+                      {
+                        "spellId": 1264849,
+                        "name": "Paladin Retribution 12.0 Class Set 4pc",
+                        "description": "圣殿骑士的裁决会施加异端逐除，效果为100%，而神圣风暴施加异端逐除的效果为50%。"
+                      }
+                    ]
+                  }
+                },
+                "sourceLabel": "套装",
+                "isBonusPiece": false,
+                "appearanceOnly": true
               }
             }
           ]
         }
       ]
+    },
+    {
+      "id": 1305,
+      "name": "孢陨幽境",
+      "type": "raid",
+      "difficulty": 15,
+      "order": 5,
+      "encounters": [
+        {
+          "id": 2711,
+          "name": "腐沼",
+          "order": 1,
+          "items": [
+            {
+              "id": 268291,
+              "name": "腐沼的孢子之心",
+              "icon": 7636601,
+              "iconName": "inv_12_jewelry_rutaani_necklace_blue",
+              "iconAsset": "/assets/icons/inv_12_jewelry_rutaani_necklace_blue.jpg",
+              "slot": "neck",
+              "slotName": "项链",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                65,
+                66,
+                70
+              ],
+              "classes": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": true,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 948
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 44
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 250
+                  }
+                ],
+                "effects": {
+                  "equip": [
+                    "装备： 你的治疗有几率生成保护性伞菌，吸收37765点伤害，最多持续12秒。如果被打破，伞菌会爆炸并对附近的敌人造成3439点自然伤害。"
+                  ],
+                  "use": []
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 6
+              },
+              "tooltipRaw": [
+                "腐沼的孢子之心",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "颈部",
+                "+948 耐力",
+                "+44 爆击",
+                "+250 精通",
+                "棱彩插槽",
+                "装备： 你的治疗有几率生成保护性伞菌，吸收37765点伤害，最多持续12秒。如果被打破，伞菌会爆炸并对附近的敌人造成3439点自然伤害。"
+              ],
+              "link": "|cnIQ4:|Hitem:268291::::::::90:104::5:1:3524:1:28:6117:::::|h[腐沼的孢子之心]|h|r",
+              "iconText": "腐"
+            },
+            {
+              "id": 268285,
+              "name": "腐臭照看者的战甲",
+              "icon": 7382327,
+              "iconName": "inv_plate_raiddeathknightmidnight_d_01_chest",
+              "iconAsset": "/assets/icons/inv_plate_raiddeathknightmidnight_d_01_chest.jpg",
+              "slot": "chest",
+              "slotName": "胸部",
+              "armorType": "plate",
+              "armorTypeName": "板甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                65,
+                66,
+                70
+              ],
+              "classes": [
+                1,
+                2,
+                6
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "力量",
+                    "type": "strength",
+                    "value": 119
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 119
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1685
+                },
+                "secondary": [
+                  {
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 51
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 110
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 318
+                }
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 8
+              },
+              "tooltipRaw": [
+                "腐臭照看者的战甲",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "胸部 板甲",
+                "318点护甲",
+                "+119 力量",
+                "+1685 耐力",
+                "+51 急速",
+                "+110 精通",
+                "+119 智力"
+              ],
+              "link": "|cnIQ4:|Hitem:268285::::::::90:104::5:1:3524:1:28:6117:::::|h[腐臭照看者的战甲]|h|r",
+              "iconText": "腐"
+            },
+            {
+              "id": 268289,
+              "name": "吞噬腐烂腰铠",
+              "icon": 7319577,
+              "iconName": "inv_belt_plate_raidpaladinmidnight_d_01",
+              "iconAsset": "/assets/icons/inv_belt_plate_raidpaladinmidnight_d_01.jpg",
+              "slot": "waist",
+              "slotName": "腰部",
+              "armorType": "plate",
+              "armorTypeName": "板甲",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                65,
+                66,
+                70
+              ],
+              "classes": [
+                1,
+                2,
+                6
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": false
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "力量",
+                    "type": "strength",
+                    "value": 90
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 90
+                  }
+                ],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 1264
+                },
+                "secondary": [
+                  {
+                    "name": "暴击",
+                    "type": "crit",
+                    "value": 86
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 35
+                  }
+                ],
+                "effects": {
+                  "equip": [],
+                  "use": []
+                },
+                "white": {
+                  "armor": 179
+                }
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 9
+              },
+              "tooltipRaw": [
+                "吞噬腐烂腰铠",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "腰部 板甲",
+                "179点护甲",
+                "+90 力量",
+                "+1264 耐力",
+                "+86 爆击",
+                "+35 精通",
+                "+90 智力",
+                "你尚未收藏过此外观"
+              ],
+              "link": "|cnIQ4:|Hitem:268289::::::::90:104::5:1:3524:1:28:6117:::::|h[吞噬腐烂腰铠]|h|r",
+              "iconText": "吞"
+            },
+            {
+              "id": 268290,
+              "name": "唤孢者的绽放指环",
+              "icon": 7636604,
+              "iconName": "inv_12_jewelry_rutaani_ring_blue",
+              "iconAsset": "/assets/icons/inv_12_jewelry_rutaani_ring_blue.jpg",
+              "slot": "finger",
+              "slotName": "戒指",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                65,
+                66,
+                70
+              ],
+              "classes": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": true,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [],
+                "stamina": {
+                  "name": "耐力",
+                  "type": "stamina",
+                  "value": 948
+                },
+                "secondary": [
+                  {
+                    "name": "急速",
+                    "type": "haste",
+                    "value": 244
+                  },
+                  {
+                    "name": "精通",
+                    "type": "mastery",
+                    "value": 50
+                  }
+                ],
+                "effects": {
+                  "equip": [
+                    "装备： 造成自然伤害有几率施加朽花，在15秒内造成2192点自然伤害。如果敌人已经受到你的朽花影响，则将其消耗，造成剩余伤害的120%。"
+                  ],
+                  "use": []
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 14
+              },
+              "tooltipRaw": [
+                "唤孢者的绽放指环",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "装备唯一",
+                "手指",
+                "+948 耐力",
+                "+244 急速",
+                "+50 精通",
+                "棱彩插槽",
+                "装备： 造成自然伤害有几率施加朽花，在15秒内造成2192点自然伤害。如果敌人已经受到你的朽花影响，则将其消耗，造成剩余伤害的120%。"
+              ],
+              "link": "|cnIQ4:|Hitem:268290::::::::90:104::5:1:3524:1:28:6117:::::|h[唤孢者的绽放指环]|h|r",
+              "iconText": "唤"
+            },
+            {
+              "id": 268292,
+              "name": "孢子大王的菌丝徽记",
+              "icon": 7702761,
+              "iconName": "inv_1207_fungarianraid_trinket",
+              "iconAsset": "/assets/icons/inv_1207_fungarianraid_trinket.jpg",
+              "slot": "trinket",
+              "slotName": "饰品",
+              "armorType": "none",
+              "armorTypeName": "无甲种",
+              "itemType": "护甲",
+              "itemSubType": "护甲",
+              "ilvl": 285,
+              "specs": [
+                65,
+                66,
+                70
+              ],
+              "classes": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "quality": 4,
+              "upgradeTrack": "",
+              "tooltipFlags": {
+                "prismaticSocket": false,
+                "uniqueEquipped": true
+              },
+              "stats": {
+                "primaryStats": [
+                  {
+                    "name": "力量",
+                    "type": "strength",
+                    "value": 114
+                  },
+                  {
+                    "name": "敏捷",
+                    "type": "agility",
+                    "value": 114
+                  },
+                  {
+                    "name": "智力",
+                    "type": "intellect",
+                    "value": 114
+                  }
+                ],
+                "stamina": null,
+                "secondary": [],
+                "effects": {
+                  "equip": [
+                    "装备： 你的法术和技能有几率滋养菌丝，为你提供324点随机次要属性和吸血，持续12秒。"
+                  ],
+                  "use": []
+                },
+                "white": {}
+              },
+              "source": {
+                "instanceId": 1305,
+                "instanceName": "孢陨幽境",
+                "isRaid": true,
+                "encounterId": 2711,
+                "encounterName": "腐沼",
+                "difficulty": 15,
+                "difficultyName": "英雄",
+                "order": 15
+              },
+              "tooltipRaw": [
+                "孢子大王的菌丝徽记",
+                "史诗",
+                "物品等级285",
+                "拾取后绑定",
+                "装备唯一",
+                "饰品",
+                "+114 敏捷",
+                "+114 智力",
+                "+114 力量",
+                "装备： 你的法术和技能有几率滋养菌丝，为你提供324点随机次要属性和吸血，持续12秒。"
+              ],
+              "link": "|cnIQ4:|Hitem:268292::::::::90:104::5:1:3524:1:28:6117:::::|h[孢子大王的菌丝徽记]|h|r",
+              "iconText": "孢"
+            }
+          ]
+        }
+      ]
     }
-  ],
-  "dataVersion": "4.2.x"
+  ]
 };

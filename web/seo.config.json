@@ -1,8 +1,8 @@
 {
   "baseUrl": "https://seasonloot.com",
   "siteName": "SeasonLoot",
-  "currentVersion": "4.2.x",
-  "dataDir": "data-4.2.x",
+  "currentVersion": "4.3.x",
+  "dataDir": "data-4.3.x",
   "cacheBust": "20260509-multilingual-seo",
   "defaultLocale": "en-US",
   "locales": [

@@ -12,7 +12,7 @@ function localBaseFromPath(pathname) {
 
 const LOCAL_BASE = localBaseFromPath(location.pathname);
 
-export const DATA_VERSION = '4.2.x';
+export const DATA_VERSION = '4.3.x';
 export const DATA_DIR_NAME = `data-${DATA_VERSION}`;
 export const DATA_BASE = useRemoteCos ? `${REMOTE_COS_BASE}/${DATA_DIR_NAME}` : `${LOCAL_BASE}/${DATA_DIR_NAME}`;
 export const LOCALE_DATA_BASE = `${LOCAL_BASE}/locales`;

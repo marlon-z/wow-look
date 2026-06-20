@@ -46,7 +46,7 @@ wow-look/
 **运行方式：**
 
 ```text
-/wowlook3
+/wowlook
 ```
 
 #### 2. 职业套装链路
@@ -126,7 +126,7 @@ node scripts/parse-export.js --input <SavedVariables/WoWLookExport3.lua 路径>
 
 当新赛季或新版本发布时：
 
-1. 在 WoW 游戏内运行 `/wowlook3` 采集普通装备数据
+1. 在 WoW 游戏内运行 `/wowlook` 采集普通装备数据
 2. 在 WoW 游戏内运行 `/wowtierexport all` 采集职业套装数据
 3. 复制 `WoWLookExport3.lua` 和 `WoWLookTierExport.lua` 到本地
 4. 运行本地转换脚本生成新数据

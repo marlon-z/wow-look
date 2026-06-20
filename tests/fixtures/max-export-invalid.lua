@@ -1,0 +1,3 @@
+WoWLookExport3DB = {
+    ["payload"] = "{\"maximumProfile\":{\"profileVersion\":2,\"weaponTargetItemLevel\":298,\"trinketTargetItemLevel\":298,\"voidforgedMarkerBonusId\":13654,\"voidforgedTrinketBonusId\":12699,\"voidforgedWeaponBonusId\":12701},\"items\":{\"1\":{\"itemId\":1,\"itemLevel\":276,\"link\":\"item:1:drop\",\"dropVersion\":{\"status\":\"ok\",\"itemLevel\":276,\"equipLoc\":\"INVTYPE_TRINKET\",\"link\":\"item:1:drop\"},\"maxVersion\":{\"status\":\"target_item_level_mismatch\",\"itemLevel\":276,\"expectedItemLevel\":298,\"ruleSource\":\"voidforged_myth\",\"voidforged\":true,\"link\":\"item:1::::::::90:270::35:4:13440:6652:12699:13654\"}}},\"diagnostics\":{\"maxVersionSuccessCount\":0,\"maxVersionFailureCount\":1}}",
+}

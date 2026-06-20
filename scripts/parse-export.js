@@ -9,6 +9,9 @@ const DEFAULT_ASSET_DIR = path.join(ROOT_DIR, 'cos-upload', 'assets', 'icons');
 const CACHE_DIR = path.join(ROOT_DIR, '.cache');
 const LISTFILE_CACHE_PATH = path.join(CACHE_DIR, 'community-listfile.csv');
 const LISTFILE_URL = 'https://github.com/wowdev/wow-listfile/releases/latest/download/community-listfile.csv';
+const ICON_NAME_OVERRIDES = {
+  7702761: 'inv_1207_fungarianraid_trinket',
+};
 
 const CLASS_CONFIG = [
   { id: 1, key: 'warrior', name: '战士', armorType: 'plate', armorTypeName: '板甲', color: '#C69B6D', abbr: '战', specs: [{ id: 71, name: '武器' }, { id: 72, name: '狂怒' }, { id: 73, name: '防护' }] },
@@ -70,6 +73,95 @@ function readPayload(inputPath) {
     throw new Error('未在导出文件中找到 payload 字段。');
   }
   return JSON.parse(decodeLuaString(match[1]));
+}
+
+function validateMaximumPayload(payload) {
+  if (!payload || !payload.maximumProfile) {
+    return { enabled: false, successCount: 0, failureCount: 0, statuses: {} };
+  }
+
+  const items = payload.items || {};
+  const failures = [];
+  const statuses = {};
+  let successCount = 0;
+  const weaponEquipLocs = new Set([
+    'INVTYPE_WEAPON', 'INVTYPE_2HWEAPON', 'INVTYPE_WEAPONMAINHAND', 'INVTYPE_WEAPONOFFHAND',
+    'INVTYPE_SHIELD', 'INVTYPE_HOLDABLE', 'INVTYPE_RANGED', 'INVTYPE_RANGEDRIGHT', 'INVTYPE_THROWN',
+  ]);
+  const profile = payload.maximumProfile;
+  const linkHasBonusId = (link, bonusId) => {
+    return Number.isFinite(Number(bonusId))
+      && new RegExp(`:${Number(bonusId)}(?=:|$)`).test(link || '');
+  };
+
+  Object.values(items).forEach((item) => {
+    const maxVersion = item.maxVersion || {};
+    const status = maxVersion.status || 'missing_max_version';
+    const equipLoc = item.dropVersion && item.dropVersion.equipLoc;
+    const isTrinket = equipLoc === 'INVTYPE_TRINKET';
+    const isWeapon = weaponEquipLocs.has(equipLoc);
+    const isFixedSource = maxVersion.ruleSource === 'raid_fixed_mythic';
+    const isVoidforged = maxVersion.voidforged === true || maxVersion.ruleSource === 'voidforged_myth';
+    statuses[status] = (statuses[status] || 0) + 1;
+
+    let reason = '';
+    if (!item.dropVersion || !item.dropVersion.status) {
+      reason = 'missing_drop_version';
+    } else if (status !== 'ok') {
+      reason = status;
+    } else if (!maxVersion.itemLevel || item.itemLevel !== maxVersion.itemLevel) {
+      reason = 'top_level_item_level_mismatch';
+    } else if (maxVersion.expectedItemLevel > 0 && maxVersion.itemLevel !== maxVersion.expectedItemLevel) {
+      reason = 'expected_item_level_mismatch';
+    } else if (!item.link || item.link !== maxVersion.link) {
+      reason = 'top_level_link_mismatch';
+    } else if (isTrinket && maxVersion.itemLevel !== profile.trinketTargetItemLevel) {
+      reason = 'trinket_voidforged_level_mismatch';
+    } else if (isWeapon && maxVersion.itemLevel !== profile.weaponTargetItemLevel) {
+      reason = 'weapon_voidforged_level_mismatch';
+    } else if ((isTrinket || isWeapon) && !isFixedSource && !isVoidforged) {
+      reason = 'voidforged_rule_missing';
+    } else if (isVoidforged && !linkHasBonusId(maxVersion.link, profile.voidforgedMarkerBonusId)) {
+      reason = 'voidforged_marker_missing';
+    } else if (isVoidforged && isTrinket
+        && !linkHasBonusId(maxVersion.link, profile.voidforgedTrinketBonusId)) {
+      reason = 'trinket_voidforged_bonus_missing';
+    } else if (isVoidforged && isWeapon
+        && !linkHasBonusId(maxVersion.link, profile.voidforgedWeaponBonusId)) {
+      reason = 'weapon_voidforged_bonus_missing';
+    }
+
+    if (reason) {
+      failures.push({
+        itemId: item.itemId,
+        name: item.name || '',
+        reason,
+        expectedItemLevel: maxVersion.expectedItemLevel || 0,
+        actualItemLevel: maxVersion.itemLevel || 0,
+      });
+    } else {
+      successCount += 1;
+    }
+  });
+
+  const diagnostics = payload.diagnostics || {};
+  if (diagnostics.maxVersionSuccessCount !== undefined
+      && diagnostics.maxVersionSuccessCount !== successCount) {
+    failures.push({
+      itemId: 0,
+      name: 'diagnostics',
+      reason: `success_count_mismatch:${diagnostics.maxVersionSuccessCount}:${successCount}`,
+    });
+  }
+
+  if (failures.length > 0) {
+    const preview = failures.slice(0, 10)
+      .map((item) => `${item.itemId}:${item.reason}`)
+      .join(', ');
+    throw new Error(`最高装等数据验证失败 ${failures.length} 件：${preview}`);
+  }
+
+  return { enabled: true, successCount, failureCount: 0, statuses };
 }
 
 function buildClassMapByKey(list = []) {
@@ -227,6 +319,11 @@ async function buildIconAssetMap(payload, assetDir, tierPayload, options = {}) {
   });
   const listfilePath = await ensureListfileCache();
   const iconNameMap = resolveIconNames(Array.from(iconIds), listfilePath);
+  Object.entries(ICON_NAME_OVERRIDES).forEach(([iconId, iconName]) => {
+    if (iconIds.has(Number(iconId))) {
+      iconNameMap[iconId] = iconName;
+    }
+  });
   const assetMap = {};
   let downloaded = 0;
 
@@ -389,7 +486,10 @@ function buildClassItem(rawItem, classConfig, classSpecs, source, iconAssetMap) 
       order: source.lootOrder || 0,
     },
     tooltipRaw,
-    link: rawItem.displayLink || rawItem.link || '',
+    link: rawItem.link || rawItem.displayLink || '',
+    captureStatus: rawItem.captureStatus || '',
+    dropVersion: rawItem.dropVersion || null,
+    maxVersion: rawItem.maxVersion || null,
     iconText: rawItem.name ? String(rawItem.name).slice(0, 1) : classConfig.abbr,
   };
 }
@@ -556,7 +656,7 @@ function buildTierInstance(classConfig, tierPayload, iconAssetMap) {
   };
 }
 
-function buildClassPayload(classConfig, payload, iconAssetMap, tierPayload) {
+function buildClassPayload(classConfig, payload, iconAssetMap, tierPayload, dataVersion = '') {
   const itemMap = payload.items || {};
   const instances = (payload.instances || []).map((instance) => {
     const encounters = (instance.encounters || []).map((encounter) => {
@@ -577,7 +677,7 @@ function buildClassPayload(classConfig, payload, iconAssetMap, tierPayload) {
           return null;
         }
         return buildClassItem(rawItem, classConfig, classSpecs, source, iconAssetMap);
-      }).filter(Boolean);
+      }).filter((item) => item && item.ilvl > 1);
 
       return {
         id: encounter.id,
@@ -608,9 +708,11 @@ function buildClassPayload(classConfig, payload, iconAssetMap, tierPayload) {
   }, 0);
 
   return {
-    version: payload.build,
+    version: dataVersion || payload.build,
+    ...(dataVersion ? { dataVersion } : {}),
     addonVersion: payload.addonVersion,
     updatedAt: payload.exportTime,
+    maximumProfile: payload.maximumProfile || null,
     class: {
       id: classConfig.id,
       key: classConfig.key,
@@ -671,12 +773,14 @@ function writeClassFiles(outputDir, classConfig, data) {
   fs.writeFileSync(jsPath, `module.exports = ${json};\n`, 'utf8');
 }
 
-function buildOverviewPayload(payload, classSummaries) {
+function buildOverviewPayload(payload, classSummaries, dataVersion = '') {
   const scope = payload.scope || {};
   return {
-    version: payload.build,
+    version: dataVersion || payload.build,
+    ...(dataVersion ? { dataVersion } : {}),
     addonVersion: payload.addonVersion,
     updatedAt: payload.exportTime,
+    maximumProfile: payload.maximumProfile || null,
     scope: {
       dungeonCount: Array.isArray(scope.dungeons) ? scope.dungeons.length : 0,
       raidCount: Array.isArray(scope.raids) ? scope.raids.length : 0,
@@ -784,11 +888,16 @@ async function main() {
   }
 
   const payload = readPayload(path.resolve(process.cwd(), inputPath));
+  const maximumValidation = validateMaximumPayload(payload);
+  if (maximumValidation.enabled) {
+    console.log(`最高装等验证通过：${maximumValidation.successCount} 件`);
+    console.log(`最高装等状态：${JSON.stringify(maximumValidation.statuses)}`);
+  }
   const iconAssetMap = await buildIconAssetMap(payload, assetDir, tierPayload, { skipIconDownload });
 
   const classSummaries = [];
   CLASS_CONFIG.forEach((classConfig) => {
-    const classData = buildClassPayload(classConfig, payload, iconAssetMap, tierPayload);
+    const classData = buildClassPayload(classConfig, payload, iconAssetMap, tierPayload, dataVersion);
     writeClassFiles(outputDir, classConfig, classData);
     classSummaries.push({
       id: classConfig.id,
@@ -803,7 +912,7 @@ async function main() {
     console.log(`${classConfig.name}: ${classData.meta.itemCount} 件装备`);
   });
 
-  writeOverviewFiles(outputDir, buildOverviewPayload(payload, classSummaries));
+  writeOverviewFiles(outputDir, buildOverviewPayload(payload, classSummaries, dataVersion));
   console.log(`输出目录: ${outputDir}`);
 }
 

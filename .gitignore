@@ -1,4 +1,6 @@
 miniprogram/project.private.config.json
+project.private.config.json
+web/.playwright-mcp/
 .DS_Store
 Thumbs.db
 .cache/

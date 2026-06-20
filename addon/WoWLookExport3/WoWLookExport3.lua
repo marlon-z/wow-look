@@ -1,5 +1,5 @@
 local ADDON_NAME = ...
-local ADDON_VERSION = "3.2.0"
+local ADDON_VERSION = "3.3.3"
 
 WoWLookExport3DB = WoWLookExport3DB or {
     version = ADDON_VERSION,
@@ -101,6 +101,11 @@ end
 
 local function PrintWarn(msg)
     print(string.format("|cffff6600[WoWLookExport3]|r %s", msg))
+end
+
+local function GetClientBuildInfo()
+    local buildVersion, rawBuildNumber = GetBuildInfo()
+    return buildVersion, tonumber(rawBuildNumber) or 0
 end
 
 local function NormalizeName(s)
@@ -903,9 +908,400 @@ local function ParseTooltip(lines)
     return parsed
 end
 
-local function FillItemDetails(itemsById)
+local function ValidateSeasonConfig()
+    local config = WoWLookSeasonConfig
+    if type(config) ~= "table" then
+        return nil, "season_config_invalid: missing WoWLookSeasonConfig"
+    end
+    if type(config.profileVersion) ~= "number"
+        or type(config.minimumBuild) ~= "number"
+        or type(config.dungeon) ~= "table"
+        or type(config.raid) ~= "table"
+        or type(config.raid.tracks) ~= "table" then
+        return nil, "season_config_invalid: required fields are missing"
+    end
+    if type(config.dungeon.targetItemLevel) ~= "number"
+        or type(config.dungeon.trackBonusId) ~= "number"
+        or config.dungeon.trackBonusId <= 0 then
+        return nil, "season_config_invalid: dungeon maximum rule is invalid"
+    end
+    local voidforged = config.voidforged
+    if type(voidforged) ~= "table"
+        or type(voidforged.targetItemLevel) ~= "number"
+        or voidforged.targetItemLevel <= 0
+        or type(voidforged.itemContext) ~= "number"
+        or type(voidforged.markerBonusId) ~= "number"
+        or type(voidforged.commonBonusIds) ~= "table"
+        or type(voidforged.trinketBonusId) ~= "number"
+        or type(voidforged.weaponBonusId) ~= "number"
+        or type(voidforged.slotBonusIds) ~= "table" then
+        return nil, "season_config_invalid: voidforged weapon/trinket rule is invalid"
+    end
+    local mythicRaid = config.raid.tracks[config.raid.maxDifficulty]
+    if type(mythicRaid) ~= "table"
+        or type(mythicRaid.targetItemLevel) ~= "number"
+        or type(mythicRaid.trackBonusId) ~= "number"
+        or mythicRaid.trackBonusId <= 0 then
+        return nil, "season_config_invalid: raid maximum rule is invalid"
+    end
+
+    local _, buildNumber = GetClientBuildInfo()
+    if buildNumber < config.minimumBuild then
+        return nil, string.format(
+            "season_build_mismatch: client build %d is older than profile minimum %d",
+            buildNumber,
+            config.minimumBuild
+        )
+    end
+    if config.testedBuild and buildNumber ~= config.testedBuild then
+        PrintWarn(string.format(
+            "赛季配置测试版本为 %d，当前客户端为 %d；将继续导出，但必须检查最高装等验证结果。",
+            config.testedBuild,
+            buildNumber
+        ))
+    end
+    return config
+end
+
+local function GetItemLevelBonusId(levelDifference)
+    if levelDifference == 0 then
+        return nil
+    end
+    if levelDifference >= -100 and levelDifference <= 200 then
+        return 1472 + levelDifference
+    end
+    if levelDifference >= 201 and levelDifference <= 400 then
+        return 2929 + levelDifference
+    end
+    return nil
+end
+
+local function GetDetailedItemLevels(itemInfo)
+    if not C_Item or type(C_Item.GetDetailedItemLevelInfo) ~= "function" then
+        return nil, nil
+    end
+    local ok, actualItemLevel, _, baseItemLevel = pcall(C_Item.GetDetailedItemLevelInfo, itemInfo)
+    if not ok then
+        return nil, nil
+    end
+    return actualItemLevel, baseItemLevel
+end
+
+local function CaptureItemVersion(link)
+    local version = {
+        status = "tooltip_unavailable",
+        link = link or "",
+        itemLevel = 0,
+        upgradeTrack = "",
+        tooltip = { rawLines = {}, parsed = {} },
+        primaryStats = {},
+        secondaryStats = {},
+        effects = { equip = {}, use = {} },
+        tooltipFlags = { uniqueEquipped = false, prismaticSocket = false },
+    }
+    if not link or link == "" then
+        return version
+    end
+
+    local name, normalizedLink, quality, _, _, itemType, itemSubType, _, equipLoc, icon, _, classId, subclassId =
+        GetItemInfo(link)
+    local resolvedLink = normalizedLink or link
+    local tooltipLines = CaptureTooltipLines(resolvedLink)
+    local parsedTooltip = ParseTooltip(tooltipLines)
+    local actualItemLevel = GetDetailedItemLevels(resolvedLink)
+
+    version.link = resolvedLink
+    version.name = name or ""
+    version.quality = quality or 0
+    version.icon = icon or 0
+    version.equipLoc = equipLoc or ""
+    version.itemType = itemType or ""
+    version.itemSubType = itemSubType or ""
+    version.itemClassId = classId or 0
+    version.itemSubclassId = subclassId or 0
+    version.tooltip = { rawLines = tooltipLines, parsed = parsedTooltip }
+    version.itemLevel = parsedTooltip.itemLevel or actualItemLevel or 0
+    version.apiItemLevel = actualItemLevel or 0
+    version.upgradeTrack = parsedTooltip.upgradeTrack or ""
+    version.slotText = parsedTooltip.slotText or ""
+    version.primaryStats = parsedTooltip.primaryStats or {}
+    version.secondaryStats = parsedTooltip.secondaryStats or {}
+    version.stamina = parsedTooltip.stamina
+    version.effects = {
+        equip = parsedTooltip.equipEffects or {},
+        use = parsedTooltip.useEffects or {},
+    }
+    version.tooltipFlags = parsedTooltip.flags or version.tooltipFlags
+    if name and version.itemLevel > 0 and #tooltipLines > 0 then
+        version.status = "ok"
+    end
+    return version
+end
+
+local function ApplyItemVersion(item, version)
+    item.name = version.name ~= "" and version.name or item.name
+    item.quality = version.quality or 0
+    item.icon = version.icon ~= 0 and version.icon or item.icon or 0
+    item.link = version.link or ""
+    item.equipLoc = version.equipLoc or ""
+    item.itemType = version.itemType or ""
+    item.itemSubType = version.itemSubType or ""
+    item.itemClassId = version.itemClassId or 0
+    item.itemSubclassId = version.itemSubclassId or 0
+    item.tooltip = version.tooltip
+    item.itemLevel = version.itemLevel or 0
+    item.upgradeTrack = version.upgradeTrack or ""
+    item.slotText = version.slotText or ""
+    item.primaryStats = version.primaryStats or {}
+    item.secondaryStats = version.secondaryStats or {}
+    item.stamina = version.stamina
+    item.effects = version.effects or { equip = {}, use = {} }
+    item.tooltipFlags = version.tooltipFlags or { uniqueEquipped = false, prismaticSocket = false }
+end
+
+local function CopyCapturedVersion(version)
+    local copy = {}
+    for key, value in pairs(version or {}) do
+        copy[key] = value
+    end
+    return copy
+end
+
+local function SelectItemSpecialization(item)
+    for _, classData in ipairs(ALL_CLASS_SPECS) do
+        local specs = item.specsByClass
+            and (item.specsByClass[tostring(classData.classId)] or item.specsByClass[classData.classId])
+        if type(specs) == "table" and #specs > 0 then
+            return specs[1]
+        end
+    end
+    return nil
+end
+
+local function IsUpgradeableItem(itemId)
+    local _, _, _, _, _, itemClassId = C_Item.GetItemInfoInstant(itemId)
+    local armorClass = Enum and Enum.ItemClass and Enum.ItemClass.Armor or 4
+    local weaponClass = Enum and Enum.ItemClass and Enum.ItemClass.Weapon or 2
+    return itemClassId == armorClass or itemClassId == weaponClass
+end
+
+local function CopySourceWithDifficulty(source, difficulty)
+    return {
+        instanceId = source.instanceId,
+        instanceName = source.instanceName,
+        isRaid = source.isRaid,
+        difficulty = difficulty,
+        encounterId = source.encounterId,
+        encounterName = source.encounterName,
+        encounterOrder = source.encounterOrder,
+        lootOrder = source.lootOrder,
+    }
+end
+
+local function FindHighestRaidRule(item, config, encounterCache)
+    local difficulties = { 16, 15, 14, 17 }
+    for _, difficulty in ipairs(difficulties) do
+        local rule = config.raid.tracks[difficulty]
+        if rule then
+            for _, source in ipairs(item.sources or {}) do
+                if source.isRaid then
+                    local candidateSource = CopySourceWithDifficulty(source, difficulty)
+                    local lootMap = ScanEncounterLootMap(candidateSource, nil, nil, encounterCache)
+                    if lootMap[item.itemId] then
+                        local selected = {
+                            ruleSource = rule.ruleSource,
+                            track = rule.track,
+                            rank = rule.rank,
+                            targetItemLevel = rule.targetItemLevel,
+                            trackBonusId = rule.trackBonusId,
+                            difficulty = difficulty,
+                        }
+                        return selected
+                    end
+                end
+            end
+        end
+    end
+    return nil
+end
+
+local function ApplyVoidforgedRule(item, rule, config)
+    if not rule or rule.useDropVersion then
+        return rule
+    end
+    local voidforged = config.voidforged
+    local equipLoc = item.dropVersion and item.dropVersion.equipLoc or nil
+    if not equipLoc or equipLoc == "" then
+        local _, _, _, instantEquipLoc = C_Item.GetItemInfoInstant(item.itemId)
+        equipLoc = instantEquipLoc
+    end
+    local slotBonusId = voidforged and voidforged.slotBonusIds and voidforged.slotBonusIds[equipLoc]
+    if not slotBonusId then
+        return rule
+    end
+
+    local overridden = {}
+    for key, value in pairs(rule) do
+        overridden[key] = value
+    end
+    overridden.ruleSource = voidforged.ruleSource
+    overridden.track = voidforged.track
+    overridden.rank = 0
+    overridden.targetItemLevel = voidforged.targetItemLevel
+    overridden.itemContext = voidforged.itemContext
+    overridden.voidforgedBonusIds = {}
+    for _, bonusId in ipairs(voidforged.commonBonusIds) do
+        overridden.voidforgedBonusIds[#overridden.voidforgedBonusIds + 1] = bonusId
+    end
+    overridden.voidforgedBonusIds[#overridden.voidforgedBonusIds + 1] = slotBonusId
+    overridden.voidforgedBonusIds[#overridden.voidforgedBonusIds + 1] = voidforged.markerBonusId
+    overridden.requiredBonusIds = overridden.voidforgedBonusIds
+    overridden.fixedBonusId = nil
+    overridden.trackBonusId = nil
+    overridden.specialSlot = equipLoc
+    overridden.voidforged = true
+    return overridden
+end
+
+local function SelectMaxUpgradeRule(item, config, encounterCache)
+    if config.nonUpgradeableItems and config.nonUpgradeableItems[item.itemId] then
+        return { ruleSource = "non_upgradeable", useDropVersion = true }
+    end
+    if not IsUpgradeableItem(item.itemId) then
+        return { ruleSource = "non_upgradeable", useDropVersion = true }
+    end
+
+    for _, source in ipairs(item.sources or {}) do
+        local fixedRule = config.fixedSourceRules and config.fixedSourceRules[source.instanceId]
+        if fixedRule then
+            local candidateSource = CopySourceWithDifficulty(source, fixedRule.difficulty)
+            local lootMap = ScanEncounterLootMap(candidateSource, nil, nil, encounterCache)
+            if lootMap[item.itemId] then
+                return {
+                    ruleSource = fixedRule.ruleSource,
+                    track = fixedRule.track,
+                    rank = fixedRule.rank,
+                    difficulty = fixedRule.difficulty,
+                    fixedBonusId = fixedRule.fixedBonusId,
+                }
+            end
+        end
+    end
+
+    for _, source in ipairs(item.sources or {}) do
+        if not source.isRaid then
+            return ApplyVoidforgedRule(item, {
+                ruleSource = config.dungeon.ruleSource,
+                track = config.dungeon.track,
+                rank = config.dungeon.rank,
+                targetItemLevel = config.dungeon.targetItemLevel,
+                trackBonusId = config.dungeon.trackBonusId,
+            }, config)
+        end
+    end
+    return ApplyVoidforgedRule(item, FindHighestRaidRule(item, config, encounterCache), config)
+end
+
+local function BuildMaxLevelItemLink(item, rule, config)
+    if rule.useDropVersion then
+        return item.displayLink, nil
+    end
+    local specId = SelectItemSpecialization(item)
+    if not specId then
+        return nil, "invalid_specialization"
+    end
+
+    local bonusIds = {}
+    if rule.voidforgedBonusIds then
+        for _, bonusId in ipairs(rule.voidforgedBonusIds) do
+            bonusIds[#bonusIds + 1] = bonusId
+        end
+    elseif rule.fixedBonusId then
+        bonusIds[#bonusIds + 1] = rule.fixedBonusId
+    else
+        local _, baseItemLevel = GetDetailedItemLevels(item.itemId)
+        if not baseItemLevel or baseItemLevel <= 0 then
+            return nil, "base_item_level_unavailable"
+        end
+        local levelDifference = rule.targetItemLevel - baseItemLevel
+        local levelBonusId = GetItemLevelBonusId(levelDifference)
+        if levelDifference ~= 0 and not levelBonusId then
+            return nil, "bonus_mapping_missing"
+        end
+        if levelBonusId then
+            bonusIds[#bonusIds + 1] = levelBonusId
+        end
+        bonusIds[#bonusIds + 1] = rule.trackBonusId
+    end
+
+    if not rule.voidforged then
+        local specialItem = config.specialItems and config.specialItems[item.itemId]
+        for _, bonusId in ipairs(specialItem and specialItem.bonusIds or {}) do
+            bonusIds[#bonusIds + 1] = bonusId
+        end
+        if config.commonBonusIds and config.commonBonusIds.quality then
+            bonusIds[#bonusIds + 1] = config.commonBonusIds.quality
+        end
+
+        local _, _, _, itemEquipLoc = C_Item.GetItemInfoInstant(item.itemId)
+        local slotBonusId = config.slotBonusIds and config.slotBonusIds[itemEquipLoc]
+        if slotBonusId then
+            bonusIds[#bonusIds + 1] = slotBonusId
+        end
+    end
+
+    local extras = "::::"
+    return string.format(
+        "item:%d:%s:::%d:%d::%s:%d:%s",
+        item.itemId,
+        extras,
+        UnitLevel("player"),
+        specId,
+        rule.itemContext and tostring(rule.itemContext) or "",
+        #bonusIds,
+        table.concat(bonusIds, ":")
+    )
+end
+
+local function LinkContainsBonusId(link, bonusId)
+    return type(link) == "string"
+        and string.find(link, ":" .. tostring(bonusId) .. ":", 1, true) ~= nil
+end
+
+local function ValidateMaxVersion(item, version, rule)
+    if version.status ~= "ok" then
+        return "tooltip_unavailable"
+    end
+    if ExtractItemIdFromLink(version.link) ~= item.itemId then
+        return "item_identity_mismatch"
+    end
+    if version.apiItemLevel > 0 and version.itemLevel ~= version.apiItemLevel then
+        return "tooltip_api_item_level_mismatch"
+    end
+    if rule.targetItemLevel and version.itemLevel ~= rule.targetItemLevel then
+        return "target_item_level_mismatch"
+    end
+    for _, bonusId in ipairs(rule.requiredBonusIds or {}) do
+        if not LinkContainsBonusId(version.link, bonusId) then
+            return "required_bonus_missing"
+        end
+    end
+    if not rule.targetItemLevel and item.dropVersion
+        and version.itemLevel < (item.dropVersion.itemLevel or 0) then
+        return "fixed_version_below_drop_level"
+    end
+    if item.dropVersion and item.dropVersion.equipLoc ~= ""
+        and version.equipLoc ~= ""
+        and item.dropVersion.equipLoc ~= version.equipLoc then
+        return "equip_location_mismatch"
+    end
+    return "ok"
+end
+
+local function FillItemDetails(itemsById, encounterCache, config)
     local captured = 0
     local missing = 0
+    local maxStats = { success = 0, failed = 0, statuses = {}, failures = {} }
     for _, itemId in ipairs(CollectItemIds(itemsById)) do
         local item = itemsById[itemId]
         if not item.displayLink then
@@ -944,48 +1340,82 @@ local function FillItemDetails(itemsById)
                 prismaticSocket = false,
             }
             item.captureStatus = item.captureStatus or "missing_display_link"
+            item.dropVersion = { status = "missing_display_link" }
+            item.maxVersion = { status = "missing_display_link" }
+            maxStats.statuses.missing_display_link = (maxStats.statuses.missing_display_link or 0) + 1
+            maxStats.failed = maxStats.failed + 1
+            maxStats.failures[#maxStats.failures + 1] = {
+                itemId = item.itemId,
+                name = item.name,
+                status = "missing_display_link",
+                expectedItemLevel = 0,
+                actualItemLevel = 0,
+                instanceName = item.sources and item.sources[1] and item.sources[1].instanceName or "",
+            }
             missing = missing + 1
         else
-            local name, baseLink, quality, _, _, itemType, itemSubType, _, equipLoc, icon, _, classId, subclassId =
-                GetItemInfo(item.displayLink)
+            item.dropVersion = CaptureItemVersion(item.displayLink)
+            if item.dropVersion.status == "ok" then
+                local rule = SelectMaxUpgradeRule(item, config, encounterCache)
+                if not rule then
+                    item.maxVersion = { status = "no_upgrade_rule" }
+                elseif rule.useDropVersion then
+                    item.maxVersion = CopyCapturedVersion(item.dropVersion)
+                    item.maxVersion.status = "ok"
+                    item.maxVersion.ruleSource = rule.ruleSource
+                    item.maxVersion.track = "fixed"
+                    item.maxVersion.rank = 0
+                else
+                    local maxLink, buildError = BuildMaxLevelItemLink(item, rule, config)
+                    if not maxLink then
+                        item.maxVersion = { status = buildError or "max_link_build_failed" }
+                    else
+                        local maxVersion = CaptureItemVersion(maxLink)
+                        maxVersion.status = ValidateMaxVersion(item, maxVersion, rule)
+                        maxVersion.ruleSource = rule.ruleSource
+                        maxVersion.track = rule.track
+                        maxVersion.rank = rule.rank
+                        maxVersion.difficulty = rule.difficulty
+                        maxVersion.specialSlot = rule.specialSlot
+                        maxVersion.voidforged = rule.voidforged or false
+                        maxVersion.itemContext = rule.itemContext
+                        maxVersion.expectedItemLevel = rule.targetItemLevel or 0
+                        item.maxVersion = maxVersion
+                    end
+                end
 
-            local link = item.displayLink or baseLink
-            local tooltipLines = CaptureTooltipLines(link)
-            local parsedTooltip = ParseTooltip(tooltipLines)
-
-            item.name = name or item.name
-            item.quality = quality or 0
-            item.icon = icon or item.icon or 0
-            item.link = link or ""
-            item.equipLoc = equipLoc or ""
-            item.itemType = itemType or ""
-            item.itemSubType = itemSubType or ""
-            item.itemClassId = classId or 0
-            item.itemSubclassId = subclassId or 0
-            item.tooltip = {
-                rawLines = tooltipLines,
-                parsed = parsedTooltip,
-            }
-            item.itemLevel = parsedTooltip.itemLevel or 0
-            item.upgradeTrack = parsedTooltip.upgradeTrack or ""
-            item.slotText = parsedTooltip.slotText or ""
-            item.primaryStats = parsedTooltip.primaryStats or {}
-            item.secondaryStats = parsedTooltip.secondaryStats or {}
-            item.stamina = parsedTooltip.stamina
-            item.effects = {
-                equip = parsedTooltip.equipEffects or {},
-                use = parsedTooltip.useEffects or {},
-            }
-            item.tooltipFlags = parsedTooltip.flags or {
-                uniqueEquipped = false,
-                prismaticSocket = false,
-            }
-            item.captureStatus = "ok"
-
-            captured = captured + 1
+                local status = item.maxVersion.status
+                maxStats.statuses[status] = (maxStats.statuses[status] or 0) + 1
+                if status == "ok" then
+                    ApplyItemVersion(item, item.maxVersion)
+                    item.captureStatus = "ok"
+                    captured = captured + 1
+                    maxStats.success = maxStats.success + 1
+                else
+                    ApplyItemVersion(item, item.dropVersion)
+                    item.captureStatus = "max_version_failed"
+                    maxStats.failed = maxStats.failed + 1
+                    maxStats.failures[#maxStats.failures + 1] = {
+                        itemId = item.itemId,
+                        name = item.name,
+                        status = status,
+                        expectedItemLevel = item.maxVersion.expectedItemLevel or 0,
+                        actualItemLevel = item.maxVersion.itemLevel or 0,
+                        instanceName = item.sources and item.sources[1] and item.sources[1].instanceName or "",
+                    }
+                end
+            else
+                ApplyItemVersion(item, item.dropVersion)
+                item.maxVersion = { status = "drop_version_unavailable" }
+                item.captureStatus = "max_version_failed"
+                maxStats.statuses.drop_version_unavailable = (maxStats.statuses.drop_version_unavailable or 0) + 1
+                maxStats.failed = maxStats.failed + 1
+                missing = missing + 1
+            end
         end
     end
-    return captured, missing
+    ResetLootFilters()
+    return captured, missing, maxStats
 end
 
 local function BuildExportData()
@@ -1046,7 +1476,7 @@ local function BuildExportData()
     }
 end
 
-local function FinalizeExport(scan)
+local function FinalizeExport(scan, config)
     Print("补抓展示层 link ...")
     local resolveStats = ResolveMissingDisplayLinks(scan.itemsById)
     Print(string.format("补抓完成：补到 %d 件，仍缺失 %d 件", resolveStats.resolved, #resolveStats.missing))
@@ -1055,20 +1485,36 @@ local function FinalizeExport(scan)
     local classSpecStats = ResolveClassSpecAvailability(scan.itemsById, resolveStats.cache)
     Print(string.format("归属完成：已分类 %d 件，仍缺失 %d 件", classSpecStats.classified, #classSpecStats.missing))
 
-    Print("抓取装备 tooltip ...")
-    local captured, missingTooltipSource = FillItemDetails(scan.itemsById)
+    Print("构造并验证最高可获得装等 ...")
+    local captured, missingTooltipSource, maxStats = FillItemDetails(scan.itemsById, resolveStats.cache, config)
+    Print(string.format("最高档完成：成功 %d 件，失败 %d 件", maxStats.success, maxStats.failed))
 
     local itemCount = 0
     for _ in pairs(scan.itemsById) do
         itemCount = itemCount + 1
     end
 
+    local buildVersion, buildNumber = GetClientBuildInfo()
     local payload = {
         exportTime = date("%Y-%m-%d %H:%M:%S"),
-        build = select(1, GetBuildInfo()),
-        buildNumber = select(4, GetBuildInfo()),
+        build = buildVersion,
+        buildNumber = buildNumber,
         locale = GetLocale(),
-        addonVersion = WoWLookExport3DB.version,
+        addonVersion = ADDON_VERSION,
+        maximumProfile = {
+            profileVersion = config.profileVersion,
+            seasonId = config.seasonId,
+            seasonName = config.seasonName,
+            testedBuild = config.testedBuild,
+            dungeonTargetItemLevel = config.dungeon.targetItemLevel,
+            raidTargetItemLevel = config.raid.tracks[config.raid.maxDifficulty].targetItemLevel,
+            weaponTargetItemLevel = config.voidforged.targetItemLevel,
+            trinketTargetItemLevel = config.voidforged.targetItemLevel,
+            voidforgedItemContext = config.voidforged.itemContext,
+            voidforgedMarkerBonusId = config.voidforged.markerBonusId,
+            voidforgedTrinketBonusId = config.voidforged.trinketBonusId,
+            voidforgedWeaponBonusId = config.voidforged.weaponBonusId,
+        },
         scope = {
             dungeonDifficulty = DUNGEON_DIFFICULTY,
             raidDifficulty = HEROIC_RAID_DIFFICULTY,
@@ -1087,6 +1533,10 @@ local function FinalizeExport(scan)
             missingClassSpecCount = #classSpecStats.missing,
             missingClassSpecs = classSpecStats.missing,
             missingTooltipSourceCount = missingTooltipSource,
+            maxVersionSuccessCount = maxStats.success,
+            maxVersionFailureCount = maxStats.failed,
+            maxVersionStatuses = maxStats.statuses,
+            maxVersionFailures = maxStats.failures,
         },
         instances = scan.instances,
         items = scan.itemsById,
@@ -1107,16 +1557,20 @@ local function FinalizeExport(scan)
         classifiedClassSpecCount = classSpecStats.classified,
         missingClassSpecCount = #classSpecStats.missing,
         missingTooltipSourceCount = missingTooltipSource,
+        maxVersionSuccessCount = maxStats.success,
+        maxVersionFailureCount = maxStats.failed,
+        maxVersionStatuses = maxStats.statuses,
     }
     WoWLookExport3DB.lastError = nil
 
     Print("================================")
     Print(string.format(
-        "导出完成：地下城 %d，团本 %d，装备 %d，成功 tooltip %d，缺失 link %d，缺失职业专精 %d",
+        "导出完成：地下城 %d，团本 %d，装备 %d，最高档成功 %d，最高档失败 %d，缺失 link %d，缺失职业专精 %d",
         #scan.dungeonMeta.instances,
         #scan.raidMeta.instances,
         itemCount,
-        captured,
+        maxStats.success,
+        maxStats.failed,
         #resolveStats.missing,
         #classSpecStats.missing
     ))
@@ -1125,12 +1579,20 @@ local function FinalizeExport(scan)
 end
 
 local function DoExport()
+    WoWLookExport3DB.version = ADDON_VERSION
     if not EnsureEJLoaded() then
         PrintWarn("无法加载冒险者手册 API。")
         return
     end
 
-    Print("开始导出 v3.2 ...")
+    local config, configError = ValidateSeasonConfig()
+    if not config then
+        WoWLookExport3DB.lastError = configError
+        PrintWarn("赛季配置错误: " .. tostring(configError))
+        return
+    end
+
+    Print("开始导出 v3.3（实际可获得最高装等）...")
     local ok, scan = pcall(BuildExportData)
     if not ok then
         WoWLookExport3DB.lastError = scan
@@ -1158,7 +1620,7 @@ local function DoExport()
                 PrintWarn(string.format("仍有 %d 件物品未完成缓存，将继续导出。", uncached))
             end
 
-            local finalizeOk, finalizeErr = pcall(FinalizeExport, scan)
+            local finalizeOk, finalizeErr = pcall(FinalizeExport, scan, config)
             if not finalizeOk then
                 WoWLookExport3DB.lastError = finalizeErr
                 PrintWarn("导出失败: " .. tostring(finalizeErr))
@@ -1169,8 +1631,9 @@ local function DoExport()
     end)
 end
 
-SLASH_WOWLOOKEXPORT31 = "/wowlook3"
-SlashCmdList.WOWLOOKEXPORT3 = function(msg)
+SLASH_WOWLOOKMAXEXPORT1 = "/wowlook"
+SLASH_WOWLOOKMAXEXPORT2 = "/wle"
+local function HandleSlashCommand(msg)
     local cmd = strlower(strtrim(msg or ""))
     if cmd == "" or cmd == "export" then
         DoExport()
@@ -1181,12 +1644,13 @@ SlashCmdList.WOWLOOKEXPORT3 = function(msg)
         local summary = WoWLookExport3DB.summary
         if summary then
             Print(string.format(
-                "导出时间: %s | 地下城: %d | 团本: %d | 装备: %d | tooltip: %d",
+                "导出时间: %s | 地下城: %d | 团本: %d | 装备: %d | 最高档成功: %d | 失败: %d",
                 summary.exportedAt or "?",
                 summary.dungeonCount or 0,
                 summary.raidCount or 0,
                 summary.itemCount or 0,
-                summary.tooltipCount or 0
+                summary.maxVersionSuccessCount or 0,
+                summary.maxVersionFailureCount or 0
             ))
         else
             Print("暂无导出记录。")
@@ -1197,10 +1661,28 @@ SlashCmdList.WOWLOOKEXPORT3 = function(msg)
         WoWLookExport3DB.lastError = nil
         Print("已清空导出缓存。/reload 后写盘。")
     else
-        Print("/wowlook3 export  开始导出")
-        Print("/wowlook3 status  查看状态")
-        Print("/wowlook3 reset   清空缓存")
+        Print("/wowlook export  开始导出")
+        Print("/wowlook status  查看状态")
+        Print("/wowlook reset   清空缓存")
     end
 end
 
-Print("v3.2 已加载。输入 /wowlook3 开始导出。")
+local function FormatSlashCommandError(err)
+    local message = tostring(err)
+    if type(debugstack) == "function" then
+        message = message .. "\n" .. debugstack(2, 8, 8)
+    end
+    return message
+end
+
+SlashCmdList.WOWLOOKMAXEXPORT = function(msg)
+    local ok, err = xpcall(function()
+        HandleSlashCommand(msg)
+    end, FormatSlashCommandError)
+    if not ok then
+        WoWLookExport3DB.lastError = err
+        PrintWarn("指令执行失败: " .. tostring(err))
+    end
+end
+
+Print("v3.3.3 已加载。输入 /wowlook（或 /wle）开始导出最高可获得装等。")

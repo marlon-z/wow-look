@@ -459,6 +459,7 @@ function buildClassItem(rawItem, classConfig, classSpecs, source, iconAssetMap) 
     armorTypeName: armorType.name,
     itemType: rawItem.itemType || '',
     itemSubType: itemTypeName || '',
+    equipLoc: rawItem.equipLoc || '',
     ilvl: rawItem.itemLevel || parsed.itemLevel || 0,
     specs: normalizedSpecs,
     classes: sortNumericList(rawItem.classes),

@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/equipment/equipment"
+    "pages/equipment/equipment",
+    "pages/build/build"
   ],
   "window": {
     "backgroundTextStyle": "dark",

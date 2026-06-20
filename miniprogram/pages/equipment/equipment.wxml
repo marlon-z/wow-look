@@ -55,6 +55,11 @@
     </view>
   </view>
 
+  <view wx:if="{{buildSlotPickMode}}" class="build-slot-pick-strip">
+    <text class="build-slot-pick-text">正在为「{{buildSlotPickSlotName}}」选择装备</text>
+    <text class="build-slot-pick-hint">点击装备即可装备</text>
+  </view>
+
   <view class="filter-panel">
     <view class="search-box">
       <view class="search-icon"></view>
@@ -76,10 +81,10 @@
         <view
           wx:for="{{specs}}"
           wx:key="id"
-          class="chip {{selectedSpec === item.id ? 'on' : ''}}"
+          class="chip {{selectedSpec === item.id ? 'on' : ''}} {{lockedSpec === item.id ? 'locked' : ''}}"
           bindtap="onSpecTap"
           data-id="{{item.id}}"
-        >{{item.name}}</view>
+        >{{item.name}}{{lockedSpec === item.id ? '🔒' : ''}}</view>
       </view>
     </view>
 
@@ -141,10 +146,10 @@
           <view
             wx:for="{{slots}}"
             wx:key="type"
-            class="chip sm {{item.selected ? 'on' : ''}}"
+            class="chip sm {{item.selected ? 'on' : ''}} {{item.locked ? 'locked' : ''}}"
             bindtap="onSlotTap"
             data-type="{{item.type}}"
-          >{{item.name}}</view>
+          >{{item.name}}{{item.locked ? '🔒' : ''}}</view>
         </view>
       </scroll-view>
     </view>

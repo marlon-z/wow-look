@@ -412,6 +412,7 @@ Page({
     hasUnreadAnnouncement: false,
     selectedItem: null,
     showModal: false,
+    browseExpanded: false,
     isPosterGenerating: false,
     posterCanvasHeight: POSTER_HEIGHT,
     pageStyle: '',
@@ -1002,6 +1003,16 @@ Page({
     return {
       title: '艾泽配装 · 当赛季装备一键速查',
     };
+  },
+
+  onBrowseCardTap() {
+    this.setData({ browseExpanded: !this.data.browseExpanded });
+  },
+
+  onBuildTap() {
+    wx.navigateTo({
+      url: '/pages/build/build',
+    });
   },
 
   onClassTap(event) {

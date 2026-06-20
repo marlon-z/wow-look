@@ -310,6 +310,38 @@
   flex-shrink: 0;
 }
 
+.build-slot-pick-strip {
+  margin: 14rpx 0 14rpx;
+  padding: 16rpx 20rpx;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16rpx;
+  background: rgba(18, 24, 20, 0.92);
+  border: 2rpx solid rgba(59, 199, 152, 0.35);
+}
+
+.build-slot-pick-text {
+  color: #7fffbf;
+  font-size: 24rpx;
+  font-weight: 800;
+}
+
+.build-slot-pick-hint {
+  color: #5a8a72;
+  font-size: 22rpx;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.chip.locked {
+  border-color: rgba(59, 199, 152, 0.6);
+  background: rgba(59, 199, 152, 0.15);
+  color: #7fffbf;
+  opacity: 0.85;
+}
+
 /* ── filter panel ── */
 .filter-panel {
   margin-top: -8rpx;

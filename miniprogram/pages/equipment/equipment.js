@@ -34,6 +34,13 @@ const {
   buildFavoriteSharePayload,
   buildFavoriteShareTitle,
 } = require('../../utils/favorite-share');
+const {
+  setSlotItem,
+  setWeaponSlotItem,
+  getBuild,
+  isDuplicateEquip,
+} = require('../../utils/builds');
+const { canItemUseSlot } = require('../../utils/weapon-rules');
 
 Page({
   itemMap: {},
@@ -64,7 +71,9 @@ Page({
     visibleInstanceOptions: [],
     keyword: '',
     selectedSpec: null,
+    lockedSpec: null,
     selectedSlots: [],
+    lockedSlot: '',
     selectedSourceType: 'all',
     selectedSourceTypes: [],
     selectedInstanceId: null,
@@ -95,6 +104,10 @@ Page({
     showBuildDraft: false,
     favoritePickerList: [],
     showFavoritePicker: false,
+    buildSlotPickMode: false,
+    buildSlotPickBuildId: '',
+    buildSlotPickSlotKey: '',
+    buildSlotPickSlotName: '',
     pageStyle: '',
   },
 
@@ -107,6 +120,19 @@ Page({
     const classKey = options.classKey || 'monk';
     const classMeta = getClassMeta(classKey) || getClassMeta('monk');
     const visualAssets = getClassVisualAssets((classMeta && classMeta.key) || 'monk');
+
+    const isBuildSlotPick = options.buildSlotPick === '1';
+    const lockSlot = options.lockSlot || '';
+    const preSelectSpec = options.specId ? Number(options.specId) : null;
+    const lockedSpec = isBuildSlotPick && preSelectSpec ? preSelectSpec : null;
+
+    const selectedSlots = lockSlot ? [lockSlot] : [];
+    const slots = SLOT_OPTIONS.map((item) => ({
+      ...item,
+      selected: selectedSlots.indexOf(item.type) !== -1,
+      locked: item.type === lockSlot,
+    }));
+
     this.setData({
       classKey,
       className: options.className || (classMeta && classMeta.name) || '武僧',
@@ -116,6 +142,15 @@ Page({
       openItemId: options.openItemId || null,
       buildRequestMode: options.requestBuild === '1',
       showBuildRequestIntro: options.requestBuild === '1',
+      buildSlotPickMode: isBuildSlotPick,
+      buildSlotPickBuildId: options.buildId || '',
+      buildSlotPickSlotKey: options.slotKey || '',
+      buildSlotPickSlotName: options.slotName ? decodeURIComponent(options.slotName) : '',
+      selectedSpec: preSelectSpec,
+      lockedSpec,
+      selectedSlots,
+      lockedSlot: lockSlot,
+      slots,
     });
     if (options.requestBuild === '1') {
       startBuildDraft(classKey, options.className || (classMeta && classMeta.name) || '武僧', false);
@@ -213,6 +248,9 @@ Page({
 
   onSpecTap(event) {
     const { id } = event.currentTarget.dataset;
+    if (this.data.lockedSpec) {
+      return;
+    }
     this.setData({
       selectedSpec: this.data.selectedSpec === id ? null : id,
     });
@@ -221,6 +259,9 @@ Page({
 
   onSlotTap(event) {
     const { type } = event.currentTarget.dataset;
+    if (this.data.lockedSlot) {
+      return;
+    }
     const selectedSlots = this.data.selectedSlots.slice();
     const idx = selectedSlots.indexOf(type);
     if (idx === -1) {
@@ -231,6 +272,7 @@ Page({
     const slots = this.data.slots.map((item) => ({
       ...item,
       selected: selectedSlots.indexOf(item.type) !== -1,
+      locked: item.type === this.data.lockedSlot,
     }));
     this.setData({ selectedSlots, slots });
     this.applyFilters();
@@ -327,11 +369,17 @@ Page({
   },
 
   resetFilters() {
+    const lockedSlot = this.data.lockedSlot;
+    const selectedSlots = lockedSlot ? [lockedSlot] : [];
     this.setData({
       keyword: '',
-      selectedSpec: null,
-      selectedSlots: [],
-      slots: this.data.slots.map((item) => ({ ...item, selected: false })),
+      selectedSpec: this.data.lockedSpec || null,
+      selectedSlots,
+      slots: this.data.slots.map((item) => ({
+        ...item,
+        selected: selectedSlots.indexOf(item.type) !== -1,
+        locked: item.type === lockedSlot,
+      })),
       selectedSourceType: 'all',
       selectedSourceTypes: [],
       sourceTypes: this.data.sourceTypes.map((item) => ({ ...item, selected: item.type === 'all' })),
@@ -346,7 +394,7 @@ Page({
   applyFilters() {
     const selectedStats = this.data.stats.filter((item) => item.state === 'include').map((item) => item.type);
     const excludedStats = this.data.stats.filter((item) => item.state === 'exclude').map((item) => item.type);
-    const filteredItems = filterItems(this.data.allItems, {
+    let filteredItems = filterItems(this.data.allItems, {
       selectedSpec: this.data.selectedSpec,
       selectedSlots: this.data.selectedSlots,
       selectedStats,
@@ -356,6 +404,14 @@ Page({
       selectedInstanceId: this.data.selectedInstanceId,
       keyword: this.data.keyword,
     });
+    if (this.data.buildSlotPickMode
+      && (this.data.buildSlotPickSlotKey === 'weapon' || this.data.buildSlotPickSlotKey === 'weapon2')) {
+      filteredItems = filteredItems.filter((item) => canItemUseSlot(
+        this.data.selectedSpec,
+        this.data.buildSlotPickSlotKey,
+        item
+      ));
+    }
 
     const groupedItems = this.data.selectedViewMode === 'source'
       ? groupItemsBySource(filteredItems)
@@ -419,6 +475,12 @@ Page({
     if (!item) {
       return;
     }
+
+    if (this.data.buildSlotPickMode) {
+      this.equipItemToSlot(item);
+      return;
+    }
+
     this.setData({
       showModal: true,
       pageStyle: 'overflow:hidden;height:100vh;',
@@ -433,6 +495,39 @@ Page({
         className: this.data.className,
       }, this.data.selectedSpec, this.data.specs),
     });
+  },
+
+  equipItemToSlot(item) {
+    const buildId = this.data.buildSlotPickBuildId;
+    const slotKey = this.data.buildSlotPickSlotKey;
+    if (!buildId || !slotKey) return;
+
+    const build = getBuild(buildId);
+    if (!build) {
+      wx.showToast({ title: '方案不存在', icon: 'none' });
+      return;
+    }
+
+    if (isDuplicateEquip(build, slotKey, item)) {
+      wx.showToast({ title: '同一装备不能装备两件', icon: 'none' });
+      return;
+    }
+
+    const result = slotKey === 'weapon' || slotKey === 'weapon2'
+      ? setWeaponSlotItem(buildId, slotKey, item)
+      : { ok: !!setSlotItem(buildId, slotKey, item) };
+    if (!result.ok) {
+      wx.showToast({ title: result.message || '该装备不能放入此槽位', icon: 'none' });
+      return;
+    }
+    wx.showToast({
+      title: result.clearedOffHand ? '已装备，原副手已移除' : '已装备 ' + item.name,
+      icon: 'none',
+    });
+
+    setTimeout(() => {
+      wx.navigateBack();
+    }, 600);
   },
 
   getVisibleInstanceOptions(selectedSourceTypes) {

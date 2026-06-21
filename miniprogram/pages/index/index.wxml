@@ -1,6 +1,6 @@
 <page-meta page-style="{{pageStyle}}"></page-meta>
 <view class="page-shell index-page">
-  <image class="global-site-bg" src="{{cosBase}}/assets/public/bg.jpg" mode="aspectFill" />
+
   <view class="announcement-entry" bindtap="openAnnouncement">
     <view class="announcement-entry-icon"></view>
     <text class="announcement-entry-label">公告</text>
@@ -16,30 +16,23 @@
     <image class="logo-img" src="{{cosBase}}/assets/public/logo.png" mode="widthFix" />
   </view>
 
-  <view class="prompt-wrap">
-    <text class="prompt-text">请选择你的职业</text>
-  </view>
-
-  <view class="class-grid-wrap">
-    <view class="class-row">
-      <view class="class-cell" wx:for="{{row1}}" wx:key="id" bindtap="onClassTap" data-key="{{item.key}}" data-name="{{item.name}}">
-        <image class="class-emblem" src="{{item.emblem}}" mode="aspectFit" />
-        <text class="class-label" style="color: {{item.color}};">{{item.shortName}}</text>
+  <!-- Feature Cards -->
+  <view class="feature-cards">
+    <view class="feature-card feature-card-browse" bindtap="onBrowseCardTap">
+      <view class="feature-card-icon feature-card-icon-browse"></view>
+      <view class="feature-card-body">
+        <text class="feature-card-title">查装备</text>
+        <text class="feature-card-desc">速查当赛季全职业装备</text>
       </view>
+      <text class="feature-card-arrow">›</text>
     </view>
-
-    <view class="class-row">
-      <view class="class-cell" wx:for="{{row2}}" wx:key="id" bindtap="onClassTap" data-key="{{item.key}}" data-name="{{item.name}}">
-        <image class="class-emblem" src="{{item.emblem}}" mode="aspectFit" />
-        <text class="class-label" style="color: {{item.color}};">{{item.shortName}}</text>
+    <view class="feature-card feature-card-build" bindtap="onBuildTap">
+      <view class="feature-card-icon feature-card-icon-build"></view>
+      <view class="feature-card-body">
+        <text class="feature-card-title">配装备</text>
+        <text class="feature-card-desc">模拟搭配查看属性总览</text>
       </view>
-    </view>
-
-    <view class="class-row">
-      <view class="class-cell" wx:for="{{row3}}" wx:key="id" bindtap="onClassTap" data-key="{{item.key}}" data-name="{{item.name}}">
-        <image class="class-emblem" src="{{item.emblem}}" mode="aspectFit" />
-        <text class="class-label" style="color: {{item.color}};">{{item.shortName}}</text>
-      </view>
+      <text class="feature-card-arrow">›</text>
     </view>
   </view>
 

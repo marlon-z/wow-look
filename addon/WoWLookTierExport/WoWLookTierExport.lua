@@ -1,5 +1,5 @@
 local ADDON_NAME = ...
-local ADDON_VERSION = "0.5.0"
+local ADDON_VERSION = "0.6.0"
 
 WoWLookTierExportDB = WoWLookTierExportDB or {
     version = ADDON_VERSION,
@@ -11,10 +11,6 @@ WoWLookTierExportDB = WoWLookTierExportDB or {
 
 WoWLookTierExportDB.version = ADDON_VERSION
 WoWLookTierExportDB.classes = WoWLookTierExportDB.classes or {}
-
-local SEASON_BONUS_ID = 3524
-local RAID_HEROIC_DIFFICULTY = 5
-local RAID_HEROIC_CONTEXT = 3606
 
 local TIER_SETS = {
     deathknight = {
@@ -310,9 +306,122 @@ local function jsonEncode(val)
     return "null"
 end
 
-local function BuildSeasonLink(itemId)
-    return string.format("item:%d::::::::90:0::%d:1:%d:1:28:%d:::::",
-        itemId, RAID_HEROIC_DIFFICULTY, SEASON_BONUS_ID, RAID_HEROIC_CONTEXT)
+local function ValidateSeasonConfig()
+    local config = WoWLookTierSeasonConfig
+    if type(config) ~= "table"
+        or type(config.profileVersion) ~= "number"
+        or type(config.minimumBuild) ~= "number"
+        or type(config.targetItemLevel) ~= "number"
+        or type(config.trackBonusId) ~= "number"
+        or type(config.qualityBonusId) ~= "number" then
+        return nil, "season_config_invalid"
+    end
+
+    local _, rawBuildNumber = GetBuildInfo()
+    local buildNumber = tonumber(rawBuildNumber) or 0
+    if buildNumber < config.minimumBuild then
+        return nil, "season_build_too_old"
+    end
+    if config.testedBuild and buildNumber ~= config.testedBuild then
+        PrintWarn(string.format(
+            "赛季配置测试版本为 %d，当前客户端为 %d；将继续导出，但必须检查289验证结果。",
+            config.testedBuild,
+            buildNumber
+        ))
+    end
+    return config
+end
+
+local function GetItemLevelBonusId(levelDifference)
+    if levelDifference == 0 then
+        return nil
+    end
+    if levelDifference >= -100 and levelDifference <= 200 then
+        return 1472 + levelDifference
+    end
+    if levelDifference >= 201 and levelDifference <= 400 then
+        return 2929 + levelDifference
+    end
+    return nil
+end
+
+local function GetDetailedItemLevels(itemInfo)
+    if not (C_Item and type(C_Item.GetDetailedItemLevelInfo) == "function") then
+        return nil, nil
+    end
+    local ok, actualItemLevel, _, baseItemLevel = pcall(C_Item.GetDetailedItemLevelInfo, itemInfo)
+    if not ok then
+        return nil, nil
+    end
+    return actualItemLevel, baseItemLevel
+end
+
+local function BuildMaximumTierLink(itemId, config)
+    local _, baseItemLevel = GetDetailedItemLevels(itemId)
+    if not baseItemLevel or baseItemLevel <= 0 then
+        return nil, "base_item_level_unavailable"
+    end
+
+    local levelDifference = config.targetItemLevel - baseItemLevel
+    local levelBonusId = GetItemLevelBonusId(levelDifference)
+    if levelDifference ~= 0 and not levelBonusId then
+        return nil, "bonus_mapping_missing"
+    end
+
+    local bonusIds = {}
+    if levelBonusId then
+        bonusIds[#bonusIds + 1] = levelBonusId
+    end
+    bonusIds[#bonusIds + 1] = config.trackBonusId
+    bonusIds[#bonusIds + 1] = config.qualityBonusId
+
+    return string.format(
+        "item:%d:%s:::%d:%d:::%d:%s",
+        itemId,
+        "::::",
+        UnitLevel("player") or 90,
+        0,
+        #bonusIds,
+        table.concat(bonusIds, ":")
+    )
+end
+
+local function ExtractItemIdFromLink(link)
+    if type(link) ~= "string" then
+        return nil
+    end
+    return tonumber(link:match("item:(%d+)"))
+end
+
+local function LinkContainsBonusId(link, bonusId)
+    if type(link) ~= "string" or not bonusId then
+        return false
+    end
+    return string.find(link .. ":", ":" .. tostring(bonusId) .. ":", 1, true) ~= nil
+end
+
+local function ValidateMaximumTierItem(itemId, link, parsedTooltip, detailedItemLevel, config)
+    if not link or not parsedTooltip or (parsedTooltip.itemLevel or 0) <= 0 then
+        return "tooltip_unavailable"
+    end
+    if ExtractItemIdFromLink(link) ~= itemId then
+        return "item_identity_mismatch"
+    end
+    if detailedItemLevel.effective > 0 and detailedItemLevel.effective ~= parsedTooltip.itemLevel then
+        return "tooltip_api_item_level_mismatch"
+    end
+    if parsedTooltip.itemLevel ~= config.targetItemLevel then
+        return "target_item_level_mismatch"
+    end
+    if config.expectedUpgradeTrack ~= ""
+        and parsedTooltip.upgradeTrack ~= config.expectedUpgradeTrack then
+        return "upgrade_track_mismatch"
+    end
+    if not LinkContainsBonusId(link, config.trackBonusId)
+        or not LinkContainsBonusId(link, config.qualityBonusId) then
+        return "required_bonus_missing"
+    end
+    return "ok"
 end
 
 local function BuildTipLines(tipData)
@@ -634,7 +743,8 @@ local function CountMissingItemData(payload)
 
     for _, classData in ipairs(payload.classes or {}) do
         for _, item in ipairs(classData.items or {}) do
-            if not HasText(item.name) or not item.icon or item.icon == 0 then
+            if not HasText(item.name) or not item.icon or item.icon == 0
+                or item.maximumStatus ~= "ok" then
                 missingCount = missingCount + 1
                 if C_Item and type(C_Item.RequestLoadItemDataByID) == "function" and item.itemId then
                     C_Item.RequestLoadItemDataByID(item.itemId)
@@ -648,7 +758,8 @@ end
 
 local function ProbeItem(itemId, classKey, setInfo, options)
     options = options or {}
-    local seasonLink = BuildSeasonLink(itemId)
+    local maximumConfig = options.maximumConfig or WoWLookTierSeasonConfig
+    local seasonLink, buildStatus = BuildMaximumTierLink(itemId, maximumConfig)
     local name, baseLink, quality, _, minLevel, itemType, itemSubType,
         stackCount, equipLoc, icon, sellPrice, itemClassId, itemSubclassId, bindType, expacId, setId =
         GetItemInfo(itemId)
@@ -659,7 +770,7 @@ local function ProbeItem(itemId, classKey, setInfo, options)
     local tooltipLines = GetTooltipLines(seasonLink)
     local parsedTooltip = ParseTooltipLines(tooltipLines)
     local detailedItemLevel = {}
-    if C_Item and type(C_Item.GetDetailedItemLevelInfo) == "function" then
+    if seasonLink and C_Item and type(C_Item.GetDetailedItemLevelInfo) == "function" then
         local effective, preview, sparse = C_Item.GetDetailedItemLevelInfo(seasonLink)
         detailedItemLevel = {
             effective = effective or 0,
@@ -667,6 +778,8 @@ local function ProbeItem(itemId, classKey, setInfo, options)
             sparse = sparse or 0,
         }
     end
+    local maximumStatus = buildStatus
+        or ValidateMaximumTierItem(itemId, seasonLink, parsedTooltip, detailedItemLevel, maximumConfig)
 
     local specBonuses = {}
     local bonusSpecCount = 0
@@ -698,6 +811,8 @@ local function ProbeItem(itemId, classKey, setInfo, options)
         collectionKind = options.collectionKind or "bonus",
         isBonusPiece = options.isBonusPiece ~= false,
         appearance = options.appearance,
+        maximumStatus = maximumStatus,
+        expectedItemLevel = maximumConfig.targetItemLevel,
         itemLevel = parsedTooltip.itemLevel or 0,
         detailedItemLevel = detailedItemLevel,
         tooltip = {
@@ -709,7 +824,7 @@ local function ProbeItem(itemId, classKey, setInfo, options)
     }
 end
 
-local function BuildClassExport(classKey)
+local function BuildClassExport(classKey, maximumConfig)
     local setInfo = TIER_SETS[classKey]
     if not setInfo then
         return nil
@@ -724,6 +839,7 @@ local function BuildClassExport(classKey)
         local itemRecord = ProbeItem(itemId, classKey, setInfo, {
             collectionKind = "bonus",
             isBonusPiece = true,
+            maximumConfig = maximumConfig,
         })
         items[#items + 1] = itemRecord
         bonusSpecMatches = bonusSpecMatches + (itemRecord.bonusSpecCount or 0)
@@ -742,8 +858,24 @@ local function BuildClassExport(classKey)
             includeSpecBonuses = false,
             collectionKind = "appearance",
             isBonusPiece = false,
+            maximumConfig = maximumConfig,
         })
         items[#items + 1] = itemRecord
+    end
+
+    local maximumSuccessCount = 0
+    local maximumFailures = {}
+    for _, item in ipairs(items) do
+        if item.maximumStatus == "ok" then
+            maximumSuccessCount = maximumSuccessCount + 1
+        else
+            maximumFailures[#maximumFailures + 1] = {
+                itemId = item.itemId,
+                status = item.maximumStatus or "unknown",
+                actualItemLevel = item.itemLevel or 0,
+                expectedItemLevel = maximumConfig.targetItemLevel,
+            }
+        end
     end
 
     return {
@@ -758,6 +890,9 @@ local function BuildClassExport(classKey)
         appearanceItemCount = #items,
         extraAppearanceItemCount = #appearanceItemIds,
         bonusSpecMatches = bonusSpecMatches,
+        maximumSuccessCount = maximumSuccessCount,
+        maximumFailureCount = #maximumFailures,
+        maximumFailures = maximumFailures,
         transmogSet = {
             setID = 0,
             name = localizedSetName or "",
@@ -771,6 +906,11 @@ local function BuildClassExport(classKey)
 end
 
 local function BuildExportPayload(classKeys)
+    local maximumConfig, configError = ValidateSeasonConfig()
+    if not maximumConfig then
+        error(configError)
+    end
+    local buildVersion, rawBuildNumber = GetBuildInfo()
     local classes = {}
     local summary = {
         exportedAt = date("%Y-%m-%d %H:%M:%S"),
@@ -780,13 +920,17 @@ local function BuildExportPayload(classKeys)
         appearanceItemCount = 0,
         extraAppearanceItemCount = 0,
         bonusSpecMatches = 0,
-        build = select(2, GetBuildInfo()),
-        buildNumber = select(4, GetBuildInfo()),
+        maximumSuccessCount = 0,
+        maximumFailureCount = 0,
+        maximumFailures = {},
+        targetItemLevel = maximumConfig.targetItemLevel,
+        build = buildVersion or "",
+        buildNumber = tonumber(rawBuildNumber) or 0,
         mode = (#classKeys == #CLASS_ORDER) and "all" or "partial",
     }
 
     for _, classKey in ipairs(classKeys) do
-        local classData = BuildClassExport(classKey)
+        local classData = BuildClassExport(classKey, maximumConfig)
         if classData then
             classes[#classes + 1] = classData
             WoWLookTierExportDB.classes[classKey] = classData
@@ -796,6 +940,11 @@ local function BuildExportPayload(classKeys)
             summary.appearanceItemCount = summary.appearanceItemCount + (classData.appearanceItemCount or 0)
             summary.extraAppearanceItemCount = summary.extraAppearanceItemCount + (classData.extraAppearanceItemCount or 0)
             summary.bonusSpecMatches = summary.bonusSpecMatches + classData.bonusSpecMatches
+            summary.maximumSuccessCount = summary.maximumSuccessCount + (classData.maximumSuccessCount or 0)
+            summary.maximumFailureCount = summary.maximumFailureCount + (classData.maximumFailureCount or 0)
+            for _, failure in ipairs(classData.maximumFailures or {}) do
+                summary.maximumFailures[#summary.maximumFailures + 1] = failure
+            end
         end
     end
 
@@ -811,6 +960,17 @@ local function BuildExportPayload(classKeys)
             specId = GetSpecializationInfo(GetSpecialization() or 0) or 0,
         },
         summary = summary,
+        maximumProfile = {
+            profileVersion = maximumConfig.profileVersion,
+            seasonId = maximumConfig.seasonId,
+            seasonName = maximumConfig.seasonName,
+            testedBuild = maximumConfig.testedBuild,
+            targetItemLevel = maximumConfig.targetItemLevel,
+            track = maximumConfig.track,
+            rank = maximumConfig.rank,
+            trackBonusId = maximumConfig.trackBonusId,
+            qualityBonusId = maximumConfig.qualityBonusId,
+        },
         classes = classes,
     }
 
@@ -900,14 +1060,16 @@ local function StartExport(classKeys)
             PrintWarn(string.format("导出完成，但仍有 %d 条套装效果正文为空。", missingTexts))
         end
         if missingItems > 0 then
-            PrintWarn(string.format("导出完成，但仍有 %d 件物品数据未就绪。", missingItems))
+            PrintWarn(string.format("导出完成，但仍有 %d 件物品未通过289验证；不要发布这份数据。", missingItems))
         end
-        Print(string.format("导出完成: %d 职业, %d 件装备（%d 件特效套装，额外 %d 件外观）, %d 组专精效果。",
+        Print(string.format("导出完成: %d 职业, %d 件装备（%d 件特效套装，额外 %d 件外观）, %d 组专精效果；289成功 %d，失败 %d。",
             summary.classCount or 0,
             summary.itemCount or 0,
             summary.bonusItemCount or 0,
             summary.extraAppearanceItemCount or 0,
-            summary.bonusSpecMatches or 0))
+            summary.bonusSpecMatches or 0,
+            summary.maximumSuccessCount or 0,
+            summary.maximumFailureCount or 0))
         Print("数据已保存到 SavedVariables/WoWLookTierExport.lua")
         Print("请 /reload 后到 WTF 目录查看。")
     end
@@ -935,13 +1097,15 @@ local function PrintSummary()
     end
 
     Print(string.format("上次导出: %s", summary.exportedAt or ""))
-    Print(string.format("模式: %s, 职业: %d, 物品: %d, 特效套装: %d, 额外外观: %d, 专精效果: %d",
+    Print(string.format("模式: %s, 职业: %d, 物品: %d, 特效套装: %d, 额外外观: %d, 专精效果: %d, 289成功: %d, 失败: %d",
         summary.mode or "",
         summary.classCount or 0,
         summary.itemCount or 0,
         summary.bonusItemCount or 0,
         summary.extraAppearanceItemCount or 0,
-        summary.bonusSpecMatches or 0))
+        summary.bonusSpecMatches or 0,
+        summary.maximumSuccessCount or 0,
+        summary.maximumFailureCount or 0))
 end
 
 SLASH_WOWTIEREXPORT1 = "/wowtierexport"

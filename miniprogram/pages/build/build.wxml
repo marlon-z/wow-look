@@ -1,0 +1,265 @@
+<page-meta page-style="{{pageStyle}}"></page-meta>
+<view class="page-shell build-page">
+
+  <!-- Phase 1: Select Class -->
+  <block wx:if="{{phase === 'select'}}">
+    <view class="build-header">
+      <text class="build-title">配装模拟器</text>
+      <text class="build-subtitle">选择你的职业</text>
+    </view>
+    <view class="class-grid-wrap">
+      <view class="class-row">
+        <view class="class-cell" wx:for="{{classRow1}}" wx:key="id" bindtap="onClassTap" data-key="{{item.key}}">
+          <image class="class-emblem" src="{{item.emblem}}" mode="aspectFit" />
+          <text class="class-label" style="color: {{item.color}};">{{item.shortName}}</text>
+        </view>
+      </view>
+      <view class="class-row">
+        <view class="class-cell" wx:for="{{classRow2}}" wx:key="id" bindtap="onClassTap" data-key="{{item.key}}">
+          <image class="class-emblem" src="{{item.emblem}}" mode="aspectFit" />
+          <text class="class-label" style="color: {{item.color}};">{{item.shortName}}</text>
+        </view>
+      </view>
+      <view class="class-row">
+        <view class="class-cell" wx:for="{{classRow3}}" wx:key="id" bindtap="onClassTap" data-key="{{item.key}}">
+          <image class="class-emblem" src="{{item.emblem}}" mode="aspectFit" />
+          <text class="class-label" style="color: {{item.color}};">{{item.shortName}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- Phase 2: Build Panel -->
+  <block wx:if="{{phase === 'build'}}">
+    <!-- Hero Banner -->
+    <view class="build-hero">
+      <image class="build-hero-banner" src="{{heroBannerAsset}}" mode="aspectFill" />
+      <view class="build-hero-shade"></view>
+      <view class="build-hero-content">
+        <view class="build-hero-top">
+          <view class="build-hero-title-area">
+            <text class="build-class-name">{{selectedClassName}} · {{selectedSpecName}}</text>
+            <text wx:if="{{isDraft}}" class="build-draft-badge">草稿</text>
+          </view>
+          <view class="build-top-right">
+            <view class="build-top-btn" bindtap="openBuildList">方案列表</view>
+            <view wx:if="{{!isDraft}}" class="build-top-btn" bindtap="onRenameBuild">重命名</view>
+          </view>
+        </view>
+        <view class="build-hero-bottom">
+          <text class="build-plan-name">{{isDraft ? '未保存的配装' : currentBuildName}}</text>
+          <text wx:if="{{summary}}" class="build-avg-ilvl">平均装等: {{summary.avgIlvl}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- Spec Switch -->
+    <view class="spec-switch-bar">
+      <view
+        class="spec-switch-item {{item.id === selectedSpecId ? 'active' : ''}}"
+        wx:for="{{specs}}"
+        wx:key="id"
+        bindtap="switchSpec"
+        data-id="{{item.id}}"
+        data-name="{{item.name}}"
+      >{{item.name}}</view>
+    </view>
+
+    <!-- Main Panel: Left Slots / Right Slots -->
+    <view class="build-panel">
+      <view class="build-column build-left">
+        <block wx:for="{{leftSlots}}" wx:key="key">
+          <!-- Placeholder slots (shirt/tabard) -->
+          <view wx:if="{{item.placeholder}}" class="slot-cell empty placeholder-slot">
+            <view class="slot-icon-wrap">
+              <text class="slot-placeholder-text">{{item.name}}</text>
+            </view>
+            <view class="slot-info">
+              <text class="slot-empty-hint placeholder-hint">—</text>
+            </view>
+          </view>
+          <!-- Normal equippable slots -->
+          <view
+            wx:else
+            class="slot-cell {{slots[item.key] ? 'filled' : 'empty'}}"
+            bindtap="onSlotTap"
+            data-slot-key="{{item.key}}"
+            data-slot-name="{{item.name}}"
+          >
+            <view class="slot-icon-wrap">
+              <image wx:if="{{slots[item.key].iconAsset}}" class="slot-icon-img" src="{{slots[item.key].iconAsset}}" mode="aspectFill" />
+              <text wx:elif="{{slots[item.key]}}" class="slot-icon-letter">{{slots[item.key].iconText}}</text>
+              <text wx:else class="slot-placeholder-text">{{item.name}}</text>
+              <view wx:if="{{slots[item.key]}}" class="slot-icon-border"></view>
+            </view>
+            <view class="slot-info" wx:if="{{slots[item.key]}}">
+              <text class="slot-item-name">{{slots[item.key].name}}</text>
+              <text class="slot-item-stat">{{slots[item.key].statLine}}</text>
+              <view class="slot-item-meta-row">
+                <text class="slot-item-ilvl">ilvl{{slots[item.key].ilvl}}</text>
+                <text wx:if="{{slots[item.key].instanceName}}" class="slot-item-source">{{slots[item.key].instanceName}}</text>
+              </view>
+            </view>
+            <view class="slot-info" wx:else>
+              <text class="slot-empty-hint">点击选择</text>
+            </view>
+          </view>
+        </block>
+      </view>
+
+      <view class="build-column build-right">
+        <view
+          class="slot-cell {{slots[item.key] ? 'filled' : 'empty'}}"
+          wx:for="{{rightSlots}}"
+          wx:key="key"
+          bindtap="onSlotTap"
+          data-slot-key="{{item.key}}"
+          data-slot-name="{{item.name}}"
+        >
+          <view class="slot-icon-wrap">
+            <image wx:if="{{slots[item.key].iconAsset}}" class="slot-icon-img" src="{{slots[item.key].iconAsset}}" mode="aspectFill" />
+            <text wx:elif="{{slots[item.key]}}" class="slot-icon-letter">{{slots[item.key].iconText}}</text>
+            <text wx:else class="slot-placeholder-text">{{item.name}}</text>
+            <view wx:if="{{slots[item.key]}}" class="slot-icon-border"></view>
+          </view>
+          <view class="slot-info" wx:if="{{slots[item.key]}}">
+            <text class="slot-item-name">{{slots[item.key].name}}</text>
+            <text class="slot-item-stat">{{slots[item.key].statLine}}</text>
+            <view class="slot-item-meta-row">
+              <text class="slot-item-ilvl">ilvl{{slots[item.key].ilvl}}</text>
+              <text wx:if="{{slots[item.key].instanceName}}" class="slot-item-source">{{slots[item.key].instanceName}}</text>
+            </view>
+          </view>
+          <view class="slot-info" wx:else>
+            <text class="slot-empty-hint">点击选择</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- Weapon Slots -->
+    <view class="build-weapon-row">
+      <view
+        class="slot-cell weapon-slot {{slots[item.key] ? 'filled' : 'empty'}} {{item.disabled ? 'weapon-slot-disabled' : ''}}"
+        wx:for="{{bottomSlots}}"
+        wx:key="key"
+        bindtap="onSlotTap"
+        data-slot-key="{{item.key}}"
+        data-slot-name="{{item.name}}"
+        data-disabled="{{item.disabled}}"
+      >
+        <view class="slot-icon-wrap">
+          <image wx:if="{{slots[item.key].iconAsset}}" class="slot-icon-img" src="{{slots[item.key].iconAsset}}" mode="aspectFill" />
+          <text wx:elif="{{slots[item.key]}}" class="slot-icon-letter">{{slots[item.key].iconText}}</text>
+          <text wx:else class="slot-placeholder-text">{{item.name}}</text>
+          <view wx:if="{{slots[item.key]}}" class="slot-icon-border"></view>
+        </view>
+        <view class="slot-info" wx:if="{{slots[item.key]}}">
+          <text class="slot-item-name">{{slots[item.key].name}}</text>
+          <text class="slot-item-stat">{{slots[item.key].statLine}}</text>
+          <view class="slot-item-meta-row">
+            <text class="slot-item-ilvl">ilvl{{slots[item.key].ilvl}}</text>
+            <text wx:if="{{slots[item.key].instanceName}}" class="slot-item-source">{{slots[item.key].instanceName}}</text>
+          </view>
+        </view>
+        <view class="slot-info" wx:else>
+          <text class="slot-empty-hint">{{item.disabled ? '更换主手后可用' : '点击选择'}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- Bottom Stats Section -->
+    <view class="build-stats-bottom" wx:if="{{summary}}">
+      <view class="stats-bottom-header">
+        <text class="stats-bottom-title">配装信息</text>
+        <text class="stats-bottom-count">{{summary.occupiedSlots}} / {{summary.totalSlots}} 个装备槽</text>
+      </view>
+
+      <view class="stats-bottom-secondary">
+        <view class="stats-bottom-item">
+          <text class="stats-bottom-label stats-label-crit">暴击</text>
+          <text class="stats-bottom-value">{{summary.secondary.crit.rating}}</text>
+          <text class="stats-bottom-percent">{{summary.secondary.crit.percent}}%</text>
+        </view>
+        <view class="stats-bottom-item">
+          <text class="stats-bottom-label stats-label-haste">急速</text>
+          <text class="stats-bottom-value">{{summary.secondary.haste.rating}}</text>
+          <text class="stats-bottom-percent">{{summary.secondary.haste.percent}}%</text>
+        </view>
+        <view class="stats-bottom-item">
+          <text class="stats-bottom-label stats-label-mastery">精通</text>
+          <text class="stats-bottom-value">{{summary.secondary.mastery.rating}}</text>
+          <text class="stats-bottom-percent">{{summary.secondary.mastery.percent}}%</text>
+        </view>
+        <view class="stats-bottom-item">
+          <text class="stats-bottom-label stats-label-vers">全能</text>
+          <text class="stats-bottom-value">{{summary.secondary.versatility.rating}}</text>
+          <text class="stats-bottom-percent">{{summary.secondary.versatility.percent}}%</text>
+        </view>
+      </view>
+
+      <view class="stats-bottom-total">
+        <text class="stats-bottom-total-label">副属性合计</text>
+        <text class="stats-bottom-total-value">{{summary.secondaryTotal}}</text>
+      </view>
+
+      <!-- Primary stats row -->
+      <view class="stats-bottom-primary" wx:if="{{summary.primaryStats.length || summary.stamina}}">
+        <view class="stats-bottom-item" wx:for="{{summary.primaryStats}}" wx:key="type" wx:for-item="stat">
+          <text class="stats-bottom-label">{{stat.name}}</text>
+          <text class="stats-bottom-value">{{stat.value}}</text>
+        </view>
+        <view class="stats-bottom-item" wx:if="{{summary.stamina}}">
+          <text class="stats-bottom-label">耐力</text>
+          <text class="stats-bottom-value">{{summary.stamina}}</text>
+        </view>
+      </view>
+
+      <view class="stats-bottom-hint">
+        <text>仅计算装备自身属性，不含天赋、Buff 等加成</text>
+      </view>
+    </view>
+
+    <!-- Action Bar -->
+    <view class="build-action-bar">
+      <view class="build-action-btn build-action-clear" bindtap="clearAllSlotsTap">清空装备</view>
+      <view wx:if="{{isDraft}}" class="build-action-btn build-action-save" bindtap="onSaveBuild">保存方案</view>
+      <view wx:else class="build-action-btn build-action-new" bindtap="onNewBuild">新建方案</view>
+    </view>
+  </block>
+
+  <!-- Build List Popup -->
+  <view wx:if="{{showBuildList}}" class="picker-mask" bindtap="closeBuildList">
+    <view class="picker-panel build-list-panel" catchtap="preventClose">
+      <view class="picker-head">
+        <text class="picker-title">配装方案列表</text>
+        <view class="picker-close" catchtap="closeBuildList">✕</view>
+      </view>
+      <scroll-view class="picker-list" scroll-y enhanced show-scrollbar="{{false}}">
+        <view wx:if="{{!buildList.length}}" class="picker-empty">
+          <text>还没有配装方案</text>
+        </view>
+        <view
+          wx:for="{{buildList}}"
+          wx:key="id"
+          class="build-list-item"
+          bindtap="onBuildListItemTap"
+          data-build-id="{{item.id}}"
+        >
+          <view class="build-list-item-body">
+            <text class="build-list-item-name">{{item.name}}</text>
+            <text class="build-list-item-meta">{{item.className}} · {{item.specName}} · 装等{{item.summary.avgIlvl}}</text>
+          </view>
+          <view class="build-list-item-actions">
+            <view
+              class="build-list-delete"
+              catchtap="onDeleteBuild"
+              data-build-id="{{item.id}}"
+            >删除</view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+</view>

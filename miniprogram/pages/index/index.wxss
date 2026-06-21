@@ -316,73 +316,112 @@
   display: block;
 }
 
-/* ── Prompt Section ── */
-.prompt-wrap {
-  margin-bottom: 56rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.prompt-text {
-  font-size: 28rpx;
-  color: #dfd4c1;
-  font-weight: 500;
-  letter-spacing: 6rpx;
-  text-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.8);
-}
-
-.prompt-text::before,
-.prompt-text::after {
-  content: "—";
-  margin: 0 16rpx;
-  color: rgba(223, 212, 193, 0.3);
-}
-
-/* ── Class Grid ── */
-.class-grid-wrap {
+/* ── Feature Cards ── */
+.feature-cards {
   width: 100%;
-}
-
-.class-row {
-  display: flex;
-  justify-content: center;
-  gap: 16rpx;
-  margin-bottom: 16rpx;
-}
-
-.class-cell {
-  flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 20rpx;
+  margin-bottom: 48rpx;
+  position: relative;
+  z-index: 1;
+}
+
+.feature-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  padding: 32rpx 28rpx;
+  border-radius: 24rpx;
+  background: linear-gradient(180deg, rgba(27, 24, 32, 0.65) 0%, rgba(16, 13, 20, 0.85) 100%);
+  border: 1rpx solid rgba(212, 168, 75, 0.2);
+  box-shadow:
+    0 10rpx 24rpx rgba(0, 0, 0, 0.5),
+    inset 0 1rpx 0 rgba(255, 255, 255, 0.06);
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  inset: 6rpx;
+  border-radius: 18rpx;
+  border: 1rpx dashed rgba(212, 168, 75, 0.08);
+  pointer-events: none;
+}
+
+.feature-card:active {
+  transform: scale(0.98);
+  border-color: rgba(212, 168, 75, 0.45);
+  background: linear-gradient(180deg, rgba(38, 33, 45, 0.8) 0%, rgba(24, 20, 30, 0.95) 100%);
+}
+
+.feature-card-icon {
+  width: 72rpx;
+  height: 72rpx;
+  flex-shrink: 0;
+  border-radius: 18rpx;
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24rpx 0 16rpx;
-  border-radius: 20rpx;
-  background: rgba(13, 10, 18, 0.8);
-  border: 1rpx solid rgba(212, 168, 75, 0.25);
-  box-shadow:
-    0 8rpx 16rpx rgba(0,0,0,0.4),
-    inset 0 1rpx 0 rgba(255, 255, 255, 0.05);
-  transition: transform 0.15s, border-color 0.15s;
+  background: linear-gradient(135deg, rgba(212, 168, 75, 0.12) 0%, rgba(212, 168, 75, 0.04) 100%);
+  border: 1rpx solid rgba(212, 168, 75, 0.2);
+  position: relative;
+  z-index: 1;
 }
 
-.class-cell:active {
-  transform: scale(0.96);
-  border-color: rgba(212, 168, 75, 0.6);
+.feature-card-icon::after {
+  content: '';
+  width: 40rpx;
+  height: 40rpx;
+  background: linear-gradient(135deg, #fce8b3 0%, #d4a84b 50%, #966115 100%);
+  -webkit-mask-size: cover;
+  mask-size: cover;
 }
 
-.class-emblem {
-  width: 104rpx;
-  height: 104rpx;
-  margin-bottom: 20rpx;
+.feature-card-icon-browse::after {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M11 2a9 9 0 106.032 15.446l4.261 4.261a1 1 0 001.414-1.414l-4.261-4.261A9 9 0 0011 2zm-7 9a7 7 0 1114 0 7 7 0 01-14 0z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M11 2a9 9 0 106.032 15.446l4.261 4.261a1 1 0 001.414-1.414l-4.261-4.261A9 9 0 0011 2zm-7 9a7 7 0 1114 0 7 7 0 01-14 0z'/%3E%3C/svg%3E");
 }
 
-.class-label {
-  font-size: 26rpx;
-  font-weight: 700;
-  letter-spacing: 2rpx;
-  text-align: center;
+.feature-card-icon-build::after {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z'/%3E%3C/svg%3E");
+}
+
+.feature-card-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+  position: relative;
+  z-index: 1;
+}
+
+.feature-card-title {
+  font-size: 34rpx;
+  font-weight: 900;
+  color: #f3e6c3;
+  letter-spacing: 3rpx;
+  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.5);
+}
+
+.feature-card-desc {
+  font-size: 24rpx;
+  color: #8a7e6e;
+  font-weight: 500;
+  letter-spacing: 1rpx;
+}
+
+.feature-card-arrow {
+  font-size: 40rpx;
+  color: rgba(212, 168, 75, 0.4);
+  font-weight: 300;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
 
 /* ── Footer ── */

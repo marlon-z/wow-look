@@ -41,7 +41,7 @@ module.exports = {
     }
   ],
   "meta": {
-    "itemCount": 127,
+    "itemCount": 117,
     "instanceCount": 13
   },
   "instances": [
@@ -69,6 +69,7 @@ module.exports = {
               "armorTypeName": "法杖",
               "itemType": "武器",
               "itemSubType": "法杖",
+              "equipLoc": "INVTYPE_2HWEAPON",
               "ilvl": 298,
               "specs": [
                 256,
@@ -472,6 +473,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_HAND",
               "ilvl": 289,
               "specs": [
                 256,
@@ -861,6 +863,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_FINGER",
               "ilvl": 289,
               "specs": [
                 256,
@@ -1288,6 +1291,7 @@ module.exports = {
               "armorTypeName": "魔杖",
               "itemType": "武器",
               "itemSubType": "魔杖",
+              "equipLoc": "INVTYPE_RANGEDRIGHT",
               "ilvl": 298,
               "specs": [
                 256,
@@ -1696,6 +1700,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_HEAD",
               "ilvl": 289,
               "specs": [
                 256,
@@ -2076,6 +2081,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_ROBE",
               "ilvl": 289,
               "specs": [
                 256,
@@ -2541,6 +2547,7 @@ module.exports = {
               "armorTypeName": "其它",
               "itemType": "护甲",
               "itemSubType": "其它",
+              "equipLoc": "INVTYPE_HOLDABLE",
               "ilvl": 298,
               "specs": [
                 256,
@@ -2910,6 +2917,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_NECK",
               "ilvl": 289,
               "specs": [
                 256,
@@ -3261,6 +3269,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_SHOULDER",
               "ilvl": 289,
               "specs": [
                 256,
@@ -3719,6 +3728,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_WRIST",
               "ilvl": 289,
               "specs": [
                 256,
@@ -4099,6 +4109,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_TRINKET",
               "ilvl": 298,
               "specs": [
                 256,
@@ -4415,6 +4426,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_WAIST",
               "ilvl": 289,
               "specs": [
                 256,
@@ -4873,6 +4885,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_FEET",
               "ilvl": 289,
               "specs": [
                 256,
@@ -5253,6 +5266,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_FINGER",
               "ilvl": 289,
               "specs": [
                 256,
@@ -5673,6 +5687,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_TRINKET",
               "ilvl": 298,
               "specs": [
                 256,
@@ -5997,6 +6012,7 @@ module.exports = {
               "armorTypeName": "匕首",
               "itemType": "武器",
               "itemSubType": "匕首",
+              "equipLoc": "INVTYPE_WEAPON",
               "ilvl": 298,
               "specs": [
                 256,
@@ -6408,6 +6424,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_NECK",
               "ilvl": 289,
               "specs": [
                 256,
@@ -6759,6 +6776,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_FEET",
               "ilvl": 289,
               "specs": [
                 256,
@@ -7146,6 +7164,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_WRIST",
               "ilvl": 289,
               "specs": [
                 256,
@@ -7535,6 +7554,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_WAIST",
               "ilvl": 289,
               "specs": [
                 256,
@@ -7924,6 +7944,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_FINGER",
               "ilvl": 289,
               "specs": [
                 256,
@@ -8291,6 +8312,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_CLOAK",
               "ilvl": 289,
               "specs": [
                 256,
@@ -8753,6 +8775,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_ROBE",
               "ilvl": 289,
               "specs": [
                 256,
@@ -9142,6 +9165,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_TRINKET",
               "ilvl": 298,
               "specs": [
                 256,
@@ -9470,6 +9494,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_CLOAK",
               "ilvl": 289,
               "specs": [
                 256,
@@ -9932,6 +9957,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_LEGS",
               "ilvl": 289,
               "specs": [
                 256,
@@ -10328,6 +10354,7 @@ module.exports = {
               "armorTypeName": "法杖",
               "itemType": "武器",
               "itemSubType": "法杖",
+              "equipLoc": "INVTYPE_2HWEAPON",
               "ilvl": 298,
               "specs": [
                 256,
@@ -10740,6 +10767,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_SHOULDER",
               "ilvl": 289,
               "specs": [
                 256,
@@ -11136,6 +11164,7 @@ module.exports = {
               "armorTypeName": "其它",
               "itemType": "护甲",
               "itemSubType": "其它",
+              "equipLoc": "INVTYPE_HOLDABLE",
               "ilvl": 298,
               "specs": [
                 256,
@@ -11514,6 +11543,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_WRIST",
               "ilvl": 289,
               "specs": [
                 256,
@@ -11903,6 +11933,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_TRINKET",
               "ilvl": 298,
               "specs": [
                 256,
@@ -12218,6 +12249,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_FEET",
               "ilvl": 289,
               "specs": [
                 256,
@@ -12623,6 +12655,7 @@ module.exports = {
               "armorTypeName": "其它",
               "itemType": "护甲",
               "itemSubType": "其它",
+              "equipLoc": "INVTYPE_HOLDABLE",
               "ilvl": 298,
               "specs": [
                 256,
@@ -12992,6 +13025,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_FINGER",
               "ilvl": 289,
               "specs": [
                 256,
@@ -13376,6 +13410,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_CLOAK",
               "ilvl": 289,
               "specs": [
                 256,
@@ -13838,6 +13873,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_HAND",
               "ilvl": 289,
               "specs": [
                 256,
@@ -14234,6 +14270,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_ROBE",
               "ilvl": 289,
               "specs": [
                 256,
@@ -14614,6 +14651,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_TRINKET",
               "ilvl": 298,
               "specs": [
                 256,
@@ -14962,6 +15000,7 @@ module.exports = {
               "armorTypeName": "法杖",
               "itemType": "武器",
               "itemSubType": "法杖",
+              "equipLoc": "INVTYPE_2HWEAPON",
               "ilvl": 298,
               "specs": [
                 256,
@@ -15365,6 +15404,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_HEAD",
               "ilvl": 289,
               "specs": [
                 256,
@@ -15770,6 +15810,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_HEAD",
               "ilvl": 289,
               "specs": [
                 256,
@@ -16150,6 +16191,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_TRINKET",
               "ilvl": 298,
               "specs": [
                 256,
@@ -16507,6 +16549,7 @@ module.exports = {
               "armorTypeName": "单手锤",
               "itemType": "武器",
               "itemSubType": "单手锤",
+              "equipLoc": "INVTYPE_WEAPON",
               "ilvl": 298,
               "specs": [
                 256,
@@ -16918,6 +16961,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_SHOULDER",
               "ilvl": 289,
               "specs": [
                 256,
@@ -17305,6 +17349,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_LEGS",
               "ilvl": 289,
               "specs": [
                 256,
@@ -17681,246 +17726,6 @@ module.exports = {
           "order": 4,
           "items": [
             {
-              "id": 262914,
-              "name": "幽灵陆行鸟",
-              "icon": 6996382,
-              "iconName": "inv_white_hawkstrider",
-              "iconAsset": "/assets/icons/inv_white_hawkstrider.jpg",
-              "slot": "unknown",
-              "slotName": "未知",
-              "armorType": "none",
-              "armorTypeName": "坐骑",
-              "itemType": "杂项",
-              "itemSubType": "杂项",
-              "ilvl": 10,
-              "specs": [
-                256,
-                257,
-                258
-              ],
-              "classes": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13
-              ],
-              "quality": 4,
-              "upgradeTrack": "",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [],
-                "stamina": null,
-                "secondary": [],
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 教你学会召唤这种坐骑。已经学会"
-                  ]
-                },
-                "white": {}
-              },
-              "source": {
-                "instanceId": 1299,
-                "instanceName": "风行者之塔",
-                "isRaid": false,
-                "encounterId": 2658,
-                "encounterName": "无眠之心",
-                "difficulty": 23,
-                "difficultyName": "史诗",
-                "order": 3
-              },
-              "tooltipRaw": [
-                "幽灵陆行鸟",
-                "史诗",
-                "拾取后绑定",
-                "地面 坐骑",
-                "使用： 教你学会召唤这种坐骑。",
-                "已经学会"
-              ],
-              "link": "|cnIQ4:|Hitem:262914::::::::90:270::23:1:3524:1:28:872:::::|h[幽灵陆行鸟]|h|r",
-              "captureStatus": "ok",
-              "dropVersion": {
-                "apiItemLevel": 10,
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 教你学会召唤这种坐骑。已经学会"
-                  ]
-                },
-                "equipLoc": "INVTYPE_NON_EQUIP_IGNORE",
-                "icon": 6996382,
-                "itemClassId": 15,
-                "itemLevel": 10,
-                "itemSubType": "坐骑",
-                "itemSubclassId": 5,
-                "itemType": "杂项",
-                "link": "|cnIQ4:|Hitem:262914::::::::90:270::23:1:3524:1:28:872:::::|h[幽灵陆行鸟]|h|r",
-                "name": "幽灵陆行鸟",
-                "primaryStats": [],
-                "quality": 4,
-                "secondaryStats": [],
-                "slotText": "",
-                "status": "ok",
-                "tooltip": {
-                  "parsed": {
-                    "effects": [
-                      {
-                        "lines": [
-                          "使用： 教你学会召唤这种坐骑。",
-                          "已经学会"
-                        ],
-                        "text": "使用： 教你学会召唤这种坐骑。已经学会",
-                        "type": "use"
-                      }
-                    ],
-                    "equipEffects": [],
-                    "flags": {
-                      "prismaticSocket": false,
-                      "uniqueEquipped": false
-                    },
-                    "primaryStats": [],
-                    "secondaryStats": [],
-                    "slotText": "",
-                    "stats": [],
-                    "upgradeTrack": "",
-                    "useEffects": [
-                      "使用： 教你学会召唤这种坐骑。已经学会"
-                    ],
-                    "white": []
-                  },
-                  "rawLines": [
-                    {
-                      "left": "幽灵陆行鸟",
-                      "right": ""
-                    },
-                    {
-                      "left": "史诗",
-                      "right": ""
-                    },
-                    {
-                      "left": "拾取后绑定",
-                      "right": ""
-                    },
-                    {
-                      "left": "地面 坐骑",
-                      "right": ""
-                    },
-                    {
-                      "left": "使用： 教你学会召唤这种坐骑。",
-                      "right": ""
-                    },
-                    {
-                      "left": "已经学会",
-                      "right": ""
-                    }
-                  ]
-                },
-                "tooltipFlags": {
-                  "prismaticSocket": false,
-                  "uniqueEquipped": false
-                },
-                "upgradeTrack": ""
-              },
-              "maxVersion": {
-                "apiItemLevel": 10,
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 教你学会召唤这种坐骑。已经学会"
-                  ]
-                },
-                "equipLoc": "INVTYPE_NON_EQUIP_IGNORE",
-                "icon": 6996382,
-                "itemClassId": 15,
-                "itemLevel": 10,
-                "itemSubType": "坐骑",
-                "itemSubclassId": 5,
-                "itemType": "杂项",
-                "link": "|cnIQ4:|Hitem:262914::::::::90:270::23:1:3524:1:28:872:::::|h[幽灵陆行鸟]|h|r",
-                "name": "幽灵陆行鸟",
-                "primaryStats": [],
-                "quality": 4,
-                "rank": 0,
-                "ruleSource": "non_upgradeable",
-                "secondaryStats": [],
-                "slotText": "",
-                "status": "ok",
-                "tooltip": {
-                  "parsed": {
-                    "effects": [
-                      {
-                        "lines": [
-                          "使用： 教你学会召唤这种坐骑。",
-                          "已经学会"
-                        ],
-                        "text": "使用： 教你学会召唤这种坐骑。已经学会",
-                        "type": "use"
-                      }
-                    ],
-                    "equipEffects": [],
-                    "flags": {
-                      "prismaticSocket": false,
-                      "uniqueEquipped": false
-                    },
-                    "primaryStats": [],
-                    "secondaryStats": [],
-                    "slotText": "",
-                    "stats": [],
-                    "upgradeTrack": "",
-                    "useEffects": [
-                      "使用： 教你学会召唤这种坐骑。已经学会"
-                    ],
-                    "white": []
-                  },
-                  "rawLines": [
-                    {
-                      "left": "幽灵陆行鸟",
-                      "right": ""
-                    },
-                    {
-                      "left": "史诗",
-                      "right": ""
-                    },
-                    {
-                      "left": "拾取后绑定",
-                      "right": ""
-                    },
-                    {
-                      "left": "地面 坐骑",
-                      "right": ""
-                    },
-                    {
-                      "left": "使用： 教你学会召唤这种坐骑。",
-                      "right": ""
-                    },
-                    {
-                      "left": "已经学会",
-                      "right": ""
-                    }
-                  ]
-                },
-                "tooltipFlags": {
-                  "prismaticSocket": false,
-                  "uniqueEquipped": false
-                },
-                "track": "fixed",
-                "upgradeTrack": ""
-              },
-              "iconText": "幽"
-            },
-            {
               "id": 251094,
               "name": "无眠之心印记",
               "icon": 7431122,
@@ -17932,6 +17737,7 @@ module.exports = {
               "armorTypeName": "其它",
               "itemType": "护甲",
               "itemSubType": "其它",
+              "equipLoc": "INVTYPE_HOLDABLE",
               "ilvl": 298,
               "specs": [
                 256,
@@ -18310,6 +18116,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_NECK",
               "ilvl": 289,
               "specs": [
                 256,
@@ -18661,6 +18468,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_TRINKET",
               "ilvl": 298,
               "specs": [
                 256,
@@ -19065,6 +18873,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_WAIST",
               "ilvl": 289,
               "specs": [
                 256,
@@ -19445,6 +19254,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_TRINKET",
               "ilvl": 298,
               "specs": [
                 256,
@@ -19760,6 +19570,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_CLOAK",
               "ilvl": 289,
               "specs": [
                 256,
@@ -20222,6 +20033,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_WRIST",
               "ilvl": 289,
               "specs": [
                 256,
@@ -20609,6 +20421,7 @@ module.exports = {
               "armorTypeName": "匕首",
               "itemType": "武器",
               "itemSubType": "匕首",
+              "equipLoc": "INVTYPE_WEAPON",
               "ilvl": 298,
               "specs": [
                 256,
@@ -21011,6 +20824,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_FINGER",
               "ilvl": 289,
               "specs": [
                 256,
@@ -21367,246 +21181,6 @@ module.exports = {
           "order": 4,
           "items": [
             {
-              "id": 260231,
-              "name": "光亮陆行鸟",
-              "icon": 7454937,
-              "iconName": "inv_hawkstridermount_white",
-              "iconAsset": "/assets/icons/inv_hawkstridermount_white.jpg",
-              "slot": "unknown",
-              "slotName": "未知",
-              "armorType": "none",
-              "armorTypeName": "坐骑",
-              "itemType": "杂项",
-              "itemSubType": "杂项",
-              "ilvl": 10,
-              "specs": [
-                256,
-                257,
-                258
-              ],
-              "classes": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13
-              ],
-              "quality": 4,
-              "upgradeTrack": "",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [],
-                "stamina": null,
-                "secondary": [],
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 教你学会召唤这种坐骑。已经学会"
-                  ]
-                },
-                "white": {}
-              },
-              "source": {
-                "instanceId": 1300,
-                "instanceName": "魔导师平台",
-                "isRaid": false,
-                "encounterId": 2662,
-                "encounterName": "迪詹崔乌斯",
-                "difficulty": 23,
-                "difficultyName": "史诗",
-                "order": 1
-              },
-              "tooltipRaw": [
-                "光亮陆行鸟",
-                "史诗",
-                "拾取后绑定",
-                "地面 坐骑",
-                "使用： 教你学会召唤这种坐骑。",
-                "已经学会"
-              ],
-              "link": "|cnIQ4:|Hitem:260231::::::::90:270::23:1:3524:1:28:872:::::|h[光亮陆行鸟]|h|r",
-              "captureStatus": "ok",
-              "dropVersion": {
-                "apiItemLevel": 10,
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 教你学会召唤这种坐骑。已经学会"
-                  ]
-                },
-                "equipLoc": "INVTYPE_NON_EQUIP_IGNORE",
-                "icon": 7454937,
-                "itemClassId": 15,
-                "itemLevel": 10,
-                "itemSubType": "坐骑",
-                "itemSubclassId": 5,
-                "itemType": "杂项",
-                "link": "|cnIQ4:|Hitem:260231::::::::90:270::23:1:3524:1:28:872:::::|h[光亮陆行鸟]|h|r",
-                "name": "光亮陆行鸟",
-                "primaryStats": [],
-                "quality": 4,
-                "secondaryStats": [],
-                "slotText": "",
-                "status": "ok",
-                "tooltip": {
-                  "parsed": {
-                    "effects": [
-                      {
-                        "lines": [
-                          "使用： 教你学会召唤这种坐骑。",
-                          "已经学会"
-                        ],
-                        "text": "使用： 教你学会召唤这种坐骑。已经学会",
-                        "type": "use"
-                      }
-                    ],
-                    "equipEffects": [],
-                    "flags": {
-                      "prismaticSocket": false,
-                      "uniqueEquipped": false
-                    },
-                    "primaryStats": [],
-                    "secondaryStats": [],
-                    "slotText": "",
-                    "stats": [],
-                    "upgradeTrack": "",
-                    "useEffects": [
-                      "使用： 教你学会召唤这种坐骑。已经学会"
-                    ],
-                    "white": []
-                  },
-                  "rawLines": [
-                    {
-                      "left": "光亮陆行鸟",
-                      "right": ""
-                    },
-                    {
-                      "left": "史诗",
-                      "right": ""
-                    },
-                    {
-                      "left": "拾取后绑定",
-                      "right": ""
-                    },
-                    {
-                      "left": "地面 坐骑",
-                      "right": ""
-                    },
-                    {
-                      "left": "使用： 教你学会召唤这种坐骑。",
-                      "right": ""
-                    },
-                    {
-                      "left": "已经学会",
-                      "right": ""
-                    }
-                  ]
-                },
-                "tooltipFlags": {
-                  "prismaticSocket": false,
-                  "uniqueEquipped": false
-                },
-                "upgradeTrack": ""
-              },
-              "maxVersion": {
-                "apiItemLevel": 10,
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 教你学会召唤这种坐骑。已经学会"
-                  ]
-                },
-                "equipLoc": "INVTYPE_NON_EQUIP_IGNORE",
-                "icon": 7454937,
-                "itemClassId": 15,
-                "itemLevel": 10,
-                "itemSubType": "坐骑",
-                "itemSubclassId": 5,
-                "itemType": "杂项",
-                "link": "|cnIQ4:|Hitem:260231::::::::90:270::23:1:3524:1:28:872:::::|h[光亮陆行鸟]|h|r",
-                "name": "光亮陆行鸟",
-                "primaryStats": [],
-                "quality": 4,
-                "rank": 0,
-                "ruleSource": "non_upgradeable",
-                "secondaryStats": [],
-                "slotText": "",
-                "status": "ok",
-                "tooltip": {
-                  "parsed": {
-                    "effects": [
-                      {
-                        "lines": [
-                          "使用： 教你学会召唤这种坐骑。",
-                          "已经学会"
-                        ],
-                        "text": "使用： 教你学会召唤这种坐骑。已经学会",
-                        "type": "use"
-                      }
-                    ],
-                    "equipEffects": [],
-                    "flags": {
-                      "prismaticSocket": false,
-                      "uniqueEquipped": false
-                    },
-                    "primaryStats": [],
-                    "secondaryStats": [],
-                    "slotText": "",
-                    "stats": [],
-                    "upgradeTrack": "",
-                    "useEffects": [
-                      "使用： 教你学会召唤这种坐骑。已经学会"
-                    ],
-                    "white": []
-                  },
-                  "rawLines": [
-                    {
-                      "left": "光亮陆行鸟",
-                      "right": ""
-                    },
-                    {
-                      "left": "史诗",
-                      "right": ""
-                    },
-                    {
-                      "left": "拾取后绑定",
-                      "right": ""
-                    },
-                    {
-                      "left": "地面 坐骑",
-                      "right": ""
-                    },
-                    {
-                      "left": "使用： 教你学会召唤这种坐骑。",
-                      "right": ""
-                    },
-                    {
-                      "left": "已经学会",
-                      "right": ""
-                    }
-                  ]
-                },
-                "tooltipFlags": {
-                  "prismaticSocket": false,
-                  "uniqueEquipped": false
-                },
-                "track": "fixed",
-                "upgradeTrack": ""
-              },
-              "iconText": "光"
-            },
-            {
               "id": 251120,
               "name": "幽影沉降裹布",
               "icon": 7252745,
@@ -21618,6 +21192,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_CHEST",
               "ilvl": 289,
               "specs": [
                 256,
@@ -22007,6 +21582,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_TRINKET",
               "ilvl": 298,
               "specs": [
                 258
@@ -22370,6 +21946,7 @@ module.exports = {
               "armorTypeName": "法杖",
               "itemType": "武器",
               "itemSubType": "法杖",
+              "equipLoc": "INVTYPE_2HWEAPON",
               "ilvl": 298,
               "specs": [
                 256,
@@ -22782,6 +22359,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_CLOAK",
               "ilvl": 289,
               "specs": [
                 256,
@@ -23244,6 +22822,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_LEGS",
               "ilvl": 289,
               "specs": [
                 256,
@@ -23631,6 +23210,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_SHOULDER",
               "ilvl": 289,
               "specs": [
                 256,
@@ -24011,6 +23591,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_FINGER",
               "ilvl": 289,
               "specs": [
                 256,
@@ -24431,6 +24012,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_TRINKET",
               "ilvl": 298,
               "specs": [
                 256,
@@ -24746,6 +24328,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_HAND",
               "ilvl": 289,
               "specs": [
                 256,
@@ -25135,6 +24718,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_FINGER",
               "ilvl": 289,
               "specs": [
                 256,
@@ -25571,6 +25155,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_FEET",
               "ilvl": 289,
               "specs": [
                 256,
@@ -25976,6 +25561,7 @@ module.exports = {
               "armorTypeName": "匕首",
               "itemType": "武器",
               "itemSubType": "匕首",
+              "equipLoc": "INVTYPE_WEAPON",
               "ilvl": 298,
               "specs": [
                 256,
@@ -26387,6 +25973,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_CLOAK",
               "ilvl": 289,
               "specs": [
                 256,
@@ -26858,6 +26445,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_HAND",
               "ilvl": 289,
               "specs": [
                 256,
@@ -27247,6 +26835,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_TRINKET",
               "ilvl": 298,
               "specs": [
                 258
@@ -27583,6 +27172,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_TRINKET",
               "ilvl": 298,
               "specs": [
                 256,
@@ -27925,246 +27515,6 @@ module.exports = {
           "order": 1,
           "items": [
             {
-              "id": 249347,
-              "name": "艾林编织的裂隙繁花",
-              "icon": 7636712,
-              "iconName": "inv_12_trinket_rutaani_currency_blue",
-              "iconAsset": "/assets/icons/inv_12_trinket_rutaani_currency_blue.jpg",
-              "slot": "unknown",
-              "slotName": "未知",
-              "armorType": "none",
-              "armorTypeName": "垃圾",
-              "itemType": "杂项",
-              "itemSubType": "杂项",
-              "ilvl": 263,
-              "specs": [
-                256,
-                257,
-                258
-              ],
-              "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [],
-                "stamina": null,
-                "secondary": [],
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 为你的职业合成一个灵魂绑定的套装胸部物品。职业：牧师, 法师, 术士"
-                  ]
-                },
-                "white": {}
-              },
-              "source": {
-                "instanceId": 1314,
-                "instanceName": "梦境裂隙",
-                "isRaid": true,
-                "encounterId": 2795,
-                "encounterName": "奇美鲁斯，未梦之神",
-                "difficulty": 15,
-                "difficultyName": "英雄",
-                "order": 6
-              },
-              "tooltipRaw": [
-                "艾林编织的裂隙繁花",
-                "史诗",
-                "物品等级263",
-                "拾取后绑定",
-                "使用： 为你的职业合成一个灵魂绑定的套装胸部物品。",
-                "职业：牧师, 法师, 术士"
-              ],
-              "link": "|cnIQ4:|Hitem:249347::::::::90:270::5:1:3524:1:28:3606:::::|h[艾林编织的裂隙繁花]|h|r",
-              "captureStatus": "ok",
-              "dropVersion": {
-                "apiItemLevel": 263,
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 为你的职业合成一个灵魂绑定的套装胸部物品。职业：牧师, 法师, 术士"
-                  ]
-                },
-                "equipLoc": "INVTYPE_NON_EQUIP_IGNORE",
-                "icon": 7636712,
-                "itemClassId": 15,
-                "itemLevel": 263,
-                "itemSubType": "垃圾",
-                "itemSubclassId": 0,
-                "itemType": "杂项",
-                "link": "|cnIQ4:|Hitem:249347::::::::90:270::5:1:3524:1:28:3606:::::|h[艾林编织的裂隙繁花]|h|r",
-                "name": "艾林编织的裂隙繁花",
-                "primaryStats": [],
-                "quality": 4,
-                "secondaryStats": [],
-                "slotText": "",
-                "status": "ok",
-                "tooltip": {
-                  "parsed": {
-                    "effects": [
-                      {
-                        "lines": [
-                          "使用： 为你的职业合成一个灵魂绑定的套装胸部物品。",
-                          "职业：牧师, 法师, 术士"
-                        ],
-                        "text": "使用： 为你的职业合成一个灵魂绑定的套装胸部物品。职业：牧师, 法师, 术士",
-                        "type": "use"
-                      }
-                    ],
-                    "equipEffects": [],
-                    "flags": {
-                      "prismaticSocket": false,
-                      "uniqueEquipped": false
-                    },
-                    "itemLevel": 263,
-                    "primaryStats": [],
-                    "secondaryStats": [],
-                    "slotText": "",
-                    "stats": [],
-                    "upgradeTrack": "",
-                    "useEffects": [
-                      "使用： 为你的职业合成一个灵魂绑定的套装胸部物品。职业：牧师, 法师, 术士"
-                    ],
-                    "white": []
-                  },
-                  "rawLines": [
-                    {
-                      "left": "艾林编织的裂隙繁花",
-                      "right": ""
-                    },
-                    {
-                      "left": "史诗",
-                      "right": ""
-                    },
-                    {
-                      "left": "|cFF 0FF 0英雄|r",
-                      "right": ""
-                    },
-                    {
-                      "left": "物品等级263",
-                      "right": ""
-                    },
-                    {
-                      "left": "拾取后绑定",
-                      "right": ""
-                    },
-                    {
-                      "left": "使用： 为你的职业合成一个灵魂绑定的套装胸部物品。",
-                      "right": ""
-                    },
-                    {
-                      "left": "职业：牧师, 法师, 术士",
-                      "right": ""
-                    }
-                  ]
-                },
-                "tooltipFlags": {
-                  "prismaticSocket": false,
-                  "uniqueEquipped": false
-                },
-                "upgradeTrack": ""
-              },
-              "maxVersion": {
-                "apiItemLevel": 263,
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 为你的职业合成一个灵魂绑定的套装胸部物品。职业：牧师, 法师, 术士"
-                  ]
-                },
-                "equipLoc": "INVTYPE_NON_EQUIP_IGNORE",
-                "icon": 7636712,
-                "itemClassId": 15,
-                "itemLevel": 263,
-                "itemSubType": "垃圾",
-                "itemSubclassId": 0,
-                "itemType": "杂项",
-                "link": "|cnIQ4:|Hitem:249347::::::::90:270::5:1:3524:1:28:3606:::::|h[艾林编织的裂隙繁花]|h|r",
-                "name": "艾林编织的裂隙繁花",
-                "primaryStats": [],
-                "quality": 4,
-                "rank": 0,
-                "ruleSource": "non_upgradeable",
-                "secondaryStats": [],
-                "slotText": "",
-                "status": "ok",
-                "tooltip": {
-                  "parsed": {
-                    "effects": [
-                      {
-                        "lines": [
-                          "使用： 为你的职业合成一个灵魂绑定的套装胸部物品。",
-                          "职业：牧师, 法师, 术士"
-                        ],
-                        "text": "使用： 为你的职业合成一个灵魂绑定的套装胸部物品。职业：牧师, 法师, 术士",
-                        "type": "use"
-                      }
-                    ],
-                    "equipEffects": [],
-                    "flags": {
-                      "prismaticSocket": false,
-                      "uniqueEquipped": false
-                    },
-                    "itemLevel": 263,
-                    "primaryStats": [],
-                    "secondaryStats": [],
-                    "slotText": "",
-                    "stats": [],
-                    "upgradeTrack": "",
-                    "useEffects": [
-                      "使用： 为你的职业合成一个灵魂绑定的套装胸部物品。职业：牧师, 法师, 术士"
-                    ],
-                    "white": []
-                  },
-                  "rawLines": [
-                    {
-                      "left": "艾林编织的裂隙繁花",
-                      "right": ""
-                    },
-                    {
-                      "left": "史诗",
-                      "right": ""
-                    },
-                    {
-                      "left": "|cFF 0FF 0英雄|r",
-                      "right": ""
-                    },
-                    {
-                      "left": "物品等级263",
-                      "right": ""
-                    },
-                    {
-                      "left": "拾取后绑定",
-                      "right": ""
-                    },
-                    {
-                      "left": "使用： 为你的职业合成一个灵魂绑定的套装胸部物品。",
-                      "right": ""
-                    },
-                    {
-                      "left": "职业：牧师, 法师, 术士",
-                      "right": ""
-                    }
-                  ]
-                },
-                "tooltipFlags": {
-                  "prismaticSocket": false,
-                  "uniqueEquipped": false
-                },
-                "track": "fixed",
-                "upgradeTrack": ""
-              },
-              "iconText": "艾"
-            },
-            {
               "id": 249922,
               "name": "艾蔑悔恨魔典",
               "icon": 7427980,
@@ -28176,6 +27526,7 @@ module.exports = {
               "armorTypeName": "其它",
               "itemType": "护甲",
               "itemSubType": "其它",
+              "equipLoc": "INVTYPE_HOLDABLE",
               "ilvl": 298,
               "specs": [
                 256,
@@ -28564,6 +27915,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_FEET",
               "ilvl": 289,
               "specs": [
                 256,
@@ -28954,6 +28306,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_TRINKET",
               "ilvl": 298,
               "specs": [
                 256,
@@ -29308,6 +28661,7 @@ module.exports = {
               "armorTypeName": "单手锤",
               "itemType": "武器",
               "itemSubType": "单手锤",
+              "equipLoc": "INVTYPE_WEAPON",
               "ilvl": 298,
               "specs": [
                 256,
@@ -29720,6 +29074,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_CLOAK",
               "ilvl": 289,
               "specs": [
                 256,
@@ -30188,6 +29543,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_WAIST",
               "ilvl": 289,
               "specs": [
                 256,
@@ -30578,6 +29934,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_LEGS",
               "ilvl": 289,
               "specs": [
                 256,
@@ -30964,246 +30321,6 @@ module.exports = {
           "order": 2,
           "items": [
             {
-              "id": 249351,
-              "name": "虚空编织的饥饿虚核",
-              "icon": 7636684,
-              "iconName": "inv_12_trinket_devouring_host_currency3_silver",
-              "iconAsset": "/assets/icons/inv_12_trinket_devouring_host_currency3_silver.jpg",
-              "slot": "unknown",
-              "slotName": "未知",
-              "armorType": "none",
-              "armorTypeName": "垃圾",
-              "itemType": "杂项",
-              "itemSubType": "杂项",
-              "ilvl": 263,
-              "specs": [
-                256,
-                257,
-                258
-              ],
-              "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [],
-                "stamina": null,
-                "secondary": [],
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 为你的职业合成一个灵魂绑定的套装手部物品。职业：牧师, 法师, 术士"
-                  ]
-                },
-                "white": {}
-              },
-              "source": {
-                "instanceId": 1307,
-                "instanceName": "虚影尖塔",
-                "isRaid": true,
-                "encounterId": 2734,
-                "encounterName": "弗拉希乌斯",
-                "difficulty": 15,
-                "difficultyName": "英雄",
-                "order": 3
-              },
-              "tooltipRaw": [
-                "虚空编织的饥饿虚核",
-                "史诗",
-                "物品等级263",
-                "拾取后绑定",
-                "使用： 为你的职业合成一个灵魂绑定的套装手部物品。",
-                "职业：牧师, 法师, 术士"
-              ],
-              "link": "|cnIQ4:|Hitem:249351::::::::90:270::5:1:3524:1:28:3606:::::|h[虚空编织的饥饿虚核]|h|r",
-              "captureStatus": "ok",
-              "dropVersion": {
-                "apiItemLevel": 263,
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 为你的职业合成一个灵魂绑定的套装手部物品。职业：牧师, 法师, 术士"
-                  ]
-                },
-                "equipLoc": "INVTYPE_NON_EQUIP_IGNORE",
-                "icon": 7636684,
-                "itemClassId": 15,
-                "itemLevel": 263,
-                "itemSubType": "垃圾",
-                "itemSubclassId": 0,
-                "itemType": "杂项",
-                "link": "|cnIQ4:|Hitem:249351::::::::90:270::5:1:3524:1:28:3606:::::|h[虚空编织的饥饿虚核]|h|r",
-                "name": "虚空编织的饥饿虚核",
-                "primaryStats": [],
-                "quality": 4,
-                "secondaryStats": [],
-                "slotText": "",
-                "status": "ok",
-                "tooltip": {
-                  "parsed": {
-                    "effects": [
-                      {
-                        "lines": [
-                          "使用： 为你的职业合成一个灵魂绑定的套装手部物品。",
-                          "职业：牧师, 法师, 术士"
-                        ],
-                        "text": "使用： 为你的职业合成一个灵魂绑定的套装手部物品。职业：牧师, 法师, 术士",
-                        "type": "use"
-                      }
-                    ],
-                    "equipEffects": [],
-                    "flags": {
-                      "prismaticSocket": false,
-                      "uniqueEquipped": false
-                    },
-                    "itemLevel": 263,
-                    "primaryStats": [],
-                    "secondaryStats": [],
-                    "slotText": "",
-                    "stats": [],
-                    "upgradeTrack": "",
-                    "useEffects": [
-                      "使用： 为你的职业合成一个灵魂绑定的套装手部物品。职业：牧师, 法师, 术士"
-                    ],
-                    "white": []
-                  },
-                  "rawLines": [
-                    {
-                      "left": "虚空编织的饥饿虚核",
-                      "right": ""
-                    },
-                    {
-                      "left": "史诗",
-                      "right": ""
-                    },
-                    {
-                      "left": "|cFF 0FF 0英雄|r",
-                      "right": ""
-                    },
-                    {
-                      "left": "物品等级263",
-                      "right": ""
-                    },
-                    {
-                      "left": "拾取后绑定",
-                      "right": ""
-                    },
-                    {
-                      "left": "使用： 为你的职业合成一个灵魂绑定的套装手部物品。",
-                      "right": ""
-                    },
-                    {
-                      "left": "职业：牧师, 法师, 术士",
-                      "right": ""
-                    }
-                  ]
-                },
-                "tooltipFlags": {
-                  "prismaticSocket": false,
-                  "uniqueEquipped": false
-                },
-                "upgradeTrack": ""
-              },
-              "maxVersion": {
-                "apiItemLevel": 263,
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 为你的职业合成一个灵魂绑定的套装手部物品。职业：牧师, 法师, 术士"
-                  ]
-                },
-                "equipLoc": "INVTYPE_NON_EQUIP_IGNORE",
-                "icon": 7636684,
-                "itemClassId": 15,
-                "itemLevel": 263,
-                "itemSubType": "垃圾",
-                "itemSubclassId": 0,
-                "itemType": "杂项",
-                "link": "|cnIQ4:|Hitem:249351::::::::90:270::5:1:3524:1:28:3606:::::|h[虚空编织的饥饿虚核]|h|r",
-                "name": "虚空编织的饥饿虚核",
-                "primaryStats": [],
-                "quality": 4,
-                "rank": 0,
-                "ruleSource": "non_upgradeable",
-                "secondaryStats": [],
-                "slotText": "",
-                "status": "ok",
-                "tooltip": {
-                  "parsed": {
-                    "effects": [
-                      {
-                        "lines": [
-                          "使用： 为你的职业合成一个灵魂绑定的套装手部物品。",
-                          "职业：牧师, 法师, 术士"
-                        ],
-                        "text": "使用： 为你的职业合成一个灵魂绑定的套装手部物品。职业：牧师, 法师, 术士",
-                        "type": "use"
-                      }
-                    ],
-                    "equipEffects": [],
-                    "flags": {
-                      "prismaticSocket": false,
-                      "uniqueEquipped": false
-                    },
-                    "itemLevel": 263,
-                    "primaryStats": [],
-                    "secondaryStats": [],
-                    "slotText": "",
-                    "stats": [],
-                    "upgradeTrack": "",
-                    "useEffects": [
-                      "使用： 为你的职业合成一个灵魂绑定的套装手部物品。职业：牧师, 法师, 术士"
-                    ],
-                    "white": []
-                  },
-                  "rawLines": [
-                    {
-                      "left": "虚空编织的饥饿虚核",
-                      "right": ""
-                    },
-                    {
-                      "left": "史诗",
-                      "right": ""
-                    },
-                    {
-                      "left": "|cFF 0FF 0英雄|r",
-                      "right": ""
-                    },
-                    {
-                      "left": "物品等级263",
-                      "right": ""
-                    },
-                    {
-                      "left": "拾取后绑定",
-                      "right": ""
-                    },
-                    {
-                      "left": "使用： 为你的职业合成一个灵魂绑定的套装手部物品。",
-                      "right": ""
-                    },
-                    {
-                      "left": "职业：牧师, 法师, 术士",
-                      "right": ""
-                    }
-                  ]
-                },
-                "tooltipFlags": {
-                  "prismaticSocket": false,
-                  "uniqueEquipped": false
-                },
-                "track": "fixed",
-                "upgradeTrack": ""
-              },
-              "iconText": "虚"
-            },
-            {
               "id": 249276,
               "name": "永恒之光魔典",
               "icon": 7427980,
@@ -31215,6 +30332,7 @@ module.exports = {
               "armorTypeName": "其它",
               "itemType": "护甲",
               "itemSubType": "其它",
+              "equipLoc": "INVTYPE_HOLDABLE",
               "ilvl": 298,
               "specs": [
                 256,
@@ -31603,6 +30721,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_WRIST",
               "ilvl": 289,
               "specs": [
                 256,
@@ -31993,6 +31112,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_FINGER",
               "ilvl": 289,
               "specs": [
                 256,
@@ -32350,246 +31470,6 @@ module.exports = {
           "order": 3,
           "items": [
             {
-              "id": 249363,
-              "name": "虚空编织的解离虚核",
-              "icon": 7636673,
-              "iconName": "inv_12_trinket_devouring_host_currency_void",
-              "iconAsset": "/assets/icons/inv_12_trinket_devouring_host_currency_void.jpg",
-              "slot": "unknown",
-              "slotName": "未知",
-              "armorType": "none",
-              "armorTypeName": "垃圾",
-              "itemType": "杂项",
-              "itemSubType": "杂项",
-              "ilvl": 263,
-              "specs": [
-                256,
-                257,
-                258
-              ],
-              "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [],
-                "stamina": null,
-                "secondary": [],
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 为你的职业合成一个灵魂绑定的套装肩部物品。职业：牧师, 法师, 术士"
-                  ]
-                },
-                "white": {}
-              },
-              "source": {
-                "instanceId": 1307,
-                "instanceName": "虚影尖塔",
-                "isRaid": true,
-                "encounterId": 2736,
-                "encounterName": "陨落之王萨哈达尔",
-                "difficulty": 15,
-                "difficultyName": "英雄",
-                "order": 4
-              },
-              "tooltipRaw": [
-                "虚空编织的解离虚核",
-                "史诗",
-                "物品等级263",
-                "拾取后绑定",
-                "使用： 为你的职业合成一个灵魂绑定的套装肩部物品。",
-                "职业：牧师, 法师, 术士"
-              ],
-              "link": "|cnIQ4:|Hitem:249363::::::::90:270::5:1:3524:1:28:3606:::::|h[虚空编织的解离虚核]|h|r",
-              "captureStatus": "ok",
-              "dropVersion": {
-                "apiItemLevel": 263,
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 为你的职业合成一个灵魂绑定的套装肩部物品。职业：牧师, 法师, 术士"
-                  ]
-                },
-                "equipLoc": "INVTYPE_NON_EQUIP_IGNORE",
-                "icon": 7636673,
-                "itemClassId": 15,
-                "itemLevel": 263,
-                "itemSubType": "垃圾",
-                "itemSubclassId": 0,
-                "itemType": "杂项",
-                "link": "|cnIQ4:|Hitem:249363::::::::90:270::5:1:3524:1:28:3606:::::|h[虚空编织的解离虚核]|h|r",
-                "name": "虚空编织的解离虚核",
-                "primaryStats": [],
-                "quality": 4,
-                "secondaryStats": [],
-                "slotText": "",
-                "status": "ok",
-                "tooltip": {
-                  "parsed": {
-                    "effects": [
-                      {
-                        "lines": [
-                          "使用： 为你的职业合成一个灵魂绑定的套装肩部物品。",
-                          "职业：牧师, 法师, 术士"
-                        ],
-                        "text": "使用： 为你的职业合成一个灵魂绑定的套装肩部物品。职业：牧师, 法师, 术士",
-                        "type": "use"
-                      }
-                    ],
-                    "equipEffects": [],
-                    "flags": {
-                      "prismaticSocket": false,
-                      "uniqueEquipped": false
-                    },
-                    "itemLevel": 263,
-                    "primaryStats": [],
-                    "secondaryStats": [],
-                    "slotText": "",
-                    "stats": [],
-                    "upgradeTrack": "",
-                    "useEffects": [
-                      "使用： 为你的职业合成一个灵魂绑定的套装肩部物品。职业：牧师, 法师, 术士"
-                    ],
-                    "white": []
-                  },
-                  "rawLines": [
-                    {
-                      "left": "虚空编织的解离虚核",
-                      "right": ""
-                    },
-                    {
-                      "left": "史诗",
-                      "right": ""
-                    },
-                    {
-                      "left": "|cFF 0FF 0英雄|r",
-                      "right": ""
-                    },
-                    {
-                      "left": "物品等级263",
-                      "right": ""
-                    },
-                    {
-                      "left": "拾取后绑定",
-                      "right": ""
-                    },
-                    {
-                      "left": "使用： 为你的职业合成一个灵魂绑定的套装肩部物品。",
-                      "right": ""
-                    },
-                    {
-                      "left": "职业：牧师, 法师, 术士",
-                      "right": ""
-                    }
-                  ]
-                },
-                "tooltipFlags": {
-                  "prismaticSocket": false,
-                  "uniqueEquipped": false
-                },
-                "upgradeTrack": ""
-              },
-              "maxVersion": {
-                "apiItemLevel": 263,
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 为你的职业合成一个灵魂绑定的套装肩部物品。职业：牧师, 法师, 术士"
-                  ]
-                },
-                "equipLoc": "INVTYPE_NON_EQUIP_IGNORE",
-                "icon": 7636673,
-                "itemClassId": 15,
-                "itemLevel": 263,
-                "itemSubType": "垃圾",
-                "itemSubclassId": 0,
-                "itemType": "杂项",
-                "link": "|cnIQ4:|Hitem:249363::::::::90:270::5:1:3524:1:28:3606:::::|h[虚空编织的解离虚核]|h|r",
-                "name": "虚空编织的解离虚核",
-                "primaryStats": [],
-                "quality": 4,
-                "rank": 0,
-                "ruleSource": "non_upgradeable",
-                "secondaryStats": [],
-                "slotText": "",
-                "status": "ok",
-                "tooltip": {
-                  "parsed": {
-                    "effects": [
-                      {
-                        "lines": [
-                          "使用： 为你的职业合成一个灵魂绑定的套装肩部物品。",
-                          "职业：牧师, 法师, 术士"
-                        ],
-                        "text": "使用： 为你的职业合成一个灵魂绑定的套装肩部物品。职业：牧师, 法师, 术士",
-                        "type": "use"
-                      }
-                    ],
-                    "equipEffects": [],
-                    "flags": {
-                      "prismaticSocket": false,
-                      "uniqueEquipped": false
-                    },
-                    "itemLevel": 263,
-                    "primaryStats": [],
-                    "secondaryStats": [],
-                    "slotText": "",
-                    "stats": [],
-                    "upgradeTrack": "",
-                    "useEffects": [
-                      "使用： 为你的职业合成一个灵魂绑定的套装肩部物品。职业：牧师, 法师, 术士"
-                    ],
-                    "white": []
-                  },
-                  "rawLines": [
-                    {
-                      "left": "虚空编织的解离虚核",
-                      "right": ""
-                    },
-                    {
-                      "left": "史诗",
-                      "right": ""
-                    },
-                    {
-                      "left": "|cFF 0FF 0英雄|r",
-                      "right": ""
-                    },
-                    {
-                      "left": "物品等级263",
-                      "right": ""
-                    },
-                    {
-                      "left": "拾取后绑定",
-                      "right": ""
-                    },
-                    {
-                      "left": "使用： 为你的职业合成一个灵魂绑定的套装肩部物品。",
-                      "right": ""
-                    },
-                    {
-                      "left": "职业：牧师, 法师, 术士",
-                      "right": ""
-                    }
-                  ]
-                },
-                "tooltipFlags": {
-                  "prismaticSocket": false,
-                  "uniqueEquipped": false
-                },
-                "track": "fixed",
-                "upgradeTrack": ""
-              },
-              "iconText": "虚"
-            },
-            {
               "id": 249337,
               "name": "盘绕恶意丝带",
               "icon": 7636574,
@@ -32601,6 +31481,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_NECK",
               "ilvl": 289,
               "specs": [
                 256,
@@ -32953,6 +31834,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_ROBE",
               "ilvl": 289,
               "specs": [
                 256,
@@ -33343,6 +32225,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_TRINKET",
               "ilvl": 298,
               "specs": [
                 256,
@@ -33652,6 +32535,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_TRINKET",
               "ilvl": 298,
               "specs": [
                 258
@@ -33978,680 +32862,6 @@ module.exports = {
           "order": 4,
           "items": [
             {
-              "id": 249359,
-              "name": "虚空编织的腐化虚核",
-              "icon": 7636681,
-              "iconName": "inv_12_trinket_devouring_host_currency2_void",
-              "iconAsset": "/assets/icons/inv_12_trinket_devouring_host_currency2_void.jpg",
-              "slot": "unknown",
-              "slotName": "未知",
-              "armorType": "none",
-              "armorTypeName": "垃圾",
-              "itemType": "杂项",
-              "itemSubType": "杂项",
-              "ilvl": 266,
-              "specs": [
-                256,
-                257,
-                258
-              ],
-              "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [],
-                "stamina": null,
-                "secondary": [],
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 为你的职业合成一个灵魂绑定的套装腿部物品。职业：牧师, 法师, 术士"
-                  ]
-                },
-                "white": {}
-              },
-              "source": {
-                "instanceId": 1307,
-                "instanceName": "虚影尖塔",
-                "isRaid": true,
-                "encounterId": 2735,
-                "encounterName": "威厄高尔和艾佐拉克",
-                "difficulty": 15,
-                "difficultyName": "英雄",
-                "order": 2
-              },
-              "tooltipRaw": [
-                "虚空编织的腐化虚核",
-                "史诗",
-                "物品等级266",
-                "拾取后绑定",
-                "使用： 为你的职业合成一个灵魂绑定的套装腿部物品。",
-                "职业：牧师, 法师, 术士"
-              ],
-              "link": "|cnIQ4:|Hitem:249359::::::::90:270::5:1:3524:1:28:3606:::::|h[虚空编织的腐化虚核]|h|r",
-              "captureStatus": "ok",
-              "dropVersion": {
-                "apiItemLevel": 266,
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 为你的职业合成一个灵魂绑定的套装腿部物品。职业：牧师, 法师, 术士"
-                  ]
-                },
-                "equipLoc": "INVTYPE_NON_EQUIP_IGNORE",
-                "icon": 7636681,
-                "itemClassId": 15,
-                "itemLevel": 266,
-                "itemSubType": "垃圾",
-                "itemSubclassId": 0,
-                "itemType": "杂项",
-                "link": "|cnIQ4:|Hitem:249359::::::::90:270::5:1:3524:1:28:3606:::::|h[虚空编织的腐化虚核]|h|r",
-                "name": "虚空编织的腐化虚核",
-                "primaryStats": [],
-                "quality": 4,
-                "secondaryStats": [],
-                "slotText": "",
-                "status": "ok",
-                "tooltip": {
-                  "parsed": {
-                    "effects": [
-                      {
-                        "lines": [
-                          "使用： 为你的职业合成一个灵魂绑定的套装腿部物品。",
-                          "职业：牧师, 法师, 术士"
-                        ],
-                        "text": "使用： 为你的职业合成一个灵魂绑定的套装腿部物品。职业：牧师, 法师, 术士",
-                        "type": "use"
-                      }
-                    ],
-                    "equipEffects": [],
-                    "flags": {
-                      "prismaticSocket": false,
-                      "uniqueEquipped": false
-                    },
-                    "itemLevel": 266,
-                    "primaryStats": [],
-                    "secondaryStats": [],
-                    "slotText": "",
-                    "stats": [],
-                    "upgradeTrack": "",
-                    "useEffects": [
-                      "使用： 为你的职业合成一个灵魂绑定的套装腿部物品。职业：牧师, 法师, 术士"
-                    ],
-                    "white": []
-                  },
-                  "rawLines": [
-                    {
-                      "left": "虚空编织的腐化虚核",
-                      "right": ""
-                    },
-                    {
-                      "left": "史诗",
-                      "right": ""
-                    },
-                    {
-                      "left": "|cFF 0FF 0英雄|r",
-                      "right": ""
-                    },
-                    {
-                      "left": "物品等级266",
-                      "right": ""
-                    },
-                    {
-                      "left": "拾取后绑定",
-                      "right": ""
-                    },
-                    {
-                      "left": "使用： 为你的职业合成一个灵魂绑定的套装腿部物品。",
-                      "right": ""
-                    },
-                    {
-                      "left": "职业：牧师, 法师, 术士",
-                      "right": ""
-                    }
-                  ]
-                },
-                "tooltipFlags": {
-                  "prismaticSocket": false,
-                  "uniqueEquipped": false
-                },
-                "upgradeTrack": ""
-              },
-              "maxVersion": {
-                "apiItemLevel": 266,
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 为你的职业合成一个灵魂绑定的套装腿部物品。职业：牧师, 法师, 术士"
-                  ]
-                },
-                "equipLoc": "INVTYPE_NON_EQUIP_IGNORE",
-                "icon": 7636681,
-                "itemClassId": 15,
-                "itemLevel": 266,
-                "itemSubType": "垃圾",
-                "itemSubclassId": 0,
-                "itemType": "杂项",
-                "link": "|cnIQ4:|Hitem:249359::::::::90:270::5:1:3524:1:28:3606:::::|h[虚空编织的腐化虚核]|h|r",
-                "name": "虚空编织的腐化虚核",
-                "primaryStats": [],
-                "quality": 4,
-                "rank": 0,
-                "ruleSource": "non_upgradeable",
-                "secondaryStats": [],
-                "slotText": "",
-                "status": "ok",
-                "tooltip": {
-                  "parsed": {
-                    "effects": [
-                      {
-                        "lines": [
-                          "使用： 为你的职业合成一个灵魂绑定的套装腿部物品。",
-                          "职业：牧师, 法师, 术士"
-                        ],
-                        "text": "使用： 为你的职业合成一个灵魂绑定的套装腿部物品。职业：牧师, 法师, 术士",
-                        "type": "use"
-                      }
-                    ],
-                    "equipEffects": [],
-                    "flags": {
-                      "prismaticSocket": false,
-                      "uniqueEquipped": false
-                    },
-                    "itemLevel": 266,
-                    "primaryStats": [],
-                    "secondaryStats": [],
-                    "slotText": "",
-                    "stats": [],
-                    "upgradeTrack": "",
-                    "useEffects": [
-                      "使用： 为你的职业合成一个灵魂绑定的套装腿部物品。职业：牧师, 法师, 术士"
-                    ],
-                    "white": []
-                  },
-                  "rawLines": [
-                    {
-                      "left": "虚空编织的腐化虚核",
-                      "right": ""
-                    },
-                    {
-                      "left": "史诗",
-                      "right": ""
-                    },
-                    {
-                      "left": "|cFF 0FF 0英雄|r",
-                      "right": ""
-                    },
-                    {
-                      "left": "物品等级266",
-                      "right": ""
-                    },
-                    {
-                      "left": "拾取后绑定",
-                      "right": ""
-                    },
-                    {
-                      "left": "使用： 为你的职业合成一个灵魂绑定的套装腿部物品。",
-                      "right": ""
-                    },
-                    {
-                      "left": "职业：牧师, 法师, 术士",
-                      "right": ""
-                    }
-                  ]
-                },
-                "tooltipFlags": {
-                  "prismaticSocket": false,
-                  "uniqueEquipped": false
-                },
-                "track": "fixed",
-                "upgradeTrack": ""
-              },
-              "iconText": "虚"
-            },
-            {
-              "id": 258521,
-              "name": "设计图：血骑士的强击矛",
-              "icon": 4549189,
-              "iconName": "inv_10_inscription2_scroll2_color1",
-              "iconAsset": "/assets/icons/inv_10_inscription2_scroll2_color1.jpg",
-              "slot": "unknown",
-              "slotName": "双手",
-              "armorType": "none",
-              "armorTypeName": "锻造",
-              "itemType": "配方",
-              "itemSubType": "配方",
-              "ilvl": 246,
-              "specs": [
-                256,
-                257,
-                258
-              ],
-              "classes": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13
-              ],
-              "quality": 3,
-              "upgradeTrack": "",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [
-                  {
-                    "name": "力量",
-                    "type": "strength",
-                    "value": 83
-                  },
-                  {
-                    "name": "敏捷",
-                    "type": "agility",
-                    "value": 83
-                  }
-                ],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 1031
-                },
-                "secondary": [],
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 教你学会制作血骑士的强击矛。需要至暗之夜锻造（50）"
-                  ]
-                },
-                "white": {
-                  "damageMax": 293,
-                  "damageMin": 157,
-                  "dps": 62.5,
-                  "speed": 3.6
-                }
-              },
-              "source": {
-                "instanceId": 1307,
-                "instanceName": "虚影尖塔",
-                "isRaid": true,
-                "encounterId": 2735,
-                "encounterName": "威厄高尔和艾佐拉克",
-                "difficulty": 15,
-                "difficultyName": "英雄",
-                "order": 6
-              },
-              "tooltipRaw": [
-                "设计图：血骑士的强击矛",
-                "精良",
-                "血骑士的强击矛",
-                "史诗",
-                "物品等级246",
-                "拾取后绑定",
-                "双手 长柄武器",
-                "157 - 293点伤害 速度 3.60",
-                "（每秒伤害62.5）",
-                "+83 敏捷",
-                "+1031 耐力",
-                "+65 随机属性1",
-                "+65 随机属性2",
-                "+83 力量",
-                "使用： 教你学会制作血骑士的强击矛。",
-                "需要至暗之夜锻造（50）"
-              ],
-              "link": "|cnIQ3:|Hitem:258521::::::::90:270::5:1:3524:1:28:3606:::::|h[设计图：血骑士的强击矛]|h|r",
-              "captureStatus": "ok",
-              "dropVersion": {
-                "apiItemLevel": 1,
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 教你学会制作血骑士的强击矛。需要至暗之夜锻造（50）"
-                  ]
-                },
-                "equipLoc": "INVTYPE_NON_EQUIP_IGNORE",
-                "icon": 4549189,
-                "itemClassId": 9,
-                "itemLevel": 246,
-                "itemSubType": "锻造",
-                "itemSubclassId": 4,
-                "itemType": "配方",
-                "link": "|cnIQ3:|Hitem:258521::::::::90:270::5:1:3524:1:28:3606:::::|h[设计图：血骑士的强击矛]|h|r",
-                "name": "设计图：血骑士的强击矛",
-                "primaryStats": [
-                  {
-                    "name": "力量",
-                    "type": "strength",
-                    "value": 83
-                  },
-                  {
-                    "name": "敏捷",
-                    "type": "agility",
-                    "value": 83
-                  }
-                ],
-                "quality": 3,
-                "secondaryStats": [],
-                "slotText": "双手",
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 1031
-                },
-                "status": "ok",
-                "tooltip": {
-                  "parsed": {
-                    "effects": [
-                      {
-                        "lines": [
-                          "使用： 教你学会制作血骑士的强击矛。",
-                          "需要至暗之夜锻造（50）"
-                        ],
-                        "text": "使用： 教你学会制作血骑士的强击矛。需要至暗之夜锻造（50）",
-                        "type": "use"
-                      }
-                    ],
-                    "equipEffects": [],
-                    "flags": {
-                      "prismaticSocket": false,
-                      "uniqueEquipped": false
-                    },
-                    "itemLevel": 246,
-                    "primaryStats": [
-                      {
-                        "name": "力量",
-                        "type": "strength",
-                        "value": 83
-                      },
-                      {
-                        "name": "敏捷",
-                        "type": "agility",
-                        "value": 83
-                      }
-                    ],
-                    "secondaryStats": [],
-                    "slotText": "双手",
-                    "stamina": {
-                      "name": "耐力",
-                      "type": "stamina",
-                      "value": 1031
-                    },
-                    "stats": {
-                      "agility": 83,
-                      "stamina": 1031,
-                      "strength": 83
-                    },
-                    "upgradeTrack": "",
-                    "useEffects": [
-                      "使用： 教你学会制作血骑士的强击矛。需要至暗之夜锻造（50）"
-                    ],
-                    "white": {
-                      "damageMax": 293,
-                      "damageMin": 157,
-                      "dps": 62.5,
-                      "speed": 3.6
-                    }
-                  },
-                  "rawLines": [
-                    {
-                      "left": "设计图：血骑士的强击矛",
-                      "right": ""
-                    },
-                    {
-                      "left": "精良",
-                      "right": ""
-                    },
-                    {
-                      "left": "\n血骑士的强击矛",
-                      "right": ""
-                    },
-                    {
-                      "left": "史诗",
-                      "right": ""
-                    },
-                    {
-                      "left": "物品等级246",
-                      "right": ""
-                    },
-                    {
-                      "left": "拾取后绑定",
-                      "right": ""
-                    },
-                    {
-                      "left": "双手",
-                      "right": "长柄武器"
-                    },
-                    {
-                      "left": "157 - 293点伤害",
-                      "right": "速度 3.60"
-                    },
-                    {
-                      "left": "（每秒伤害62.5）",
-                      "right": ""
-                    },
-                    {
-                      "left": "+83 敏捷",
-                      "right": ""
-                    },
-                    {
-                      "left": "+1031 耐力",
-                      "right": ""
-                    },
-                    {
-                      "left": "+65 随机属性1",
-                      "right": ""
-                    },
-                    {
-                      "left": "+65 随机属性2",
-                      "right": ""
-                    },
-                    {
-                      "left": "+83 力量",
-                      "right": ""
-                    },
-                    {
-                      "left": "使用： 教你学会制作血骑士的强击矛。",
-                      "right": ""
-                    },
-                    {
-                      "left": "需要至暗之夜锻造（50）",
-                      "right": ""
-                    }
-                  ]
-                },
-                "tooltipFlags": {
-                  "prismaticSocket": false,
-                  "uniqueEquipped": false
-                },
-                "upgradeTrack": ""
-              },
-              "maxVersion": {
-                "apiItemLevel": 1,
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 教你学会制作血骑士的强击矛。需要至暗之夜锻造（50）"
-                  ]
-                },
-                "equipLoc": "INVTYPE_NON_EQUIP_IGNORE",
-                "icon": 4549189,
-                "itemClassId": 9,
-                "itemLevel": 246,
-                "itemSubType": "锻造",
-                "itemSubclassId": 4,
-                "itemType": "配方",
-                "link": "|cnIQ3:|Hitem:258521::::::::90:270::5:1:3524:1:28:3606:::::|h[设计图：血骑士的强击矛]|h|r",
-                "name": "设计图：血骑士的强击矛",
-                "primaryStats": [
-                  {
-                    "name": "力量",
-                    "type": "strength",
-                    "value": 83
-                  },
-                  {
-                    "name": "敏捷",
-                    "type": "agility",
-                    "value": 83
-                  }
-                ],
-                "quality": 3,
-                "rank": 0,
-                "ruleSource": "non_upgradeable",
-                "secondaryStats": [],
-                "slotText": "双手",
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 1031
-                },
-                "status": "ok",
-                "tooltip": {
-                  "parsed": {
-                    "effects": [
-                      {
-                        "lines": [
-                          "使用： 教你学会制作血骑士的强击矛。",
-                          "需要至暗之夜锻造（50）"
-                        ],
-                        "text": "使用： 教你学会制作血骑士的强击矛。需要至暗之夜锻造（50）",
-                        "type": "use"
-                      }
-                    ],
-                    "equipEffects": [],
-                    "flags": {
-                      "prismaticSocket": false,
-                      "uniqueEquipped": false
-                    },
-                    "itemLevel": 246,
-                    "primaryStats": [
-                      {
-                        "name": "力量",
-                        "type": "strength",
-                        "value": 83
-                      },
-                      {
-                        "name": "敏捷",
-                        "type": "agility",
-                        "value": 83
-                      }
-                    ],
-                    "secondaryStats": [],
-                    "slotText": "双手",
-                    "stamina": {
-                      "name": "耐力",
-                      "type": "stamina",
-                      "value": 1031
-                    },
-                    "stats": {
-                      "agility": 83,
-                      "stamina": 1031,
-                      "strength": 83
-                    },
-                    "upgradeTrack": "",
-                    "useEffects": [
-                      "使用： 教你学会制作血骑士的强击矛。需要至暗之夜锻造（50）"
-                    ],
-                    "white": {
-                      "damageMax": 293,
-                      "damageMin": 157,
-                      "dps": 62.5,
-                      "speed": 3.6
-                    }
-                  },
-                  "rawLines": [
-                    {
-                      "left": "设计图：血骑士的强击矛",
-                      "right": ""
-                    },
-                    {
-                      "left": "精良",
-                      "right": ""
-                    },
-                    {
-                      "left": "\n血骑士的强击矛",
-                      "right": ""
-                    },
-                    {
-                      "left": "史诗",
-                      "right": ""
-                    },
-                    {
-                      "left": "物品等级246",
-                      "right": ""
-                    },
-                    {
-                      "left": "拾取后绑定",
-                      "right": ""
-                    },
-                    {
-                      "left": "双手",
-                      "right": "长柄武器"
-                    },
-                    {
-                      "left": "157 - 293点伤害",
-                      "right": "速度 3.60"
-                    },
-                    {
-                      "left": "（每秒伤害62.5）",
-                      "right": ""
-                    },
-                    {
-                      "left": "+83 敏捷",
-                      "right": ""
-                    },
-                    {
-                      "left": "+1031 耐力",
-                      "right": ""
-                    },
-                    {
-                      "left": "+65 随机属性1",
-                      "right": ""
-                    },
-                    {
-                      "left": "+65 随机属性2",
-                      "right": ""
-                    },
-                    {
-                      "left": "+83 力量",
-                      "right": ""
-                    },
-                    {
-                      "left": "使用： 教你学会制作血骑士的强击矛。",
-                      "right": ""
-                    },
-                    {
-                      "left": "需要至暗之夜锻造（50）",
-                      "right": ""
-                    }
-                  ]
-                },
-                "tooltipFlags": {
-                  "prismaticSocket": false,
-                  "uniqueEquipped": false
-                },
-                "track": "fixed",
-                "upgradeTrack": ""
-              },
-              "iconText": "设"
-            },
-            {
               "id": 249370,
               "name": "龙族虚无披风",
               "icon": 3575675,
@@ -34663,6 +32873,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_CLOAK",
               "ilvl": 289,
               "specs": [
                 256,
@@ -35126,6 +33337,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_FEET",
               "ilvl": 289,
               "specs": [
                 256,
@@ -35516,6 +33728,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_TRINKET",
               "ilvl": 298,
               "specs": [
                 256,
@@ -35825,246 +34038,6 @@ module.exports = {
           "order": 5,
           "items": [
             {
-              "id": 249355,
-              "name": "虚空编织的狂热虚核",
-              "icon": 7636677,
-              "iconName": "inv_12_trinket_devouring_host_currency1_void",
-              "iconAsset": "/assets/icons/inv_12_trinket_devouring_host_currency1_void.jpg",
-              "slot": "unknown",
-              "slotName": "未知",
-              "armorType": "none",
-              "armorTypeName": "垃圾",
-              "itemType": "杂项",
-              "itemSubType": "杂项",
-              "ilvl": 266,
-              "specs": [
-                256,
-                257,
-                258
-              ],
-              "classes": [
-                5,
-                8,
-                9
-              ],
-              "quality": 4,
-              "upgradeTrack": "",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [],
-                "stamina": null,
-                "secondary": [],
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 为你的职业合成一个灵魂绑定的套装头部物品。职业：牧师, 法师, 术士"
-                  ]
-                },
-                "white": {}
-              },
-              "source": {
-                "instanceId": 1307,
-                "instanceName": "虚影尖塔",
-                "isRaid": true,
-                "encounterId": 2737,
-                "encounterName": "光盲先锋军",
-                "difficulty": 15,
-                "difficultyName": "英雄",
-                "order": 3
-              },
-              "tooltipRaw": [
-                "虚空编织的狂热虚核",
-                "史诗",
-                "物品等级266",
-                "拾取后绑定",
-                "使用： 为你的职业合成一个灵魂绑定的套装头部物品。",
-                "职业：牧师, 法师, 术士"
-              ],
-              "link": "|cnIQ4:|Hitem:249355::::::::90:270::5:1:3524:1:28:3606:::::|h[虚空编织的狂热虚核]|h|r",
-              "captureStatus": "ok",
-              "dropVersion": {
-                "apiItemLevel": 266,
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 为你的职业合成一个灵魂绑定的套装头部物品。职业：牧师, 法师, 术士"
-                  ]
-                },
-                "equipLoc": "INVTYPE_NON_EQUIP_IGNORE",
-                "icon": 7636677,
-                "itemClassId": 15,
-                "itemLevel": 266,
-                "itemSubType": "垃圾",
-                "itemSubclassId": 0,
-                "itemType": "杂项",
-                "link": "|cnIQ4:|Hitem:249355::::::::90:270::5:1:3524:1:28:3606:::::|h[虚空编织的狂热虚核]|h|r",
-                "name": "虚空编织的狂热虚核",
-                "primaryStats": [],
-                "quality": 4,
-                "secondaryStats": [],
-                "slotText": "",
-                "status": "ok",
-                "tooltip": {
-                  "parsed": {
-                    "effects": [
-                      {
-                        "lines": [
-                          "使用： 为你的职业合成一个灵魂绑定的套装头部物品。",
-                          "职业：牧师, 法师, 术士"
-                        ],
-                        "text": "使用： 为你的职业合成一个灵魂绑定的套装头部物品。职业：牧师, 法师, 术士",
-                        "type": "use"
-                      }
-                    ],
-                    "equipEffects": [],
-                    "flags": {
-                      "prismaticSocket": false,
-                      "uniqueEquipped": false
-                    },
-                    "itemLevel": 266,
-                    "primaryStats": [],
-                    "secondaryStats": [],
-                    "slotText": "",
-                    "stats": [],
-                    "upgradeTrack": "",
-                    "useEffects": [
-                      "使用： 为你的职业合成一个灵魂绑定的套装头部物品。职业：牧师, 法师, 术士"
-                    ],
-                    "white": []
-                  },
-                  "rawLines": [
-                    {
-                      "left": "虚空编织的狂热虚核",
-                      "right": ""
-                    },
-                    {
-                      "left": "史诗",
-                      "right": ""
-                    },
-                    {
-                      "left": "|cFF 0FF 0英雄|r",
-                      "right": ""
-                    },
-                    {
-                      "left": "物品等级266",
-                      "right": ""
-                    },
-                    {
-                      "left": "拾取后绑定",
-                      "right": ""
-                    },
-                    {
-                      "left": "使用： 为你的职业合成一个灵魂绑定的套装头部物品。",
-                      "right": ""
-                    },
-                    {
-                      "left": "职业：牧师, 法师, 术士",
-                      "right": ""
-                    }
-                  ]
-                },
-                "tooltipFlags": {
-                  "prismaticSocket": false,
-                  "uniqueEquipped": false
-                },
-                "upgradeTrack": ""
-              },
-              "maxVersion": {
-                "apiItemLevel": 266,
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 为你的职业合成一个灵魂绑定的套装头部物品。职业：牧师, 法师, 术士"
-                  ]
-                },
-                "equipLoc": "INVTYPE_NON_EQUIP_IGNORE",
-                "icon": 7636677,
-                "itemClassId": 15,
-                "itemLevel": 266,
-                "itemSubType": "垃圾",
-                "itemSubclassId": 0,
-                "itemType": "杂项",
-                "link": "|cnIQ4:|Hitem:249355::::::::90:270::5:1:3524:1:28:3606:::::|h[虚空编织的狂热虚核]|h|r",
-                "name": "虚空编织的狂热虚核",
-                "primaryStats": [],
-                "quality": 4,
-                "rank": 0,
-                "ruleSource": "non_upgradeable",
-                "secondaryStats": [],
-                "slotText": "",
-                "status": "ok",
-                "tooltip": {
-                  "parsed": {
-                    "effects": [
-                      {
-                        "lines": [
-                          "使用： 为你的职业合成一个灵魂绑定的套装头部物品。",
-                          "职业：牧师, 法师, 术士"
-                        ],
-                        "text": "使用： 为你的职业合成一个灵魂绑定的套装头部物品。职业：牧师, 法师, 术士",
-                        "type": "use"
-                      }
-                    ],
-                    "equipEffects": [],
-                    "flags": {
-                      "prismaticSocket": false,
-                      "uniqueEquipped": false
-                    },
-                    "itemLevel": 266,
-                    "primaryStats": [],
-                    "secondaryStats": [],
-                    "slotText": "",
-                    "stats": [],
-                    "upgradeTrack": "",
-                    "useEffects": [
-                      "使用： 为你的职业合成一个灵魂绑定的套装头部物品。职业：牧师, 法师, 术士"
-                    ],
-                    "white": []
-                  },
-                  "rawLines": [
-                    {
-                      "left": "虚空编织的狂热虚核",
-                      "right": ""
-                    },
-                    {
-                      "left": "史诗",
-                      "right": ""
-                    },
-                    {
-                      "left": "|cFF 0FF 0英雄|r",
-                      "right": ""
-                    },
-                    {
-                      "left": "物品等级266",
-                      "right": ""
-                    },
-                    {
-                      "left": "拾取后绑定",
-                      "right": ""
-                    },
-                    {
-                      "left": "使用： 为你的职业合成一个灵魂绑定的套装头部物品。",
-                      "right": ""
-                    },
-                    {
-                      "left": "职业：牧师, 法师, 术士",
-                      "right": ""
-                    }
-                  ]
-                },
-                "tooltipFlags": {
-                  "prismaticSocket": false,
-                  "uniqueEquipped": false
-                },
-                "track": "fixed",
-                "upgradeTrack": ""
-              },
-              "iconText": "虚"
-            },
-            {
               "id": 249330,
               "name": "战争牧师的护手",
               "icon": 7367702,
@@ -36076,6 +34049,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_HAND",
               "ilvl": 289,
               "specs": [
                 256,
@@ -36466,6 +34440,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_FINGER",
               "ilvl": 289,
               "specs": [
                 256,
@@ -36827,6 +34802,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_TRINKET",
               "ilvl": 298,
               "specs": [
                 256,
@@ -37164,6 +35140,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_HEAD",
               "ilvl": 289,
               "specs": [
                 256,
@@ -37554,6 +35531,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_NECK",
               "ilvl": 289,
               "specs": [
                 256,
@@ -37949,6 +35927,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_TRINKET",
               "ilvl": 298,
               "specs": [
                 256,
@@ -38288,415 +36267,6 @@ module.exports = {
           "order": 1,
           "items": [
             {
-              "id": 256715,
-              "name": "图鉴：萨拉斯凤凰饰环",
-              "icon": 4549189,
-              "iconName": "inv_10_inscription2_scroll2_color1",
-              "iconAsset": "/assets/icons/inv_10_inscription2_scroll2_color1.jpg",
-              "slot": "unknown",
-              "slotName": "颈部",
-              "armorType": "none",
-              "armorTypeName": "珠宝加工",
-              "itemType": "配方",
-              "itemSubType": "配方",
-              "ilvl": 246,
-              "specs": [
-                256,
-                257,
-                258
-              ],
-              "classes": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13
-              ],
-              "quality": 3,
-              "upgradeTrack": "",
-              "tooltipFlags": {
-                "prismaticSocket": true,
-                "uniqueEquipped": true
-              },
-              "stats": {
-                "primaryStats": [],
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 580
-                },
-                "secondary": [
-                  {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 111
-                  },
-                  {
-                    "name": "精通",
-                    "type": "mastery",
-                    "value": 94
-                  }
-                ],
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 教你学会制作萨拉斯凤凰饰环。需要至暗之夜珠宝加工（50）"
-                  ]
-                },
-                "white": {}
-              },
-              "source": {
-                "instanceId": 1308,
-                "instanceName": "进军奎尔丹纳斯",
-                "isRaid": true,
-                "encounterId": 2739,
-                "encounterName": "贝洛朗，奥的子嗣",
-                "difficulty": 15,
-                "difficultyName": "英雄",
-                "order": 2
-              },
-              "tooltipRaw": [
-                "图鉴：萨拉斯凤凰饰环",
-                "精良",
-                "萨拉斯凤凰饰环",
-                "史诗",
-                "物品等级246",
-                "拾取后绑定",
-                "装备唯一：美化 （2）",
-                "颈部",
-                "+580 耐力",
-                "+111 急速",
-                "+94 精通",
-                "棱彩插槽",
-                "使用： 教你学会制作萨拉斯凤凰饰环。",
-                "需要至暗之夜珠宝加工（50）"
-              ],
-              "link": "|cnIQ3:|Hitem:256715::::::::90:270::5:1:3524:1:28:3611:::::|h[图鉴：萨拉斯凤凰饰环]|h|r",
-              "captureStatus": "ok",
-              "dropVersion": {
-                "apiItemLevel": 1,
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 教你学会制作萨拉斯凤凰饰环。需要至暗之夜珠宝加工（50）"
-                  ]
-                },
-                "equipLoc": "INVTYPE_NON_EQUIP_IGNORE",
-                "icon": 4549189,
-                "itemClassId": 9,
-                "itemLevel": 246,
-                "itemSubType": "珠宝加工",
-                "itemSubclassId": 10,
-                "itemType": "配方",
-                "link": "|cnIQ3:|Hitem:256715::::::::90:270::5:1:3524:1:28:3611:::::|h[图鉴：萨拉斯凤凰饰环]|h|r",
-                "name": "图鉴：萨拉斯凤凰饰环",
-                "primaryStats": [],
-                "quality": 3,
-                "secondaryStats": [
-                  {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 111
-                  },
-                  {
-                    "name": "精通",
-                    "type": "mastery",
-                    "value": 94
-                  }
-                ],
-                "slotText": "颈部",
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 580
-                },
-                "status": "ok",
-                "tooltip": {
-                  "parsed": {
-                    "effects": [
-                      {
-                        "lines": [
-                          "使用： 教你学会制作萨拉斯凤凰饰环。",
-                          "需要至暗之夜珠宝加工（50）"
-                        ],
-                        "text": "使用： 教你学会制作萨拉斯凤凰饰环。需要至暗之夜珠宝加工（50）",
-                        "type": "use"
-                      }
-                    ],
-                    "equipEffects": [],
-                    "flags": {
-                      "prismaticSocket": true,
-                      "uniqueEquipped": true
-                    },
-                    "itemLevel": 246,
-                    "primaryStats": [],
-                    "secondaryStats": [
-                      {
-                        "name": "急速",
-                        "type": "haste",
-                        "value": 111
-                      },
-                      {
-                        "name": "精通",
-                        "type": "mastery",
-                        "value": 94
-                      }
-                    ],
-                    "slotText": "颈部",
-                    "stamina": {
-                      "name": "耐力",
-                      "type": "stamina",
-                      "value": 580
-                    },
-                    "stats": {
-                      "haste": 111,
-                      "mastery": 94,
-                      "stamina": 580
-                    },
-                    "upgradeTrack": "",
-                    "useEffects": [
-                      "使用： 教你学会制作萨拉斯凤凰饰环。需要至暗之夜珠宝加工（50）"
-                    ],
-                    "white": []
-                  },
-                  "rawLines": [
-                    {
-                      "left": "图鉴：萨拉斯凤凰饰环",
-                      "right": ""
-                    },
-                    {
-                      "left": "精良",
-                      "right": ""
-                    },
-                    {
-                      "left": "\n萨拉斯凤凰饰环",
-                      "right": ""
-                    },
-                    {
-                      "left": "史诗",
-                      "right": ""
-                    },
-                    {
-                      "left": "物品等级246",
-                      "right": ""
-                    },
-                    {
-                      "left": "拾取后绑定",
-                      "right": ""
-                    },
-                    {
-                      "left": "装备唯一：美化 （2）",
-                      "right": ""
-                    },
-                    {
-                      "left": "颈部",
-                      "right": ""
-                    },
-                    {
-                      "left": "+580 耐力",
-                      "right": ""
-                    },
-                    {
-                      "left": "+111 急速",
-                      "right": ""
-                    },
-                    {
-                      "left": "+94 精通",
-                      "right": ""
-                    },
-                    {
-                      "left": " ",
-                      "right": ""
-                    },
-                    {
-                      "left": "棱彩插槽",
-                      "right": ""
-                    },
-                    {
-                      "left": "使用： 教你学会制作萨拉斯凤凰饰环。",
-                      "right": ""
-                    },
-                    {
-                      "left": "需要至暗之夜珠宝加工（50）",
-                      "right": ""
-                    }
-                  ]
-                },
-                "tooltipFlags": {
-                  "prismaticSocket": true,
-                  "uniqueEquipped": true
-                },
-                "upgradeTrack": ""
-              },
-              "maxVersion": {
-                "apiItemLevel": 1,
-                "effects": {
-                  "equip": [],
-                  "use": [
-                    "使用： 教你学会制作萨拉斯凤凰饰环。需要至暗之夜珠宝加工（50）"
-                  ]
-                },
-                "equipLoc": "INVTYPE_NON_EQUIP_IGNORE",
-                "icon": 4549189,
-                "itemClassId": 9,
-                "itemLevel": 246,
-                "itemSubType": "珠宝加工",
-                "itemSubclassId": 10,
-                "itemType": "配方",
-                "link": "|cnIQ3:|Hitem:256715::::::::90:270::5:1:3524:1:28:3611:::::|h[图鉴：萨拉斯凤凰饰环]|h|r",
-                "name": "图鉴：萨拉斯凤凰饰环",
-                "primaryStats": [],
-                "quality": 3,
-                "rank": 0,
-                "ruleSource": "non_upgradeable",
-                "secondaryStats": [
-                  {
-                    "name": "急速",
-                    "type": "haste",
-                    "value": 111
-                  },
-                  {
-                    "name": "精通",
-                    "type": "mastery",
-                    "value": 94
-                  }
-                ],
-                "slotText": "颈部",
-                "stamina": {
-                  "name": "耐力",
-                  "type": "stamina",
-                  "value": 580
-                },
-                "status": "ok",
-                "tooltip": {
-                  "parsed": {
-                    "effects": [
-                      {
-                        "lines": [
-                          "使用： 教你学会制作萨拉斯凤凰饰环。",
-                          "需要至暗之夜珠宝加工（50）"
-                        ],
-                        "text": "使用： 教你学会制作萨拉斯凤凰饰环。需要至暗之夜珠宝加工（50）",
-                        "type": "use"
-                      }
-                    ],
-                    "equipEffects": [],
-                    "flags": {
-                      "prismaticSocket": true,
-                      "uniqueEquipped": true
-                    },
-                    "itemLevel": 246,
-                    "primaryStats": [],
-                    "secondaryStats": [
-                      {
-                        "name": "急速",
-                        "type": "haste",
-                        "value": 111
-                      },
-                      {
-                        "name": "精通",
-                        "type": "mastery",
-                        "value": 94
-                      }
-                    ],
-                    "slotText": "颈部",
-                    "stamina": {
-                      "name": "耐力",
-                      "type": "stamina",
-                      "value": 580
-                    },
-                    "stats": {
-                      "haste": 111,
-                      "mastery": 94,
-                      "stamina": 580
-                    },
-                    "upgradeTrack": "",
-                    "useEffects": [
-                      "使用： 教你学会制作萨拉斯凤凰饰环。需要至暗之夜珠宝加工（50）"
-                    ],
-                    "white": []
-                  },
-                  "rawLines": [
-                    {
-                      "left": "图鉴：萨拉斯凤凰饰环",
-                      "right": ""
-                    },
-                    {
-                      "left": "精良",
-                      "right": ""
-                    },
-                    {
-                      "left": "\n萨拉斯凤凰饰环",
-                      "right": ""
-                    },
-                    {
-                      "left": "史诗",
-                      "right": ""
-                    },
-                    {
-                      "left": "物品等级246",
-                      "right": ""
-                    },
-                    {
-                      "left": "拾取后绑定",
-                      "right": ""
-                    },
-                    {
-                      "left": "装备唯一：美化 （2）",
-                      "right": ""
-                    },
-                    {
-                      "left": "颈部",
-                      "right": ""
-                    },
-                    {
-                      "left": "+580 耐力",
-                      "right": ""
-                    },
-                    {
-                      "left": "+111 急速",
-                      "right": ""
-                    },
-                    {
-                      "left": "+94 精通",
-                      "right": ""
-                    },
-                    {
-                      "left": " ",
-                      "right": ""
-                    },
-                    {
-                      "left": "棱彩插槽",
-                      "right": ""
-                    },
-                    {
-                      "left": "使用： 教你学会制作萨拉斯凤凰饰环。",
-                      "right": ""
-                    },
-                    {
-                      "left": "需要至暗之夜珠宝加工（50）",
-                      "right": ""
-                    }
-                  ]
-                },
-                "tooltipFlags": {
-                  "prismaticSocket": true,
-                  "uniqueEquipped": true
-                },
-                "track": "fixed",
-                "upgradeTrack": ""
-              },
-              "iconText": "图"
-            },
-            {
               "id": 249283,
               "name": "贝罗梅洛恩，破碎之爪",
               "icon": 7428175,
@@ -38708,6 +36278,7 @@ module.exports = {
               "armorTypeName": "匕首",
               "itemType": "武器",
               "itemSubType": "匕首",
+              "equipLoc": "INVTYPE_WEAPON",
               "ilvl": 298,
               "specs": [
                 256,
@@ -39120,6 +36691,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_SHOULDER",
               "ilvl": 289,
               "specs": [
                 256,
@@ -39510,6 +37082,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_WAIST",
               "ilvl": 289,
               "specs": [
                 256,
@@ -39900,6 +37473,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_FINGER",
               "ilvl": 289,
               "specs": [
                 256,
@@ -40257,219 +37831,6 @@ module.exports = {
           "order": 2,
           "items": [
             {
-              "id": 249367,
-              "name": "鸣响虚空珍玩",
-              "icon": 458245,
-              "iconName": "trade_archaeology_naarucrystal",
-              "iconAsset": "/assets/icons/trade_archaeology_naarucrystal.jpg",
-              "slot": "unknown",
-              "slotName": "未知",
-              "armorType": "none",
-              "armorTypeName": "环境对应兑换物",
-              "itemType": "材料",
-              "itemSubType": "材料",
-              "ilvl": 266,
-              "specs": [
-                256,
-                257,
-                258
-              ],
-              "classes": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13
-              ],
-              "quality": 4,
-              "upgradeTrack": "",
-              "tooltipFlags": {
-                "prismaticSocket": false,
-                "uniqueEquipped": false
-              },
-              "stats": {
-                "primaryStats": [],
-                "stamina": null,
-                "secondary": [],
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "white": {}
-              },
-              "source": {
-                "instanceId": 1308,
-                "instanceName": "进军奎尔丹纳斯",
-                "isRaid": true,
-                "encounterId": 2740,
-                "encounterName": "至暗之夜降临",
-                "difficulty": 15,
-                "difficultyName": "英雄",
-                "order": 5
-              },
-              "tooltipRaw": [
-                "鸣响虚空珍玩",
-                "史诗",
-                "物品等级266",
-                "拾取后绑定",
-                "\"在进军奎尔丹纳斯的入口附近找到齐拉娜，换取强大的职业套装护甲。\""
-              ],
-              "link": "|cnIQ4:|Hitem:249367::::::::90:270::5:1:3524:1:28:3611:::::|h[鸣响虚空珍玩]|h|r",
-              "captureStatus": "ok",
-              "dropVersion": {
-                "apiItemLevel": 266,
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "equipLoc": "INVTYPE_NON_EQUIP_IGNORE",
-                "icon": 458245,
-                "itemClassId": 5,
-                "itemLevel": 266,
-                "itemSubType": "环境对应兑换物",
-                "itemSubclassId": 2,
-                "itemType": "材料",
-                "link": "|cnIQ4:|Hitem:249367::::::::90:270::5:1:3524:1:28:3611:::::|h[鸣响虚空珍玩]|h|r",
-                "name": "鸣响虚空珍玩",
-                "primaryStats": [],
-                "quality": 4,
-                "secondaryStats": [],
-                "slotText": "",
-                "status": "ok",
-                "tooltip": {
-                  "parsed": {
-                    "effects": [],
-                    "equipEffects": [],
-                    "flags": {
-                      "prismaticSocket": false,
-                      "uniqueEquipped": false
-                    },
-                    "itemLevel": 266,
-                    "primaryStats": [],
-                    "secondaryStats": [],
-                    "slotText": "",
-                    "stats": [],
-                    "upgradeTrack": "",
-                    "useEffects": [],
-                    "white": []
-                  },
-                  "rawLines": [
-                    {
-                      "left": "鸣响虚空珍玩",
-                      "right": ""
-                    },
-                    {
-                      "left": "史诗",
-                      "right": ""
-                    },
-                    {
-                      "left": "|cFF 0FF 0英雄|r",
-                      "right": ""
-                    },
-                    {
-                      "left": "物品等级266",
-                      "right": ""
-                    },
-                    {
-                      "left": "拾取后绑定",
-                      "right": ""
-                    },
-                    {
-                      "left": "\"在进军奎尔丹纳斯的入口附近找到齐拉娜，换取强大的职业套装护甲。\"",
-                      "right": ""
-                    }
-                  ]
-                },
-                "tooltipFlags": {
-                  "prismaticSocket": false,
-                  "uniqueEquipped": false
-                },
-                "upgradeTrack": ""
-              },
-              "maxVersion": {
-                "apiItemLevel": 266,
-                "effects": {
-                  "equip": [],
-                  "use": []
-                },
-                "equipLoc": "INVTYPE_NON_EQUIP_IGNORE",
-                "icon": 458245,
-                "itemClassId": 5,
-                "itemLevel": 266,
-                "itemSubType": "环境对应兑换物",
-                "itemSubclassId": 2,
-                "itemType": "材料",
-                "link": "|cnIQ4:|Hitem:249367::::::::90:270::5:1:3524:1:28:3611:::::|h[鸣响虚空珍玩]|h|r",
-                "name": "鸣响虚空珍玩",
-                "primaryStats": [],
-                "quality": 4,
-                "rank": 0,
-                "ruleSource": "non_upgradeable",
-                "secondaryStats": [],
-                "slotText": "",
-                "status": "ok",
-                "tooltip": {
-                  "parsed": {
-                    "effects": [],
-                    "equipEffects": [],
-                    "flags": {
-                      "prismaticSocket": false,
-                      "uniqueEquipped": false
-                    },
-                    "itemLevel": 266,
-                    "primaryStats": [],
-                    "secondaryStats": [],
-                    "slotText": "",
-                    "stats": [],
-                    "upgradeTrack": "",
-                    "useEffects": [],
-                    "white": []
-                  },
-                  "rawLines": [
-                    {
-                      "left": "鸣响虚空珍玩",
-                      "right": ""
-                    },
-                    {
-                      "left": "史诗",
-                      "right": ""
-                    },
-                    {
-                      "left": "|cFF 0FF 0英雄|r",
-                      "right": ""
-                    },
-                    {
-                      "left": "物品等级266",
-                      "right": ""
-                    },
-                    {
-                      "left": "拾取后绑定",
-                      "right": ""
-                    },
-                    {
-                      "left": "\"在进军奎尔丹纳斯的入口附近找到齐拉娜，换取强大的职业套装护甲。\"",
-                      "right": ""
-                    }
-                  ]
-                },
-                "tooltipFlags": {
-                  "prismaticSocket": false,
-                  "uniqueEquipped": false
-                },
-                "track": "fixed",
-                "upgradeTrack": ""
-              },
-              "iconText": "鸣"
-            },
-            {
               "id": 249286,
               "name": "不谐挽歌火杖",
               "icon": 7374933,
@@ -40481,6 +37842,7 @@ module.exports = {
               "armorTypeName": "法杖",
               "itemType": "武器",
               "itemSubType": "法杖",
+              "equipLoc": "INVTYPE_2HWEAPON",
               "ilvl": 298,
               "specs": [
                 256,
@@ -40858,6 +38220,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_NECK",
               "ilvl": 289,
               "specs": [
                 256,
@@ -41219,6 +38582,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_ROBE",
               "ilvl": 289,
               "specs": [
                 256,
@@ -41577,6 +38941,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_FINGER",
               "ilvl": 289,
               "specs": [
                 256,
@@ -41954,6 +39319,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_TRINKET",
               "ilvl": 298,
               "specs": [
                 256,
@@ -42284,6 +39650,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_TRINKET",
               "ilvl": 298,
               "specs": [
                 258
@@ -42609,6 +39976,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_NECK",
               "ilvl": 298,
               "specs": [
                 256,
@@ -42999,6 +40367,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_ROBE",
               "ilvl": 298,
               "specs": [
                 256,
@@ -43384,6 +40753,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_FEET",
               "ilvl": 298,
               "specs": [
                 256,
@@ -43769,6 +41139,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_FINGER",
               "ilvl": 298,
               "specs": [
                 256,
@@ -44168,6 +41539,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "护甲",
+              "equipLoc": "INVTYPE_TRINKET",
               "ilvl": 298,
               "specs": [
                 256,
@@ -44567,7 +41939,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "布甲",
-              "ilvl": 263,
+              "ilvl": 289,
               "specs": [
                 256,
                 257,
@@ -44577,7 +41949,7 @@ module.exports = {
                 5
               ],
               "quality": 4,
-              "upgradeTrack": "英雄 2/6",
+              "upgradeTrack": "神话 6/6",
               "tooltipFlags": {
                 "prismaticSocket": false,
                 "uniqueEquipped": false
@@ -44588,27 +41960,27 @@ module.exports = {
                     "key": "intellect",
                     "type": "intellect",
                     "name": "智力",
-                    "value": 97
+                    "value": 124
                   }
                 ],
                 "stamina": {
                   "key": "stamina",
                   "type": "stamina",
                   "name": "耐力",
-                  "value": 1281
+                  "value": 1768
                 },
                 "secondary": [
                   {
                     "key": "haste",
                     "type": "haste",
                     "name": "急速",
-                    "value": 99
+                    "value": 113
                   },
                   {
                     "key": "crit",
                     "type": "crit",
                     "name": "暴击",
-                    "value": 45
+                    "value": 52
                   }
                 ],
                 "effects": {
@@ -44616,7 +41988,7 @@ module.exports = {
                   "use": []
                 },
                 "white": {
-                  "armor": 55
+                  "armor": 64
                 }
               },
               "source": {
@@ -44626,22 +41998,22 @@ module.exports = {
                 "encounterId": "tier-set:priest",
                 "encounterName": "盲誓的重负",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "神话 6/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "盲誓飞翼头冠",
                 "史诗",
-                "物品等级263",
-                "升级：英雄 2/6",
+                "物品等级289",
+                "升级：神话 6/6",
                 "拾取后绑定",
                 "头部 布甲",
-                "55点护甲",
-                "+97 智力",
-                "+1281 耐力",
-                "+45 爆击",
-                "+99 急速",
+                "64点护甲",
+                "+124 智力",
+                "+1768 耐力",
+                "+52 爆击",
+                "+113 急速",
                 "盲誓的重负（0/5）",
                 "盲誓之触",
                 "盲誓飞翼头冠",
@@ -44652,25 +42024,13 @@ module.exports = {
                 "职业：牧师",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:250051::::::::90:0::5:1:3524:1:28:3606:::::",
+              "link": "item:250051::::::::90:0:::3:1564:12806:1674",
               "iconText": "盲",
               "isBonusPiece": true,
               "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 1,
-                "slotKey": "head",
-                "sourceId": 297632,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5451,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "盲誓的重负",
-                "visualId": 126930
-              },
+              "appearance": null,
               "tier": {
-                "setId": 5451,
+                "setId": 1986,
                 "setName": "盲誓的重负",
                 "pieceCount": 9,
                 "pieces": [
@@ -44755,7 +42115,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "布甲",
-              "ilvl": 263,
+              "ilvl": 289,
               "specs": [
                 256,
                 257,
@@ -44765,7 +42125,7 @@ module.exports = {
                 5
               ],
               "quality": 4,
-              "upgradeTrack": "英雄 2/6",
+              "upgradeTrack": "神话 6/6",
               "tooltipFlags": {
                 "prismaticSocket": false,
                 "uniqueEquipped": false
@@ -44776,27 +42136,27 @@ module.exports = {
                     "key": "intellect",
                     "type": "intellect",
                     "name": "智力",
-                    "value": 73
+                    "value": 93
                   }
                 ],
                 "stamina": {
                   "key": "stamina",
                   "type": "stamina",
                   "name": "耐力",
-                  "value": 961
+                  "value": 1326
                 },
                 "secondary": [
                   {
                     "key": "crit",
                     "type": "crit",
                     "name": "暴击",
-                    "value": 71
+                    "value": 82
                   },
                   {
                     "key": "mastery",
                     "type": "mastery",
                     "name": "精通",
-                    "value": 36
+                    "value": 42
                   }
                 ],
                 "effects": {
@@ -44804,7 +42164,7 @@ module.exports = {
                   "use": []
                 },
                 "white": {
-                  "armor": 51
+                  "armor": 59
                 }
               },
               "source": {
@@ -44814,22 +42174,22 @@ module.exports = {
                 "encounterId": "tier-set:priest",
                 "encounterName": "盲誓的重负",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "神话 6/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "盲誓炽天使护肩",
                 "史诗",
-                "物品等级263",
-                "升级：英雄 2/6",
+                "物品等级289",
+                "升级：神话 6/6",
                 "拾取后绑定",
                 "肩部 布甲",
-                "51点护甲",
-                "+73 智力",
-                "+961 耐力",
-                "+71 爆击",
-                "+36 精通",
+                "59点护甲",
+                "+93 智力",
+                "+1326 耐力",
+                "+82 爆击",
+                "+42 精通",
                 "盲誓的重负（0/5）",
                 "盲誓之触",
                 "盲誓飞翼头冠",
@@ -44840,25 +42200,13 @@ module.exports = {
                 "职业：牧师",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:250049::::::::90:0::5:1:3524:1:28:3606:::::",
+              "link": "item:250049::::::::90:0:::3:1564:12806:1674",
               "iconText": "盲",
               "isBonusPiece": true,
               "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 3,
-                "slotKey": "shoulder",
-                "sourceId": 297608,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5451,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "盲誓的重负",
-                "visualId": 126931
-              },
+              "appearance": null,
               "tier": {
-                "setId": 5451,
+                "setId": 1986,
                 "setName": "盲誓的重负",
                 "pieceCount": 9,
                 "pieces": [
@@ -44943,7 +42291,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "布甲",
-              "ilvl": 263,
+              "ilvl": 289,
               "specs": [
                 256,
                 257,
@@ -44953,7 +42301,7 @@ module.exports = {
                 5
               ],
               "quality": 4,
-              "upgradeTrack": "英雄 2/6",
+              "upgradeTrack": "神话 6/6",
               "tooltipFlags": {
                 "prismaticSocket": false,
                 "uniqueEquipped": false
@@ -44964,27 +42312,27 @@ module.exports = {
                     "key": "intellect",
                     "type": "intellect",
                     "name": "智力",
-                    "value": 97
+                    "value": 124
                   }
                 ],
                 "stamina": {
                   "key": "stamina",
                   "type": "stamina",
                   "name": "耐力",
-                  "value": 1281
+                  "value": 1768
                 },
                 "secondary": [
                   {
                     "key": "mastery",
                     "type": "mastery",
                     "name": "精通",
-                    "value": 94
+                    "value": 108
                   },
                   {
                     "key": "haste",
                     "type": "haste",
                     "name": "急速",
-                    "value": 49
+                    "value": 57
                   }
                 ],
                 "effects": {
@@ -44992,7 +42340,7 @@ module.exports = {
                   "use": []
                 },
                 "white": {
-                  "armor": 74
+                  "armor": 85
                 }
               },
               "source": {
@@ -45002,22 +42350,22 @@ module.exports = {
                 "encounterId": "tier-set:priest",
                 "encounterName": "盲誓的重负",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "神话 6/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "盲誓法衣",
                 "史诗",
-                "物品等级263",
-                "升级：英雄 2/6",
+                "物品等级289",
+                "升级：神话 6/6",
                 "拾取后绑定",
                 "胸部 布甲",
-                "74点护甲",
-                "+97 智力",
-                "+1281 耐力",
-                "+49 急速",
-                "+94 精通",
+                "85点护甲",
+                "+124 智力",
+                "+1768 耐力",
+                "+57 急速",
+                "+108 精通",
                 "盲誓的重负（0/5）",
                 "盲誓之触",
                 "盲誓飞翼头冠",
@@ -45028,25 +42376,13 @@ module.exports = {
                 "职业：牧师",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:250054::::::::90:0::5:1:3524:1:28:3606:::::",
+              "link": "item:250054::::::::90:0:::3:1564:12806:1674",
               "iconText": "盲",
               "isBonusPiece": true,
               "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 5,
-                "slotKey": "chest",
-                "sourceId": 297668,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5451,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "盲誓的重负",
-                "visualId": 126932
-              },
+              "appearance": null,
               "tier": {
-                "setId": 5451,
+                "setId": 1986,
                 "setName": "盲誓的重负",
                 "pieceCount": 9,
                 "pieces": [
@@ -45131,7 +42467,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "布甲",
-              "ilvl": 263,
+              "ilvl": 289,
               "specs": [
                 256,
                 257,
@@ -45141,7 +42477,7 @@ module.exports = {
                 5
               ],
               "quality": 4,
-              "upgradeTrack": "英雄 2/6",
+              "upgradeTrack": "神话 6/6",
               "tooltipFlags": {
                 "prismaticSocket": false,
                 "uniqueEquipped": false
@@ -45152,27 +42488,27 @@ module.exports = {
                     "key": "intellect",
                     "type": "intellect",
                     "name": "智力",
-                    "value": 73
+                    "value": 93
                   }
                 ],
                 "stamina": {
                   "key": "stamina",
                   "type": "stamina",
                   "name": "耐力",
-                  "value": 961
+                  "value": 1326
                 },
                 "secondary": [
                   {
                     "key": "haste",
                     "type": "haste",
                     "name": "急速",
-                    "value": 76
+                    "value": 88
                   },
                   {
                     "key": "versatility",
                     "type": "versatility",
                     "name": "全能",
-                    "value": 31
+                    "value": 36
                   }
                 ],
                 "effects": {
@@ -45180,7 +42516,7 @@ module.exports = {
                   "use": []
                 },
                 "white": {
-                  "armor": 41
+                  "armor": 48
                 }
               },
               "source": {
@@ -45190,22 +42526,22 @@ module.exports = {
                 "encounterId": "tier-set:priest",
                 "encounterName": "盲誓的重负",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "神话 6/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "盲誓之触",
                 "史诗",
-                "物品等级263",
-                "升级：英雄 2/6",
+                "物品等级289",
+                "升级：神话 6/6",
                 "拾取后绑定",
                 "手部 布甲",
-                "41点护甲",
-                "+73 智力",
-                "+961 耐力",
-                "+76 急速",
-                "+31 全能",
+                "48点护甲",
+                "+93 智力",
+                "+1326 耐力",
+                "+88 急速",
+                "+36 全能",
                 "盲誓的重负（0/5）",
                 "盲誓之触",
                 "盲誓飞翼头冠",
@@ -45216,25 +42552,13 @@ module.exports = {
                 "职业：牧师",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:250052::::::::90:0::5:1:3524:1:28:3606:::::",
+              "link": "item:250052::::::::90:0:::3:1564:12806:1674",
               "iconText": "盲",
               "isBonusPiece": true,
               "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 10,
-                "slotKey": "hands",
-                "sourceId": 297644,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5451,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "盲誓的重负",
-                "visualId": 126937
-              },
+              "appearance": null,
               "tier": {
-                "setId": 5451,
+                "setId": 1986,
                 "setName": "盲誓的重负",
                 "pieceCount": 9,
                 "pieces": [
@@ -45319,7 +42643,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "布甲",
-              "ilvl": 263,
+              "ilvl": 289,
               "specs": [
                 256,
                 257,
@@ -45329,7 +42653,7 @@ module.exports = {
                 5
               ],
               "quality": 4,
-              "upgradeTrack": "英雄 2/6",
+              "upgradeTrack": "神话 6/6",
               "tooltipFlags": {
                 "prismaticSocket": false,
                 "uniqueEquipped": false
@@ -45340,27 +42664,27 @@ module.exports = {
                     "key": "intellect",
                     "type": "intellect",
                     "name": "智力",
-                    "value": 97
+                    "value": 124
                   }
                 ],
                 "stamina": {
                   "key": "stamina",
                   "type": "stamina",
                   "name": "耐力",
-                  "value": 1281
+                  "value": 1768
                 },
                 "secondary": [
                   {
                     "key": "haste",
                     "type": "haste",
                     "name": "急速",
-                    "value": 100
+                    "value": 114
                   },
                   {
                     "key": "mastery",
                     "type": "mastery",
                     "name": "精通",
-                    "value": 44
+                    "value": 50
                   }
                 ],
                 "effects": {
@@ -45368,7 +42692,7 @@ module.exports = {
                   "use": []
                 },
                 "white": {
-                  "armor": 64
+                  "armor": 75
                 }
               },
               "source": {
@@ -45378,22 +42702,22 @@ module.exports = {
                 "encounterId": "tier-set:priest",
                 "encounterName": "盲誓的重负",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "神话 6/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "盲誓护腿",
                 "史诗",
-                "物品等级263",
-                "升级：英雄 2/6",
+                "物品等级289",
+                "升级：神话 6/6",
                 "拾取后绑定",
                 "腿部 布甲",
-                "64点护甲",
-                "+97 智力",
-                "+1281 耐力",
-                "+100 急速",
-                "+44 精通",
+                "75点护甲",
+                "+124 智力",
+                "+1768 耐力",
+                "+114 急速",
+                "+50 精通",
                 "盲誓的重负（0/5）",
                 "盲誓之触",
                 "盲誓飞翼头冠",
@@ -45404,25 +42728,13 @@ module.exports = {
                 "职业：牧师",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:250050::::::::90:0::5:1:3524:1:28:3606:::::",
+              "link": "item:250050::::::::90:0:::3:1564:12806:1674",
               "iconText": "盲",
               "isBonusPiece": true,
               "collectionKind": "bonus",
-              "appearance": {
-                "isBonusPiece": true,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 7,
-                "slotKey": "legs",
-                "sourceId": 297620,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5451,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "盲誓的重负",
-                "visualId": 126934
-              },
+              "appearance": null,
               "tier": {
-                "setId": 5451,
+                "setId": 1986,
                 "setName": "盲誓的重负",
                 "pieceCount": 9,
                 "pieces": [
@@ -45507,7 +42819,7 @@ module.exports = {
               "armorTypeName": "无甲种",
               "itemType": "护甲",
               "itemSubType": "布甲",
-              "ilvl": 263,
+              "ilvl": 289,
               "specs": [
                 256,
                 257,
@@ -45517,7 +42829,7 @@ module.exports = {
                 5
               ],
               "quality": 4,
-              "upgradeTrack": "英雄 2/6",
+              "upgradeTrack": "神话 6/6",
               "tooltipFlags": {
                 "prismaticSocket": false,
                 "uniqueEquipped": false
@@ -45528,27 +42840,27 @@ module.exports = {
                     "key": "intellect",
                     "type": "intellect",
                     "name": "智力",
-                    "value": 55
+                    "value": 70
                   }
                 ],
                 "stamina": {
                   "key": "stamina",
                   "type": "stamina",
                   "name": "耐力",
-                  "value": 721
+                  "value": 995
                 },
                 "secondary": [
                   {
                     "key": "crit",
                     "type": "crit",
                     "name": "暴击",
-                    "value": 57
+                    "value": 66
                   },
                   {
                     "key": "versatility",
                     "type": "versatility",
                     "name": "全能",
-                    "value": 23
+                    "value": 27
                   }
                 ],
                 "effects": {
@@ -45556,7 +42868,7 @@ module.exports = {
                   "use": []
                 },
                 "white": {
-                  "armor": 51
+                  "armor": 59
                 }
               },
               "source": {
@@ -45564,47 +42876,35 @@ module.exports = {
                 "instanceName": "套装",
                 "isRaid": false,
                 "encounterId": "tier-set:priest",
-                "encounterName": "盲誓的重负",
+                "encounterName": "Blind Oath's Burden",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "神话 6/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "盲誓裹布",
                 "史诗",
-                "物品等级263",
-                "升级：英雄 2/6",
+                "物品等级289",
+                "升级：神话 6/6",
                 "拾取后绑定",
                 "背部",
-                "51点护甲",
-                "+55 智力",
-                "+721 耐力",
-                "+57 爆击",
-                "+23 全能",
+                "59点护甲",
+                "+70 智力",
+                "+995 耐力",
+                "+66 爆击",
+                "+27 全能",
                 "职业：牧师",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:250046::::::::90:0::5:1:3524:1:28:3606:::::",
+              "link": "item:250046::::::::90:0:::3:1564:12806:1674",
               "iconText": "盲",
               "isBonusPiece": false,
               "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 15,
-                "slotKey": "back",
-                "sourceId": 297572,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5451,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "盲誓的重负",
-                "visualId": 126938
-              },
+              "appearance": null,
               "tier": {
-                "setId": 5451,
-                "setName": "盲誓的重负",
+                "setId": 0,
+                "setName": "Blind Oath's Burden",
                 "pieceCount": 9,
                 "pieces": [
                   "盲誓飞翼头冠",
@@ -45633,7 +42933,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "布甲",
-              "ilvl": 263,
+              "ilvl": 289,
               "specs": [
                 256,
                 257,
@@ -45643,7 +42943,7 @@ module.exports = {
                 5
               ],
               "quality": 4,
-              "upgradeTrack": "英雄 2/6",
+              "upgradeTrack": "神话 6/6",
               "tooltipFlags": {
                 "prismaticSocket": false,
                 "uniqueEquipped": false
@@ -45654,27 +42954,27 @@ module.exports = {
                     "key": "intellect",
                     "type": "intellect",
                     "name": "智力",
-                    "value": 55
+                    "value": 70
                   }
                 ],
                 "stamina": {
                   "key": "stamina",
                   "type": "stamina",
                   "name": "耐力",
-                  "value": 721
+                  "value": 995
                 },
                 "secondary": [
                   {
                     "key": "crit",
                     "type": "crit",
                     "name": "暴击",
-                    "value": 54
+                    "value": 62
                   },
                   {
                     "key": "mastery",
                     "type": "mastery",
                     "name": "精通",
-                    "value": 26
+                    "value": 30
                   }
                 ],
                 "effects": {
@@ -45682,7 +42982,7 @@ module.exports = {
                   "use": []
                 },
                 "white": {
-                  "armor": 37
+                  "armor": 43
                 }
               },
               "source": {
@@ -45690,47 +42990,35 @@ module.exports = {
                 "instanceName": "套装",
                 "isRaid": false,
                 "encounterId": "tier-set:priest",
-                "encounterName": "盲誓的重负",
+                "encounterName": "Blind Oath's Burden",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "神话 6/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "盲誓护腕",
                 "史诗",
-                "物品等级263",
-                "升级：英雄 2/6",
+                "物品等级289",
+                "升级：神话 6/6",
                 "拾取后绑定",
                 "腕部 布甲",
-                "37点护甲",
-                "+55 智力",
-                "+721 耐力",
-                "+54 爆击",
-                "+26 精通",
+                "43点护甲",
+                "+70 智力",
+                "+995 耐力",
+                "+62 爆击",
+                "+30 精通",
                 "职业：牧师",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:250047::::::::90:0::5:1:3524:1:28:3606:::::",
+              "link": "item:250047::::::::90:0:::3:1564:12806:1674",
               "iconText": "盲",
               "isBonusPiece": false,
               "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 9,
-                "slotKey": "wrist",
-                "sourceId": 297584,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5451,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "盲誓的重负",
-                "visualId": 126936
-              },
+              "appearance": null,
               "tier": {
-                "setId": 5451,
-                "setName": "盲誓的重负",
+                "setId": 0,
+                "setName": "Blind Oath's Burden",
                 "pieceCount": 9,
                 "pieces": [
                   "盲誓飞翼头冠",
@@ -45759,7 +43047,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "布甲",
-              "ilvl": 263,
+              "ilvl": 289,
               "specs": [
                 256,
                 257,
@@ -45769,7 +43057,7 @@ module.exports = {
                 5
               ],
               "quality": 4,
-              "upgradeTrack": "英雄 2/6",
+              "upgradeTrack": "神话 6/6",
               "tooltipFlags": {
                 "prismaticSocket": false,
                 "uniqueEquipped": false
@@ -45780,27 +43068,27 @@ module.exports = {
                     "key": "intellect",
                     "type": "intellect",
                     "name": "智力",
-                    "value": 73
+                    "value": 93
                   }
                 ],
                 "stamina": {
                   "key": "stamina",
                   "type": "stamina",
                   "name": "耐力",
-                  "value": 961
+                  "value": 1326
                 },
                 "secondary": [
                   {
                     "key": "haste",
                     "type": "haste",
                     "name": "急速",
-                    "value": 73
+                    "value": 84
                   },
                   {
                     "key": "mastery",
                     "type": "mastery",
                     "name": "精通",
-                    "value": 35
+                    "value": 40
                   }
                 ],
                 "effects": {
@@ -45808,7 +43096,7 @@ module.exports = {
                   "use": []
                 },
                 "white": {
-                  "armor": 41
+                  "armor": 48
                 }
               },
               "source": {
@@ -45816,47 +43104,35 @@ module.exports = {
                 "instanceName": "套装",
                 "isRaid": false,
                 "encounterId": "tier-set:priest",
-                "encounterName": "盲誓的重负",
+                "encounterName": "Blind Oath's Burden",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "神话 6/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "盲誓珠宝腰带",
                 "史诗",
-                "物品等级263",
-                "升级：英雄 2/6",
+                "物品等级289",
+                "升级：神话 6/6",
                 "拾取后绑定",
                 "腰部 布甲",
-                "41点护甲",
-                "+73 智力",
-                "+961 耐力",
-                "+73 急速",
-                "+35 精通",
+                "48点护甲",
+                "+93 智力",
+                "+1326 耐力",
+                "+84 急速",
+                "+40 精通",
                 "职业：牧师",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:250048::::::::90:0::5:1:3524:1:28:3606:::::",
+              "link": "item:250048::::::::90:0:::3:1564:12806:1674",
               "iconText": "盲",
               "isBonusPiece": false,
               "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 6,
-                "slotKey": "waist",
-                "sourceId": 297596,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5451,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "盲誓的重负",
-                "visualId": 126933
-              },
+              "appearance": null,
               "tier": {
-                "setId": 5451,
-                "setName": "盲誓的重负",
+                "setId": 0,
+                "setName": "Blind Oath's Burden",
                 "pieceCount": 9,
                 "pieces": [
                   "盲誓飞翼头冠",
@@ -45885,7 +43161,7 @@ module.exports = {
               "armorTypeName": "布甲",
               "itemType": "护甲",
               "itemSubType": "布甲",
-              "ilvl": 263,
+              "ilvl": 289,
               "specs": [
                 256,
                 257,
@@ -45895,7 +43171,7 @@ module.exports = {
                 5
               ],
               "quality": 4,
-              "upgradeTrack": "英雄 2/6",
+              "upgradeTrack": "神话 6/6",
               "tooltipFlags": {
                 "prismaticSocket": false,
                 "uniqueEquipped": false
@@ -45906,27 +43182,27 @@ module.exports = {
                     "key": "intellect",
                     "type": "intellect",
                     "name": "智力",
-                    "value": 73
+                    "value": 93
                   }
                 ],
                 "stamina": {
                   "key": "stamina",
                   "type": "stamina",
                   "name": "耐力",
-                  "value": 961
+                  "value": 1326
                 },
                 "secondary": [
                   {
                     "key": "mastery",
                     "type": "mastery",
                     "name": "精通",
-                    "value": 75
+                    "value": 86
                   },
                   {
                     "key": "haste",
                     "type": "haste",
                     "name": "急速",
-                    "value": 33
+                    "value": 38
                   }
                 ],
                 "effects": {
@@ -45934,7 +43210,7 @@ module.exports = {
                   "use": []
                 },
                 "white": {
-                  "armor": 46
+                  "armor": 53
                 }
               },
               "source": {
@@ -45942,47 +43218,35 @@ module.exports = {
                 "instanceName": "套装",
                 "isRaid": false,
                 "encounterId": "tier-set:priest",
-                "encounterName": "盲誓的重负",
+                "encounterName": "Blind Oath's Burden",
                 "difficulty": 5,
-                "difficultyName": "虚影尖塔 · 英雄",
+                "difficultyName": "神话 6/6",
                 "order": 999
               },
               "sourceType": "tier",
               "tooltipRaw": [
                 "盲誓软鞋",
                 "史诗",
-                "物品等级263",
-                "升级：英雄 2/6",
+                "物品等级289",
+                "升级：神话 6/6",
                 "拾取后绑定",
                 "脚部 布甲",
-                "46点护甲",
-                "+73 智力",
-                "+961 耐力",
-                "+33 急速",
-                "+75 精通",
+                "53点护甲",
+                "+93 智力",
+                "+1326 耐力",
+                "+38 急速",
+                "+86 精通",
                 "职业：牧师",
                 "你尚未收藏过此外观"
               ],
-              "link": "item:250053::::::::90:0::5:1:3524:1:28:3606:::::",
+              "link": "item:250053::::::::90:0:::3:1564:12806:1674",
               "iconText": "盲",
               "isBonusPiece": false,
               "collectionKind": "appearance",
-              "appearance": {
-                "isBonusPiece": false,
-                "isCollected": false,
-                "itemModId": 1,
-                "slotId": 8,
-                "slotKey": "feet",
-                "sourceId": 297656,
-                "transmogSetDescription": "英雄",
-                "transmogSetId": 5451,
-                "transmogSetLabel": "虚影尖塔",
-                "transmogSetName": "盲誓的重负",
-                "visualId": 126935
-              },
+              "appearance": null,
               "tier": {
-                "setId": 5451,
-                "setName": "盲誓的重负",
+                "setId": 0,
+                "setName": "Blind Oath's Burden",
                 "pieceCount": 9,
                 "pieces": [
                   "盲誓飞翼头冠",

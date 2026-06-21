@@ -1,9 +1,7 @@
 const {
   COS_BASE,
-  CLASS_LIST,
   getClassMeta,
   getClassVisualAssets,
-  loadOverview,
   loadClassData,
 } = require('../../utils/class-data');
 const {
@@ -378,22 +376,11 @@ function buildFavoritePosterPages(groups) {
   return pages;
 }
 
-function enrichList(list, countMap) {
-  return list.map((item) => ({
-    ...item,
-    emblem: getClassVisualAssets(item.key).emblem,
-    itemCount: countMap[item.key] || 0,
-  }));
-}
-
 Page({
   classItemCache: {},
 
   data: {
     cosBase: COS_BASE,
-    row1: [],
-    row2: [],
-    row3: [],
     favoriteCount: 0,
     favoriteList: [],
     favoriteGroups: [],
@@ -412,32 +399,14 @@ Page({
     hasUnreadAnnouncement: false,
     selectedItem: null,
     showModal: false,
-    browseExpanded: false,
     isPosterGenerating: false,
     posterCanvasHeight: POSTER_HEIGHT,
     pageStyle: '',
   },
 
   onLoad(options = {}) {
-    const countMap = {};
     this.setData({
-      row1: enrichList(CLASS_LIST.slice(0, 4), countMap),
-      row2: enrichList(CLASS_LIST.slice(4, 9), countMap),
-      row3: enrichList(CLASS_LIST.slice(9, 13), countMap),
       hasUnreadAnnouncement: isAnnouncementUnread(),
-    });
-
-    loadOverview().then((overview) => {
-      if (overview && Array.isArray(overview.classes)) {
-        overview.classes.forEach((item) => {
-          countMap[item.key] = item.itemCount;
-        });
-        this.setData({
-          row1: enrichList(CLASS_LIST.slice(0, 4), countMap),
-          row2: enrichList(CLASS_LIST.slice(4, 9), countMap),
-          row3: enrichList(CLASS_LIST.slice(9, 13), countMap),
-        });
-      }
     });
 
     if (options.shareFav) {
@@ -1006,19 +975,14 @@ Page({
   },
 
   onBrowseCardTap() {
-    this.setData({ browseExpanded: !this.data.browseExpanded });
+    wx.navigateTo({
+      url: '/pages/browse/browse',
+    });
   },
 
   onBuildTap() {
     wx.navigateTo({
       url: '/pages/build/build',
-    });
-  },
-
-  onClassTap(event) {
-    const { key, name } = event.currentTarget.dataset;
-    wx.navigateTo({
-      url: `/pages/equipment/equipment?classKey=${key}&className=${name}`,
     });
   },
 

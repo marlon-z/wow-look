@@ -1,6 +1,5 @@
 <page-meta page-style="{{pageStyle}}"></page-meta>
 <view class="page-shell build-page">
-  <image class="global-site-bg" src="{{cosBase}}/assets/public/bg.jpg" mode="aspectFill" />
 
   <!-- Phase 1: Select Class -->
   <block wx:if="{{phase === 'select'}}">
@@ -32,21 +31,26 @@
 
   <!-- Phase 2: Build Panel -->
   <block wx:if="{{phase === 'build'}}">
-    <!-- Top Bar -->
-    <view class="build-top-bar">
-      <view class="build-top-left">
-        <text class="build-class-name">{{selectedClassName}} · {{selectedSpecName}}</text>
-        <text wx:if="{{isDraft}}" class="build-draft-badge">草稿</text>
+    <!-- Hero Banner -->
+    <view class="build-hero">
+      <image class="build-hero-banner" src="{{heroBannerAsset}}" mode="aspectFill" />
+      <view class="build-hero-shade"></view>
+      <view class="build-hero-content">
+        <view class="build-hero-top">
+          <view class="build-hero-title-area">
+            <text class="build-class-name">{{selectedClassName}} · {{selectedSpecName}}</text>
+            <text wx:if="{{isDraft}}" class="build-draft-badge">草稿</text>
+          </view>
+          <view class="build-top-right">
+            <view class="build-top-btn" bindtap="openBuildList">方案列表</view>
+            <view wx:if="{{!isDraft}}" class="build-top-btn" bindtap="onRenameBuild">重命名</view>
+          </view>
+        </view>
+        <view class="build-hero-bottom">
+          <text class="build-plan-name">{{isDraft ? '未保存的配装' : currentBuildName}}</text>
+          <text wx:if="{{summary}}" class="build-avg-ilvl">平均装等: {{summary.avgIlvl}}</text>
+        </view>
       </view>
-      <view class="build-top-right">
-        <view class="build-top-btn" bindtap="openBuildList">方案列表</view>
-        <view wx:if="{{!isDraft}}" class="build-top-btn" bindtap="onRenameBuild">重命名</view>
-      </view>
-    </view>
-
-    <view class="build-name-bar">
-      <text class="build-plan-name">{{isDraft ? '未保存的配装' : currentBuildName}}</text>
-      <text wx:if="{{summary}}" class="build-avg-ilvl">平均装等: {{summary.avgIlvl}}</text>
     </view>
 
     <!-- Spec Switch -->
@@ -86,6 +90,7 @@
               <image wx:if="{{slots[item.key].iconAsset}}" class="slot-icon-img" src="{{slots[item.key].iconAsset}}" mode="aspectFill" />
               <text wx:elif="{{slots[item.key]}}" class="slot-icon-letter">{{slots[item.key].iconText}}</text>
               <text wx:else class="slot-placeholder-text">{{item.name}}</text>
+              <view wx:if="{{slots[item.key]}}" class="slot-icon-border"></view>
             </view>
             <view class="slot-info" wx:if="{{slots[item.key]}}">
               <text class="slot-item-name">{{slots[item.key].name}}</text>
@@ -115,6 +120,7 @@
             <image wx:if="{{slots[item.key].iconAsset}}" class="slot-icon-img" src="{{slots[item.key].iconAsset}}" mode="aspectFill" />
             <text wx:elif="{{slots[item.key]}}" class="slot-icon-letter">{{slots[item.key].iconText}}</text>
             <text wx:else class="slot-placeholder-text">{{item.name}}</text>
+            <view wx:if="{{slots[item.key]}}" class="slot-icon-border"></view>
           </view>
           <view class="slot-info" wx:if="{{slots[item.key]}}">
             <text class="slot-item-name">{{slots[item.key].name}}</text>
@@ -146,6 +152,7 @@
           <image wx:if="{{slots[item.key].iconAsset}}" class="slot-icon-img" src="{{slots[item.key].iconAsset}}" mode="aspectFill" />
           <text wx:elif="{{slots[item.key]}}" class="slot-icon-letter">{{slots[item.key].iconText}}</text>
           <text wx:else class="slot-placeholder-text">{{item.name}}</text>
+          <view wx:if="{{slots[item.key]}}" class="slot-icon-border"></view>
         </view>
         <view class="slot-info" wx:if="{{slots[item.key]}}">
           <text class="slot-item-name">{{slots[item.key].name}}</text>
@@ -206,6 +213,10 @@
           <text class="stats-bottom-label">耐力</text>
           <text class="stats-bottom-value">{{summary.stamina}}</text>
         </view>
+      </view>
+
+      <view class="stats-bottom-hint">
+        <text>仅计算装备自身属性，不含天赋、Buff 等加成</text>
       </view>
     </view>
 

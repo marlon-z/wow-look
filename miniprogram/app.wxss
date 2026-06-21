@@ -1,5 +1,12 @@
 page {
-  background: #000000;
+  background-color: #050406;
+  background-image:
+    linear-gradient(rgba(212, 168, 75, 0.04) 1.5rpx, transparent 1.5rpx),
+    linear-gradient(90deg, rgba(212, 168, 75, 0.04) 1.5rpx, transparent 1.5rpx),
+    radial-gradient(circle at 50% 0%, rgba(110, 60, 160, 0.10) 0%, transparent 65%),
+    radial-gradient(circle at 50% 100%, rgba(212, 168, 75, 0.10) 0%, transparent 70%);
+  background-size: 55rpx 55rpx, 55rpx 55rpx, 100% 100%, 100% 100%;
+  background-attachment: fixed;
   color: #e8e4dc;
   font-family: "PingFang SC", "SF Pro Display", "Helvetica Neue", sans-serif;
   --theme: #d4a84b;
@@ -21,14 +28,6 @@ page {
   box-sizing: border-box;
 }
 
-.global-site-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -999;
-}
 
 view,
 text,

@@ -1,0 +1,30 @@
+<page-meta page-style="{{pageStyle}}"></page-meta>
+<view class="page-shell browse-page">
+
+  <view class="browse-header">
+    <text class="browse-title">查装备</text>
+    <text class="browse-subtitle">选择你的职业</text>
+  </view>
+
+  <view class="class-grid-wrap">
+    <view class="class-row">
+      <view class="class-cell" wx:for="{{row1}}" wx:key="id" bindtap="onClassTap" data-key="{{item.key}}" data-name="{{item.name}}">
+        <image class="class-emblem" src="{{item.emblem}}" mode="aspectFit" />
+        <text class="class-label" style="color: {{item.color}};">{{item.shortName}}</text>
+      </view>
+    </view>
+    <view class="class-row">
+      <view class="class-cell" wx:for="{{row2}}" wx:key="id" bindtap="onClassTap" data-key="{{item.key}}" data-name="{{item.name}}">
+        <image class="class-emblem" src="{{item.emblem}}" mode="aspectFit" />
+        <text class="class-label" style="color: {{item.color}};">{{item.shortName}}</text>
+      </view>
+    </view>
+    <view class="class-row">
+      <view class="class-cell" wx:for="{{row3}}" wx:key="id" bindtap="onClassTap" data-key="{{item.key}}" data-name="{{item.name}}">
+        <image class="class-emblem" src="{{item.emblem}}" mode="aspectFit" />
+        <text class="class-label" style="color: {{item.color}};">{{item.shortName}}</text>
+      </view>
+    </view>
+  </view>
+
+</view>

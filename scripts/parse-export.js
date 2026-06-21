@@ -425,6 +425,13 @@ function mapSlot(item) {
   return SLOT_MAP[item.equipLoc] || { key: 'unknown', name: item.slotText || '未知' };
 }
 
+function isEquippableItem(item) {
+  if (!item || ![2, 4].includes(Number(item.itemClassId))) {
+    return false;
+  }
+  return Boolean(SLOT_MAP[item.equipLoc]);
+}
+
 function mapArmorType(item, slot) {
   if (slot.key === 'neck' || slot.key === 'finger' || slot.key === 'cloak' || slot.key === 'trinket') {
     return { key: 'none', name: slot.name === '披风' ? '无甲种' : '无甲种' };
@@ -663,7 +670,7 @@ function buildClassPayload(classConfig, payload, iconAssetMap, tierPayload, data
     const encounters = (instance.encounters || []).map((encounter) => {
       const items = (encounter.itemIds || []).map((itemId) => {
         const rawItem = itemMap[String(itemId)];
-        if (!rawItem) {
+        if (!isEquippableItem(rawItem)) {
           return null;
         }
         const specsByClass = rawItem.specsByClass || {};

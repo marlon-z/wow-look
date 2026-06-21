@@ -1,5 +1,6 @@
-var { getMasteryCoefficient } = require('./mastery-coefficients');
+var { getMasteryCoefficient, BASE_MASTERY_POINTS } = require('./mastery-coefficients');
 var { mainHandOccupiesBoth } = require('./weapon-rules');
+var { DEFAULT_BASE_CRIT_PERCENT, getBaseCritPercent } = require('./stat-baselines');
 
 var STAT_PER_PERCENT = {
   critical: 46,
@@ -20,11 +21,11 @@ var STAT_DISPLAY_NAME = {
 var DR_BRACKETS = [
   { threshold: 0,   penalty: 0 },
   { threshold: 30,  penalty: 0.10 },
-  { threshold: 39,  penalty: 0.20 },
-  { threshold: 47,  penalty: 0.30 },
-  { threshold: 54,  penalty: 0.40 },
-  { threshold: 61,  penalty: 0.50 },
-  { threshold: 106, penalty: 1.00 },
+  { threshold: 40,  penalty: 0.20 },
+  { threshold: 50,  penalty: 0.30 },
+  { threshold: 60,  penalty: 0.40 },
+  { threshold: 80,  penalty: 0.50 },
+  { threshold: 200, penalty: 1.00 },
 ];
 
 function calcStatPercent(rating, statType) {
@@ -38,7 +39,7 @@ function calcStatPercent(rating, statType) {
   for (var i = 0; i < DR_BRACKETS.length - 1; i++) {
     var bracketStart = DR_BRACKETS[i].threshold;
     var bracketEnd = DR_BRACKETS[i + 1].threshold;
-    var penalty = DR_BRACKETS[i + 1].penalty;
+    var penalty = DR_BRACKETS[i].penalty;
 
     if (remaining <= 0) break;
 
@@ -57,12 +58,17 @@ function calcMasteryPercent(masteryRating, specId) {
     return { percent: 0, label: '未知专精', effect: '' };
   }
 
-  var masteryPoints = masteryRating / 46;
-  var percent = masteryPoints * spec.coefficient;
+  var gearMasteryPoints = calcStatPercent(masteryRating, 'mastery');
+  var totalMasteryPoints = BASE_MASTERY_POINTS + gearMasteryPoints;
+  var percent = totalMasteryPoints * spec.coefficient;
   percent = Math.round(percent * 100) / 100;
+
+  var baseMasteryPercent = BASE_MASTERY_POINTS * spec.coefficient;
+  baseMasteryPercent = Math.round(baseMasteryPercent * 100) / 100;
 
   return {
     percent: percent,
+    baseMasteryPercent: baseMasteryPercent,
     label: percent.toFixed(1) + '% ' + spec.effect,
     effect: spec.effect,
     masteryName: spec.masteryName,
@@ -148,7 +154,7 @@ function summarizeSlots(slots, specId) {
     secondary: {
       crit: {
         rating: critRating,
-        percent: calcStatPercent(critRating, 'crit'),
+        percent: calcStatPercent(critRating, 'crit') + getBaseCritPercent(specId),
       },
       haste: {
         rating: hasteRating,
@@ -157,6 +163,7 @@ function summarizeSlots(slots, specId) {
       mastery: {
         rating: masteryRating,
         percent: masteryResult.percent,
+        baseMasteryPercent: masteryResult.baseMasteryPercent,
         effect: masteryResult.effect,
         masteryName: masteryResult.masteryName,
         label: masteryResult.label,
@@ -170,10 +177,13 @@ function summarizeSlots(slots, specId) {
 }
 
 module.exports = {
+  BASE_CRIT_PERCENT: DEFAULT_BASE_CRIT_PERCENT,
+  BASE_MASTERY_POINTS: BASE_MASTERY_POINTS,
   STAT_PER_PERCENT: STAT_PER_PERCENT,
   STAT_DISPLAY_NAME: STAT_DISPLAY_NAME,
   BUILD_SLOT_KEYS: BUILD_SLOT_KEYS,
   calcStatPercent: calcStatPercent,
   calcMasteryPercent: calcMasteryPercent,
+  getBaseCritPercent: getBaseCritPercent,
   summarizeSlots: summarizeSlots,
 };

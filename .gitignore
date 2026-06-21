@@ -4,6 +4,7 @@ web/.playwright-mcp/
 .DS_Store
 Thumbs.db
 .cache/
+tmp/
 WoWLookExport3.lua
 WoWLookExport3 copy.lua
 WoWLookTierExport.lua

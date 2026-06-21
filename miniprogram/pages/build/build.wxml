@@ -216,7 +216,7 @@
       </view>
 
       <view class="stats-bottom-hint">
-        <text>仅计算装备自身属性，不含天赋、Buff 等加成</text>
+        <text>力量/敏捷/智力及耐力仅统计装备；副属性百分比已含职业/专精基础值，不含种族、天赋、附魔、宝石及临时 Buff</text>
       </view>
     </view>
 

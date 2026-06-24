@@ -35,15 +35,29 @@ C_TradeSkillUI = {
                         { itemID = 102 },
                     },
                 },
+                {
+                    reagentType = 0,
+                    dataSlotIndex = 8,
+                    quantityRequired = 1,
+                    reagents = {
+                        { itemID = 201 },
+                    },
+                },
             },
         }
+    end,
+    GetDependentReagents = function(reagent)
+        if reagent.itemID == 102 then
+            return { { itemID = 201 } }
+        end
+        return {}
     end,
     GetRecipeOutputItemData = function(_, reagents)
         if #reagents == 0 then
             return { hyperlink = "item:base" }
         end
         local reagentId = reagents[1].reagent.itemID
-        if reagentId == 101 then
+        if reagentId == 101 or (reagentId == 102 and #reagents == 1) or reagentId == 201 then
             return { hyperlink = "item:crest-low" }
         end
         return { hyperlink = "item:crest-max" }
@@ -127,8 +141,9 @@ local automaticLink, automaticMeta, automaticDiagnostics = namespace.FindAutomat
 })
 assert(automaticLink == "item:crest-max")
 assert(automaticMeta.reagentItemId == 102)
+assert(#automaticMeta.reagentKeys == 2)
 assert(automaticDiagnostics.bestItemLevel == 399)
-assert(automaticDiagnostics.tested == 3)
+assert(automaticDiagnostics.tested == 4)
 
 assert(namespace.DeriveMaximumItemLevel({
     first = { itemLevel = 350 },

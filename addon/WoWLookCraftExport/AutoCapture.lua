@@ -49,6 +49,61 @@ local function BuildReagentInfo(slot, reagent)
     }
 end
 
+local function ReagentKey(reagent)
+    if reagent.itemID then
+        return "item:" .. tostring(reagent.itemID)
+    end
+    if reagent.currencyID then
+        return "currency:" .. tostring(reagent.currencyID)
+    end
+    return nil
+end
+
+local function BuildReagentSlotMap(schematic)
+    local slotMap = {}
+    for _, slot in ipairs(schematic.reagentSlotSchematics or {}) do
+        for _, reagent in ipairs(slot.reagents or {}) do
+            local key = ReagentKey(reagent)
+            if key then
+                slotMap[key] = { slot = slot, reagent = reagent }
+            end
+        end
+    end
+    return slotMap
+end
+
+local function BuildReagentCombination(schematic, targetSlot, targetReagent)
+    local slotMap = BuildReagentSlotMap(schematic)
+    local infos = {}
+    local reagentKeys = {}
+    local added = {}
+
+    local function AddWithDependencies(slot, reagent)
+        local key = ReagentKey(reagent)
+        if not key or added[key] then
+            return
+        end
+        added[key] = true
+        infos[#infos + 1] = BuildReagentInfo(slot, reagent)
+        reagentKeys[#reagentKeys + 1] = key
+
+        if C_TradeSkillUI and type(C_TradeSkillUI.GetDependentReagents) == "function" then
+            local ok, dependencies = pcall(C_TradeSkillUI.GetDependentReagents, reagent)
+            if ok then
+                for _, dependency in ipairs(dependencies or {}) do
+                    local dependencyEntry = slotMap[ReagentKey(dependency)]
+                    if dependencyEntry then
+                        AddWithDependencies(dependencyEntry.slot, dependencyEntry.reagent)
+                    end
+                end
+            end
+        end
+    end
+
+    AddWithDependencies(targetSlot, targetReagent)
+    return infos, reagentKeys
+end
+
 function CraftExport.DeriveMaximumItemLevel(previews)
     local maximum
     for _, preview in pairs(previews or {}) do
@@ -115,15 +170,18 @@ function CraftExport.FindAutomaticBestPreview(candidate)
                     local reagentKey = tostring(slot.dataSlotIndex) .. ":" .. tostring(reagent.itemID)
                     if not seen[reagentKey] then
                         seen[reagentKey] = true
-                        local reagentInfo = BuildReagentInfo(slot, reagent)
+                        local reagentInfos, reagentKeys = BuildReagentCombination(schematic, slot, reagent)
+                        local reagentInfo = reagentInfos[1]
                         local meta = {
-                            mode = "single_modifying_reagent",
+                            mode = #reagentInfos > 1 and "modifying_reagent_with_dependencies"
+                                or "single_modifying_reagent",
                             reagentItemId = reagent.itemID,
+                            reagentKeys = reagentKeys,
                             dataSlotIndex = slot.dataSlotIndex,
                             quantity = reagentInfo.quantity,
                             highestQualityId = qualityId,
                         }
-                        TestReagents({ reagentInfo }, meta)
+                        TestReagents(reagentInfos, meta)
                     end
                 end
             end

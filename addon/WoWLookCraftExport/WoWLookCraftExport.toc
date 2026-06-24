@@ -2,7 +2,7 @@
 ## Title: WoWLookCraftExport
 ## Notes: 自动导出当前版本可制造到最高装等的战斗装备
 ## Author: WoWLook
-## Version: 1.2.0
+## Version: 1.2.1
 ## SavedVariables: WoWLookCraftExportDB
 
 Constants.lua

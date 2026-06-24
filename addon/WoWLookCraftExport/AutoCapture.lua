@@ -61,13 +61,20 @@ local function ExtractItemPayload(link)
     return nil, nil, nil, "not_an_item_link"
 end
 
-function CraftExport.AppendBonusIdToItemLink(link, bonusId)
+function CraftExport.ReplaceBonusIdsInItemLink(link, bonusIds)
     if type(link) ~= "string" or link == "" then
         return nil, "item_link_unavailable"
     end
-    bonusId = tonumber(bonusId)
-    if not bonusId or bonusId <= 0 or bonusId % 1 ~= 0 then
-        return nil, "invalid_item_level_bonus_id"
+    if type(bonusIds) ~= "table" or #bonusIds == 0 then
+        return nil, "crafted_bonus_ids_unavailable"
+    end
+    local normalizedBonusIds = {}
+    for _, bonusId in ipairs(bonusIds) do
+        bonusId = tonumber(bonusId)
+        if not bonusId or bonusId <= 0 or bonusId % 1 ~= 0 then
+            return nil, "invalid_crafted_bonus_id"
+        end
+        normalizedBonusIds[#normalizedBonusIds + 1] = tostring(bonusId)
     end
 
     local prefix, payload, suffix, extractError = ExtractItemPayload(link)
@@ -87,15 +94,24 @@ function CraftExport.AppendBonusIdToItemLink(link, bonusId)
         return nil, "item_link_truncated_bonus_list"
     end
 
-    local bonusText = tostring(bonusId)
-    for index = 14, 13 + bonusCount do
-        if fields[index] == bonusText then
-            return link, nil
+    local unchanged = bonusCount == #normalizedBonusIds
+    for index, bonusText in ipairs(normalizedBonusIds) do
+        if fields[13 + index] ~= bonusText then
+            unchanged = false
+            break
         end
     end
+    if unchanged then
+        return link, nil
+    end
 
-    fields[13] = tostring(bonusCount + 1)
-    table.insert(fields, 14 + bonusCount, bonusText)
+    for _ = 1, bonusCount do
+        table.remove(fields, 14)
+    end
+    fields[13] = tostring(#normalizedBonusIds)
+    for index, bonusText in ipairs(normalizedBonusIds) do
+        table.insert(fields, 13 + index, bonusText)
+    end
     return prefix .. table.concat(fields, ":") .. suffix, nil
 end
 
@@ -110,7 +126,8 @@ function CraftExport.FindConfiguredMaximumPreview(candidate)
     local config = CraftExport.SEASON_CONFIG
     if type(config) ~= "table"
         or type(config.targetItemLevel) ~= "number"
-        or type(config.itemLevelBonusId) ~= "number" then
+        or type(config.craftedBonusIds) ~= "table"
+        or #config.craftedBonusIds == 0 then
         return nil, nil, { reason = "season_config_invalid" }
     end
 
@@ -132,9 +149,9 @@ function CraftExport.FindConfiguredMaximumPreview(candidate)
 
     local baseLink = outputInfo.hyperlink
     local baseItemLevel = GetLinkItemLevel(baseLink)
-    local adjustedLink, rebuildError = CraftExport.AppendBonusIdToItemLink(
+    local adjustedLink, rebuildError = CraftExport.ReplaceBonusIdsInItemLink(
         baseLink,
-        config.itemLevelBonusId
+        config.craftedBonusIds
     )
     if not adjustedLink then
         return nil, nil, {
@@ -154,10 +171,10 @@ function CraftExport.FindConfiguredMaximumPreview(candidate)
     end
 
     return adjustedLink, {
-        mode = "configured_item_level_bonus_id",
+        mode = "configured_crafted_bonus_ids",
         profileId = config.profileId,
         highestQualityId = qualityId,
-        itemLevelBonusId = config.itemLevelBonusId,
+        craftedBonusIds = config.craftedBonusIds,
         baseLink = baseLink,
         baseItemLevel = baseItemLevel,
     }, {

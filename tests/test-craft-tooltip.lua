@@ -6,7 +6,7 @@ assert(loadfile("addon/WoWLookCraftExport/Tooltip.lua"))("WoWLookCraftExportTest
 assert(loadfile("addon/WoWLookCraftExport/Scanner.lua"))("WoWLookCraftExportTest", namespace)
 
 local baseLink = "|cnIQ4:|Hitem:237832::::::::90:269::13:1:3524:2:40:2753:38:8:::::|h[测试装备]|h|r"
-local expectedLink = "|cnIQ4:|Hitem:237832::::::::90:269::13:2:3524:1498:2:40:2753:38:8:::::|h[测试装备]|h|r"
+local expectedLink = "|cnIQ4:|Hitem:237832::::::::90:269::13:5:12214:13667:12497:12066:13622:2:40:2753:38:8:::::|h[测试装备]|h|r"
 
 C_Item = {
     GetDetailedItemLevelInfo = function(link)
@@ -98,14 +98,20 @@ local missingQualities = namespace.Scanner.IsVisiblePlusCandidate({
 })
 assert(missingQualities == false)
 
-local rebuiltLink, rebuildError = namespace.AppendBonusIdToItemLink(baseLink, 1498)
+local rebuiltLink, rebuildError = namespace.ReplaceBonusIdsInItemLink(
+    baseLink,
+    { 12214, 13667, 12497, 12066, 13622 }
+)
 assert(rebuildError == nil)
 assert(rebuiltLink == expectedLink)
 
-local duplicateLink = namespace.AppendBonusIdToItemLink(expectedLink, 1498)
+local duplicateLink = namespace.ReplaceBonusIdsInItemLink(
+    expectedLink,
+    { 12214, 13667, 12497, 12066, 13622 }
+)
 assert(duplicateLink == expectedLink)
 
-local malformedLink, malformedError = namespace.AppendBonusIdToItemLink("item:237832", 1498)
+local malformedLink, malformedError = namespace.ReplaceBonusIdsInItemLink("item:237832", { 13622 })
 assert(malformedLink == nil)
 assert(malformedError == "item_link_missing_bonus_count")
 
@@ -114,9 +120,10 @@ local automaticLink, automaticMeta, automaticDiagnostics = namespace.FindConfigu
     craftingQualityIds = { 1, 2, 3, 4, 5 },
 })
 assert(automaticLink == expectedLink)
-assert(automaticMeta.mode == "configured_item_level_bonus_id")
+assert(automaticMeta.mode == "configured_crafted_bonus_ids")
 assert(automaticMeta.highestQualityId == 5)
-assert(automaticMeta.itemLevelBonusId == 1498)
+assert(#automaticMeta.craftedBonusIds == 5)
+assert(automaticMeta.craftedBonusIds[5] == 13622)
 assert(automaticDiagnostics.baseItemLevel == 259)
 assert(automaticDiagnostics.adjustedItemLevel == 285)
 

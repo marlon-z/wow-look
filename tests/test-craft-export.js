@@ -31,7 +31,10 @@ assert.ok(toc.indexOf('AutoCapture.lua') < toc.indexOf('WoWLookCraftExport.lua')
 assert.doesNotMatch(constants, /CANDIDATE_ITEM_LEVEL\s*=/);
 assert.doesNotMatch(constants, /TARGET_ITEM_LEVEL\s*=/);
 assert.match(seasonConfig, /targetItemLevel\s*=\s*285/);
-assert.match(seasonConfig, /itemLevelBonusId\s*=\s*1498/);
+for (const bonusId of [12214, 13667, 12497, 12066, 13622]) {
+  assert.match(seasonConfig, new RegExp(`\\b${bonusId}\\b`));
+}
+assert.doesNotMatch(seasonConfig, /\b8791\b/);
 
 assert.match(scanner + core, /CRAFTINGORDERS_CUSTOMER_OPTIONS_PARSED/);
 assert.match(scanner, /C_CraftingOrders\.ParseCustomerOptions/);
@@ -45,13 +48,14 @@ assert.match(tooltip, /randomAttributeCount/);
 assert.ok(fs.existsSync(path.join(root, 'tests', 'test-craft-tooltip.lua')));
 
 assert.match(autoCapture, /GetRecipeOutputItemData/);
-assert.match(autoCapture, /AppendBonusIdToItemLink/);
+assert.match(autoCapture, /ReplaceBonusIdsInItemLink/);
 assert.match(autoCapture, /FindConfiguredMaximumPreview/);
 assert.match(autoCapture, /configured_link_not_target_item_level/);
 
 assert.match(core, /maximumItemLevel/);
-assert.match(core, /configured_crafted_bonus_id/);
+assert.match(core, /configured_crafted_bonus_ids/);
 assert.match(core, /configured_maximum_unverified/);
+assert.match(core, /currentCandidateItemLevel/);
 assert.match(core, /CreateOptionalCraftingReagentInfoTbl/);
 assert.match(core, /GetRecipeOutputItemData/);
 assert.match(core, /StartAutomaticCapture/);

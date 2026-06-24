@@ -260,7 +260,7 @@ local function PromoteCandidateFromLink(candidate, outputLink, previewMeta, expe
             candidateRule = "customer_option_scaling_plus",
             candidateItemLevel = candidate.iLvlMin,
             targetItemLevel = expectedMaximumItemLevel,
-            targetRule = "configured_crafted_bonus_id",
+            targetRule = "configured_crafted_bonus_ids",
         },
         preview = preview,
         tooltipRaw = CopyRawLines(tooltipLines),
@@ -330,13 +330,28 @@ function CraftExport.StartAutomaticCapture()
     local config = CraftExport.SEASON_CONFIG
     if type(config) ~= "table"
         or type(config.targetItemLevel) ~= "number"
-        or type(config.itemLevelBonusId) ~= "number" then
+        or type(config.craftedBonusIds) ~= "table"
+        or #config.craftedBonusIds == 0 then
         return false, "本赛季制造装等配置无效"
     end
 
+    local currentCandidateItemLevel
+    for _, candidate in pairs(db.candidates) do
+        if type(candidate.iLvlMin) == "number"
+            and (not currentCandidateItemLevel or candidate.iLvlMin > currentCandidateItemLevel) then
+            currentCandidateItemLevel = candidate.iLvlMin
+        end
+    end
+
     local keys = {}
-    for key in pairs(db.candidates) do
-        keys[#keys + 1] = key
+    for key, candidate in pairs(db.candidates) do
+        if candidate.iLvlMin == currentCandidateItemLevel then
+            keys[#keys + 1] = key
+        else
+            candidate.status = "legacy_scaling_candidate"
+            candidate.statusReason = "below_current_candidate_item_level_"
+                .. tostring(currentCandidateItemLevel or "unknown")
+        end
     end
     table.sort(keys, function(left, right)
         return tonumber(left) < tonumber(right)
@@ -353,16 +368,18 @@ function CraftExport.StartAutomaticCapture()
         pending = 0,
         failed = 0,
         maximumItemLevel = config.targetItemLevel,
-        itemLevelBonusId = config.itemLevelBonusId,
+        craftedBonusIds = config.craftedBonusIds,
+        currentCandidateItemLevel = currentCandidateItemLevel,
     }
     db.automaticRun = run
     db.previousItems = db.items
     db.items = {}
     db.maximumProfile = {
-        rule = "configured_crafted_bonus_id",
+        rule = "configured_crafted_bonus_ids",
         profileId = config.profileId,
         maximumItemLevel = config.targetItemLevel,
-        itemLevelBonusId = config.itemLevelBonusId,
+        craftedBonusIds = config.craftedBonusIds,
+        currentCandidateItemLevel = currentCandidateItemLevel,
         candidateCount = #keys,
         configuredAt = Now(),
     }
@@ -375,10 +392,10 @@ function CraftExport.StartAutomaticCapture()
 
     CraftExport.automaticCaptureRunning = true
     Print(string.format(
-        "开始验证 %d 件可变装等装备：目标装等 %d，Bonus ID %d，无需打开制造订单界面",
+        "开始验证 %d 件当前赛季装备：起始装等 %s，目标装等 %d，无需打开制造订单界面",
         #keys,
-        config.targetItemLevel,
-        config.itemLevelBonusId
+        tostring(currentCandidateItemLevel or "未知"),
+        config.targetItemLevel
     ))
 
     local index = 0
@@ -434,7 +451,7 @@ function CraftExport.StartAutomaticCapture()
                     baseItemLevel = diagnostics and diagnostics.baseItemLevel or nil,
                     adjustedItemLevel = diagnostics and diagnostics.adjustedItemLevel or nil,
                     targetItemLevel = config.targetItemLevel,
-                    itemLevelBonusId = config.itemLevelBonusId,
+                    craftedBonusIds = config.craftedBonusIds,
                     checkedAt = Now(),
                 }
             end

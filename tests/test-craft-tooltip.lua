@@ -4,6 +4,54 @@ assert(loadfile("addon/WoWLookCraftExport/Constants.lua"))("WoWLookCraftExportTe
 assert(loadfile("addon/WoWLookCraftExport/Tooltip.lua"))("WoWLookCraftExportTest", namespace)
 assert(loadfile("addon/WoWLookCraftExport/Scanner.lua"))("WoWLookCraftExportTest", namespace)
 
+Enum = {
+    CraftingReagentType = {
+        Modifying = 0,
+    },
+}
+
+local itemLevels = {
+    ["item:base"] = 250,
+    ["item:crest-low"] = 276,
+    ["item:crest-max"] = 285,
+}
+
+C_Item = {
+    GetDetailedItemLevelInfo = function(link)
+        return itemLevels[link]
+    end,
+}
+
+C_TradeSkillUI = {
+    GetRecipeSchematic = function()
+        return {
+            reagentSlotSchematics = {
+                {
+                    reagentType = 0,
+                    dataSlotIndex = 7,
+                    quantityRequired = 1,
+                    reagents = {
+                        { itemID = 101 },
+                        { itemID = 102 },
+                    },
+                },
+            },
+        }
+    end,
+    GetRecipeOutputItemData = function(_, reagents)
+        if #reagents == 0 then
+            return { hyperlink = "item:base" }
+        end
+        local reagentId = reagents[1].reagent.itemID
+        if reagentId == 101 then
+            return { hyperlink = "item:crest-low" }
+        end
+        return { hyperlink = "item:crest-max" }
+    end,
+}
+
+assert(loadfile("addon/WoWLookCraftExport/AutoCapture.lua"))("WoWLookCraftExportTest", namespace)
+
 local function line(left, right)
     return { left = left, right = right or "" }
 end
@@ -72,5 +120,14 @@ local missingQualities = namespace.Scanner.IsVisiblePlusCandidate({
     iLvlMax = nil,
 })
 assert(missingQualities == false)
+
+local automaticLink, automaticMeta, automaticDiagnostics = namespace.FindAutomatic285Preview({
+    recipeId = 9001,
+    craftingQualityIds = { 1, 2, 3, 4, 5 },
+})
+assert(automaticLink == "item:crest-max")
+assert(automaticMeta.reagentItemId == 102)
+assert(automaticDiagnostics.bestItemLevel == 285)
+assert(automaticDiagnostics.tested == 3)
 
 print("craft tooltip parser passed")

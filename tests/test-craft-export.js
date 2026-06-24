@@ -15,13 +15,15 @@ const toc = read('WoWLookCraftExport.toc');
 const constants = read('Constants.lua');
 const tooltip = read('Tooltip.lua');
 const scanner = read('Scanner.lua');
+const autoCapture = read('AutoCapture.lua');
 const core = read('WoWLookCraftExport.lua');
 
 assert.match(toc, /## Interface:\s*120007/);
 assert.match(toc, /## SavedVariables:\s*WoWLookCraftExportDB/);
 assert.ok(toc.indexOf('Constants.lua') < toc.indexOf('Tooltip.lua'));
 assert.ok(toc.indexOf('Tooltip.lua') < toc.indexOf('Scanner.lua'));
-assert.ok(toc.indexOf('Scanner.lua') < toc.indexOf('WoWLookCraftExport.lua'));
+assert.ok(toc.indexOf('Scanner.lua') < toc.indexOf('AutoCapture.lua'));
+assert.ok(toc.indexOf('AutoCapture.lua') < toc.indexOf('WoWLookCraftExport.lua'));
 
 assert.match(constants, /CANDIDATE_ITEM_LEVEL\s*=\s*246/);
 assert.match(constants, /TARGET_ITEM_LEVEL\s*=\s*285/);
@@ -37,9 +39,16 @@ assert.match(tooltip, /randomAttributeSlots/);
 assert.match(tooltip, /randomAttributeCount/);
 assert.ok(fs.existsSync(path.join(root, 'tests', 'test-craft-tooltip.lua')));
 
+assert.match(autoCapture, /GetRecipeSchematic/);
+assert.match(autoCapture, /GetRecipeOutputItemData/);
+assert.match(autoCapture, /CraftingReagentType\.Modifying/);
+assert.match(autoCapture, /automatic_285_preview_not_found/);
+
 assert.match(core, /parsed\.itemLevel\s*~=\s*CraftExport\.TARGET_ITEM_LEVEL/);
 assert.match(core, /CreateOptionalCraftingReagentInfoTbl/);
 assert.match(core, /GetRecipeOutputItemData/);
+assert.match(core, /StartAutomaticCapture/);
+assert.match(core, /无需打开制造订单界面/);
 assert.match(core, /SLASH_WOWLOOKCRAFTEXPORT1/);
 
 for (const command of ['scan', 'capture', 'status', 'reset', 'help']) {

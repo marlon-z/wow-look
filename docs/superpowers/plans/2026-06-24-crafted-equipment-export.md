@@ -4,7 +4,7 @@
 
 **Goal:** Build a standalone WoW 12.0.7 addon that discovers current-expansion crafting-order items displayed as `246+`, captures a player-configured 285 preview, and exports fixed and random secondary-stat data without false positives.
 
-**Architecture:** Query `C_CraftingOrders.GetCustomerOptions` after `CRAFTINGORDERS_CUSTOMER_OPTIONS_PARSED` to discover candidates using the same fields Blizzard uses to render `246+`. Capture the currently open customer-order form through its recipe transaction, obtain the actual reagent-aware output hyperlink, parse its tooltip, and promote only verified item-level-285 results into account-wide SavedVariables.
+**Architecture:** Query `C_CraftingOrders.GetCustomerOptions` after `CRAFTINGORDERS_CUSTOMER_OPTIONS_PARSED` to discover candidates using the same fields Blizzard uses to render `246+`. Inspect every candidate recipe schematic, test modifying reagents at maximum crafting quality, and promote only actual item-level-285 output hyperlinks into account-wide SavedVariables. The customer-order form remains an optional fallback.
 
 **Tech Stack:** World of Warcraft Lua 5.1 addon API, `C_CraftingOrders`, `C_TradeSkillUI`, `C_TooltipInfo`, Node.js static regression tests.
 
@@ -103,6 +103,24 @@ Store recipe/item/profession metadata, link, fixed stats, random slots, effects,
 - [ ] **Step 5: Add commands and concise status output**
 
 Implement `/wowcraft scan`, `/wowcraft capture`, `/wowcraft status`, `/wowcraft reset`, and `/wowcraft help`. Reset must require `/wowcraft reset confirm`.
+
+### Task 5A: Automate maximum-reagent discovery
+
+**Files:**
+- Create: `addon/WoWLookCraftExport/AutoCapture.lua`
+- Modify: `addon/WoWLookCraftExport/WoWLookCraftExport.lua`
+
+- [ ] **Step 1: Read recipe schematics without opening the order UI**
+
+Call `C_TradeSkillUI.GetRecipeSchematic` for every246+ candidate and enumerate modifying reagent slots.
+
+- [ ] **Step 2: Test real output links**
+
+Call `C_TradeSkillUI.GetRecipeOutputItemData` at the highest crafting quality for the base recipe and each allowed modifying reagent. Accept only links whose actual item level is285.
+
+- [ ] **Step 3: Process candidates in batches**
+
+Use zero-delay timer batches to avoid freezing the game client. Keep unresolved recipes pending and retain manual `/wowcraft capture` as a fallback.
 
 ### Task 6: Add game-use documentation
 

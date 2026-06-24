@@ -163,33 +163,10 @@ local function CopyRawLines(lines)
     return result
 end
 
-local function CaptureCurrentPreview()
-    local form, formError = GetActiveOrderForm()
-    if not form then
-        return false, formError
-    end
-
-    local transaction = form.transaction
-    if type(transaction.GetRecipeID) ~= "function" then
-        return false, "当前制造订单缺少配方编号"
-    end
-    local recipeId = transaction:GetRecipeID()
-    if not recipeId then
-        return false, "无法识别当前制造配方"
-    end
-
+local function PromoteCandidateFromLink(candidate, outputLink, previewMeta)
     local db = EnsureDatabase()
+    local recipeId = candidate.recipeId
     local key = tostring(recipeId)
-    local candidate = db.candidates[key]
-    if not candidate then
-        return false, "当前配方不在246+候选中，请返回订单列表运行 /wowcraft scan"
-    end
-
-    local outputLink, linkError, optionalReagents, highestQualityId = GetOutputLink(form, recipeId)
-    if not outputLink then
-        RecordError("output_link_unavailable", linkError, { recipeId = recipeId, itemId = candidate.itemId })
-        return false, linkError
-    end
 
     local supported, supportReason, apiInfo = CraftExport.IsSupportedCombatItem(candidate.itemId)
     if not supported then
@@ -235,8 +212,15 @@ local function CaptureCurrentPreview()
     local fullInfo = GetFullItemInfo(outputLink, apiInfo)
     local _, _, _, clientBuild = GetBuildInfo()
     local professionName = candidate.professionName
-    if professionName == "" and C_TradeSkillUI.GetProfessionNameForSkillLineAbility then
+    if professionName == ""
+        and C_TradeSkillUI
+        and type(C_TradeSkillUI.GetProfessionNameForSkillLineAbility) == "function" then
         professionName = C_TradeSkillUI.GetProfessionNameForSkillLineAbility(candidate.skillLineAbilityId) or ""
+    end
+
+    local preview = { link = outputLink }
+    for metaKey, metaValue in pairs(previewMeta or {}) do
+        preview[metaKey] = metaValue
     end
 
     local formalItem = {
@@ -276,11 +260,7 @@ local function CaptureCurrentPreview()
             candidateItemLevel = candidate.iLvlMin,
             targetItemLevel = CraftExport.TARGET_ITEM_LEVEL,
         },
-        preview = {
-            link = outputLink,
-            highestQualityId = highestQualityId,
-            optionalReagentCount = #optionalReagents,
-        },
+        preview = preview,
         tooltipRaw = CopyRawLines(tooltipLines),
         capturedAt = Now(),
         capturedBy = CharacterName(),
@@ -295,6 +275,135 @@ local function CaptureCurrentPreview()
     db.rejected[key] = nil
     CraftExport.RefreshSummary()
     return true, formalItem
+end
+
+CraftExport.PromoteCandidateFromLink = PromoteCandidateFromLink
+
+local function CaptureCurrentPreview()
+    local form, formError = GetActiveOrderForm()
+    if not form then
+        return false, formError
+    end
+
+    local transaction = form.transaction
+    if type(transaction.GetRecipeID) ~= "function" then
+        return false, "当前制造订单缺少配方编号"
+    end
+    local recipeId = transaction:GetRecipeID()
+    if not recipeId then
+        return false, "无法识别当前制造配方"
+    end
+
+    local db = EnsureDatabase()
+    local candidate = db.candidates[tostring(recipeId)]
+    if not candidate then
+        return false, "当前配方不在246+候选中，请先运行 /wowcraft scan"
+    end
+
+    local outputLink, linkError, optionalReagents, highestQualityId = GetOutputLink(form, recipeId)
+    if not outputLink then
+        RecordError("output_link_unavailable", linkError, { recipeId = recipeId, itemId = candidate.itemId })
+        return false, linkError
+    end
+
+    return PromoteCandidateFromLink(candidate, outputLink, {
+        mode = "manual_order_form",
+        highestQualityId = highestQualityId,
+        optionalReagentCount = #optionalReagents,
+    })
+end
+
+
+function CraftExport.StartAutomaticCapture()
+    if CraftExport.automaticCaptureRunning then
+        return false, "自动285验证正在运行"
+    end
+
+    local db = EnsureDatabase()
+    local keys = {}
+    for key in pairs(db.candidates) do
+        if not db.items[key] then
+            keys[#keys + 1] = key
+        end
+    end
+    table.sort(keys, function(left, right)
+        return tonumber(left) < tonumber(right)
+    end)
+
+    local run = {
+        startedAt = Now(),
+        total = #keys,
+        processed = 0,
+        accepted = 0,
+        pending = 0,
+        failed = 0,
+    }
+    db.automaticRun = run
+
+    if #keys == 0 then
+        run.completedAt = Now()
+        Print("没有等待自动验证的246+装备")
+        return true, run
+    end
+
+    CraftExport.automaticCaptureRunning = true
+    Print(string.format("开始自动验证 %d 件246+装备，无需打开制造订单界面", #keys))
+
+    local index = 0
+    local function ProcessNext()
+        index = index + 1
+        local key = keys[index]
+        if not key then
+            CraftExport.automaticCaptureRunning = false
+            run.completedAt = Now()
+            CraftExport.RefreshSummary()
+            Print(string.format(
+                "自动验证完成：通过 %d，待验证 %d，失败 %d",
+                run.accepted,
+                run.pending,
+                run.failed
+            ))
+            return
+        end
+
+        local candidate = db.candidates[key]
+        if candidate then
+            local outputLink, previewMeta, diagnostics = CraftExport.FindAutomatic285Preview(candidate)
+            run.processed = run.processed + 1
+            if outputLink then
+                previewMeta = previewMeta or {}
+                previewMeta.automatic = true
+                previewMeta.testedPreviewCount = diagnostics and diagnostics.tested or 0
+                local accepted, result = PromoteCandidateFromLink(candidate, outputLink, previewMeta)
+                if accepted then
+                    run.accepted = run.accepted + 1
+                else
+                    run.failed = run.failed + 1
+                    candidate.status = "automatic_capture_failed"
+                    candidate.statusReason = tostring(result)
+                end
+            else
+                run.pending = run.pending + 1
+                candidate.status = "automatic_285_pending"
+                candidate.statusReason = diagnostics and diagnostics.reason or "automatic_285_preview_not_found"
+                candidate.automaticPreview = {
+                    bestItemLevel = diagnostics and diagnostics.bestItemLevel or nil,
+                    bestLink = diagnostics and diagnostics.bestLink or nil,
+                    tested = diagnostics and diagnostics.tested or 0,
+                    checkedAt = Now(),
+                }
+            end
+        end
+
+        if run.processed % 10 == 0 then
+            Print(string.format("自动验证进度：%d/%d", run.processed, run.total))
+        end
+        CraftExport.RefreshSummary()
+        C_Timer.After(0, ProcessNext)
+    end
+
+    C_Timer.After(0, ProcessNext)
+    return true, run
 end
 
 local function ShowStatus()
@@ -317,11 +426,22 @@ local function ShowStatus()
             stats.unresolved or 0
         ))
     end
+    if db.automaticRun then
+        local run = db.automaticRun
+        Print(string.format(
+            "自动验证：%d/%d，通过 %d，待验证 %d，失败 %d",
+            run.processed or 0,
+            run.total or 0,
+            run.accepted or 0,
+            run.pending or 0,
+            run.failed or 0
+        ))
+    end
 end
 
 local function ShowHelp()
-    Print("/wowcraft scan - 扫描当前版本制造订单目录中的246+装备")
-    Print("/wowcraft capture - 保存当前订单详情中已配置好的285预览")
+    Print("/wowcraft scan - 无需打开界面，自动扫描246+装备并验证285结果")
+    Print("/wowcraft capture - 手动补采自动验证失败的当前订单预览")
     Print("/wowcraft status - 查看采集数量")
     Print("/wowcraft reset confirm - 清空本插件的采集数据")
     Print("/wowcraft help - 显示本说明")
@@ -386,6 +506,9 @@ eventFrame:SetScript("OnEvent", function(_, event, ...)
                 result.candidates,
                 result.rejected
             ))
+            C_Timer.After(0, function()
+                CraftExport.StartAutomaticCapture()
+            end)
         else
             Print(result)
             RecordError("scan_failed", result)

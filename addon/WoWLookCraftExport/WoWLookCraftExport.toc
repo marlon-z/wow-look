@@ -8,4 +8,5 @@
 Constants.lua
 Tooltip.lua
 Scanner.lua
+AutoCapture.lua
 WoWLookCraftExport.lua

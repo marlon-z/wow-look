@@ -72,6 +72,8 @@ assert.match(core, /currentCandidateItemLevel/);
 assert.match(core, /specialFallbackReason/);
 assert.match(core, /specialAccepted/);
 assert.match(core, /fallbackAccepted/);
+assert.match(core, /PrewarmSpecialLinks/);
+assert.match(core, /preloadedSpecialLinks/);
 assert.match(core, /C_Timer\.After/);
 assert.match(core, /CreateOptionalCraftingReagentInfoTbl/);
 assert.match(core, /GetRecipeOutputItemData/);

@@ -543,7 +543,30 @@ function CraftExport.StartAutomaticCapture()
         TryCandidate(candidate, 0)
     end
 
-    C_Timer.After(0, ProcessCandidate)
+    local function PrewarmSpecialLinks()
+        local preloaded = 0
+        for _, key in ipairs(keys) do
+            local candidate = db.candidates[key]
+            local _, _, isSpecial = CraftExport.GetConfiguredCraftProfile(candidate, false)
+            if candidate and isSpecial then
+                local outputLink, _, diagnostics = CraftExport.FindConfiguredMaximumPreview(candidate, false)
+                local preloadLink = outputLink or (diagnostics and diagnostics.adjustedLink)
+                if preloadLink and CraftExport.PreloadConfiguredLink(preloadLink) then
+                    preloaded = preloaded + 1
+                end
+            end
+        end
+        return preloaded
+    end
+
+    run.preloadedSpecialLinks = PrewarmSpecialLinks()
+    local initialDelay = run.preloadedSpecialLinks > 0
+        and (tonumber(config.linkRetryDelaySeconds) or 0)
+        or 0
+    if run.preloadedSpecialLinks > 0 then
+        Print(string.format("已预热%d件特殊栏位链接，等待说明框效果加载", run.preloadedSpecialLinks))
+    end
+    C_Timer.After(initialDelay, ProcessCandidate)
     return true, run
 end
 

@@ -260,7 +260,7 @@ local function PromoteCandidateFromLink(candidate, outputLink, previewMeta, expe
             candidateRule = "customer_option_scaling_plus",
             candidateItemLevel = candidate.iLvlMin,
             targetItemLevel = expectedMaximumItemLevel,
-            targetRule = "configured_crafted_bonus_ids",
+            targetRule = previewMeta and previewMeta.targetRule or "configured_crafted_bonus_ids",
         },
         preview = preview,
         tooltipRaw = CopyRawLines(tooltipLines),
@@ -308,8 +308,9 @@ local function CaptureCurrentPreview()
         return false, linkError
     end
 
-    local maximumItemLevel = db.maximumProfile and db.maximumProfile.maximumItemLevel or nil
-    if not maximumItemLevel then
+    local profile = CraftExport.GetConfiguredCraftProfile(candidate, false)
+    local targetItemLevel = profile and profile.targetItemLevel or nil
+    if not targetItemLevel then
         return false, "尚未载入本赛季制造业最高装等配置，请先运行 /wowcraft scan"
     end
 
@@ -317,7 +318,8 @@ local function CaptureCurrentPreview()
         mode = "manual_order_form",
         highestQualityId = highestQualityId,
         optionalReagentCount = #optionalReagents,
-    }, maximumItemLevel)
+        targetRule = profile.targetRule,
+    }, targetItemLevel)
 end
 
 
@@ -328,10 +330,15 @@ function CraftExport.StartAutomaticCapture()
 
     local db = EnsureDatabase()
     local config = CraftExport.SEASON_CONFIG
+    local normalProfile = config and config.normalProfile or nil
+    local specialProfile = config and config.specialProfile or nil
     if type(config) ~= "table"
-        or type(config.targetItemLevel) ~= "number"
-        or type(config.craftedBonusIds) ~= "table"
-        or #config.craftedBonusIds == 0 then
+        or type(normalProfile) ~= "table"
+        or type(specialProfile) ~= "table"
+        or type(normalProfile.targetItemLevel) ~= "number"
+        or type(specialProfile.targetItemLevel) ~= "number"
+        or type(normalProfile.craftedBonusIds) ~= "table"
+        or type(specialProfile.craftedBonusIds) ~= "table" then
         return false, "本赛季制造装等配置无效"
     end
 
@@ -364,21 +371,32 @@ function CraftExport.StartAutomaticCapture()
         probed = 0,
         processed = 0,
         accepted = 0,
+        normalAccepted = 0,
+        specialAccepted = 0,
+        fallbackAccepted = 0,
+        retryCount = 0,
         belowMaximum = 0,
         pending = 0,
         failed = 0,
-        maximumItemLevel = config.targetItemLevel,
-        craftedBonusIds = config.craftedBonusIds,
+        maximumItemLevel = specialProfile.targetItemLevel,
+        normalTargetItemLevel = normalProfile.targetItemLevel,
+        specialTargetItemLevel = specialProfile.targetItemLevel,
+        normalCraftedBonusIds = normalProfile.craftedBonusIds,
+        specialCraftedBonusIds = specialProfile.craftedBonusIds,
         currentCandidateItemLevel = currentCandidateItemLevel,
     }
     db.automaticRun = run
     db.previousItems = db.items
     db.items = {}
     db.maximumProfile = {
-        rule = "configured_crafted_bonus_ids",
+        rule = "configured_crafted_dual_profiles",
         profileId = config.profileId,
-        maximumItemLevel = config.targetItemLevel,
-        craftedBonusIds = config.craftedBonusIds,
+        maximumItemLevel = specialProfile.targetItemLevel,
+        normalTargetItemLevel = normalProfile.targetItemLevel,
+        specialTargetItemLevel = specialProfile.targetItemLevel,
+        normalCraftedBonusIds = normalProfile.craftedBonusIds,
+        specialCraftedBonusIds = specialProfile.craftedBonusIds,
+        specialEquipLocs = config.specialEquipLocs,
         currentCandidateItemLevel = currentCandidateItemLevel,
         candidateCount = #keys,
         configuredAt = Now(),
@@ -392,13 +410,15 @@ function CraftExport.StartAutomaticCapture()
 
     CraftExport.automaticCaptureRunning = true
     Print(string.format(
-        "开始验证 %d 件当前赛季装备：起始装等 %s，目标装等 %d，无需打开制造订单界面",
+        "开始验证 %d 件当前赛季装备：起始装等 %s，普通 %d，武器栏位/饰品 %d，无需打开制造订单界面",
         #keys,
         tostring(currentCandidateItemLevel or "未知"),
-        config.targetItemLevel
+        normalProfile.targetItemLevel,
+        specialProfile.targetItemLevel
     ))
 
     local index = 0
+    local ProcessCandidate
 
     local function Finish()
         CraftExport.automaticCaptureRunning = false
@@ -406,15 +426,108 @@ function CraftExport.StartAutomaticCapture()
         run.completedAt = Now()
         CraftExport.RefreshSummary()
         Print(string.format(
-            "自动验证完成：目标装等 %s，通过 %d，未验证 %d，失败 %d",
-            tostring(run.maximumItemLevel or "未识别"),
-            run.accepted,
+            "自动验证完成：普通%d件，特殊%d件，回退%d件，未验证%d件，失败%d件",
+            run.normalAccepted,
+            run.specialAccepted,
+            run.fallbackAccepted,
             run.pending,
             run.failed
         ))
     end
 
-    local function ProcessCandidate()
+    local function FinishCandidate()
+        run.processed = run.processed + 1
+        if run.processed % 10 == 0 then
+            Print(string.format("目标装等验证进度：%d/%d", run.processed, run.total))
+        end
+        CraftExport.RefreshSummary()
+        C_Timer.After(0, ProcessCandidate)
+    end
+
+    local function MarkPending(candidate, diagnostics, specialFallbackReason)
+        run.pending = run.pending + 1
+        candidate.status = "configured_maximum_unverified"
+        candidate.statusReason = diagnostics and diagnostics.reason or "configured_maximum_unverified"
+        candidate.automaticPreview = {
+            baseItemLevel = diagnostics and diagnostics.baseItemLevel or nil,
+            adjustedItemLevel = diagnostics and diagnostics.adjustedItemLevel or nil,
+            targetItemLevel = diagnostics and diagnostics.targetItemLevel or nil,
+            targetRule = diagnostics and diagnostics.targetRule or nil,
+            specialFallbackReason = specialFallbackReason,
+            checkedAt = Now(),
+        }
+        FinishCandidate()
+    end
+
+    local function AcceptPreview(candidate, outputLink, previewMeta, isFallback)
+        previewMeta.automatic = true
+        previewMeta.configuredMaximumItemLevel = previewMeta.targetItemLevel
+        local accepted, result = PromoteCandidateFromLink(
+            candidate,
+            outputLink,
+            previewMeta,
+            previewMeta.targetItemLevel
+        )
+        if accepted then
+            run.accepted = run.accepted + 1
+            if previewMeta.isSpecial then
+                run.specialAccepted = run.specialAccepted + 1
+            else
+                run.normalAccepted = run.normalAccepted + 1
+            end
+            if isFallback then
+                run.fallbackAccepted = run.fallbackAccepted + 1
+            end
+        else
+            run.failed = run.failed + 1
+            candidate.status = "automatic_capture_failed"
+            candidate.statusReason = tostring(result)
+        end
+        FinishCandidate()
+    end
+
+    local function TryCandidate(candidate, retryAttempt)
+        local outputLink, previewMeta, diagnostics = CraftExport.FindConfiguredMaximumPreview(candidate, false)
+        run.probed = run.probed + 1
+        if outputLink then
+            AcceptPreview(candidate, outputLink, previewMeta, false)
+            return
+        end
+
+        local maxRetries = tonumber(config.linkRetryCount) or 0
+        local shouldRetry = diagnostics
+            and diagnostics.isSpecial
+            and diagnostics.adjustedItemLevel == nil
+            and diagnostics.adjustedLink
+            and retryAttempt < maxRetries
+        if shouldRetry then
+            CraftExport.PreloadConfiguredLink(diagnostics.adjustedLink)
+            run.retryCount = run.retryCount + 1
+            local delay = tonumber(config.linkRetryDelaySeconds) or 0
+            C_Timer.After(delay, function()
+                TryCandidate(candidate, retryAttempt + 1)
+            end)
+            return
+        end
+
+        if diagnostics and diagnostics.isSpecial then
+            local specialFallbackReason = diagnostics.reason or "special_profile_unverified"
+            local fallbackLink, fallbackMeta, fallbackDiagnostics =
+                CraftExport.FindConfiguredMaximumPreview(candidate, true)
+            run.probed = run.probed + 1
+            if fallbackLink then
+                fallbackMeta.specialFallbackReason = specialFallbackReason
+                AcceptPreview(candidate, fallbackLink, fallbackMeta, true)
+            else
+                MarkPending(candidate, fallbackDiagnostics, specialFallbackReason)
+            end
+            return
+        end
+
+        MarkPending(candidate, diagnostics, nil)
+    end
+
+    ProcessCandidate = function()
         index = index + 1
         local key = keys[index]
         if not key then
@@ -423,45 +536,11 @@ function CraftExport.StartAutomaticCapture()
         end
 
         local candidate = db.candidates[key]
-        if candidate then
-            local outputLink, previewMeta, diagnostics = CraftExport.FindConfiguredMaximumPreview(candidate)
-            run.probed = run.probed + 1
-            run.processed = run.processed + 1
-            if outputLink then
-                previewMeta.automatic = true
-                previewMeta.configuredMaximumItemLevel = config.targetItemLevel
-                local accepted, result = PromoteCandidateFromLink(
-                    candidate,
-                    outputLink,
-                    previewMeta,
-                    config.targetItemLevel
-                )
-                if accepted then
-                    run.accepted = run.accepted + 1
-                else
-                    run.failed = run.failed + 1
-                    candidate.status = "automatic_capture_failed"
-                    candidate.statusReason = tostring(result)
-                end
-            else
-                run.pending = run.pending + 1
-                candidate.status = "configured_maximum_unverified"
-                candidate.statusReason = diagnostics and diagnostics.reason or "configured_maximum_unverified"
-                candidate.automaticPreview = {
-                    baseItemLevel = diagnostics and diagnostics.baseItemLevel or nil,
-                    adjustedItemLevel = diagnostics and diagnostics.adjustedItemLevel or nil,
-                    targetItemLevel = config.targetItemLevel,
-                    craftedBonusIds = config.craftedBonusIds,
-                    checkedAt = Now(),
-                }
-            end
+        if not candidate then
+            FinishCandidate()
+            return
         end
-
-        if run.processed % 10 == 0 then
-            Print(string.format("目标装等验证进度：%d/%d", run.processed, run.total))
-        end
-        CraftExport.RefreshSummary()
-        C_Timer.After(0, ProcessCandidate)
+        TryCandidate(candidate, 0)
     end
 
     C_Timer.After(0, ProcessCandidate)
@@ -491,13 +570,14 @@ local function ShowStatus()
     if db.automaticRun then
         local run = db.automaticRun
         Print(string.format(
-            "自动验证：处理 %d/%d，通过 %d，未验证 %d，失败 %d，目标装等 %s",
+            "自动验证：处理%d/%d，普通%d，特殊%d，回退%d，未验证%d，失败%d",
             run.processed or 0,
             run.total or 0,
-            run.accepted or 0,
+            run.normalAccepted or 0,
+            run.specialAccepted or 0,
+            run.fallbackAccepted or 0,
             run.pending or 0,
-            run.failed or 0,
-            tostring(run.maximumItemLevel or "未知")
+            run.failed or 0
         ))
     end
 end

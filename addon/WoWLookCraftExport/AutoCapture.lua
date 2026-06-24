@@ -115,7 +115,40 @@ function CraftExport.ReplaceBonusIdsInItemLink(link, bonusIds)
     return prefix .. table.concat(fields, ":") .. suffix, nil
 end
 
-function CraftExport.FindConfiguredMaximumPreview(candidate)
+local function IsValidProfile(profile)
+    return type(profile) == "table"
+        and type(profile.targetRule) == "string"
+        and type(profile.targetItemLevel) == "number"
+        and type(profile.craftedBonusIds) == "table"
+        and #profile.craftedBonusIds > 0
+end
+
+function CraftExport.GetConfiguredCraftProfile(candidate, forceNormal)
+    local config = CraftExport.SEASON_CONFIG
+    if type(config) ~= "table" or not IsValidProfile(config.normalProfile) then
+        return nil, "season_config_invalid"
+    end
+    if not forceNormal
+        and candidate
+        and type(config.specialEquipLocs) == "table"
+        and config.specialEquipLocs[candidate.equipLoc] then
+        if not IsValidProfile(config.specialProfile) then
+            return nil, "special_profile_invalid"
+        end
+        return config.specialProfile, nil, true
+    end
+    return config.normalProfile, nil, false
+end
+
+function CraftExport.PreloadConfiguredLink(link)
+    if type(link) ~= "string" or link == "" then
+        return false
+    end
+    local ok, lines = pcall(CraftExport.CaptureTooltipLines, link)
+    return ok and type(lines) == "table"
+end
+
+function CraftExport.FindConfiguredMaximumPreview(candidate, forceNormal)
     if not candidate or not candidate.recipeId then
         return nil, nil, { reason = "candidate_missing_recipe" }
     end
@@ -123,12 +156,9 @@ function CraftExport.FindConfiguredMaximumPreview(candidate)
         return nil, nil, { reason = "recipe_output_api_unavailable" }
     end
 
-    local config = CraftExport.SEASON_CONFIG
-    if type(config) ~= "table"
-        or type(config.targetItemLevel) ~= "number"
-        or type(config.craftedBonusIds) ~= "table"
-        or #config.craftedBonusIds == 0 then
-        return nil, nil, { reason = "season_config_invalid" }
+    local profile, profileError, isSpecial = CraftExport.GetConfiguredCraftProfile(candidate, forceNormal)
+    if not profile then
+        return nil, nil, { reason = profileError }
     end
 
     local qualityId = GetHighestQualityId(candidate)
@@ -151,7 +181,7 @@ function CraftExport.FindConfiguredMaximumPreview(candidate)
     local baseItemLevel = GetLinkItemLevel(baseLink)
     local adjustedLink, rebuildError = CraftExport.ReplaceBonusIdsInItemLink(
         baseLink,
-        config.craftedBonusIds
+        profile.craftedBonusIds
     )
     if not adjustedLink then
         return nil, nil, {
@@ -161,25 +191,34 @@ function CraftExport.FindConfiguredMaximumPreview(candidate)
     end
 
     local adjustedItemLevel = GetLinkItemLevel(adjustedLink)
-    if adjustedItemLevel ~= config.targetItemLevel then
+    if adjustedItemLevel ~= profile.targetItemLevel then
         return nil, nil, {
             reason = "configured_link_not_target_item_level",
             baseItemLevel = baseItemLevel,
             adjustedItemLevel = adjustedItemLevel,
-            targetItemLevel = config.targetItemLevel,
+            adjustedLink = adjustedLink,
+            targetItemLevel = profile.targetItemLevel,
+            targetRule = profile.targetRule,
+            isSpecial = isSpecial,
         }
     end
 
     return adjustedLink, {
         mode = "configured_crafted_bonus_ids",
-        profileId = config.profileId,
+        profileId = profile.id,
+        targetRule = profile.targetRule,
+        targetItemLevel = profile.targetItemLevel,
+        isSpecial = isSpecial,
         highestQualityId = qualityId,
-        craftedBonusIds = config.craftedBonusIds,
+        craftedBonusIds = profile.craftedBonusIds,
         baseLink = baseLink,
         baseItemLevel = baseItemLevel,
     }, {
         baseItemLevel = baseItemLevel,
         adjustedItemLevel = adjustedItemLevel,
-        targetItemLevel = config.targetItemLevel,
+        adjustedLink = adjustedLink,
+        targetItemLevel = profile.targetItemLevel,
+        targetRule = profile.targetRule,
+        isSpecial = isSpecial,
     }
 end

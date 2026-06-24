@@ -30,11 +30,22 @@ assert.ok(toc.indexOf('AutoCapture.lua') < toc.indexOf('WoWLookCraftExport.lua')
 
 assert.doesNotMatch(constants, /CANDIDATE_ITEM_LEVEL\s*=/);
 assert.doesNotMatch(constants, /TARGET_ITEM_LEVEL\s*=/);
+assert.match(seasonConfig, /normalProfile\s*=\s*\{/);
+assert.match(seasonConfig, /specialProfile\s*=\s*\{/);
 assert.match(seasonConfig, /targetItemLevel\s*=\s*285/);
+assert.match(seasonConfig, /targetItemLevel\s*=\s*295/);
 for (const bonusId of [12214, 13667, 12497, 12066, 13622]) {
   assert.match(seasonConfig, new RegExp(`\\b${bonusId}\\b`));
 }
+for (const bonusId of [13655, 13640]) {
+  assert.match(seasonConfig, new RegExp(`\\b${bonusId}\\b`));
+}
+for (const equipLoc of ['INVTYPE_TRINKET', 'INVTYPE_WEAPON', 'INVTYPE_2HWEAPON', 'INVTYPE_SHIELD', 'INVTYPE_HOLDABLE']) {
+  assert.match(seasonConfig, new RegExp(equipLoc));
+}
 assert.doesNotMatch(seasonConfig, /\b8791\b/);
+assert.doesNotMatch(seasonConfig, /\b8795\b/);
+assert.doesNotMatch(seasonConfig, /\b8960\b/);
 
 assert.match(scanner + core, /CRAFTINGORDERS_CUSTOMER_OPTIONS_PARSED/);
 assert.match(scanner, /C_CraftingOrders\.ParseCustomerOptions/);
@@ -50,12 +61,18 @@ assert.ok(fs.existsSync(path.join(root, 'tests', 'test-craft-tooltip.lua')));
 assert.match(autoCapture, /GetRecipeOutputItemData/);
 assert.match(autoCapture, /ReplaceBonusIdsInItemLink/);
 assert.match(autoCapture, /FindConfiguredMaximumPreview/);
+assert.match(autoCapture, /GetConfiguredCraftProfile/);
+assert.match(autoCapture, /PreloadConfiguredLink/);
 assert.match(autoCapture, /configured_link_not_target_item_level/);
 
 assert.match(core, /maximumItemLevel/);
 assert.match(core, /configured_crafted_bonus_ids/);
 assert.match(core, /configured_maximum_unverified/);
 assert.match(core, /currentCandidateItemLevel/);
+assert.match(core, /specialFallbackReason/);
+assert.match(core, /specialAccepted/);
+assert.match(core, /fallbackAccepted/);
+assert.match(core, /C_Timer\.After/);
 assert.match(core, /CreateOptionalCraftingReagentInfoTbl/);
 assert.match(core, /GetRecipeOutputItemData/);
 assert.match(core, /StartAutomaticCapture/);

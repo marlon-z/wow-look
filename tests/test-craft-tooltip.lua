@@ -1,66 +1,29 @@
 local namespace = {}
 
 assert(loadfile("addon/WoWLookCraftExport/Constants.lua"))("WoWLookCraftExportTest", namespace)
+assert(loadfile("addon/WoWLookCraftExport/SeasonConfig.lua"))("WoWLookCraftExportTest", namespace)
 assert(loadfile("addon/WoWLookCraftExport/Tooltip.lua"))("WoWLookCraftExportTest", namespace)
 assert(loadfile("addon/WoWLookCraftExport/Scanner.lua"))("WoWLookCraftExportTest", namespace)
 
-Enum = {
-    CraftingReagentType = {
-        Modifying = 0,
-    },
-}
-
-local itemLevels = {
-    ["item:base"] = 350,
-    ["item:crest-low"] = 372,
-    ["item:crest-max"] = 399,
-}
+local baseLink = "|cnIQ4:|Hitem:237832::::::::90:269::13:1:3524:2:40:2753:38:8:::::|h[测试装备]|h|r"
+local expectedLink = "|cnIQ4:|Hitem:237832::::::::90:269::13:2:3524:1498:2:40:2753:38:8:::::|h[测试装备]|h|r"
 
 C_Item = {
     GetDetailedItemLevelInfo = function(link)
-        return itemLevels[link]
+        if link == expectedLink then
+            return 285
+        end
+        if link == baseLink then
+            return 259
+        end
     end,
 }
 
 C_TradeSkillUI = {
-    GetRecipeSchematic = function()
-        return {
-            reagentSlotSchematics = {
-                {
-                    reagentType = 0,
-                    dataSlotIndex = 7,
-                    quantityRequired = 1,
-                    reagents = {
-                        { itemID = 101 },
-                        { itemID = 102 },
-                    },
-                },
-                {
-                    reagentType = 0,
-                    dataSlotIndex = 8,
-                    quantityRequired = 1,
-                    reagents = {
-                        { itemID = 201 },
-                    },
-                },
-            },
-        }
-    end,
-    GetDependentReagents = function(reagent)
-        if reagent.itemID == 102 then
-            return { { itemID = 201 } }
-        end
-        return {}
-    end,
-    GetRecipeOutputItemData = function(_, reagents)
-        if #reagents == 0 then
-            return { hyperlink = "item:base" }
-        end
-        local reagentId = reagents[1].reagent.itemID
-        if reagentId == 101 or (reagentId == 102 and #reagents == 1) or reagentId == 201 then
-            return { hyperlink = "item:crest-low" }
-        end
-        return { hyperlink = "item:crest-max" }
+    GetRecipeOutputItemData = function(_, reagents, _, qualityId)
+        assert(#reagents == 0)
+        assert(qualityId == 5)
+        return { hyperlink = baseLink }
     end,
 }
 
@@ -135,20 +98,26 @@ local missingQualities = namespace.Scanner.IsVisiblePlusCandidate({
 })
 assert(missingQualities == false)
 
-local automaticLink, automaticMeta, automaticDiagnostics = namespace.FindAutomaticBestPreview({
+local rebuiltLink, rebuildError = namespace.AppendBonusIdToItemLink(baseLink, 1498)
+assert(rebuildError == nil)
+assert(rebuiltLink == expectedLink)
+
+local duplicateLink = namespace.AppendBonusIdToItemLink(expectedLink, 1498)
+assert(duplicateLink == expectedLink)
+
+local malformedLink, malformedError = namespace.AppendBonusIdToItemLink("item:237832", 1498)
+assert(malformedLink == nil)
+assert(malformedError == "item_link_missing_bonus_count")
+
+local automaticLink, automaticMeta, automaticDiagnostics = namespace.FindConfiguredMaximumPreview({
     recipeId = 9001,
     craftingQualityIds = { 1, 2, 3, 4, 5 },
 })
-assert(automaticLink == "item:crest-max")
-assert(automaticMeta.reagentItemId == 102)
-assert(#automaticMeta.reagentKeys == 2)
-assert(automaticDiagnostics.bestItemLevel == 399)
-assert(automaticDiagnostics.tested == 4)
-
-assert(namespace.DeriveMaximumItemLevel({
-    first = { itemLevel = 350 },
-    second = { itemLevel = 399 },
-    third = { itemLevel = 372 },
-}) == 399)
+assert(automaticLink == expectedLink)
+assert(automaticMeta.mode == "configured_item_level_bonus_id")
+assert(automaticMeta.highestQualityId == 5)
+assert(automaticMeta.itemLevelBonusId == 1498)
+assert(automaticDiagnostics.baseItemLevel == 259)
+assert(automaticDiagnostics.adjustedItemLevel == 285)
 
 print("craft tooltip parser passed")

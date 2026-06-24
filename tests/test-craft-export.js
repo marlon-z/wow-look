@@ -13,6 +13,7 @@ function read(relativePath) {
 
 const toc = read('WoWLookCraftExport.toc');
 const constants = read('Constants.lua');
+const seasonConfig = read('SeasonConfig.lua');
 const tooltip = read('Tooltip.lua');
 const scanner = read('Scanner.lua');
 const autoCapture = read('AutoCapture.lua');
@@ -21,12 +22,16 @@ const core = read('WoWLookCraftExport.lua');
 assert.match(toc, /## Interface:\s*120007/);
 assert.match(toc, /## SavedVariables:\s*WoWLookCraftExportDB/);
 assert.ok(toc.indexOf('Constants.lua') < toc.indexOf('Tooltip.lua'));
+assert.ok(toc.indexOf('Constants.lua') < toc.indexOf('SeasonConfig.lua'));
+assert.ok(toc.indexOf('SeasonConfig.lua') < toc.indexOf('Tooltip.lua'));
 assert.ok(toc.indexOf('Tooltip.lua') < toc.indexOf('Scanner.lua'));
 assert.ok(toc.indexOf('Scanner.lua') < toc.indexOf('AutoCapture.lua'));
 assert.ok(toc.indexOf('AutoCapture.lua') < toc.indexOf('WoWLookCraftExport.lua'));
 
 assert.doesNotMatch(constants, /CANDIDATE_ITEM_LEVEL\s*=/);
 assert.doesNotMatch(constants, /TARGET_ITEM_LEVEL\s*=/);
+assert.match(seasonConfig, /targetItemLevel\s*=\s*285/);
+assert.match(seasonConfig, /itemLevelBonusId\s*=\s*1498/);
 
 assert.match(scanner + core, /CRAFTINGORDERS_CUSTOMER_OPTIONS_PARSED/);
 assert.match(scanner, /C_CraftingOrders\.ParseCustomerOptions/);
@@ -39,15 +44,14 @@ assert.match(tooltip, /randomAttributeSlots/);
 assert.match(tooltip, /randomAttributeCount/);
 assert.ok(fs.existsSync(path.join(root, 'tests', 'test-craft-tooltip.lua')));
 
-assert.match(autoCapture, /GetRecipeSchematic/);
 assert.match(autoCapture, /GetRecipeOutputItemData/);
-assert.match(autoCapture, /CraftingReagentType\.Modifying/);
-assert.match(autoCapture, /FindAutomaticBestPreview/);
-assert.match(autoCapture, /DeriveMaximumItemLevel/);
-assert.match(autoCapture, /automatic_maximum_preview_not_found/);
+assert.match(autoCapture, /AppendBonusIdToItemLink/);
+assert.match(autoCapture, /FindConfiguredMaximumPreview/);
+assert.match(autoCapture, /configured_link_not_target_item_level/);
 
 assert.match(core, /maximumItemLevel/);
-assert.match(core, /below_derived_maximum/);
+assert.match(core, /configured_crafted_bonus_id/);
+assert.match(core, /configured_maximum_unverified/);
 assert.match(core, /CreateOptionalCraftingReagentInfoTbl/);
 assert.match(core, /GetRecipeOutputItemData/);
 assert.match(core, /StartAutomaticCapture/);

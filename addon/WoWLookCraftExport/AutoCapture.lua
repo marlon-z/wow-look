@@ -27,94 +27,79 @@ local function GetHighestQualityId(candidate)
     return qualityIds[#qualityIds]
 end
 
-local function GetRecipeSchematic(recipeId)
-    if not C_TradeSkillUI or type(C_TradeSkillUI.GetRecipeSchematic) ~= "function" then
-        return nil, "recipe_schematic_api_unavailable"
-    end
-    local ok, schematic = pcall(C_TradeSkillUI.GetRecipeSchematic, recipeId, false)
-    if not ok or not schematic then
-        return nil, "recipe_schematic_unavailable"
-    end
-    return schematic, nil
-end
-
-local function BuildReagentInfo(slot, reagent)
-    return {
-        reagent = {
-            itemID = reagent.itemID,
-            currencyID = reagent.currencyID,
-        },
-        dataSlotIndex = slot.dataSlotIndex,
-        quantity = slot.quantityRequired and math.max(1, slot.quantityRequired) or 1,
-    }
-end
-
-local function ReagentKey(reagent)
-    if reagent.itemID then
-        return "item:" .. tostring(reagent.itemID)
-    end
-    if reagent.currencyID then
-        return "currency:" .. tostring(reagent.currencyID)
-    end
-    return nil
-end
-
-local function BuildReagentSlotMap(schematic)
-    local slotMap = {}
-    for _, slot in ipairs(schematic.reagentSlotSchematics or {}) do
-        for _, reagent in ipairs(slot.reagents or {}) do
-            local key = ReagentKey(reagent)
-            if key then
-                slotMap[key] = { slot = slot, reagent = reagent }
-            end
+local function SplitColonPreservingEmpty(text)
+    local fields = {}
+    local startIndex = 1
+    while true do
+        local separator = string.find(text, ":", startIndex, true)
+        if not separator then
+            fields[#fields + 1] = string.sub(text, startIndex)
+            return fields
         end
+        fields[#fields + 1] = string.sub(text, startIndex, separator - 1)
+        startIndex = separator + 1
     end
-    return slotMap
 end
 
-local function BuildReagentCombination(schematic, targetSlot, targetReagent)
-    local slotMap = BuildReagentSlotMap(schematic)
-    local infos = {}
-    local reagentKeys = {}
-    local added = {}
-
-    local function AddWithDependencies(slot, reagent)
-        local key = ReagentKey(reagent)
-        if not key or added[key] then
-            return
+local function ExtractItemPayload(link)
+    local hyperlinkStart = string.find(link, "|Hitem:", 1, true)
+    if hyperlinkStart then
+        local payloadStart = hyperlinkStart + #"|Hitem:"
+        local payloadEnd = string.find(link, "|h", payloadStart, true)
+        if not payloadEnd then
+            return nil, nil, nil, "item_hyperlink_missing_text_marker"
         end
-        added[key] = true
-        infos[#infos + 1] = BuildReagentInfo(slot, reagent)
-        reagentKeys[#reagentKeys + 1] = key
+        return string.sub(link, 1, payloadStart - 1),
+            string.sub(link, payloadStart, payloadEnd - 1),
+            string.sub(link, payloadEnd),
+            nil
+    end
 
-        if C_TradeSkillUI and type(C_TradeSkillUI.GetDependentReagents) == "function" then
-            local ok, dependencies = pcall(C_TradeSkillUI.GetDependentReagents, reagent)
-            if ok then
-                for _, dependency in ipairs(dependencies or {}) do
-                    local dependencyEntry = slotMap[ReagentKey(dependency)]
-                    if dependencyEntry then
-                        AddWithDependencies(dependencyEntry.slot, dependencyEntry.reagent)
-                    end
-                end
-            end
+    if string.sub(link, 1, 5) == "item:" then
+        return "item:", string.sub(link, 6), "", nil
+    end
+    return nil, nil, nil, "not_an_item_link"
+end
+
+function CraftExport.AppendBonusIdToItemLink(link, bonusId)
+    if type(link) ~= "string" or link == "" then
+        return nil, "item_link_unavailable"
+    end
+    bonusId = tonumber(bonusId)
+    if not bonusId or bonusId <= 0 or bonusId % 1 ~= 0 then
+        return nil, "invalid_item_level_bonus_id"
+    end
+
+    local prefix, payload, suffix, extractError = ExtractItemPayload(link)
+    if not payload then
+        return nil, extractError
+    end
+
+    local fields = SplitColonPreservingEmpty(payload)
+    if #fields < 13 or fields[13] == "" then
+        return nil, "item_link_missing_bonus_count"
+    end
+    local bonusCount = tonumber(fields[13])
+    if not bonusCount or bonusCount < 0 or bonusCount % 1 ~= 0 then
+        return nil, "item_link_invalid_bonus_count"
+    end
+    if #fields < 13 + bonusCount then
+        return nil, "item_link_truncated_bonus_list"
+    end
+
+    local bonusText = tostring(bonusId)
+    for index = 14, 13 + bonusCount do
+        if fields[index] == bonusText then
+            return link, nil
         end
     end
 
-    AddWithDependencies(targetSlot, targetReagent)
-    return infos, reagentKeys
+    fields[13] = tostring(bonusCount + 1)
+    table.insert(fields, 14 + bonusCount, bonusText)
+    return prefix .. table.concat(fields, ":") .. suffix, nil
 end
 
-function CraftExport.DeriveMaximumItemLevel(previews)
-    local maximum
-    for _, preview in pairs(previews or {}) do
-        if type(preview.itemLevel) == "number" and (not maximum or preview.itemLevel > maximum) then
-            maximum = preview.itemLevel
-        end
-    end
-    return maximum
-end
-
-function CraftExport.FindAutomaticBestPreview(candidate)
+function CraftExport.FindConfiguredMaximumPreview(candidate)
     if not candidate or not candidate.recipeId then
         return nil, nil, { reason = "candidate_missing_recipe" }
     end
@@ -122,9 +107,11 @@ function CraftExport.FindAutomaticBestPreview(candidate)
         return nil, nil, { reason = "recipe_output_api_unavailable" }
     end
 
-    local schematic, schematicError = GetRecipeSchematic(candidate.recipeId)
-    if not schematic then
-        return nil, nil, { reason = schematicError }
+    local config = CraftExport.SEASON_CONFIG
+    if type(config) ~= "table"
+        or type(config.targetItemLevel) ~= "number"
+        or type(config.itemLevelBonusId) ~= "number" then
+        return nil, nil, { reason = "season_config_invalid" }
     end
 
     local qualityId = GetHighestQualityId(candidate)
@@ -132,71 +119,50 @@ function CraftExport.FindAutomaticBestPreview(candidate)
         return nil, nil, { reason = "highest_quality_unavailable" }
     end
 
-    local bestItemLevel = 0
-    local bestLink
-    local bestMeta
-    local tested = 0
-
-    local function TestReagents(reagents, meta)
-        tested = tested + 1
-        local ok, outputInfo = pcall(
-            C_TradeSkillUI.GetRecipeOutputItemData,
-            candidate.recipeId,
-            reagents,
-            nil,
-            qualityId
-        )
-        if not ok or not outputInfo or not outputInfo.hyperlink then
-            return
-        end
-
-        local itemLevel = GetLinkItemLevel(outputInfo.hyperlink)
-        if itemLevel and itemLevel > bestItemLevel then
-            bestItemLevel = itemLevel
-            bestLink = outputInfo.hyperlink
-            bestMeta = meta
-        end
-        return
+    local ok, outputInfo = pcall(
+        C_TradeSkillUI.GetRecipeOutputItemData,
+        candidate.recipeId,
+        {},
+        nil,
+        qualityId
+    )
+    if not ok or not outputInfo or not outputInfo.hyperlink then
+        return nil, nil, { reason = "base_output_link_unavailable" }
     end
 
-    TestReagents({}, { mode = "highest_quality_without_optional_reagent" })
-
-    local modifyingType = Enum and Enum.CraftingReagentType and Enum.CraftingReagentType.Modifying or 0
-    local seen = {}
-    for _, slot in ipairs(schematic.reagentSlotSchematics or {}) do
-        if slot.reagentType == modifyingType then
-            for _, reagent in ipairs(slot.reagents or {}) do
-                if reagent.itemID then
-                    local reagentKey = tostring(slot.dataSlotIndex) .. ":" .. tostring(reagent.itemID)
-                    if not seen[reagentKey] then
-                        seen[reagentKey] = true
-                        local reagentInfos, reagentKeys = BuildReagentCombination(schematic, slot, reagent)
-                        local reagentInfo = reagentInfos[1]
-                        local meta = {
-                            mode = #reagentInfos > 1 and "modifying_reagent_with_dependencies"
-                                or "single_modifying_reagent",
-                            reagentItemId = reagent.itemID,
-                            reagentKeys = reagentKeys,
-                            dataSlotIndex = slot.dataSlotIndex,
-                            quantity = reagentInfo.quantity,
-                            highestQualityId = qualityId,
-                        }
-                        TestReagents(reagentInfos, meta)
-                    end
-                end
-            end
-        end
-    end
-
-    if bestLink then
-        return bestLink, bestMeta, {
-            bestItemLevel = bestItemLevel,
-            tested = tested,
+    local baseLink = outputInfo.hyperlink
+    local baseItemLevel = GetLinkItemLevel(baseLink)
+    local adjustedLink, rebuildError = CraftExport.AppendBonusIdToItemLink(
+        baseLink,
+        config.itemLevelBonusId
+    )
+    if not adjustedLink then
+        return nil, nil, {
+            reason = rebuildError,
+            baseItemLevel = baseItemLevel,
         }
     end
 
-    return nil, nil, {
-        reason = "automatic_maximum_preview_not_found",
-        tested = tested,
+    local adjustedItemLevel = GetLinkItemLevel(adjustedLink)
+    if adjustedItemLevel ~= config.targetItemLevel then
+        return nil, nil, {
+            reason = "configured_link_not_target_item_level",
+            baseItemLevel = baseItemLevel,
+            adjustedItemLevel = adjustedItemLevel,
+            targetItemLevel = config.targetItemLevel,
+        }
+    end
+
+    return adjustedLink, {
+        mode = "configured_item_level_bonus_id",
+        profileId = config.profileId,
+        highestQualityId = qualityId,
+        itemLevelBonusId = config.itemLevelBonusId,
+        baseLink = baseLink,
+        baseItemLevel = baseItemLevel,
+    }, {
+        baseItemLevel = baseItemLevel,
+        adjustedItemLevel = adjustedItemLevel,
+        targetItemLevel = config.targetItemLevel,
     }
 end

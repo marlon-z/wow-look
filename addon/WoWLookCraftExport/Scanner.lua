@@ -139,10 +139,10 @@ function Scanner.CompleteScan()
         if supported and plusCandidate then
             if db.items[key] then
                 record.status = "accepted_maximum"
-                record.statusReason = "verified_derived_maximum"
+                record.statusReason = "verified_configured_maximum"
                 record.acceptedAt = db.items[key].capturedAt
             else
-            record.status = "pending_maximum_preview"
+                record.status = "pending_maximum_preview"
                 record.statusReason = "visible_scaling_plus"
             end
             db.candidates[key] = record

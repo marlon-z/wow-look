@@ -32,8 +32,8 @@ local function GetProfessionName(option)
 end
 
 function Scanner.IsVisiblePlusCandidate(option)
-    if not option or option.iLvlMin ~= CraftExport.CANDIDATE_ITEM_LEVEL then
-        return false, "minimum_item_level_not_246"
+    if not option or type(option.iLvlMin) ~= "number" then
+        return false, "minimum_item_level_unavailable"
     end
     if option.iLvlMax ~= nil then
         return false, "fixed_item_level_range"
@@ -138,12 +138,12 @@ function Scanner.CompleteScan()
 
         if supported and plusCandidate then
             if db.items[key] then
-                record.status = "accepted_285"
-                record.statusReason = "verified_tooltip_285"
+                record.status = "accepted_maximum"
+                record.statusReason = "verified_derived_maximum"
                 record.acceptedAt = db.items[key].capturedAt
             else
-                record.status = "pending_285_preview"
-                record.statusReason = "visible_246_plus"
+            record.status = "pending_maximum_preview"
+                record.statusReason = "visible_scaling_plus"
             end
             db.candidates[key] = record
             db.rejected[key] = nil

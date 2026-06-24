@@ -163,7 +163,7 @@ local function CopyRawLines(lines)
     return result
 end
 
-local function PromoteCandidateFromLink(candidate, outputLink, previewMeta)
+local function PromoteCandidateFromLink(candidate, outputLink, previewMeta, expectedMaximumItemLevel)
     local db = EnsureDatabase()
     local recipeId = candidate.recipeId
     local key = tostring(recipeId)
@@ -189,8 +189,8 @@ local function PromoteCandidateFromLink(candidate, outputLink, previewMeta)
     end
 
     local parsed = CraftExport.ParseTooltip(tooltipLines)
-    if parsed.itemLevel ~= CraftExport.TARGET_ITEM_LEVEL then
-        candidate.status = "preview_not_285"
+    if type(expectedMaximumItemLevel) ~= "number" or parsed.itemLevel ~= expectedMaximumItemLevel then
+        candidate.status = "preview_not_derived_maximum"
         candidate.statusReason = "preview_item_level_" .. tostring(parsed.itemLevel or "unknown")
         candidate.lastPreview = {
             itemLevel = parsed.itemLevel,
@@ -206,7 +206,8 @@ local function PromoteCandidateFromLink(candidate, outputLink, previewMeta)
             rejectedAt = Now(),
         }
         CraftExport.RefreshSummary()
-        return false, "当前预览是" .. tostring(parsed.itemLevel or "未知") .. "装等，请放入最高制造材料并确认预览达到285"
+        return false, "当前预览是" .. tostring(parsed.itemLevel or "未知")
+            .. "装等，本次扫描计算出的制造业最高装等是" .. tostring(expectedMaximumItemLevel or "未知")
     end
 
     local fullInfo = GetFullItemInfo(outputLink, apiInfo)
@@ -256,9 +257,10 @@ local function PromoteCandidateFromLink(candidate, outputLink, previewMeta)
         flags = parsed.flags,
         source = {
             type = "crafted",
-            candidateRule = "customer_option_246_plus",
+            candidateRule = "customer_option_scaling_plus",
             candidateItemLevel = candidate.iLvlMin,
-            targetItemLevel = CraftExport.TARGET_ITEM_LEVEL,
+            targetItemLevel = expectedMaximumItemLevel,
+            targetRule = "derived_global_crafted_maximum",
         },
         preview = preview,
         tooltipRaw = CopyRawLines(tooltipLines),
@@ -269,8 +271,8 @@ local function PromoteCandidateFromLink(candidate, outputLink, previewMeta)
     }
 
     db.items[key] = formalItem
-    candidate.status = "accepted_285"
-    candidate.statusReason = "verified_tooltip_285"
+    candidate.status = "accepted_maximum"
+    candidate.statusReason = "verified_derived_maximum"
     candidate.acceptedAt = formalItem.capturedAt
     db.rejected[key] = nil
     CraftExport.RefreshSummary()
@@ -297,7 +299,7 @@ local function CaptureCurrentPreview()
     local db = EnsureDatabase()
     local candidate = db.candidates[tostring(recipeId)]
     if not candidate then
-        return false, "当前配方不在246+候选中，请先运行 /wowcraft scan"
+        return false, "当前配方不在可变装等候选中，请先运行 /wowcraft scan"
     end
 
     local outputLink, linkError, optionalReagents, highestQualityId = GetOutputLink(form, recipeId)
@@ -306,25 +308,28 @@ local function CaptureCurrentPreview()
         return false, linkError
     end
 
+    local maximumItemLevel = db.maximumProfile and db.maximumProfile.maximumItemLevel or nil
+    if not maximumItemLevel then
+        return false, "尚未计算出本版本制造业最高装等，请先运行 /wowcraft scan"
+    end
+
     return PromoteCandidateFromLink(candidate, outputLink, {
         mode = "manual_order_form",
         highestQualityId = highestQualityId,
         optionalReagentCount = #optionalReagents,
-    })
+    }, maximumItemLevel)
 end
 
 
 function CraftExport.StartAutomaticCapture()
     if CraftExport.automaticCaptureRunning then
-        return false, "自动285验证正在运行"
+        return false, "自动最高装等验证正在运行"
     end
 
     local db = EnsureDatabase()
     local keys = {}
     for key in pairs(db.candidates) do
-        if not db.items[key] then
-            keys[#keys + 1] = key
-        end
+        keys[#keys + 1] = key
     end
     table.sort(keys, function(left, right)
         return tonumber(left) < tonumber(right)
@@ -333,48 +338,131 @@ function CraftExport.StartAutomaticCapture()
     local run = {
         startedAt = Now(),
         total = #keys,
+        phase = "probe",
+        probed = 0,
         processed = 0,
         accepted = 0,
+        belowMaximum = 0,
         pending = 0,
         failed = 0,
+        maximumItemLevel = nil,
     }
     db.automaticRun = run
+    db.previousItems = db.items
+    db.items = {}
+    db.maximumProfile = nil
 
     if #keys == 0 then
         run.completedAt = Now()
-        Print("没有等待自动验证的246+装备")
+        Print("没有找到会显示“装等+”的战斗装备")
         return true, run
     end
 
     CraftExport.automaticCaptureRunning = true
-    Print(string.format("开始自动验证 %d 件246+装备，无需打开制造订单界面", #keys))
+    Print(string.format("开始自动计算 %d 件可变装等装备的最高结果，无需打开制造订单界面", #keys))
 
+    local probes = {}
+    local maximumItemLevel = 0
     local index = 0
-    local function ProcessNext()
+    local ProcessPromotion
+
+    local function Finish()
+        CraftExport.automaticCaptureRunning = false
+        run.phase = "complete"
+        run.completedAt = Now()
+        CraftExport.RefreshSummary()
+        Print(string.format(
+            "自动验证完成：本版本最高装等 %s，通过 %d，低于最高 %d，待验证 %d，失败 %d",
+            tostring(run.maximumItemLevel or "未识别"),
+            run.accepted,
+            run.belowMaximum,
+            run.pending,
+            run.failed
+        ))
+    end
+
+    local function BeginPromotion()
+        maximumItemLevel = CraftExport.DeriveMaximumItemLevel(probes) or 0
+        if maximumItemLevel <= 0 then
+            Finish()
+            return
+        end
+
+        run.phase = "promote"
+        run.maximumItemLevel = maximumItemLevel
+        db.maximumProfile = {
+            rule = "derived_global_crafted_maximum",
+            maximumItemLevel = maximumItemLevel,
+            candidateCount = #keys,
+            resolvedCount = CountEntries(probes),
+            derivedAt = Now(),
+        }
+        Print(string.format("已计算出本版本制造业最高装等：%d，开始生成正式数据", maximumItemLevel))
+        index = 0
+        C_Timer.After(0, ProcessPromotion)
+    end
+
+    local function ProcessProbe()
         index = index + 1
         local key = keys[index]
         if not key then
-            CraftExport.automaticCaptureRunning = false
-            run.completedAt = Now()
-            CraftExport.RefreshSummary()
-            Print(string.format(
-                "自动验证完成：通过 %d，待验证 %d，失败 %d",
-                run.accepted,
-                run.pending,
-                run.failed
-            ))
+            BeginPromotion()
             return
         end
 
         local candidate = db.candidates[key]
         if candidate then
-            local outputLink, previewMeta, diagnostics = CraftExport.FindAutomatic285Preview(candidate)
+            local outputLink, previewMeta, diagnostics = CraftExport.FindAutomaticBestPreview(candidate)
+            run.probed = run.probed + 1
+            if outputLink and diagnostics and diagnostics.bestItemLevel then
+                probes[key] = {
+                    link = outputLink,
+                    meta = previewMeta or {},
+                    itemLevel = diagnostics.bestItemLevel,
+                    tested = diagnostics.tested or 0,
+                }
+                candidate.status = "maximum_preview_found"
+                candidate.statusReason = "best_item_level_" .. tostring(diagnostics.bestItemLevel)
+            else
+                run.pending = run.pending + 1
+                candidate.status = "automatic_maximum_pending"
+                candidate.statusReason = diagnostics and diagnostics.reason or "automatic_maximum_preview_not_found"
+                candidate.automaticPreview = {
+                    tested = diagnostics and diagnostics.tested or 0,
+                    checkedAt = Now(),
+                }
+            end
+        end
+
+        if run.probed % 10 == 0 then
+            Print(string.format("最高装等探测进度：%d/%d", run.probed, run.total))
+        end
+        CraftExport.RefreshSummary()
+        C_Timer.After(0, ProcessProbe)
+    end
+
+    ProcessPromotion = function()
+        index = index + 1
+        local key = keys[index]
+        if not key then
+            Finish()
+            return
+        end
+
+        local candidate = db.candidates[key]
+        local probe = probes[key]
+        if candidate and probe then
             run.processed = run.processed + 1
-            if outputLink then
-                previewMeta = previewMeta or {}
-                previewMeta.automatic = true
-                previewMeta.testedPreviewCount = diagnostics and diagnostics.tested or 0
-                local accepted, result = PromoteCandidateFromLink(candidate, outputLink, previewMeta)
+            if probe.itemLevel == maximumItemLevel then
+                probe.meta.automatic = true
+                probe.meta.testedPreviewCount = probe.tested
+                probe.meta.derivedMaximumItemLevel = maximumItemLevel
+                local accepted, result = PromoteCandidateFromLink(
+                    candidate,
+                    probe.link,
+                    probe.meta,
+                    maximumItemLevel
+                )
                 if accepted then
                     run.accepted = run.accepted + 1
                 else
@@ -383,33 +471,31 @@ function CraftExport.StartAutomaticCapture()
                     candidate.statusReason = tostring(result)
                 end
             else
-                run.pending = run.pending + 1
-                candidate.status = "automatic_285_pending"
-                candidate.statusReason = diagnostics and diagnostics.reason or "automatic_285_preview_not_found"
+                run.belowMaximum = run.belowMaximum + 1
+                candidate.status = "below_derived_maximum"
+                candidate.statusReason = "best_" .. tostring(probe.itemLevel)
+                    .. "_below_" .. tostring(maximumItemLevel)
                 candidate.automaticPreview = {
-                    bestItemLevel = diagnostics and diagnostics.bestItemLevel or nil,
-                    bestLink = diagnostics and diagnostics.bestLink or nil,
-                    tested = diagnostics and diagnostics.tested or 0,
+                    bestItemLevel = probe.itemLevel,
+                    globalMaximumItemLevel = maximumItemLevel,
+                    tested = probe.tested,
                     checkedAt = Now(),
                 }
             end
         end
 
-        if run.processed % 10 == 0 then
-            Print(string.format("自动验证进度：%d/%d", run.processed, run.total))
-        end
         CraftExport.RefreshSummary()
-        C_Timer.After(0, ProcessNext)
+        C_Timer.After(0, ProcessPromotion)
     end
 
-    C_Timer.After(0, ProcessNext)
+    C_Timer.After(0, ProcessProbe)
     return true, run
 end
 
 local function ShowStatus()
     local summary = CraftExport.RefreshSummary()
     Print(string.format(
-        "已通过 %d，246+候选 %d，已排除 %d，错误 %d",
+        "已通过 %d，可变装等候选 %d，已排除 %d，错误 %d",
         summary.accepted,
         summary.candidates,
         summary.rejected,
@@ -429,10 +515,12 @@ local function ShowStatus()
     if db.automaticRun then
         local run = db.automaticRun
         Print(string.format(
-            "自动验证：%d/%d，通过 %d，待验证 %d，失败 %d",
-            run.processed or 0,
+            "自动验证：探测 %d/%d，正式处理 %d，通过 %d，低于最高 %d，待验证 %d，失败 %d",
+            run.probed or 0,
             run.total or 0,
+            run.processed or 0,
             run.accepted or 0,
+            run.belowMaximum or 0,
             run.pending or 0,
             run.failed or 0
         ))
@@ -440,7 +528,7 @@ local function ShowStatus()
 end
 
 local function ShowHelp()
-    Print("/wowcraft scan - 无需打开界面，自动扫描246+装备并验证285结果")
+    Print("/wowcraft scan - 无需打开界面，自动计算并导出本版本最高装等制造装备")
     Print("/wowcraft capture - 手动补采自动验证失败的当前订单预览")
     Print("/wowcraft status - 查看采集数量")
     Print("/wowcraft reset confirm - 清空本插件的采集数据")
@@ -461,8 +549,9 @@ local function HandleCommand(message)
         local ok, result = CaptureCurrentPreview()
         if ok then
             Print(string.format(
-                "已导出：%s（285，随机属性%d项）",
+                "已导出：%s（装等%d，随机属性%d项）",
                 result.name or "未知装备",
+                result.itemLevel or 0,
                 result.randomAttributeCount or 0
             ))
         else
@@ -501,7 +590,7 @@ eventFrame:SetScript("OnEvent", function(_, event, ...)
         local ok, result = CraftExport.Scanner.CompleteScan()
         if ok then
             Print(string.format(
-                "扫描完成：共 %d 项，找到 %d 件246+战斗装备，排除 %d 项",
+                "扫描完成：共 %d 项，找到 %d 件可变装等战斗装备，排除 %d 项",
                 result.scanned,
                 result.candidates,
                 result.rejected

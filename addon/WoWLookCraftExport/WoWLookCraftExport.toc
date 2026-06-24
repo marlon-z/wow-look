@@ -1,8 +1,8 @@
 ## Interface: 120007
 ## Title: WoWLookCraftExport
-## Notes: 导出当前赛季可制造到285装等的战斗装备
+## Notes: 自动导出当前版本可制造到最高装等的战斗装备
 ## Author: WoWLook
-## Version: 1.0.0
+## Version: 1.1.0
 ## SavedVariables: WoWLookCraftExportDB
 
 Constants.lua

@@ -25,12 +25,12 @@ assert.ok(toc.indexOf('Tooltip.lua') < toc.indexOf('Scanner.lua'));
 assert.ok(toc.indexOf('Scanner.lua') < toc.indexOf('AutoCapture.lua'));
 assert.ok(toc.indexOf('AutoCapture.lua') < toc.indexOf('WoWLookCraftExport.lua'));
 
-assert.match(constants, /CANDIDATE_ITEM_LEVEL\s*=\s*246/);
-assert.match(constants, /TARGET_ITEM_LEVEL\s*=\s*285/);
+assert.doesNotMatch(constants, /CANDIDATE_ITEM_LEVEL\s*=/);
+assert.doesNotMatch(constants, /TARGET_ITEM_LEVEL\s*=/);
 
 assert.match(scanner + core, /CRAFTINGORDERS_CUSTOMER_OPTIONS_PARSED/);
 assert.match(scanner, /C_CraftingOrders\.ParseCustomerOptions/);
-assert.match(scanner, /option\.iLvlMin\s*~=\s*CraftExport\.CANDIDATE_ITEM_LEVEL/);
+assert.match(scanner, /type\(option\.iLvlMin\)\s*~=\s*"number"/);
 assert.match(scanner, /option\.iLvlMax\s*~=\s*nil/);
 assert.match(scanner, /type\(option\.craftingQualityIDs\)\s*~=\s*"table"/);
 
@@ -42,9 +42,12 @@ assert.ok(fs.existsSync(path.join(root, 'tests', 'test-craft-tooltip.lua')));
 assert.match(autoCapture, /GetRecipeSchematic/);
 assert.match(autoCapture, /GetRecipeOutputItemData/);
 assert.match(autoCapture, /CraftingReagentType\.Modifying/);
-assert.match(autoCapture, /automatic_285_preview_not_found/);
+assert.match(autoCapture, /FindAutomaticBestPreview/);
+assert.match(autoCapture, /DeriveMaximumItemLevel/);
+assert.match(autoCapture, /automatic_maximum_preview_not_found/);
 
-assert.match(core, /parsed\.itemLevel\s*~=\s*CraftExport\.TARGET_ITEM_LEVEL/);
+assert.match(core, /maximumItemLevel/);
+assert.match(core, /below_derived_maximum/);
 assert.match(core, /CreateOptionalCraftingReagentInfoTbl/);
 assert.match(core, /GetRecipeOutputItemData/);
 assert.match(core, /StartAutomaticCapture/);

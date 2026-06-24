@@ -49,7 +49,17 @@ local function BuildReagentInfo(slot, reagent)
     }
 end
 
-function CraftExport.FindAutomatic285Preview(candidate)
+function CraftExport.DeriveMaximumItemLevel(previews)
+    local maximum
+    for _, preview in pairs(previews or {}) do
+        if type(preview.itemLevel) == "number" and (not maximum or preview.itemLevel > maximum) then
+            maximum = preview.itemLevel
+        end
+    end
+    return maximum
+end
+
+function CraftExport.FindAutomaticBestPreview(candidate)
     if not candidate or not candidate.recipeId then
         return nil, nil, { reason = "candidate_missing_recipe" }
     end
@@ -82,7 +92,7 @@ function CraftExport.FindAutomatic285Preview(candidate)
             qualityId
         )
         if not ok or not outputInfo or not outputInfo.hyperlink then
-            return false
+            return
         end
 
         local itemLevel = GetLinkItemLevel(outputInfo.hyperlink)
@@ -91,15 +101,10 @@ function CraftExport.FindAutomatic285Preview(candidate)
             bestLink = outputInfo.hyperlink
             bestMeta = meta
         end
-        return itemLevel == CraftExport.TARGET_ITEM_LEVEL
+        return
     end
 
-    if TestReagents({}, { mode = "highest_quality_without_optional_reagent" }) then
-        return bestLink, bestMeta, {
-            bestItemLevel = bestItemLevel,
-            tested = tested,
-        }
-    end
+    TestReagents({}, { mode = "highest_quality_without_optional_reagent" })
 
     local modifyingType = Enum and Enum.CraftingReagentType and Enum.CraftingReagentType.Modifying or 0
     local seen = {}
@@ -118,23 +123,22 @@ function CraftExport.FindAutomatic285Preview(candidate)
                             quantity = reagentInfo.quantity,
                             highestQualityId = qualityId,
                         }
-                        if TestReagents({ reagentInfo }, meta) then
-                            return bestLink, bestMeta, {
-                                bestItemLevel = bestItemLevel,
-                                tested = tested,
-                            }
-                        end
+                        TestReagents({ reagentInfo }, meta)
                     end
                 end
             end
         end
     end
 
+    if bestLink then
+        return bestLink, bestMeta, {
+            bestItemLevel = bestItemLevel,
+            tested = tested,
+        }
+    end
+
     return nil, nil, {
-        reason = "automatic_285_preview_not_found",
-        bestItemLevel = bestItemLevel > 0 and bestItemLevel or nil,
-        bestLink = bestLink,
-        bestMeta = bestMeta,
+        reason = "automatic_maximum_preview_not_found",
         tested = tested,
     }
 end

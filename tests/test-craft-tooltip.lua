@@ -11,9 +11,9 @@ Enum = {
 }
 
 local itemLevels = {
-    ["item:base"] = 250,
-    ["item:crest-low"] = 276,
-    ["item:crest-max"] = 285,
+    ["item:base"] = 350,
+    ["item:crest-low"] = 372,
+    ["item:crest-max"] = 399,
 }
 
 C_Item = {
@@ -102,32 +102,38 @@ assert(fixedStats.secondaryStats[1].type == "haste")
 assert(fixedStats.secondaryStats[2].type == "mastery")
 
 local visiblePlus = namespace.Scanner.IsVisiblePlusCandidate({
-    iLvlMin = 246,
+    iLvlMin = 333,
     iLvlMax = nil,
     craftingQualityIDs = {},
 })
 assert(visiblePlus == true)
 
 local fixedRange = namespace.Scanner.IsVisiblePlusCandidate({
-    iLvlMin = 246,
-    iLvlMax = 285,
+    iLvlMin = 333,
+    iLvlMax = 399,
     craftingQualityIDs = { 1, 2, 3 },
 })
 assert(fixedRange == false)
 
 local missingQualities = namespace.Scanner.IsVisiblePlusCandidate({
-    iLvlMin = 246,
+    iLvlMin = 333,
     iLvlMax = nil,
 })
 assert(missingQualities == false)
 
-local automaticLink, automaticMeta, automaticDiagnostics = namespace.FindAutomatic285Preview({
+local automaticLink, automaticMeta, automaticDiagnostics = namespace.FindAutomaticBestPreview({
     recipeId = 9001,
     craftingQualityIds = { 1, 2, 3, 4, 5 },
 })
 assert(automaticLink == "item:crest-max")
 assert(automaticMeta.reagentItemId == 102)
-assert(automaticDiagnostics.bestItemLevel == 285)
+assert(automaticDiagnostics.bestItemLevel == 399)
 assert(automaticDiagnostics.tested == 3)
+
+assert(namespace.DeriveMaximumItemLevel({
+    first = { itemLevel = 350 },
+    second = { itemLevel = 399 },
+    third = { itemLevel = 372 },
+}) == 399)
 
 print("craft tooltip parser passed")

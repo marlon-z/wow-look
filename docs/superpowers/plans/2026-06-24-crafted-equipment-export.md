@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED: Use superpowers:subagent-driven-development (if subagents available) or superpowers:executing-plans to implement this plan. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Build a standalone WoW 12.0.7 addon that discovers current-expansion crafting-order items displayed as `246+`, captures a player-configured 285 preview, and exports fixed and random secondary-stat data without false positives.
+**Goal:** Build a reusable WoW addon that discovers current-expansion crafting-order items displayed as “item level+”, dynamically derives the version's global crafted maximum, and exports fixed and random secondary-stat data without false positives.
 
-**Architecture:** Query `C_CraftingOrders.GetCustomerOptions` after `CRAFTINGORDERS_CUSTOMER_OPTIONS_PARSED` to discover candidates using the same fields Blizzard uses to render `246+`. Inspect every candidate recipe schematic, test modifying reagents at maximum crafting quality, and promote only actual item-level-285 output hyperlinks into account-wide SavedVariables. The customer-order form remains an optional fallback.
+**Architecture:** Query `C_CraftingOrders.GetCustomerOptions` after `CRAFTINGORDERS_CUSTOMER_OPTIONS_PARSED` to discover candidates using the same fields Blizzard uses to render the plus suffix. Inspect every candidate recipe schematic and test modifying reagents at maximum crafting quality. Derive the global maximum from all successful previews, then promote only links at that value into account-wide SavedVariables.
 
 **Tech Stack:** World of Warcraft Lua 5.1 addon API, `C_CraftingOrders`, `C_TradeSkillUI`, `C_TooltipInfo`, Node.js static regression tests.
 
@@ -19,7 +19,7 @@
 
 - [ ] **Step 1: Write a failing source-contract test**
 
-The test must assert that the addon does not yet exist, then define the required contract: account SavedVariables, customer-option parsing event, the exact `246+` field predicate, a 285 hard gate, random-attribute parsing, and the five slash commands.
+The test must define the required contract: account SavedVariables, customer-option parsing event, the exact dynamic plus predicate, global maximum derivation, random-attribute parsing, and the five slash commands.
 
 - [ ] **Step 2: Run the test and verify failure**
 
@@ -39,7 +39,7 @@ Declare `Interface: 120007`, `SavedVariables: WoWLookCraftExportDB`, and load fi
 
 - [ ] **Step 2: Add export constants**
 
-Define addon version, candidate minimum item level 246, required final item level 285, supported combat equipment locations, Chinese stat labels, slot labels, and exclusion locations for profession equipment.
+Define addon version, supported combat equipment locations, Chinese stat labels, slot labels, and exclusion locations for profession equipment. Do not define season-specific item-level constants.
 
 ### Task 3: Implement tooltip capture and parsing
 
@@ -58,7 +58,7 @@ Extract item level, slot, armor/weapon white values, primary stats, stamina, fix
 
 Recognize lines matching `+<value> 随机属性<index>`, store sorted entries as `{ index, value, label }`, and derive `randomAttributeCount` from the number of actual lines rather than assuming one or two.
 
-### Task 4: Implement 246+ candidate discovery
+### Task 4: Implement dynamic “item level+” candidate discovery
 
 **Files:**
 - Create: `addon/WoWLookCraftExport/Scanner.lua`
@@ -73,13 +73,13 @@ Use the complete required search parameter structure with empty categories, leve
 
 - [ ] **Step 3: Apply Blizzard's visible-plus predicate**
 
-Treat an option as `246+` only when `iLvlMin == 246`, `iLvlMax == nil`, and `craftingQualityIDs` is a table. This matches Blizzard's visible-plus branch exactly. Record every other option with a stable rejection reason.
+Treat an option as scalable when `iLvlMin` is numeric, `iLvlMax == nil`, and `craftingQualityIDs` is a table. This matches Blizzard's visible-plus branch without hardcoding the current season's minimum.
 
 - [ ] **Step 4: Exclude non-combat output items**
 
 Use `C_Item.GetItemInfoInstant` to retain only weapon/armor output with supported player combat equip locations. Keep unresolved item-cache results pending rather than promoting them.
 
-### Task 5: Implement actual 285 preview capture
+### Task 5: Implement actual maximum preview capture
 
 **Files:**
 - Create: `addon/WoWLookCraftExport/WoWLookCraftExport.lua`
@@ -94,7 +94,7 @@ Require `ProfessionsCustomerOrdersFrame.Form` to be visible and have a transacti
 
 - [ ] **Step 3: Enforce fail-closed validation**
 
-Require a previously discovered `246+` candidate, a supported combat equip location, a readable tooltip, and parsed `itemLevel == 285`. Lower previews move to `rejected`; missing data remains pending or records an error.
+Require a previously discovered scalable candidate, a supported combat equip location, a readable tooltip, and an item level equal to the dynamically derived global maximum.
 
 - [ ] **Step 4: Save the normalized formal item**
 
@@ -112,11 +112,11 @@ Implement `/wowcraft scan`, `/wowcraft capture`, `/wowcraft status`, `/wowcraft 
 
 - [ ] **Step 1: Read recipe schematics without opening the order UI**
 
-Call `C_TradeSkillUI.GetRecipeSchematic` for every246+ candidate and enumerate modifying reagent slots.
+Call `C_TradeSkillUI.GetRecipeSchematic` for every scalable candidate and enumerate modifying reagent slots.
 
 - [ ] **Step 2: Test real output links**
 
-Call `C_TradeSkillUI.GetRecipeOutputItemData` at the highest crafting quality for the base recipe and each allowed modifying reagent. Accept only links whose actual item level is285.
+Call `C_TradeSkillUI.GetRecipeOutputItemData` at the highest crafting quality for the base recipe and each allowed modifying reagent. Record every candidate's best actual item level, derive the global maximum, then accept only matching links.
 
 - [ ] **Step 3: Process candidates in batches**
 
@@ -129,7 +129,7 @@ Use zero-delay timer batches to avoid freezing the game client. Keep unresolved 
 
 - [ ] **Step 1: Document installation and scan flow**
 
-Explain that the player must open the customer crafting-order interface, run the scan once, open a candidate, allocate the highest current-season crest/reagents until the preview is 285, and run capture.
+Explain the one-command background scan and the optional manual fallback for unresolved recipes.
 
 - [ ] **Step 2: Document statuses and SavedVariables path**
 
@@ -146,7 +146,7 @@ Describe accepted, pending, rejected, and error states; include the account Save
 
 Run: `node tests/test-craft-export.js`
 
-Expected: PASS with candidate gate, 285 gate, random parser, command, and manifest checks.
+Expected: PASS with dynamic candidate gate, maximum derivation, random parser, command, and manifest checks.
 
 - [ ] **Step 2: Parse every Lua file**
 
@@ -167,16 +167,16 @@ Expected: only the new exporter, its tests/docs, and the implementation plan are
 
 - [ ] **Step 1: Verify candidate discovery**
 
-At a crafting-order NPC, open “发布制造订单”, run `/wowcraft scan`, and confirm screenshot examples such as item IDs `237844` and `244746` appear as candidates when their option fields render `246+`.
+Run `/wowcraft scan` without opening the order UI and confirm current scalable examples such as item IDs `237844` and `244746` appear as candidates regardless of the version's starting item level.
 
 - [ ] **Step 2: Verify one-random-stat capture**
 
-Open item `244746`, allocate maximum reagents until its preview is 285, run `/wowcraft capture`, and confirm one random slot is exported.
+Confirm item `244746` reaches the dynamically derived maximum and exports one random slot.
 
 - [ ] **Step 3: Verify two-random-stat capture**
 
-Open item `237844`, allocate maximum reagents until its preview is 285, run `/wowcraft capture`, and confirm two random slots are exported.
+Confirm item `237844` reaches the dynamically derived maximum and exports two random slots.
 
 - [ ] **Step 4: Verify failure closure**
 
-Capture a 246 base preview or a non-`246+` option and confirm it cannot enter `items`.
+Confirm fixed-range items and scalable items whose best result is below the derived global maximum cannot enter `items`.

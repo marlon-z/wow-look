@@ -82,6 +82,16 @@ assert(#fixedStats.secondaryStats == 2)
 assert(fixedStats.secondaryStats[1].type == "haste")
 assert(fixedStats.secondaryStats[2].type == "mastery")
 
+local cleanEffect = namespace.ParseTooltip({
+    line("测试特效武器"),
+    line("物品等级295"),
+    line("装备： 测试效果。"),
+    line('"这是一句风味文本。"'),
+    line("品质："),
+})
+assert(#cleanEffect.equipEffects == 1)
+assert(cleanEffect.equipEffects[1] == "装备： 测试效果。")
+
 local visiblePlus = namespace.Scanner.IsVisiblePlusCandidate({
     iLvlMin = 333,
     iLvlMax = nil,

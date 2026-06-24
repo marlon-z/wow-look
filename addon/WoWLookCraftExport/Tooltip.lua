@@ -93,6 +93,8 @@ local function IsEffectTerminator(text)
         or text:match("^升级[：:]")
         or text:match("^拾取后")
         or text:match("^装备唯一")
+        or text:match("^品质[：:]")
+        or text:match('^".*"$')
         or CraftExport.SLOT_TEXTS[text]
         or text:match("^[%d,]+点护甲$")
         or text:match("^[%d,]+%s*%-%s*[%d,]+点伤害$")

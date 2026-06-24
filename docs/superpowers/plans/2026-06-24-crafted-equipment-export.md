@@ -1,0 +1,164 @@
+# Crafted Equipment Exporter Implementation Plan
+
+> **For agentic workers:** REQUIRED: Use superpowers:subagent-driven-development (if subagents available) or superpowers:executing-plans to implement this plan. Steps use checkbox (`- [ ]`) syntax for tracking.
+
+**Goal:** Build a standalone WoW 12.0.7 addon that discovers current-expansion crafting-order items displayed as `246+`, captures a player-configured 285 preview, and exports fixed and random secondary-stat data without false positives.
+
+**Architecture:** Query `C_CraftingOrders.GetCustomerOptions` after `CRAFTINGORDERS_CUSTOMER_OPTIONS_PARSED` to discover candidates using the same fields Blizzard uses to render `246+`. Capture the currently open customer-order form through its recipe transaction, obtain the actual reagent-aware output hyperlink, parse its tooltip, and promote only verified item-level-285 results into account-wide SavedVariables.
+
+**Tech Stack:** World of Warcraft Lua 5.1 addon API, `C_CraftingOrders`, `C_TradeSkillUI`, `C_TooltipInfo`, Node.js static regression tests.
+
+---
+
+## Chunk 1: Addon implementation
+
+### Task 1: Add regression test for the addon contract
+
+**Files:**
+- Create: `tests/test-craft-export.js`
+
+- [ ] **Step 1: Write a failing source-contract test**
+
+The test must assert that the addon does not yet exist, then define the required contract: account SavedVariables, customer-option parsing event, the exact `246+` field predicate, a 285 hard gate, random-attribute parsing, and the five slash commands.
+
+- [ ] **Step 2: Run the test and verify failure**
+
+Run: `node tests/test-craft-export.js`
+
+Expected: FAIL because `addon/WoWLookCraftExport` does not exist.
+
+### Task 2: Create addon manifest and shared constants
+
+**Files:**
+- Create: `addon/WoWLookCraftExport/WoWLookCraftExport.toc`
+- Create: `addon/WoWLookCraftExport/Constants.lua`
+
+- [ ] **Step 1: Add a 12.0.7 manifest**
+
+Declare `Interface: 120007`, `SavedVariables: WoWLookCraftExportDB`, and load files in dependency order.
+
+- [ ] **Step 2: Add export constants**
+
+Define addon version, candidate minimum item level 246, required final item level 285, supported combat equipment locations, Chinese stat labels, slot labels, and exclusion locations for profession equipment.
+
+### Task 3: Implement tooltip capture and parsing
+
+**Files:**
+- Create: `addon/WoWLookCraftExport/Tooltip.lua`
+
+- [ ] **Step 1: Implement hyperlink tooltip capture**
+
+Prefer `C_TooltipInfo.GetHyperlink`; fall back to a hidden `GameTooltip` so the exporter still works when structured tooltip data is unavailable.
+
+- [ ] **Step 2: Parse combat item fields**
+
+Extract item level, slot, armor/weapon white values, primary stats, stamina, fixed secondary stats, equipment/use effects, sockets, and unique-equipped state.
+
+- [ ] **Step 3: Parse random attribute slots generically**
+
+Recognize lines matching `+<value> 随机属性<index>`, store sorted entries as `{ index, value, label }`, and derive `randomAttributeCount` from the number of actual lines rather than assuming one or two.
+
+### Task 4: Implement 246+ candidate discovery
+
+**Files:**
+- Create: `addon/WoWLookCraftExport/Scanner.lua`
+
+- [ ] **Step 1: Request customer-option parsing**
+
+Call `C_CraftingOrders.ParseCustomerOptions()` and finish scanning when `CRAFTINGORDERS_CUSTOMER_OPTIONS_PARSED` fires.
+
+- [ ] **Step 2: Query all current-expansion customer options**
+
+Use the complete required search parameter structure with empty categories, level range `0..0`, every quality enabled, and `currentExpansionOnly = true`.
+
+- [ ] **Step 3: Apply Blizzard's visible-plus predicate**
+
+Treat an option as `246+` only when `iLvlMin == 246`, `iLvlMax == nil`, and `craftingQualityIDs` is a table. This matches Blizzard's visible-plus branch exactly. Record every other option with a stable rejection reason.
+
+- [ ] **Step 4: Exclude non-combat output items**
+
+Use `C_Item.GetItemInfoInstant` to retain only weapon/armor output with supported player combat equip locations. Keep unresolved item-cache results pending rather than promoting them.
+
+### Task 5: Implement actual 285 preview capture
+
+**Files:**
+- Create: `addon/WoWLookCraftExport/WoWLookCraftExport.lua`
+
+- [ ] **Step 1: Initialize and migrate account-wide storage**
+
+Maintain `items`, `candidates`, `rejected`, `errors`, and recomputed summary counts under a schema version.
+
+- [ ] **Step 2: Read the active customer-order transaction**
+
+Require `ProfessionsCustomerOrdersFrame.Form` to be visible and have a transaction. Read the recipe ID, current optional reagent allocations, highest selected crafting quality, and reagent-aware output hyperlink through `C_TradeSkillUI.GetRecipeOutputItemData`.
+
+- [ ] **Step 3: Enforce fail-closed validation**
+
+Require a previously discovered `246+` candidate, a supported combat equip location, a readable tooltip, and parsed `itemLevel == 285`. Lower previews move to `rejected`; missing data remains pending or records an error.
+
+- [ ] **Step 4: Save the normalized formal item**
+
+Store recipe/item/profession metadata, link, fixed stats, random slots, effects, flags, item API metadata, raw tooltip lines, capture character, build, and timestamp.
+
+- [ ] **Step 5: Add commands and concise status output**
+
+Implement `/wowcraft scan`, `/wowcraft capture`, `/wowcraft status`, `/wowcraft reset`, and `/wowcraft help`. Reset must require `/wowcraft reset confirm`.
+
+### Task 6: Add game-use documentation
+
+**Files:**
+- Create: `addon/WoWLookCraftExport/使用说明.md`
+
+- [ ] **Step 1: Document installation and scan flow**
+
+Explain that the player must open the customer crafting-order interface, run the scan once, open a candidate, allocate the highest current-season crest/reagents until the preview is 285, and run capture.
+
+- [ ] **Step 2: Document statuses and SavedVariables path**
+
+Describe accepted, pending, rejected, and error states; include the account SavedVariables output location and examples for one/two random attributes.
+
+## Chunk 2: Verification
+
+### Task 7: Run automated and static validation
+
+**Files:**
+- Test: `tests/test-craft-export.js`
+
+- [ ] **Step 1: Run the source-contract test**
+
+Run: `node tests/test-craft-export.js`
+
+Expected: PASS with candidate gate, 285 gate, random parser, command, and manifest checks.
+
+- [ ] **Step 2: Parse every Lua file**
+
+Run: `npx --yes luaparse addon/WoWLookCraftExport/Constants.lua addon/WoWLookCraftExport/Tooltip.lua addon/WoWLookCraftExport/Scanner.lua addon/WoWLookCraftExport/WoWLookCraftExport.lua`
+
+Expected: all files parse without syntax errors.
+
+- [ ] **Step 3: Check repository diff scope**
+
+Run: `git status --short` and `git diff --check`
+
+Expected: only the new exporter, its tests/docs, and the implementation plan are new; unrelated pre-existing modifications remain untouched.
+
+### Task 8: Perform in-game acceptance test
+
+**Files:**
+- Verify: `WTF/Account/<ACCOUNT>/SavedVariables/WoWLookCraftExport.lua`
+
+- [ ] **Step 1: Verify candidate discovery**
+
+At a crafting-order NPC, open “发布制造订单”, run `/wowcraft scan`, and confirm screenshot examples such as item IDs `237844` and `244746` appear as candidates when their option fields render `246+`.
+
+- [ ] **Step 2: Verify one-random-stat capture**
+
+Open item `244746`, allocate maximum reagents until its preview is 285, run `/wowcraft capture`, and confirm one random slot is exported.
+
+- [ ] **Step 3: Verify two-random-stat capture**
+
+Open item `237844`, allocate maximum reagents until its preview is 285, run `/wowcraft capture`, and confirm two random slots are exported.
+
+- [ ] **Step 4: Verify failure closure**
+
+Capture a 246 base preview or a non-`246+` option and confirm it cannot enter `items`.

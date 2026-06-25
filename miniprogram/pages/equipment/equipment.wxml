@@ -268,6 +268,48 @@
     bind:favorite="onDetailFavoriteTap"
   />
 
+  <view wx:if="{{showCraftingStatPicker}}" class="crafting-stat-mask" bindtap="closeCraftingStatPicker">
+    <view class="crafting-stat-panel" catchtap="preventClose">
+      <view class="crafting-stat-head">
+        <view class="crafting-stat-title-wrap">
+          <text class="crafting-stat-title">选择制造业随机属性</text>
+          <text class="crafting-stat-subtitle">{{craftingStatPickerItem.name}}</text>
+        </view>
+        <view class="crafting-stat-close" catchtap="closeCraftingStatPicker"></view>
+      </view>
+
+      <view class="crafting-stat-desc">
+        <text>这件装备需要选择 {{craftingStatRequiredCount}} 个副属性，确认后会计入配装统计。</text>
+      </view>
+
+      <view class="crafting-stat-slots">
+        <text
+          wx:for="{{craftingStatSlots}}"
+          wx:key="index"
+          class="crafting-stat-slot"
+        >{{item.label || ('随机属性' + item.index)}} +{{item.value}}</text>
+      </view>
+
+      <view class="crafting-stat-grid">
+        <view
+          wx:for="{{craftingStatPickerOptions}}"
+          wx:key="type"
+          class="crafting-stat-chip {{item.selected ? 'on' : ''}}"
+          catchtap="onCraftingStatTap"
+          data-type="{{item.type}}"
+        >{{item.name}}</view>
+      </view>
+
+      <view class="crafting-stat-actions">
+        <view class="crafting-stat-cancel" catchtap="closeCraftingStatPicker">取消</view>
+        <view
+          class="crafting-stat-confirm {{craftingStatSelectedTypes.length === craftingStatRequiredCount ? 'ready' : ''}}"
+          catchtap="confirmCraftingStatSelection"
+        >确认装备</view>
+      </view>
+    </view>
+  </view>
+
   <view wx:if="{{showBuildDraft}}" class="favorite-mask" bindtap="closeBuildDraft">
     <view class="favorite-panel build-draft-panel" catchtap="preventClose">
       <view class="favorite-panel-head build-panel-head">

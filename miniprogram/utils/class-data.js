@@ -19,7 +19,7 @@ function getClassMeta(classKey) {
 }
 
 const COS_BASE = 'https://wowlook-1308073800.cos.ap-guangzhou.myqcloud.com';
-const DATA_VERSION = '4.3.x';
+const DATA_VERSION = '4.4.x';
 const DATA_DIR = `data-${DATA_VERSION}`;
 
 function getClassVisualAssets(classKey) {

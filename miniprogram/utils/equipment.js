@@ -30,6 +30,12 @@ const SLOT_OPTIONS = [
   { type: 'weapon', name: '武' },
 ];
 
+const {
+  buildCraftingRandomStatLine,
+  getRandomAttributeSlots,
+  requiresCraftingStatSelection,
+} = require('./crafting');
+
 const SLOT_ALIASES = {
   back: 'cloak',
 };
@@ -210,6 +216,11 @@ function groupItemsBySource(items = []) {
 }
 
 function buildStatLine(item) {
+  const randomStatLine = buildCraftingRandomStatLine(item);
+  if (randomStatLine) {
+    return randomStatLine;
+  }
+
   const secondary = item && item.stats && Array.isArray(item.stats.secondary) ? item.stats.secondary : [];
   if (secondary.length > 0) {
     return secondary.map((stat) => `${stat.name}${stat.value}`).join(' / ');
@@ -397,11 +408,17 @@ function buildItemDetail(item, selectedSpec, specs = []) {
     equipEffects: uniqueCleanEffects(item.stats && item.stats.effects ? item.stats.effects.equip || [] : []),
     useEffects: uniqueCleanEffects(item.stats && item.stats.effects ? item.stats.effects.use || [] : []),
     tierInfo: buildTierBonusDisplay(item, selectedSpec, specs),
+    craftingInfo: requiresCraftingStatSelection(item) ? {
+      randomAttributeCount: item.crafting.randomAttributeCount || getRandomAttributeSlots(item).length,
+      randomAttributeSlots: getRandomAttributeSlots(item),
+      statLine: buildCraftingRandomStatLine(item),
+    } : null,
     headerTags: [
       item.source ? item.source.difficultyName : '',
       item.slotName,
       item.itemSubType && item.slot === 'weapon' ? item.itemSubType : (item.armorType !== 'none' ? item.armorTypeName : ''),
       item.sourceType === 'tier' ? '套装' : '',
+      item.sourceType === 'crafted' ? '制造业' : '',
     ].filter(Boolean),
   };
 }
@@ -411,7 +428,7 @@ function buildInstanceOptions(instances = []) {
     id: instance.id,
     name: instance.name,
     type: instance.type,
-    typeName: instance.type === 'raid' ? '团本' : (instance.type === 'tier' ? '套装' : '地下城'),
+    typeName: instance.type === 'raid' ? '团本' : (instance.type === 'tier' ? '套装' : (instance.type === 'crafted' ? '制造' : '地下城')),
   }));
 }
 

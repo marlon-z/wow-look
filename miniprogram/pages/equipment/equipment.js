@@ -41,6 +41,13 @@ const {
   isDuplicateEquip,
 } = require('../../utils/builds');
 const { canItemUseSlot } = require('../../utils/weapon-rules');
+const {
+  SECONDARY_STAT_OPTIONS,
+  getRandomAttributeCount,
+  getRandomAttributeSlots,
+  requiresCraftingStatSelection,
+  buildCraftedItemWithSelectedStats,
+} = require('../../utils/crafting');
 
 Page({
   itemMap: {},
@@ -66,6 +73,7 @@ Page({
       { type: 'dungeon', name: '地下城' },
       { type: 'raid', name: '团本' },
       { type: 'tier', name: '套装' },
+      { type: 'crafted', name: '制造' },
     ],
     instanceOptions: [],
     visibleInstanceOptions: [],
@@ -108,6 +116,12 @@ Page({
     buildSlotPickBuildId: '',
     buildSlotPickSlotKey: '',
     buildSlotPickSlotName: '',
+    showCraftingStatPicker: false,
+    craftingStatPickerItem: null,
+    craftingStatPickerOptions: [],
+    craftingStatSelectedTypes: [],
+    craftingStatRequiredCount: 0,
+    craftingStatSlots: [],
     pageStyle: '',
   },
 
@@ -319,7 +333,7 @@ Page({
       } else {
         selectedSourceTypes.splice(index, 1);
       }
-      if (selectedSourceTypes.length >= 3) {
+      if (selectedSourceTypes.length >= this.data.sourceTypes.filter((item) => item.type !== 'all').length) {
         selectedSourceTypes = [];
       }
     }
@@ -477,6 +491,10 @@ Page({
     }
 
     if (this.data.buildSlotPickMode) {
+      if (requiresCraftingStatSelection(item)) {
+        this.openCraftingStatPicker(item);
+        return;
+      }
       this.equipItemToSlot(item);
       return;
     }
@@ -495,6 +513,93 @@ Page({
         className: this.data.className,
       }, this.data.selectedSpec, this.data.specs),
     });
+  },
+
+  openCraftingStatPicker(item) {
+    const selectedTypes = [];
+    const options = SECONDARY_STAT_OPTIONS.map((stat) => ({
+      ...stat,
+      selected: false,
+    }));
+    this.setData({
+      showCraftingStatPicker: true,
+      pageStyle: 'overflow:hidden;height:100vh;',
+      craftingStatPickerItem: item,
+      craftingStatPickerOptions: options,
+      craftingStatSelectedTypes: selectedTypes,
+      craftingStatRequiredCount: getRandomAttributeCount(item),
+      craftingStatSlots: getRandomAttributeSlots(item),
+    });
+  },
+
+  closeCraftingStatPicker() {
+    this.setData({
+      showCraftingStatPicker: false,
+      pageStyle: '',
+      craftingStatPickerItem: null,
+      craftingStatPickerOptions: [],
+      craftingStatSelectedTypes: [],
+      craftingStatRequiredCount: 0,
+      craftingStatSlots: [],
+    });
+  },
+
+  onCraftingStatTap(event) {
+    const type = event.currentTarget.dataset.type;
+    const requiredCount = this.data.craftingStatRequiredCount;
+    const selectedTypes = this.data.craftingStatSelectedTypes.slice();
+    const index = selectedTypes.indexOf(type);
+    if (index === -1) {
+      if (selectedTypes.length >= requiredCount) {
+        wx.showToast({
+          title: '最多选择' + requiredCount + '个属性',
+          icon: 'none',
+        });
+        return;
+      }
+      selectedTypes.push(type);
+    } else {
+      selectedTypes.splice(index, 1);
+    }
+    this.setData({
+      craftingStatSelectedTypes: selectedTypes,
+      craftingStatPickerOptions: this.data.craftingStatPickerOptions.map((item) => ({
+        ...item,
+        selected: selectedTypes.indexOf(item.type) !== -1,
+      })),
+    });
+  },
+
+  confirmCraftingStatSelection() {
+    const item = this.data.craftingStatPickerItem;
+    const selectedTypes = this.data.craftingStatSelectedTypes;
+    const requiredCount = this.data.craftingStatRequiredCount;
+    if (!item) return;
+    if (selectedTypes.length !== requiredCount) {
+      wx.showToast({
+        title: '请选择' + requiredCount + '个属性',
+        icon: 'none',
+      });
+      return;
+    }
+    const resolvedItem = buildCraftedItemWithSelectedStats(item, selectedTypes);
+    if (!resolvedItem) {
+      wx.showToast({
+        title: '属性选择无效',
+        icon: 'none',
+      });
+      return;
+    }
+    this.setData({
+      showCraftingStatPicker: false,
+      pageStyle: '',
+      craftingStatPickerItem: null,
+      craftingStatPickerOptions: [],
+      craftingStatSelectedTypes: [],
+      craftingStatRequiredCount: 0,
+      craftingStatSlots: [],
+    });
+    this.equipItemToSlot(resolvedItem);
   },
 
   equipItemToSlot(item) {

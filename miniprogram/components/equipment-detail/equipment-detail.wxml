@@ -66,6 +66,19 @@
             </view>
           </view>
         </view>
+
+        <view wx:if="{{item.craftingInfo}}" class="tt-extra-block">
+          <view class="tt-extra-icon tt-extra-icon-effect"></view>
+          <view class="tt-extra-col">
+            <text class="tt-extra-line green-text">{{item.craftingInfo.statLine}}</text>
+            <text
+              wx:for="{{item.craftingInfo.randomAttributeSlots}}"
+              wx:key="index"
+              class="tt-extra-line dim-text"
+            >{{item.label || ('随机属性' + item.index)}}：+{{item.value}}</text>
+          </view>
+          <view class="tt-extra-watermark"></view>
+        </view>
       </view>
 
       <view wx:if="{{item.tierInfo}}" class="tt-section">

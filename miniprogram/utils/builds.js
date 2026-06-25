@@ -13,9 +13,16 @@ function emptySlots() {
 
 function normalizeBuilds(value) {
   if (!Array.isArray(value)) return [];
-  return value.filter(function (build) {
-    return build && build.id && build.classKey;
-  });
+  return value
+    .filter(function (build) {
+      return build && build.id && build.classKey;
+    })
+    .map(function (build) {
+      if (build.slots && build.specId) {
+        build.summary = summarizeSlots(build.slots, build.specId);
+      }
+      return build;
+    });
 }
 
 function getBuilds() {
@@ -61,6 +68,7 @@ function buildItemSnapshot(item) {
     ilvl: item.ilvl || 0,
     slot: item.slot,
     slotName: item.slotName || '',
+    armorType: item.armorType || '',
     itemSubType: item.itemSubType || '',
     equipLoc: item.equipLoc || (item.maxVersion && item.maxVersion.equipLoc) || (item.dropVersion && item.dropVersion.equipLoc) || '',
     iconAsset: item.iconAsset || '',

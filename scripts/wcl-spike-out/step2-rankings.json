@@ -1,0 +1,3178 @@
+{
+  "page": 1,
+  "hasMorePages": true,
+  "count": 100,
+  "rankings": [
+    {
+      "name": "Macleans",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 180279.17470002174,
+      "hardModeLevel": 21,
+      "duration": 1839995,
+      "startTime": 1781680941717,
+      "report": {
+        "code": "jaH1RmbJ7PwCrMNn",
+        "fightID": 9,
+        "startTime": 1781673210117
+      },
+      "server": {
+        "id": 770,
+        "name": "白银之手",
+        "region": "CN"
+      },
+      "bracketData": 21,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 500.4033266129,
+      "leaderboard": 0
+    },
+    {
+      "name": "Placement",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 161870.3572000265,
+      "hardModeLevel": 21,
+      "duration": 1823018,
+      "startTime": 1782277430137,
+      "report": {
+        "code": "hVPYfWzL6QxJGa4N",
+        "fightID": 11,
+        "startTime": 1782251108966
+      },
+      "guild": {
+        "id": 565022,
+        "name": "Grizzly Hills Track Team",
+        "faction": 1
+      },
+      "server": {
+        "id": 150,
+        "name": "Mal'Ganis",
+        "region": "US"
+      },
+      "bracketData": 21,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 500.74560483871,
+      "leaderboard": 0
+    },
+    {
+      "name": "카르꽁스",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 157453.5439800024,
+      "hardModeLevel": 21,
+      "duration": 1903198,
+      "startTime": 1780677335087,
+      "report": {
+        "code": "n9aWCXKBQdpczH7A",
+        "fightID": 10,
+        "startTime": 1780665251102
+      },
+      "server": {
+        "id": 526,
+        "name": "아즈샤라",
+        "region": "KR"
+      },
+      "bracketData": 21,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "none",
+      "score": 319.13000488281,
+      "leaderboard": 0
+    },
+    {
+      "name": "逐日者豪森",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 156615.14595001936,
+      "hardModeLevel": 21,
+      "duration": 1860768,
+      "startTime": 1782274538818,
+      "report": {
+        "code": "bDBMf6n7Y1FcgLXH",
+        "fightID": 1,
+        "startTime": 1782269109455
+      },
+      "server": {
+        "id": 565,
+        "name": "亚雷戈斯",
+        "region": "CN"
+      },
+      "bracketData": 21,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "none",
+      "score": 500,
+      "leaderboard": 0
+    },
+    {
+      "name": "Vespasiane",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 145882.35089999437,
+      "hardModeLevel": 21,
+      "duration": 1726371,
+      "startTime": 1781551346045,
+      "report": {
+        "code": "4grPtM7ANbYX32df",
+        "fightID": 1,
+        "startTime": 1781545248703
+      },
+      "server": {
+        "id": 336,
+        "name": "Stormscale",
+        "region": "EU"
+      },
+      "bracketData": 21,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 502.69413306452,
+      "leaderboard": 0
+    },
+    {
+      "name": "Nerevar",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 175521.65758001804,
+      "hardModeLevel": 20,
+      "duration": 1823617,
+      "startTime": 1781686714593,
+      "report": {
+        "code": "Laj1wtNq28RFkhcK",
+        "fightID": 6,
+        "startTime": 1781681409814
+      },
+      "server": {
+        "id": 615,
+        "name": "地狱咆哮",
+        "region": "CN"
+      },
+      "bracketData": 20,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 485.73352822581,
+      "leaderboard": 0
+    },
+    {
+      "name": "Macleans",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 175122.72272002697,
+      "hardModeLevel": 20,
+      "duration": 1854249,
+      "startTime": 1781674085338,
+      "report": {
+        "code": "jaH1RmbJ7PwCrMNn",
+        "fightID": 3,
+        "startTime": 1781673210117
+      },
+      "server": {
+        "id": 770,
+        "name": "白银之手",
+        "region": "CN"
+      },
+      "bracketData": 20,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 485.11594758065,
+      "leaderboard": 0
+    },
+    {
+      "name": "카르꽁스",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 174292.8149600029,
+      "hardModeLevel": 20,
+      "duration": 1756454,
+      "startTime": 1780334249240,
+      "report": {
+        "code": "mc7jR4thMTNGnXxP",
+        "fightID": 58,
+        "startTime": 1780311860849
+      },
+      "server": {
+        "id": 526,
+        "name": "아즈샤라",
+        "region": "KR"
+      },
+      "bracketData": 20,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 487.08762096774,
+      "leaderboard": 0
+    },
+    {
+      "name": "Incantus",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 170527.02095997334,
+      "hardModeLevel": 20,
+      "duration": 1836001,
+      "startTime": 1782000601736,
+      "report": {
+        "code": "QxqpW8ZkFM3ByJHX",
+        "fightID": 1,
+        "startTime": 1782000475480
+      },
+      "server": {
+        "id": 25,
+        "name": "Azralon",
+        "region": "US"
+      },
+      "bracketData": 20,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 485.48385080645,
+      "leaderboard": 0
+    },
+    {
+      "name": "乐友祈愿星",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 164332.62672001123,
+      "hardModeLevel": 20,
+      "duration": 1718690,
+      "startTime": 1782022962813,
+      "report": {
+        "code": "KM3CcmaFk7Td9wVb",
+        "fightID": 3,
+        "startTime": 1782018717055
+      },
+      "server": {
+        "id": 880,
+        "name": "霜之哀伤",
+        "region": "CN"
+      },
+      "bracketData": 20,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 487.84899193548,
+      "leaderboard": 0
+    },
+    {
+      "name": "逐日者豪森",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 162905.45459997654,
+      "hardModeLevel": 20,
+      "duration": 1726683,
+      "startTime": 1782006741040,
+      "report": {
+        "code": "c4TfCgPdy2Xbj6Q8",
+        "fightID": 1,
+        "startTime": 1782006397786
+      },
+      "server": {
+        "id": 565,
+        "name": "亚雷戈斯",
+        "region": "CN"
+      },
+      "bracketData": 20,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 487.68784274194,
+      "leaderboard": 0
+    },
+    {
+      "name": "Placement",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 160478.8951600194,
+      "hardModeLevel": 20,
+      "duration": 1807097,
+      "startTime": 1779690636653,
+      "report": {
+        "code": "CcgWNp3TKdAbrGzX",
+        "fightID": 22,
+        "startTime": 1779663626359
+      },
+      "guild": {
+        "id": 565022,
+        "name": "Grizzly Hills Track Team",
+        "faction": 1
+      },
+      "server": {
+        "id": 150,
+        "name": "Mal'Ganis",
+        "region": "US"
+      },
+      "bracketData": 20,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 486.06659274194,
+      "leaderboard": 0
+    },
+    {
+      "name": "小鸟游小埋",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 160356.82336997986,
+      "hardModeLevel": 20,
+      "duration": 1859214,
+      "startTime": 1779896119373,
+      "report": {
+        "code": "2aCTRnmy9JPMWtjb",
+        "fightID": 1,
+        "startTime": 1779891561798
+      },
+      "server": {
+        "id": 568,
+        "name": "伊利丹",
+        "region": "CN"
+      },
+      "bracketData": 20,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 485.01584677419,
+      "leaderboard": 0
+    },
+    {
+      "name": "Lindeâ",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 159642.4092400074,
+      "hardModeLevel": 20,
+      "duration": 1639058,
+      "startTime": 1781101826262,
+      "report": {
+        "code": "ZJKfHT89xbYXLhFa",
+        "fightID": 2,
+        "startTime": 1781088517306
+      },
+      "server": {
+        "id": 255,
+        "name": "Argent Dawn",
+        "region": "EU"
+      },
+      "bracketData": 20,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 489.45447580645,
+      "leaderboard": 0
+    },
+    {
+      "name": "Tkpmage",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 153687.05887001753,
+      "hardModeLevel": 20,
+      "duration": 1839151,
+      "startTime": 1779586638771,
+      "report": {
+        "code": "47MDqRhnC2gKrGFY",
+        "fightID": 17,
+        "startTime": 1779557125388
+      },
+      "guild": {
+        "id": 581907,
+        "name": "Best In Slot",
+        "faction": 1
+      },
+      "server": {
+        "id": 350,
+        "name": "Twisting Nether",
+        "region": "EU"
+      },
+      "bracketData": 20,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 485.42034274194,
+      "leaderboard": 0
+    },
+    {
+      "name": "Heated",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 152571.88893002272,
+      "hardModeLevel": 20,
+      "duration": 1830546,
+      "startTime": 1780342067231,
+      "report": {
+        "code": "Kn4Q3LTxzRmrV6ZB",
+        "fightID": 5,
+        "startTime": 1780327323724
+      },
+      "guild": {
+        "id": 573966,
+        "name": "Reversio",
+        "faction": 1
+      },
+      "server": {
+        "id": 408,
+        "name": "Blackrock",
+        "region": "EU"
+      },
+      "bracketData": 20,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 485.59383064516,
+      "leaderboard": 0
+    },
+    {
+      "name": "陈江河",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 149811.98524999619,
+      "hardModeLevel": 20,
+      "duration": 1800380,
+      "startTime": 1779984319106,
+      "report": {
+        "code": "TD1GN3QKrtfRJyFY",
+        "fightID": 10,
+        "startTime": 1779959847555
+      },
+      "guild": {
+        "id": 240216,
+        "name": "VenousNone",
+        "faction": 1
+      },
+      "server": {
+        "id": 584,
+        "name": "凤凰之神",
+        "region": "CN"
+      },
+      "bracketData": 20,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 486.20201612903,
+      "leaderboard": 0
+    },
+    {
+      "name": "Бруминатор",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 141812.76177001,
+      "hardModeLevel": 20,
+      "duration": 1972186,
+      "startTime": 1782070927049,
+      "report": {
+        "code": "89zmAGBLvFtyRCfd",
+        "fightID": 22,
+        "startTime": 1782032945706
+      },
+      "guild": {
+        "id": 640146,
+        "name": "Дэзволкер",
+        "faction": 0
+      },
+      "server": {
+        "id": 488,
+        "name": "Гордунни",
+        "region": "EU"
+      },
+      "bracketData": 20,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "none",
+      "score": 317.73999023438,
+      "leaderboard": 0
+    },
+    {
+      "name": "Macleans",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 179299.54522001743,
+      "hardModeLevel": 19,
+      "duration": 1687645,
+      "startTime": 1779081213419,
+      "report": {
+        "code": "V6TM1LXG9gRbkPct",
+        "fightID": 1,
+        "startTime": 1779080937328
+      },
+      "server": {
+        "id": 770,
+        "name": "白银之手",
+        "region": "CN"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 473.47489919355,
+      "leaderboard": 0
+    },
+    {
+      "name": "Incantus",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 178448.99567997456,
+      "hardModeLevel": 19,
+      "duration": 1881517,
+      "startTime": 1781489064093,
+      "report": {
+        "code": "g7rWbcRVDQx8kJnK",
+        "fightID": 1,
+        "startTime": 1781489025623
+      },
+      "server": {
+        "id": 25,
+        "name": "Azralon",
+        "region": "US"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "none",
+      "score": 319.57000732422,
+      "leaderboard": 0
+    },
+    {
+      "name": "Nerevar",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 174378.02047002316,
+      "hardModeLevel": 19,
+      "duration": 1710455,
+      "startTime": 1780753263309,
+      "report": {
+        "code": "7Hnv6qAbGzRyQk2r",
+        "fightID": 8,
+        "startTime": 1780738016466
+      },
+      "server": {
+        "id": 615,
+        "name": "地狱咆哮",
+        "region": "CN"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 473.01502016129,
+      "leaderboard": 0
+    },
+    {
+      "name": "Purgymage",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 173283.4004200101,
+      "hardModeLevel": 19,
+      "duration": 1804401,
+      "startTime": 1780749643761,
+      "report": {
+        "code": "r8g9wXqMdT3RaYHL",
+        "fightID": 5,
+        "startTime": 1780742019705
+      },
+      "guild": {
+        "id": 610214,
+        "name": "Incendaríus",
+        "faction": 1
+      },
+      "server": {
+        "id": 406,
+        "name": "Blackhand",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 471.12094758065,
+      "leaderboard": 0
+    },
+    {
+      "name": "訫悸",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 172347.5133600235,
+      "hardModeLevel": 19,
+      "duration": 1777100,
+      "startTime": 1781608219038,
+      "report": {
+        "code": "YDNxt4k67aqRBwpH",
+        "fightID": 1,
+        "startTime": 1781595872566
+      },
+      "server": {
+        "id": 564,
+        "name": "主宰之剑",
+        "region": "CN"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 471.67137096774,
+      "leaderboard": 0
+    },
+    {
+      "name": "Neladiil",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 172272.06217998266,
+      "hardModeLevel": 19,
+      "duration": 1845534,
+      "startTime": 1781379026853,
+      "report": {
+        "code": "jZp9rHaxXkYtR3vd",
+        "fightID": 5,
+        "startTime": 1781369248564
+      },
+      "guild": {
+        "id": 610350,
+        "name": "Initium novum",
+        "faction": 0
+      },
+      "server": {
+        "id": 406,
+        "name": "Blackhand",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 470.29165322581,
+      "leaderboard": 0
+    },
+    {
+      "name": "작렬",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 171340.7110800147,
+      "hardModeLevel": 19,
+      "duration": 1823315,
+      "startTime": 1781713067967,
+      "report": {
+        "code": "2ADBKb9yZGMTwFcR",
+        "fightID": 32,
+        "startTime": 1781666214124
+      },
+      "guild": {
+        "id": 785222,
+        "name": "걍 그런가 보다 해야지 뭐",
+        "faction": 1
+      },
+      "server": {
+        "id": 526,
+        "name": "아즈샤라",
+        "region": "KR"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 470.73961693548,
+      "leaderboard": 0
+    },
+    {
+      "name": "Tomahawkzmbi",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 170390.2911900282,
+      "hardModeLevel": 19,
+      "duration": 1777355,
+      "startTime": 1779091669898,
+      "report": {
+        "code": "gHjY8DTd6kF2LKhq",
+        "fightID": 29,
+        "startTime": 1779009587163
+      },
+      "guild": {
+        "id": 159968,
+        "name": "Notion",
+        "faction": 1
+      },
+      "server": {
+        "id": 158,
+        "name": "Moon Guard",
+        "region": "US"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 471.66622983871,
+      "leaderboard": 0
+    },
+    {
+      "name": "小鸟游小埋",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 170180.659529984,
+      "hardModeLevel": 19,
+      "duration": 1847835,
+      "startTime": 1779111432897,
+      "report": {
+        "code": "pHkhqyZTwbX4x9gD",
+        "fightID": 1,
+        "startTime": 1779111321471
+      },
+      "server": {
+        "id": 568,
+        "name": "伊利丹",
+        "region": "CN"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 470.24526209677,
+      "leaderboard": 0
+    },
+    {
+      "name": "Baddylul",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 168133.52630001307,
+      "hardModeLevel": 19,
+      "duration": 1795137,
+      "startTime": 1780455609449,
+      "report": {
+        "code": "yhQka9XcpqFHnbZT",
+        "fightID": 1,
+        "startTime": 1780448511791
+      },
+      "guild": {
+        "id": 20860,
+        "name": "Last Attempt",
+        "faction": 0
+      },
+      "server": {
+        "id": 150,
+        "name": "Mal'Ganis",
+        "region": "US"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 471.30772177419,
+      "leaderboard": 0
+    },
+    {
+      "name": "Slakÿs",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 167608.11344999075,
+      "hardModeLevel": 19,
+      "duration": 1653772,
+      "startTime": 1780176975704,
+      "report": {
+        "code": "vKj3FYRXhrn798kD",
+        "fightID": 2,
+        "startTime": 1780175614766
+      },
+      "guild": {
+        "id": 595469,
+        "name": "Apotheosis",
+        "faction": 0
+      },
+      "server": {
+        "id": 370,
+        "name": "Hyjal",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 474.15782258065,
+      "leaderboard": 0
+    },
+    {
+      "name": "Nsirp",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 167037.4921399951,
+      "hardModeLevel": 19,
+      "duration": 1774346,
+      "startTime": 1782277259797,
+      "report": {
+        "code": "b9f3p6yqQGK4YWvt",
+        "fightID": 1,
+        "startTime": 1782271663335
+      },
+      "guild": {
+        "id": 788145,
+        "name": "Mid Team",
+        "faction": 0
+      },
+      "server": {
+        "id": 222,
+        "name": "Tichondrius",
+        "region": "US"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 471.72689516129,
+      "leaderboard": 0
+    },
+    {
+      "name": "Azunazx",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 165587.68066000938,
+      "hardModeLevel": 19,
+      "duration": 1744330,
+      "startTime": 1779815782453,
+      "report": {
+        "code": "fnrtqGmB61jKFdwa",
+        "fightID": 2,
+        "startTime": 1779814730265
+      },
+      "guild": {
+        "id": 472254,
+        "name": "Twitch Prime",
+        "faction": 1
+      },
+      "server": {
+        "id": 121,
+        "name": "Hyjal",
+        "region": "US"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 472.33205645161,
+      "leaderboard": 0
+    },
+    {
+      "name": "Bingglesfour",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 165313.05251002312,
+      "hardModeLevel": 19,
+      "duration": 1830383,
+      "startTime": 1778912034184,
+      "report": {
+        "code": "J8Lwx1kpMQ9jTDHv",
+        "fightID": 3,
+        "startTime": 1778900414866
+      },
+      "guild": {
+        "id": 610171,
+        "name": "Divine Esports",
+        "faction": 1
+      },
+      "server": {
+        "id": 222,
+        "name": "Tichondrius",
+        "region": "US"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 470.59711693548,
+      "leaderboard": 0
+    },
+    {
+      "name": "Экзоэс",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 164051.07328999043,
+      "hardModeLevel": 19,
+      "duration": 1867062,
+      "startTime": 1780431285645,
+      "report": {
+        "code": "Fm6qfp7LtrXNvQP1",
+        "fightID": 3,
+        "startTime": 1780428230042
+      },
+      "guild": {
+        "id": 799649,
+        "name": "Entered Courage",
+        "faction": 1
+      },
+      "server": {
+        "id": 488,
+        "name": "Гордунни",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "none",
+      "score": 319.85998535156,
+      "leaderboard": 0
+    },
+    {
+      "name": "Azurès",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 163211.07068997622,
+      "hardModeLevel": 19,
+      "duration": 1737977,
+      "startTime": 1780768378927,
+      "report": {
+        "code": "BT7HWKrmqat1vPyg",
+        "fightID": 2,
+        "startTime": 1780767078544
+      },
+      "guild": {
+        "id": 825722,
+        "name": "Local",
+        "faction": 0
+      },
+      "server": {
+        "id": 321,
+        "name": "Ravencrest",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 472.46014112903,
+      "leaderboard": 0
+    },
+    {
+      "name": "命運之綺",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 162079.07851999998,
+      "hardModeLevel": 19,
+      "duration": 1910013,
+      "startTime": 1781530859495,
+      "report": {
+        "code": "1fBQXAna8JVb4xkZ",
+        "fightID": 1,
+        "startTime": 1781530157634
+      },
+      "guild": {
+        "id": 301473,
+        "name": "轉動命運之輪",
+        "faction": 0
+      },
+      "server": {
+        "id": 549,
+        "name": "暗影之月",
+        "region": "TW"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "none",
+      "score": 318.98999023438,
+      "leaderboard": 0
+    },
+    {
+      "name": "Hellrango",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 161738.7190899849,
+      "hardModeLevel": 19,
+      "duration": 1835867,
+      "startTime": 1781031367166,
+      "report": {
+        "code": "fGXj7HAF8tNYVBMT",
+        "fightID": 2,
+        "startTime": 1781030231302
+      },
+      "server": {
+        "id": 329,
+        "name": "Silvermoon",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 470.48655241935,
+      "leaderboard": 0
+    },
+    {
+      "name": "一只可爱雪",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 161081.0623999834,
+      "hardModeLevel": 19,
+      "duration": 1835967,
+      "startTime": 1782185165095,
+      "report": {
+        "code": "9CaYf8hZM2JqK1rL",
+        "fightID": 4,
+        "startTime": 1782179595842
+      },
+      "server": {
+        "id": 844,
+        "name": "迦拉克隆",
+        "region": "CN"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 470.48453629032,
+      "leaderboard": 0
+    },
+    {
+      "name": "Louïse",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 158975.19959002733,
+      "hardModeLevel": 19,
+      "duration": 1812687,
+      "startTime": 1781988094687,
+      "report": {
+        "code": "yD9xzqk1CmnPc4Xd",
+        "fightID": 1,
+        "startTime": 1781985656930
+      },
+      "guild": {
+        "id": 271987,
+        "name": "Hates you",
+        "faction": 1
+      },
+      "server": {
+        "id": 513,
+        "name": "Zul'jin",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 470.95389112903,
+      "leaderboard": 0
+    },
+    {
+      "name": "Alikazam",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 158246.11418002844,
+      "hardModeLevel": 19,
+      "duration": 1766038,
+      "startTime": 1780340449765,
+      "report": {
+        "code": "PfVtCHxQJ38dayhX",
+        "fightID": 4,
+        "startTime": 1780317758371
+      },
+      "guild": {
+        "id": 224,
+        "name": "Luce",
+        "faction": 1
+      },
+      "server": {
+        "id": 304,
+        "name": "Kazzak",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 471.89439516129,
+      "leaderboard": 0
+    },
+    {
+      "name": "Qiano",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 158185.04486000538,
+      "hardModeLevel": 19,
+      "duration": 1675715,
+      "startTime": 1782068525073,
+      "report": {
+        "code": "xHBWG3RnLNapKwjQ",
+        "fightID": 3,
+        "startTime": 1782065895829
+      },
+      "guild": {
+        "id": 288853,
+        "name": "Ritter der Riverrunde",
+        "faction": 1
+      },
+      "server": {
+        "id": 445,
+        "name": "Mal'Ganis",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 473.7154233871,
+      "leaderboard": 0
+    },
+    {
+      "name": "Anonymous",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 157973.4531800151,
+      "hardModeLevel": 19,
+      "duration": 1841089,
+      "startTime": 1782201215799,
+      "report": {
+        "code": "a:xcRvTNdayhP3Bm7F",
+        "fightID": 2,
+        "startTime": 1782198965048
+      },
+      "hidden": true,
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 470.38127016129,
+      "leaderboard": 0
+    },
+    {
+      "name": "无敌果然寂寞",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 156949.68873000145,
+      "hardModeLevel": 19,
+      "duration": 1798126,
+      "startTime": 1780579145267,
+      "report": {
+        "code": "z2AXkQ9YqHGWnxfg",
+        "fightID": 1,
+        "startTime": 1780574923920
+      },
+      "server": {
+        "id": 647,
+        "name": "守护之剑",
+        "region": "CN"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 471.24745967742,
+      "leaderboard": 0
+    },
+    {
+      "name": "Dumels",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 156724.70460999012,
+      "hardModeLevel": 19,
+      "duration": 1732717,
+      "startTime": 1780068888378,
+      "report": {
+        "code": "Q4AXy6g1mCHTpk8d",
+        "fightID": 2,
+        "startTime": 1780068385980
+      },
+      "guild": {
+        "id": 755502,
+        "name": "Wrong Tactics Folks",
+        "faction": 1
+      },
+      "server": {
+        "id": 283,
+        "name": "Draenor",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 472.56618951613,
+      "leaderboard": 0
+    },
+    {
+      "name": "Pvpmage",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 156160.0804399848,
+      "hardModeLevel": 19,
+      "duration": 1868751,
+      "startTime": 1782054539423,
+      "report": {
+        "code": "Dt6gXHQanq72cmNC",
+        "fightID": 10,
+        "startTime": 1782038731273
+      },
+      "guild": {
+        "id": 453621,
+        "name": "Existence",
+        "faction": 1
+      },
+      "server": {
+        "id": 509,
+        "name": "Sanguino",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "none",
+      "score": 319.82000732422,
+      "leaderboard": 0
+    },
+    {
+      "name": "Boostgosling",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 155330.70811998844,
+      "hardModeLevel": 19,
+      "duration": 1807859,
+      "startTime": 1781975248313,
+      "report": {
+        "code": "phHCnj1XGBWKN6fQ",
+        "fightID": 7,
+        "startTime": 1781967136665
+      },
+      "guild": {
+        "id": 729443,
+        "name": "OMG BRB ICECREAM TRUCK",
+        "faction": 0
+      },
+      "server": {
+        "id": 329,
+        "name": "Silvermoon",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 471.05122983871,
+      "leaderboard": 0
+    },
+    {
+      "name": "Incrain",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 155029.3111500144,
+      "hardModeLevel": 19,
+      "duration": 1795440,
+      "startTime": 1781979662808,
+      "report": {
+        "code": "t7rN6zADZQHLKBqp",
+        "fightID": 9,
+        "startTime": 1781969379600
+      },
+      "guild": {
+        "id": 644688,
+        "name": "Eclipsed",
+        "faction": 0
+      },
+      "server": {
+        "id": 18,
+        "name": "Area 52",
+        "region": "US"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 471.30161290323,
+      "leaderboard": 0
+    },
+    {
+      "name": "Astrologic",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 154509.6276999712,
+      "hardModeLevel": 19,
+      "duration": 1773061,
+      "startTime": 1781041783934,
+      "report": {
+        "code": "CtPYVbnxvNL2KHjD",
+        "fightID": 4,
+        "startTime": 1781038238666
+      },
+      "guild": {
+        "id": 789061,
+        "name": "Foos of Azeroth",
+        "faction": 1
+      },
+      "server": {
+        "id": 18,
+        "name": "Area 52",
+        "region": "US"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 471.75280241935,
+      "leaderboard": 0
+    },
+    {
+      "name": "Seebáss",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 154311.76392000914,
+      "hardModeLevel": 19,
+      "duration": 1912925,
+      "startTime": 1780997353132,
+      "report": {
+        "code": "7zdaWqZw9yMKkXCH",
+        "fightID": 78,
+        "startTime": 1780823012819
+      },
+      "guild": {
+        "id": 448946,
+        "name": "Consequence",
+        "faction": 0
+      },
+      "server": {
+        "id": 182,
+        "name": "Sargeras",
+        "region": "US"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "none",
+      "score": 318.92999267578,
+      "leaderboard": 0
+    },
+    {
+      "name": "Wisemagi",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 154272.97620999813,
+      "hardModeLevel": 19,
+      "duration": 1874483,
+      "startTime": 1781822784085,
+      "report": {
+        "code": "4QTNm7WDYjLXZt8p",
+        "fightID": 1,
+        "startTime": 1781822705634
+      },
+      "guild": {
+        "id": 188726,
+        "name": "Blood Omen",
+        "faction": 0
+      },
+      "server": {
+        "id": 182,
+        "name": "Sargeras",
+        "region": "US"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "none",
+      "score": 319.70999145508,
+      "leaderboard": 0
+    },
+    {
+      "name": "Бруминатор",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 154250.54833000898,
+      "hardModeLevel": 19,
+      "duration": 1835586,
+      "startTime": 1781120855678,
+      "report": {
+        "code": "RqmpMdFDk43ngrTj",
+        "fightID": 18,
+        "startTime": 1781077473896
+      },
+      "guild": {
+        "id": 640146,
+        "name": "Дэзволкер",
+        "faction": 0
+      },
+      "server": {
+        "id": 488,
+        "name": "Гордунни",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 470.49221774194,
+      "leaderboard": 0
+    },
+    {
+      "name": "Exabust",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 153883.98439002037,
+      "hardModeLevel": 19,
+      "duration": 1656029,
+      "startTime": 1781917255218,
+      "report": {
+        "code": "xBRqy7M1AgtwcpK6",
+        "fightID": 10,
+        "startTime": 1781900489595
+      },
+      "guild": {
+        "id": 594430,
+        "name": "Deception",
+        "faction": 0
+      },
+      "server": {
+        "id": 338,
+        "name": "Sylvanas",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 474.11231854839,
+      "leaderboard": 0
+    },
+    {
+      "name": "Ognen",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 153625.75340002775,
+      "hardModeLevel": 19,
+      "duration": 1745424,
+      "startTime": 1780271414865,
+      "report": {
+        "code": "n2jCGaZvXNMb4Bdt",
+        "fightID": 4,
+        "startTime": 1780263207205
+      },
+      "server": {
+        "id": 88,
+        "name": "Emerald Dream",
+        "region": "US"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 472.31,
+      "leaderboard": 0
+    },
+    {
+      "name": "Aulillia",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 153486.06334000826,
+      "hardModeLevel": 19,
+      "duration": 1828284,
+      "startTime": 1781586531780,
+      "report": {
+        "code": "HMkd7VPWg6Qa1BRb",
+        "fightID": 1,
+        "startTime": 1781586436694
+      },
+      "guild": {
+        "id": 680260,
+        "name": "Clown Town",
+        "faction": 1
+      },
+      "server": {
+        "id": 270,
+        "name": "Burning Legion",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 470.63943548387,
+      "leaderboard": 0
+    },
+    {
+      "name": "Bêto",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 153413.63631999493,
+      "hardModeLevel": 19,
+      "duration": 1870740,
+      "startTime": 1781018172597,
+      "report": {
+        "code": "Q1nG6AyJpmjLC8KD",
+        "fightID": 13,
+        "startTime": 1780998873947
+      },
+      "guild": {
+        "id": 548329,
+        "name": "Insanity",
+        "faction": 1
+      },
+      "server": {
+        "id": 513,
+        "name": "Zul'jin",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "none",
+      "score": 319.7799987793,
+      "leaderboard": 0
+    },
+    {
+      "name": "小鹿然",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 152735.5895500183,
+      "hardModeLevel": 19,
+      "duration": 1713253,
+      "startTime": 1779738197749,
+      "report": {
+        "code": "azWqw9Z2MQvptcFA",
+        "fightID": 7,
+        "startTime": 1779701436582
+      },
+      "server": {
+        "id": 564,
+        "name": "主宰之剑",
+        "region": "CN"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 472.95860887097,
+      "leaderboard": 0
+    },
+    {
+      "name": "카르꽁스",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 152479.87989997864,
+      "hardModeLevel": 19,
+      "duration": 1792238,
+      "startTime": 1778608670247,
+      "report": {
+        "code": "yhbaqQCcNmRDrfxw",
+        "fightID": 10,
+        "startTime": 1778584564150
+      },
+      "guild": {
+        "id": 297862,
+        "name": "태상이와 아이들",
+        "faction": 1
+      },
+      "server": {
+        "id": 526,
+        "name": "아즈샤라",
+        "region": "KR"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 471.36616935484,
+      "leaderboard": 0
+    },
+    {
+      "name": "Aldinax",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 152220.7459899783,
+      "hardModeLevel": 19,
+      "duration": 1822733,
+      "startTime": 1780686196360,
+      "report": {
+        "code": "ncTBC37MzD1QNKkX",
+        "fightID": 25,
+        "startTime": 1780682810625
+      },
+      "server": {
+        "id": 406,
+        "name": "Blackhand",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 470.75135080645,
+      "leaderboard": 0
+    },
+    {
+      "name": "Placement",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 151873.08327001333,
+      "hardModeLevel": 19,
+      "duration": 1855760,
+      "startTime": 1778396114199,
+      "report": {
+        "code": "jRHd2K6CPc8fAJvF",
+        "fightID": 1,
+        "startTime": 1778390924624
+      },
+      "guild": {
+        "id": 565022,
+        "name": "Grizzly Hills Track Team",
+        "faction": 1
+      },
+      "server": {
+        "id": 150,
+        "name": "Mal'Ganis",
+        "region": "US"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 470.08548387097,
+      "leaderboard": 0
+    },
+    {
+      "name": "존잘새",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 149813.03816002607,
+      "hardModeLevel": 19,
+      "duration": 1762964,
+      "startTime": 1781095936666,
+      "report": {
+        "code": "9mzBNGaynHYk4hT3",
+        "fightID": 1,
+        "startTime": 1781095330418
+      },
+      "guild": {
+        "id": 693629,
+        "name": "여가생활",
+        "faction": 1
+      },
+      "server": {
+        "id": 526,
+        "name": "아즈샤라",
+        "region": "KR"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 471.95637096774,
+      "leaderboard": 0
+    },
+    {
+      "name": "Lindeâ",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 149810.08793997765,
+      "hardModeLevel": 19,
+      "duration": 1703936,
+      "startTime": 1779798559244,
+      "report": {
+        "code": "aGcbqR86hM7Cymtj",
+        "fightID": 4,
+        "startTime": 1779794199524
+      },
+      "server": {
+        "id": 255,
+        "name": "Argent Dawn",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 473.1464516129,
+      "leaderboard": 0
+    },
+    {
+      "name": "烧烧你的",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 148637.39529001713,
+      "hardModeLevel": 19,
+      "duration": 1815175,
+      "startTime": 1779780695380,
+      "report": {
+        "code": "zmZncT7WAkDRbJap",
+        "fightID": 3,
+        "startTime": 1779774593894
+      },
+      "server": {
+        "id": 880,
+        "name": "霜之哀伤",
+        "region": "CN"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 470.90372983871,
+      "leaderboard": 0
+    },
+    {
+      "name": "Ferrers",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 147648.20425999165,
+      "hardModeLevel": 19,
+      "duration": 1963495,
+      "startTime": 1782057216966,
+      "report": {
+        "code": "3bXYVgL1zW48qfkZ",
+        "fightID": 11,
+        "startTime": 1782043834409
+      },
+      "guild": {
+        "id": 755502,
+        "name": "Wrong Tactics Folks",
+        "faction": 1
+      },
+      "server": {
+        "id": 437,
+        "name": "Kel'Thuzad",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "none",
+      "score": 317.91000366211,
+      "leaderboard": 0
+    },
+    {
+      "name": "Maendie",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 147562.91206002235,
+      "hardModeLevel": 19,
+      "duration": 1863037,
+      "startTime": 1779827948174,
+      "report": {
+        "code": "zvnr1akhq7byjL69",
+        "fightID": 11,
+        "startTime": 1779815319644
+      },
+      "server": {
+        "id": 427,
+        "name": "Eredar",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "none",
+      "score": 319.94000244141,
+      "leaderboard": 0
+    },
+    {
+      "name": "Suncikahh",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 146698.3721600175,
+      "hardModeLevel": 19,
+      "duration": 1853191,
+      "startTime": 1779985700041,
+      "report": {
+        "code": "qbBZkmj2FDNwAdTc",
+        "fightID": 2,
+        "startTime": 1779982415602
+      },
+      "server": {
+        "id": 255,
+        "name": "Argent Dawn",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 470.13727822581,
+      "leaderboard": 0
+    },
+    {
+      "name": "Redresolve",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 146473.70411998034,
+      "hardModeLevel": 19,
+      "duration": 1776210,
+      "startTime": 1777677572343,
+      "report": {
+        "code": "gmtQHcZ92bqXByr8",
+        "fightID": 2,
+        "startTime": 1777677252070
+      },
+      "guild": {
+        "id": 29295,
+        "name": "Nascent",
+        "faction": 1
+      },
+      "server": {
+        "id": 173,
+        "name": "Proudmoore",
+        "region": "US"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 471.68931451613,
+      "leaderboard": 0
+    },
+    {
+      "name": "Imerianee",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 145661.74023002386,
+      "hardModeLevel": 19,
+      "duration": 1836689,
+      "startTime": 1780211279138,
+      "report": {
+        "code": "1VjqhK98Dd3kaQHz",
+        "fightID": 88,
+        "startTime": 1779879789573
+      },
+      "guild": {
+        "id": 797031,
+        "name": "Les Rancuniers",
+        "faction": 0
+      },
+      "server": {
+        "id": 329,
+        "name": "Silvermoon",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 470.46997983871,
+      "leaderboard": 0
+    },
+    {
+      "name": "Ptmlevrai",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 145340.75119000673,
+      "hardModeLevel": 19,
+      "duration": 1985164,
+      "startTime": 1780062001630,
+      "report": {
+        "code": "QJT8LatW7ZxzfBcK",
+        "fightID": 13,
+        "startTime": 1780043889270
+      },
+      "server": {
+        "id": 321,
+        "name": "Ravencrest",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "none",
+      "score": 317.48001098633,
+      "leaderboard": 0
+    },
+    {
+      "name": "Obeka",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 145294.1092299819,
+      "hardModeLevel": 19,
+      "duration": 1810885,
+      "startTime": 1780664137536,
+      "report": {
+        "code": "HapATXx4Pnwczg2R",
+        "fightID": 3,
+        "startTime": 1780661794590
+      },
+      "guild": {
+        "id": 468031,
+        "name": "Tide",
+        "faction": 0
+      },
+      "server": {
+        "id": 288,
+        "name": "Earthen Ring",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 470.99022177419,
+      "leaderboard": 0
+    },
+    {
+      "name": "Dumdurum",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 145091.0396900177,
+      "hardModeLevel": 19,
+      "duration": 1790318,
+      "startTime": 1780087958868,
+      "report": {
+        "code": "XcN8AHvgZmdnYMzF",
+        "fightID": 1,
+        "startTime": 1780087795445
+      },
+      "server": {
+        "id": 320,
+        "name": "Ragnaros",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 471.40487903226,
+      "leaderboard": 0
+    },
+    {
+      "name": "Spicyclam",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 143571.7772899866,
+      "hardModeLevel": 19,
+      "duration": 1748875,
+      "startTime": 1780319819335,
+      "report": {
+        "code": "haWBdbGNFf2CKHzp",
+        "fightID": 4,
+        "startTime": 1780304706454
+      },
+      "guild": {
+        "id": 797715,
+        "name": "Insomniacs of Azeroth",
+        "faction": 0
+      },
+      "server": {
+        "id": 99,
+        "name": "Frostmourne",
+        "region": "US"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 472.2404233871,
+      "leaderboard": 0
+    },
+    {
+      "name": "Кашэра",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 142893.9000300169,
+      "hardModeLevel": 19,
+      "duration": 1852517,
+      "startTime": 1780344276932,
+      "report": {
+        "code": "GThQHjDYLFc6AJWg",
+        "fightID": 3,
+        "startTime": 1780342073902
+      },
+      "guild": {
+        "id": 792168,
+        "name": "Goblinbl",
+        "faction": 1
+      },
+      "server": {
+        "id": 488,
+        "name": "Гордунни",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 470.15086693548,
+      "leaderboard": 0
+    },
+    {
+      "name": "妲己娘",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 142802.5887799859,
+      "hardModeLevel": 19,
+      "duration": 1744531,
+      "startTime": 1781434236054,
+      "report": {
+        "code": "mFJQ9gZWCvTxXzjq",
+        "fightID": 2,
+        "startTime": 1781433648176
+      },
+      "server": {
+        "id": 697,
+        "name": "无尽之海",
+        "region": "CN"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 472.32800403226,
+      "leaderboard": 0
+    },
+    {
+      "name": "阿尔尤拉诺斯",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 142768.4666699767,
+      "hardModeLevel": 19,
+      "duration": 1842495,
+      "startTime": 1780300848059,
+      "report": {
+        "code": "AWt1Yx4gLkbGrFcZ",
+        "fightID": 15,
+        "startTime": 1780289015871
+      },
+      "server": {
+        "id": 756,
+        "name": "玛多兰",
+        "region": "CN"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 470.3529233871,
+      "leaderboard": 0
+    },
+    {
+      "name": "Xentros",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 141917.205730021,
+      "hardModeLevel": 19,
+      "duration": 1877340,
+      "startTime": 1781309700917,
+      "report": {
+        "code": "V4mgzh13dKybNxnQ",
+        "fightID": 7,
+        "startTime": 1781295216384
+      },
+      "guild": {
+        "id": 5704,
+        "name": "Warpath",
+        "faction": 1
+      },
+      "server": {
+        "id": 123,
+        "name": "Illidan",
+        "region": "US"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "none",
+      "score": 319.64999389648,
+      "leaderboard": 0
+    },
+    {
+      "name": "Juicekaboose",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 140602.26660001278,
+      "hardModeLevel": 19,
+      "duration": 1714724,
+      "startTime": 1781463693437,
+      "report": {
+        "code": "dmT8tgKHh34vwDYW",
+        "fightID": 5,
+        "startTime": 1781455737096
+      },
+      "guild": {
+        "id": 690165,
+        "name": "Clik",
+        "faction": 1
+      },
+      "server": {
+        "id": 123,
+        "name": "Illidan",
+        "region": "US"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 472.9289516129,
+      "leaderboard": 0
+    },
+    {
+      "name": "丁晓旭",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 140472.77496999502,
+      "hardModeLevel": 19,
+      "duration": 1821063,
+      "startTime": 1781008766485,
+      "report": {
+        "code": "Za8fbtn6hH3dyMWP",
+        "fightID": 2,
+        "startTime": 1781008131367
+      },
+      "server": {
+        "id": 684,
+        "name": "战歌",
+        "region": "CN"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 470.78502016129,
+      "leaderboard": 0
+    },
+    {
+      "name": "火葬場烤雞腿",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 140256.88621997833,
+      "hardModeLevel": 19,
+      "duration": 1788500,
+      "startTime": 1780920477847,
+      "report": {
+        "code": "ZHpxYbgMd7WhNywG",
+        "fightID": 1,
+        "startTime": 1780920316475
+      },
+      "server": {
+        "id": 546,
+        "name": "屠魔山谷",
+        "region": "TW"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 471.44153225806,
+      "leaderboard": 0
+    },
+    {
+      "name": "Kouzelnikjan",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 139468.59946000576,
+      "hardModeLevel": 19,
+      "duration": 1895461,
+      "startTime": 1779207613164,
+      "report": {
+        "code": "jWG2ptJHwYbVxdyX",
+        "fightID": 14,
+        "startTime": 1779192074811
+      },
+      "guild": {
+        "id": 104873,
+        "name": "M Y T H",
+        "faction": 1
+      },
+      "server": {
+        "id": 286,
+        "name": "Drak'thul",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "none",
+      "score": 319.29000854492,
+      "leaderboard": 0
+    },
+    {
+      "name": "니는누구냐아",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 139234.77964001894,
+      "hardModeLevel": 19,
+      "duration": 1871112,
+      "startTime": 1781101279683,
+      "report": {
+        "code": "xChMPXYf3tvbm2JG",
+        "fightID": 4,
+        "startTime": 1781092999280
+      },
+      "guild": {
+        "id": 318935,
+        "name": "드래곤주먹",
+        "faction": 1
+      },
+      "server": {
+        "id": 536,
+        "name": "헬스크림",
+        "region": "KR"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "none",
+      "score": 319.7799987793,
+      "leaderboard": 0
+    },
+    {
+      "name": "Crvl",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 139124.3860399723,
+      "hardModeLevel": 19,
+      "duration": 1839081,
+      "startTime": 1780434588376,
+      "report": {
+        "code": "9gP4HtzBwA2RTGXM",
+        "fightID": 1,
+        "startTime": 1780425682432
+      },
+      "server": {
+        "id": 304,
+        "name": "Kazzak",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 470.42175403226,
+      "leaderboard": 0
+    },
+    {
+      "name": "大鳥小甜心",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 138792.56647002697,
+      "hardModeLevel": 19,
+      "duration": 2320431,
+      "startTime": 1781800971013,
+      "report": {
+        "code": "fgKqmyrXFC8vL7hj",
+        "fightID": 1,
+        "startTime": 1781800512941
+      },
+      "guild": {
+        "id": 283640,
+        "name": "Wrath of Tyrants",
+        "faction": 0
+      },
+      "server": {
+        "id": 549,
+        "name": "暗影之月",
+        "region": "TW"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "none",
+      "score": 310.7200012207,
+      "leaderboard": 0
+    },
+    {
+      "name": "Zersetzung",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 138244.4985100031,
+      "hardModeLevel": 19,
+      "duration": 1796105,
+      "startTime": 1780259679229,
+      "report": {
+        "code": "vwkTHYyzWarng8Qb",
+        "fightID": 5,
+        "startTime": 1780235631704
+      },
+      "guild": {
+        "id": 730429,
+        "name": "Pray for Ukraine",
+        "faction": 0
+      },
+      "server": {
+        "id": 304,
+        "name": "Kazzak",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 471.28820564516,
+      "leaderboard": 0
+    },
+    {
+      "name": "Magistér",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 134890.67909002304,
+      "hardModeLevel": 19,
+      "duration": 1776522,
+      "startTime": 1778705162742,
+      "report": {
+        "code": "cMp27aABVy3kDgNG",
+        "fightID": 2,
+        "startTime": 1778704507721
+      },
+      "guild": {
+        "id": 595282,
+        "name": "IHAN SAMA",
+        "faction": 1
+      },
+      "server": {
+        "id": 335,
+        "name": "Stormreaver",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 471.68302419355,
+      "leaderboard": 0
+    },
+    {
+      "name": "提拉特弥斯",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 134877.78687000275,
+      "hardModeLevel": 19,
+      "duration": 1843828,
+      "startTime": 1781011139587,
+      "report": {
+        "code": "ZxatJknGKXAz4Cdw",
+        "fightID": 1,
+        "startTime": 1781010970629
+      },
+      "server": {
+        "id": 610,
+        "name": "回音山",
+        "region": "CN"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 470.3260483871,
+      "leaderboard": 0
+    },
+    {
+      "name": "Lakaloot",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 134312.44065999985,
+      "hardModeLevel": 19,
+      "duration": 1831583,
+      "startTime": 1780682044602,
+      "report": {
+        "code": "2n9JLjkfg3476Xzt",
+        "fightID": 11,
+        "startTime": 1780660443445
+      },
+      "server": {
+        "id": 340,
+        "name": "Tarren Mill",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 470.5729233871,
+      "leaderboard": 0
+    },
+    {
+      "name": "Raynfall",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 133570.01392000914,
+      "hardModeLevel": 19,
+      "duration": 2118750,
+      "startTime": 1779502442123,
+      "report": {
+        "code": "2Dp9HKY86hXaT7Px",
+        "fightID": 2,
+        "startTime": 1779501722726
+      },
+      "guild": {
+        "id": 1211,
+        "name": "Raiding Rainbows",
+        "faction": 1
+      },
+      "server": {
+        "id": 38,
+        "name": "Bleeding Hollow",
+        "region": "US"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "none",
+      "score": 314.7799987793,
+      "leaderboard": 0
+    },
+    {
+      "name": "Imisschase",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 133147.02438998222,
+      "hardModeLevel": 19,
+      "duration": 1880205,
+      "startTime": 1780965974547,
+      "report": {
+        "code": "zdRqwckNAT1hxJXa",
+        "fightID": 18,
+        "startTime": 1780900775453
+      },
+      "server": {
+        "id": 222,
+        "name": "Tichondrius",
+        "region": "US"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "none",
+      "score": 319.58999633789,
+      "leaderboard": 0
+    },
+    {
+      "name": "Flatwhitez",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 126130.98979002237,
+      "hardModeLevel": 19,
+      "duration": 1849396,
+      "startTime": 1778649670844,
+      "report": {
+        "code": "p9X7rmQjf3t8ZYC6",
+        "fightID": 1,
+        "startTime": 1778649350593
+      },
+      "server": {
+        "id": 770,
+        "name": "白银之手",
+        "region": "CN"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 470.21379032258,
+      "leaderboard": 0
+    },
+    {
+      "name": "Balbo",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 125711.19946998358,
+      "hardModeLevel": 19,
+      "duration": 1894072,
+      "startTime": 1781321804739,
+      "report": {
+        "code": "7NdbCp1BWrZDYRcP",
+        "fightID": 11,
+        "startTime": 1781305913967
+      },
+      "guild": {
+        "id": 20860,
+        "name": "Last Attempt",
+        "faction": 0
+      },
+      "server": {
+        "id": 8,
+        "name": "Altar of Storms",
+        "region": "US"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "none",
+      "score": 319.30999755859,
+      "leaderboard": 0
+    },
+    {
+      "name": "小明熊",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 125282.0233399868,
+      "hardModeLevel": 19,
+      "duration": 1903229,
+      "startTime": 1779978801386,
+      "report": {
+        "code": "yqF3nkw2CB1dKbcL",
+        "fightID": 7,
+        "startTime": 1779972675314
+      },
+      "server": {
+        "id": 655,
+        "name": "安苏",
+        "region": "CN"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "none",
+      "score": 319.13000488281,
+      "leaderboard": 0
+    },
+    {
+      "name": "Blääster",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 122358.3769299984,
+      "hardModeLevel": 19,
+      "duration": 2394398,
+      "startTime": 1779648621069,
+      "report": {
+        "code": "pv7Dk2yJdgBrH4qT",
+        "fightID": 1,
+        "startTime": 1779614599187
+      },
+      "guild": {
+        "id": 290965,
+        "name": "Kilta",
+        "faction": 0
+      },
+      "server": {
+        "id": 321,
+        "name": "Ravencrest",
+        "region": "EU"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "none",
+      "score": 309.23001098633,
+      "leaderboard": 0
+    },
+    {
+      "name": "陈江河",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 116928.93683999777,
+      "hardModeLevel": 19,
+      "duration": 1836887,
+      "startTime": 1779009122477,
+      "report": {
+        "code": "81JrfdBxGpDHQ7AL",
+        "fightID": 11,
+        "startTime": 1778984325075
+      },
+      "guild": {
+        "id": 240216,
+        "name": "VenousNone",
+        "faction": 1
+      },
+      "server": {
+        "id": 584,
+        "name": "凤凰之神",
+        "region": "CN"
+      },
+      "bracketData": 19,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 470.46598790323,
+      "leaderboard": 0
+    },
+    {
+      "name": "萌萌哒小水",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 113242.09627997875,
+      "hardModeLevel": 19,
+      "duration": 2436923,
+      "startTime": 1780667199803,
+      "report": {
+        "code": "AkyqYmRC13WHXZBN",
+        "fightID": 3,
+        "startTime": 1780664896116
+      },
+      "server": {
+        "id": 564,
+        "name": "主宰之剑",
+        "region": "CN"
+      },
+      "bracketData": 19,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "none",
+      "score": 308.36999511719,
+      "leaderboard": 0
+    },
+    {
+      "name": "丿清风丨",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 175857.44155997038,
+      "hardModeLevel": 18,
+      "duration": 1697360,
+      "startTime": 1781258152865,
+      "report": {
+        "code": "7f6qYCDFA9GbPhH3",
+        "fightID": 9,
+        "startTime": 1781243323271
+      },
+      "server": {
+        "id": 720,
+        "name": "死亡之翼",
+        "region": "CN"
+      },
+      "bracketData": 18,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 458.27903225806,
+      "leaderboard": 0
+    },
+    {
+      "name": "迦娜乀",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 175237.5331299901,
+      "hardModeLevel": 18,
+      "duration": 1607220,
+      "startTime": 1781194592244,
+      "report": {
+        "code": "PDknMhYHB6arQcgx",
+        "fightID": 1,
+        "startTime": 1781193513727
+      },
+      "server": {
+        "id": 618,
+        "name": "埃德萨拉",
+        "region": "CN"
+      },
+      "bracketData": 18,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 460.09637096774,
+      "leaderboard": 0
+    },
+    {
+      "name": "Sinixia",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 174407.7998600006,
+      "hardModeLevel": 18,
+      "duration": 1826229,
+      "startTime": 1782143430027,
+      "report": {
+        "code": "mXtBPR7Zfjk4v1cW",
+        "fightID": 2,
+        "startTime": 1782141500583
+      },
+      "guild": {
+        "id": 778825,
+        "name": "No Sweat",
+        "faction": 0
+      },
+      "server": {
+        "id": 123,
+        "name": "Illidan",
+        "region": "US"
+      },
+      "bracketData": 18,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 455.68086693548,
+      "leaderboard": 0
+    },
+    {
+      "name": "Macleans",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 171194.0437899828,
+      "hardModeLevel": 18,
+      "duration": 1764040,
+      "startTime": 1779265203795,
+      "report": {
+        "code": "d34LMk2yNm8DK6nc",
+        "fightID": 3,
+        "startTime": 1779259403163
+      },
+      "server": {
+        "id": 770,
+        "name": "白银之手",
+        "region": "CN"
+      },
+      "bracketData": 18,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 456.93467741935,
+      "leaderboard": 0
+    },
+    {
+      "name": "Xentros",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 170704.6415899992,
+      "hardModeLevel": 18,
+      "duration": 1715167,
+      "startTime": 1779850438141,
+      "report": {
+        "code": "WmqvPLyYa1KQd6HX",
+        "fightID": 4,
+        "startTime": 1779835727845
+      },
+      "guild": {
+        "id": 5704,
+        "name": "Warpath",
+        "faction": 1
+      },
+      "server": {
+        "id": 123,
+        "name": "Illidan",
+        "region": "US"
+      },
+      "bracketData": 18,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 457.92002016129,
+      "leaderboard": 0
+    },
+    {
+      "name": "Rocket",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 167318.2293999791,
+      "hardModeLevel": 18,
+      "duration": 1555356,
+      "startTime": 1781281019997,
+      "report": {
+        "code": "9f4kZyPRVqgrnCMB",
+        "fightID": 1,
+        "startTime": 1781280851422
+      },
+      "server": {
+        "id": 676,
+        "name": "影之哀伤",
+        "region": "CN"
+      },
+      "bracketData": 18,
+      "faction": 1,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 461.14201612903,
+      "leaderboard": 0
+    },
+    {
+      "name": "Purgymage",
+      "class": "Mage",
+      "spec": "Fire",
+      "amount": 166705.83842998743,
+      "hardModeLevel": 18,
+      "duration": 1720857,
+      "startTime": 1779889409300,
+      "report": {
+        "code": "GyHkM6D8gbTamzVq",
+        "fightID": 2,
+        "startTime": 1779886382031
+      },
+      "guild": {
+        "id": 610214,
+        "name": "Incendaríus",
+        "faction": 1
+      },
+      "server": {
+        "id": 406,
+        "name": "Blackhand",
+        "region": "EU"
+      },
+      "bracketData": 18,
+      "faction": 0,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "medal": "bronze",
+      "score": 457.80530241935,
+      "leaderboard": 0
+    }
+  ]
+}

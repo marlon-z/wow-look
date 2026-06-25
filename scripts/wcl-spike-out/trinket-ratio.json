@@ -1,0 +1,96 @@
+{
+  "counted": 99,
+  "rows": [
+    [
+      "250144",
+      {
+        "count": 90,
+        "icon": "inv_icon_feather06a.jpg"
+      }
+    ],
+    [
+      "251115",
+      {
+        "count": 63,
+        "icon": "inv_12_trinket_devouring_host_currency2_void.jpg"
+      }
+    ],
+    [
+      "249343",
+      {
+        "count": 55,
+        "icon": "inv_12_trinket_raid_dreamrift_gazeofthealnseer.jpg"
+      }
+    ],
+    [
+      "251093",
+      {
+        "count": 52,
+        "icon": "inv_12_trinket_devouring_host_currency1_silver.jpg"
+      }
+    ],
+    [
+      "249346",
+      {
+        "count": 43,
+        "icon": "inv_12_trinket_raid_voidspire_int1_voiddragoneye.jpg"
+      }
+    ],
+    [
+      "266314",
+      {
+        "count": 10,
+        "icon": "inv_112_raidtrinkets_necklace01_etherealnontechnologicalstyle_terra.jpg"
+      }
+    ],
+    [
+      "250256",
+      {
+        "count": 4,
+        "icon": "inv_10_jewelcrafting3_soulcage_air.jpg"
+      }
+    ],
+    [
+      "251217",
+      {
+        "count": 4,
+        "icon": "inv_12_trinket_devouring_host_currency1_bronze.jpg"
+      }
+    ],
+    [
+      "249809",
+      {
+        "count": 2,
+        "icon": "inv_12_trinket_raid_voidspire_int2_locuswalkerslastribbon.jpg"
+      }
+    ],
+    [
+      "193701",
+      {
+        "count": 1,
+        "icon": "inv_misc_enggizmos_18.jpg"
+      }
+    ],
+    [
+      "249344",
+      {
+        "count": 1,
+        "icon": "inv_12_trinket_raid_voidspire_physdps1_armyoflightbanner.jpg"
+      }
+    ],
+    [
+      "250223",
+      {
+        "count": 1,
+        "icon": "inv_jewelry_necklace_32.jpg"
+      }
+    ],
+    [
+      "252420",
+      {
+        "count": 1,
+        "icon": "inv_enchant_shardbrilliantlarge.jpg"
+      }
+    ]
+  ]
+}

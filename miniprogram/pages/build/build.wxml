@@ -216,7 +216,7 @@
       </view>
 
       <view class="stats-bottom-hint">
-        <text>力量/敏捷/智力及耐力仅统计装备；副属性百分比已含职业/专精基础值，不含种族、天赋、附魔、宝石及临时 Buff</text>
+        <text>已含90级基础主属性与耐力{{summary.armorSpecializationActive ? '、护甲专精5%加成' : ''}}；不含种族、天赋、附魔、宝石及临时 Buff</text>
       </view>
     </view>
 

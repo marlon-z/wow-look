@@ -1,0 +1,1277 @@
+{
+  "data": {
+    "entries": [
+      {
+        "name": "力老八",
+        "id": 197,
+        "guid": 75040671,
+        "type": "Evoker",
+        "icon": "Evoker-Augmentation",
+        "itemLevel": 289,
+        "total": 343173744,
+        "totalReduced": 282669984,
+        "activeTime": 1619131,
+        "activeTimeReduced": 1618898,
+        "abilities": [
+          {
+            "guid": 395152,
+            "name": "Ebon Might",
+            "total": 89530276,
+            "type": 12,
+            "icon": "spell_sarkareth.jpg"
+          },
+          {
+            "guid": 395160,
+            "name": "Eruption",
+            "total": 54091266,
+            "type": 12,
+            "icon": "ability_evoker_eruption.jpg"
+          },
+          {
+            "guid": 357210,
+            "name": "Deep Breath",
+            "total": 39308287,
+            "type": 76,
+            "icon": "ability_evoker_deepbreath.jpg"
+          },
+          {
+            "guid": 1259172,
+            "name": "Eruption",
+            "total": 36616812,
+            "totalReduced": 0,
+            "type": 12,
+            "icon": "ability_evoker_eruption.jpg",
+            "petName": "Future Self"
+          },
+          {
+            "guid": 409311,
+            "name": "Prescience",
+            "total": 20829650,
+            "type": 64,
+            "icon": "ability_evoker_prescience.jpg"
+          }
+        ],
+        "damageAbilities": [],
+        "targets": [
+          {
+            "name": "Hungry Lasher",
+            "total": 41569098,
+            "totalReduced": 32981988,
+            "type": "NPC"
+          },
+          {
+            "name": "Spellbound Battleaxe",
+            "total": 32923231,
+            "totalReduced": 26528190,
+            "type": "NPC"
+          },
+          {
+            "name": "Crawth",
+            "total": 27284384,
+            "totalReduced": 22941382,
+            "type": "Boss"
+          },
+          {
+            "name": "Hungry Lasher",
+            "total": 24895792,
+            "totalReduced": 22486538,
+            "type": "NPC"
+          },
+          {
+            "name": "Arcane Forager",
+            "total": 23824373,
+            "totalReduced": 19291322,
+            "type": "NPC"
+          }
+        ],
+        "talents": [],
+        "gear": [],
+        "totalRDPSTaken": 2874122,
+        "totalRDPSGiven": 170031430,
+        "given": [
+          {
+            "guid": 395152,
+            "name": "Ebon Might",
+            "total": 89530276,
+            "type": "Evoker",
+            "abilityIcon": "spell_sarkareth.jpg"
+          },
+          {
+            "guid": 409632,
+            "name": "Breath of Eons",
+            "total": 25236424,
+            "type": "Evoker",
+            "abilityIcon": "ability_evoker_breathofeons.jpg"
+          },
+          {
+            "guid": 434481,
+            "name": "Bombardments",
+            "total": 19432123,
+            "type": "Evoker",
+            "abilityIcon": "inv_ability_scalecommanderevoker_bombardments.jpg"
+          },
+          {
+            "guid": 410089,
+            "name": "Prescience",
+            "total": 10840968,
+            "type": "Evoker",
+            "abilityIcon": "ability_evoker_prescience.jpg"
+          },
+          {
+            "guid": 404908,
+            "name": "Fate Mirror",
+            "total": 9988682,
+            "type": "Evoker",
+            "abilityIcon": "trade_archaeology_highbornesoulmirror.jpg"
+          },
+          {
+            "guid": 413984,
+            "name": "Shifting Sands",
+            "total": 8121632,
+            "type": "Evoker",
+            "abilityIcon": "ability_evoker_masterytimewalker.jpg"
+          },
+          {
+            "guid": 410265,
+            "name": "Inferno's Blessing",
+            "total": 6881325,
+            "type": "Evoker",
+            "abilityIcon": "ability_evoker_infernosblessing.jpg"
+          }
+        ],
+        "taken": [
+          {
+            "guid": 434481,
+            "name": "Bombardments",
+            "total": 2874122,
+            "type": "Evoker",
+            "abilityIcon": "inv_ability_scalecommanderevoker_bombardments.jpg"
+          }
+        ],
+        "pets": [
+          {
+            "name": "Future Self",
+            "id": 203,
+            "guid": 253466,
+            "type": "Pet",
+            "icon": "abilities/inv12_apextalent_evoker_duplicate.jpg",
+            "total": 47612953,
+            "totalReduced": 0,
+            "activeTime": 1235523,
+            "totalRDPSTaken": 668846,
+            "totalRDPSGiven": 0,
+            "given": [],
+            "taken": [
+              {
+                "guid": 434481,
+                "name": "Bombardments",
+                "total": 668846,
+                "type": "Evoker",
+                "abilityIcon": "inv_ability_scalecommanderevoker_bombardments.jpg"
+              }
+            ]
+          },
+          {
+            "name": "Dracthyr Commando",
+            "id": 202,
+            "guid": 219827,
+            "type": "Pet",
+            "icon": "abilities/ui_dracthyr.jpg",
+            "total": 12890807,
+            "totalReduced": 0,
+            "activeTime": 20355
+          }
+        ]
+      },
+      {
+        "name": "漏断倒头就睡",
+        "id": 201,
+        "guid": 112685574,
+        "type": "Druid",
+        "icon": "Druid-Guardian",
+        "itemLevel": 289,
+        "total": 217709122,
+        "totalReduced": 204464611,
+        "activeTime": 1679861,
+        "activeTimeReduced": 1679520,
+        "abilities": [
+          {
+            "guid": 77758,
+            "name": "Thrash",
+            "total": 95901207,
+            "type": 1,
+            "icon": "spell_druid_thrash.jpg"
+          },
+          {
+            "guid": 8921,
+            "name": "Moonfire",
+            "total": 51395616,
+            "type": 64,
+            "icon": "spell_nature_starfall.jpg"
+          },
+          {
+            "guid": 204066,
+            "name": "Lunar Beam",
+            "total": 23693208,
+            "type": 64,
+            "icon": "spell_nature_moonglow.jpg"
+          },
+          {
+            "guid": 1253489,
+            "name": "Dire Echo",
+            "total": 13244511,
+            "totalReduced": 0,
+            "type": 8,
+            "icon": "sha_spell_shadow_shadesofdarkness_nightmare.jpg",
+            "petName": "Dread Shade"
+          },
+          {
+            "guid": 202770,
+            "name": "Fury of Elune",
+            "total": 6752026,
+            "type": 72,
+            "icon": "ability_druid_dreamstate.jpg"
+          }
+        ],
+        "damageAbilities": [],
+        "targets": [
+          {
+            "name": "Hungry Lasher",
+            "total": 40082656,
+            "totalReduced": 34510487,
+            "type": "NPC"
+          },
+          {
+            "name": "Spellbound Battleaxe",
+            "total": 21420015,
+            "totalReduced": 20464165,
+            "type": "NPC"
+          },
+          {
+            "name": "Hungry Lasher",
+            "total": 15895023,
+            "totalReduced": 14915122,
+            "type": "NPC"
+          },
+          {
+            "name": "Territorial Eagle",
+            "total": 15593341,
+            "totalReduced": 15068563,
+            "type": "NPC"
+          },
+          {
+            "name": "Arcane Forager",
+            "total": 14475432,
+            "totalReduced": 13638147,
+            "type": "NPC"
+          }
+        ],
+        "talents": [],
+        "gear": [],
+        "totalRDPSTaken": 2895894,
+        "totalRDPSGiven": 0,
+        "given": [],
+        "taken": [
+          {
+            "guid": 434481,
+            "name": "Bombardments",
+            "total": 1818062,
+            "type": "Evoker",
+            "abilityIcon": "inv_ability_scalecommanderevoker_bombardments.jpg"
+          },
+          {
+            "guid": 410089,
+            "name": "Prescience",
+            "total": 594383,
+            "type": "Evoker",
+            "abilityIcon": "ability_evoker_prescience.jpg"
+          },
+          {
+            "guid": 404908,
+            "name": "Fate Mirror",
+            "total": 483449,
+            "type": "Evoker",
+            "abilityIcon": "trade_archaeology_highbornesoulmirror.jpg"
+          }
+        ],
+        "pets": [
+          {
+            "name": "Dread Shade",
+            "id": 223,
+            "guid": 251422,
+            "type": "Pet",
+            "icon": "abilities/sha_spell_shadow_shadesofdarkness_nightmare.jpg",
+            "total": 13244511,
+            "totalReduced": 0,
+            "activeTime": 385380,
+            "totalRDPSTaken": 24807,
+            "totalRDPSGiven": 0,
+            "given": [],
+            "taken": [
+              {
+                "guid": 404908,
+                "name": "Fate Mirror",
+                "total": 24807,
+                "type": "Evoker",
+                "abilityIcon": "trade_archaeology_highbornesoulmirror.jpg"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "丶浪漫",
+        "id": 375,
+        "guid": 116979850,
+        "type": "DeathKnight",
+        "icon": "DeathKnight-Unholy",
+        "itemLevel": 289,
+        "total": 409646946,
+        "totalReduced": 234571314,
+        "activeTime": 1608449,
+        "activeTimeReduced": 1600591,
+        "abilities": [
+          {
+            "guid": 1247378,
+            "name": "Putrefy",
+            "total": 51117531,
+            "type": 32,
+            "icon": "inv12_ability_deathknight_putrefy.jpg"
+          },
+          {
+            "guid": 317791,
+            "name": "Shadow Bolt",
+            "total": 40490187,
+            "totalReduced": 0,
+            "type": 32,
+            "icon": "spell_shadow_shadowbolt.jpg",
+            "petName": "Magus of the Dead"
+          },
+          {
+            "guid": 383269,
+            "name": "Graveyard",
+            "total": 32697714,
+            "type": 32,
+            "icon": "spell_necro_deathall.jpg"
+          },
+          {
+            "guid": 91778,
+            "name": "Sweeping Claws",
+            "total": 32268087,
+            "totalReduced": 0,
+            "type": 32,
+            "icon": "spell_deathknight_thrash_ghoul.jpg",
+            "petName": "恶鼠看守者"
+          },
+          {
+            "guid": 191587,
+            "name": "Virulent Plague",
+            "total": 25305817,
+            "type": 32,
+            "icon": "ability_creature_disease_02.jpg"
+          }
+        ],
+        "damageAbilities": [],
+        "targets": [
+          {
+            "name": "Hungry Lasher",
+            "total": 59994399,
+            "totalReduced": 36085259,
+            "type": "NPC"
+          },
+          {
+            "name": "Spellbound Battleaxe",
+            "total": 39150728,
+            "totalReduced": 22727202,
+            "type": "NPC"
+          },
+          {
+            "name": "Hungry Lasher",
+            "total": 38138737,
+            "totalReduced": 21702917,
+            "type": "NPC"
+          },
+          {
+            "name": "Corrupted Manafiend",
+            "total": 27968435,
+            "totalReduced": 15398105,
+            "type": "NPC"
+          },
+          {
+            "name": "Arcane Forager",
+            "total": 27735318,
+            "totalReduced": 16497555,
+            "type": "NPC"
+          }
+        ],
+        "talents": [],
+        "gear": [],
+        "totalRDPSTaken": 103373739,
+        "totalRDPSGiven": 0,
+        "given": [],
+        "taken": [
+          {
+            "guid": 395152,
+            "name": "Ebon Might",
+            "total": 53094485,
+            "type": "Evoker",
+            "abilityIcon": "spell_sarkareth.jpg"
+          },
+          {
+            "guid": 409632,
+            "name": "Breath of Eons",
+            "total": 14528808,
+            "type": "Evoker",
+            "abilityIcon": "ability_evoker_breathofeons.jpg"
+          },
+          {
+            "guid": 434481,
+            "name": "Bombardments",
+            "total": 12130013,
+            "type": "Evoker",
+            "abilityIcon": "inv_ability_scalecommanderevoker_bombardments.jpg"
+          },
+          {
+            "guid": 410089,
+            "name": "Prescience",
+            "total": 9334310,
+            "type": "Evoker",
+            "abilityIcon": "ability_evoker_prescience.jpg"
+          },
+          {
+            "guid": 404908,
+            "name": "Fate Mirror",
+            "total": 6080782,
+            "type": "Evoker",
+            "abilityIcon": "trade_archaeology_highbornesoulmirror.jpg"
+          },
+          {
+            "guid": 413984,
+            "name": "Shifting Sands",
+            "total": 4525995,
+            "type": "Evoker",
+            "abilityIcon": "ability_evoker_masterytimewalker.jpg"
+          },
+          {
+            "guid": 410265,
+            "name": "Inferno's Blessing",
+            "total": 3679346,
+            "type": "Evoker",
+            "abilityIcon": "ability_evoker_infernosblessing.jpg"
+          }
+        ],
+        "pets": [
+          {
+            "name": "Lesser Ghoul",
+            "id": 377,
+            "guid": 258578,
+            "type": "Pet",
+            "icon": "abilities/inv_ghoulnorthrend.jpg",
+            "total": 152665,
+            "totalReduced": 0,
+            "activeTime": 940879,
+            "totalRDPSTaken": 166436,
+            "totalRDPSGiven": 0,
+            "given": [],
+            "taken": [
+              {
+                "guid": 434481,
+                "name": "Bombardments",
+                "total": 137296,
+                "type": "Evoker",
+                "abilityIcon": "inv_ability_scalecommanderevoker_bombardments.jpg"
+              },
+              {
+                "guid": 395152,
+                "name": "Ebon Might",
+                "total": 22042,
+                "type": "Evoker",
+                "abilityIcon": "spell_sarkareth.jpg"
+              },
+              {
+                "guid": 410089,
+                "name": "Prescience",
+                "total": 3235,
+                "type": "Evoker",
+                "abilityIcon": "ability_evoker_prescience.jpg"
+              },
+              {
+                "guid": 404908,
+                "name": "Fate Mirror",
+                "total": 2610,
+                "type": "Evoker",
+                "abilityIcon": "trade_archaeology_highbornesoulmirror.jpg"
+              },
+              {
+                "guid": 413984,
+                "name": "Shifting Sands",
+                "total": 1253,
+                "type": "Evoker",
+                "abilityIcon": "ability_evoker_masterytimewalker.jpg"
+              }
+            ]
+          },
+          {
+            "name": "Nazgrim",
+            "id": 379,
+            "guid": 221634,
+            "type": "Pet",
+            "icon": "abilities/achievement_boss_general_nazgrim.jpg",
+            "total": 2163636,
+            "totalReduced": 0,
+            "activeTime": 595243,
+            "totalRDPSTaken": 587950,
+            "totalRDPSGiven": 0,
+            "given": [],
+            "taken": [
+              {
+                "guid": 395152,
+                "name": "Ebon Might",
+                "total": 279642,
+                "type": "Evoker",
+                "abilityIcon": "spell_sarkareth.jpg"
+              },
+              {
+                "guid": 434481,
+                "name": "Bombardments",
+                "total": 181272,
+                "type": "Evoker",
+                "abilityIcon": "inv_ability_scalecommanderevoker_bombardments.jpg"
+              },
+              {
+                "guid": 410089,
+                "name": "Prescience",
+                "total": 67770,
+                "type": "Evoker",
+                "abilityIcon": "ability_evoker_prescience.jpg"
+              },
+              {
+                "guid": 404908,
+                "name": "Fate Mirror",
+                "total": 37405,
+                "type": "Evoker",
+                "abilityIcon": "trade_archaeology_highbornesoulmirror.jpg"
+              },
+              {
+                "guid": 413984,
+                "name": "Shifting Sands",
+                "total": 21861,
+                "type": "Evoker",
+                "abilityIcon": "ability_evoker_masterytimewalker.jpg"
+              }
+            ]
+          },
+          {
+            "name": "Lesser Ghoul",
+            "id": 383,
+            "guid": 237409,
+            "type": "Pet",
+            "icon": "abilities/inv_ghoulnorthrend.jpg",
+            "total": 46574384,
+            "totalReduced": 0,
+            "activeTime": 1572807,
+            "totalRDPSTaken": 11791782,
+            "totalRDPSGiven": 0,
+            "given": [],
+            "taken": [
+              {
+                "guid": 395152,
+                "name": "Ebon Might",
+                "total": 5479079,
+                "type": "Evoker",
+                "abilityIcon": "spell_sarkareth.jpg"
+              },
+              {
+                "guid": 434481,
+                "name": "Bombardments",
+                "total": 4371295,
+                "type": "Evoker",
+                "abilityIcon": "inv_ability_scalecommanderevoker_bombardments.jpg"
+              },
+              {
+                "guid": 410089,
+                "name": "Prescience",
+                "total": 1092373,
+                "type": "Evoker",
+                "abilityIcon": "ability_evoker_prescience.jpg"
+              },
+              {
+                "guid": 404908,
+                "name": "Fate Mirror",
+                "total": 531492,
+                "type": "Evoker",
+                "abilityIcon": "trade_archaeology_highbornesoulmirror.jpg"
+              },
+              {
+                "guid": 413984,
+                "name": "Shifting Sands",
+                "total": 317543,
+                "type": "Evoker",
+                "abilityIcon": "ability_evoker_masterytimewalker.jpg"
+              }
+            ]
+          },
+          {
+            "name": "恶鼠看守者",
+            "id": 376,
+            "guid": 61781680,
+            "type": "Pet",
+            "icon": "abilities/spell_shadow_animatedead.jpg",
+            "total": 39050314,
+            "totalReduced": 0,
+            "activeTime": 1603917,
+            "totalRDPSTaken": 7616692,
+            "totalRDPSGiven": 0,
+            "given": [],
+            "taken": [
+              {
+                "guid": 395152,
+                "name": "Ebon Might",
+                "total": 4735942,
+                "type": "Evoker",
+                "abilityIcon": "spell_sarkareth.jpg"
+              },
+              {
+                "guid": 410089,
+                "name": "Prescience",
+                "total": 1067294,
+                "type": "Evoker",
+                "abilityIcon": "ability_evoker_prescience.jpg"
+              },
+              {
+                "guid": 434481,
+                "name": "Bombardments",
+                "total": 961662,
+                "type": "Evoker",
+                "abilityIcon": "inv_ability_scalecommanderevoker_bombardments.jpg"
+              },
+              {
+                "guid": 404908,
+                "name": "Fate Mirror",
+                "total": 783897,
+                "type": "Evoker",
+                "abilityIcon": "trade_archaeology_highbornesoulmirror.jpg"
+              },
+              {
+                "guid": 413984,
+                "name": "Shifting Sands",
+                "total": 67897,
+                "type": "Evoker",
+                "abilityIcon": "ability_evoker_masterytimewalker.jpg"
+              }
+            ]
+          },
+          {
+            "name": "Highlord Darion Mograine",
+            "id": 380,
+            "guid": 221632,
+            "type": "Pet",
+            "icon": "abilities/inv_helmet_151.jpg",
+            "total": 3709405,
+            "totalReduced": 0,
+            "activeTime": 609697,
+            "totalRDPSTaken": 1457419,
+            "totalRDPSGiven": 0,
+            "given": [],
+            "taken": [
+              {
+                "guid": 434481,
+                "name": "Bombardments",
+                "total": 772087,
+                "type": "Evoker",
+                "abilityIcon": "inv_ability_scalecommanderevoker_bombardments.jpg"
+              },
+              {
+                "guid": 395152,
+                "name": "Ebon Might",
+                "total": 451847,
+                "type": "Evoker",
+                "abilityIcon": "spell_sarkareth.jpg"
+              },
+              {
+                "guid": 410089,
+                "name": "Prescience",
+                "total": 106968,
+                "type": "Evoker",
+                "abilityIcon": "ability_evoker_prescience.jpg"
+              },
+              {
+                "guid": 404908,
+                "name": "Fate Mirror",
+                "total": 85525,
+                "type": "Evoker",
+                "abilityIcon": "trade_archaeology_highbornesoulmirror.jpg"
+              },
+              {
+                "guid": 413984,
+                "name": "Shifting Sands",
+                "total": 40992,
+                "type": "Evoker",
+                "abilityIcon": "ability_evoker_masterytimewalker.jpg"
+              }
+            ]
+          },
+          {
+            "name": "High Inquisitor Whitemane",
+            "id": 382,
+            "guid": 221633,
+            "type": "Pet",
+            "icon": "abilities/achievement_character_human_female.jpg",
+            "total": 15913463,
+            "totalReduced": 0,
+            "activeTime": 753059,
+            "totalRDPSTaken": 3544809,
+            "totalRDPSGiven": 0,
+            "given": [],
+            "taken": [
+              {
+                "guid": 395152,
+                "name": "Ebon Might",
+                "total": 2211562,
+                "type": "Evoker",
+                "abilityIcon": "spell_sarkareth.jpg"
+              },
+              {
+                "guid": 410089,
+                "name": "Prescience",
+                "total": 472506,
+                "type": "Evoker",
+                "abilityIcon": "ability_evoker_prescience.jpg"
+              },
+              {
+                "guid": 434481,
+                "name": "Bombardments",
+                "total": 447736,
+                "type": "Evoker",
+                "abilityIcon": "inv_ability_scalecommanderevoker_bombardments.jpg"
+              },
+              {
+                "guid": 404908,
+                "name": "Fate Mirror",
+                "total": 277559,
+                "type": "Evoker",
+                "abilityIcon": "trade_archaeology_highbornesoulmirror.jpg"
+              },
+              {
+                "guid": 413984,
+                "name": "Shifting Sands",
+                "total": 135446,
+                "type": "Evoker",
+                "abilityIcon": "ability_evoker_masterytimewalker.jpg"
+              }
+            ]
+          },
+          {
+            "name": "Abomination",
+            "id": 384,
+            "guid": 149555,
+            "type": "Pet",
+            "icon": "abilities/achievement_boss_patchwerk.jpg",
+            "total": 19469952,
+            "totalReduced": 0,
+            "activeTime": 510155,
+            "totalRDPSTaken": 4138150,
+            "totalRDPSGiven": 0,
+            "given": [],
+            "taken": [
+              {
+                "guid": 395152,
+                "name": "Ebon Might",
+                "total": 2802583,
+                "type": "Evoker",
+                "abilityIcon": "spell_sarkareth.jpg"
+              },
+              {
+                "guid": 410089,
+                "name": "Prescience",
+                "total": 544065,
+                "type": "Evoker",
+                "abilityIcon": "ability_evoker_prescience.jpg"
+              },
+              {
+                "guid": 404908,
+                "name": "Fate Mirror",
+                "total": 382493,
+                "type": "Evoker",
+                "abilityIcon": "trade_archaeology_highbornesoulmirror.jpg"
+              },
+              {
+                "guid": 434481,
+                "name": "Bombardments",
+                "total": 278487,
+                "type": "Evoker",
+                "abilityIcon": "inv_ability_scalecommanderevoker_bombardments.jpg"
+              },
+              {
+                "guid": 413984,
+                "name": "Shifting Sands",
+                "total": 130522,
+                "type": "Evoker",
+                "abilityIcon": "ability_evoker_masterytimewalker.jpg"
+              }
+            ]
+          },
+          {
+            "name": "Magus of the Dead",
+            "id": 378,
+            "guid": 163366,
+            "type": "Pet",
+            "icon": "abilities/ability_maldraxxus_mage.jpg",
+            "total": 46158875,
+            "totalReduced": 0,
+            "activeTime": 1498097,
+            "totalRDPSTaken": 10438333,
+            "totalRDPSGiven": 0,
+            "given": [],
+            "taken": [
+              {
+                "guid": 395152,
+                "name": "Ebon Might",
+                "total": 6443570,
+                "type": "Evoker",
+                "abilityIcon": "spell_sarkareth.jpg"
+              },
+              {
+                "guid": 434481,
+                "name": "Bombardments",
+                "total": 1551679,
+                "type": "Evoker",
+                "abilityIcon": "inv_ability_scalecommanderevoker_bombardments.jpg"
+              },
+              {
+                "guid": 410089,
+                "name": "Prescience",
+                "total": 1294739,
+                "type": "Evoker",
+                "abilityIcon": "ability_evoker_prescience.jpg"
+              },
+              {
+                "guid": 404908,
+                "name": "Fate Mirror",
+                "total": 775474,
+                "type": "Evoker",
+                "abilityIcon": "trade_archaeology_highbornesoulmirror.jpg"
+              },
+              {
+                "guid": 413984,
+                "name": "Shifting Sands",
+                "total": 372871,
+                "type": "Evoker",
+                "abilityIcon": "ability_evoker_masterytimewalker.jpg"
+              }
+            ]
+          },
+          {
+            "name": "King Thoras Trollbane",
+            "id": 381,
+            "guid": 221635,
+            "type": "Pet",
+            "icon": "abilities/achievement_character_human_male.jpg",
+            "total": 1882938,
+            "totalReduced": 0,
+            "activeTime": 619849,
+            "totalRDPSTaken": 599810,
+            "totalRDPSGiven": 0,
+            "given": [],
+            "taken": [
+              {
+                "guid": 395152,
+                "name": "Ebon Might",
+                "total": 262621,
+                "type": "Evoker",
+                "abilityIcon": "spell_sarkareth.jpg"
+              },
+              {
+                "guid": 434481,
+                "name": "Bombardments",
+                "total": 212257,
+                "type": "Evoker",
+                "abilityIcon": "inv_ability_scalecommanderevoker_bombardments.jpg"
+              },
+              {
+                "guid": 410089,
+                "name": "Prescience",
+                "total": 63517,
+                "type": "Evoker",
+                "abilityIcon": "ability_evoker_prescience.jpg"
+              },
+              {
+                "guid": 404908,
+                "name": "Fate Mirror",
+                "total": 42912,
+                "type": "Evoker",
+                "abilityIcon": "trade_archaeology_highbornesoulmirror.jpg"
+              },
+              {
+                "guid": 413984,
+                "name": "Shifting Sands",
+                "total": 18503,
+                "type": "Evoker",
+                "abilityIcon": "ability_evoker_masterytimewalker.jpg"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Earthsham",
+        "id": 199,
+        "guid": 88177354,
+        "type": "Shaman",
+        "icon": "Shaman-Restoration",
+        "itemLevel": 288,
+        "total": 54681774,
+        "totalReduced": 54655184,
+        "activeTime": 1523068,
+        "activeTimeReduced": 1497497,
+        "abilities": [
+          {
+            "guid": 73921,
+            "name": "Healing Rain",
+            "total": 32999238,
+            "type": 8,
+            "icon": "spell_nature_giftofthewaterspirit.jpg"
+          },
+          {
+            "guid": 188443,
+            "name": "Chain Lightning",
+            "total": 9079393,
+            "type": 8,
+            "icon": "spell_nature_chainlightning.jpg"
+          },
+          {
+            "guid": 51505,
+            "name": "Lava Burst",
+            "total": 7302429,
+            "type": 4,
+            "icon": "spell_shaman_lavaburst.jpg"
+          },
+          {
+            "guid": 188389,
+            "name": "Flame Shock",
+            "total": 2684168,
+            "type": 12,
+            "icon": "spell_fire_flameshock.jpg"
+          },
+          {
+            "guid": 188196,
+            "name": "Lightning Bolt",
+            "total": 2557742,
+            "type": 8,
+            "icon": "spell_nature_lightning.jpg"
+          }
+        ],
+        "damageAbilities": [],
+        "targets": [
+          {
+            "name": "Hungry Lasher",
+            "total": 7948486,
+            "type": "NPC"
+          },
+          {
+            "name": "Territorial Eagle",
+            "total": 5873241,
+            "type": "NPC"
+          },
+          {
+            "name": "Crawth",
+            "total": 5428533,
+            "type": "Boss"
+          },
+          {
+            "name": "Echo of Doragosa",
+            "total": 4891789,
+            "type": "Boss"
+          },
+          {
+            "name": "Overgrown Ancient",
+            "total": 3737993,
+            "type": "Boss"
+          }
+        ],
+        "talents": [],
+        "gear": [],
+        "totalRDPSTaken": 574195,
+        "totalRDPSGiven": 0,
+        "given": [],
+        "taken": [
+          {
+            "guid": 434481,
+            "name": "Bombardments",
+            "total": 335032,
+            "type": "Evoker",
+            "abilityIcon": "inv_ability_scalecommanderevoker_bombardments.jpg"
+          },
+          {
+            "guid": 410089,
+            "name": "Prescience",
+            "total": 148156,
+            "type": "Evoker",
+            "abilityIcon": "ability_evoker_prescience.jpg"
+          },
+          {
+            "guid": 404908,
+            "name": "Fate Mirror",
+            "total": 91007,
+            "type": "Evoker",
+            "abilityIcon": "trade_archaeology_highbornesoulmirror.jpg"
+          }
+        ],
+        "pets": [
+          {
+            "name": "Greater Earth Elemental",
+            "id": 428,
+            "guid": 95072,
+            "type": "Pet",
+            "icon": "abilities/spell_nature_earthelemental_totem.jpg",
+            "total": 26590,
+            "totalReduced": 0,
+            "activeTime": 56939,
+            "totalRDPSTaken": 30794,
+            "totalRDPSGiven": 0,
+            "given": [],
+            "taken": [
+              {
+                "guid": 434481,
+                "name": "Bombardments",
+                "total": 30170,
+                "type": "Evoker",
+                "abilityIcon": "inv_ability_scalecommanderevoker_bombardments.jpg"
+              },
+              {
+                "guid": 404908,
+                "name": "Fate Mirror",
+                "total": 624,
+                "type": "Evoker",
+                "abilityIcon": "trade_archaeology_highbornesoulmirror.jpg"
+              },
+              {
+                "guid": 410089,
+                "name": "Prescience",
+                "total": 0,
+                "type": "Evoker",
+                "abilityIcon": "ability_evoker_prescience.jpg"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Macleans",
+        "id": 2,
+        "guid": 113928160,
+        "type": "Mage",
+        "icon": "Mage-Fire",
+        "itemLevel": 290,
+        "total": 330414770,
+        "totalReduced": 311942765,
+        "activeTime": 1613546,
+        "activeTimeReduced": 1613546,
+        "abilities": [
+          {
+            "guid": 12654,
+            "name": "Ignite",
+            "total": 151378664,
+            "type": 4,
+            "icon": "spell_fire_incinerate.jpg"
+          },
+          {
+            "guid": 2120,
+            "name": "Flamestrike",
+            "total": 51655369,
+            "type": 4,
+            "icon": "spell_fire_selfdestruct.jpg"
+          },
+          {
+            "guid": 11366,
+            "name": "Pyroblast",
+            "total": 38706305,
+            "type": 4,
+            "icon": "spell_fire_fireball02.jpg"
+          },
+          {
+            "guid": 449569,
+            "name": "Meteorite",
+            "total": 24824573,
+            "type": 4,
+            "icon": "spell_mage_meteor.jpg"
+          },
+          {
+            "guid": 153561,
+            "name": "Meteor",
+            "total": 18895605,
+            "type": 4,
+            "icon": "spell_mage_meteor.jpg"
+          }
+        ],
+        "damageAbilities": [],
+        "targets": [
+          {
+            "name": "Hungry Lasher",
+            "total": 41467928,
+            "totalReduced": 37140032,
+            "type": "NPC"
+          },
+          {
+            "name": "Hungry Lasher",
+            "total": 35161302,
+            "totalReduced": 33312831,
+            "type": "NPC"
+          },
+          {
+            "name": "Spellbound Battleaxe",
+            "total": 29191378,
+            "totalReduced": 27476810,
+            "type": "NPC"
+          },
+          {
+            "name": "Crawth",
+            "total": 25918737,
+            "totalReduced": 25132541,
+            "type": "Boss"
+          },
+          {
+            "name": "Echo of Doragosa",
+            "total": 24473142,
+            "totalReduced": 23571877,
+            "type": "Boss"
+          }
+        ],
+        "talents": [],
+        "gear": [],
+        "totalRDPSTaken": 60313480,
+        "totalRDPSGiven": 0,
+        "given": [],
+        "taken": [
+          {
+            "guid": 395152,
+            "name": "Ebon Might",
+            "total": 36435791,
+            "type": "Evoker",
+            "abilityIcon": "spell_sarkareth.jpg"
+          },
+          {
+            "guid": 409632,
+            "name": "Breath of Eons",
+            "total": 10707616,
+            "type": "Evoker",
+            "abilityIcon": "ability_evoker_breathofeons.jpg"
+          },
+          {
+            "guid": 413984,
+            "name": "Shifting Sands",
+            "total": 3595637,
+            "type": "Evoker",
+            "abilityIcon": "ability_evoker_masterytimewalker.jpg"
+          },
+          {
+            "guid": 404908,
+            "name": "Fate Mirror",
+            "total": 3333444,
+            "type": "Evoker",
+            "abilityIcon": "trade_archaeology_highbornesoulmirror.jpg"
+          },
+          {
+            "guid": 410265,
+            "name": "Inferno's Blessing",
+            "total": 3201979,
+            "type": "Evoker",
+            "abilityIcon": "ability_evoker_infernosblessing.jpg"
+          },
+          {
+            "guid": 434481,
+            "name": "Bombardments",
+            "total": 2274894,
+            "type": "Evoker",
+            "abilityIcon": "inv_ability_scalecommanderevoker_bombardments.jpg"
+          },
+          {
+            "guid": 410089,
+            "name": "Prescience",
+            "total": 764119,
+            "type": "Evoker",
+            "abilityIcon": "ability_evoker_prescience.jpg"
+          }
+        ],
+        "pets": [
+          {
+            "name": "Mirror Image",
+            "id": 16,
+            "guid": 31216,
+            "type": "Pet",
+            "icon": "abilities/spell_magic_managain.jpg",
+            "total": 6268,
+            "totalReduced": 0,
+            "activeTime": 45958,
+            "totalRDPSTaken": 667,
+            "totalRDPSGiven": 0,
+            "given": [],
+            "taken": [
+              {
+                "guid": 395152,
+                "name": "Ebon Might",
+                "total": 483,
+                "type": "Evoker",
+                "abilityIcon": "spell_sarkareth.jpg"
+              },
+              {
+                "guid": 404908,
+                "name": "Fate Mirror",
+                "total": 86,
+                "type": "Evoker",
+                "abilityIcon": "trade_archaeology_highbornesoulmirror.jpg"
+              },
+              {
+                "guid": 410089,
+                "name": "Prescience",
+                "total": 58,
+                "type": "Evoker",
+                "abilityIcon": "ability_evoker_prescience.jpg"
+              },
+              {
+                "guid": 413984,
+                "name": "Shifting Sands",
+                "total": 40,
+                "type": "Evoker",
+                "abilityIcon": "ability_evoker_masterytimewalker.jpg"
+              }
+            ]
+          },
+          {
+            "name": "Arcane Phoenix",
+            "id": 21,
+            "guid": 223453,
+            "type": "Pet",
+            "icon": "abilities/inv_ability_sunfurymage_spellfirespheres.jpg",
+            "total": 18465737,
+            "totalReduced": 0,
+            "activeTime": 263284,
+            "totalRDPSTaken": 2392671,
+            "totalRDPSGiven": 0,
+            "given": [],
+            "taken": [
+              {
+                "guid": 395152,
+                "name": "Ebon Might",
+                "total": 2314150,
+                "type": "Evoker",
+                "abilityIcon": "spell_sarkareth.jpg"
+              },
+              {
+                "guid": 434481,
+                "name": "Bombardments",
+                "total": 78521,
+                "type": "Evoker",
+                "abilityIcon": "inv_ability_scalecommanderevoker_bombardments.jpg"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "totalTime": 1832795,
+    "logVersion": 17,
+    "gameVersion": 1,
+    "exploitDetails": []
+  }
+}

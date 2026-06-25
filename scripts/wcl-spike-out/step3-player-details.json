@@ -1,0 +1,112 @@
+{
+  "data": {
+    "playerDetails": {
+      "healers": [
+        {
+          "name": "Earthsham",
+          "id": 199,
+          "guid": 88177354,
+          "type": "Shaman",
+          "server": "伊森利恩",
+          "region": "CN",
+          "icon": "Shaman-Restoration",
+          "specs": [
+            {
+              "spec": "Restoration",
+              "count": 1
+            }
+          ],
+          "minItemLevel": 288,
+          "maxItemLevel": 288,
+          "potionUse": 0,
+          "healthstoneUse": 0,
+          "combatantInfo": []
+        }
+      ],
+      "tanks": [
+        {
+          "name": "漏断倒头就睡",
+          "id": 201,
+          "guid": 112685574,
+          "type": "Druid",
+          "server": "罗宁",
+          "region": "CN",
+          "icon": "Druid-Guardian",
+          "specs": [
+            {
+              "spec": "Guardian",
+              "count": 1
+            }
+          ],
+          "minItemLevel": 289,
+          "maxItemLevel": 289,
+          "potionUse": 0,
+          "healthstoneUse": 0,
+          "combatantInfo": []
+        }
+      ],
+      "dps": [
+        {
+          "name": "力老八",
+          "id": 197,
+          "guid": 75040671,
+          "type": "Evoker",
+          "server": "迅捷微风",
+          "region": "CN",
+          "icon": "Evoker-Augmentation",
+          "specs": [
+            {
+              "spec": "Augmentation",
+              "count": 1
+            }
+          ],
+          "minItemLevel": 289,
+          "maxItemLevel": 289,
+          "potionUse": 0,
+          "healthstoneUse": 0,
+          "combatantInfo": []
+        },
+        {
+          "name": "Macleans",
+          "id": 2,
+          "guid": 113928160,
+          "type": "Mage",
+          "server": "白银之手",
+          "region": "CN",
+          "icon": "Mage-Fire",
+          "specs": [
+            {
+              "spec": "Fire",
+              "count": 1
+            }
+          ],
+          "minItemLevel": 290,
+          "maxItemLevel": 290,
+          "potionUse": 0,
+          "healthstoneUse": 0,
+          "combatantInfo": []
+        },
+        {
+          "name": "丶浪漫",
+          "id": 375,
+          "guid": 116979850,
+          "type": "DeathKnight",
+          "server": "白银之手",
+          "region": "CN",
+          "icon": "DeathKnight-Unholy",
+          "specs": [
+            {
+              "spec": "Unholy",
+              "count": 1
+            }
+          ],
+          "minItemLevel": 289,
+          "maxItemLevel": 289,
+          "potionUse": 0,
+          "healthstoneUse": 0,
+          "combatantInfo": []
+        }
+      ]
+    }
+  }
+}

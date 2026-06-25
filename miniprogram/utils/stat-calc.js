@@ -1,6 +1,15 @@
 var { getMasteryCoefficient, BASE_MASTERY_POINTS } = require('./mastery-coefficients');
 var { mainHandOccupiesBoth } = require('./weapon-rules');
-var { DEFAULT_BASE_CRIT_PERCENT, getBaseCritPercent } = require('./stat-baselines');
+var {
+  DEFAULT_BASE_CRIT_PERCENT,
+  LEVEL_90_BASE_PRIMARY,
+  LEVEL_90_BASE_STAMINA,
+  MATCHING_ARMOR_MULTIPLIER,
+  ARMOR_SPECIALIZATION_SLOTS,
+  getBaseCritPercent,
+  getSpecCharacterBaseline,
+  normalizeArmorType,
+} = require('./stat-baselines');
 
 var STAT_PER_PERCENT = {
   critical: 46,
@@ -83,11 +92,20 @@ var BUILD_SLOT_KEYS = [
 ];
 
 function summarizeSlots(slots, specId) {
+  var characterBaseline = getSpecCharacterBaseline(specId);
   var primary = {};
-  var stamina = 0;
+  var stamina = characterBaseline ? LEVEL_90_BASE_STAMINA : 0;
   var secondary = { crit: 0, haste: 0, mastery: 0, versatility: 0 };
   var totalIlvl = 0;
   var filledSlots = 0;
+
+  if (characterBaseline) {
+    primary[characterBaseline.primaryType] = {
+      type: characterBaseline.primaryType,
+      name: characterBaseline.primaryName,
+      value: LEVEL_90_BASE_PRIMARY,
+    };
+  }
 
   BUILD_SLOT_KEYS.forEach(function (key) {
     var item = slots[key];
@@ -105,6 +123,7 @@ function summarizeSlots(slots, specId) {
     }
 
     (stats.primaryStats || []).forEach(function (stat) {
+      if (characterBaseline && stat.type !== characterBaseline.primaryType) return;
       if (!primary[stat.type]) {
         primary[stat.type] = { type: stat.type, name: stat.name, value: 0 };
       }
@@ -125,6 +144,21 @@ function summarizeSlots(slots, specId) {
   var versatilityRating = secondary.versatility || 0;
 
   var masteryResult = calcMasteryPercent(masteryRating, specId);
+
+  var armorSpecializationActive = !!characterBaseline && ARMOR_SPECIALIZATION_SLOTS.every(function (slotKey) {
+    var armorItem = slots[slotKey];
+    return !!armorItem && normalizeArmorType(armorItem) === characterBaseline.armorType;
+  });
+
+  if (armorSpecializationActive) {
+    if (characterBaseline.armorBonusTarget === 'stamina') {
+      stamina = Math.floor(stamina * MATCHING_ARMOR_MULTIPLIER);
+    } else {
+      primary[characterBaseline.primaryType].value = Math.floor(
+        primary[characterBaseline.primaryType].value * MATCHING_ARMOR_MULTIPLIER
+      );
+    }
+  }
 
   var primaryArray = [];
   var primaryKeys = Object.keys(primary);
@@ -150,6 +184,7 @@ function summarizeSlots(slots, specId) {
     totalSlots: totalSlots,
     primaryStats: primaryArray,
     stamina: stamina,
+    armorSpecializationActive: armorSpecializationActive,
     secondaryTotal: secondaryTotal,
     secondary: {
       crit: {

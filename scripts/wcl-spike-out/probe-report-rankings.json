@@ -1,0 +1,190 @@
+{
+  "data": [
+    {
+      "fightID": 9,
+      "partition": 1,
+      "zone": 47,
+      "encounter": {
+        "id": 112526,
+        "name": "Algeth'ar Academy"
+      },
+      "difficulty": 10,
+      "size": 5,
+      "kill": 1,
+      "duration": 1839995,
+      "bracketData": 21,
+      "deaths": 1,
+      "damageTakenExcludingTanks": 245903106,
+      "roles": {
+        "tanks": {
+          "name": "Tanks",
+          "characters": [
+            {
+              "id": 108045423,
+              "name": "漏断倒头就睡",
+              "server": {
+                "id": 790,
+                "name": "罗宁",
+                "region": "CN"
+              },
+              "class": "Druid",
+              "spec": "Guardian",
+              "amount": 500.4033266129,
+              "bracketData": 21,
+              "bracket": 20,
+              "rank": "~5285",
+              "best": "~5285",
+              "totalParses": 528535,
+              "bracketPercent": 27,
+              "rankPercent": 99
+            }
+          ]
+        },
+        "healers": {
+          "name": "Healers",
+          "characters": [
+            {
+              "id": 100462121,
+              "name": "Earthsham",
+              "server": {
+                "id": 569,
+                "name": "伊森利恩",
+                "region": "CN"
+              },
+              "class": "Shaman",
+              "spec": "Restoration",
+              "amount": 500.4033266129,
+              "bracketData": 21,
+              "bracket": 20,
+              "rank": "~4923",
+              "best": "~4923",
+              "totalParses": 492367,
+              "bracketPercent": 37,
+              "rankPercent": 99
+            }
+          ]
+        },
+        "dps": {
+          "name": "Damage Dealers",
+          "characters": [
+            {
+              "id": 107650898,
+              "name": "丶浪漫",
+              "server": {
+                "id": 770,
+                "name": "白银之手",
+                "region": "CN"
+              },
+              "class": "DeathKnight",
+              "spec": "Unholy",
+              "amount": 500.4033266129,
+              "bracketData": 21,
+              "bracket": 20,
+              "rank": "~6976",
+              "best": "~6976",
+              "totalParses": 697680,
+              "bracketPercent": 27,
+              "rankPercent": 99
+            },
+            {
+              "id": 40492789,
+              "name": "Macleans",
+              "server": {
+                "id": 770,
+                "name": "白银之手",
+                "region": "CN"
+              },
+              "class": "Mage",
+              "spec": "Fire",
+              "amount": 500.4033266129,
+              "bracketData": 21,
+              "bracket": 20,
+              "rank": "~330",
+              "best": "~330",
+              "totalParses": 33024,
+              "bracketPercent": 49,
+              "rankPercent": 99
+            },
+            {
+              "id": 108328061,
+              "name": "力老八",
+              "server": {
+                "id": 842,
+                "name": "迅捷微风",
+                "region": "CN"
+              },
+              "class": "Evoker",
+              "spec": "Augmentation",
+              "amount": 500.4033266129,
+              "bracketData": 21,
+              "bracket": 20,
+              "rank": "~2446",
+              "best": "~2446",
+              "totalParses": 244652,
+              "bracketPercent": 24,
+              "rankPercent": 99
+            }
+          ]
+        }
+      },
+      "bracket": 20,
+      "affixes": [
+        9,
+        10,
+        147
+      ],
+      "team": [
+        {
+          "id": 40492789,
+          "name": "Macleans",
+          "class": "Mage",
+          "spec": "Fire",
+          "role": "DPS"
+        },
+        {
+          "id": 100462121,
+          "name": "Earthsham",
+          "class": "Shaman",
+          "spec": "Restoration",
+          "role": "Healer"
+        },
+        {
+          "id": 107650898,
+          "name": "丶浪漫",
+          "class": "DeathKnight",
+          "spec": "Unholy",
+          "role": "DPS"
+        },
+        {
+          "id": 108045423,
+          "name": "漏断倒头就睡",
+          "class": "Druid",
+          "spec": "Guardian",
+          "role": "Tank"
+        },
+        {
+          "id": 108328061,
+          "name": "力老八",
+          "class": "Evoker",
+          "spec": "Augmentation",
+          "role": "DPS"
+        }
+      ],
+      "computedScore": 500.4033266129,
+      "medal": "bronze",
+      "reportsBlacklistForCharacters": [],
+      "speed": {
+        "rank": "~29404",
+        "best": "~29404",
+        "totalParses": 2940466,
+        "rankPercent": 99
+      },
+      "score": {
+        "rank": "~29404",
+        "best": "~29404",
+        "totalParses": 2940466,
+        "rankPercent": 99
+      }
+    }
+  ]
+}

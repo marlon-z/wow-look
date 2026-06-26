@@ -1,12 +1,15 @@
 # WCL 预设自动更新操作文档
 
-这套自动化负责每天从 WCL 拉取火法预设数据，生成 JSON 文件，然后上传到腾讯云 COS。小程序端会优先读取 COS 上的新数据，失败时才回退到小程序包里的本地数据。
+这套自动化负责每天从 WCL 拉取全职业全专精预设数据，生成 JSON 文件，然后上传到腾讯云 COS。小程序端会按当前职业/专精读取 COS 上对应的数据文件。
 
 当前自动化会更新：
 
+- 全职业、全专精
 - 大秘境：10层、16层、20层
 - 团本：史诗团本、孢陨幽境
-- 每套预设包含：装备、制造业绿字、天赋导入代码
+- 每套预设包含：装备、制造业绿字、WCL 返回的天赋树
+- 有本地 talent blueprint 的专精会额外生成可复制进游戏的天赋导入代码；缺 blueprint 的专精会在数据诊断里标记 `missing-blueprint`
+- 排行指标：治疗专精用 `hps`，坦克和输出专精用 `dps`
 
 ## 1. 你需要准备的东西
 
@@ -150,7 +153,16 @@ node scripts/upload-cos-prefix.js --source cos-upload/wcl-presets --prefix wcl-p
 3. 左侧选择 **Update WCL Presets**。
 4. 点击右侧 **Run workflow**。
 5. 选择默认分支。
-6. 点击绿色按钮运行。
+6. 如果要全量更新，输入框留空。
+7. 如果只想更新一个专精，填写：
+
+```text
+class_key = druid
+spec_id   = 104
+content   = all
+```
+
+8. 点击绿色按钮运行。
 
 运行成功后，日志里应该能看到类似：
 
@@ -178,13 +190,25 @@ GitHub Actions 的 cron 使用 UTC 时间。对应北京时间是每天：
 
 ## 8. COS 上会出现哪些文件
 
-上传路径是：
+上传路径按职业和专精拆分：
+
+```text
+wcl-presets/data-4.4.x/{classKey}/{specId}/
+```
+
+例如火法：
 
 ```text
 wcl-presets/data-4.4.x/mage/63/
 ```
 
-目前会上传这些文件：
+例如熊T：
+
+```text
+wcl-presets/data-4.4.x/druid/104/
+```
+
+每个专精目录下会上传这些文件：
 
 ```text
 index.json
@@ -198,7 +222,7 @@ raid-mythic-sporefall.json
 小程序打开 WCL 预设时会先读取：
 
 ```text
-https://wowlook-1308073800.cos.ap-guangzhou.myqcloud.com/wcl-presets/data-4.4.x/mage/63/index.json
+https://wowlook-1308073800.cos.ap-guangzhou.myqcloud.com/wcl-presets/data-4.4.x/{classKey}/{specId}/index.json
 ```
 
 然后用户点哪个分类，才下载对应的那个数据文件。不会一次性下载所有 WCL 数据。
@@ -263,7 +287,7 @@ COS_SECRET_KEY
 按顺序检查：
 
 1. GitHub Actions 是否成功。
-2. COS 里 `wcl-presets/data-4.4.x/mage/63/index.json` 是否更新。
+2. COS 里当前职业/专精目录的 `index.json` 是否更新，例如 `wcl-presets/data-4.4.x/mage/63/index.json`。
 3. 浏览器打开 index.json，看 `generatedAt` 是否变了。
 4. 小程序开发工具里重新编译或清缓存。
 
@@ -285,6 +309,14 @@ COS_SECRET_KEY
 ```powershell
 $env:WCL_CLIENT_ID="你的WCL Client ID"
 $env:WCL_CLIENT_SECRET="你的WCL Client Secret"
+node scripts/update-wcl-presets.js
+```
+
+只生成一个专精：
+
+```powershell
+$env:WCL_CLASS_KEY="druid"
+$env:WCL_SPEC_ID="104"
 node scripts/update-wcl-presets.js
 ```
 

@@ -2,6 +2,20 @@ name: Update WCL Presets
 
 on:
   workflow_dispatch:
+    inputs:
+      class_key:
+        description: 'Optional class key, for example mage or druid'
+        required: false
+        type: string
+      spec_id:
+        description: 'Optional spec id, for example 63, 104, 270'
+        required: false
+        type: string
+      content:
+        description: 'all, mythic-plus, or raid'
+        required: false
+        default: 'all'
+        type: string
   schedule:
     - cron: '20 20 * * *'
 
@@ -22,6 +36,9 @@ jobs:
         env:
           WCL_CLIENT_ID: ${{ secrets.WCL_CLIENT_ID }}
           WCL_CLIENT_SECRET: ${{ secrets.WCL_CLIENT_SECRET }}
+          WCL_CLASS_KEY: ${{ inputs.class_key }}
+          WCL_SPEC_ID: ${{ inputs.spec_id }}
+          WCL_CONTENT: ${{ inputs.content }}
         run: node scripts/update-wcl-presets.js
 
       - name: Install Tencent COS SDK

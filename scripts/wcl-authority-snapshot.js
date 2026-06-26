@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { buildDefaultSpecMap } = require('./wcl-preset-config');
 
 const WCL_BASE = 'https://www.warcraftlogs.com';
 const SLOT_BY_GEAR_INDEX = {
@@ -23,13 +24,7 @@ const SLOT_BY_GEAR_INDEX = {
   16: 'weapon2',
 };
 
-const DEFAULT_SPEC = {
-  mage: {
-    62: { className: 'Mage', specName: 'Arcane', localName: '奥术' },
-    63: { className: 'Mage', specName: 'Fire', localName: '火焰' },
-    64: { className: 'Mage', specName: 'Frost', localName: '冰霜' },
-  },
-};
+const DEFAULT_SPEC = buildDefaultSpecMap();
 
 const STAT_DISPLAY = {
   crit: '暴击',

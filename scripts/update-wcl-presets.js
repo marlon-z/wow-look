@@ -24,7 +24,14 @@ function assertEnv(name) {
 assertEnv('WCL_CLIENT_ID');
 assertEnv('WCL_CLIENT_SECRET');
 
-run('node', ['scripts/build-wcl-fire-mage-mplus-presets.js', '--top', '3']);
-run('node', ['scripts/build-wcl-fire-mage-raid-presets.js', '--top', '5']);
+const args = ['scripts/build-wcl-presets.js'];
+if (process.env.WCL_CLASS_KEY) args.push('--class-key', process.env.WCL_CLASS_KEY);
+if (process.env.WCL_SPEC_ID) args.push('--spec-id', process.env.WCL_SPEC_ID);
+if (process.env.WCL_CONTENT) args.push('--content', process.env.WCL_CONTENT);
+if (process.env.WCL_TOP_MPLUS) args.push('--top-mplus', process.env.WCL_TOP_MPLUS);
+if (process.env.WCL_TOP_RAID) args.push('--top-raid', process.env.WCL_TOP_RAID);
+if (process.env.WCL_SAMPLE === '1') args.push('--sample');
+
+run('node', args);
 
 console.log('\nWCL 预设数据已生成完成');

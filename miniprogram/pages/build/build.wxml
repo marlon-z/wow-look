@@ -354,7 +354,7 @@
             >
               <view class="wcl-preset-main">
                 <text class="wcl-preset-name">{{preset.name}}</text>
-                <text class="wcl-preset-meta">{{preset.source.amount}} DPS · {{preset.source.server ? preset.source.server.region : ''}} {{preset.source.server ? preset.source.server.name : ''}}</text>
+                <text class="wcl-preset-meta">{{preset.source.amount}} {{preset.source.metricLabel || 'DPS'}} · {{preset.source.server ? preset.source.server.region : ''}} {{preset.source.server ? preset.source.server.name : ''}}</text>
               </view>
               <view class="wcl-preset-side">
                 <text>{{preset.talents.talentTree.length}}天赋</text>

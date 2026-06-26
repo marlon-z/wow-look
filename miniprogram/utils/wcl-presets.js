@@ -16,6 +16,9 @@ var STAT_NAME = {
   versatility: '全能',
 };
 
+var WCL_REMOTE_ONLY = true;
+var WCL_REMOTE_PREFIX = 'wcl-presets/' + DATA_DIR;
+
 function entryKey(classKey, specId) {
   return classKey + ':' + specId;
 }
@@ -42,17 +45,28 @@ function loadLocalFile(classKey, specId, fileKey) {
 
 function loadRemoteJson(relativePath) {
   return new Promise(function (resolve) {
+    var separator = relativePath.indexOf('?') === -1 ? '?' : '&';
     wx.request({
-      url: COS_BASE + '/' + relativePath,
+      url: COS_BASE + '/' + relativePath + separator + '_wclts=' + Date.now(),
       success: function (res) {
         if (res.statusCode >= 200 && res.statusCode < 300) {
+          if (typeof res.data === 'string') {
+            try {
+              resolve(JSON.parse(res.data));
+            } catch (err) {
+              console.error('parse wcl preset failed', relativePath, err);
+              resolve(null);
+            }
+            return;
+          }
           resolve(res.data || null);
           return;
         }
+        console.error('load wcl preset failed', relativePath, res.statusCode);
         resolve(null);
       },
       fail: function (err) {
-        console.error('load wcl preset failed', err);
+        console.error('load wcl preset failed', relativePath, err);
         resolve(null);
       },
     });
@@ -60,14 +74,24 @@ function loadRemoteJson(relativePath) {
 }
 
 function loadWclPresetIndex(classKey, specId) {
-  return loadRemoteJson('wcl-presets/' + DATA_DIR + '/' + classKey + '/' + specId + '/index.json').then(function (remote) {
-    return remote || loadLocalIndex(classKey, specId);
+  return loadRemoteJson(WCL_REMOTE_PREFIX + '/' + classKey + '/' + specId + '/index.json').then(function (remote) {
+    if (remote) {
+      remote.dataSource = 'remote';
+      return remote;
+    }
+    if (WCL_REMOTE_ONLY) return null;
+    return loadLocalIndex(classKey, specId);
   });
 }
 
 function loadWclPresetFile(classKey, specId, fileKey) {
-  return loadRemoteJson('wcl-presets/' + DATA_DIR + '/' + classKey + '/' + specId + '/' + fileKey + '.json').then(function (remote) {
-    return remote || loadLocalFile(classKey, specId, fileKey);
+  return loadRemoteJson(WCL_REMOTE_PREFIX + '/' + classKey + '/' + specId + '/' + fileKey + '.json').then(function (remote) {
+    if (remote) {
+      remote.dataSource = 'remote';
+      return remote;
+    }
+    if (WCL_REMOTE_ONLY) return null;
+    return loadLocalFile(classKey, specId, fileKey);
   });
 }
 

@@ -321,7 +321,7 @@ Page({
       var first = categories[0];
       self.setData({
         wclPresetIndex: index,
-        wclPresetUpdatedText: self.formatWclUpdateTime(index.generatedAt),
+        wclPresetUpdatedText: self.formatWclUpdateTime(index.generatedAt, index.dataSource),
         wclContentTabs: contentTabs,
         selectedWclContentType: firstContentType,
         wclPresetLevels: categories,
@@ -335,14 +335,15 @@ Page({
     });
   },
 
-  formatWclUpdateTime: function (timestamp) {
+  formatWclUpdateTime: function (timestamp, dataSource) {
     var date = new Date(Number(timestamp) || 0);
     if (!date.getTime()) return '';
     var month = date.getMonth() + 1;
     var day = date.getDate();
     var hour = date.getHours();
     var minute = date.getMinutes();
-    return month + '月' + day + '日 '
+    var sourceText = dataSource === 'remote' ? '云端 · ' : '';
+    return sourceText + month + '月' + day + '日 '
       + (hour < 10 ? '0' + hour : hour) + ':'
       + (minute < 10 ? '0' + minute : minute) + '更新';
   },
@@ -417,7 +418,7 @@ Page({
       wclPresetEntries: [],
     });
     loadWclPresetFile(this.data.selectedClassKey, this.data.selectedSpecId, fileKey).then(function (content) {
-      var entries = content && Array.isArray(content.entries) ? content.entries : [];
+      var entries = self.normalizeWclPresetEntries(content && Array.isArray(content.entries) ? content.entries : []);
       var dungeonFilters = self.buildWclDungeonFilters(entries);
       self.setData({
         selectedWclLevelName: levelName || self.data.selectedWclLevelName,
@@ -430,6 +431,20 @@ Page({
     }).catch(function () {
       self.setData({ wclPresetLoading: false });
       wx.showToast({ title: '预设文件加载失败', icon: 'none' });
+    });
+  },
+
+  normalizeWclPresetEntries: function (entries) {
+    return entries.map(function (entry) {
+      var nextEntry = Object.assign({}, entry);
+      nextEntry.presets = (entry.presets || []).map(function (preset) {
+        var nextPreset = Object.assign({}, preset);
+        var source = Object.assign({}, preset.source || {});
+        source.metricLabel = source.metric === 'hps' ? 'HPS' : 'DPS';
+        nextPreset.source = source;
+        return nextPreset;
+      });
+      return nextEntry;
     });
   },
 

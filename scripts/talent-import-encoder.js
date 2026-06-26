@@ -85,6 +85,11 @@ function loadBlueprint(classKey, specId, changeSetId) {
   return JSON.parse(fs.readFileSync(file, 'utf8'));
 }
 
+function hasBlueprint(classKey, specId, changeSetId) {
+  const key = `${classKey}:${Number(specId)}:${Number(changeSetId)}`;
+  return !!BLUEPRINT_FILES[key];
+}
+
 function getNodeChoiceIndex(node, selectedAbilityId) {
   const index = (node.abilities || []).findIndex((ability) => Number(ability.id) === selectedAbilityId);
   return index >= 0 ? index : 0;
@@ -167,6 +172,7 @@ module.exports = {
   BASE64_CHARS,
   DEFAULT_SERIALIZATION_VERSION,
   convertToBase64,
+  hasBlueprint,
   loadBlueprint,
   selectedNodesFromTalentTree,
   encodeTalentImportString,

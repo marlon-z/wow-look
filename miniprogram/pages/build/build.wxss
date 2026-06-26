@@ -186,6 +186,17 @@
   margin-top: 24rpx;
 }
 
+.wcl-applied-line {
+  display: flex;
+  align-items: center;
+  gap: 14rpx;
+  margin-top: 14rpx;
+  font-size: 20rpx;
+  color: #7de3ff;
+  font-weight: 700;
+  text-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.8);
+}
+
 .build-plan-name {
   font-size: 24rpx;
   color: #a69882;
@@ -517,6 +528,54 @@
   text-shadow: 0 0 10rpx rgba(255, 187, 18, 0.3);
 }
 
+.wcl-talent-code-row {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  margin-top: 22rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx solid rgba(212, 168, 75, 0.15);
+}
+
+.wcl-talent-code-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.wcl-talent-code-label {
+  font-size: 22rpx;
+  color: #7de3ff;
+  font-weight: 800;
+}
+
+.wcl-talent-code-text {
+  font-size: 20rpx;
+  color: var(--text-soft);
+  font-weight: 700;
+  word-break: break-all;
+  line-height: 1.35;
+  max-height: 84rpx;
+  overflow: hidden;
+}
+
+.wcl-talent-copy {
+  flex-shrink: 0;
+  padding: 12rpx 22rpx;
+  border-radius: 14rpx;
+  color: #0a0a0d;
+  background: #d4a84b;
+  font-size: 22rpx;
+  font-weight: 900;
+}
+
+.wcl-talent-copy:active {
+  transform: scale(0.95);
+  background: #b8913b;
+}
+
 .stats-bottom-primary {
   display: flex;
   flex-wrap: wrap;
@@ -746,4 +805,234 @@
   background: rgba(224, 80, 80, 0.15);
   border-color: rgba(224, 80, 80, 0.4);
   transform: scale(0.95);
+}
+
+/* ── WCL Presets ── */
+.wcl-preset-panel {
+  max-height: 88vh;
+}
+
+.wcl-head-title {
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+}
+
+.wcl-head-subtitle {
+  font-size: 22rpx;
+  color: var(--text-soft);
+  font-weight: 700;
+}
+
+.wcl-head-updated {
+  font-size: 20rpx;
+  color: #7de3ff;
+  font-weight: 700;
+}
+
+.wcl-content-tabs {
+  display: flex;
+  gap: 14rpx;
+  padding: 0 28rpx 16rpx;
+  position: relative;
+  z-index: 1;
+}
+
+.wcl-content-tab {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rpx;
+  padding: 18rpx 10rpx;
+  border-radius: 18rpx;
+  background: rgba(0, 0, 0, 0.42);
+  border: 2rpx solid rgba(255, 255, 255, 0.07);
+  color: var(--text-soft);
+  font-size: 26rpx;
+  font-weight: 900;
+}
+
+.wcl-content-tab.active {
+  color: #0a0a0d;
+  background: #d4a84b;
+  border-color: rgba(255, 230, 160, 0.45);
+}
+
+.wcl-content-count {
+  font-size: 18rpx;
+  font-weight: 800;
+  opacity: 0.75;
+}
+
+.wcl-level-tabs {
+  display: flex;
+  gap: 14rpx;
+  padding: 0 28rpx 18rpx;
+  position: relative;
+  z-index: 1;
+}
+
+.wcl-level-tab {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rpx;
+  padding: 16rpx 10rpx;
+  border-radius: 16rpx;
+  background: rgba(0, 0, 0, 0.35);
+  border: 2rpx solid rgba(255, 255, 255, 0.06);
+  color: var(--text-soft);
+  font-size: 24rpx;
+  font-weight: 900;
+}
+
+.wcl-level-tab.active {
+  color: #0a0a0d;
+  background: #d4a84b;
+  border-color: rgba(255, 230, 160, 0.4);
+}
+
+.wcl-level-count {
+  font-size: 18rpx;
+  font-weight: 800;
+  opacity: 0.75;
+}
+
+.wcl-dungeon-tabs {
+  width: 100%;
+  padding: 0 0 18rpx;
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.wcl-dungeon-tabs-inner {
+  display: inline-flex;
+  gap: 12rpx;
+  padding: 0 28rpx;
+}
+
+.wcl-dungeon-tab {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 150rpx;
+  max-width: 220rpx;
+  min-height: 70rpx;
+  padding: 10rpx 18rpx;
+  border-radius: 14rpx;
+  background: rgba(0, 0, 0, 0.32);
+  border: 2rpx solid rgba(255, 255, 255, 0.06);
+  color: var(--text-soft);
+  font-size: 22rpx;
+  font-weight: 900;
+  box-sizing: border-box;
+}
+
+.wcl-dungeon-tab text:first-child {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wcl-dungeon-tab.active {
+  color: #f3e6c3;
+  border-color: rgba(212, 168, 75, 0.55);
+  background: rgba(212, 168, 75, 0.16);
+}
+
+.wcl-dungeon-count {
+  margin-top: 4rpx;
+  font-size: 18rpx;
+  color: #7de3ff;
+  font-weight: 800;
+}
+
+.wcl-preset-list {
+  max-height: 66vh;
+}
+
+.wcl-dungeon-group {
+  margin-bottom: 24rpx;
+}
+
+.wcl-dungeon-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rpx 8rpx 12rpx;
+}
+
+.wcl-dungeon-name {
+  font-size: 28rpx;
+  color: #f3e6c3;
+  font-weight: 900;
+}
+
+.wcl-dungeon-meta {
+  font-size: 20rpx;
+  color: var(--text-soft);
+  font-weight: 700;
+}
+
+.wcl-preset-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18rpx;
+  padding: 22rpx 24rpx;
+  margin-bottom: 12rpx;
+  border-radius: 18rpx;
+  background: rgba(31, 27, 37, 0.92);
+  border: 2rpx solid rgba(255, 255, 255, 0.08);
+}
+
+.wcl-preset-item:active {
+  border-color: rgba(255, 187, 18, 0.34);
+  background: rgba(42, 36, 50, 0.96);
+  transform: scale(0.98);
+}
+
+.wcl-preset-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+}
+
+.wcl-preset-name {
+  font-size: 28rpx;
+  color: #ffbb12;
+  font-weight: 900;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wcl-preset-meta {
+  font-size: 21rpx;
+  color: var(--text-soft);
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wcl-preset-side {
+  flex-shrink: 0;
+  min-width: 96rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6rpx;
+  font-size: 20rpx;
+  color: #7de3ff;
+  font-weight: 800;
 }

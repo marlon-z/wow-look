@@ -1,0 +1,60 @@
+{
+  "craftedItems": {
+    "239648": {
+      "name": "殉难者的裹腕",
+      "slot": "wrist",
+      "randomAttributeSlots": [
+        { "index": 1, "value": 45 },
+        { "index": 2, "value": 45 }
+      ]
+    },
+    "239649": {
+      "name": "殉难者的裹腰",
+      "slot": "waist",
+      "randomAttributeSlots": [
+        { "index": 1, "value": 60 },
+        { "index": 2, "value": 60 }
+      ]
+    },
+    "239655": {
+      "name": "殉难者的法衣",
+      "slot": "chest",
+      "randomAttributeSlots": [
+        { "index": 1, "value": 81 },
+        { "index": 2, "value": 81 }
+      ]
+    },
+    "239656": {
+      "name": "信徒的流丝罩袍",
+      "slot": "cloak",
+      "randomAttributeSlots": [
+        { "index": 1, "value": 45 },
+        { "index": 2, "value": 45 }
+      ]
+    },
+    "240949": {
+      "name": "精工辛多雷指环",
+      "slot": "finger",
+      "randomAttributeSlots": [
+        { "index": 1, "value": 147 },
+        { "index": 2, "value": 147 }
+      ]
+    },
+    "240950": {
+      "name": "精工辛多雷护符",
+      "slot": "neck",
+      "randomAttributeSlots": [
+        { "index": 1, "value": 147 },
+        { "index": 2, "value": 147 }
+      ]
+    },
+    "245770": {
+      "name": "艾林哈籁手杖",
+      "slot": "weapon",
+      "randomAttributeSlots": [
+        { "index": 1, "value": 85 },
+        { "index": 2, "value": 85 }
+      ]
+    }
+  }
+}

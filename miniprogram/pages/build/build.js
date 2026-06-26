@@ -6,6 +6,11 @@ var {
   clearAllSlots, emptySlots,
 } = require('../../utils/builds');
 var { getLayouts, mainHandOccupiesBoth, sanitizeWeaponSlots } = require('../../utils/weapon-rules');
+var {
+  loadWclPresetIndex,
+  loadWclPresetFile,
+  applyWclPresetToBuild,
+} = require('../../utils/wcl-presets');
 
 var SLOT_CONFIG = {
   left: [
@@ -89,9 +94,23 @@ Page({
     rightSlots: SLOT_CONFIG.right,
     bottomSlots: SLOT_CONFIG.bottom,
     summary: null,
+    currentWclPresetInfo: null,
 
     showBuildList: false,
     buildList: [],
+    showWclPresets: false,
+    wclPresetIndex: null,
+    wclPresetUpdatedText: '',
+    wclContentTabs: [],
+    selectedWclContentType: '',
+    wclPresetLevels: [],
+    selectedWclFileKey: '',
+    selectedWclLevelName: '',
+    selectedWclDungeonId: 'all',
+    wclDungeonFilters: [],
+    wclPresetAllEntries: [],
+    wclPresetEntries: [],
+    wclPresetLoading: false,
 
     pageStyle: '',
   },
@@ -154,6 +173,7 @@ Page({
       currentBuildName: build.name,
       slots: build.slots,
       summary: build.summary,
+      currentWclPresetInfo: build.wclPreset || null,
       bottomSlots: getWeaponSlotsForSpec(build.specId, build.slots),
     });
 
@@ -174,6 +194,7 @@ Page({
         this.setData({
           slots: build.slots,
           summary: build.summary,
+          currentWclPresetInfo: build.wclPreset || null,
           bottomSlots: getWeaponSlotsForSpec(build.specId, build.slots),
         });
       }
@@ -268,6 +289,250 @@ Page({
       buildList: builds,
       showBuildList: true,
       pageStyle: 'overflow:hidden;height:100vh;',
+    });
+  },
+
+  openWclPresets: function () {
+    var self = this;
+    this.setData({
+      showWclPresets: true,
+      pageStyle: 'overflow:hidden;height:100vh;',
+      wclPresetLoading: true,
+    });
+    loadWclPresetIndex(this.data.selectedClassKey, this.data.selectedSpecId).then(function (index) {
+      var contentTabs = self.buildWclContentTabs(index);
+      if (!index || !contentTabs.length) {
+        self.setData({
+          wclPresetLoading: false,
+          wclPresetIndex: index || null,
+          wclPresetUpdatedText: '',
+          wclContentTabs: [],
+          selectedWclContentType: '',
+          wclPresetLevels: [],
+          wclDungeonFilters: [],
+          wclPresetAllEntries: [],
+          wclPresetEntries: [],
+        });
+        wx.showToast({ title: '当前专精暂无WCL预设', icon: 'none' });
+        return;
+      }
+      var firstContentType = contentTabs[0].type;
+      var categories = self.getWclCategories(index, firstContentType);
+      var first = categories[0];
+      self.setData({
+        wclPresetIndex: index,
+        wclPresetUpdatedText: self.formatWclUpdateTime(index.generatedAt),
+        wclContentTabs: contentTabs,
+        selectedWclContentType: firstContentType,
+        wclPresetLevels: categories,
+        selectedWclFileKey: first.fileKey,
+        selectedWclLevelName: first.name,
+      });
+      self.loadWclPresetFile(first.fileKey, first.name);
+    }).catch(function () {
+      self.setData({ wclPresetLoading: false });
+      wx.showToast({ title: 'WCL预设加载失败', icon: 'none' });
+    });
+  },
+
+  formatWclUpdateTime: function (timestamp) {
+    var date = new Date(Number(timestamp) || 0);
+    if (!date.getTime()) return '';
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    var hour = date.getHours();
+    var minute = date.getMinutes();
+    return month + '月' + day + '日 '
+      + (hour < 10 ? '0' + hour : hour) + ':'
+      + (minute < 10 ? '0' + minute : minute) + '更新';
+  },
+
+  buildWclContentTabs: function (index) {
+    var tabs = [];
+    var mythicPlus = index && Array.isArray(index.mythicPlus) ? index.mythicPlus : [];
+    var raid = index && Array.isArray(index.raid) ? index.raid : [];
+    if (mythicPlus.length) {
+      tabs.push({
+        type: 'mythicPlus',
+        name: '大秘境',
+        count: mythicPlus.reduce(function (total, item) { return total + (item.presetCount || 0); }, 0),
+      });
+    }
+    if (raid.length) {
+      tabs.push({
+        type: 'raid',
+        name: '团本',
+        count: raid.reduce(function (total, item) { return total + (item.presetCount || 0); }, 0),
+      });
+    }
+    return tabs;
+  },
+
+  getWclCategories: function (index, contentType) {
+    if (!index) return [];
+    if (contentType === 'raid') return index.raid || [];
+    return index.mythicPlus || [];
+  },
+
+  onWclContentTap: function (e) {
+    var contentType = e.currentTarget.dataset.contentType;
+    if (!contentType || contentType === this.data.selectedWclContentType) return;
+    var categories = this.getWclCategories(this.data.wclPresetIndex, contentType);
+    if (!categories.length) return;
+    var first = categories[0];
+    this.setData({
+      selectedWclContentType: contentType,
+      wclPresetLevels: categories,
+      selectedWclFileKey: first.fileKey,
+      selectedWclLevelName: first.name,
+    });
+    this.loadWclPresetFile(first.fileKey, first.name);
+  },
+
+  closeWclPresets: function () {
+    this.setData({
+      showWclPresets: false,
+      pageStyle: this.data.showBuildList ? 'overflow:hidden;height:100vh;' : '',
+    });
+  },
+
+  onWclLevelTap: function (e) {
+    var fileKey = e.currentTarget.dataset.fileKey;
+    var name = e.currentTarget.dataset.name;
+    if (!fileKey || fileKey === this.data.selectedWclFileKey) return;
+    this.setData({
+      selectedWclFileKey: fileKey,
+      selectedWclLevelName: name,
+    });
+    this.loadWclPresetFile(fileKey, name);
+  },
+
+  loadWclPresetFile: function (fileKey, levelName) {
+    var self = this;
+    this.setData({
+      wclPresetLoading: true,
+      selectedWclDungeonId: 'all',
+      wclDungeonFilters: [],
+      wclPresetAllEntries: [],
+      wclPresetEntries: [],
+    });
+    loadWclPresetFile(this.data.selectedClassKey, this.data.selectedSpecId, fileKey).then(function (content) {
+      var entries = content && Array.isArray(content.entries) ? content.entries : [];
+      var dungeonFilters = self.buildWclDungeonFilters(entries);
+      self.setData({
+        selectedWclLevelName: levelName || self.data.selectedWclLevelName,
+        selectedWclDungeonId: 'all',
+        wclDungeonFilters: dungeonFilters,
+        wclPresetAllEntries: entries,
+        wclPresetEntries: entries,
+        wclPresetLoading: false,
+      });
+    }).catch(function () {
+      self.setData({ wclPresetLoading: false });
+      wx.showToast({ title: '预设文件加载失败', icon: 'none' });
+    });
+  },
+
+  buildWclDungeonFilters: function (entries) {
+    var filters = [{
+      id: 'all',
+      name: '全部',
+      count: entries.reduce(function (total, entry) {
+        return total + ((entry.presets && entry.presets.length) || 0);
+      }, 0),
+    }];
+    entries.forEach(function (entry) {
+      var encounter = entry.encounter || {};
+      filters.push({
+        id: String(encounter.id),
+        name: encounter.localName || encounter.name || '未知副本',
+        count: (entry.presets && entry.presets.length) || 0,
+      });
+    });
+    return filters;
+  },
+
+  onWclDungeonTap: function (e) {
+    var encounterId = String(e.currentTarget.dataset.encounterId || 'all');
+    if (encounterId === this.data.selectedWclDungeonId) return;
+    var entries = encounterId === 'all'
+      ? this.data.wclPresetAllEntries
+      : this.data.wclPresetAllEntries.filter(function (entry) {
+        return String(entry.encounter && entry.encounter.id) === encounterId;
+      });
+    this.setData({
+      selectedWclDungeonId: encounterId,
+      wclPresetEntries: entries,
+    });
+  },
+
+  onWclPresetTap: function (e) {
+    var entryIndex = Number(e.currentTarget.dataset.entryIndex);
+    var presetIndex = Number(e.currentTarget.dataset.presetIndex);
+    var entry = this.data.wclPresetEntries[entryIndex];
+    var preset = entry && entry.presets ? entry.presets[presetIndex] : null;
+    if (!preset) return;
+
+    var self = this;
+    wx.showModal({
+      title: '套用WCL预设',
+      content: '会用该预设覆盖当前装备槽位，是否继续？',
+      confirmText: '套用',
+      confirmColor: '#d4a84b',
+      success: function (res) {
+        if (!res.confirm) return;
+        self.applyWclPreset(preset);
+      },
+    });
+  },
+
+  applyWclPreset: function (preset) {
+    var self = this;
+    wx.showLoading({ title: '套用中' });
+    loadClassData(this.data.selectedClassKey).then(function (classData) {
+      var result = applyWclPresetToBuild(
+        self.data.currentBuildId,
+        preset,
+        classData,
+        self.data.selectedSpecId,
+        self.data.slots
+      );
+      wx.hideLoading();
+      if (!result || !result.build) {
+        wx.showToast({ title: '套用失败', icon: 'none' });
+        return;
+      }
+      self.setData({
+        slots: result.build.slots,
+        summary: result.build.summary,
+        currentWclPresetInfo: result.build.wclPreset || null,
+        bottomSlots: getWeaponSlotsForSpec(self.data.selectedSpecId, result.build.slots),
+        showWclPresets: false,
+        pageStyle: '',
+      });
+      wx.showToast({
+        title: result.missing.length ? '已套用，部分装备仅有ID' : '已套用WCL预设',
+        icon: 'none',
+      });
+    }).catch(function () {
+      wx.hideLoading();
+      wx.showToast({ title: '职业装备库加载失败', icon: 'none' });
+    });
+  },
+
+  copyWclTalentCode: function () {
+    var code = this.data.currentWclPresetInfo
+      && this.data.currentWclPresetInfo.talents
+      && this.data.currentWclPresetInfo.talents.exportString;
+    if (!code) {
+      wx.showToast({ title: '暂无天赋代码', icon: 'none' });
+      return;
+    }
+    wx.setClipboardData({
+      data: code,
+      success: function () {
+        wx.showToast({ title: '天赋代码已复制', icon: 'success' });
+      },
     });
   },
 
@@ -389,7 +654,7 @@ Page({
     var specName = e.currentTarget.dataset.name;
     if (specId === this.data.selectedSpecId) return;
 
-    var updates = { specId: specId, specName: specName };
+    var updates = { specId: specId, specName: specName, wclPreset: null };
     var sanitized = sanitizeWeaponSlots(this.data.slots, specId);
     updates.slots = sanitized.slots;
 
@@ -401,6 +666,7 @@ Page({
       selectedSpecName: specName,
       slots: updated.slots,
       summary: updated.summary,
+      currentWclPresetInfo: updated.wclPreset || null,
       bottomSlots: getWeaponSlotsForSpec(specId, updated.slots),
     });
     if (sanitized.changed) {

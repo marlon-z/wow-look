@@ -61,6 +61,10 @@ function calcStatPercent(rating, statType) {
   return Math.round(effectivePercent * 100) / 100;
 }
 
+function formatPercent(value) {
+  return (Math.round((Number(value) || 0) * 100) / 100).toFixed(2);
+}
+
 function calcMasteryPercent(masteryRating, specId) {
   var spec = getMasteryCoefficient(specId);
   if (!spec) {
@@ -144,6 +148,9 @@ function summarizeSlots(slots, specId) {
   var versatilityRating = secondary.versatility || 0;
 
   var masteryResult = calcMasteryPercent(masteryRating, specId);
+  var critPercent = calcStatPercent(critRating, 'crit') + getBaseCritPercent(specId);
+  var hastePercent = calcStatPercent(hasteRating, 'haste');
+  var versatilityPercent = calcStatPercent(versatilityRating, 'versatility');
 
   var armorSpecializationActive = !!characterBaseline && ARMOR_SPECIALIZATION_SLOTS.every(function (slotKey) {
     var armorItem = slots[slotKey];
@@ -189,15 +196,18 @@ function summarizeSlots(slots, specId) {
     secondary: {
       crit: {
         rating: critRating,
-        percent: calcStatPercent(critRating, 'crit') + getBaseCritPercent(specId),
+        percent: critPercent,
+        percentText: formatPercent(critPercent),
       },
       haste: {
         rating: hasteRating,
-        percent: calcStatPercent(hasteRating, 'haste'),
+        percent: hastePercent,
+        percentText: formatPercent(hastePercent),
       },
       mastery: {
         rating: masteryRating,
         percent: masteryResult.percent,
+        percentText: formatPercent(masteryResult.percent),
         baseMasteryPercent: masteryResult.baseMasteryPercent,
         effect: masteryResult.effect,
         masteryName: masteryResult.masteryName,
@@ -205,7 +215,8 @@ function summarizeSlots(slots, specId) {
       },
       versatility: {
         rating: versatilityRating,
-        percent: calcStatPercent(versatilityRating, 'versatility'),
+        percent: versatilityPercent,
+        percentText: formatPercent(versatilityPercent),
       },
     },
   };
@@ -219,6 +230,7 @@ module.exports = {
   BUILD_SLOT_KEYS: BUILD_SLOT_KEYS,
   calcStatPercent: calcStatPercent,
   calcMasteryPercent: calcMasteryPercent,
+  formatPercent: formatPercent,
   getBaseCritPercent: getBaseCritPercent,
   summarizeSlots: summarizeSlots,
 };

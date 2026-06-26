@@ -103,7 +103,7 @@ function authorization(options) {
     '',
   ].join('\n');
   const signKey = hmacSha1(options.secretKey, keyTime);
-  const signature = hmacSha1(Buffer.from(signKey, 'hex'), stringToSign);
+  const signature = hmacSha1(signKey, stringToSign);
 
   return [
     'q-sign-algorithm=sha1',

@@ -16,6 +16,19 @@ const CONTENT_TYPE = {
   '.webp': 'image/webp',
 };
 
+function createCosClient(secrets) {
+  let COS;
+  try {
+    COS = require('cos-nodejs-sdk-v5');
+  } catch (err) {
+    throw new Error('缺少 cos-nodejs-sdk-v5。请先运行 npm install cos-nodejs-sdk-v5，或在 GitHub Actions 中安装该依赖。');
+  }
+  return new COS({
+    SecretId: secrets.secretId,
+    SecretKey: secrets.secretKey,
+  });
+}
+
 function parseArgs(argv) {
   const args = {
     source: path.join(process.cwd(), 'cos-upload', 'wcl-presets'),
@@ -123,33 +136,31 @@ function contentType(file) {
 async function putObject(args, secrets, file) {
   const relative = path.relative(args.source, file).split(path.sep).join('/');
   const key = [args.prefix, relative].filter(Boolean).join('/');
-  const host = `${args.bucket}.cos.${args.region}.myqcloud.com`;
-  const url = `https://${host}${encodeCosPath(key)}`;
   const body = fs.readFileSync(file);
   if (args.dryRun) {
     console.log(`[dry-run] ${key} (${body.length} bytes)`);
     return;
   }
 
-  const res = await fetch(url, {
-    method: 'PUT',
-    headers: {
-      Authorization: authorization({
-        method: 'PUT',
-        key,
-        host,
-        secretId: secrets.secretId,
-        secretKey: secrets.secretKey,
-      }),
-      'Content-Type': contentType(file),
-      'Cache-Control': 'public, max-age=300',
-    },
-    body,
-  });
+  const cos = args.cos || createCosClient(secrets);
+  args.cos = cos;
 
-  if (!res.ok) {
-    throw new Error(`上传失败 ${key}: ${res.status} ${await res.text()}`);
-  }
+  await new Promise((resolve, reject) => {
+    cos.putObject({
+      Bucket: args.bucket,
+      Region: args.region,
+      Key: key,
+      Body: body,
+      ContentType: contentType(file),
+      CacheControl: 'public, max-age=300',
+    }, (err) => {
+      if (err) {
+        reject(new Error(`上传失败 ${key}: ${err.statusCode || ''} ${err.code || ''} ${err.message || JSON.stringify(err)}`));
+        return;
+      }
+      resolve();
+    });
+  });
   console.log(`uploaded ${key}`);
 }
 

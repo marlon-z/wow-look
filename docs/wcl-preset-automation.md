@@ -162,6 +162,17 @@ spec_id   = 104
 content   = all
 ```
 
+如果只是快速验证一个大秘境样本，可以填写：
+
+```text
+class_key    = monk
+spec_id      = 270
+content      = mythic-plus
+levels       = 10
+encounter_id = 361753
+top_mplus    = 1
+```
+
 8. 点击绿色按钮运行。
 
 运行成功后，日志里应该能看到类似：
@@ -317,6 +328,18 @@ node scripts/update-wcl-presets.js
 ```powershell
 $env:WCL_CLASS_KEY="druid"
 $env:WCL_SPEC_ID="104"
+node scripts/update-wcl-presets.js
+```
+
+只生成一个大秘境样本：
+
+```powershell
+$env:WCL_CLASS_KEY="monk"
+$env:WCL_SPEC_ID="270"
+$env:WCL_CONTENT="mythic-plus"
+$env:WCL_LEVELS="10"
+$env:WCL_ENCOUNTER_ID="361753"
+$env:WCL_TOP_MPLUS="1"
 node scripts/update-wcl-presets.js
 ```
 

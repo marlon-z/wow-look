@@ -16,6 +16,22 @@ on:
         required: false
         default: 'all'
         type: string
+      levels:
+        description: 'Optional M+ levels, for example 10 or 10,16,20'
+        required: false
+        type: string
+      encounter_id:
+        description: 'Optional encounter id for quick sampling'
+        required: false
+        type: string
+      top_mplus:
+        description: 'Optional M+ preset count per dungeon'
+        required: false
+        type: string
+      top_raid:
+        description: 'Optional raid preset count per boss'
+        required: false
+        type: string
   schedule:
     - cron: '20 20 * * *'
 
@@ -39,6 +55,10 @@ jobs:
           WCL_CLASS_KEY: ${{ inputs.class_key }}
           WCL_SPEC_ID: ${{ inputs.spec_id }}
           WCL_CONTENT: ${{ inputs.content }}
+          WCL_LEVELS: ${{ inputs.levels }}
+          WCL_ENCOUNTER_ID: ${{ inputs.encounter_id }}
+          WCL_TOP_MPLUS: ${{ inputs.top_mplus }}
+          WCL_TOP_RAID: ${{ inputs.top_raid }}
         run: node scripts/update-wcl-presets.js
 
       - name: Install Tencent COS SDK

@@ -30,6 +30,8 @@ if (process.env.WCL_SPEC_ID) args.push('--spec-id', process.env.WCL_SPEC_ID);
 if (process.env.WCL_CONTENT) args.push('--content', process.env.WCL_CONTENT);
 if (process.env.WCL_TOP_MPLUS) args.push('--top-mplus', process.env.WCL_TOP_MPLUS);
 if (process.env.WCL_TOP_RAID) args.push('--top-raid', process.env.WCL_TOP_RAID);
+if (process.env.WCL_LEVELS) args.push('--levels', process.env.WCL_LEVELS);
+if (process.env.WCL_ENCOUNTER_ID) args.push('--encounter-id', process.env.WCL_ENCOUNTER_ID);
 if (process.env.WCL_SAMPLE === '1') args.push('--sample');
 
 run('node', args);

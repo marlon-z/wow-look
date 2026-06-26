@@ -36,9 +36,31 @@ on:
     - cron: '20 20 * * *'
 
 jobs:
-  update:
+  prepare:
     runs-on: ubuntu-latest
+    outputs:
+      specs: ${{ steps.specs.outputs.specs }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build spec matrix
+        id: specs
+        env:
+          WCL_CLASS_KEY: ${{ inputs.class_key }}
+          WCL_SPEC_ID: ${{ inputs.spec_id }}
+        run: echo "specs=$(node scripts/list-wcl-specs.js)" >> "$GITHUB_OUTPUT"
+
+  update:
+    needs: prepare
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        spec: ${{ fromJson(needs.prepare.outputs.specs) }}
     timeout-minutes: 60
+    name: update-${{ matrix.spec.name }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -52,8 +74,8 @@ jobs:
         env:
           WCL_CLIENT_ID: ${{ secrets.WCL_CLIENT_ID }}
           WCL_CLIENT_SECRET: ${{ secrets.WCL_CLIENT_SECRET }}
-          WCL_CLASS_KEY: ${{ inputs.class_key }}
-          WCL_SPEC_ID: ${{ inputs.spec_id }}
+          WCL_CLASS_KEY: ${{ matrix.spec.classKey }}
+          WCL_SPEC_ID: ${{ matrix.spec.specId }}
           WCL_CONTENT: ${{ inputs.content }}
           WCL_LEVELS: ${{ inputs.levels }}
           WCL_ENCOUNTER_ID: ${{ inputs.encounter_id }}
@@ -70,4 +92,4 @@ jobs:
           COS_SECRET_KEY: ${{ secrets.COS_SECRET_KEY }}
           COS_BUCKET: ${{ secrets.COS_BUCKET }}
           COS_REGION: ${{ secrets.COS_REGION }}
-        run: node scripts/upload-cos-prefix.js --source cos-upload/wcl-presets --prefix wcl-presets
+        run: node scripts/upload-cos-prefix.js --source cos-upload/wcl-presets/data-4.4.x/${{ matrix.spec.classKey }}/${{ matrix.spec.specId }} --prefix wcl-presets/data-4.4.x/${{ matrix.spec.classKey }}/${{ matrix.spec.specId }}

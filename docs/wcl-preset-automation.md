@@ -130,17 +130,27 @@ COS_REGION
 
 它现在做两件事：
 
-1. 运行：
+1. 先生成更新矩阵：
+
+```bash
+node scripts/list-wcl-specs.js
+```
+
+如果手动运行时没有填写 `class_key/spec_id`，它会返回全职业全专精；如果填写了，就只返回目标职业或目标专精。
+
+2. 每个专精单独运行：
 
 ```bash
 node scripts/update-wcl-presets.js
 ```
 
-2. 上传：
+3. 每个专精只上传自己的目录：
 
 ```bash
-node scripts/upload-cos-prefix.js --source cos-upload/wcl-presets --prefix wcl-presets
+node scripts/upload-cos-prefix.js --source cos-upload/wcl-presets/data-4.4.x/{classKey}/{specId} --prefix wcl-presets/data-4.4.x/{classKey}/{specId}
 ```
+
+这样全量更新会被拆成多个 job，不会把所有职业塞进一个 60 分钟任务里，也不会每次重复上传其他专精的数据。
 
 ## 6. 手动跑一次
 

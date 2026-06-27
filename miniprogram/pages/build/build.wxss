@@ -1013,8 +1013,11 @@
   font-weight: 800;
 }
 
+/* 不再固定 66vh 上限：靠 .picker-list 的 flex:1 + min-height:0 自动撑满弹窗剩余空间，
+   否则 header+内容tab+地下城tab 叠加后列表底部会被 88vh 弹窗 overflow:hidden 裁掉。 */
 .wcl-preset-list {
-  max-height: 66vh;
+  flex: 1;
+  min-height: 0;
 }
 
 .wcl-dungeon-group {

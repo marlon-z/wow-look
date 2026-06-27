@@ -140,10 +140,11 @@ const MYTHIC_PLUS_DUNGEONS = [
   { id: 12805, name: 'Windrunner Spire', localName: '风行者之塔' },
 ];
 
+// 大秘境三档：最顶级(不限层数，按 score 取) / +10 / +16；均按 score 排序、按玩家去重。
 const MYTHIC_PLUS_LEVELS = [
+  { level: 0, fileKey: 'mythic-plus-top', name: '最顶级' },
   { level: 10, bracket: 9, fileKey: 'mythic-plus-10', name: '10层' },
   { level: 16, bracket: 15, fileKey: 'mythic-plus-16', name: '16层' },
-  { level: 20, bracket: 19, fileKey: 'mythic-plus-20', name: '20层' },
 ];
 
 const RAIDS = [

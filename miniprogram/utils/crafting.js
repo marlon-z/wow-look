@@ -28,7 +28,8 @@ function getRandomAttributeCount(item) {
 function requiresCraftingStatSelection(item) {
   return item
     && item.sourceType === 'crafted'
-    && getRandomAttributeCount(item) > 0;
+    && getRandomAttributeCount(item) > 0
+    && !(item.selectedCraftingStats && item.selectedCraftingStats.length);
 }
 
 function buildCraftingRandomStatLine(item) {

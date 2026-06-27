@@ -163,6 +163,28 @@ async function fetchReportCombatants(token, code) {
   return data.reportData.report;
 }
 
+async function fetchTalentImportCode(token, code, fightId, actorID) {
+  if (!code || !Number(actorID)) return '';
+  const data = await wclGql(token, `
+    query($code: String!, $fightIDs: [Int], $actorID: Int!) {
+      reportData {
+        report(code: $code) {
+          fights(fightIDs: $fightIDs) {
+            id
+            talentImportCode(actorID: $actorID)
+          }
+        }
+      }
+    }`, {
+    code,
+    fightIDs: Number(fightId) ? [Number(fightId)] : null,
+    actorID: Number(actorID),
+  });
+  const fights = (data.reportData.report && data.reportData.report.fights) || [];
+  const codeString = fights[0] && fights[0].talentImportCode;
+  return typeof codeString === 'string' ? codeString : '';
+}
+
 function findCombatant(report, ranking) {
   if (!report) return null;
   const actors = report.masterData.actors || [];
@@ -503,6 +525,7 @@ module.exports = {
   wclGql,
   fetchRankings,
   fetchReportCombatants,
+  fetchTalentImportCode,
   findCombatant,
   loadCraftingMap,
   readJsonFile,

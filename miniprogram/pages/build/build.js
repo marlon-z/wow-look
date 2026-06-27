@@ -446,9 +446,13 @@ Page({
         source.metricLabel = source.metric === 'hps' ? 'HPS' : 'DPS';
         talents.pointCount = pointCount;
         talents.exportStatusText = talents.exportString ? '可复制' : (pointCount ? '无导入码' : '无天赋');
-        talents.exportMissingText = talents.exportStringMissingReason === 'missing-blueprint'
-          ? '缺少专精编码模板'
-          : '';
+        if (talents.exportStringMissingReason === 'missing-blueprint') {
+          talents.exportMissingText = '缺少专精编码模板';
+        } else if (talents.exportStringMissingReason === 'encode-failed') {
+          talents.exportMissingText = '天赋编码失败';
+        } else {
+          talents.exportMissingText = '';
+        }
         nextPreset.source = source;
         nextPreset.talents = talents;
         return nextPreset;

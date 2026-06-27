@@ -161,12 +161,22 @@ function buildTalentPayload(spec, preset, diagnostics) {
   let exportString = '';
   let exportStringMissingReason = '';
   if (talentTree.length && hasBlueprint(spec.classKey, spec.specId, changeSetId)) {
-    exportString = encodeTalentImportString({
-      classKey: spec.classKey,
-      specId: spec.specId,
-      changeSetId,
-      talentTree,
-    });
+    try {
+      exportString = encodeTalentImportString({
+        classKey: spec.classKey,
+        specId: spec.specId,
+        changeSetId,
+        talentTree,
+      });
+    } catch (err) {
+      exportStringMissingReason = 'encode-failed';
+      diagnostics.talentEncodeFailures += 1;
+      diagnostics.failures.push({
+        rank: preset.source.rank,
+        player: preset.source.player,
+        reason: `talent-encode-failed:${err.message}`,
+      });
+    }
   } else if (talentTree.length) {
     exportStringMissingReason = 'missing-blueprint';
     diagnostics.missingTalentBlueprints += 1;
@@ -307,6 +317,7 @@ async function collectPresetsForEncounter(token, spec, target, rankingOptions, t
       rankingsReturned: rankings.length,
       failures,
       missingTalentBlueprints: 0,
+      talentEncodeFailures: 0,
     };
     const presets = [];
     for (let i = 0; i < rankings.length && presets.length < top; i += 1) {
@@ -341,6 +352,7 @@ async function collectPresetsForEncounter(token, spec, target, rankingOptions, t
         rankingsReturned: 0,
         failures: [{ rank: 0, player: '', reason: err.message }],
         missingTalentBlueprints: 0,
+        talentEncodeFailures: 0,
       },
     };
   }

@@ -8,7 +8,8 @@
 - 大秘境：10层、16层、20层
 - 团本：史诗团本、孢陨幽境
 - 每套预设包含：装备、制造业绿字、WCL 返回的天赋树
-- 有本地 talent blueprint 的专精会额外生成可复制进游戏的天赋导入代码；缺 blueprint 的专精会在数据诊断里标记 `missing-blueprint`
+- 有本地 WCL talent blueprint 的专精会额外生成可复制进游戏的天赋导入代码；缺 blueprint 的专精会在数据诊断里标记 `missing-blueprint`
+- 如果有 blueprint 但某条记录编码失败，会保留装备和 WCL 天赋树，并标记 `encode-failed`，不会中断整个专精更新
 - 排行指标：治疗专精用 `hps`，坦克和输出专精用 `dps`
 
 ## 1. 你需要准备的东西
@@ -336,6 +337,7 @@ COS_SECRET_KEY
 - WCL 密钥失效
 - 某些战报拿不到装备/天赋
 - WCL 改了数据结构
+- 某些专精缺少本地 WCL talent blueprint，只能显示天赋树，不能生成游戏导入码
 
 如果只是少数战报没有装备/天赋，脚本会跳过并继续。只要最终 Action 成功，就可以先用。
 

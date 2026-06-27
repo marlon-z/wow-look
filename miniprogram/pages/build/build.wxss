@@ -841,10 +841,15 @@
 
 .wcl-content-tabs {
   display: flex;
-  gap: 14rpx;
-  padding: 0 28rpx 16rpx;
+  gap: 10rpx;
+  padding: 8rpx;
+  margin: 0 28rpx 20rpx;
+  background: rgba(11, 8, 14, 0.55);
+  border: 2rpx solid rgba(212, 168, 75, 0.12);
+  border-radius: 28rpx;
   position: relative;
   z-index: 1;
+  box-shadow: inset 0 4rpx 12rpx rgba(0, 0, 0, 0.6);
 }
 
 .wcl-content-tab {
@@ -853,32 +858,50 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4rpx;
-  padding: 18rpx 10rpx;
-  border-radius: 18rpx;
-  background: rgba(0, 0, 0, 0.42);
-  border: 2rpx solid rgba(255, 255, 255, 0.07);
+  justify-content: center;
+  gap: 2rpx;
+  padding: 14rpx 10rpx;
+  border-radius: 20rpx;
+  background: transparent;
+  border: 2rpx solid transparent;
   color: var(--text-soft);
   font-size: 26rpx;
-  font-weight: 900;
+  font-weight: 700;
+  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .wcl-content-tab.active {
-  color: #0a0a0d;
-  background: #d4a84b;
-  border-color: rgba(255, 230, 160, 0.45);
+  color: #f3e6c3;
+  background: linear-gradient(135deg, rgba(212, 168, 75, 0.20) 0%, rgba(212, 168, 75, 0.06) 100%);
+  border-color: rgba(212, 168, 75, 0.45);
+  box-shadow: 
+    0 4rpx 12rpx rgba(0, 0, 0, 0.35),
+    inset 0 1rpx 0 rgba(255, 255, 255, 0.08),
+    0 0 12rpx rgba(212, 168, 75, 0.08);
+  text-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.6);
+}
+
+.wcl-content-tab:active {
+  transform: scale(0.97);
 }
 
 .wcl-content-count {
   font-size: 18rpx;
-  font-weight: 800;
+  font-weight: 500;
+  color: var(--text-soft);
   opacity: 0.75;
+  transition: color 0.25s ease;
+}
+
+.wcl-content-tab.active .wcl-content-count {
+  color: #ffbb12;
+  opacity: 1;
 }
 
 .wcl-level-tabs {
   display: flex;
   gap: 14rpx;
-  padding: 0 28rpx 18rpx;
+  padding: 0 28rpx 20rpx;
   position: relative;
   z-index: 1;
 }
@@ -889,31 +912,50 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4rpx;
-  padding: 16rpx 10rpx;
-  border-radius: 16rpx;
-  background: rgba(0, 0, 0, 0.35);
-  border: 2rpx solid rgba(255, 255, 255, 0.06);
+  justify-content: center;
+  gap: 2rpx;
+  padding: 14rpx 10rpx;
+  border-radius: 20rpx;
+  background: rgba(22, 19, 28, 0.45);
+  border: 2rpx solid rgba(255, 255, 255, 0.04);
   color: var(--text-soft);
   font-size: 24rpx;
-  font-weight: 900;
+  font-weight: 700;
+  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.15);
 }
 
 .wcl-level-tab.active {
-  color: #0a0a0d;
-  background: #d4a84b;
-  border-color: rgba(255, 230, 160, 0.4);
+  color: #f3e6c3;
+  background: linear-gradient(135deg, rgba(212, 168, 75, 0.18) 0%, rgba(212, 168, 75, 0.05) 100%);
+  border-color: rgba(212, 168, 75, 0.4);
+  box-shadow: 
+    0 6rpx 16rpx rgba(0, 0, 0, 0.35),
+    inset 0 1rpx 0 rgba(255, 255, 255, 0.08),
+    0 0 10rpx rgba(212, 168, 75, 0.08);
+  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.6);
+}
+
+.wcl-level-tab:active {
+  transform: scale(0.97);
 }
 
 .wcl-level-count {
   font-size: 18rpx;
-  font-weight: 800;
+  font-weight: 500;
+  color: var(--text-soft);
   opacity: 0.75;
+  transition: color 0.25s ease;
+}
+
+.wcl-level-tab.active .wcl-level-count {
+  color: #ffbb12;
+  opacity: 1;
 }
 
 .wcl-dungeon-tabs {
   width: 100%;
-  padding: 0 0 18rpx;
+  padding: 0 0 20rpx;
   position: relative;
   z-index: 1;
   white-space: nowrap;
@@ -930,17 +972,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-width: 150rpx;
+  min-width: 154rpx;
   max-width: 220rpx;
-  min-height: 70rpx;
+  min-height: 72rpx;
   padding: 10rpx 18rpx;
-  border-radius: 14rpx;
-  background: rgba(0, 0, 0, 0.32);
-  border: 2rpx solid rgba(255, 255, 255, 0.06);
+  border-radius: 18rpx;
+  background: rgba(22, 19, 28, 0.4);
+  border: 2rpx solid rgba(255, 255, 255, 0.04);
   color: var(--text-soft);
   font-size: 22rpx;
-  font-weight: 900;
+  font-weight: 700;
   box-sizing: border-box;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .wcl-dungeon-tab text:first-child {
@@ -952,12 +995,19 @@
 
 .wcl-dungeon-tab.active {
   color: #f3e6c3;
-  border-color: rgba(212, 168, 75, 0.55);
-  background: rgba(212, 168, 75, 0.16);
+  border-color: rgba(212, 168, 75, 0.45);
+  background: linear-gradient(135deg, rgba(212, 168, 75, 0.14) 0%, rgba(212, 168, 75, 0.04) 100%);
+  box-shadow: 
+    0 4rpx 10rpx rgba(0, 0, 0, 0.25),
+    0 0 8rpx rgba(212, 168, 75, 0.05);
+}
+
+.wcl-dungeon-tab:active {
+  transform: scale(0.96);
 }
 
 .wcl-dungeon-count {
-  margin-top: 4rpx;
+  margin-top: 2rpx;
   font-size: 18rpx;
   color: #7de3ff;
   font-weight: 800;

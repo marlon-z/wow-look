@@ -93,33 +93,65 @@ async function getWclToken() {
   return (await res.json()).access_token;
 }
 
-async function wclGql(token, query, variables) {
-  const res = await fetch(`${WCL_BASE}/api/v2/client`, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ query, variables }),
-  });
-  const body = await res.text();
-  let json;
-  try {
-    json = body ? JSON.parse(body) : {};
-  } catch (err) {
-    throw new Error(`WCL GraphQL 返回非 JSON ${res.status}: ${body.slice(0, 300)}`);
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+const WCL_MAX_RETRIES = Number(process.env.WCL_MAX_RETRIES) || 6;
+
+// 撞限流(429)或服务端错误(5xx)时退避重试，等额度恢复再继续，而不是直接失败。
+async function wclGql(token, query, variables, options = {}) {
+  const maxRetries = options.maxRetries != null ? options.maxRetries : WCL_MAX_RETRIES;
+  for (let attempt = 0; ; attempt += 1) {
+    const res = await fetch(`${WCL_BASE}/api/v2/client`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ query, variables }),
+    });
+    const body = await res.text();
+
+    // HTTP 层限流/服务端错误：退避重试
+    if ((res.status === 429 || res.status >= 500) && attempt < maxRetries) {
+      const retryAfter = Number(res.headers.get('retry-after'));
+      const waitMs = retryAfter > 0
+        ? Math.min(retryAfter * 1000, 120000)
+        : Math.min(2000 * (2 ** attempt), 120000);
+      console.warn(`WCL ${res.status}，限流/服务端错误，第 ${attempt + 1}/${maxRetries} 次退避，等待 ${Math.round(waitMs / 1000)}s...`);
+      await sleep(waitMs);
+      continue;
+    }
+
+    let json;
+    try {
+      json = body ? JSON.parse(body) : {};
+    } catch (err) {
+      throw new Error(`WCL GraphQL 返回非 JSON ${res.status}: ${body.slice(0, 300)}`);
+    }
+    if (!res.ok) {
+      throw new Error(`WCL GraphQL HTTP ${res.status}: ${body.slice(0, 500)}`);
+    }
+    if (json.errors) {
+      const message = JSON.stringify(json.errors);
+      // 有时限流以 200 + errors 形式返回，识别后同样退避重试
+      if (/rate limit|too many|exceeded|throttl/i.test(message) && attempt < maxRetries) {
+        const waitMs = Math.min(2000 * (2 ** attempt), 120000);
+        console.warn(`WCL 限流(GraphQL errors)，第 ${attempt + 1}/${maxRetries} 次退避，等待 ${Math.round(waitMs / 1000)}s...`);
+        await sleep(waitMs);
+        continue;
+      }
+      throw new Error(`WCL GraphQL 错误: ${message}`);
+    }
+    if (json.error || json.message) {
+      throw new Error(`WCL GraphQL 异常响应: ${JSON.stringify(json).slice(0, 500)}`);
+    }
+    if (!json.data) {
+      throw new Error(`WCL GraphQL 缺少 data: ${JSON.stringify(json).slice(0, 500)}`);
+    }
+    return json.data;
   }
-  if (!res.ok) {
-    throw new Error(`WCL GraphQL HTTP ${res.status}: ${body.slice(0, 500)}`);
-  }
-  if (json.errors) throw new Error(`WCL GraphQL 错误: ${JSON.stringify(json.errors)}`);
-  if (json.error || json.message) {
-    throw new Error(`WCL GraphQL 异常响应: ${JSON.stringify(json).slice(0, 500)}`);
-  }
-  if (!json.data) {
-    throw new Error(`WCL GraphQL 缺少 data: ${JSON.stringify(json).slice(0, 500)}`);
-  }
-  return json.data;
 }
 
 async function fetchRankings(token, encounterId, className, specName, metric, options = {}) {

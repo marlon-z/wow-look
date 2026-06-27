@@ -672,6 +672,7 @@
 
 .picker-panel {
   width: 100%;
+  height: 85vh;
   max-height: 85vh;
   border-radius: 36rpx 36rpx 0 0;
   overflow: hidden;
@@ -737,8 +738,9 @@
 
 .picker-list {
   flex: 1;
+  height: 0;
   min-height: 0;
-  padding: 10rpx 20rpx 40rpx;
+  padding: 10rpx 20rpx calc(40rpx + env(safe-area-inset-bottom));
   position: relative;
   z-index: 1;
   box-sizing: border-box;
@@ -753,6 +755,7 @@
 
 /* ── Build List ── */
 .build-list-panel {
+  height: 75vh;
   max-height: 75vh;
 }
 
@@ -818,6 +821,7 @@
 
 /* ── WCL Presets ── */
 .wcl-preset-panel {
+  height: 88vh;
   max-height: 88vh;
 }
 
@@ -1017,6 +1021,7 @@
    否则 header+内容tab+地下城tab 叠加后列表底部会被 88vh 弹窗 overflow:hidden 裁掉。 */
 .wcl-preset-list {
   flex: 1;
+  height: 0;
   min-height: 0;
 }
 

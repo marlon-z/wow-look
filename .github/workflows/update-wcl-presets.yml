@@ -2,6 +2,16 @@ name: Update WCL Presets
 
 on:
   workflow_dispatch:
+    inputs:
+      target:
+        description: 'Preset target to update'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - fire-mage
+          - windwalker-monk
   schedule:
     - cron: '20 20 * * *'
 
@@ -22,6 +32,7 @@ jobs:
         env:
           WCL_CLIENT_ID: ${{ secrets.WCL_CLIENT_ID }}
           WCL_CLIENT_SECRET: ${{ secrets.WCL_CLIENT_SECRET }}
+          WCL_PRESET_TARGET: ${{ github.event.inputs.target || 'all' }}
         run: node scripts/update-wcl-presets.js
 
       - name: Install Tencent COS SDK

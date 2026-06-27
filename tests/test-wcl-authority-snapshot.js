@@ -7,6 +7,7 @@ const {
   parseCraftedStatsFromTooltip,
   resolveCrafting,
   gearToSlots,
+  wclGql,
 } = require('../scripts/wcl-authority-snapshot');
 
 const craftingMap = {
@@ -29,6 +30,28 @@ const tooltipFixture = {
 };
 
 async function main() {
+  const originalFetch = global.fetch;
+  global.fetch = async () => ({
+    ok: false,
+    status: 429,
+    text: async () => '{"error":"rate_limited"}',
+  });
+  await assert.rejects(
+    () => wclGql('token', 'query { worldData { zones { id } } }', {}),
+    /WCL GraphQL HTTP 429/
+  );
+
+  global.fetch = async () => ({
+    ok: true,
+    status: 200,
+    text: async () => '{}',
+  });
+  await assert.rejects(
+    () => wclGql('token', 'query { worldData { zones { id } } }', {}),
+    /WCL GraphQL 缺少 data/
+  );
+  global.fetch = originalFetch;
+
   assert.strictEqual(normalizeBonusIDs([1, '2', 0, null, 3]), '1,2,3');
   assert.strictEqual(hasCraftingBonusSignature([12214, 12497, 12066]), true);
   assert.strictEqual(hasCraftingBonusSignature([12214, 12497]), false);

@@ -102,8 +102,23 @@ async function wclGql(token, query, variables) {
     },
     body: JSON.stringify({ query, variables }),
   });
-  const json = await res.json();
+  const body = await res.text();
+  let json;
+  try {
+    json = body ? JSON.parse(body) : {};
+  } catch (err) {
+    throw new Error(`WCL GraphQL 返回非 JSON ${res.status}: ${body.slice(0, 300)}`);
+  }
+  if (!res.ok) {
+    throw new Error(`WCL GraphQL HTTP ${res.status}: ${body.slice(0, 500)}`);
+  }
   if (json.errors) throw new Error(`WCL GraphQL 错误: ${JSON.stringify(json.errors)}`);
+  if (json.error || json.message) {
+    throw new Error(`WCL GraphQL 异常响应: ${JSON.stringify(json).slice(0, 500)}`);
+  }
+  if (!json.data) {
+    throw new Error(`WCL GraphQL 缺少 data: ${JSON.stringify(json).slice(0, 500)}`);
+  }
   return json.data;
 }
 

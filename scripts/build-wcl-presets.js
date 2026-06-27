@@ -97,6 +97,37 @@ function validateGenerationScope(args) {
   }
 }
 
+function summarizeEntryQuality(entries) {
+  return entries.reduce((summary, entry) => {
+    const failures = (entry.diagnostics && entry.diagnostics.failures) || [];
+    const queryFailed = failures.some((failure) => Number(failure.rank) === 0);
+    return {
+      entryCount: summary.entryCount + 1,
+      presetCount: summary.presetCount + entry.presets.length,
+      queryFailureCount: summary.queryFailureCount + (queryFailed ? 1 : 0),
+    };
+  }, { entryCount: 0, presetCount: 0, queryFailureCount: 0 });
+}
+
+function validateProductionSpecQuality(args, spec, files) {
+  if (!isProductionOutputRoot(args.outputRoot) || isPartialGeneration(args)) return;
+
+  const summary = files.reduce((total, file) => ({
+    entryCount: total.entryCount + (file.entryCount || 0),
+    presetCount: total.presetCount + (file.presetCount || 0),
+    queryFailureCount: total.queryFailureCount + (file.queryFailureCount || 0),
+  }), { entryCount: 0, presetCount: 0, queryFailureCount: 0 });
+
+  if (summary.entryCount > 0
+      && summary.presetCount === 0
+      && summary.queryFailureCount === summary.entryCount) {
+    throw new Error([
+      `正式 WCL 预设生成异常: ${spec.classLocalName}${spec.specLocalName} 全部 ${summary.entryCount} 个排行榜请求失败，且生成 0 套。`,
+      '已阻止上传空数据到正式 COS；请稍后重跑，或查看上方 WCL GraphQL/HTTP 错误。',
+    ].join(' '));
+  }
+}
+
 function selectedSpecs(args) {
   if (args.sample) {
     return [
@@ -395,11 +426,17 @@ async function buildMythicPlusFiles(token, spec, args, generatedAt, craftingMap,
       rankingMetric: spec.metric,
       entries,
     };
-    const presetCount = entries.reduce((total, entry) => total + entry.presets.length, 0);
-    files.push({ ...level, dungeonCount: entries.length, presetCount });
+    const quality = summarizeEntryQuality(entries);
+    files.push({
+      ...level,
+      dungeonCount: entries.length,
+      entryCount: quality.entryCount,
+      presetCount: quality.presetCount,
+      queryFailureCount: quality.queryFailureCount,
+    });
     writeJson(path.join(outRoot, `${level.fileKey}.json`), output);
     if (args.writeMiniProgram) writeJsModule(path.join(miniSpecRoot, `${level.fileKey}.js`), output);
-    console.log(`  完成 ${level.name}: ${presetCount} 套`);
+    console.log(`  完成 ${level.name}: ${quality.presetCount} 套`);
   }
   return files;
 }
@@ -449,7 +486,7 @@ async function buildRaidFiles(token, spec, args, generatedAt, craftingMap, toolt
       rankingMetric: spec.metric,
       entries,
     };
-    const presetCount = entries.reduce((total, entry) => total + entry.presets.length, 0);
+    const quality = summarizeEntryQuality(entries);
     files.push({
       zoneId: raid.zoneId,
       name: raid.localName,
@@ -458,11 +495,13 @@ async function buildRaidFiles(token, spec, args, generatedAt, craftingMap, toolt
       fileKey: raid.fileKey,
       file: `${raid.fileKey}.json`,
       bossCount: entries.length,
-      presetCount,
+      entryCount: quality.entryCount,
+      presetCount: quality.presetCount,
+      queryFailureCount: quality.queryFailureCount,
     });
     writeJson(path.join(outRoot, `${raid.fileKey}.json`), output);
     if (args.writeMiniProgram) writeJsModule(path.join(miniSpecRoot, `${raid.fileKey}.js`), output);
-    console.log(`  完成 ${raid.localName}: ${presetCount} 套`);
+    console.log(`  完成 ${raid.localName}: ${quality.presetCount} 套`);
   }
   return files;
 }
@@ -500,6 +539,7 @@ async function buildSpec(token, spec, args, shared) {
 
   const mythicPlusFiles = await buildMythicPlusFiles(token, spec, args, generatedAt, shared.craftingMap, shared.tooltipOptions, outRoot, miniSpecRoot);
   const raidFiles = await buildRaidFiles(token, spec, args, generatedAt, shared.craftingMap, shared.tooltipOptions, outRoot, miniSpecRoot);
+  validateProductionSpecQuality(args, spec, mythicPlusFiles.concat(raidFiles));
   const index = buildIndex(spec, generatedAt, mythicPlusFiles, raidFiles);
   writeJson(path.join(outRoot, 'index.json'), index);
   if (args.writeMiniProgram) {
@@ -545,6 +585,8 @@ module.exports = {
   isPartialGeneration,
   isProductionOutputRoot,
   validateGenerationScope,
+  summarizeEntryQuality,
+  validateProductionSpecQuality,
   compactSlot,
   buildTalentPayload,
   compactPreset,

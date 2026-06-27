@@ -115,12 +115,13 @@ function validateProductionSpecQuality(args, spec, files) {
     queryFailureCount: total.queryFailureCount + (file.queryFailureCount || 0),
   }), { entryCount: 0, presetCount: 0, queryFailureCount: 0 });
 
-  if (summary.entryCount > 0
-      && summary.presetCount === 0
-      && summary.queryFailureCount === summary.entryCount) {
+  // 只要该专精全量生成后是 0 套，就拦截（覆盖两种异常：限流全失败 / 排行榜返回空，例如职业名写错）。
+  if (summary.entryCount > 0 && summary.presetCount === 0) {
+    const allQueriesFailed = summary.queryFailureCount === summary.entryCount;
     throw new Error([
-      `正式 WCL 预设生成异常: ${spec.classLocalName}${spec.specLocalName} 全部 ${summary.entryCount} 个排行榜请求失败，且生成 0 套。`,
-      '已阻止上传空数据到正式 COS；请稍后重跑，或查看上方 WCL GraphQL/HTTP 错误。',
+      `正式 WCL 预设生成异常: ${spec.classLocalName}${spec.specLocalName} 共 ${summary.entryCount} 个排行榜、生成 0 套`
+      + `（${allQueriesFailed ? '全部请求失败，疑似限流' : '排行榜返回空，疑似职业/专精名或筛选有误'}）。`,
+      '已阻止上传空数据到正式 COS；请检查上方错误或 className/specName 配置后重跑。',
     ].join(' '));
   }
 }

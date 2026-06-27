@@ -55,7 +55,7 @@ const SPEC_CONFIG = {
     },
   },
   deathknight: {
-    className: 'Death Knight',
+    className: 'DeathKnight',
     localName: '死亡骑士',
     specs: {
       250: { specName: 'Blood', localName: '鲜血', role: 'tank' },
@@ -110,7 +110,7 @@ const SPEC_CONFIG = {
     },
   },
   demonhunter: {
-    className: 'Demon Hunter',
+    className: 'DemonHunter',
     localName: '恶魔猎手',
     specs: {
       577: { specName: 'Havoc', localName: '浩劫', role: 'dps' },

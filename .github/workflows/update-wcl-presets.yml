@@ -38,10 +38,29 @@ jobs:
       - name: Install Tencent COS SDK
         run: npm install --no-save cos-nodejs-sdk-v5
 
+      - name: Resolve COS upload target
+        env:
+          WCL_PRESET_TARGET: ${{ github.event.inputs.target || 'all' }}
+        run: |
+          case "$WCL_PRESET_TARGET" in
+            fire-mage)
+              echo "WCL_UPLOAD_SOURCE=cos-upload/wcl-presets/data-4.4.x/mage/63" >> "$GITHUB_ENV"
+              echo "WCL_UPLOAD_PREFIX=wcl-presets/data-4.4.x/mage/63" >> "$GITHUB_ENV"
+              ;;
+            windwalker-monk)
+              echo "WCL_UPLOAD_SOURCE=cos-upload/wcl-presets/data-4.4.x/monk/269" >> "$GITHUB_ENV"
+              echo "WCL_UPLOAD_PREFIX=wcl-presets/data-4.4.x/monk/269" >> "$GITHUB_ENV"
+              ;;
+            *)
+              echo "WCL_UPLOAD_SOURCE=cos-upload/wcl-presets" >> "$GITHUB_ENV"
+              echo "WCL_UPLOAD_PREFIX=wcl-presets" >> "$GITHUB_ENV"
+              ;;
+          esac
+
       - name: Upload WCL preset data to Tencent COS
         env:
           COS_SECRET_ID: ${{ secrets.COS_SECRET_ID }}
           COS_SECRET_KEY: ${{ secrets.COS_SECRET_KEY }}
           COS_BUCKET: ${{ secrets.COS_BUCKET }}
           COS_REGION: ${{ secrets.COS_REGION }}
-        run: node scripts/upload-cos-prefix.js --source cos-upload/wcl-presets --prefix wcl-presets
+        run: node scripts/upload-cos-prefix.js --source "$WCL_UPLOAD_SOURCE" --prefix "$WCL_UPLOAD_PREFIX"

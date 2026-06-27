@@ -223,6 +223,18 @@
         </view>
       </view>
 
+      <!-- 附魔宝石 -->
+      <view wx:if="{{currentWclPresetInfo && currentWclPresetInfo.enchantsGems.length}}" class="wcl-eg-section">
+        <text class="wcl-eg-title">附魔宝石</text>
+        <view class="wcl-eg-row" wx:for="{{currentWclPresetInfo.enchantsGems}}" wx:key="key">
+          <text class="wcl-eg-slot">{{item.slot}}</text>
+          <view class="wcl-eg-detail">
+            <text wx:if="{{item.enchant}}" class="wcl-eg-enchant">附魔 · {{item.enchant}}</text>
+            <text wx:if="{{item.gemText}}" class="wcl-eg-gem">宝石 · {{item.gemText}}</text>
+          </view>
+        </view>
+      </view>
+
       <!-- Primary stats row -->
       <view class="stats-bottom-primary" wx:if="{{summary.primaryStats.length || summary.stamina}}">
         <view class="stats-bottom-item" wx:for="{{summary.primaryStats}}" wx:key="type" wx:for-item="stat">

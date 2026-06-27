@@ -16,6 +16,34 @@ var STAT_NAME = {
   versatility: '全能',
 };
 
+var SLOT_LABEL = {
+  head: '头部', neck: '颈部', shoulder: '肩部', cloak: '背部', chest: '胸甲',
+  wrist: '护腕', hand: '手套', waist: '腰带', legs: '腿部', feet: '脚',
+  finger1: '戒指', finger2: '戒指', trinket1: '饰品', trinket2: '饰品',
+  weapon: '武器', weapon2: '副手',
+};
+var SLOT_ORDER = ['head', 'neck', 'shoulder', 'cloak', 'chest', 'wrist', 'hand',
+  'waist', 'legs', 'feet', 'finger1', 'finger2', 'trinket1', 'trinket2', 'weapon', 'weapon2'];
+
+// 从预设槽位提取"附魔宝石"展示列表(只含有附魔或宝石的部位); 名字已由后端按映射表写好。
+function buildEnchantsGems(presetSlots) {
+  var list = [];
+  SLOT_ORDER.forEach(function (key) {
+    var s = presetSlots && presetSlots[key];
+    if (!s) return;
+    var enchant = s.enchantName || '';
+    var gems = (s.gems || []).map(function (g) { return g.name || ''; }).filter(Boolean);
+    if (!enchant && !gems.length) return;
+    list.push({
+      key: key,
+      slot: SLOT_LABEL[key] || key,
+      enchant: enchant,
+      gemText: gems.join('、'),
+    });
+  });
+  return list;
+}
+
 var WCL_REMOTE_ONLY = true;
 var WCL_REMOTE_PREFIX = 'wcl-presets/' + DATA_DIR;
 
@@ -222,6 +250,7 @@ function applyWclPresetToBuild(buildId, preset, classData, specId, currentSlots)
       name: preset.name,
       source: preset.source,
       talents: preset.talents || null,
+      enchantsGems: buildEnchantsGems(preset.slots),
       missingItems: missing,
       appliedAt: Date.now(),
     },

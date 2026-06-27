@@ -541,6 +541,56 @@
   opacity: 0.82;
 }
 
+/* ── 附魔宝石 ── */
+.wcl-eg-section {
+  margin-top: 22rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx solid rgba(212, 168, 75, 0.15);
+}
+
+.wcl-eg-title {
+  display: block;
+  font-size: 24rpx;
+  font-weight: 800;
+  color: #d4a84b;
+  letter-spacing: 2rpx;
+  margin-bottom: 14rpx;
+}
+
+.wcl-eg-row {
+  display: flex;
+  align-items: baseline;
+  gap: 16rpx;
+  padding: 8rpx 0;
+  border-bottom: 1rpx solid rgba(255, 255, 255, 0.04);
+}
+
+.wcl-eg-slot {
+  flex-shrink: 0;
+  width: 88rpx;
+  font-size: 22rpx;
+  font-weight: 700;
+  color: #a69882;
+}
+
+.wcl-eg-detail {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.wcl-eg-enchant {
+  font-size: 22rpx;
+  color: #7de3ff;
+}
+
+.wcl-eg-gem {
+  font-size: 22rpx;
+  color: #c9a6ff;
+}
+
 .wcl-talent-code-main {
   flex: 1;
   min-width: 0;

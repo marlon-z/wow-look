@@ -156,6 +156,28 @@ async function fetchReportCombatants(token, code) {
   return data.reportData.report;
 }
 
+async function fetchTalentImportCode(token, code, fightId, actorID) {
+  if (!code || !Number(actorID)) return '';
+  const data = await wclGql(token, `
+    query($code: String!, $fightIDs: [Int], $actorID: Int!) {
+      reportData {
+        report(code: $code) {
+          fights(fightIDs: $fightIDs) {
+            id
+            talentImportCode(actorID: $actorID)
+          }
+        }
+      }
+    }`, {
+    code,
+    fightIDs: Number(fightId) ? [Number(fightId)] : null,
+    actorID: Number(actorID),
+  });
+  const fights = data.reportData.report.fights || [];
+  const codeString = fights[0] && fights[0].talentImportCode;
+  return typeof codeString === 'string' ? codeString : '';
+}
+
 function findCombatant(report, ranking) {
   if (!report) return null;
   const actors = report.masterData.actors || [];
@@ -350,7 +372,7 @@ async function gearToSlots(gear, craftingMap, tooltipOptions) {
   return slots;
 }
 
-async function buildPreset(encounter, ranking, combatant, rankIndex, craftingMap, tooltipOptions) {
+async function buildPreset(encounter, ranking, combatant, rankIndex, craftingMap, tooltipOptions, options = {}) {
   const talentTree = Array.isArray(combatant.talentTree) ? combatant.talentTree : [];
   const pvpTalents = Array.isArray(combatant.pvpTalents) ? combatant.pvpTalents : [];
   return {
@@ -367,13 +389,14 @@ async function buildPreset(encounter, ranking, combatant, rankIndex, craftingMap
       server: ranking.server || null,
       reportCode: ranking.report && ranking.report.code,
       fightId: ranking.report && ranking.report.fightID,
+      actorID: combatant.sourceID || null,
       bracket: ranking.bracketData || null,
     },
     talents: {
       specId: combatant.specID || null,
       talentTree,
       pvpTalents,
-      exportString: '',
+      exportString: options.talentImportCode || '',
     },
     slots: await gearToSlots(combatant.gear || [], craftingMap, tooltipOptions),
   };
@@ -427,7 +450,21 @@ async function main() {
         failures.push({ rank: i + 1, player: ranking.name, reason: 'no-combatant-gear' });
         continue;
       }
-      const preset = await buildPreset(encounter, ranking, combatant, presets.length, craftingMap, tooltipOptions);
+      const talentImportCode = await fetchTalentImportCode(
+        token,
+        ranking.report.code,
+        ranking.report.fightID,
+        combatant.sourceID
+      );
+      const preset = await buildPreset(
+        encounter,
+        ranking,
+        combatant,
+        presets.length,
+        craftingMap,
+        tooltipOptions,
+        { talentImportCode }
+      );
       Object.keys(preset.slots || {}).forEach((slotKey) => {
         const slot = preset.slots[slotKey];
         if (slot && slot.missingCraftingTooltip) {
@@ -496,6 +533,7 @@ module.exports = {
   wclGql,
   fetchRankings,
   fetchReportCombatants,
+  fetchTalentImportCode,
   findCombatant,
   loadCraftingMap,
   readJsonFile,

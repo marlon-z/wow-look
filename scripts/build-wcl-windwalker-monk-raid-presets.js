@@ -9,17 +9,16 @@ const {
   getWclToken,
   fetchRankings,
   fetchReportCombatants,
+  fetchTalentImportCode,
   findCombatant,
   loadCraftingMap,
   readJsonFile,
   buildPreset,
 } = require('./wcl-authority-snapshot');
-const { encodeTalentImportString } = require('./talent-import-encoder');
 
 const DATA_VERSION = '4.4.x';
 const CLASS_KEY = 'monk';
 const SPEC_ID = 269;
-const TALENT_CHANGE_SET_ID = 20;
 const METRIC = 'dps';
 const TOP = 5;
 const MYTHIC_DIFFICULTY = 5;
@@ -54,18 +53,6 @@ const RAIDS = [
     ],
   },
 ];
-
-function encodeTalentExport(talentTree) {
-  if (!talentTree.length) {
-    throw new Error('missing-talent-tree');
-  }
-  return encodeTalentImportString({
-    classKey: CLASS_KEY,
-    specId: SPEC_ID,
-    changeSetId: TALENT_CHANGE_SET_ID,
-    talentTree,
-  });
-}
 
 function parseArgs(argv) {
   const args = {
@@ -126,7 +113,9 @@ function compactPreset(preset, boss, raid) {
       nodeID: talent.nodeID,
     }))
     : [];
-  const exportString = encodeTalentExport(talentTree);
+  const exportString = preset.talents && preset.talents.exportString
+    ? preset.talents.exportString
+    : '';
 
   return {
     id: preset.id,
@@ -142,13 +131,13 @@ function compactPreset(preset, boss, raid) {
       server: preset.source.server || null,
       reportCode: preset.source.reportCode || '',
       fightId: preset.source.fightId || null,
+      actorID: preset.source.actorID || null,
       bracket: null,
       difficulty: MYTHIC_DIFFICULTY,
       difficultyName: raid.difficultyName,
     },
     talents: {
       specId: preset.talents ? preset.talents.specId : null,
-      changeSetId: TALENT_CHANGE_SET_ID,
       talentTree,
       pvpTalents: preset.talents && Array.isArray(preset.talents.pvpTalents)
         ? preset.talents.pvpTalents
@@ -208,7 +197,15 @@ async function collectBossPresets(token, craftingMap, tooltipOptions, raid, boss
         failures.push({ rank: i + 1, player: ranking.name, reason: `wrong-spec-${combatant.specID}` });
         continue;
       }
-      const preset = await buildPreset(encounter, ranking, combatant, i, craftingMap, tooltipOptions);
+      const talentImportCode = await fetchTalentImportCode(
+        token,
+        ranking.report.code,
+        ranking.report.fightID,
+        combatant.sourceID
+      );
+      const preset = await buildPreset(encounter, ranking, combatant, i, craftingMap, tooltipOptions, {
+        talentImportCode,
+      });
       presets.push(compactPreset(preset, boss, raid));
     } catch (err) {
       failures.push({ rank: i + 1, player: ranking.name, reason: err.message });

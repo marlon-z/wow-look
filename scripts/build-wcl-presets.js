@@ -23,6 +23,8 @@ const {
   getSpecConfig,
   listSpecs,
 } = require('./wcl-preset-config');
+// 附魔/宝石 中文名静态映射(一次性建全, 换赛季维护此文件); build 时只查表, 不调任何 API。
+const NAME_MAP = require('./wcl-name-map.json');
 
 const DEFAULT_TOP_MPLUS = 3;
 const DEFAULT_TOP_RAID = 5;
@@ -157,12 +159,17 @@ function compactSlot(slot) {
     ilvl: slot.ilvl || 0,
   };
   if (slot.bonusIDs && slot.bonusIDs.length) result.bonusIDs = slot.bonusIDs;
-  if (slot.permanentEnchant) result.permanentEnchant = slot.permanentEnchant;
+  if (slot.permanentEnchant) {
+    result.permanentEnchant = slot.permanentEnchant;
+    const enchantName = NAME_MAP.enchants[slot.permanentEnchant];
+    if (enchantName) result.enchantName = enchantName;
+  }
   if (slot.gems && slot.gems.length) {
     result.gems = slot.gems.map((gem) => ({
       id: gem.id,
       itemLevel: gem.itemLevel || 0,
       icon: gem.icon || '',
+      ...(NAME_MAP.gems[gem.id] ? { name: NAME_MAP.gems[gem.id] } : {}),
     }));
   }
   if (slot.crafted) result.crafted = true;

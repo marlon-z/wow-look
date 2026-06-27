@@ -19,7 +19,7 @@ const { encodeTalentImportString } = require('./talent-import-encoder');
 const DATA_VERSION = '4.4.x';
 const CLASS_KEY = 'monk';
 const SPEC_ID = 269;
-const TALENT_CHANGE_SET_ID = null;
+const TALENT_CHANGE_SET_ID = 20;
 const METRIC = 'dps';
 const TOP = 5;
 const MYTHIC_DIFFICULTY = 5;
@@ -56,28 +56,15 @@ const RAIDS = [
 ];
 
 function encodeTalentExport(talentTree) {
-  if (!talentTree.length || !TALENT_CHANGE_SET_ID) {
-    return {
-      exportString: '',
-      exportError: 'missing-talent-blueprint',
-    };
+  if (!talentTree.length) {
+    throw new Error('missing-talent-tree');
   }
-  try {
-    return {
-      exportString: encodeTalentImportString({
-        classKey: CLASS_KEY,
-        specId: SPEC_ID,
-        changeSetId: TALENT_CHANGE_SET_ID,
-        talentTree,
-      }),
-      exportError: '',
-    };
-  } catch (err) {
-    return {
-      exportString: '',
-      exportError: err.message,
-    };
-  }
+  return encodeTalentImportString({
+    classKey: CLASS_KEY,
+    specId: SPEC_ID,
+    changeSetId: TALENT_CHANGE_SET_ID,
+    talentTree,
+  });
 }
 
 function parseArgs(argv) {
@@ -139,7 +126,7 @@ function compactPreset(preset, boss, raid) {
       nodeID: talent.nodeID,
     }))
     : [];
-  const talentExport = encodeTalentExport(talentTree);
+  const exportString = encodeTalentExport(talentTree);
 
   return {
     id: preset.id,
@@ -166,8 +153,7 @@ function compactPreset(preset, boss, raid) {
       pvpTalents: preset.talents && Array.isArray(preset.talents.pvpTalents)
         ? preset.talents.pvpTalents
         : [],
-      exportString: talentExport.exportString,
-      exportError: talentExport.exportError,
+      exportString,
     },
     slots,
   };

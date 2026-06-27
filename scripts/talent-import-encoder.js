@@ -4,10 +4,33 @@ const path = require('path');
 const BASE64_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 const DEFAULT_SERIALIZATION_VERSION = 2;
 const TREE_HASH_BYTES = 16;
+const BLUEPRINT_DIR = path.join(__dirname, 'wcl-talent-blueprints');
 
-const BLUEPRINT_FILES = {
-  'mage:63:13': path.join(__dirname, 'wcl-talent-blueprints', 'mage-63-13-full.json'),
-};
+function collectBlueprintFiles(dir = BLUEPRINT_DIR) {
+  const files = {};
+  if (!fs.existsSync(dir)) return files;
+  fs.readdirSync(dir)
+    .filter((file) => file.endsWith('.json'))
+    .forEach((file) => {
+      const fullPath = path.join(dir, file);
+      try {
+        const blueprint = JSON.parse(fs.readFileSync(fullPath, 'utf8'));
+        const classKey = blueprint.classKey;
+        const specId = Number(blueprint.specId);
+        const changeSetId = Number(blueprint.changeSetId || (blueprint.changeSet && blueprint.changeSet.id));
+        if (classKey && specId && changeSetId) {
+          const key = `${classKey}:${specId}:${changeSetId}`;
+          const current = files[key];
+          if (!current || file.indexOf('-full') !== -1) files[key] = fullPath;
+        }
+      } catch {
+        // Scratch exports should not break the registry; tests cover required blueprints.
+      }
+    });
+  return files;
+}
+
+const BLUEPRINT_FILES = collectBlueprintFiles();
 
 function addValue(entries, bitWidth, value) {
   const numericValue = Number(value) || 0;
@@ -53,27 +76,39 @@ function convertToBase64(entries) {
 
 function selectedNodesFromTalentTree(talentTree = []) {
   return talentTree
-    .filter((talent) => talent && Number(talent.id))
+    .filter((talent) => talent && (Number(talent.id) || Number(talent.nodeID || talent.nodeId)))
     .map((talent) => {
       const rank = Number(talent.rank) || 1;
-      return rank > 1 ? [Number(talent.id), rank] : [Number(talent.id)];
+      return {
+        id: Number(talent.id) || 0,
+        abilityId: Number(talent.id) || 0,
+        nodeId: Number(talent.nodeID || talent.nodeId) || 0,
+        rank,
+      };
     });
 }
 
 function normalizeSelectedNodes(selectedNodes = []) {
-  const selected = new Map();
+  const abilities = new Map();
+  const nodes = new Map();
   selectedNodes.forEach((node) => {
     if (Array.isArray(node)) {
       const abilityId = Number(node[0]);
-      if (abilityId) selected.set(abilityId, Number(node[1]) || 1);
+      if (abilityId) abilities.set(abilityId, Number(node[1]) || 1);
       return;
     }
     if (node && typeof node === 'object') {
       const abilityId = Number(node.id || node.abilityId);
-      if (abilityId) selected.set(abilityId, Number(node.rank) || 1);
+      const nodeId = Number(node.nodeID || node.nodeId);
+      const rank = Number(node.rank) || 1;
+      if (abilityId) abilities.set(abilityId, rank);
+      if (nodeId) {
+        if (!nodes.has(nodeId)) nodes.set(nodeId, []);
+        nodes.get(nodeId).push({ abilityId, nodeId, rank });
+      }
     }
   });
-  return selected;
+  return { abilities, nodes };
 }
 
 function loadBlueprint(classKey, specId, changeSetId) {
@@ -85,18 +120,34 @@ function loadBlueprint(classKey, specId, changeSetId) {
   return JSON.parse(fs.readFileSync(file, 'utf8'));
 }
 
+function hasBlueprint(classKey, specId, changeSetId) {
+  const key = `${classKey}:${Number(specId)}:${Number(changeSetId)}`;
+  return !!BLUEPRINT_FILES[key];
+}
+
 function getNodeChoiceIndex(node, selectedAbilityId) {
   const index = (node.abilities || []).findIndex((ability) => Number(ability.id) === selectedAbilityId);
   return index >= 0 ? index : 0;
 }
 
 function getSelectedAbilities(node, selected) {
-  return (node.abilities || []).filter((ability) => selected.has(Number(ability.id)));
+  const nodeRecords = selected.nodes.get(Number(node.nodeId)) || [];
+  if (nodeRecords.length) {
+    const selectedIds = new Set(nodeRecords.map((record) => Number(record.abilityId)).filter(Boolean));
+    const matched = (node.abilities || []).filter((ability) => selectedIds.has(Number(ability.id)));
+    if (matched.length) return matched;
+    return (node.abilities || []).length === 1 ? [node.abilities[0]] : [];
+  }
+  return (node.abilities || []).filter((ability) => selected.abilities.has(Number(ability.id)));
 }
 
-function getPurchasedRanks(selectedAbilities, selected) {
+function getPurchasedRanks(node, selectedAbilities, selected) {
+  const nodeRecords = selected.nodes.get(Number(node.nodeId)) || [];
+  if (nodeRecords.length) {
+    return nodeRecords.reduce((total, record) => total + (Number(record.rank) || 1), 0);
+  }
   return selectedAbilities.reduce((total, ability) => {
-    return total + (selected.get(Number(ability.id)) || 1);
+    return total + (selected.abilities.get(Number(ability.id)) || 1);
   }, 0);
 }
 
@@ -145,7 +196,7 @@ function encodeTalentImportString(options) {
     addValue(entries, 1, isPurchased ? 1 : 0);
     if (!isPurchased) return;
 
-    const ranksPurchased = getPurchasedRanks(selectedAbilities, selected);
+    const ranksPurchased = getPurchasedRanks(node, selectedAbilities, selected);
     const maxRanks = getNodeMaxRanks(node, selectedAbilities);
     const isPartiallyRanked = ranksPurchased !== maxRanks;
     addValue(entries, 1, isPartiallyRanked ? 1 : 0);
@@ -156,6 +207,9 @@ function encodeTalentImportString(options) {
     const nodeIsChoice = isChoiceNode(node);
     addValue(entries, 1, nodeIsChoice ? 1 : 0);
     if (nodeIsChoice) {
+      if (!selectedAbility) {
+        throw new Error(`ambiguous choice node ${node.nodeId}`);
+      }
       addValue(entries, 2, getNodeChoiceIndex(node, Number(selectedAbility.id)));
     }
   });
@@ -165,8 +219,11 @@ function encodeTalentImportString(options) {
 
 module.exports = {
   BASE64_CHARS,
+  BLUEPRINT_FILES,
+  collectBlueprintFiles,
   DEFAULT_SERIALIZATION_VERSION,
   convertToBase64,
+  hasBlueprint,
   loadBlueprint,
   selectedNodesFromTalentTree,
   encodeTalentImportString,

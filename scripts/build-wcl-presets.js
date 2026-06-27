@@ -230,6 +230,8 @@ function compactPreset(spec, preset, diagnostics, context) {
       actorID: preset.source.actorID || null,
       // 固定档(+10/+16)用档位层数；最顶级档无固定层，回填该记录的真实钥石层数
       bracket: (context && context.bracket) ? context.bracket : (preset.source.bracket || null),
+      // M+ 评分(排行榜已含,零额外API消耗);团本无此评分则为 null
+      score: preset.source.score != null ? Math.round(preset.source.score) : null,
       ...(context && context.difficulty ? {
         difficulty: context.difficulty,
         difficultyName: context.difficultyName,

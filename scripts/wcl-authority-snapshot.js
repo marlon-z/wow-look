@@ -429,6 +429,7 @@ async function buildPreset(encounter, ranking, combatant, rankIndex, craftingMap
       reportCode: ranking.report && ranking.report.code,
       fightId: ranking.report && ranking.report.fightID,
       bracket: ranking.bracketData || null,
+      score: ranking.score != null ? ranking.score : null,
     },
     talents: {
       specId: combatant.specID || null,

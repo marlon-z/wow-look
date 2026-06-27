@@ -364,7 +364,7 @@
                 <text class="wcl-preset-meta">{{preset.source.amount}} {{preset.source.metricLabel || 'DPS'}} · {{preset.source.server ? preset.source.server.region : ''}} {{preset.source.server ? preset.source.server.name : ''}}</text>
               </view>
               <view class="wcl-preset-side">
-                <text>{{preset.talents.pointCount || preset.talents.talentTree.length}}天赋</text>
+                <text wx:if="{{preset.source.score}}">{{preset.source.score}}分</text>
                 <text class="wcl-preset-code-status {{preset.talents.exportString ? 'ready' : 'missing'}}">{{preset.talents.exportStatusText}}</text>
                 <text wx:if="{{preset.source.bracket}}">{{preset.source.bracket}}层</text>
                 <text wx:else>{{preset.source.difficultyName || ''}}</text>

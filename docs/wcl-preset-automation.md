@@ -152,6 +152,14 @@ node scripts/upload-cos-prefix.js --source cos-upload/wcl-presets/data-4.4.x/{cl
 
 这样全量更新会被拆成多个 job，不会把所有职业塞进一个 60 分钟任务里，也不会每次重复上传其他专精的数据。
 
+如果是局部取样运行，上传前缀会自动切到：
+
+```text
+wcl-presets-test
+```
+
+正式前缀 `wcl-presets` 只用于完整生成，避免样本覆盖正式 `index.json`。
+
 ## 6. 手动跑一次
 
 第一次建议手动跑，不要等定时任务。
@@ -182,6 +190,14 @@ levels       = 10
 encounter_id = 361753
 top_mplus    = 1
 ```
+
+这类带 `levels`、`encounter_id`、`content != all` 或自定义 top 数量的运行会自动写到测试前缀：
+
+```text
+wcl-presets-test/data-4.4.x/{classKey}/{specId}/
+```
+
+不会覆盖正式路径。
 
 8. 点击绿色按钮运行。
 
@@ -350,7 +366,14 @@ $env:WCL_CONTENT="mythic-plus"
 $env:WCL_LEVELS="10"
 $env:WCL_ENCOUNTER_ID="361753"
 $env:WCL_TOP_MPLUS="1"
+$env:WCL_OUTPUT_ROOT="cos-upload/wcl-presets-test"
 node scripts/update-wcl-presets.js
+```
+
+局部样本默认不能写入正式目录。测试文件会生成到：
+
+```text
+cos-upload/wcl-presets-test
 ```
 
 只测试上传列表，不真正上传：

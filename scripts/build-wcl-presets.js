@@ -29,6 +29,8 @@ const {
 
 const DEFAULT_TOP_MPLUS = 3;
 const DEFAULT_TOP_RAID = 5;
+const DEFAULT_OUTPUT_ROOT = path.join(process.cwd(), 'cos-upload', 'wcl-presets');
+const TEST_OUTPUT_ROOT = path.join(process.cwd(), 'cos-upload', 'wcl-presets-test');
 
 function parseArgs(argv) {
   const args = {
@@ -43,6 +45,8 @@ function parseArgs(argv) {
     topRaid: DEFAULT_TOP_RAID,
     writeMiniProgram: false,
     sample: false,
+    outputRoot: DEFAULT_OUTPUT_ROOT,
+    allowPartialProduction: false,
   };
   for (let i = 2; i < argv.length; i += 1) {
     const key = argv[i];
@@ -58,8 +62,39 @@ function parseArgs(argv) {
     else if (key === '--top-raid') { args.topRaid = Number(val); i += 1; }
     else if (key === '--write-miniprogram') { args.writeMiniProgram = true; }
     else if (key === '--sample') { args.sample = true; }
+    else if (key === '--output-root') { args.outputRoot = path.resolve(process.cwd(), val); i += 1; }
+    else if (key === '--allow-partial-production') { args.allowPartialProduction = true; }
   }
   return args;
+}
+
+function sameNumberSet(left, right) {
+  const a = left.slice().map(Number).sort((x, y) => x - y);
+  const b = right.slice().map(Number).sort((x, y) => x - y);
+  if (a.length !== b.length) return false;
+  return a.every((value, index) => value === b[index]);
+}
+
+function isPartialGeneration(args) {
+  const allLevels = MYTHIC_PLUS_LEVELS.map((item) => item.level);
+  if (args.sample) return true;
+  if (args.content !== 'all') return true;
+  if (args.encounterId) return true;
+  if (args.raidFileKey) return true;
+  if (!sameNumberSet(args.levels, allLevels)) return true;
+  if (Number(args.topMplus) !== DEFAULT_TOP_MPLUS) return true;
+  if (Number(args.topRaid) !== DEFAULT_TOP_RAID) return true;
+  return false;
+}
+
+function isProductionOutputRoot(outputRoot) {
+  return path.resolve(outputRoot) === DEFAULT_OUTPUT_ROOT;
+}
+
+function validateGenerationScope(args) {
+  if (isPartialGeneration(args) && isProductionOutputRoot(args.outputRoot) && !args.allowPartialProduction) {
+    throw new Error('局部/取样生成不能写入正式 wcl-presets 目录；请使用 --output-root cos-upload/wcl-presets-test，或明确传 --allow-partial-production。');
+  }
 }
 
 function selectedSpecs(args) {
@@ -447,7 +482,7 @@ function buildIndex(spec, generatedAt, mythicPlusFiles, raidFiles) {
 
 async function buildSpec(token, spec, args, shared) {
   const generatedAt = Date.now();
-  const outRoot = path.join(process.cwd(), 'cos-upload', 'wcl-presets', `data-${DATA_VERSION}`, spec.classKey, String(spec.specId));
+  const outRoot = path.join(args.outputRoot, `data-${DATA_VERSION}`, spec.classKey, String(spec.specId));
   const miniRoot = path.join(process.cwd(), 'miniprogram', 'data', 'wcl-presets');
   const miniSpecRoot = path.join(miniRoot, `data-${DATA_VERSION}`, spec.classKey, String(spec.specId));
 
@@ -465,6 +500,7 @@ async function buildSpec(token, spec, args, shared) {
 
 async function main() {
   const args = parseArgs(process.argv);
+  validateGenerationScope(args);
   const specs = selectedSpecs(args);
   if (!specs.length) throw new Error('没有匹配的专精');
 
@@ -492,6 +528,11 @@ if (require.main === module) {
 module.exports = {
   parseArgs,
   selectedSpecs,
+  DEFAULT_OUTPUT_ROOT,
+  TEST_OUTPUT_ROOT,
+  isPartialGeneration,
+  isProductionOutputRoot,
+  validateGenerationScope,
   compactSlot,
   buildTalentPayload,
   compactPreset,

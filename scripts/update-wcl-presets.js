@@ -33,6 +33,8 @@ if (process.env.WCL_TOP_RAID) args.push('--top-raid', process.env.WCL_TOP_RAID);
 if (process.env.WCL_LEVELS) args.push('--levels', process.env.WCL_LEVELS);
 if (process.env.WCL_ENCOUNTER_ID) args.push('--encounter-id', process.env.WCL_ENCOUNTER_ID);
 if (process.env.WCL_SAMPLE === '1') args.push('--sample');
+if (process.env.WCL_OUTPUT_ROOT) args.push('--output-root', process.env.WCL_OUTPUT_ROOT);
+if (process.env.WCL_ALLOW_PARTIAL_PRODUCTION === '1') args.push('--allow-partial-production');
 
 run('node', args);
 

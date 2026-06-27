@@ -440,8 +440,17 @@ Page({
       nextEntry.presets = (entry.presets || []).map(function (preset) {
         var nextPreset = Object.assign({}, preset);
         var source = Object.assign({}, preset.source || {});
+        var talents = Object.assign({}, preset.talents || {});
+        talents.talentTree = Array.isArray(talents.talentTree) ? talents.talentTree : [];
+        var pointCount = talents.talentTree.length;
         source.metricLabel = source.metric === 'hps' ? 'HPS' : 'DPS';
+        talents.pointCount = pointCount;
+        talents.exportStatusText = talents.exportString ? '可复制' : (pointCount ? '无导入码' : '无天赋');
+        talents.exportMissingText = talents.exportStringMissingReason === 'missing-blueprint'
+          ? '缺少专精编码模板'
+          : '';
         nextPreset.source = source;
+        nextPreset.talents = talents;
         return nextPreset;
       });
       return nextEntry;

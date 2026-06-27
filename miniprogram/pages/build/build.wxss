@@ -537,6 +537,10 @@
   border-top: 1rpx solid rgba(212, 168, 75, 0.15);
 }
 
+.wcl-talent-code-row-muted {
+  opacity: 0.82;
+}
+
 .wcl-talent-code-main {
   flex: 1;
   min-width: 0;
@@ -559,6 +563,11 @@
   line-height: 1.35;
   max-height: 84rpx;
   overflow: hidden;
+}
+
+.wcl-talent-code-reason {
+  color: var(--text-muted);
+  font-weight: 600;
 }
 
 .wcl-talent-copy {
@@ -1035,4 +1044,17 @@
   font-size: 20rpx;
   color: #7de3ff;
   font-weight: 800;
+}
+
+.wcl-preset-code-status {
+  font-size: 18rpx;
+  font-weight: 800;
+}
+
+.wcl-preset-code-status.ready {
+  color: #42f58d;
+}
+
+.wcl-preset-code-status.missing {
+  color: var(--text-muted);
 }

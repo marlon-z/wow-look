@@ -53,7 +53,7 @@
         </view>
         <view wx:if="{{currentWclPresetInfo}}" class="wcl-applied-line">
           <text>WCL: {{currentWclPresetInfo.source.encounterName}} · {{currentWclPresetInfo.name}}</text>
-          <text wx:if="{{currentWclPresetInfo.talents}}">天赋{{currentWclPresetInfo.talents.talentTree.length}}点</text>
+          <text wx:if="{{currentWclPresetInfo.talents}}">天赋{{currentWclPresetInfo.talents.pointCount || currentWclPresetInfo.talents.talentTree.length}}点</text>
         </view>
       </view>
     </view>
@@ -215,6 +215,13 @@
         </view>
         <view class="wcl-talent-copy" bindtap="copyWclTalentCode">复制</view>
       </view>
+      <view wx:elif="{{currentWclPresetInfo && currentWclPresetInfo.talents}}" class="wcl-talent-code-row wcl-talent-code-row-muted">
+        <view class="wcl-talent-code-main">
+          <text class="wcl-talent-code-label">天赋代码</text>
+          <text class="wcl-talent-code-text">暂无可导入代码</text>
+          <text wx:if="{{currentWclPresetInfo.talents.exportMissingText}}" class="wcl-talent-code-text wcl-talent-code-reason">{{currentWclPresetInfo.talents.exportMissingText}}</text>
+        </view>
+      </view>
 
       <!-- Primary stats row -->
       <view class="stats-bottom-primary" wx:if="{{summary.primaryStats.length || summary.stamina}}">
@@ -357,7 +364,8 @@
                 <text class="wcl-preset-meta">{{preset.source.amount}} {{preset.source.metricLabel || 'DPS'}} · {{preset.source.server ? preset.source.server.region : ''}} {{preset.source.server ? preset.source.server.name : ''}}</text>
               </view>
               <view class="wcl-preset-side">
-                <text>{{preset.talents.talentTree.length}}天赋</text>
+                <text>{{preset.talents.pointCount || preset.talents.talentTree.length}}天赋</text>
+                <text class="wcl-preset-code-status {{preset.talents.exportString ? 'ready' : 'missing'}}">{{preset.talents.exportStatusText}}</text>
                 <text wx:if="{{preset.source.bracket}}">{{preset.source.bracket}}层</text>
                 <text wx:else>{{preset.source.difficultyName || ''}}</text>
               </view>

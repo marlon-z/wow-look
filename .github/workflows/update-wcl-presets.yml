@@ -70,6 +70,23 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Resolve WCL output target
+        shell: bash
+        run: |
+          partial=0
+          if [ -n "${{ inputs.content }}" ] && [ "${{ inputs.content }}" != "all" ]; then partial=1; fi
+          if [ -n "${{ inputs.levels }}" ]; then partial=1; fi
+          if [ -n "${{ inputs.encounter_id }}" ]; then partial=1; fi
+          if [ -n "${{ inputs.top_mplus }}" ]; then partial=1; fi
+          if [ -n "${{ inputs.top_raid }}" ]; then partial=1; fi
+          if [ "$partial" = "1" ]; then
+            echo "WCL_OUTPUT_ROOT=cos-upload/wcl-presets-test" >> "$GITHUB_ENV"
+            echo "WCL_COS_PREFIX=wcl-presets-test" >> "$GITHUB_ENV"
+          else
+            echo "WCL_OUTPUT_ROOT=cos-upload/wcl-presets" >> "$GITHUB_ENV"
+            echo "WCL_COS_PREFIX=wcl-presets" >> "$GITHUB_ENV"
+          fi
+
       - name: Generate WCL preset data
         env:
           WCL_CLIENT_ID: ${{ secrets.WCL_CLIENT_ID }}
@@ -92,4 +109,4 @@ jobs:
           COS_SECRET_KEY: ${{ secrets.COS_SECRET_KEY }}
           COS_BUCKET: ${{ secrets.COS_BUCKET }}
           COS_REGION: ${{ secrets.COS_REGION }}
-        run: node scripts/upload-cos-prefix.js --source cos-upload/wcl-presets/data-4.4.x/${{ matrix.spec.classKey }}/${{ matrix.spec.specId }} --prefix wcl-presets/data-4.4.x/${{ matrix.spec.classKey }}/${{ matrix.spec.specId }}
+        run: node scripts/upload-cos-prefix.js --source "$WCL_OUTPUT_ROOT/data-4.4.x/${{ matrix.spec.classKey }}/${{ matrix.spec.specId }}" --prefix "$WCL_COS_PREFIX/data-4.4.x/${{ matrix.spec.classKey }}/${{ matrix.spec.specId }}"

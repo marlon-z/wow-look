@@ -26,5 +26,7 @@ assertEnv('WCL_CLIENT_SECRET');
 
 run('node', ['scripts/build-wcl-fire-mage-mplus-presets.js', '--top', '3']);
 run('node', ['scripts/build-wcl-fire-mage-raid-presets.js', '--top', '5']);
+run('node', ['scripts/build-wcl-windwalker-monk-mplus-presets.js', '--top', '3']);
+run('node', ['scripts/build-wcl-windwalker-monk-raid-presets.js', '--top', '5']);
 
 console.log('\nWCL 预设数据已生成完成');

@@ -29,6 +29,9 @@ const DEFAULT_SPEC = {
     63: { className: 'Mage', specName: 'Fire', localName: '火焰' },
     64: { className: 'Mage', specName: 'Frost', localName: '冰霜' },
   },
+  monk: {
+    269: { className: 'Monk', specName: 'Windwalker', localName: '踏风' },
+  },
 };
 
 const STAT_DISPLAY = {

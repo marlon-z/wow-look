@@ -8,6 +8,7 @@ const {
   getWclToken,
   fetchRankings,
   fetchReportCombatants,
+  fetchTalentImportCode,
   findCombatant,
   loadCraftingMap,
   readJsonFile,
@@ -22,10 +23,6 @@ const {
   getSpecConfig,
   listSpecs,
 } = require('./wcl-preset-config');
-const {
-  encodeTalentImportString,
-  hasBlueprint,
-} = require('./talent-import-encoder');
 
 const DEFAULT_TOP_MPLUS = 3;
 const DEFAULT_TOP_RAID = 5;
@@ -118,12 +115,13 @@ function validateProductionSpecQuality(args, spec, files) {
     queryFailureCount: total.queryFailureCount + (file.queryFailureCount || 0),
   }), { entryCount: 0, presetCount: 0, queryFailureCount: 0 });
 
-  if (summary.entryCount > 0
-      && summary.presetCount === 0
-      && summary.queryFailureCount === summary.entryCount) {
+  // 只要该专精全量生成后是 0 套，就拦截（覆盖两种异常：限流全失败 / 排行榜返回空，例如职业名写错）。
+  if (summary.entryCount > 0 && summary.presetCount === 0) {
+    const allQueriesFailed = summary.queryFailureCount === summary.entryCount;
     throw new Error([
-      `正式 WCL 预设生成异常: ${spec.classLocalName}${spec.specLocalName} 全部 ${summary.entryCount} 个排行榜请求失败，且生成 0 套。`,
-      '已阻止上传空数据到正式 COS；请稍后重跑，或查看上方 WCL GraphQL/HTTP 错误。',
+      `正式 WCL 预设生成异常: ${spec.classLocalName}${spec.specLocalName} 共 ${summary.entryCount} 个排行榜、生成 0 套`
+      + `（${allQueriesFailed ? '全部请求失败，疑似限流' : '排行榜返回空，疑似职业/专精名或筛选有误'}）。`,
+      '已阻止上传空数据到正式 COS；请检查上方错误或 className/specName 配置后重跑。',
     ].join(' '));
   }
 }
@@ -188,34 +186,18 @@ function buildTalentPayload(spec, preset, diagnostics) {
       nodeID: talent.nodeID,
     }))
     : [];
-  const changeSetId = spec.talentChangeSetId || 13;
-  let exportString = '';
+  // 天赋导入码直接取自 WCL 官方 talentImportCode（在 fetchCombatantPreset 里拉取并写入 exportString），不再手写编码。
+  const exportString = preset.talents && preset.talents.exportString
+    ? preset.talents.exportString
+    : '';
   let exportStringMissingReason = '';
-  if (talentTree.length && hasBlueprint(spec.classKey, spec.specId, changeSetId)) {
-    try {
-      exportString = encodeTalentImportString({
-        classKey: spec.classKey,
-        specId: spec.specId,
-        changeSetId,
-        talentTree,
-      });
-    } catch (err) {
-      exportStringMissingReason = 'encode-failed';
-      diagnostics.talentEncodeFailures += 1;
-      diagnostics.failures.push({
-        rank: preset.source.rank,
-        player: preset.source.player,
-        reason: `talent-encode-failed:${err.message}`,
-      });
-    }
-  } else if (talentTree.length) {
-    exportStringMissingReason = 'missing-blueprint';
-    diagnostics.missingTalentBlueprints += 1;
+  if (talentTree.length && !exportString) {
+    exportStringMissingReason = 'missing-wcl-talent-code';
+    diagnostics.missingTalentCodes += 1;
   }
 
   return {
     specId: preset.talents ? preset.talents.specId : null,
-    changeSetId,
     talentTree,
     pvpTalents: preset.talents && Array.isArray(preset.talents.pvpTalents)
       ? preset.talents.pvpTalents
@@ -245,7 +227,9 @@ function compactPreset(spec, preset, diagnostics, context) {
       server: preset.source.server || null,
       reportCode: preset.source.reportCode || '',
       fightId: preset.source.fightId || null,
-      bracket: context && context.bracket ? context.bracket : null,
+      actorID: preset.source.actorID || null,
+      // 固定档(+10/+16)用档位层数；最顶级档无固定层，回填该记录的真实钥石层数
+      bracket: (context && context.bracket) ? context.bracket : (preset.source.bracket || null),
       ...(context && context.difficulty ? {
         difficulty: context.difficulty,
         difficultyName: context.difficultyName,
@@ -329,7 +313,17 @@ async function fetchCombatantPreset(token, spec, encounter, ranking, rankIndex, 
   if (Number(combatant.specID) !== Number(spec.specId)) {
     throw new Error(`wrong-spec-${combatant.specID}`);
   }
-  return buildPreset(encounter, ranking, combatant, rankIndex, craftingMap, tooltipOptions);
+  const preset = await buildPreset(encounter, ranking, combatant, rankIndex, craftingMap, tooltipOptions);
+  // 天赋导入码：用 WCL 官方 talentImportCode(reportCode + fightID + actorID)
+  const talentImportCode = await fetchTalentImportCode(
+    token,
+    ranking.report.code,
+    ranking.report.fightID,
+    combatant.sourceID
+  );
+  preset.talents.exportString = talentImportCode;
+  preset.source.actorID = combatant.sourceID || null;
+  return preset;
 }
 
 async function collectPresetsForEncounter(token, spec, target, rankingOptions, top, craftingMap, tooltipOptions, context) {
@@ -347,16 +341,23 @@ async function collectPresetsForEncounter(token, spec, target, rankingOptions, t
     const diagnostics = {
       rankingsReturned: rankings.length,
       failures,
-      missingTalentBlueprints: 0,
-      talentEncodeFailures: 0,
+      missingTalentCodes: 0,
     };
+    // 大秘境按 score 排（角色无关、避免单人霸榜）；团本保持 API 的 metric 顺序。
+    const ordered = context && context.sortBy === 'score'
+      ? rankings.slice().sort((left, right) => (right.score || 0) - (left.score || 0))
+      : rankings;
     const presets = [];
-    for (let i = 0; i < rankings.length && presets.length < top; i += 1) {
-      const ranking = rankings[i];
+    const seenPlayers = new Set();
+    for (let i = 0; i < ordered.length && presets.length < top; i += 1) {
+      const ranking = ordered[i];
       if (!ranking.report || !ranking.report.code) continue;
+      // 按玩家去重，保证前 N 套是 N 个不同的人
+      if (ranking.name && seenPlayers.has(ranking.name)) continue;
       try {
-        const preset = await fetchCombatantPreset(token, spec, encounter, ranking, i, craftingMap, tooltipOptions);
+        const preset = await fetchCombatantPreset(token, spec, encounter, ranking, presets.length, craftingMap, tooltipOptions);
         presets.push(compactPreset(spec, preset, diagnostics, context));
+        if (ranking.name) seenPlayers.add(ranking.name);
       } catch (err) {
         failures.push({ rank: i + 1, player: ranking.name, reason: err.message });
       }
@@ -382,8 +383,7 @@ async function collectPresetsForEncounter(token, spec, target, rankingOptions, t
       diagnostics: {
         rankingsReturned: 0,
         failures: [{ rank: 0, player: '', reason: err.message }],
-        missingTalentBlueprints: 0,
-        talentEncodeFailures: 0,
+        missingTalentCodes: 0,
       },
     };
   }
@@ -406,11 +406,14 @@ async function buildMythicPlusFiles(token, spec, args, generatedAt, craftingMap,
         token,
         spec,
         dungeon,
-        { leaderboard: DEFAULT_LEADERBOARD, bracket: level.bracket },
+        {
+          leaderboard: DEFAULT_LEADERBOARD,
+          ...(Number(level.bracket) ? { bracket: level.bracket } : {}),
+        },
         args.topMplus,
         craftingMap,
         tooltipOptions,
-        { bracket: level.level }
+        { bracket: level.level || null, sortBy: 'score' }
       ));
     }
     const output = {

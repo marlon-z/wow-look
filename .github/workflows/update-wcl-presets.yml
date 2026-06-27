@@ -33,7 +33,8 @@ on:
         required: false
         type: string
   schedule:
-    - cron: '20 20 * * *'
+    # 每小时整点跑一组(2个专精)，按时间轮转；约20小时刷完全部40个专精一圈。
+    - cron: '0 * * * *'
 
 jobs:
   prepare:

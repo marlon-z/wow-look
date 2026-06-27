@@ -181,9 +181,7 @@ function encodeTalentImportString(options) {
     addValue(entries, 8, 0);
   }
 
-  const nodes = (blueprint.changeSet && blueprint.changeSet.allNodes ? blueprint.changeSet.allNodes : [])
-    .slice()
-    .sort((left, right) => Number(left.nodeId) - Number(right.nodeId));
+  const nodes = (blueprint.changeSet && blueprint.changeSet.allNodes ? blueprint.changeSet.allNodes : []);
 
   nodes.forEach((node) => {
     const selectedAbilities = getSelectedAbilities(node, selected);

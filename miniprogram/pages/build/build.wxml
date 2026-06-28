@@ -42,7 +42,7 @@
             <text wx:if="{{isDraft}}" class="build-draft-badge">草稿</text>
           </view>
           <view class="build-top-right">
-            <view class="build-top-btn" bindtap="openWclPresets">WCL预设</view>
+            <view class="build-top-btn" bindtap="openWclPresets">排行榜配装</view>
             <view class="build-top-btn" bindtap="openBuildList">方案列表</view>
             <view wx:if="{{!isDraft}}" class="build-top-btn" bindtap="onRenameBuild">重命名</view>
           </view>
@@ -52,7 +52,7 @@
           <text wx:if="{{summary}}" class="build-avg-ilvl">平均装等: {{summary.avgIlvl}}</text>
         </view>
         <view wx:if="{{currentWclPresetInfo}}" class="wcl-applied-line">
-          <text>WCL: {{currentWclPresetInfo.source.encounterName}} · {{currentWclPresetInfo.name}}</text>
+          <text>排行榜: {{currentWclPresetInfo.source.encounterName}} · {{currentWclPresetInfo.name}}</text>
           <text wx:if="{{currentWclPresetInfo.talents}}">天赋{{currentWclPresetInfo.talents.pointCount || currentWclPresetInfo.talents.talentTree.length}}点</text>
         </view>
       </view>
@@ -299,7 +299,7 @@
     <view class="picker-panel wcl-preset-panel" catchtap="preventClose">
       <view class="picker-head">
         <view class="wcl-head-title">
-          <text class="picker-title">WCL预设</text>
+          <text class="picker-title">排行榜配装</text>
           <text class="wcl-head-subtitle">{{selectedClassName}} · {{selectedSpecName}}</text>
           <text wx:if="{{wclPresetUpdatedText}}" class="wcl-head-updated">{{wclPresetUpdatedText}}</text>
         </view>
@@ -350,7 +350,7 @@
 
       <scroll-view class="picker-list wcl-preset-list" scroll-y enhanced show-scrollbar="{{false}}">
         <view wx:if="{{wclPresetLoading}}" class="picker-empty">
-          <text>加载WCL预设中</text>
+          <text>加载排行榜配装中</text>
         </view>
         <view wx:elif="{{!wclPresetEntries.length}}" class="picker-empty">
           <text>当前没有可用预设</text>

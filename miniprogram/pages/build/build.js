@@ -313,7 +313,7 @@ Page({
           wclPresetAllEntries: [],
           wclPresetEntries: [],
         });
-        wx.showToast({ title: '当前专精暂无WCL预设', icon: 'none' });
+        wx.showToast({ title: '当前专精暂无排行榜配装', icon: 'none' });
         return;
       }
       var firstContentType = contentTabs[0].type;
@@ -331,7 +331,7 @@ Page({
       self.loadWclPresetFile(first.fileKey, first.name);
     }).catch(function () {
       self.setData({ wclPresetLoading: false });
-      wx.showToast({ title: 'WCL预设加载失败', icon: 'none' });
+      wx.showToast({ title: '排行榜配装加载失败', icon: 'none' });
     });
   },
 
@@ -503,7 +503,7 @@ Page({
 
     var self = this;
     wx.showModal({
-      title: '套用WCL预设',
+      title: '套用排行榜配装',
       content: '会用该预设覆盖当前装备槽位，是否继续？',
       confirmText: '套用',
       confirmColor: '#d4a84b',
@@ -539,7 +539,7 @@ Page({
         pageStyle: '',
       });
       wx.showToast({
-        title: result.missing.length ? '已套用，部分装备仅有ID' : '已套用WCL预设',
+        title: result.missing.length ? '已套用，部分装备仅有ID' : '已套用排行榜配装',
         icon: 'none',
       });
     }).catch(function () {

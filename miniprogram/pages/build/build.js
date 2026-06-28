@@ -125,7 +125,16 @@ Page({
       }
     }
     if (options.classKey && options.specId) {
-      this.quickStart(options.classKey, options.className || '', Number(options.specId), options.specName || '');
+      this.quickStart(
+        options.classKey,
+        options.className ? decodeURIComponent(options.className) : '',
+        Number(options.specId),
+        options.specName ? decodeURIComponent(options.specName) : ''
+      );
+      // 来自"分享排行榜配装"的链接: 落地后自动打开排行榜配装
+      if (options.openWcl === '1' && typeof this.openWclPresets === 'function') {
+        this.openWclPresets();
+      }
     }
   },
 
@@ -704,10 +713,55 @@ Page({
     }
   },
 
-  onShareAppMessage: function () {
+  buildShareBase: function () {
+    return 'classKey=' + (this.data.selectedClassKey || '')
+      + '&specId=' + (this.data.selectedSpecId || '')
+      + '&className=' + encodeURIComponent(this.data.selectedClassName || '')
+      + '&specName=' + encodeURIComponent(this.data.selectedSpecName || '');
+  },
+
+  onShareAppMessage: function (options) {
+    var ds = (options && options.target && options.target.dataset) || {};
+    var classKey = this.data.selectedClassKey;
+    var className = this.data.selectedClassName || '';
+    var specName = this.data.selectedSpecName || '';
+
+    // 方案2: 分享某套排行榜配装(一键抄作业)
+    if (ds.shareType === 'wcl-preset') {
+      var entry = (this.data.wclPresetEntries || [])[ds.entryIndex];
+      var preset = entry && entry.presets ? entry.presets[ds.presetIndex] : null;
+      var scoreText = preset && preset.source && preset.source.score ? ('·评分' + preset.source.score) : '';
+      var title = preset
+        ? (className + specName + ' ' + preset.name + scoreText + ' · 一键抄作业')
+        : (className + specName + ' 排行榜配装 · 一键抄作业');
+      return {
+        title: title,
+        path: '/pages/build/build?' + this.buildShareBase() + '&openWcl=1&wclContent=' + (this.data.selectedWclContentType || ''),
+      };
+    }
+
+    // 方案1: 分享当前配装(落到该职业专精)
+    if (ds.shareType === 'build' && classKey) {
+      return {
+        title: '看看这套' + className + specName + '配装｜艾泽配装',
+        path: '/pages/build/build?' + this.buildShareBase(),
+      };
+    }
+
+    // 默认(右上…菜单转发)
+    if (classKey) {
+      return { title: className + specName + ' 配装 · 艾泽配装', path: '/pages/build/build?' + this.buildShareBase() };
+    }
+    return { title: '艾泽配装 · 配装模拟器', path: '/pages/build/build' };
+  },
+
+  onShareTimeline: function () {
+    if (!this.data.selectedClassKey) {
+      return { title: '艾泽配装 · 配装模拟器' };
+    }
     return {
-      title: '艾泽配装 · 配装模拟器',
-      path: '/pages/build/build',
+      title: (this.data.selectedClassName || '') + (this.data.selectedSpecName || '') + ' 配装 · 艾泽配装',
+      query: this.buildShareBase(),
     };
   },
 

@@ -258,6 +258,7 @@
       <view wx:if="{{isDraft}}" class="build-action-btn build-action-save" bindtap="onSaveBuild">保存方案</view>
       <view wx:else class="build-action-btn build-action-new" bindtap="onNewBuild">新建方案</view>
     </view>
+    <button class="build-share-full" open-type="share" data-share-type="build">分享配装</button>
   </block>
 
   <!-- Build List Popup -->
@@ -381,6 +382,15 @@
                 <text wx:if="{{preset.source.bracket}}">{{preset.source.bracket}}层</text>
                 <text wx:else>{{preset.source.difficultyName || ''}}</text>
               </view>
+              <button
+                class="wcl-preset-share"
+                size="mini"
+                open-type="share"
+                data-share-type="wcl-preset"
+                data-entry-index="{{entryIndex}}"
+                data-preset-index="{{presetIndex}}"
+                catchtap="preventClose"
+              >分享</button>
             </view>
           </view>
         </view>

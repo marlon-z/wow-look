@@ -21,7 +21,8 @@
         <view class="favorite-close" catchtap="handleClose"></view>
       </view>
       <view wx:if="{{favoriteGroups.length}}" class="favorite-head-actions favorite-action-row">
-        <button class="favorite-share-mini" open-type="share" data-share-type="favorites" catchtap="handleClearPending">
+        <button class="favorite-share-mini" open-type="share" data-share-type="favorites" catchtap="handleClearPending" hover-class="none">
+          <view class="favorite-share-icon"></view>
           <text>分享收藏</text>
         </button>
         <view class="favorite-poster-mini" catchtap="createFavoritePoster">{{isPosterGenerating ? '生成中' : '保存图片'}}</view>

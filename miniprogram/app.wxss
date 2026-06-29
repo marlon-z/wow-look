@@ -223,6 +223,9 @@ scroll-view {
 
 button.favorite-share-mini {
   width: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .favorite-share-mini::after {
@@ -234,12 +237,29 @@ button.favorite-share-mini {
   background: linear-gradient(180deg, rgba(212, 168, 75, 0.15), rgba(160, 122, 46, 0.05));
   border: 1rpx solid rgba(212, 168, 75, 0.4);
   color: #e8d3a7;
+  transition: all 0.15s ease;
 }
 
 .favorite-share-mini:active {
   transform: scale(0.96);
   background: linear-gradient(180deg, rgba(212, 168, 75, 0.25), rgba(160, 122, 46, 0.15));
   border-color: rgba(212, 168, 75, 0.7);
+}
+
+.favorite-share-icon {
+  width: 22rpx;
+  height: 22rpx;
+  margin-right: 8rpx;
+  background: #e8d3a7;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='18' cy='5' r='3'/%3E%3Ccircle cx='6' cy='12' r='3'/%3E%3Ccircle cx='18' cy='19' r='3'/%3E%3Cline x1='8.59' y1='13.51' x2='15.42' y2='17.49'/%3E%3Cline x1='15.41' y1='6.51' x2='8.59' y2='10.49'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='18' cy='5' r='3'/%3E%3Ccircle cx='6' cy='12' r='3'/%3E%3Ccircle cx='18' cy='19' r='3'/%3E%3Cline x1='8.59' y1='13.51' x2='15.42' y2='17.49'/%3E%3Cline x1='15.41' y1='6.51' x2='8.59' y2='10.49'/%3E%3C/svg%3E");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  display: inline-block;
 }
 
 /* Secondary: Save Poster (Neutral) */

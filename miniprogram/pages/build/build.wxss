@@ -1156,21 +1156,51 @@
 
 .wcl-preset-share {
   flex: 0 0 auto;
-  width: auto;
-  margin: 0 0 0 14rpx;
-  padding: 0 20rpx;
-  height: 52rpx;
-  line-height: 52rpx;
-  font-size: 20rpx;
-  font-weight: 700;
-  color: #7de3ff;
-  background: rgba(125, 227, 255, 0.1);
-  border: 1rpx solid rgba(125, 227, 255, 0.4);
-  border-radius: 16rpx;
+  width: auto !important;
+  min-width: 0 !important;
+  margin: 0 0 0 14rpx !important;
+  padding: 0 22rpx !important;
+  height: 52rpx !important;
+  line-height: normal !important;
+  font-size: 22rpx !important;
+  font-weight: 800 !important;
+  color: #7de3ff !important;
+  background: rgba(125, 227, 255, 0.08) !important;
+  border: 1.5rpx solid rgba(125, 227, 255, 0.35) !important;
+  border-radius: 26rpx !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  box-shadow: 
+    0 4rpx 10rpx rgba(0, 0, 0, 0.15),
+    inset 0 1rpx 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.15s ease;
   align-self: center;
 }
 .wcl-preset-share::after {
-  border: none;
+  display: none !important;
+}
+.wcl-preset-share:active {
+  transform: scale(0.95);
+  background: rgba(125, 227, 255, 0.18) !important;
+  border-color: rgba(125, 227, 255, 0.55) !important;
+}
+
+.wcl-share-icon {
+  width: 22rpx;
+  height: 22rpx;
+  margin-right: 8rpx;
+  background: #7de3ff;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='18' cy='5' r='3'/%3E%3Ccircle cx='6' cy='12' r='3'/%3E%3Ccircle cx='18' cy='19' r='3'/%3E%3Cline x1='8.59' y1='13.51' x2='15.42' y2='17.49'/%3E%3Cline x1='15.41' y1='6.51' x2='8.59' y2='10.49'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='18' cy='5' r='3'/%3E%3Ccircle cx='6' cy='12' r='3'/%3E%3Ccircle cx='18' cy='19' r='3'/%3E%3Cline x1='8.59' y1='13.51' x2='15.42' y2='17.49'/%3E%3Cline x1='15.41' y1='6.51' x2='8.59' y2='10.49'/%3E%3C/svg%3E");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  display: inline-block;
 }
 
 /* 底部单独一行的全宽"分享配装"按钮(占满, 约两格按钮宽) */
@@ -1196,9 +1226,15 @@
   border: 1rpx solid rgba(125, 227, 255, 0.35);
   position: relative;
   z-index: 1;
+  transition: all 0.15s ease;
 }
 .build-share-full::after {
   border: none;
+}
+.build-share-full:active {
+  transform: scale(0.98);
+  background: rgba(125, 227, 255, 0.16) !important;
+  border-color: rgba(125, 227, 255, 0.5) !important;
 }
 
 .wcl-preset-code-status {

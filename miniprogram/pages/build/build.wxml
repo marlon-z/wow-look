@@ -258,7 +258,7 @@
       <view wx:if="{{isDraft}}" class="build-action-btn build-action-save" bindtap="onSaveBuild">保存方案</view>
       <view wx:else class="build-action-btn build-action-new" bindtap="onNewBuild">新建方案</view>
     </view>
-    <button class="build-share-full" open-type="share" data-share-type="build">分享配装</button>
+    <button class="build-share-full" open-type="share" data-share-type="build" hover-class="none">分享配装</button>
   </block>
 
   <!-- Build List Popup -->
@@ -390,7 +390,11 @@
                 data-entry-index="{{entryIndex}}"
                 data-preset-index="{{presetIndex}}"
                 catchtap="preventClose"
-              >分享</button>
+                hover-class="none"
+              >
+                <view class="wcl-share-icon"></view>
+                <text>分享</text>
+              </button>
             </view>
           </view>
         </view>

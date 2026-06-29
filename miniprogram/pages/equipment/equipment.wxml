@@ -28,7 +28,11 @@
           class="hero-share-btn"
           open-type="share"
           data-share-type="{{buildRequestMode && buildDraftCount ? 'build-draft' : 'build-request'}}"
-        >{{buildRequestMode && buildDraftCount ? '分享本次配装' : '请好友配装'}}</button>
+          hover-class="none"
+        >
+          <view class="hero-share-icon"></view>
+          {{buildRequestMode && buildDraftCount ? '分享本次配装' : '请好友配装'}}
+        </button>
       </view>
       <text class="hero-desc">{{activeFiltersText}}</text>
     </view>
@@ -320,7 +324,10 @@
         </view>
         <view class="build-panel-head-side">
           <view wx:if="{{buildDraftCount}}" class="favorite-head-actions build-panel-actions">
-            <button wx:if="{{buildDraftCount}}" class="build-share-mini" open-type="share" data-share-type="build-draft">分享配装</button>
+            <button wx:if="{{buildDraftCount}}" class="build-share-mini" open-type="share" data-share-type="build-draft" hover-class="none">
+              <view class="build-share-icon"></view>
+              <text>分享配装</text>
+            </button>
             <view wx:if="{{buildDraftCount}}" class="favorite-clear-mini build-clear-mini" catchtap="clearBuildDraftItems">清空</view>
           </view>
           <view class="favorite-close" catchtap="closeBuildDraft"></view>

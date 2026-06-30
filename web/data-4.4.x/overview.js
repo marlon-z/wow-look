@@ -1,0 +1,282 @@
+module.exports = {
+  "version": "4.4.x",
+  "dataVersion": "4.4.x",
+  "addonVersion": "3.3.3",
+  "updatedAt": "2026-06-20 16:30:04",
+  "maximumProfile": {
+    "dungeonTargetItemLevel": 289,
+    "profileVersion": 2,
+    "raidTargetItemLevel": 289,
+    "seasonId": 16,
+    "seasonName": "Midnight Season 1",
+    "testedBuild": 68256,
+    "trinketTargetItemLevel": 298,
+    "voidforgedItemContext": 35,
+    "voidforgedMarkerBonusId": 13654,
+    "voidforgedTrinketBonusId": 12699,
+    "voidforgedWeaponBonusId": 12701,
+    "weaponTargetItemLevel": 298
+  },
+  "scope": {
+    "dungeonCount": 8,
+    "raidCount": 4,
+    "dungeons": [
+      {
+        "difficulty": 23,
+        "id": 945,
+        "isRaid": false,
+        "mapId": 239,
+        "name": "执政团之座",
+        "order": 1
+      },
+      {
+        "difficulty": 23,
+        "id": 278,
+        "isRaid": false,
+        "mapId": 556,
+        "name": "萨隆矿坑",
+        "order": 2
+      },
+      {
+        "difficulty": 23,
+        "id": 476,
+        "isRaid": false,
+        "mapId": 161,
+        "name": "通天峰",
+        "order": 3
+      },
+      {
+        "difficulty": 23,
+        "id": 1201,
+        "isRaid": false,
+        "mapId": 402,
+        "name": "艾杰斯亚学院",
+        "order": 4
+      },
+      {
+        "difficulty": 23,
+        "id": 1299,
+        "isRaid": false,
+        "mapId": 557,
+        "name": "风行者之塔",
+        "order": 5
+      },
+      {
+        "difficulty": 23,
+        "id": 1300,
+        "isRaid": false,
+        "mapId": 558,
+        "name": "魔导师平台",
+        "order": 6
+      },
+      {
+        "difficulty": 23,
+        "id": 1316,
+        "isRaid": false,
+        "mapId": 559,
+        "name": "节点希纳斯",
+        "order": 7
+      },
+      {
+        "difficulty": 23,
+        "id": 1315,
+        "isRaid": false,
+        "mapId": 560,
+        "name": "迈萨拉洞窟",
+        "order": 8
+      }
+    ],
+    "raids": [
+      {
+        "difficulty": 15,
+        "id": 1314,
+        "isRaid": true,
+        "name": "梦境裂隙",
+        "order": 2
+      },
+      {
+        "difficulty": 15,
+        "id": 1307,
+        "isRaid": true,
+        "name": "虚影尖塔",
+        "order": 3
+      },
+      {
+        "difficulty": 15,
+        "id": 1308,
+        "isRaid": true,
+        "name": "进军奎尔丹纳斯",
+        "order": 4
+      },
+      {
+        "difficulty": 15,
+        "id": 1305,
+        "isRaid": true,
+        "name": "孢陨幽境",
+        "order": 5
+      }
+    ],
+    "skippedRaids": [
+      {
+        "id": 1312,
+        "name": "至暗之夜",
+        "reason": "英雄难度无有效战利品"
+      }
+    ]
+  },
+  "classes": [
+    {
+      "id": 1,
+      "key": "warrior",
+      "name": "战士",
+      "itemCount": 169,
+      "tierItemCount": 9,
+      "craftedItemCount": 48,
+      "color": "#C69B6D",
+      "abbr": "战",
+      "armorTypeName": "板甲"
+    },
+    {
+      "id": 2,
+      "key": "paladin",
+      "name": "圣骑士",
+      "itemCount": 186,
+      "tierItemCount": 9,
+      "craftedItemCount": 48,
+      "color": "#F48CBA",
+      "abbr": "骑",
+      "armorTypeName": "板甲"
+    },
+    {
+      "id": 3,
+      "key": "hunter",
+      "name": "猎人",
+      "itemCount": 164,
+      "tierItemCount": 9,
+      "craftedItemCount": 50,
+      "color": "#AAD372",
+      "abbr": "猎",
+      "armorTypeName": "锁甲"
+    },
+    {
+      "id": 4,
+      "key": "rogue",
+      "name": "盗贼",
+      "itemCount": 146,
+      "tierItemCount": 9,
+      "craftedItemCount": 40,
+      "color": "#FFF468",
+      "abbr": "贼",
+      "armorTypeName": "皮甲"
+    },
+    {
+      "id": 5,
+      "key": "priest",
+      "name": "牧师",
+      "itemCount": 169,
+      "tierItemCount": 9,
+      "craftedItemCount": 52,
+      "color": "#FFFFFF",
+      "abbr": "牧",
+      "armorTypeName": "布甲"
+    },
+    {
+      "id": 6,
+      "key": "deathknight",
+      "name": "死亡骑士",
+      "itemCount": 161,
+      "tierItemCount": 9,
+      "craftedItemCount": 46,
+      "color": "#C41E3A",
+      "abbr": "骑",
+      "armorTypeName": "板甲"
+    },
+    {
+      "id": 7,
+      "key": "shaman",
+      "name": "萨满祭司",
+      "itemCount": 185,
+      "tierItemCount": 9,
+      "craftedItemCount": 52,
+      "color": "#0070DD",
+      "abbr": "萨",
+      "armorTypeName": "锁甲"
+    },
+    {
+      "id": 8,
+      "key": "mage",
+      "name": "法师",
+      "itemCount": 162,
+      "tierItemCount": 9,
+      "craftedItemCount": 52,
+      "color": "#3FC7EB",
+      "abbr": "法",
+      "armorTypeName": "布甲"
+    },
+    {
+      "id": 9,
+      "key": "warlock",
+      "name": "术士",
+      "itemCount": 162,
+      "tierItemCount": 9,
+      "craftedItemCount": 52,
+      "color": "#8788EE",
+      "abbr": "术",
+      "armorTypeName": "布甲"
+    },
+    {
+      "id": 10,
+      "key": "monk",
+      "name": "武僧",
+      "itemCount": 194,
+      "tierItemCount": 9,
+      "craftedItemCount": 51,
+      "color": "#00FF98",
+      "abbr": "僧",
+      "armorTypeName": "皮甲"
+    },
+    {
+      "id": 11,
+      "key": "druid",
+      "name": "德鲁伊",
+      "itemCount": 191,
+      "tierItemCount": 9,
+      "craftedItemCount": 51,
+      "color": "#FF7C0A",
+      "abbr": "德",
+      "armorTypeName": "皮甲"
+    },
+    {
+      "id": 12,
+      "key": "demonhunter",
+      "name": "恶魔猎手",
+      "itemCount": 161,
+      "tierItemCount": 9,
+      "craftedItemCount": 40,
+      "color": "#A330C9",
+      "abbr": "猎",
+      "armorTypeName": "皮甲"
+    },
+    {
+      "id": 13,
+      "key": "evoker",
+      "name": "唤魔师",
+      "itemCount": 171,
+      "tierItemCount": 9,
+      "craftedItemCount": 51,
+      "color": "#33937F",
+      "abbr": "唤",
+      "armorTypeName": "锁甲"
+    }
+  ],
+  "craftedEquipment": {
+    "sourceAddonVersion": "1.3.2",
+    "exportedAt": "2026-06-24T09:23:47Z",
+    "uniqueItemCount": 98,
+    "accepted": 98,
+    "normalItemLevel": 285,
+    "specialItemLevel": 295,
+    "normalAccepted": 70,
+    "specialAccepted": 28
+  }
+}

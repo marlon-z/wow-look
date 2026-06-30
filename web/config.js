@@ -12,7 +12,7 @@ function localBaseFromPath(pathname) {
 
 const LOCAL_BASE = localBaseFromPath(location.pathname);
 
-export const DATA_VERSION = '4.3.x';
+export const DATA_VERSION = '4.4.x';
 export const DATA_DIR_NAME = `data-${DATA_VERSION}`;
 export const DATA_BASE = useRemoteCos ? `${REMOTE_COS_BASE}/${DATA_DIR_NAME}` : `${LOCAL_BASE}/${DATA_DIR_NAME}`;
 export const LOCALE_DATA_BASE = `${LOCAL_BASE}/locales`;
@@ -22,4 +22,5 @@ export const STORAGE_KEYS = {
   locale: 'wowlook_web_locale_v1',
   favorites: 'wowlook_favorites_v1',
   buildDraft: 'wowlook_build_draft_v1',
+  builds: 'wowlook_builds_v1',
 };

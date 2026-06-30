@@ -1,14 +1,15 @@
 <!doctype html>
-<html lang="en-US">
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#09080d">
-    <title>SeasonLoot — WoW Loot Table &amp; Gear Drops by Class</title>
-    <meta name="description" content="Free WoW loot table for Midnight Season 1. Filter gear drops by class, slot, stats &amp; source. Browse dungeon and raid loot, save favorites &amp; share your build. | SeasonLoot">
+    <title>魔兽世界装备查询 — 装备掉落、属性与职业筛选 | SeasonLoot</title>
+    <meta name="description" content="免费魔兽世界装备查询工具。按职业、专精、部位、副属性和来源筛选当前赛季装备，找到候选装备后可切换到配装模拟器继续组装。| SeasonLoot">
     <link rel="icon" href="./assets/public/logo.png">
     <link rel="canonical" href="https://seasonloot.com/">
-    <link rel="alternate" hreflang="en-US" href="https://seasonloot.com/">
+    <link rel="alternate" hreflang="zh-CN" href="https://seasonloot.com/">
+    <link rel="alternate" hreflang="en-US" href="https://seasonloot.com/en-us/">
     <link rel="alternate" hreflang="en-GB" href="https://seasonloot.com/en-gb/">
     <link rel="alternate" hreflang="de-DE" href="https://seasonloot.com/de/">
     <link rel="alternate" hreflang="fr-FR" href="https://seasonloot.com/fr/">
@@ -18,18 +19,17 @@
     <link rel="alternate" hreflang="it-IT" href="https://seasonloot.com/it/">
     <link rel="alternate" hreflang="ru-RU" href="https://seasonloot.com/ru/">
     <link rel="alternate" hreflang="ko-KR" href="https://seasonloot.com/ko/">
-    <link rel="alternate" hreflang="zh-CN" href="https://seasonloot.com/zh-cn/">
     <link rel="alternate" hreflang="zh-TW" href="https://seasonloot.com/zh-tw/">
     <link rel="alternate" hreflang="x-default" href="https://seasonloot.com/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="SeasonLoot — WoW Loot Table &amp; Gear Drops by Class">
-    <meta property="og:description" content="Free WoW loot table for Midnight Season 1. Filter gear drops by class, slot, stats &amp; source. Browse dungeon and raid loot, save favorites &amp; share your build.">
+    <meta property="og:title" content="魔兽世界装备查询 — 装备掉落、属性与职业筛选">
+    <meta property="og:description" content="免费魔兽世界装备查询工具。按职业、专精、部位、副属性和来源筛选当前赛季装备，找到候选装备后可切换到配装模拟器继续组装。">
     <meta property="og:image" content="https://seasonloot.com/assets/public/og-card.png">
     <meta property="og:url" content="https://seasonloot.com/">
     <meta property="og:site_name" content="SeasonLoot">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SeasonLoot — WoW Loot Table &amp; Gear Drops by Class">
-    <meta name="twitter:description" content="Free WoW loot table for Midnight Season 1. Filter gear drops by class, slot, stats &amp; source. Browse dungeon and raid loot, save favorites &amp; share your build.">
+    <meta name="twitter:title" content="魔兽世界装备查询 — 装备掉落、属性与职业筛选">
+    <meta name="twitter:description" content="免费魔兽世界装备查询工具。按职业、专精、部位、副属性和来源筛选当前赛季装备，找到候选装备后可切换到配装模拟器继续组装。">
     <meta name="twitter:image" content="https://seasonloot.com/assets/public/og-card.png">
     <script type="application/ld+json">
 {
@@ -37,7 +37,7 @@
   "@type": "WebApplication",
   "name": "SeasonLoot",
   "url": "https://seasonloot.com/",
-  "description": "Free WoW loot table for Midnight Season 1. Filter gear drops by class, slot, stats & source. Browse dungeon and raid loot, save favorites & share your build.",
+  "description": "免费魔兽世界装备查询工具。按职业、专精、部位、副属性和来源筛选当前赛季装备，找到候选装备后可切换到配装模拟器继续组装。",
   "applicationCategory": "GameApplication",
   "operatingSystem": "Web Browser",
   "offers": {
@@ -45,39 +45,52 @@
     "price": "0",
     "priceCurrency": "USD"
   },
-  "inLanguage": "en-US",
+  "inLanguage": "zh-CN",
   "featureList": [
-    "Spec",
-    "Slot",
-    "Stats",
-    "Source"
+    "专精",
+    "部位",
+    "副属性",
+    "来源"
   ]
 }
 </script>
-    <link rel="stylesheet" href="./styles.css?v=20260509-multilingual-seo">
+    <link rel="stylesheet" href="./styles.css?v=20260630-stat-colors">
   </head>
   <body>
-    <div id="app" data-locale="en-US"></div>
+    <div id="app" data-locale="zh-CN"></div>
     <noscript>
-      <h1>WoW Loot Table — Midnight Season 1</h1>
-<p>Browse and filter gear drops for all 13 classes. Find loot by equipment slot, secondary stats (crit, haste, mastery, versatility), and source (dungeon, raid, tier set). Save favorites and share your build — free, no addon required.</p>
-<h2>Spec</h2>
+      <h1>魔兽世界配装模拟器</h1>
+<p>SeasonLoot 是面向当前赛季的魔兽世界配装模拟器和装备查询工具。选择职业和专精后，可以按部位、副属性、地下城、团本、套装和制造业装备筛选，收藏候选装备并分享配装方案。</p>
+<h2>核心工具</h2>
 <ul>
-<li><a href="/warrior/">Warrior</a> (163)</li>
-<li><a href="/paladin/">Paladin</a> (180)</li>
-<li><a href="/hunter/">Hunter</a> (156)</li>
-<li><a href="/rogue/">Rogue</a> (148)</li>
-<li><a href="/priest/">Priest</a> (159)</li>
-<li><a href="/deathknight/">Death Knight</a> (157)</li>
-<li><a href="/shaman/">Shaman</a> (175)</li>
-<li><a href="/mage/">Mage</a> (152)</li>
-<li><a href="/warlock/">Warlock</a> (152)</li>
-<li><a href="/monk/">Monk</a> (185)</li>
-<li><a href="/druid/">Druid</a> (182)</li>
-<li><a href="/demonhunter/">Demon Hunter</a> (163)</li>
-<li><a href="/evoker/">Evoker</a> (162)</li>
+<li><a href="/build/">魔兽世界配装模拟器</a></li>
+<li><a href="/equipment/">魔兽世界装备查询</a></li>
 </ul>
+<h2>职业配装入口</h2>
+<ul>
+<li><a href="/warrior/">战士</a> (169)</li>
+<li><a href="/paladin/">圣骑士</a> (186)</li>
+<li><a href="/hunter/">猎人</a> (164)</li>
+<li><a href="/rogue/">盗贼</a> (146)</li>
+<li><a href="/priest/">牧师</a> (169)</li>
+<li><a href="/deathknight/">死亡骑士</a> (161)</li>
+<li><a href="/shaman/">萨满祭司</a> (185)</li>
+<li><a href="/mage/">法师</a> (162)</li>
+<li><a href="/warlock/">术士</a> (162)</li>
+<li><a href="/monk/">武僧</a> (194)</li>
+<li><a href="/druid/">德鲁伊</a> (191)</li>
+<li><a href="/demonhunter/">恶魔猎手</a> (161)</li>
+<li><a href="/evoker/">唤魔师</a> (171)</li>
+</ul>
+<h2>配装工具能力</h2>
+<ul>
+<li>装备查询：按职业、专精、部位、副属性和来源筛选装备。</li>
+<li>配装模拟：把候选装备加入收藏或本次配装清单，生成可分享链接。</li>
+<li>排行榜配装：WCL 预设、天赋代码、附魔和宝石展示会在后续阶段接入网页端。</li>
+</ul>
+<h2>常见问题</h2>
+<p>当前阶段先用中文版网页验收，中文页面通过后再恢复全语言 SEO 页面。</p>
     </noscript>
-    <script type="module" src="./app.js?v=20260509-multilingual-seo"></script>
+    <script type="module" src="./app.js?v=20260630-stat-colors"></script>
   </body>
 </html>

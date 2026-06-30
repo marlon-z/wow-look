@@ -1,5 +1,5 @@
-import { ASSET_BASE, DATA_BASE, LOCALE_DATA_BASE, STORAGE_KEYS } from './config.js?v=20260509-multilingual-seo';
-import { SUPPORTED_LOCALES, createI18n, getLocaleName, resolveLocale } from './i18n.js?v=20260509-multilingual-seo';
+import { ASSET_BASE, DATA_BASE, LOCALE_DATA_BASE, STORAGE_KEYS } from './config.js?v=20260630-stat-colors';
+import { SUPPORTED_LOCALES, createI18n, getLocaleName, resolveLocale } from './i18n.js?v=20260630-stat-colors';
 
 const CLASS_LIST = [
   { id: 1, key: 'warrior', name: '战士', shortName: '战士', armorType: 'plate', armorTypeName: '板甲', color: '#C69B6D', abbr: '战', assetCode: 'zs' },
@@ -17,6 +17,22 @@ const CLASS_LIST = [
   { id: 13, key: 'evoker', name: '唤魔师', shortName: '唤魔师', armorType: 'mail', armorTypeName: '锁甲', color: '#33937F', abbr: '唤', assetCode: 'hms' },
 ];
 
+const DEFAULT_BUILD_SPEC_IDS = {
+  warrior: 71,
+  paladin: 65,
+  hunter: 253,
+  rogue: 259,
+  priest: 256,
+  deathknight: 250,
+  shaman: 262,
+  mage: 62,
+  warlock: 265,
+  monk: 268,
+  druid: 102,
+  demonhunter: 577,
+  evoker: 1467,
+};
+
 const SLOT_ORDER = ['head', 'neck', 'shoulder', 'cloak', 'chest', 'wrist', 'hand', 'waist', 'legs', 'feet', 'finger', 'trinket', 'weapon'];
 const SLOT_OPTIONS = SLOT_ORDER.map((type) => ({ type }));
 const STAT_OPTIONS = ['crit', 'haste', 'mastery', 'versatility'];
@@ -24,10 +40,100 @@ const SOURCE_OPTIONS = ['all', 'dungeon', 'raid', 'tier'];
 const VIEW_MODES = ['slot', 'source'];
 const FAVORITE_SLOT_ORDER = ['头', '项', '肩', '披', '胸', '腕', '手', '腰', '腿', '脚', '戒指', '饰品', '武器'];
 const MAX_SHARED_FAVORITES = 20;
+const BUILD_SLOT_KEYS = ['head', 'neck', 'shoulder', 'cloak', 'chest', 'wrist', 'hand', 'waist', 'legs', 'feet', 'finger1', 'finger2', 'trinket1', 'trinket2', 'weapon', 'weapon2'];
+const BUILD_SLOT_META = [
+  { key: 'head', slot: 'head', label: '头' },
+  { key: 'neck', slot: 'neck', label: '项链' },
+  { key: 'shoulder', slot: 'shoulder', label: '肩' },
+  { key: 'cloak', slot: 'cloak', label: '披风' },
+  { key: 'chest', slot: 'chest', label: '胸' },
+  { key: 'shirt', slot: 'shirt', label: '衬衣', placeholder: true },
+  { key: 'tabard', slot: 'tabard', label: '战袍', placeholder: true },
+  { key: 'wrist', slot: 'wrist', label: '护腕' },
+  { key: 'hand', slot: 'hand', label: '手' },
+  { key: 'waist', slot: 'waist', label: '腰' },
+  { key: 'legs', slot: 'legs', label: '腿' },
+  { key: 'feet', slot: 'feet', label: '脚' },
+  { key: 'finger1', slot: 'finger', label: '戒指 1' },
+  { key: 'finger2', slot: 'finger', label: '戒指 2' },
+  { key: 'trinket1', slot: 'trinket', label: '饰品 1' },
+  { key: 'trinket2', slot: 'trinket', label: '饰品 2' },
+  { key: 'weapon', slot: 'weapon', label: '主手' },
+  { key: 'weapon2', slot: 'weapon', label: '副手' },
+];
+const BUILD_SLOT_LAYOUT = [
+  ['head', 'neck', 'shoulder', 'cloak', 'chest', 'shirt', 'tabard', 'wrist'],
+  ['hand', 'waist', 'legs', 'feet', 'finger1', 'finger2', 'trinket1', 'trinket2'],
+];
+const BUILD_WEAPON_LAYOUT = ['weapon', 'weapon2'];
+const STAT_PER_PERCENT = { crit: 46, critical: 46, haste: 44, mastery: 46, versatility: 54 };
+const DR_BRACKETS = [
+  { threshold: 0, penalty: 0 },
+  { threshold: 30, penalty: 0.10 },
+  { threshold: 40, penalty: 0.20 },
+  { threshold: 50, penalty: 0.30 },
+  { threshold: 60, penalty: 0.40 },
+  { threshold: 80, penalty: 0.50 },
+  { threshold: 200, penalty: 1.00 },
+];
+const LEVEL_90_BASE_PRIMARY = 620;
+const LEVEL_90_BASE_STAMINA = 4600;
+const MATCHING_ARMOR_MULTIPLIER = 1.05;
+const ARMOR_SPECIALIZATION_SLOTS = ['head', 'shoulder', 'chest', 'wrist', 'hand', 'waist', 'legs', 'feet'];
+const SPEC_CHARACTER_BASELINES = {
+  71: ['strength', 'plate'], 72: ['strength', 'plate'], 73: ['strength', 'plate', 'stamina'],
+  65: ['intellect', 'plate'], 66: ['strength', 'plate', 'stamina'], 70: ['strength', 'plate'],
+  253: ['agility', 'mail'], 254: ['agility', 'mail'], 255: ['agility', 'mail'],
+  259: ['agility', 'leather'], 260: ['agility', 'leather'], 261: ['agility', 'leather'],
+  256: ['intellect', 'cloth'], 257: ['intellect', 'cloth'], 258: ['intellect', 'cloth'],
+  250: ['strength', 'plate', 'stamina'], 251: ['strength', 'plate'], 252: ['strength', 'plate'],
+  262: ['intellect', 'mail'], 263: ['agility', 'mail'], 264: ['intellect', 'mail'],
+  62: ['intellect', 'cloth'], 63: ['intellect', 'cloth'], 64: ['intellect', 'cloth'],
+  265: ['intellect', 'cloth'], 266: ['intellect', 'cloth'], 267: ['intellect', 'cloth'],
+  268: ['agility', 'leather', 'stamina'], 269: ['agility', 'leather'], 270: ['intellect', 'leather'],
+  102: ['intellect', 'leather'], 103: ['agility', 'leather'], 104: ['agility', 'leather', 'stamina'], 105: ['intellect', 'leather'],
+  577: ['agility', 'leather'], 581: ['agility', 'leather', 'stamina'], 1480: ['intellect', 'leather'],
+  1467: ['intellect', 'mail'], 1468: ['intellect', 'mail'], 1473: ['intellect', 'mail'],
+};
+const PRIMARY_STAT_NAMES = { strength: '力量', agility: '敏捷', intellect: '智力' };
+const CRITICAL_STRIKES_PASSIVE_SPECS = new Set([577, 581, 103, 104, 253, 254, 255, 268, 269, 259, 260, 261, 263]);
+const BASE_MASTERY_POINTS = 8;
+const MASTERY_COEFFICIENTS = {
+  71: [1.1, '武器伤害'], 72: [1.4, '攻击伤害'], 73: [1.5, '格挡几率'],
+  65: [1.5, '治疗量'], 66: [1.0, '伤害减免/攻击强度'], 70: [1.35, '神圣伤害'],
+  253: [1.9, '宠物伤害'], 254: [1.4, '远程伤害'], 255: [0.85, '伤害/治疗'],
+  259: [1.7, '中毒/流血伤害'], 260: [0.131, '触发几率'], 261: [2.45, '终结技伤害'],
+  256: [1.35, '救赎量'], 257: [0.908437, '额外治疗'], 258: [0.5, '暗影伤害'],
+  250: [2.0, '护盾量'], 251: [2.0, '冰霜伤害'], 252: [1.8, '暗影伤害'],
+  262: [1.875, '过载几率'], 263: [2.0, '元素伤害'], 264: [3.0, '近距治疗量'],
+  62: [1.32, '法力上限/伤害'], 63: [0.483, '点燃伤害'], 64: [1.6, '冰霜伤害'],
+  265: [2.5, 'DoT伤害'], 266: [1.45, '恶魔伤害'], 267: [2.0, '混沌伤害'],
+  268: [0.924, '闪避几率'], 269: [2.32875, '非重复技能伤害'], 270: [13.86, '治疗量'],
+  102: [0.75, '奥术/自然伤害'], 103: [2.0, '终结技伤害/流血'], 104: [0.7, '生命值/治疗'], 105: [1.14, '治疗量'],
+  577: [2.25, '混沌伤害'], 581: [2.25, '攻击强度/减伤'], 1480: [1.2, '伤害'],
+  1467: [1.5, '法术伤害'], 1468: [1.8, '治疗量'], 1473: [0.272, '赋能效果'],
+};
+const WEAPON_KIND = { TWO_HAND: 'two_hand', ONE_HAND: 'one_hand', MAIN_HAND: 'main_hand', OFF_HAND: 'off_hand', SHIELD: 'shield', HOLDABLE: 'holdable' };
+const SPEC_WEAPON_LAYOUTS = {
+  71: [['two_hand', null]], 72: [['two_hand', 'two_hand']], 73: [['one_hand', 'shield']],
+  65: [['one_hand', 'shield']], 66: [['one_hand', 'shield']], 70: [['two_hand', null]],
+  253: [['two_hand', null]], 254: [['two_hand', null]], 255: [['two_hand', null], ['one_hand', 'one_hand']],
+  259: [['one_hand', 'one_hand']], 260: [['one_hand', 'one_hand']], 261: [['one_hand', 'one_hand']],
+  256: [['two_hand', null], ['one_hand', 'holdable']], 257: [['two_hand', null], ['one_hand', 'holdable']], 258: [['two_hand', null], ['one_hand', 'holdable']],
+  250: [['two_hand', null]], 251: [['two_hand', null], ['one_hand', 'one_hand']], 252: [['two_hand', null]],
+  262: [['two_hand', null], ['one_hand', 'shield']], 263: [['one_hand', 'one_hand']], 264: [['two_hand', null], ['one_hand', 'shield']],
+  62: [['two_hand', null], ['one_hand', 'holdable']], 63: [['two_hand', null], ['one_hand', 'holdable']], 64: [['two_hand', null], ['one_hand', 'holdable']],
+  265: [['two_hand', null], ['one_hand', 'holdable']], 266: [['two_hand', null], ['one_hand', 'holdable']], 267: [['two_hand', null], ['one_hand', 'holdable']],
+  268: [['two_hand', null], ['one_hand', 'one_hand']], 269: [['two_hand', null], ['one_hand', 'one_hand']], 270: [['two_hand', null], ['one_hand', 'holdable']],
+  102: [['two_hand', null], ['one_hand', 'holdable']], 103: [['two_hand', null]], 104: [['two_hand', null]], 105: [['two_hand', null], ['one_hand', 'holdable']],
+  577: [['one_hand', 'one_hand']], 581: [['one_hand', 'one_hand']], 1480: [['one_hand', 'one_hand']],
+  1467: [['two_hand', null], ['one_hand', 'holdable']], 1468: [['two_hand', null], ['one_hand', 'holdable']], 1473: [['two_hand', null], ['one_hand', 'holdable']],
+};
 const DEFAULT_SITE_NAME = 'SeasonLoot';
-const DEFAULT_LOCALE = 'en-US';
+const DEFAULT_LOCALE = 'zh-CN';
 const LOCALE_ROUTES = {
-  'en-US': '',
+  'zh-CN': '',
+  'en-US': 'en-us',
   'en-GB': 'en-gb',
   'de-DE': 'de',
   'fr-FR': 'fr',
@@ -37,10 +143,12 @@ const LOCALE_ROUTES = {
   'it-IT': 'it',
   'ru-RU': 'ru',
   'ko-KR': 'ko',
-  'zh-CN': 'zh-cn',
   'zh-TW': 'zh-tw',
 };
-const ROUTE_LOCALES = Object.fromEntries(Object.entries(LOCALE_ROUTES).map(([locale, slug]) => [slug, locale]));
+const ROUTE_LOCALES = {
+  ...Object.fromEntries(Object.entries(LOCALE_ROUTES).map(([locale, slug]) => [slug, locale])),
+  'zh-cn': 'zh-CN',
+};
 const SEO_ORIGIN = (() => {
   const canonicalHref = document.querySelector('link[rel="canonical"]')?.href;
   try {
@@ -133,6 +241,7 @@ const NAME_PHRASES = [
 
 const state = {
   locale: resolveLocale(new URLSearchParams(window.location.search).get('lang') || document.getElementById('app')?.dataset.locale || document.documentElement.lang || localStorage.getItem(STORAGE_KEYS.locale) || navigator.language),
+  view: 'home',
   overview: null,
   classKey: '',
   classData: null,
@@ -156,6 +265,16 @@ const state = {
   buildRequestMode: false,
   showBuildRequestIntro: false,
   favoritePickerList: [],
+  buildPhase: 'select',
+  buildClassKey: '',
+  buildClassData: null,
+  buildAllItems: [],
+  buildItemMap: {},
+  buildClassCache: {},
+  buildId: '',
+  buildList: [],
+  buildSlotPicker: null,
+  craftingPicker: null,
   filters: {
     keyword: '',
     selectedSpec: null,
@@ -206,6 +325,46 @@ function setLinkHref(selector, href) {
 }
 
 function getSeoModel() {
+  if (state.view === 'build') {
+    const build = currentBuild();
+    const classKey = build?.classKey || state.buildClassKey || '';
+    const classMeta = getClassMeta(classKey);
+    const className = classMeta ? classLabel(classKey, classMeta.name || '') : '';
+    const spec = build ? { id: build.specId, name: build.specName } : null;
+    const routePath = build
+      ? buildSpecRouteHref(build.classKey, build.specId, state.locale)
+      : (classKey ? buildClassRouteHref(classKey, state.locale) : buildRouteHref(state.locale));
+    const title = state.locale === 'zh-CN'
+      ? `${className ? `${className}${spec?.name ? spec.name : ''}` : '魔兽世界'}配装模拟器 — 装备槽与属性统计 | SeasonLoot`
+      : `WoW Gear Planner | ${DEFAULT_SITE_NAME}`;
+    const description = state.locale === 'zh-CN'
+      ? `${className ? `${className}${spec?.name ? ` ${spec.name}` : ''}` : '魔兽世界'}配装模拟页面。按装备槽组装装备，查看装等、副属性百分比、主属性和耐力统计，并保存或分享方案。| SeasonLoot`
+      : 'Create a WoW gear build by class and spec, fill equipment slots, review stats, save and share builds. | SeasonLoot';
+    return {
+      heading: stripSeoBrand(title),
+      title,
+      description,
+      canonicalUrl: `${SEO_ORIGIN}${routePath}`,
+      socialUrl: `${SEO_ORIGIN}${routePath}`,
+      socialTitle: stripSeoBrand(title),
+      socialDescription: stripSeoBrand(description),
+    };
+  }
+  if (state.view === 'equipment') {
+    const title = state.locale === 'zh-CN' ? '魔兽世界装备查询 — 装备掉落、属性与职业筛选 | SeasonLoot' : `WoW Gear Search | ${DEFAULT_SITE_NAME}`;
+    const description = state.locale === 'zh-CN'
+      ? '查询魔兽世界当前赛季装备来源、职业可用装备、装等、副属性、部位、地下城、团本和套装，并可切换到配装模拟器继续组装方案。| SeasonLoot'
+      : 'Search current season WoW gear by class, slot, source and stats, then switch to the gear planner when ready. | SeasonLoot';
+    return {
+      heading: stripSeoBrand(title),
+      title,
+      description,
+      canonicalUrl: `${SEO_ORIGIN}${equipmentRouteHref(state.locale)}`,
+      socialUrl: `${SEO_ORIGIN}${equipmentRouteHref(state.locale)}`,
+      socialTitle: stripSeoBrand(title),
+      socialDescription: stripSeoBrand(description),
+    };
+  }
   if (state.classKey) {
     const name = classLabel(state.classKey, state.classData?.class?.name || state.classKey);
     const title = t('seoClassTitle', { className: name });
@@ -403,6 +562,382 @@ function readJson(key, fallback) {
 
 function writeJson(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
+}
+
+function emptyBuildSlots() {
+  return Object.fromEntries(BUILD_SLOT_KEYS.map((key) => [key, null]));
+}
+
+function normalizeBuilds(value) {
+  if (!Array.isArray(value)) return [];
+  return value.filter((build) => build?.id && build.classKey).map((build) => ({
+    ...build,
+    slots: { ...emptyBuildSlots(), ...(build.slots || {}) },
+    summary: summarizeSlots({ ...emptyBuildSlots(), ...(build.slots || {}) }, build.specId),
+  }));
+}
+
+function getBuilds() {
+  return normalizeBuilds(readJson(STORAGE_KEYS.builds, []));
+}
+
+function saveBuilds(builds) {
+  const normalized = normalizeBuilds(builds);
+  writeJson(STORAGE_KEYS.builds, normalized);
+  return normalized;
+}
+
+function getBuild(buildId) {
+  return getBuilds().find((build) => build.id === buildId) || null;
+}
+
+function setBuildListState() {
+  state.buildList = getBuilds().filter((build) => !build.draft);
+}
+
+function createBuild(classKey, className, specId, specName, draft = true) {
+  const now = Date.now();
+  const sameSpecCount = getBuilds().filter((build) => build.classKey === classKey && build.specId === specId && !build.draft).length;
+  const build = {
+    id: `build_${now}`,
+    name: `${className} · ${specName}${sameSpecCount ? ` ${sameSpecCount + 1}` : ''}`,
+    classKey,
+    className,
+    specId,
+    specName,
+    slots: emptyBuildSlots(),
+    summary: summarizeSlots(emptyBuildSlots(), specId),
+    draft: Boolean(draft),
+    createdAt: now,
+    updatedAt: now,
+  };
+  saveBuilds([build, ...getBuilds().filter((item) => !item.draft)]);
+  setBuildListState();
+  return build;
+}
+
+function updateBuild(buildId, updates = {}) {
+  const builds = getBuilds();
+  const index = builds.findIndex((build) => build.id === buildId);
+  if (index === -1) return null;
+  const next = {
+    ...builds[index],
+    ...updates,
+    updatedAt: Date.now(),
+  };
+  if (updates.slots || updates.specId) {
+    next.slots = { ...emptyBuildSlots(), ...(next.slots || {}) };
+    next.summary = summarizeSlots(next.slots, next.specId);
+  }
+  builds[index] = next;
+  saveBuilds(builds);
+  setBuildListState();
+  return next;
+}
+
+function deleteBuild(buildId) {
+  saveBuilds(getBuilds().filter((build) => build.id !== buildId));
+  setBuildListState();
+}
+
+function buildRouteHref(locale = state.locale) {
+  const resolvedLocale = resolveLocale(locale || DEFAULT_LOCALE);
+  const localeSlug = LOCALE_ROUTES[resolvedLocale] || '';
+  const segments = [];
+  if (localeSlug) segments.push(localeSlug);
+  segments.push('build');
+  const url = new URL(`/${segments.join('/')}/`, window.location.origin);
+  if (new URLSearchParams(window.location.search).get('remote') === '1') url.searchParams.set('remote', '1');
+  return `${url.pathname}${url.search ? `?${url.searchParams.toString()}` : ''}`;
+}
+
+function buildClassRouteHref(classKey, locale = state.locale) {
+  const url = new URL(buildRouteHref(locale), window.location.origin);
+  if (classKey) {
+    const basePath = url.pathname.replace(/\/$/, '');
+    url.pathname = `${basePath}/${classKey}/`;
+  }
+  return `${url.pathname}${url.search ? `?${url.searchParams.toString()}` : ''}`;
+}
+
+function buildSpecRouteHref(classKey, specId, locale = state.locale) {
+  const url = new URL(buildClassRouteHref(classKey, locale), window.location.origin);
+  if (classKey && specId) {
+    const basePath = url.pathname.replace(/\/$/, '');
+    url.pathname = `${basePath}/${specId}/`;
+  }
+  return `${url.pathname}${url.search ? `?${url.searchParams.toString()}` : ''}`;
+}
+
+function defaultBuildSpecIdForClass(classKey, classData = null) {
+  return Number(classData?.specs?.[0]?.id || DEFAULT_BUILD_SPEC_IDS[classKey] || 0) || null;
+}
+
+function buildDefaultSpecRouteHref(classKey, locale = state.locale, classData = null) {
+  const specId = defaultBuildSpecIdForClass(classKey, classData);
+  return specId ? buildSpecRouteHref(classKey, specId, locale) : buildClassRouteHref(classKey, locale);
+}
+
+function equipmentRouteHref(locale = state.locale) {
+  const resolvedLocale = resolveLocale(locale || DEFAULT_LOCALE);
+  const localeSlug = LOCALE_ROUTES[resolvedLocale] || '';
+  const segments = [];
+  if (localeSlug) segments.push(localeSlug);
+  segments.push('equipment');
+  const url = new URL(`/${segments.join('/')}/`, window.location.origin);
+  if (new URLSearchParams(window.location.search).get('remote') === '1') url.searchParams.set('remote', '1');
+  return `${url.pathname}${url.search ? `?${url.searchParams.toString()}` : ''}`;
+}
+
+function slotKeyForItem(item) {
+  if (!item?.slot) return null;
+  if (item.slot === 'finger') return 'finger1';
+  if (item.slot === 'trinket') return 'trinket1';
+  if (item.slot === 'back') return 'cloak';
+  return BUILD_SLOT_KEYS.includes(item.slot) ? item.slot : null;
+}
+
+function getAvailableSlotKey(build, item) {
+  const baseSlot = slotKeyForItem(item);
+  if (!baseSlot) return null;
+  if (baseSlot === 'finger1') return !build.slots.finger1 ? 'finger1' : (!build.slots.finger2 ? 'finger2' : 'finger1');
+  if (baseSlot === 'trinket1') return !build.slots.trinket1 ? 'trinket1' : (!build.slots.trinket2 ? 'trinket2' : 'trinket1');
+  return baseSlot;
+}
+
+function buildItemSnapshot(item) {
+  if (!item) return null;
+  return {
+    itemId: item.id || item.itemId,
+    id: item.id || item.itemId,
+    name: item.name,
+    ilvl: item.ilvl || 0,
+    slot: item.slot,
+    slotName: item.slotName || '',
+    slotBadgeName: item.slotBadgeName || item.slotName || '',
+    armorType: item.armorType || '',
+    armorTypeName: item.armorTypeName || '',
+    itemSubType: item.itemSubType || '',
+    equipLoc: item.equipLoc || item.maxVersion?.equipLoc || item.dropVersion?.equipLoc || '',
+    iconAsset: item.iconAsset || '',
+    iconText: item.iconText || iconTextLabel(item),
+    statLine: item.statLine || buildStatLine(item),
+    specs: item.specs || [],
+    tooltipFlags: item.tooltipFlags || null,
+    stats: item.stats ? JSON.parse(JSON.stringify(item.stats)) : null,
+    source: item.source || null,
+    sourceType: item.sourceType || item.instanceType || '',
+    instanceName: item.instanceName || '',
+    encounterName: item.encounterName || '',
+    crafting: item.crafting || null,
+    selectedCraftingStats: item.selectedCraftingStats || null,
+  };
+}
+
+function normalizeArmorTypeForBuild(item) {
+  const aliases = { cloth: 'cloth', leather: 'leather', mail: 'mail', plate: 'plate', '布甲': 'cloth', '皮甲': 'leather', '锁甲': 'mail', '鎖甲': 'mail', '板甲': 'plate' };
+  return aliases[String(item?.armorType || '').toLowerCase()] || aliases[item?.armorType] || aliases[item?.itemSubType] || aliases[item?.armorTypeName] || '';
+}
+
+function getSpecBaseline(specId) {
+  const tuple = SPEC_CHARACTER_BASELINES[Number(specId)];
+  if (!tuple) return null;
+  return {
+    primaryType: tuple[0],
+    primaryName: PRIMARY_STAT_NAMES[tuple[0]],
+    armorType: tuple[1],
+    armorBonusTarget: tuple[2] || 'primary',
+  };
+}
+
+function calcStatPercent(rating, statType) {
+  const perPercent = STAT_PER_PERCENT[statType];
+  if (!perPercent || !rating) return 0;
+  let remaining = rating / perPercent;
+  let effectivePercent = 0;
+  for (let i = 0; i < DR_BRACKETS.length - 1; i += 1) {
+    if (remaining <= 0) break;
+    const used = Math.min(remaining, DR_BRACKETS[i + 1].threshold - DR_BRACKETS[i].threshold);
+    effectivePercent += used * (1 - DR_BRACKETS[i].penalty);
+    remaining -= used;
+  }
+  return Math.round(effectivePercent * 100) / 100;
+}
+
+function formatPercent(value) {
+  return (Math.round((Number(value) || 0) * 100) / 100).toFixed(2);
+}
+
+function getBaseCritPercent(specId) {
+  return 5 + (CRITICAL_STRIKES_PASSIVE_SPECS.has(Number(specId)) ? 5 : 0);
+}
+
+function calcMasteryPercent(masteryRating, specId) {
+  const config = MASTERY_COEFFICIENTS[Number(specId)];
+  if (!config) return { percent: 0, percentText: '0.00', label: '' };
+  const gearPoints = calcStatPercent(masteryRating, 'mastery');
+  const percent = Math.round((BASE_MASTERY_POINTS + gearPoints) * config[0] * 100) / 100;
+  return { percent, percentText: formatPercent(percent), label: `${percent.toFixed(1)}% ${config[1]}`, effect: config[1] };
+}
+
+function getWeaponKind(item) {
+  const equipLoc = item?.equipLoc || item?.maxVersion?.equipLoc || item?.dropVersion?.equipLoc || '';
+  if (equipLoc === 'INVTYPE_2HWEAPON' || equipLoc === 'INVTYPE_RANGED' || equipLoc === 'INVTYPE_RANGEDRIGHT') return WEAPON_KIND.TWO_HAND;
+  if (equipLoc === 'INVTYPE_SHIELD') return WEAPON_KIND.SHIELD;
+  if (equipLoc === 'INVTYPE_HOLDABLE') return WEAPON_KIND.HOLDABLE;
+  if (equipLoc === 'INVTYPE_WEAPONMAINHAND') return WEAPON_KIND.MAIN_HAND;
+  if (equipLoc === 'INVTYPE_WEAPONOFFHAND') return WEAPON_KIND.OFF_HAND;
+  if (equipLoc === 'INVTYPE_WEAPON') return WEAPON_KIND.ONE_HAND;
+  const subtype = item?.itemSubType || '';
+  if (/双手|法杖|长柄武器|弓|弩|枪械/.test(subtype)) return WEAPON_KIND.TWO_HAND;
+  if (subtype === '盾牌') return WEAPON_KIND.SHIELD;
+  if (subtype === '其它') return WEAPON_KIND.HOLDABLE;
+  return WEAPON_KIND.ONE_HAND;
+}
+
+function weaponKindMatches(actual, expected, slotIndex) {
+  if (actual === WEAPON_KIND.MAIN_HAND) return slotIndex === 0 && expected === WEAPON_KIND.ONE_HAND;
+  if (actual === WEAPON_KIND.OFF_HAND) return slotIndex === 1 && expected === WEAPON_KIND.ONE_HAND;
+  return actual === expected;
+}
+
+function canItemUseWeaponSlot(specId, slotKey, item) {
+  const layouts = SPEC_WEAPON_LAYOUTS[Number(specId)] || [];
+  const index = slotKey === 'weapon2' ? 1 : 0;
+  const kind = getWeaponKind(item);
+  return layouts.some((layout) => layout[index] !== null && weaponKindMatches(kind, layout[index], index));
+}
+
+function isCompleteWeaponLayoutValid(specId, mainHand, offHand) {
+  if (!mainHand && !offHand) return true;
+  const layouts = SPEC_WEAPON_LAYOUTS[Number(specId)] || [];
+  const mainKind = mainHand ? getWeaponKind(mainHand) : null;
+  const offKind = offHand ? getWeaponKind(offHand) : null;
+  return layouts.some((layout) => {
+    if (mainKind && !weaponKindMatches(mainKind, layout[0], 0)) return false;
+    if (offKind && (layout[1] === null || !weaponKindMatches(offKind, layout[1], 1))) return false;
+    return true;
+  });
+}
+
+function mainHandOccupiesBoth(specId, item) {
+  if (!item || getWeaponKind(item) !== WEAPON_KIND.TWO_HAND) return false;
+  const layouts = SPEC_WEAPON_LAYOUTS[Number(specId)] || [];
+  return layouts.some((layout) => layout[0] === WEAPON_KIND.TWO_HAND && layout[1] === null)
+    && !layouts.some((layout) => layout[0] === WEAPON_KIND.TWO_HAND && layout[1] === WEAPON_KIND.TWO_HAND);
+}
+
+function itemSupportsSpec(item, specId) {
+  return !item || !Array.isArray(item.specs) || !item.specs.length || item.specs.includes(Number(specId));
+}
+
+function applyWeaponSelection(slots, specId, slotKey, item) {
+  if (!canItemUseWeaponSlot(specId, slotKey, item) || !itemSupportsSpec(item, specId)) {
+    return { ok: false, message: slotKey === 'weapon2' ? '该装备不能放入副手' : '该装备不能放入主手' };
+  }
+  const next = { ...slots, [slotKey]: item };
+  let clearedOffHand = false;
+  if (slotKey === 'weapon' && !isCompleteWeaponLayoutValid(specId, next.weapon, next.weapon2)) {
+    next.weapon2 = null;
+    clearedOffHand = true;
+  }
+  if (!isCompleteWeaponLayoutValid(specId, next.weapon, next.weapon2)) return { ok: false, message: '这件装备与当前主手组合不兼容' };
+  return { ok: true, slots: next, clearedOffHand };
+}
+
+function getRandomAttributeSlots(item) {
+  return (item?.crafting?.randomAttributeSlots || [])
+    .filter((slot) => slot && Number(slot.value) > 0)
+    .sort((a, b) => (Number(a.index) || 0) - (Number(b.index) || 0));
+}
+
+function getRandomAttributeCount(item) {
+  return Math.max(Number(item?.crafting?.randomAttributeCount) || 0, getRandomAttributeSlots(item).length);
+}
+
+function requiresCraftingStatSelection(item) {
+  return item && item.sourceType === 'crafted' && getRandomAttributeCount(item) > 0 && !(item.selectedCraftingStats?.length);
+}
+
+function buildCraftedItemWithSelectedStats(item, selectedTypes) {
+  const slots = getRandomAttributeSlots(item);
+  const uniqueTypes = [...new Set(selectedTypes || [])];
+  if (!item || !slots.length || uniqueTypes.length !== slots.length) return null;
+  const stats = item.stats ? JSON.parse(JSON.stringify(item.stats)) : { primaryStats: [], stamina: null, secondary: [] };
+  const selectedSecondary = slots.map((slot, index) => ({
+    type: uniqueTypes[index],
+    name: t(`stats.${uniqueTypes[index]}`),
+    value: Number(slot.value) || 0,
+    craftedRandom: true,
+    randomAttributeIndex: Number(slot.index) || index + 1,
+  }));
+  const secondary = [...(stats.secondary || []), ...selectedSecondary];
+  return {
+    ...item,
+    stats: { ...stats, secondary },
+    selectedCraftingStats: selectedSecondary,
+    statLine: secondary.map((stat) => `${statNameLabel(stat)}${stat.value}`).join(' / '),
+  };
+}
+
+function summarizeSlots(slots, specId) {
+  const baseline = getSpecBaseline(specId);
+  const primary = {};
+  let stamina = baseline ? LEVEL_90_BASE_STAMINA : 0;
+  const secondary = { crit: 0, haste: 0, mastery: 0, versatility: 0 };
+  let totalIlvl = 0;
+  let filledSlots = 0;
+
+  if (baseline) primary[baseline.primaryType] = { type: baseline.primaryType, name: baseline.primaryName, value: LEVEL_90_BASE_PRIMARY };
+  BUILD_SLOT_KEYS.forEach((key) => {
+    const item = slots[key];
+    if (!item) return;
+    filledSlots += 1;
+    totalIlvl += item.ilvl || 0;
+    const stats = item.stats;
+    if (!stats) return;
+    const staminaVal = typeof stats.stamina === 'object' ? stats.stamina?.value : stats.stamina;
+    stamina += staminaVal || 0;
+    (stats.primaryStats || []).forEach((stat) => {
+      if (baseline && stat.type !== baseline.primaryType) return;
+      if (!primary[stat.type]) primary[stat.type] = { type: stat.type, name: statNameLabel(stat), value: 0 };
+      primary[stat.type].value += stat.value || 0;
+    });
+    (stats.secondary || []).forEach((stat) => {
+      const type = stat.type === 'critical' ? 'crit' : stat.type;
+      if (secondary[type] !== undefined) secondary[type] += stat.value || 0;
+    });
+  });
+
+  const armorSpecializationActive = Boolean(baseline) && ARMOR_SPECIALIZATION_SLOTS.every((slotKey) => {
+    const item = slots[slotKey];
+    return item && normalizeArmorTypeForBuild(item) === baseline.armorType;
+  });
+  if (armorSpecializationActive && baseline) {
+    if (baseline.armorBonusTarget === 'stamina') stamina = Math.floor(stamina * MATCHING_ARMOR_MULTIPLIER);
+    else primary[baseline.primaryType].value = Math.floor(primary[baseline.primaryType].value * MATCHING_ARMOR_MULTIPLIER);
+  }
+
+  const twoHandOccupiesBoth = slots.weapon && mainHandOccupiesBoth(specId, slots.weapon);
+  if (twoHandOccupiesBoth) totalIlvl += slots.weapon.ilvl || 0;
+  const occupiedSlots = filledSlots + (twoHandOccupiesBoth ? 1 : 0);
+  const mastery = calcMasteryPercent(secondary.mastery, specId);
+  return {
+    avgIlvl: filledSlots ? Math.round(totalIlvl / 16) : 0,
+    filledSlots,
+    occupiedSlots,
+    totalSlots: BUILD_SLOT_KEYS.length,
+    primaryStats: Object.values(primary),
+    stamina,
+    armorSpecializationActive,
+    secondaryTotal: secondary.crit + secondary.haste + secondary.mastery + secondary.versatility,
+    secondary: {
+      crit: { rating: secondary.crit, percent: calcStatPercent(secondary.crit, 'crit') + getBaseCritPercent(specId), percentText: formatPercent(calcStatPercent(secondary.crit, 'crit') + getBaseCritPercent(specId)) },
+      haste: { rating: secondary.haste, percent: calcStatPercent(secondary.haste, 'haste'), percentText: formatPercent(calcStatPercent(secondary.haste, 'haste')) },
+      mastery: { rating: secondary.mastery, ...mastery },
+      versatility: { rating: secondary.versatility, percent: calcStatPercent(secondary.versatility, 'versatility'), percentText: formatPercent(calcStatPercent(secondary.versatility, 'versatility')) },
+    },
+  };
 }
 
 function assetUrl(path) {
@@ -946,16 +1481,150 @@ function parseRoute() {
   const appEl = document.getElementById('app');
   const pathSegments = window.location.pathname.split('/').filter(Boolean);
   const firstSegment = pathSegments[0]?.toLowerCase() || '';
-  const pathClass = ROUTE_LOCALES[firstSegment] ? pathSegments[1] : pathSegments[0];
+  const localized = Boolean(ROUTE_LOCALES[firstSegment]);
+  const contentSegment = localized ? pathSegments[1] : pathSegments[0];
+  const buildClassSegment = contentSegment === 'build' ? (localized ? pathSegments[2] : pathSegments[1]) : '';
+  const buildSpecSegment = contentSegment === 'build' ? (localized ? pathSegments[3] : pathSegments[2]) : '';
+  const isToolLanding = contentSegment === 'build' || contentSegment === 'equipment';
+  const pathClass = isToolLanding ? '' : contentSegment;
   return {
-    classKey: hash.get('class') || query.get('classKey') || (appEl && appEl.dataset.class) || pathClass || '',
+    view: contentSegment === 'build' ? 'build' : (contentSegment === 'equipment' ? 'equipment' : 'class'),
+    classKey: hash.get('class') || query.get('classKey') || buildClassSegment || (appEl && appEl.dataset.class) || pathClass || '',
+    buildSpecId: Number(query.get('specId') || hash.get('specId') || buildSpecSegment || 0) || null,
+    buildId: query.get('buildId') || hash.get('buildId') || '',
+    buildShare: query.get('buildShare') || hash.get('buildShare') || '',
     shareFav: query.get('shareFav') || hash.get('shareFav') || '',
     requestBuild: query.get('requestBuild') === '1' || hash.get('requestBuild') === '1',
   };
 }
 
+function encodeBuildShare(build) {
+  if (!build) return '';
+  const slots = BUILD_SLOT_KEYS.map((slotKey) => {
+    const item = build.slots?.[slotKey];
+    if (!item?.itemId) return '';
+    const crafted = (item.selectedCraftingStats || []).map((stat) => stat.type).join('-');
+    return `${slotKey}.${item.itemId}${crafted ? `~${crafted}` : ''}`;
+  }).filter(Boolean).join(',');
+  return `${build.classKey}:${build.specId}:${encodeURIComponent(build.name)}:${slots}`;
+}
+
+function decodeBuildShare(payload) {
+  if (!payload) return null;
+  let decoded = payload;
+  try { decoded = decodeURIComponent(payload); } catch {}
+  const [classKey, specIdText, nameText, slotsText = ''] = decoded.split(':');
+  const specId = Number(specIdText);
+  if (!classKey || !specId) return null;
+  const slots = {};
+  slotsText.split(',').forEach((entry) => {
+    const [slotKey, itemPart] = entry.split('.');
+    if (!slotKey || !itemPart) return;
+    const [itemId, craftedText = ''] = itemPart.split('~');
+    slots[slotKey] = { itemId, craftedTypes: craftedText ? craftedText.split('-').filter(Boolean) : [] };
+  });
+  return { classKey, specId, name: nameText ? decodeURIComponent(nameText) : '', slots };
+}
+
+async function restoreSharedBuild(payload) {
+  const data = decodeBuildShare(payload);
+  if (!data) return false;
+  const classData = await loadBuildClass(data.classKey);
+  const classMeta = getClassMeta(data.classKey);
+  const spec = (classData?.specs || []).find((item) => item.id === data.specId);
+  const build = createBuild(data.classKey, classLabel(data.classKey, classMeta?.name || ''), data.specId, spec ? specLabel(spec) : String(data.specId), true);
+  const slots = emptyBuildSlots();
+  Object.entries(data.slots).forEach(([slotKey, slot]) => {
+    const sourceItem = state.buildItemMap[slot.itemId];
+    if (!sourceItem) return;
+    const item = slot.craftedTypes.length ? buildCraftedItemWithSelectedStats(sourceItem, slot.craftedTypes) || sourceItem : sourceItem;
+    slots[slotKey] = buildItemSnapshot(item);
+  });
+  const updated = updateBuild(build.id, { name: data.name || build.name, slots, draft: true });
+  state.buildId = updated?.id || build.id;
+  state.buildClassKey = data.classKey;
+  state.buildPhase = 'build';
+  return true;
+}
+
+async function openBuildPage(buildId = '', buildShare = '', initialClassKey = '', initialSpecId = null) {
+  state.view = 'build';
+  state.classKey = '';
+  state.classData = null;
+  state.allItems = [];
+  state.itemMap = {};
+  state.overlay = '';
+  state.selectedItem = null;
+  setBuildListState();
+  if (buildShare) {
+    const restored = await restoreSharedBuild(buildShare);
+    if (restored) {
+      render();
+      return;
+    }
+  }
+  if (buildId) {
+    const build = getBuild(buildId);
+    if (build) {
+      state.buildId = build.id;
+      state.buildClassKey = build.classKey;
+      state.buildPhase = 'build';
+      await loadBuildClass(build.classKey);
+    }
+  } else if (initialClassKey && initialSpecId) {
+    const classMeta = getClassMeta(initialClassKey);
+    const classData = classMeta ? await loadBuildClass(initialClassKey) : null;
+    const spec = (classData?.specs || []).find((item) => item.id === Number(initialSpecId));
+    if (classMeta && spec) {
+      const build = createBuild(initialClassKey, classLabel(initialClassKey, classMeta.name || ''), spec.id, specLabel(spec), true);
+      state.buildId = build.id;
+      state.buildClassKey = initialClassKey;
+      state.buildPhase = 'build';
+    } else {
+      state.buildPhase = 'select';
+      state.buildId = '';
+      state.buildClassKey = '';
+    }
+  } else if (!state.buildId || !getBuild(state.buildId)) {
+    state.buildPhase = 'select';
+    state.buildId = '';
+    const presetClassKey = getClassMeta(initialClassKey) ? initialClassKey : '';
+    state.buildClassKey = presetClassKey;
+    if (presetClassKey) {
+      const classData = await loadBuildClass(presetClassKey);
+      const defaultSpecId = defaultBuildSpecIdForClass(presetClassKey, classData);
+      if (defaultSpecId) {
+        window.location.replace(buildSpecRouteHref(presetClassKey, defaultSpecId));
+        return;
+      }
+    } else {
+      state.buildClassData = null;
+      state.buildAllItems = [];
+      state.buildItemMap = {};
+    }
+  }
+  render();
+}
+
+async function loadBuildClass(classKey) {
+  const classMeta = getClassMeta(classKey);
+  if (!classMeta) return null;
+  if (state.buildClassCache[classKey]) {
+    state.buildClassData = state.buildClassCache[classKey];
+  } else {
+    state.buildClassData = await loadClassData(classKey);
+    state.buildClassCache[classKey] = state.buildClassData;
+  }
+  state.buildClassKey = classKey;
+  state.buildAllItems = enrichItems(flattenItems(state.buildClassData.instances || []), classKey, state.buildClassData.specs || []);
+  state.buildItemMap = {};
+  state.buildAllItems.forEach((item) => { state.buildItemMap[item.id] = item; });
+  return state.buildClassData;
+}
+
 async function openClass(classKey, options = {}) {
   const classMeta = getClassMeta(classKey) || getClassMeta('monk');
+  state.view = 'class';
   state.classKey = classMeta.key;
   state.classData = null;
   state.classLocale = null;
@@ -1042,7 +1711,7 @@ function render() {
   const routeClass = state.classKey;
   app.innerHTML = `
     <img class="global-site-bg" src="${assetUrl('/assets/public/bg.jpg')}" alt="">
-    ${routeClass ? renderEquipmentView() : renderHomeView()}
+    ${state.view === 'build' ? renderBuildView() : (routeClass ? renderEquipmentView() : renderHomeView())}
     ${renderOverlays()}
     ${state.toast ? `<div class="toast">${escapeHtml(state.toast)}</div>` : ''}
   `;
@@ -1059,10 +1728,34 @@ function renderLocaleSelector() {
   `;
 }
 
+function renderModeSwitch(activeMode = 'equipment', className = '', equipmentClassKey = state.classKey) {
+  if (state.locale !== 'zh-CN') return '';
+  const activeBuild = activeMode === 'build' ? currentBuild() : null;
+  const buildHref = activeBuild
+    ? buildSpecRouteHref(activeBuild.classKey, activeBuild.specId)
+    : (equipmentClassKey ? buildDefaultSpecRouteHref(equipmentClassKey) : buildRouteHref());
+  const equipmentHref = equipmentClassKey ? buildPageHref(equipmentClassKey) : equipmentRouteHref();
+  const context = className ? `${className}工具切换` : '魔兽世界工具切换';
+  return `
+    <nav class="mode-switch" aria-label="${escapeHtml(context)}">
+      <a class="${activeMode === 'build' ? 'active' : ''}" href="${buildHref}" ${activeMode === 'build' ? 'aria-current="page"' : ''}>
+        <span>配装模拟</span>
+        <small>组槽位 · 算属性</small>
+      </a>
+      <a class="${activeMode === 'equipment' ? 'active' : ''}" href="${equipmentHref}" ${activeMode === 'equipment' ? 'aria-current="page"' : ''}>
+        <span>装备查询</span>
+        <small>筛装备 · 看来源</small>
+      </a>
+    </nav>
+  `;
+}
+
 function renderHomeView() {
   const countMap = {};
   (state.overview?.classes || []).forEach((item) => { countMap[item.key] = item.itemCount; });
   const favorites = getFavorites();
+  const isEquipmentLanding = state.view !== 'build';
+  const classGridMode = 'equipment';
   return `
     <main class="page-shell index-page">
       <div class="top-corner left">
@@ -1072,17 +1765,18 @@ function renderHomeView() {
         ${renderLocaleSelector()}
         <button class="pill-button" data-action="favorites"><span class="icon star"></span>${escapeHtml(t('favorites'))}${favorites.length ? `<b>${favorites.length}</b>` : ''}</button>
       </div>
-      <section class="home-header">
-        <h1 class="brand-logo">SeasonLoot</h1>
-      </section>
-      <div class="prompt-wrap"><span>${escapeHtml(t('chooseClass'))}</span></div>
-      <section class="class-grid-wrap">
+      ${renderHomeToolHero(favorites.length, isEquipmentLanding)}
+      ${renderModeSwitch(isEquipmentLanding ? 'equipment' : 'build')}
+      <div class="prompt-wrap"><span>${escapeHtml(isEquipmentLanding && state.locale === 'zh-CN' ? '选择职业查询装备' : t('chooseClass'))}</span></div>
+      <section id="class-grid" class="class-grid-wrap">
         ${[CLASS_LIST.slice(0, 4), CLASS_LIST.slice(4, 9), CLASS_LIST.slice(9, 13)].map((row) => `
           <div class="class-row">
             ${row.map((item) => {
               const assets = getClassVisualAssets(item.key);
+              const classHref = classGridMode === 'build' ? buildDefaultSpecRouteHref(item.key) : buildPageHref(item.key);
+              const classAction = classGridMode === 'build' ? 'buildPage' : 'class';
               return `
-                <a class="class-cell" href="${buildPageHref(item.key)}" data-action="class" data-class="${item.key}">
+                <a class="class-cell" href="${classHref}" data-action="${classAction}" data-class="${item.key}">
                   <img class="class-emblem" src="${assets.emblem}" alt="">
                   <span class="class-label" style="color:${item.color}">${escapeHtml(classLabel(item.key, item.shortName))}</span>
                   <small>${countMap[item.key] || 0}</small>
@@ -1092,18 +1786,82 @@ function renderHomeView() {
           </div>
         `).join('')}
       </section>
+      ${renderHomeToolPanels()}
       ${renderSeoIntro()}
       <footer class="footer-note"><i></i><span>${escapeHtml(t('dataNote'))}</span><i></i></footer>
     </main>
   `;
 }
 
+function renderHomeToolHero(favoriteCount, isEquipmentLanding = false) {
+  if (state.locale !== 'zh-CN') {
+    return `
+      <section class="home-header">
+        <h1 class="brand-logo">SeasonLoot</h1>
+      </section>
+    `;
+  }
+  const classCount = state.overview?.classes?.length || CLASS_LIST.length;
+  const itemCount = (state.overview?.classes || []).reduce((sum, item) => sum + (Number(item.itemCount) || 0), 0);
+  return `
+    <section class="tool-hero" aria-labelledby="tool-hero-title">
+      <div class="tool-hero-copy">
+        <p class="tool-kicker">SeasonLoot · 中文验收版</p>
+        <h1 id="tool-hero-title">${isEquipmentLanding ? '魔兽世界装备查询' : '魔兽世界配装模拟器'}</h1>
+        <p class="tool-lead">${isEquipmentLanding ? '按职业、专精、部位、副属性和来源筛选当前赛季装备，找到候选装备后可切换到配装模拟继续组装。' : '先选择配装模拟或装备查询，再按职业进入对应流程；配装页支持装备槽、属性统计、保存方案和分享链接。'}</p>
+        <div class="tool-hero-actions">
+          ${isEquipmentLanding
+            ? `<a class="tool-primary" href="#class-grid">选择职业查装备</a><a class="tool-secondary" href="${buildRouteHref()}" data-action="buildPage">开始配装模拟</a>`
+            : `<a class="tool-primary" href="${buildRouteHref()}" data-action="buildPage">开始配装模拟</a><a class="tool-secondary" href="${equipmentRouteHref()}">装备查询</a>`}
+          <button class="tool-secondary" data-action="favorites"><span class="icon star"></span>打开收藏夹${favoriteCount ? ` · ${favoriteCount}` : ''}</button>
+        </div>
+      </div>
+      <div class="tool-hero-panel" aria-label="当前数据概览">
+        <div>
+          <strong>${escapeHtml(classCount)}</strong>
+          <span>职业装备池</span>
+        </div>
+        <div>
+          <strong>${escapeHtml(itemCount || '-')}</strong>
+          <span>当前赛季装备</span>
+        </div>
+        <div>
+          <strong>4.4.x</strong>
+          <span>网页数据版本</span>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderHomeToolPanels() {
+  if (state.locale !== 'zh-CN') return '';
+  const panels = [
+    ['配装模拟', '从职业和专精开始，填入 16 个装备槽并查看装等、副属性百分比和主属性统计。'],
+    ['装备查询', '按副属性、部位、地下城、团本和套装快速缩小装备范围。'],
+    ['排行榜配装', 'WCL 预设会作为下一阶段重点迁移，承接天赋代码、附魔和宝石展示。'],
+  ];
+  return `
+    <section class="tool-panels" aria-label="配装工具能力">
+      ${panels.map(([title, body]) => `
+        <article>
+          <h2>${escapeHtml(title)}</h2>
+          <p>${escapeHtml(body)}</p>
+        </article>
+      `).join('')}
+    </section>
+  `;
+}
+
 function renderSeoIntro() {
-  const title = t('seoTitle');
+  const isEquipmentLanding = state.view !== 'build' && state.locale === 'zh-CN';
+  const title = isEquipmentLanding ? '魔兽世界装备查询' : t('seoTitle');
   if (!title) return '';
-  const desc = t('seoDesc') || '';
-  const faqTitle = t('seoFaqTitle') || 'FAQ';
-  const faqs = i18n.raw('seoFaq') || [];
+  const desc = isEquipmentLanding
+    ? '查询正式服当前赛季装备来源、职业可用装备、装等、副属性、部位、地下城、团本和套装；找到候选装备后，可以切换到配装模拟器继续组装完整方案。'
+    : (t('seoDesc') || '');
+  const faqTitle = isEquipmentLanding ? '' : (t('seoFaqTitle') || 'FAQ');
+  const faqs = isEquipmentLanding ? [] : (i18n.raw('seoFaq') || []);
   return `
     <section class="seo-intro">
       <h2>${escapeHtml(title)}</h2>
@@ -1143,6 +1901,7 @@ function renderEquipmentView() {
         </div>
       </header>
 
+      ${renderModeSwitch('equipment', className, state.classKey)}
       <section class="hero-panel">
         <img class="hero-banner" src="${assets.banner}" alt="">
         <div class="hero-shade"></div>
@@ -1157,6 +1916,7 @@ function renderEquipmentView() {
         </div>
       </section>
 
+      ${renderClassSeoWorkbench(className, filteredItems.length)}
       ${state.buildRequestMode ? renderBuildIntroOrStrip(draft, className) : ''}
       ${renderFilterPanel()}
       ${state.isLoading ? `<section class="empty-state">${escapeHtml(t('loading'))}</section>` : ''}
@@ -1164,6 +1924,286 @@ function renderEquipmentView() {
       ${!state.isLoading && !state.loadError ? renderGroups(groups) : ''}
       <div class="page-end-pad"></div>
     </main>
+  `;
+}
+
+function renderClassSeoWorkbench(className, itemCount) {
+  if (state.locale !== 'zh-CN') return '';
+  const specCount = state.classData?.specs?.length || 0;
+  return `
+    <section class="class-workbench" aria-label="${escapeHtml(className)}配装工具入口">
+      <div>
+        <p class="tool-kicker">${escapeHtml(className)}配装模拟</p>
+        <h2>先筛装备，再组配装</h2>
+        <p>当前页面已经加载 ${escapeHtml(itemCount)} 件${escapeHtml(className)}可用装备，支持 ${escapeHtml(specCount)} 个专精筛选。可以随时切到完整配装页组装装备槽；WCL 排行榜配装将在下一阶段接入。</p>
+      </div>
+      <div class="class-workbench-actions">
+        <a href="${buildDefaultSpecRouteHref(state.classKey)}" data-action="buildPage">切到配装模拟</a>
+        <button data-action="shareRequest">请好友配装</button>
+        <button data-action="favorites">查看收藏夹</button>
+        <a href="#filters">筛选装备池</a>
+      </div>
+    </section>
+  `;
+}
+
+function currentBuild() {
+  return state.buildId ? getBuild(state.buildId) : null;
+}
+
+function renderBuildView() {
+  const build = currentBuild();
+  const classMeta = getClassMeta(state.buildClassKey);
+  const className = build?.className || classMeta?.name || '';
+  return `
+    <main class="page-shell build-web-page">
+      <header class="top-bar build-web-top">
+        <a class="back-btn" href="${buildPageHref()}" data-action="home" aria-label="Back to home">‹</a>
+        <div class="top-title-wrap">
+          <strong>${escapeHtml(build ? `${classLabel(build.classKey, build.className)} · ${build.specName}` : '配装模拟器')}</strong>
+        </div>
+        <div class="top-actions">
+          ${renderLocaleSelector()}
+          <button class="pill-button compact" data-action="buildList">方案列表${state.buildList.length ? `<b>${state.buildList.length}</b>` : ''}</button>
+        </div>
+      </header>
+      ${build ? '' : renderHomeToolHero(getFavorites().length, false)}
+      ${renderModeSwitch('build', className, build?.classKey || state.buildClassKey)}
+      ${build ? renderBuildWorkbench(build) : renderBuildSelector()}
+      ${state.buildSlotPicker ? renderBuildSlotPicker() : ''}
+      ${state.craftingPicker ? renderCraftingPicker() : ''}
+    </main>
+  `;
+}
+
+function renderBuildSelector() {
+  const selectedClass = getClassMeta(state.buildClassKey);
+  const specs = selectedClass && state.buildClassData?.specs ? state.buildClassData.specs : [];
+  const countMap = {};
+  (state.overview?.classes || []).forEach((item) => { countMap[item.key] = item.itemCount; });
+  return `
+    <div class="prompt-wrap build-prompt"><span>选择职业开始配装</span></div>
+    <section class="class-grid-wrap build-class-grid" aria-label="选择职业开始配装">
+      ${[CLASS_LIST.slice(0, 4), CLASS_LIST.slice(4, 9), CLASS_LIST.slice(9, 13)].map((row) => `
+        <div class="class-row">
+          ${row.map((item) => {
+            const assets = getClassVisualAssets(item.key);
+            return `
+              <a class="class-cell build-class-cell ${state.buildClassKey === item.key ? 'active' : ''}" href="${buildDefaultSpecRouteHref(item.key)}" data-action="selectBuildClass" data-class="${item.key}">
+                <img class="class-emblem" src="${assets.emblem}" alt="">
+                <span class="class-label" style="color:${item.color}">${escapeHtml(classLabel(item.key, item.shortName))}</span>
+                <small>${countMap[item.key] || 0}</small>
+              </a>
+            `;
+          }).join('')}
+        </div>
+      `).join('')}
+    </section>
+    ${selectedClass ? `
+      <section class="build-spec-panel">
+        <h2>${escapeHtml(classLabel(selectedClass.key, selectedClass.name))}专精</h2>
+        <div class="build-spec-grid">
+          ${specs.length ? specs.map((spec) => `
+            <a href="${buildSpecRouteHref(selectedClass.key, spec.id)}" data-action="startBuild" data-class="${selectedClass.key}" data-spec-id="${spec.id}" data-spec-name="${escapeHtml(specLabel(spec))}">${escapeHtml(specLabel(spec))}</a>
+          `).join('') : `<span>${escapeHtml(t('loading'))}</span>`}
+        </div>
+      </section>
+    ` : ''}
+  `;
+}
+
+function renderBuildWorkbench(build) {
+  const summary = build.summary || summarizeSlots(build.slots, build.specId);
+  const assets = getClassVisualAssets(build.classKey);
+  return `
+    <section class="build-board-hero">
+      <img src="${assets.banner}" alt="">
+      <div class="hero-shade"></div>
+      <div class="build-board-hero-content">
+        <p class="tool-kicker">魔兽世界配装模拟器</p>
+        <h1>${escapeHtml(build.name)}</h1>
+        <div class="build-board-actions">
+          <button data-action="saveBuild">${escapeHtml(build.draft ? '保存方案' : '保存修改')}</button>
+          <button data-action="renameBuild">重命名</button>
+          <button data-action="newBuildPlan">新建方案</button>
+          <button data-action="shareSavedBuild">分享配装</button>
+          <button class="muted" data-action="wclPending">排行榜配装</button>
+        </div>
+      </div>
+    </section>
+    ${renderBuildSpecSwitch(build)}
+    <section class="build-layout">
+      <div class="build-slots-board">
+        ${BUILD_SLOT_LAYOUT.map((column) => `
+          <div class="build-slot-column">
+            ${column.map((slotKey) => renderBuildSlot(build, slotKey)).join('')}
+          </div>
+        `).join('')}
+        <div class="build-character-stand" aria-hidden="true">
+          <img src="${assets.emblem}" alt="">
+          <span>${escapeHtml(classLabel(build.classKey, build.className))}</span>
+        </div>
+        <div class="build-weapon-row">
+          ${BUILD_WEAPON_LAYOUT.map((slotKey) => renderBuildSlot(build, slotKey)).join('')}
+        </div>
+      </div>
+      ${renderBuildSummary(summary)}
+    </section>
+  `;
+}
+
+function renderBuildSpecSwitch(build) {
+  const specs = state.buildClassData?.specs || [];
+  if (!specs.length) return '';
+  return `
+    <nav class="build-spec-switch" aria-label="${escapeHtml(classLabel(build.classKey, build.className))}专精切换">
+      ${specs.map((spec) => `
+        <a class="${spec.id === build.specId ? 'active' : ''}" href="${buildSpecRouteHref(build.classKey, spec.id)}" data-action="startBuild" data-class="${build.classKey}" data-spec-id="${spec.id}" data-spec-name="${escapeHtml(specLabel(spec))}">
+          ${escapeHtml(specLabel(spec))}
+        </a>
+      `).join('')}
+    </nav>
+  `;
+}
+
+function renderBuildSlot(build, slotKey) {
+  const meta = BUILD_SLOT_META.find((item) => item.key === slotKey);
+  const item = build.slots?.[slotKey];
+  if (meta?.placeholder) {
+    return `
+      <article class="build-slot-card placeholder-slot">
+        <div class="build-slot-icon"><span>${escapeHtml(meta.label)}</span></div>
+        <div class="build-slot-body">
+          <strong>${escapeHtml(meta.label)}</strong>
+          <p>—</p>
+        </div>
+      </article>
+    `;
+  }
+  const disabled = slotKey === 'weapon2' && build.slots.weapon && mainHandOccupiesBoth(build.specId, build.slots.weapon);
+  return `
+    <article class="build-slot-card ${item ? 'filled' : ''} ${disabled ? 'disabled' : ''}" data-action="${disabled ? 'noop' : 'openSlotPicker'}" data-slot="${slotKey}">
+      <div class="build-slot-icon">
+        ${item?.iconAsset ? `<img src="${escapeHtml(item.iconAsset)}" alt="">` : `<span>${escapeHtml(meta?.label || slotKey)}</span>`}
+      </div>
+      <div class="build-slot-body">
+        <strong>${escapeHtml(itemNameLabel(item) || meta?.label || slotKey)}</strong>
+        <p>${escapeHtml(item ? (item.statLine || buildStatLine(item)) : (disabled ? '双手武器占用' : '点击选择装备'))}</p>
+        ${item ? `<small>ilvl${escapeHtml(item.ilvl)} · ${escapeHtml(instanceNameLabel(item.instanceName) || item.instanceName || meta?.label || '')}</small>` : ''}
+      </div>
+      ${item ? `<button class="slot-clear" data-action="clearBuildSlot" data-slot="${slotKey}">清除</button>` : ''}
+    </article>
+  `;
+}
+
+function renderBuildSummary(summary) {
+  const secondary = summary.secondary;
+  return `
+    <aside class="build-summary-panel">
+      <div class="build-summary-head">
+        <h2>配装信息</h2>
+        <strong>${escapeHtml(summary.avgIlvl)}</strong>
+        <span>平均装等</span>
+      </div>
+      <div class="build-summary-count">${escapeHtml(summary.occupiedSlots)} / ${escapeHtml(summary.totalSlots)} 个装备槽</div>
+      <div class="build-stat-grid">
+        ${[
+          ['crit', '暴击', secondary.crit],
+          ['haste', '急速', secondary.haste],
+          ['mastery', '精通', secondary.mastery],
+          ['versatility', '全能', secondary.versatility],
+        ].map(([key, label, stat]) => `
+          <div class="stat-card stat-${key}">
+            <span>${label}</span>
+            <strong>${escapeHtml(stat.rating)}</strong>
+            <em>${escapeHtml(stat.percentText)}%</em>
+          </div>
+        `).join('')}
+      </div>
+      <div class="build-primary-list">
+        ${summary.primaryStats.map((stat) => `<p><span>${escapeHtml(stat.name)}</span><strong>${escapeHtml(stat.value)}</strong></p>`).join('')}
+        <p><span>耐力</span><strong>${escapeHtml(summary.stamina)}</strong></p>
+        <p><span>副属性合计</span><strong>${escapeHtml(summary.secondaryTotal)}</strong></p>
+      </div>
+      <small>已含90级基础主属性与耐力${summary.armorSpecializationActive ? '、护甲专精5%加成' : ''}；不含种族、天赋、附魔、宝石及临时 Buff。</small>
+    </aside>
+  `;
+}
+
+function buildSlotPickerItems(build, slotKey) {
+  const meta = BUILD_SLOT_META.find((item) => item.key === slotKey);
+  if (!meta) return [];
+  return state.buildAllItems
+    .filter((item) => item.slot === meta.slot)
+    .filter((item) => itemSupportsSpec(item, build.specId))
+    .filter((item) => {
+      if (meta.slot !== 'weapon') return true;
+      return canItemUseWeaponSlot(build.specId, slotKey, item);
+    })
+    .sort((a, b) => (b.ilvl || 0) - (a.ilvl || 0) || a._sort.order - b._sort.order);
+}
+
+function renderBuildSlotPicker() {
+  const build = currentBuild();
+  const slotKey = state.buildSlotPicker?.slotKey;
+  const meta = BUILD_SLOT_META.find((item) => item.key === slotKey);
+  const items = build && slotKey ? buildSlotPickerItems(build, slotKey) : [];
+  return `
+    <div class="modal-mask" data-action="closeSlotPicker">
+      <section class="overlay-panel build-picker-panel" data-stop>
+        <header class="overlay-head">
+          <div class="overlay-title-line"><h2>选择${escapeHtml(meta?.label || '装备')}</h2><span class="overlay-count-badge">${items.length} 件</span></div>
+          <button class="panel-x" data-action="closeSlotPicker"></button>
+        </header>
+        <div class="panel-divider"></div>
+        <div class="build-picker-list">
+          ${items.length ? items.map((item) => renderBuildPickerItem(item, slotKey)).join('') : `<div class="favorite-empty">没有可用于该槽位的装备</div>`}
+        </div>
+      </section>
+    </div>
+  `;
+}
+
+function renderBuildPickerItem(item, slotKey) {
+  return `
+    <article class="build-picker-item" data-action="equipBuildItem" data-slot="${slotKey}" data-id="${item.id}">
+      <div class="favorite-icon-wrap">${item.iconAsset ? `<img src="${escapeHtml(item.iconAsset)}" alt="">` : `<span>${escapeHtml(iconTextLabel(item))}</span>`}</div>
+      <div>
+        <strong>${escapeHtml(itemNameLabel(item))}</strong>
+        <p>${escapeHtml(item.statLine || buildStatLine(item))}</p>
+        <small>ilvl${escapeHtml(item.ilvl)} · ${escapeHtml(instanceNameLabel(item.instanceName) || item.instanceName || '')}</small>
+      </div>
+      <span>${escapeHtml(t(`slots.${item.slot}`))}</span>
+    </article>
+  `;
+}
+
+function renderCraftingPicker() {
+  const item = state.craftingPicker?.item;
+  const slots = getRandomAttributeSlots(item);
+  const selected = state.craftingPicker?.selected || [];
+  return `
+    <div class="modal-mask" data-action="closeCraftingPicker">
+      <section class="overlay-panel crafting-picker-panel" data-stop>
+        <header class="overlay-head">
+          <div class="overlay-title-line"><h2>选择制造业随机属性</h2><span class="overlay-count-badge">${escapeHtml(itemNameLabel(item))}</span></div>
+          <button class="panel-x" data-action="closeCraftingPicker"></button>
+        </header>
+        <div class="crafting-picker-body">
+          <p>这件装备需要选择 ${slots.length} 个副属性，确认后会计入配装统计。</p>
+          <div class="crafting-random-slots">${slots.map((slot) => `<span>随机属性 +${escapeHtml(slot.value)}</span>`).join('')}</div>
+          <div class="crafting-stat-options">
+            ${STAT_OPTIONS.map((type) => `
+              <button class="stat-option stat-${type} ${selected.includes(type) ? 'on' : ''}" data-action="toggleCraftingStat" data-type="${type}">${escapeHtml(t(`stats.${type}`))}</button>
+            `).join('')}
+          </div>
+          <div class="panel-actions">
+            <button data-action="closeCraftingPicker">取消</button>
+            <button data-action="confirmCraftingStats" ${selected.length === slots.length ? '' : 'disabled'}>确认装备</button>
+          </div>
+        </div>
+      </section>
+    </div>
   `;
 }
 
@@ -1201,7 +2241,7 @@ function visibleInstanceOptions() {
 function renderFilterPanel() {
   const specs = state.classData?.specs || [];
   return `
-    <section class="filter-panel">
+    <section id="filters" class="filter-panel">
       <label class="search-box">
         <span class="search-icon"></span>
         <input data-action="keyword" value="${escapeHtml(state.filters.keyword)}" placeholder="${escapeHtml(t('searchPlaceholder'))}">
@@ -1289,6 +2329,7 @@ function renderOverlays() {
   return [
     state.overlay === 'announcement' ? renderAnnouncement() : '',
     state.overlay === 'favorites' ? renderFavoritesPanel() : '',
+    state.overlay === 'buildList' ? renderSavedBuildListPanel() : '',
     state.overlay === 'shared' ? renderSharedFavoritesPanel() : '',
     state.overlay === 'manualShare' ? renderManualSharePanel() : '',
     state.overlay === 'detail' && state.selectedItem ? renderDetailModal(state.selectedItem) : '',
@@ -1342,6 +2383,24 @@ function renderFavoritesPanel() {
     ${groups.length ? `<div class="favorite-list">${groups.map((group) => renderFavoriteGroup(group, true)).join('')}</div>` : `<div class="favorite-empty">${escapeHtml(t('favoritesEmpty'))}</div>`}
   `;
   return renderOverlayFrame(t('favorites'), body, { subtitle: t('selectedCount', { count: favorites.length }) });
+}
+
+function renderSavedBuildListPanel() {
+  setBuildListState();
+  const body = state.buildList.length ? `
+    <div class="favorite-list">
+      ${state.buildList.map((build) => `
+        <article class="saved-build-item" data-action="loadSavedBuild" data-id="${escapeHtml(build.id)}">
+          <div>
+            <strong>${escapeHtml(build.name)}</strong>
+            <p>${escapeHtml(classLabel(build.classKey, build.className))} · ${escapeHtml(build.specName)} · 装等 ${escapeHtml(build.summary?.avgIlvl || 0)}</p>
+          </div>
+          <button class="danger" data-action="deleteSavedBuild" data-id="${escapeHtml(build.id)}">删除</button>
+        </article>
+      `).join('')}
+    </div>
+  ` : `<div class="favorite-empty">还没有保存的配装方案</div>`;
+  return renderOverlayFrame('配装方案列表', body, { subtitle: `${state.buildList.length} 个方案` });
 }
 
 function renderSharedFavoritesPanel() {
@@ -1423,7 +2482,7 @@ function renderDetailModal(item) {
       ${(item.whiteLines || []).map((line) => `<p class="white-line">${escapeHtml(line)}</p>`).join('')}
       ${(item.stats?.primaryStats || []).map((stat) => `<p class="white-line">+${escapeHtml(stat.value)} ${escapeHtml(statNameLabel(stat))}</p>`).join('')}
       ${item.stats?.stamina ? `<p class="white-line">+${escapeHtml(item.stats.stamina.value)} ${escapeHtml(statNameLabel(item.stats.stamina))}</p>` : ''}
-      ${(item.secondaryStats || []).map((stat) => `<div class="stat-bar-item"><p>+${escapeHtml(stat.value)} ${escapeHtml(statNameLabel(stat))}</p><div><i style="width:${escapeHtml(stat.width)}"></i></div></div>`).join('')}
+      ${(item.secondaryStats || []).map((stat) => `<div class="stat-bar-item stat-${escapeHtml(stat.type === 'critical' ? 'crit' : stat.type)}"><p>+${escapeHtml(stat.value)} ${escapeHtml(statNameLabel(stat))}</p><div><i style="width:${escapeHtml(stat.width)}"></i></div></div>`).join('')}
       ${renderTierInfo(item)}
       ${renderEffects(item)}
       <hr>
@@ -1717,6 +2776,47 @@ function absoluteBuildRequestUrl() {
   return url.toString();
 }
 
+function absoluteSavedBuildUrl(build = currentBuild()) {
+  const url = new URL(buildRouteHref(state.locale), window.location.origin);
+  const payload = encodeBuildShare(build);
+  if (payload) url.searchParams.set('buildShare', payload);
+  return url.toString();
+}
+
+function setBuildSlotItem(slotKey, rawItem) {
+  const build = currentBuild();
+  if (!build || !slotKey) return false;
+  const item = rawItem ? buildItemSnapshot(rawItem) : null;
+  let nextSlots = { ...build.slots };
+  if (item && (slotKey === 'weapon' || slotKey === 'weapon2')) {
+    const result = applyWeaponSelection(nextSlots, build.specId, slotKey, item);
+    if (!result.ok) {
+      showToast(result.message);
+      return false;
+    }
+    nextSlots = result.slots;
+    if (result.clearedOffHand) showToast('副手已因主手更换而清空');
+  } else {
+    nextSlots[slotKey] = item;
+  }
+  const updated = updateBuild(build.id, { slots: nextSlots });
+  if (updated) state.buildId = updated.id;
+  return Boolean(updated);
+}
+
+function equipBuildItem(slotKey, item) {
+  if (!item) return;
+  if (requiresCraftingStatSelection(item)) {
+    state.craftingPicker = { slotKey, item, selected: [] };
+    render();
+    return;
+  }
+  if (setBuildSlotItem(slotKey, item)) {
+    state.buildSlotPicker = null;
+    render();
+  }
+}
+
 function handleClick(event) {
   const stopNode = event.target.closest('[data-stop]');
   if (stopNode && !event.target.closest('button, [data-action], input, select')) return;
@@ -1734,12 +2834,18 @@ function handleClick(event) {
     window.location.href = target.getAttribute('href') || buildPageHref(target.dataset.class);
     return;
   }
+  if (action === 'buildPage') {
+    window.location.href = target.getAttribute('href') || buildRouteHref();
+    return;
+  }
   if (action === 'home') {
     window.location.href = target.getAttribute('href') || buildPageHref();
     return;
   }
+  if (action === 'noop') return;
   if (action === 'announcement') { state.overlay = 'announcement'; render(); }
   if (action === 'favorites') { state.overlay = 'favorites'; render(); }
+  if (action === 'buildList') { setBuildListState(); state.overlay = 'buildList'; render(); }
   if (action === 'closeOverlay') { state.overlay = ''; state.selectedItem = null; state.manualShareUrl = ''; render(); }
   if (action === 'item') openDetail(target.dataset.id);
   if (action === 'favoriteItem' || action === 'detailFavorite') toggleCurrentFavorite(target.dataset.id);
@@ -1817,6 +2923,96 @@ function handleClick(event) {
     refreshItemFlags();
     render();
   }
+  if (action === 'selectBuildClass') {
+    window.location.href = target.getAttribute('href') || buildDefaultSpecRouteHref(target.dataset.class);
+    return;
+  }
+  if (action === 'startBuild') {
+    window.location.href = target.getAttribute('href') || buildSpecRouteHref(target.dataset.class, target.dataset.specId);
+    return;
+  }
+  if (action === 'openSlotPicker') {
+    const build = currentBuild();
+    if (!build) return;
+    state.buildSlotPicker = { slotKey: target.dataset.slot };
+    render();
+  }
+  if (action === 'closeSlotPicker') { state.buildSlotPicker = null; render(); }
+  if (action === 'clearBuildSlot') {
+    setBuildSlotItem(target.dataset.slot, null);
+    render();
+  }
+  if (action === 'equipBuildItem') {
+    equipBuildItem(target.dataset.slot, state.buildItemMap[target.dataset.id]);
+  }
+  if (action === 'closeCraftingPicker') { state.craftingPicker = null; render(); }
+  if (action === 'toggleCraftingStat') {
+    const type = target.dataset.type;
+    const current = state.craftingPicker?.selected || [];
+    const required = getRandomAttributeSlots(state.craftingPicker?.item).length;
+    state.craftingPicker.selected = current.includes(type) ? current.filter((item) => item !== type) : (current.length < required ? [...current, type] : current);
+    render();
+  }
+  if (action === 'confirmCraftingStats') {
+    const picker = state.craftingPicker;
+    const crafted = buildCraftedItemWithSelectedStats(picker?.item, picker?.selected || []);
+    if (!crafted) return;
+    if (setBuildSlotItem(picker.slotKey, crafted)) {
+      state.craftingPicker = null;
+      state.buildSlotPicker = null;
+      render();
+    }
+  }
+  if (action === 'saveBuild') {
+    const build = currentBuild();
+    if (!build) return;
+    const updated = updateBuild(build.id, { draft: false });
+    if (updated) {
+      state.buildId = updated.id;
+      showToast('配装方案已保存');
+      render();
+    }
+  }
+  if (action === 'renameBuild') {
+    const build = currentBuild();
+    if (!build) return;
+    const name = window.prompt('输入新的配装名称', build.name);
+    if (name && name.trim()) {
+      updateBuild(build.id, { name: name.trim(), draft: false });
+      render();
+    }
+  }
+  if (action === 'newBuildPlan') {
+    state.buildId = '';
+    state.buildPhase = 'select';
+    state.buildClassKey = '';
+    state.buildClassData = null;
+    state.buildAllItems = [];
+    state.buildItemMap = {};
+    render();
+  }
+  if (action === 'shareSavedBuild') {
+    const build = currentBuild();
+    if (!build) return;
+    if (build.draft) updateBuild(build.id, { draft: false });
+    shareUrl(absoluteSavedBuildUrl(getBuild(build.id) || build));
+  }
+  if (action === 'loadSavedBuild') {
+    const build = getBuild(target.dataset.id);
+    if (!build) return;
+    state.overlay = '';
+    state.buildId = build.id;
+    state.buildClassKey = build.classKey;
+    state.buildPhase = 'build';
+    loadBuildClass(build.classKey).then(() => render());
+  }
+  if (action === 'deleteSavedBuild') {
+    deleteBuild(target.dataset.id);
+    if (state.buildId === target.dataset.id) state.buildId = '';
+    state.overlay = 'buildList';
+    render();
+  }
+  if (action === 'wclPending') showToast('WCL 排行榜配装将在下一阶段接入');
 }
 
 function handleInput(event) {
@@ -1844,7 +3040,10 @@ async function applyLocale(locale) {
 }
 
 function updateLangUrl() {
-  const nextPath = buildPageHref(state.classKey, state.locale);
+  const build = currentBuild();
+  const nextPath = state.view === 'build'
+    ? (build ? buildSpecRouteHref(build.classKey, build.specId, state.locale) : (state.buildClassKey ? buildClassRouteHref(state.buildClassKey, state.locale) : buildRouteHref(state.locale)))
+    : (state.view === 'equipment' ? equipmentRouteHref(state.locale) : buildPageHref(state.classKey, state.locale));
   history.replaceState(null, '', `${nextPath}${window.location.hash || ''}`);
 }
 
@@ -1872,10 +3071,11 @@ async function boot() {
   app.addEventListener('click', handleClick);
   app.addEventListener('input', handleInput);
   app.addEventListener('change', handleChange);
-  updateSeoMeta();
   const route = parseRoute();
+  state.view = route.view;
   loadOverview();
-  if (route.classKey) await openClass(route.classKey, { requestBuild: route.requestBuild });
+  if (route.view === 'build') await openBuildPage(route.buildId, route.buildShare, route.classKey, route.buildSpecId);
+  else if (route.classKey) await openClass(route.classKey, { requestBuild: route.requestBuild });
   else render();
   if (route.shareFav) restoreSharedFavorites(route.shareFav);
 }

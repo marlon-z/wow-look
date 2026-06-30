@@ -517,9 +517,16 @@ function instanceLabel(instance) {
   return dataLabel('instances', instance.id, instance.name);
 }
 
-function instanceNameLabel(name) {
+function instanceNameLabel(name, source = null) {
   if (!name) return '';
-  const instance = (state.classData?.instances || []).find((item) => item.name === name);
+  if (!isChineseLocale() && source?.sourceType === 'tier') return t('sourceTypes.tier');
+  if (!isChineseLocale() && source?.sourceType === 'crafted') return t('craftSource');
+  const instanceId = source?.instanceId || source?.source?.instanceId || null;
+  if (!isChineseLocale() && String(instanceId).startsWith('tier')) return t('sourceTypes.tier');
+  const instances = [...(state.classData?.instances || []), ...(state.buildClassData?.instances || [])];
+  const instance = instances.find((item) => (
+    (instanceId && String(item.id) === String(instanceId)) || item.name === name
+  ));
   return instance ? instanceLabel(instance) : nonChineseFallback(name);
 }
 
@@ -1647,6 +1654,7 @@ async function loadBuildClass(classKey) {
     state.buildClassCache[classKey] = state.buildClassData;
   }
   state.buildClassKey = classKey;
+  state.classLocale = await loadClassLocale(classKey);
   state.buildAllItems = enrichItems(flattenItems(state.buildClassData.instances || []), classKey, state.buildClassData.specs || []);
   state.buildItemMap = {};
   state.buildAllItems.forEach((item) => { state.buildItemMap[item.id] = item; });
@@ -2123,7 +2131,7 @@ function renderBuildSlot(build, slotKey) {
       <div class="build-slot-body">
         <strong>${escapeHtml(itemNameLabel(item) || label)}</strong>
         <p>${escapeHtml(item ? (item.statLine || buildStatLine(item)) : (disabled ? t('twoHandOccupied') : t('slotClickToSelect')))}</p>
-        ${item ? `<small>ilvl${escapeHtml(item.ilvl)} · ${escapeHtml(instanceNameLabel(item.instanceName) || item.instanceName || label)}</small>` : ''}
+        ${item ? `<small>ilvl${escapeHtml(item.ilvl)} · ${escapeHtml(instanceNameLabel(item.instanceName, item) || item.instanceName || label)}</small>` : ''}
       </div>
       ${item ? `<button class="slot-clear" data-action="clearBuildSlot" data-slot="${slotKey}">${escapeHtml(t('slotClear'))}</button>` : ''}
     </article>
@@ -2206,7 +2214,7 @@ function renderBuildPickerItem(item, slotKey) {
       <div>
         <strong>${escapeHtml(itemNameLabel(item))}</strong>
         <p>${escapeHtml(item.statLine || buildStatLine(item))}</p>
-        <small>ilvl${escapeHtml(item.ilvl)} · ${escapeHtml(instanceNameLabel(item.instanceName) || item.instanceName || '')}</small>
+        <small>ilvl${escapeHtml(item.ilvl)} · ${escapeHtml(instanceNameLabel(item.instanceName, item) || item.instanceName || '')}</small>
       </div>
       <span>${escapeHtml(t(`slots.${item.slot}`))}</span>
     </article>
@@ -2857,6 +2865,14 @@ function equipBuildItem(slotKey, item) {
 const WCL_BASE = `${REMOTE_COS_BASE}/wcl-presets/${DATA_DIR_NAME}`;
 const WCL_STAT_NAME = { crit: '暴击', haste: '急速', mastery: '精通', versatility: '全能' };
 
+function wclStatName(stat) {
+  return statNameLabel({ type: stat?.type, name: stat?.name || WCL_STAT_NAME[stat?.type] || stat?.type || '' });
+}
+
+function joinWclList(values) {
+  return values.join(isChineseLocale() ? '、' : ', ');
+}
+
 function wclSlotLabel(slotKey) {
   return BUILD_SLOT_META.find((item) => item.key === slotKey)?.label || slotKey;
 }
@@ -2946,12 +2962,12 @@ async function loadWclFileInto(fileKey) {
   const { classKey, specId } = state.wcl;
   try {
     const file = await fetchJson(`${WCL_BASE}/${classKey}/${specId}/${fileKey}.json?t=${Date.now()}`);
-    if (state.wcl.fileKey !== fileKey) return;
+    if (state.wcl.fileKey !== fileKey || state.wcl.classKey !== classKey || state.wcl.specId !== specId) return;
     state.wcl.file = file;
     state.wcl.loading = false;
     render();
   } catch (err) {
-    if (state.wcl.fileKey !== fileKey) return;
+    if (state.wcl.fileKey !== fileKey || state.wcl.classKey !== classKey || state.wcl.specId !== specId) return;
     state.wcl.loading = false;
     state.wcl.file = null;
     state.wcl.error = t('wclFileError');
@@ -2995,7 +3011,7 @@ function wclBuildEnchantsGems(slots) {
     const enchant = slot.enchantName || '';
     const gems = (slot.gems || []).map((gem) => gem.name || '').filter(Boolean);
     if (!enchant && !gems.length) return;
-    list.push({ slotKey: key, enchant, gemText: gems.join('、') });
+    list.push({ slotKey: key, enchant, gemText: joinWclList(gems) });
   });
   return list;
 }
@@ -3011,11 +3027,11 @@ function wclApplySlotOverrides(baseItem, wclSlot, slotKey) {
       slot: BUILD_SLOT_META.find((item) => item.key === slotKey)?.slot || slotKey,
       iconAsset: '',
       instanceName: 'WCL',
-      statLine: crafted.map((stat) => `${stat.name || WCL_STAT_NAME[stat.type] || stat.type}${stat.value}`).join(' / '),
+      statLine: crafted.map((stat) => `${wclStatName(stat)}${stat.value}`).join(' / '),
       stats: crafted.length ? {
         primaryStats: [],
         stamina: 0,
-        secondary: crafted.map((stat) => ({ type: stat.type, name: stat.name || WCL_STAT_NAME[stat.type] || stat.type, value: stat.value || 0, craftedRandom: true, randomAttributeIndex: stat.randomAttributeIndex })),
+        secondary: crafted.map((stat) => ({ type: stat.type, name: wclStatName(stat), value: stat.value || 0, craftedRandom: true, randomAttributeIndex: stat.randomAttributeIndex })),
       } : null,
       wclMissingLocalItem: true,
     };
@@ -3025,7 +3041,7 @@ function wclApplySlotOverrides(baseItem, wclSlot, slotKey) {
   if (Array.isArray(wclSlot.craftedStats) && wclSlot.craftedStats.length) {
     const stats = item.stats || { primaryStats: [], stamina: 0, secondary: [] };
     const fixed = (stats.secondary || []).filter((stat) => !stat.craftedRandom);
-    const crafted = wclSlot.craftedStats.map((stat) => ({ type: stat.type, name: stat.name || WCL_STAT_NAME[stat.type] || stat.type, value: stat.value || 0, craftedRandom: true, randomAttributeIndex: stat.randomAttributeIndex }));
+    const crafted = wclSlot.craftedStats.map((stat) => ({ type: stat.type, name: wclStatName(stat), value: stat.value || 0, craftedRandom: true, randomAttributeIndex: stat.randomAttributeIndex }));
     item.stats = { ...stats, secondary: fixed.concat(crafted) };
   }
   item.statLine = buildStatLine(item);
@@ -3049,7 +3065,16 @@ function applyWclPreset(entryIndex, presetIndex) {
     const usable = base && itemSupportsSpec(base, build.specId) ? base : null;
     const item = wclApplySlotOverrides(usable, wclSlot, slotKey);
     if (item.wclMissingLocalItem) missing.push(slotKey);
-    slots[slotKey] = item;
+    if (slotKey === 'weapon' || slotKey === 'weapon2') {
+      const result = applyWeaponSelection(slots, build.specId, slotKey, item);
+      if (!result.ok) {
+        missing.push(slotKey);
+        return;
+      }
+      Object.assign(slots, result.slots);
+    } else {
+      slots[slotKey] = item;
+    }
   });
 
   const updated = updateBuild(build.id, {
@@ -3091,11 +3116,11 @@ function renderWclPanel() {
             ${(index.raid || []).length ? `<button class="wcl-tab ${state.wcl.contentType === 'raid' ? 'on' : ''}" data-action="wclContent" data-content="raid">${escapeHtml(t('wclRaid'))}</button>` : ''}
           </div>
           <div class="wcl-tab-row wcl-level-row">
-            ${levelList.map((lvl) => `<button class="wcl-tab ${lvl.fileKey === state.wcl.fileKey ? 'on' : ''}" data-action="wclLevel" data-file="${escapeHtml(lvl.fileKey)}">${escapeHtml(wclLevelLabel(lvl))}<b>${lvl.presetCount || 0}</b></button>`).join('')}
+            ${levelList.map((lvl) => `<button class="wcl-tab ${lvl.fileKey === state.wcl.fileKey ? 'on' : ''}" data-action="wclLevel" data-file="${escapeHtml(lvl.fileKey)}"><span>${escapeHtml(wclLevelLabel(lvl))}</span> <b>${lvl.presetCount || 0}</b></button>`).join('')}
           </div>
           ${state.wcl.file && wclDungeonFilters().length > 1 ? `
             <div class="wcl-dungeon-row">
-              ${wclDungeonFilters().map((f) => `<button class="wcl-dungeon ${f.id === state.wcl.dungeonId ? 'on' : ''}" data-action="wclDungeon" data-id="${escapeHtml(f.id)}">${escapeHtml(f.name)}<b>${f.count}</b></button>`).join('')}
+              ${wclDungeonFilters().map((f) => `<button class="wcl-dungeon ${f.id === state.wcl.dungeonId ? 'on' : ''}" data-action="wclDungeon" data-id="${escapeHtml(f.id)}">${escapeHtml(f.name)} <b>${f.count}</b></button>`).join('')}
             </div>
           ` : ''}
         ` : ''}

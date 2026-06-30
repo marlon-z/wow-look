@@ -1272,6 +1272,7 @@ const BUILD_I18N = {
   pickCount: { 'zh-CN': '{count} 件', 'en-US': '{count} items' },
   pickNoItems: { 'zh-CN': '没有可用于该槽位的装备', 'en-US': 'No items available for this slot' },
   craftTitle: { 'zh-CN': '选择制造业随机属性', 'en-US': 'Choose crafted random stats' },
+  craftSource: { 'zh-CN': '制造业', 'en-US': 'Crafted' },
   craftDesc: { 'zh-CN': '这件装备需要选择 {count} 个副属性，确认后会计入配装统计。', 'en-US': 'This item needs {count} secondary stat(s); they count toward the summary once confirmed.' },
   craftRandomSlot: { 'zh-CN': '随机属性 +{value}', 'en-US': 'Random +{value}' },
   craftConfirm: { 'zh-CN': '确认装备', 'en-US': 'Equip' },

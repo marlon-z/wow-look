@@ -392,7 +392,7 @@ function buildSimulatorNoscript(locale, overview, buildClass = null, buildSpec =
 ${classes}
 </ul>
 <h2>当前阶段</h2>
-<p>当前页面已支持 WCL 排行榜配装之前的手动配装、保存方案、分享链接和制造业随机属性选择。WCL 排行榜配装将在下一阶段接入。</p>`;
+<p>当前页面已支持手动配装、保存方案、分享链接、制造业随机属性选择和 WCL 排行榜配装。排行榜配装可按大秘境、团本、层数和首领选择预设，并一键套用到模拟器。</p>`;
   }
   return `<h1>${escapeHtml(pageName)}</h1>
 <p>Select a class and spec, fill equipment slots, review item level and stat totals, then save and share the build.</p>`;

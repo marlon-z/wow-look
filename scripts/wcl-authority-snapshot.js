@@ -115,7 +115,7 @@ async function wclGql(token, query, variables, options = {}) {
 
     // HTTP 层限流/服务端错误：退避重试
     if ((res.status === 429 || res.status >= 500) && attempt < maxRetries) {
-      const retryAfter = Number(res.headers.get('retry-after'));
+      const retryAfter = Number(res.headers?.get?.('retry-after'));
       const waitMs = retryAfter > 0
         ? Math.min(retryAfter * 1000, 120000)
         : Math.min(2000 * (2 ** attempt), 120000);

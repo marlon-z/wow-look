@@ -4,7 +4,7 @@
   "source": "blizzard-game-data-api",
   "region": "tw",
   "namespace": "static-tw",
-  "generatedAt": "2026-05-07T06:25:14.843Z",
+  "generatedAt": "2026-06-30T10:44:58.952Z",
   "classKey": "demonhunter",
   "items": {
     "49806": {
@@ -407,6 +407,202 @@
       "setId": null,
       "setName": ""
     },
+    "237837": {
+      "id": 237837,
+      "name": "遠行者慈悲",
+      "sourceName": "远行者的慈悲",
+      "quality": "史詩",
+      "inventoryType": "單手",
+      "itemClass": "武器",
+      "itemSubclass": "匕首",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237838": {
+      "id": 237838,
+      "name": "博學者儀式小刀",
+      "sourceName": "魔导师的仪式之匕",
+      "quality": "史詩",
+      "inventoryType": "單手",
+      "itemClass": "武器",
+      "itemSubclass": "匕首",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237839": {
+      "id": 237839,
+      "name": "破法者之刃",
+      "sourceName": "破法者的利剑",
+      "quality": "史詩",
+      "inventoryType": "單手",
+      "itemClass": "武器",
+      "itemSubclass": "劍",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237840": {
+      "id": 237840,
+      "name": "破法者戰刃",
+      "sourceName": "破法者的战刃",
+      "quality": "史詩",
+      "inventoryType": "單手",
+      "itemClass": "武器",
+      "itemSubclass": "戰刃",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237841": {
+      "id": 237841,
+      "name": "破法者最後通諜",
+      "sourceName": "破法者的通牒",
+      "quality": "史詩",
+      "inventoryType": "單手",
+      "itemClass": "武器",
+      "itemSubclass": "錘",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237843": {
+      "id": 237843,
+      "name": "博學者法力之劍",
+      "sourceName": "魔导师的法力之剑",
+      "quality": "史詩",
+      "inventoryType": "單手",
+      "itemClass": "武器",
+      "itemSubclass": "劍",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237844": {
+      "id": 237844,
+      "name": "博學者斬斧",
+      "sourceName": "魔导师的砍斧",
+      "quality": "史詩",
+      "inventoryType": "單手",
+      "itemClass": "武器",
+      "itemSubclass": "斧",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237845": {
+      "id": 237845,
+      "name": "花鑄之爪",
+      "sourceName": "绽铸之爪",
+      "quality": "史詩",
+      "inventoryType": "單手",
+      "itemClass": "武器",
+      "itemSubclass": "拳套",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237850": {
+      "id": 237850,
+      "name": "遠行者砍斧",
+      "sourceName": "远行者的劈斧",
+      "quality": "史詩",
+      "inventoryType": "單手",
+      "itemClass": "武器",
+      "itemSubclass": "斧",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239656": {
+      "id": 239656,
+      "name": "擁護者絲綢罩氅",
+      "sourceName": "信徒的流丝罩袍",
+      "quality": "史詩",
+      "inventoryType": "背部",
+      "itemClass": "護甲",
+      "itemSubclass": "布甲",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239658": {
+      "id": 239658,
+      "name": "日炎披風",
+      "sourceName": "阳炎披风",
+      "quality": "史詩",
+      "inventoryType": "背部",
+      "itemClass": "護甲",
+      "itemSubclass": "布甲",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": 1957,
+      "setName": "日炎絲綢之服"
+    },
+    "239661": {
+      "id": 239661,
+      "name": "奧紋披風",
+      "sourceName": "奥纹披风",
+      "quality": "史詩",
+      "inventoryType": "背部",
+      "itemClass": "護甲",
+      "itemSubclass": "布甲",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": 1958,
+      "setName": "奧紋之服"
+    },
+    "240949": {
+      "id": 240949,
+      "name": "精工辛多雷指環",
+      "sourceName": "精工辛多雷指环",
+      "quality": "史詩",
+      "inventoryType": "手指",
+      "itemClass": "護甲",
+      "itemSubclass": "雜項",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "240950": {
+      "id": 240950,
+      "name": "精工辛多雷護符",
+      "sourceName": "精工辛多雷护符",
+      "quality": "史詩",
+      "inventoryType": "頸部",
+      "itemClass": "護甲",
+      "itemSubclass": "雜項",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "241044": {
       "id": 241044,
       "name": "阿古斯貨箱",
@@ -422,6 +618,407 @@
           "id": 1230953,
           "name": "收集阿古斯貨箱",
           "description": "使用： 將此裝飾加入你的房屋箱子。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241139": {
+      "id": 241139,
+      "name": "薩拉斯鳳凰頸環",
+      "sourceName": "萨拉斯凤凰饰环",
+      "quality": "史詩",
+      "inventoryType": "頸部",
+      "itemClass": "護甲",
+      "itemSubclass": "雜項",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251815,
+          "name": "薩拉斯鳳凰頸環",
+          "description": "裝備： 你的法術和技能有一定機率召喚鳳凰之炎籠罩你的目標。\r\n\r\n如果是友方目標，會在10秒內為其治療11,730點生命力。如果是敵方目標，則會使其在10秒內受到7,821點火焰傷害。\r\n\r\n每鑲嵌一種不同顏色的寶石，都會使烈焰的強度提高1%。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241140": {
+      "id": 241140,
+      "name": "艾澤拉斯祝福璽戒",
+      "sourceName": "艾泽拉斯祝福印戒",
+      "quality": "史詩",
+      "inventoryType": "手指",
+      "itemClass": "護甲",
+      "itemSubclass": "雜項",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251902,
+          "name": "艾澤拉斯祝福璽戒",
+          "description": "裝備： 你的法術和技能可能使璽戒與世界之魂產生共鳴，賦予你恩澤，使你的所有次要屬性提高4點，持續15秒。\r\n\r\n每鑲嵌一種不同顏色的寶石，都會使此恩澤賦予的相關次要屬性提高1%。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241340": {
+      "id": 241340,
+      "name": "博學者的鍊金石",
+      "sourceName": "魔导师的炼金石",
+      "quality": "史詩",
+      "inventoryType": "飾品",
+      "itemClass": "護甲",
+      "itemSubclass": "雜項",
+      "binding": "拾取後綁定",
+      "description": "能代替點金石用來轉化物品。",
+      "spells": [
+        {
+          "id": 1280591,
+          "name": "博學者的鍊金石",
+          "description": "裝備： 當你造成治療效果或傷害時，有一定的機率使你的力量、敏捷或智力屬性提高162點，持續15秒。提高的該項屬性以你最高的屬性為準。"
+        },
+        {
+          "id": 17619,
+          "name": "鍊金石",
+          "description": "裝備： 使你飲用恢復生命力和法力的藥水時所獲得的效果提高40%。此效果無法堆疊。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244569": {
+      "id": 244569,
+      "name": "銀月密探運動鞋",
+      "sourceName": "银月城特工的匿踪靴",
+      "quality": "史詩",
+      "inventoryType": "腳",
+      "itemClass": "護甲",
+      "itemSubclass": "皮甲",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244570": {
+      "id": 244570,
+      "name": "銀月密探外套",
+      "sourceName": "银月城特工的外套",
+      "quality": "史詩",
+      "inventoryType": "胸部",
+      "itemClass": "護甲",
+      "itemSubclass": "皮甲",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244571": {
+      "id": 244571,
+      "name": "銀月密探頭罩",
+      "sourceName": "银月城特工的面罩",
+      "quality": "史詩",
+      "inventoryType": "頭部",
+      "itemClass": "護甲",
+      "itemSubclass": "皮甲",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244572": {
+      "id": 244572,
+      "name": "銀月密探披肩",
+      "sourceName": "银月城特工的披肩",
+      "quality": "史詩",
+      "inventoryType": "肩部",
+      "itemClass": "護甲",
+      "itemSubclass": "皮甲",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244573": {
+      "id": 244573,
+      "name": "銀月密探工具腰帶",
+      "sourceName": "银月城特工的多功能腰带",
+      "quality": "史詩",
+      "inventoryType": "腰部",
+      "itemClass": "護甲",
+      "itemSubclass": "皮甲",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244574": {
+      "id": 244574,
+      "name": "銀月密探護腿",
+      "sourceName": "银月城特工的护腿",
+      "quality": "史詩",
+      "inventoryType": "腿部",
+      "itemClass": "護甲",
+      "itemSubclass": "皮甲",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244575": {
+      "id": 244575,
+      "name": "銀月密探裹手",
+      "sourceName": "银月城特工的裹手",
+      "quality": "史詩",
+      "inventoryType": "手",
+      "itemClass": "護甲",
+      "itemSubclass": "皮甲",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244576": {
+      "id": 244576,
+      "name": "銀月密探護腕",
+      "sourceName": "银月城特工的偏斜腕甲",
+      "quality": "史詩",
+      "inventoryType": "手腕",
+      "itemClass": "護甲",
+      "itemSubclass": "皮甲",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244601": {
+      "id": 244601,
+      "name": "世界樹樹根裹足",
+      "sourceName": "世界之树根须裹足",
+      "quality": "史詩",
+      "inventoryType": "腳",
+      "itemClass": "護甲",
+      "itemSubclass": "皮甲",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1243903,
+          "name": "艾澤拉斯力量",
+          "description": "裝備： 你的法術和技能有一定機率與世界之魂產生共鳴，在附近製造艾澤拉斯力量之球。收集此球體會強化你，使你最高的次要屬性提高25點，持續15秒。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244606": {
+      "id": 244606,
+      "name": "妖織絲線",
+      "sourceName": "妖纹束腰",
+      "quality": "史詩",
+      "inventoryType": "腰部",
+      "itemClass": "護甲",
+      "itemSubclass": "皮甲",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1243883,
+          "name": "死靈咒織",
+          "description": "裝備： 你的傷害法術和技能有一定機率使目標受到死靈妖術影響，在10秒內造成1,612點自然傷害。\r\n\r\n此妖術每次造成傷害時，都會傳播給原受害者附近的敵人，最多觸發5次。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244612": {
+      "id": 244612,
+      "name": "兇殺路行者護腕",
+      "sourceName": "径巷行者的偏斜腕甲",
+      "quality": "史詩",
+      "inventoryType": "手腕",
+      "itemClass": "護甲",
+      "itemSubclass": "皮甲",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": 1966,
+      "setName": "兇殺路之衣"
+    },
+    "244613": {
+      "id": 244613,
+      "name": "兇殺路行者護胸",
+      "sourceName": "径巷行者的保险护胸",
+      "quality": "史詩",
+      "inventoryType": "胸部",
+      "itemClass": "護甲",
+      "itemSubclass": "皮甲",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": 1966,
+      "setName": "兇殺路之衣"
+    },
+    "244614": {
+      "id": 244614,
+      "name": "兇殺路行者迅握",
+      "sourceName": "径巷行者的迅影手套",
+      "quality": "史詩",
+      "inventoryType": "手",
+      "itemClass": "護甲",
+      "itemSubclass": "皮甲",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": 1966,
+      "setName": "兇殺路之衣"
+    },
+    "244679": {
+      "id": 244679,
+      "name": "兇殺路魚鉤",
+      "sourceName": "密谋小径鱼钩",
+      "quality": "史詩",
+      "inventoryType": "單手",
+      "itemClass": "武器",
+      "itemSubclass": "匕首",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250529,
+          "name": "兇殺路魚鉤",
+          "description": "裝備： 你的傷害法術和技能有一定機率使目標流血，在10秒內造成846點物理傷害。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244744": {
+      "id": 244744,
+      "name": "蒼穹飾羽光學鏡",
+      "sourceName": "以太流明光学目镜",
+      "quality": "史詩",
+      "inventoryType": "頭部",
+      "itemClass": "護甲",
+      "itemSubclass": "皮甲",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244748": {
+      "id": 244748,
+      "name": "蒼穹飾羽手環",
+      "sourceName": "以太流明腕带",
+      "quality": "史詩",
+      "inventoryType": "手腕",
+      "itemClass": "護甲",
+      "itemSubclass": "皮甲",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244772": {
+      "id": 244772,
+      "name": "蒼穹飾羽跑鞋",
+      "sourceName": "以太流明奔行靴",
+      "quality": "史詩",
+      "inventoryType": "腳",
+      "itemClass": "護甲",
+      "itemSubclass": "皮甲",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "246304": {
+      "id": 246304,
+      "name": "暗月主宰：狩獵",
+      "sourceName": "暗月统御：狩猎",
+      "quality": "史詩",
+      "inventoryType": "飾品",
+      "itemClass": "護甲",
+      "itemSubclass": "雜項",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245050,
+          "name": "狩獵",
+          "description": "裝備： 你的法術和技能有一定機率根據目標生物的類型，使次要屬性提高168點，持續15秒。\r\n\r\n此效果受到暗月符印：狩獵強化。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246305": {
+      "id": 246305,
+      "name": "暗月主宰：鮮血",
+      "sourceName": "暗月统御：鲜血",
+      "quality": "史詩",
+      "inventoryType": "飾品",
+      "itemClass": "護甲",
+      "itemSubclass": "雜項",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245001,
+          "name": "鮮血",
+          "description": "裝備： 你的傷害法術和技能有一定機率賦予遠行者之詐，使你最低的次要屬性提高444點，持續15秒。\r\n\r\n當玩家盟友死亡時，使你最高的次要屬性提高232點，持續15秒。此效果只能每5分鐘觸發一次。\r\n\r\n此效果受到暗月符印：鮮血強化。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246306": {
+      "id": 246306,
+      "name": "暗月主宰：腐爛",
+      "sourceName": "暗月统御：腐烂",
+      "quality": "史詩",
+      "inventoryType": "飾品",
+      "itemClass": "護甲",
+      "itemSubclass": "雜項",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245051,
+          "name": "腐爛",
+          "description": "裝備： 對目標施加正在腐朽的根鬚，每2秒造成214點自然傷害，持續6秒。此效果最多可堆疊10層。新層數不會重置已施加的層數。\r\n\r\n此效果受到暗月符印：腐爛強化。\r\n"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246307": {
+      "id": 246307,
+      "name": "暗月主宰：虛無",
+      "sourceName": "暗月统御：虚空",
+      "quality": "史詩",
+      "inventoryType": "飾品",
+      "itemClass": "護甲",
+      "itemSubclass": "雜項",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1244254,
+          "name": "虛無",
+          "description": "裝備： 你的傷害法術和技能有一定機率以虛無之鏡激勵你，在15秒秒內賦予123點臨機應變。多次觸發可以重疊。\r\n\r\n此效果受到暗月符印：虛無強化。"
         }
       ],
       "setId": null,
@@ -1391,6 +1988,26 @@
       "setId": null,
       "setName": ""
     },
+    "251073": {
+      "id": 251073,
+      "name": "虛無石防護陣列",
+      "sourceName": "虚空石护盾阵列",
+      "quality": "史詩",
+      "inventoryType": "頸部",
+      "itemClass": "護甲",
+      "itemSubclass": "雜項",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251903,
+          "name": "虛無石屏障",
+          "description": "使用後：啟動陣列並產生虛無石屏障，可在接下來的10秒內吸收71,596點傷害。\r\n\r\n每鑲嵌一種不同顏色的寶石，都會使屏障的強度進一步提高1%。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
     "251082": {
       "id": 251082,
       "name": "啃噬藤蔓繫腰",
@@ -1726,6 +2343,26 @@
       "spells": [],
       "setId": 1971,
       "setName": "虛光雙戒"
+    },
+    "251513": {
+      "id": 251513,
+      "name": "羅亞崇拜者指環",
+      "sourceName": "神灵崇拜者的指环",
+      "quality": "史詩",
+      "inventoryType": "手指",
+      "itemClass": "護甲",
+      "itemSubclass": "雜項",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251904,
+          "name": "羅亞崇拜者指環",
+          "description": "裝備： 你的傷害法術和技能有一定機率為指環充能，召喚羅亞的化身來協助你戰鬥。\r\n\r\n每在裝備中鑲嵌一種不同顏色的寶石，都能召喚不同的羅亞。觸發的效果涵蓋對敵人造成傷害，以及賦予你暫時性的力量。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
     },
     "252418": {
       "id": 252418,
@@ -2680,6 +3317,94 @@
       "setId": null,
       "setName": ""
     },
+    "268283": {
+      "id": 268283,
+      "name": "膿卉之冠",
+      "sourceName": "溃烂之花冠冕",
+      "quality": "史詩",
+      "inventoryType": "頭部",
+      "itemClass": "護甲",
+      "itemSubclass": "皮甲",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "268286": {
+      "id": 268286,
+      "name": "腐臭巨人束帶",
+      "sourceName": "腐臭巨人的腰带",
+      "quality": "史詩",
+      "inventoryType": "腰部",
+      "itemClass": "護甲",
+      "itemSubclass": "皮甲",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "268290": {
+      "id": 268290,
+      "name": "喚孢者綻放戒環",
+      "sourceName": "唤孢者的绽放指环",
+      "quality": "史詩",
+      "inventoryType": "手指",
+      "itemClass": "護甲",
+      "itemSubclass": "雜項",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1285138,
+          "name": "喚孢者綻放戒環",
+          "description": "裝備： 造成自然傷害時，有一定機率造成腐瓣花，在15秒內造成1,718點自然傷害。如果該敵人已經受到你腐瓣花的影響，則會消耗效果，造成120%剩餘傷害。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268291": {
+      "id": 268291,
+      "name": "腐沼孢子之心",
+      "sourceName": "腐沼的孢子之心",
+      "quality": "史詩",
+      "inventoryType": "頸部",
+      "itemClass": "護甲",
+      "itemSubclass": "雜項",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1285139,
+          "name": "腐沼孢子之心",
+          "description": "裝備： 你的治療效果有一定機率生成保護傘菌，吸收19,539點傷害，最多持續12秒。如果被打破，傘菌會爆開，對附近敵人造成2,695點自然傷害。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268292": {
+      "id": 268292,
+      "name": "孢子之王的菌絲徽記",
+      "sourceName": "孢子大王的菌丝徽记",
+      "quality": "史詩",
+      "inventoryType": "飾品",
+      "itemClass": "護甲",
+      "itemSubclass": "雜項",
+      "binding": "拾取後綁定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1284696,
+          "name": "孢子之王的菌絲",
+          "description": "裝備： 你的法術和技能有一定機率滋養菌絲，使你隨機一個次要屬性和汲取提高215點，持續12秒。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
     "269269": {
       "id": 269269,
       "name": "吞噬儀式之尖",
@@ -2709,6 +3434,36 @@
         {
           "requiredCount": 2,
           "displayString": "套裝：迴避提高點。"
+        }
+      ]
+    },
+    "1957": {
+      "id": 1957,
+      "name": "日炎絲綢之服",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "套裝：當生命力超過80%時，獲得35點加速。"
+        }
+      ]
+    },
+    "1958": {
+      "id": 1958,
+      "name": "奧紋之服",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "套裝：當生命力超過80%時，獲得35點致命一擊。"
+        }
+      ]
+    },
+    "1966": {
+      "id": 1966,
+      "name": "兇殺路之衣",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "套裝：在戰鬥中，你每30秒利用下一次致命一擊使自己佔上風。每次狀況都不同，因此你在該次佔的上風也不同。治療藥劑、塗毒匕首和其他魔法違禁品都是可能的選項。"
         }
       ]
     },

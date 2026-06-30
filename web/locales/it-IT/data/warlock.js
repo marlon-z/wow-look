@@ -4,7 +4,7 @@ module.exports = {
   "source": "blizzard-game-data-api",
   "region": "eu",
   "namespace": "static-eu",
-  "generatedAt": "2026-05-07T06:25:10.680Z",
+  "generatedAt": "2026-06-30T10:30:01.782Z",
   "classKey": "warlock",
   "items": {
     "49805": {
@@ -411,6 +411,480 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "237837": {
+      "id": 237837,
+      "name": "Pietà dei Lungopasso",
+      "sourceName": "远行者的慈悲",
+      "quality": "Epico",
+      "inventoryType": "Una mano",
+      "itemClass": "Arma",
+      "itemSubclass": "Pugnale",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237838": {
+      "id": 237838,
+      "name": "Coltello Rituale del Magistro",
+      "sourceName": "魔导师的仪式之匕",
+      "quality": "Epico",
+      "inventoryType": "Una mano",
+      "itemClass": "Arma",
+      "itemSubclass": "Pugnale",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237839": {
+      "id": 237839,
+      "name": "Lama dello Spezzamagie",
+      "sourceName": "破法者的利剑",
+      "quality": "Epico",
+      "inventoryType": "Una mano",
+      "itemClass": "Arma",
+      "itemSubclass": "Spada",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237840": {
+      "id": 237840,
+      "name": "Lame da Guerra dello Spezzamagie",
+      "sourceName": "破法者的战刃",
+      "quality": "Epico",
+      "inventoryType": "Una mano",
+      "itemClass": "Arma",
+      "itemSubclass": "Lame da Guerra",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237841": {
+      "id": 237841,
+      "name": "Ultimatum dello Spezzamagie",
+      "sourceName": "破法者的通牒",
+      "quality": "Epico",
+      "inventoryType": "Una mano",
+      "itemClass": "Arma",
+      "itemSubclass": "Mazza",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237842": {
+      "id": 237842,
+      "name": "Grandascia Forgiata dalla Fioritura",
+      "sourceName": "绽铸大斧",
+      "quality": "Epico",
+      "inventoryType": "Due mani",
+      "itemClass": "Arma",
+      "itemSubclass": "Ascia",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237843": {
+      "id": 237843,
+      "name": "Spada di Mana del Magistro",
+      "sourceName": "魔导师的法力之剑",
+      "quality": "Epico",
+      "inventoryType": "Una mano",
+      "itemClass": "Arma",
+      "itemSubclass": "Spada",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237844": {
+      "id": 237844,
+      "name": "Mannaia del Magistro",
+      "sourceName": "魔导师的砍斧",
+      "quality": "Epico",
+      "inventoryType": "Una mano",
+      "itemClass": "Arma",
+      "itemSubclass": "Ascia",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237845": {
+      "id": 237845,
+      "name": "Artiglio Forgiato dalla Fioritura",
+      "sourceName": "绽铸之爪",
+      "quality": "Epico",
+      "inventoryType": "Una mano",
+      "itemClass": "Arma",
+      "itemSubclass": "Tirapugni",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237846": {
+      "id": 237846,
+      "name": "Spadone da Guerra del Cavaliere del Sangue",
+      "sourceName": "血骑士的战剑",
+      "quality": "Epico",
+      "inventoryType": "Due mani",
+      "itemClass": "Arma",
+      "itemSubclass": "Spada",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237847": {
+      "id": 237847,
+      "name": "Impeto del Cavaliere del Sangue",
+      "sourceName": "血骑士的强击矛",
+      "quality": "Epico",
+      "inventoryType": "Due mani",
+      "itemClass": "Arma",
+      "itemSubclass": "Arma ad asta",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237848": {
+      "id": 237848,
+      "name": "Pietà del Cavaliere del Sangue",
+      "sourceName": "血骑士的慈悲",
+      "quality": "Epico",
+      "inventoryType": "Due mani",
+      "itemClass": "Arma",
+      "itemSubclass": "Mazza",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237849": {
+      "id": 237849,
+      "name": "Commiato del Magistro",
+      "sourceName": "魔导师的送别",
+      "quality": "Epico",
+      "inventoryType": "Due mani",
+      "itemClass": "Arma",
+      "itemSubclass": "Mazza",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237850": {
+      "id": 237850,
+      "name": "Scure dei Lungopasso",
+      "sourceName": "远行者的劈斧",
+      "quality": "Epico",
+      "inventoryType": "Una mano",
+      "itemClass": "Arma",
+      "itemSubclass": "Ascia",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239648": {
+      "id": 239648,
+      "name": "Manette del Martire",
+      "sourceName": "殉难者的裹腕",
+      "quality": "Epico",
+      "inventoryType": "Polsi",
+      "itemClass": "Armature",
+      "itemSubclass": "Stoffa",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239649": {
+      "id": 239649,
+      "name": "Fusciacca del Martire",
+      "sourceName": "殉难者的裹腰",
+      "quality": "Epico",
+      "inventoryType": "Fianchi",
+      "itemClass": "Armature",
+      "itemSubclass": "Stoffa",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239650": {
+      "id": 239650,
+      "name": "Coprispalle del Martire",
+      "sourceName": "殉难者的披肩",
+      "quality": "Epico",
+      "inventoryType": "Spalle",
+      "itemClass": "Armature",
+      "itemSubclass": "Stoffa",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239651": {
+      "id": 239651,
+      "name": "Gambiere del Martire",
+      "sourceName": "殉难者的护腿",
+      "quality": "Epico",
+      "inventoryType": "Gambe",
+      "itemClass": "Armature",
+      "itemSubclass": "Stoffa",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239652": {
+      "id": 239652,
+      "name": "Corona del Martire",
+      "sourceName": "殉难者的冠冕",
+      "quality": "Epico",
+      "inventoryType": "Testa",
+      "itemClass": "Armature",
+      "itemSubclass": "Stoffa",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239653": {
+      "id": 239653,
+      "name": "Guanti del Martire",
+      "sourceName": "殉难者的手套",
+      "quality": "Epico",
+      "inventoryType": "Mani",
+      "itemClass": "Armature",
+      "itemSubclass": "Stoffa",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239654": {
+      "id": 239654,
+      "name": "Pianelle del Martire",
+      "sourceName": "殉难者的便鞋",
+      "quality": "Epico",
+      "inventoryType": "Piedi",
+      "itemClass": "Armature",
+      "itemSubclass": "Stoffa",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239655": {
+      "id": 239655,
+      "name": "Veste del Martire",
+      "sourceName": "殉难者的法衣",
+      "quality": "Epico",
+      "inventoryType": "Torso",
+      "itemClass": "Armature",
+      "itemSubclass": "Stoffa",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239656": {
+      "id": 239656,
+      "name": "Manto di Seta del Proselito",
+      "sourceName": "信徒的流丝罩袍",
+      "quality": "Epico",
+      "inventoryType": "Schiena",
+      "itemClass": "Armature",
+      "itemSubclass": "Stoffa",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239657": {
+      "id": 239657,
+      "name": "Bracciali del Fuoco Solare",
+      "sourceName": "阳炎护腕",
+      "quality": "Epico",
+      "inventoryType": "Polsi",
+      "itemClass": "Armature",
+      "itemSubclass": "Stoffa",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": 1957,
+      "setName": "Ornamenti di Seta del Fuoco Solare"
+    },
+    "239658": {
+      "id": 239658,
+      "name": "Mantello del Fuoco Solare",
+      "sourceName": "阳炎披风",
+      "quality": "Epico",
+      "inventoryType": "Schiena",
+      "itemClass": "Armature",
+      "itemSubclass": "Stoffa",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": 1957,
+      "setName": "Ornamenti di Seta del Fuoco Solare"
+    },
+    "239659": {
+      "id": 239659,
+      "name": "Stivaletti del Fuoco Solare",
+      "sourceName": "阳炎软鞋",
+      "quality": "Epico",
+      "inventoryType": "Piedi",
+      "itemClass": "Armature",
+      "itemSubclass": "Stoffa",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": 1957,
+      "setName": "Ornamenti di Seta del Fuoco Solare"
+    },
+    "239660": {
+      "id": 239660,
+      "name": "Bracciali di Tramarcana",
+      "sourceName": "奥纹护腕",
+      "quality": "Epico",
+      "inventoryType": "Polsi",
+      "itemClass": "Armature",
+      "itemSubclass": "Stoffa",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": 1958,
+      "setName": "Ornamenti di Tramarcana"
+    },
+    "239661": {
+      "id": 239661,
+      "name": "Mantello di Tramarcana",
+      "sourceName": "奥纹披风",
+      "quality": "Epico",
+      "inventoryType": "Schiena",
+      "itemClass": "Armature",
+      "itemSubclass": "Stoffa",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": 1958,
+      "setName": "Ornamenti di Tramarcana"
+    },
+    "239662": {
+      "id": 239662,
+      "name": "Stivaletti di Tramarcana",
+      "sourceName": "奥纹软鞋",
+      "quality": "Epico",
+      "inventoryType": "Piedi",
+      "itemClass": "Armature",
+      "itemSubclass": "Stoffa",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": 1958,
+      "setName": "Ornamenti di Tramarcana"
+    },
+    "239663": {
+      "id": 239663,
+      "name": "Fascia del Fuoco Solare",
+      "sourceName": "阳炎腰带",
+      "quality": "Epico",
+      "inventoryType": "Fianchi",
+      "itemClass": "Armature",
+      "itemSubclass": "Stoffa",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [
+        {
+          "id": 1241503,
+          "name": "Fascia del Fuoco Solare",
+          "description": "Equipaggia: Gli incantesimi e le abilità hanno una probabilità di infliggere 3.707 danni da radiosità al bersaglio attuale."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "239664": {
+      "id": 239664,
+      "name": "Fascione di Tramarcana",
+      "sourceName": "奥纹束带",
+      "quality": "Epico",
+      "inventoryType": "Fianchi",
+      "itemClass": "Armature",
+      "itemSubclass": "Stoffa",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [
+        {
+          "id": 1241529,
+          "name": "Fascione di Tramarcana",
+          "description": "Equipaggia: Gli incantesimi d'attacco e di cura hanno una probabilità di aumentare l'indice di maestria di 30 per 12 s."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "240949": {
+      "id": 240949,
+      "name": "Vera Capolavoro dei Sin'dorei",
+      "sourceName": "精工辛多雷指环",
+      "quality": "Epico",
+      "inventoryType": "Dito",
+      "itemClass": "Armature",
+      "itemSubclass": "Varie",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "240950": {
+      "id": 240950,
+      "name": "Amuleto Capolavoro dei Sin'dorei",
+      "sourceName": "精工辛多雷护符",
+      "quality": "Epico",
+      "inventoryType": "Collo",
+      "itemClass": "Armature",
+      "itemSubclass": "Varie",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "241044": {
       "id": 241044,
       "name": "Cassa Argussiana",
@@ -426,6 +900,269 @@ module.exports = {
           "id": 1230953,
           "name": "Raccolta Cassa Argussiana",
           "description": "Usa: Aggiunge questa decorazione al tuo Forziere della Casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241139": {
+      "id": 241139,
+      "name": "Collare di Fenice Thalassiano",
+      "sourceName": "萨拉斯凤凰饰环",
+      "quality": "Epico",
+      "inventoryType": "Collo",
+      "itemClass": "Armature",
+      "itemSubclass": "Varie",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251815,
+          "name": "Collare di Fenice Thalassiano",
+          "description": "Equipaggia: Gli incantesimi e le abilità hanno una probabilità di richiamare delle Fiamme della Fenice che avvolgono il bersaglio.\r\n\r\nSe il bersaglio è un alleato, rigenera 11.730 salute in 10 s. Se il bersaglio è un nemico, subisce invece 7.821 danni da fuoco in 10 s.\r\n\r\nOgni gemma di colore unico incastonata potenzia le fiamme del 1%."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241140": {
+      "id": 241140,
+      "name": "Anello con Sigillo delle Benedizioni Azerothiane",
+      "sourceName": "艾泽拉斯祝福印戒",
+      "quality": "Epico",
+      "inventoryType": "Dito",
+      "itemClass": "Armature",
+      "itemSubclass": "Varie",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251902,
+          "name": "Anello con Sigillo delle Benedizioni Azerothiane",
+          "description": "Equipaggia: Gli incantesimi e le abilità possono far risuonare l'anello con l'Anima del Mondo, aumentando tutte le statistiche secondarie di 4 per 15 s.\r\n\r\nOgni gemma di colore unico incastonata potenzia la statistica secondaria associata al suo colore, aumentando quel bonus del 1%."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241340": {
+      "id": 241340,
+      "name": "Pietra Alchemica del Magistro",
+      "sourceName": "魔导师的炼金石",
+      "quality": "Epico",
+      "inventoryType": "Monile",
+      "itemClass": "Armature",
+      "itemSubclass": "Varie",
+      "binding": "Si vincola alla raccolta",
+      "description": "Può sostituire una Pietra Filosofale per le trasmutazioni.",
+      "spells": [
+        {
+          "id": 1280591,
+          "name": "Pietra Alchemica del Magistro",
+          "description": "Equipaggia: Fornire cure o infliggere danni fornisce una probabilità di aumentare Forza, Agilità o Intelletto di 162 per 15 s. Viene sempre scelto il tuo attributo più alto."
+        },
+        {
+          "id": 17619,
+          "name": "Pietra Alchemica",
+          "description": "Equipaggia: Aumenta l'effetto delle pozioni di mana e di cura del 40%. L'effetto non si accumula."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244179": {
+      "id": 244179,
+      "name": "Granfocus del Magistro",
+      "sourceName": "魔导师的华丽法器",
+      "quality": "Epico",
+      "inventoryType": "A distanza",
+      "itemClass": "Arma",
+      "itemSubclass": "Bacchetta",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244679": {
+      "id": 244679,
+      "name": "Pugnale ad Amo della Traversa degli Intrighi",
+      "sourceName": "密谋小径鱼钩",
+      "quality": "Epico",
+      "inventoryType": "Una mano",
+      "itemClass": "Arma",
+      "itemSubclass": "Pugnale",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250529,
+          "name": "Pugnale ad Amo della Traversa degli Intrighi",
+          "description": "Equipaggia: Gli incantesimi e le abilità d'attacco hanno una probabilità di far sanguinare il bersaglio, infliggendo 846 danni fisici in 10 s."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244743": {
+      "id": 244743,
+      "name": "Benda per Occhio di Eterlume",
+      "sourceName": "以太流明遮目镜",
+      "quality": "Epico",
+      "inventoryType": "Testa",
+      "itemClass": "Armature",
+      "itemSubclass": "Stoffa",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244747": {
+      "id": 244747,
+      "name": "Polsiere di Seta di Eterlume",
+      "sourceName": "以太流明丝质腕扣",
+      "quality": "Epico",
+      "inventoryType": "Polsi",
+      "itemClass": "Armature",
+      "itemSubclass": "Stoffa",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244771": {
+      "id": 244771,
+      "name": "Suole Soffici di Eterlume",
+      "sourceName": "以太流明软鞋",
+      "quality": "Epico",
+      "inventoryType": "Piedi",
+      "itemClass": "Armature",
+      "itemSubclass": "Stoffa",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "245769": {
+      "id": 245769,
+      "name": "Lanterna di Aln'hara",
+      "sourceName": "艾林哈籁灯笼",
+      "quality": "Epico",
+      "inventoryType": "Accessorio",
+      "itemClass": "Armature",
+      "itemSubclass": "Varie",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "245770": {
+      "id": 245770,
+      "name": "Bastone di Aln'hara",
+      "sourceName": "艾林哈籁手杖",
+      "quality": "Epico",
+      "inventoryType": "Due mani",
+      "itemClass": "Arma",
+      "itemSubclass": "Bastone",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "245771": {
+      "id": 245771,
+      "name": "Picca di Aln'hara",
+      "sourceName": "艾林哈籁刺杖",
+      "quality": "Epico",
+      "inventoryType": "Due mani",
+      "itemClass": "Arma",
+      "itemSubclass": "Bastone",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "246304": {
+      "id": 246304,
+      "name": "Dominio di Lunacupa: Caccia",
+      "sourceName": "暗月统御：狩猎",
+      "quality": "Epico",
+      "inventoryType": "Monile",
+      "itemClass": "Armature",
+      "itemSubclass": "Varie",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245050,
+          "name": "Caccia",
+          "description": "Equipaggia: Gli incantesimi e le abilità hanno una probabilità di aumentare le statistiche secondarie di 168 per 15 s in base al tipo di creatura bersaglio.\r\n\r\nL'effetto è potenziato dal Sigillo di Lunacupa: Caccia."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246305": {
+      "id": 246305,
+      "name": "Dominio di Lunacupa: Sangue",
+      "sourceName": "暗月统御：鲜血",
+      "quality": "Epico",
+      "inventoryType": "Monile",
+      "itemClass": "Armature",
+      "itemSubclass": "Varie",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245001,
+          "name": "Sangue",
+          "description": "Equipaggia: Gli incantesimi e le abilità d'attacco hanno una probabilità di fornire Inganno dei Lungopasso, aumentando la statistica secondaria più bassa di 444 per 15 s.\r\n\r\nQuando un personaggio alleato muore, la statistica secondaria più alta aumenta di 232 per 15 s. Può verificarsi solo una volta ogni 5 min.\r\n\r\nL'effetto è potenziato dal Sigillo di Lunacupa: Sangue."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246306": {
+      "id": 246306,
+      "name": "Dominio di Lunacupa: Marciume",
+      "sourceName": "暗月统御：腐烂",
+      "quality": "Epico",
+      "inventoryType": "Monile",
+      "itemClass": "Armature",
+      "itemSubclass": "Varie",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245051,
+          "name": "Marciume",
+          "description": "Equipaggia: Affligge il bersaglio con Radici Marcescenti, infliggendo 214 danni da natura ogni 2 s per 6 s. Si accumula fino a 10 volte. I nuovi accumuli non rinnovano gli accumuli già applicati.\r\n\r\nL'effetto è potenziato dal Sigillo di Lunacupa: Marciume.\r\n"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246307": {
+      "id": 246307,
+      "name": "Dominio di Lunacupa: Vuoto",
+      "sourceName": "暗月统御：虚空",
+      "quality": "Epico",
+      "inventoryType": "Monile",
+      "itemClass": "Armature",
+      "itemSubclass": "Varie",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [
+        {
+          "id": 1244254,
+          "name": "Vuoto",
+          "description": "Equipaggia: Gli incantesimi e le abilità d'attacco hanno una probabilità di avvolgerti nel Vuotovitreo, aumentando l'indice di versatilità di 123 in 15 s. Applicazioni multiple potrebbero sovrapporsi.\r\n\r\nL'effetto è potenziato dal Sigillo di Lunacupa: Vuoto."
         }
       ],
       "setId": null,
@@ -1233,6 +1970,26 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "251073": {
+      "id": 251073,
+      "name": "Matrice Protettiva della Pietra del Vuoto",
+      "sourceName": "虚空石护盾阵列",
+      "quality": "Epico",
+      "inventoryType": "Collo",
+      "itemClass": "Armature",
+      "itemSubclass": "Varie",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251903,
+          "name": "Barriera della Pietra del Vuoto",
+          "description": "Usa: Attiva la matrice e genera una Barriera della Pietra del Vuoto che assorbe 71.596 danni subiti per i successivi 10 s.\r\n\r\nLa barriera si potenzia ulteriormente del 1% per ogni gemma di colore unico incastonata."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
     "251080": {
       "id": 251080,
       "name": "Aureola d'Albarovi",
@@ -1526,6 +2283,26 @@ module.exports = {
       "spells": [],
       "setId": 1971,
       "setName": "Vincoli di Lucevuota"
+    },
+    "251513": {
+      "id": 251513,
+      "name": "Vera degli Adoratori dei Loa",
+      "sourceName": "神灵崇拜者的指环",
+      "quality": "Epico",
+      "inventoryType": "Dito",
+      "itemClass": "Armature",
+      "itemSubclass": "Varie",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251904,
+          "name": "Vera degli Adoratori dei Loa",
+          "description": "Equipaggia: Gli incantesimi e le abilità d'attacco hanno una probabilità di caricare la vera, richiamando l'avatar di un Loa che combatte al tuo fianco.\r\n\r\nOgni gemma di colore unico incastonata evoca un Loa diverso. Gli effetti variano dall'infliggere danni ai nemici al fornire potenziamenti temporanei."
+        }
+      ],
+      "setId": null,
+      "setName": ""
     },
     "256625": {
       "id": 256625,
@@ -2263,6 +3040,20 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "265337": {
+      "id": 265337,
+      "name": "Scoccaramo di Aln'hara",
+      "sourceName": "艾林哈籁蔓枝弓",
+      "quality": "Epico",
+      "inventoryType": "A distanza",
+      "itemClass": "Arma",
+      "itemSubclass": "Arco",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "265949": {
       "id": 265949,
       "name": "Trofeo del Dominio sulla Marcia su Quel'Danas Aureo",
@@ -2403,6 +3194,108 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "268282": {
+      "id": 268282,
+      "name": "Schiacciasuolo Lussuosi",
+      "sourceName": "奢华沃壤踏靴",
+      "quality": "Epico",
+      "inventoryType": "Piedi",
+      "itemClass": "Armature",
+      "itemSubclass": "Stoffa",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "268284": {
+      "id": 268284,
+      "name": "Veste Marcia del Micomante",
+      "sourceName": "丝菌师的腐朽长袍",
+      "quality": "Epico",
+      "inventoryType": "Torso",
+      "itemClass": "Armature",
+      "itemSubclass": "Stoffa",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "268290": {
+      "id": 268290,
+      "name": "Anello Fiorito dell'Invocatore delle Spore",
+      "sourceName": "唤孢者的绽放指环",
+      "quality": "Epico",
+      "inventoryType": "Dito",
+      "itemClass": "Armature",
+      "itemSubclass": "Varie",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [
+        {
+          "id": 1285138,
+          "name": "Anello Fiorito dell'Invocatore delle Spore",
+          "description": "Equipaggia: Infliggere danni da natura ha una probabilità di provocare Bocciolomarcio, infliggendo 1.718 danni da natura in 15 s. Se il nemico è già affetto da Bocciolomarcio, l'effetto viene consumato infliggendo il 120% dei danni restanti."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268291": {
+      "id": 268291,
+      "name": "Cuore di Spore di Fangorrido",
+      "sourceName": "腐沼的孢子之心",
+      "quality": "Epico",
+      "inventoryType": "Collo",
+      "itemClass": "Armature",
+      "itemSubclass": "Varie",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [
+        {
+          "id": 1285139,
+          "name": "Cuore di Spore di Fangorrido",
+          "description": "Equipaggia: Le cure fornite hanno una probabilità di far comparire funghi velenosi protettivi che assorbono 19.539 danni subiti per massimo 12 s. Se vengono rotti, i funghi velenosi esplodono, infliggendo 2.695 danni da natura ai nemici vicini."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268292": {
+      "id": 268292,
+      "name": "Fregio Miceliare del Signore delle Spore",
+      "sourceName": "孢子大王的菌丝徽记",
+      "quality": "Epico",
+      "inventoryType": "Monile",
+      "itemClass": "Armature",
+      "itemSubclass": "Varie",
+      "binding": "Si vincola alla raccolta",
+      "description": "",
+      "spells": [
+        {
+          "id": 1284696,
+          "name": "Micelio del Signore delle Spore",
+          "description": "Equipaggia: Gli incantesimi e le abilità hanno una probabilità di nutrire il micelio, aumentando una statistica secondaria casuale e il ritorno vitale di 215 per 12 s."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268477": {
+      "id": 268477,
+      "name": "B.A.N.G. x3",
+      "sourceName": "P.O.W. x3",
+      "quality": "Epico",
+      "inventoryType": "A distanza",
+      "itemClass": "Arma",
+      "itemSubclass": "Arma da fuoco",
+      "binding": "Si vincola alla raccolta",
+      "description": "Coraggio, spara ancora più veloce!",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "269269": {
       "id": 269269,
       "name": "Guglia Rituale Divorante",
@@ -2446,6 +3339,26 @@ module.exports = {
         {
           "requiredCount": 3,
           "displayString": "Set: Cambiamento Ombroso aumenta l'indice di maestria."
+        }
+      ]
+    },
+    "1957": {
+      "id": 1957,
+      "name": "Ornamenti di Seta del Fuoco Solare",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Set: Aumenta l'indice di celerità di 35 quando si ha più del 80% della salute massima."
+        }
+      ]
+    },
+    "1958": {
+      "id": 1958,
+      "name": "Ornamenti di Tramarcana",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Set: Aumenta l'indice di critico di 35 quando si ha più del 80% della salute massima."
         }
       ]
     },

@@ -4,7 +4,7 @@ module.exports = {
   "source": "blizzard-game-data-api",
   "region": "us",
   "namespace": "static-us",
-  "generatedAt": "2026-05-07T06:25:14.913Z",
+  "generatedAt": "2026-06-30T10:52:48.715Z",
   "classKey": "evoker",
   "items": {
     "49810": {
@@ -434,6 +434,272 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "237837": {
+      "id": 237837,
+      "name": "远行者的慈悲",
+      "sourceName": "远行者的慈悲",
+      "quality": "史诗",
+      "inventoryType": "单手",
+      "itemClass": "武器",
+      "itemSubclass": "匕首",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237838": {
+      "id": 237838,
+      "name": "魔导师的仪式之匕",
+      "sourceName": "魔导师的仪式之匕",
+      "quality": "史诗",
+      "inventoryType": "单手",
+      "itemClass": "武器",
+      "itemSubclass": "匕首",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237839": {
+      "id": 237839,
+      "name": "破法者的利剑",
+      "sourceName": "破法者的利剑",
+      "quality": "史诗",
+      "inventoryType": "单手",
+      "itemClass": "武器",
+      "itemSubclass": "剑",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237840": {
+      "id": 237840,
+      "name": "破法者的战刃",
+      "sourceName": "破法者的战刃",
+      "quality": "史诗",
+      "inventoryType": "单手",
+      "itemClass": "武器",
+      "itemSubclass": "战刃",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237841": {
+      "id": 237841,
+      "name": "破法者的通牒",
+      "sourceName": "破法者的通牒",
+      "quality": "史诗",
+      "inventoryType": "单手",
+      "itemClass": "武器",
+      "itemSubclass": "锤",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237842": {
+      "id": 237842,
+      "name": "绽铸大斧",
+      "sourceName": "绽铸大斧",
+      "quality": "史诗",
+      "inventoryType": "双手",
+      "itemClass": "武器",
+      "itemSubclass": "斧",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237843": {
+      "id": 237843,
+      "name": "魔导师的法力之剑",
+      "sourceName": "魔导师的法力之剑",
+      "quality": "史诗",
+      "inventoryType": "单手",
+      "itemClass": "武器",
+      "itemSubclass": "剑",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237844": {
+      "id": 237844,
+      "name": "魔导师的砍斧",
+      "sourceName": "魔导师的砍斧",
+      "quality": "史诗",
+      "inventoryType": "单手",
+      "itemClass": "武器",
+      "itemSubclass": "斧",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237845": {
+      "id": 237845,
+      "name": "绽铸之爪",
+      "sourceName": "绽铸之爪",
+      "quality": "史诗",
+      "inventoryType": "单手",
+      "itemClass": "武器",
+      "itemSubclass": "拳套",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237846": {
+      "id": 237846,
+      "name": "血骑士的战剑",
+      "sourceName": "血骑士的战剑",
+      "quality": "史诗",
+      "inventoryType": "双手",
+      "itemClass": "武器",
+      "itemSubclass": "剑",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237847": {
+      "id": 237847,
+      "name": "血骑士的强击矛",
+      "sourceName": "血骑士的强击矛",
+      "quality": "史诗",
+      "inventoryType": "双手",
+      "itemClass": "武器",
+      "itemSubclass": "长柄武器",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237848": {
+      "id": 237848,
+      "name": "血骑士的慈悲",
+      "sourceName": "血骑士的慈悲",
+      "quality": "史诗",
+      "inventoryType": "双手",
+      "itemClass": "武器",
+      "itemSubclass": "锤",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237849": {
+      "id": 237849,
+      "name": "魔导师的送别",
+      "sourceName": "魔导师的送别",
+      "quality": "史诗",
+      "inventoryType": "双手",
+      "itemClass": "武器",
+      "itemSubclass": "锤",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237850": {
+      "id": 237850,
+      "name": "远行者的劈斧",
+      "sourceName": "远行者的劈斧",
+      "quality": "史诗",
+      "inventoryType": "单手",
+      "itemClass": "武器",
+      "itemSubclass": "斧",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239656": {
+      "id": 239656,
+      "name": "信徒的流丝罩袍",
+      "sourceName": "信徒的流丝罩袍",
+      "quality": "史诗",
+      "inventoryType": "背部",
+      "itemClass": "护甲",
+      "itemSubclass": "布甲",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239658": {
+      "id": 239658,
+      "name": "阳炎披风",
+      "sourceName": "阳炎披风",
+      "quality": "史诗",
+      "inventoryType": "背部",
+      "itemClass": "护甲",
+      "itemSubclass": "布甲",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": 1957,
+      "setName": "阳炎丝绸礼服"
+    },
+    "239661": {
+      "id": 239661,
+      "name": "奥纹披风",
+      "sourceName": "奥纹披风",
+      "quality": "史诗",
+      "inventoryType": "背部",
+      "itemClass": "护甲",
+      "itemSubclass": "布甲",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": 1958,
+      "setName": "奥纹礼服"
+    },
+    "240949": {
+      "id": 240949,
+      "name": "精工辛多雷指环",
+      "sourceName": "精工辛多雷指环",
+      "quality": "史诗",
+      "inventoryType": "手指",
+      "itemClass": "护甲",
+      "itemSubclass": "其它",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "240950": {
+      "id": 240950,
+      "name": "精工辛多雷护符",
+      "sourceName": "精工辛多雷护符",
+      "quality": "史诗",
+      "inventoryType": "颈部",
+      "itemClass": "护甲",
+      "itemSubclass": "其它",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "241044": {
       "id": 241044,
       "name": "阿古斯箱子",
@@ -449,6 +715,463 @@ module.exports = {
           "id": 1230953,
           "name": "收集阿古斯箱子",
           "description": "使用： 将此装饰添加到你的住宅收纳箱中。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241139": {
+      "id": 241139,
+      "name": "萨拉斯凤凰饰环",
+      "sourceName": "萨拉斯凤凰饰环",
+      "quality": "史诗",
+      "inventoryType": "颈部",
+      "itemClass": "护甲",
+      "itemSubclass": "其它",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251815,
+          "name": "萨拉斯凤凰饰环",
+          "description": "装备： 你的法术和技能有几率唤起不死鸟之焰，将你的目标包围其中。\r\n\r\n若你的目标是友方，为其在10秒内恢复11,730点生命值。若你的目标是敌人，其在10秒内受到7,821点火焰伤害。\r\n\r\n镶嵌宝石每有一种不同的颜色，使烈焰效果提高1%。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241140": {
+      "id": 241140,
+      "name": "艾泽拉斯祝福印戒",
+      "sourceName": "艾泽拉斯祝福印戒",
+      "quality": "史诗",
+      "inventoryType": "手指",
+      "itemClass": "护甲",
+      "itemSubclass": "其它",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251902,
+          "name": "艾泽拉斯祝福印戒",
+          "description": "装备： 你的法术和技能可能使印戒与世界之魂产生共鸣，使你的所有次要属性提高4，持续15秒。\r\n\r\n镶嵌宝石每有一种不同的颜色，此加成提供的对应次要属性额外提高1%。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241340": {
+      "id": 241340,
+      "name": "魔导师的炼金石",
+      "sourceName": "魔导师的炼金石",
+      "quality": "史诗",
+      "inventoryType": "饰品",
+      "itemClass": "护甲",
+      "itemSubclass": "其它",
+      "binding": "拾取后绑定",
+      "description": "可在元素转化时代替点金石使用。",
+      "spells": [
+        {
+          "id": 1280591,
+          "name": "魔导师的炼金石",
+          "description": "装备： 当你进行治疗或对敌人造成伤害时，有一定几率使你的力量、敏捷或者智力提高162点，持续15秒。总是会提升数值最高的那个属性。"
+        },
+        {
+          "id": 17619,
+          "name": "炼金石",
+          "description": "装备： 使你在饮用治疗药水和法力药水时获得的效果提高40%。这个效果无法叠加。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244179": {
+      "id": 244179,
+      "name": "魔导师的华丽法器",
+      "sourceName": "魔导师的华丽法器",
+      "quality": "史诗",
+      "inventoryType": "远程",
+      "itemClass": "武器",
+      "itemSubclass": "魔杖",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244577": {
+      "id": 244577,
+      "name": "远行者的刀锋战靴",
+      "sourceName": "远行者的刀锋战靴",
+      "quality": "史诗",
+      "inventoryType": "脚部",
+      "itemClass": "护甲",
+      "itemSubclass": "锁甲",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244578": {
+      "id": 244578,
+      "name": "远行者的侦察背心",
+      "sourceName": "远行者的侦察背心",
+      "quality": "史诗",
+      "inventoryType": "胸部",
+      "itemClass": "护甲",
+      "itemSubclass": "锁甲",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244579": {
+      "id": 244579,
+      "name": "远行者的不懈守望",
+      "sourceName": "远行者的不懈守望",
+      "quality": "史诗",
+      "inventoryType": "头部",
+      "itemClass": "护甲",
+      "itemSubclass": "锁甲",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244580": {
+      "id": 244580,
+      "name": "远行者的璀璨之羽",
+      "sourceName": "远行者的璀璨之羽",
+      "quality": "史诗",
+      "inventoryType": "肩部",
+      "itemClass": "护甲",
+      "itemSubclass": "锁甲",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244581": {
+      "id": 244581,
+      "name": "远行者的战利品腰带",
+      "sourceName": "远行者的战利品腰带",
+      "quality": "史诗",
+      "inventoryType": "腰部",
+      "itemClass": "护甲",
+      "itemSubclass": "锁甲",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244582": {
+      "id": 244582,
+      "name": "远行者的加固腿铠",
+      "sourceName": "远行者的加固腿铠",
+      "quality": "史诗",
+      "inventoryType": "腿部",
+      "itemClass": "护甲",
+      "itemSubclass": "锁甲",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244583": {
+      "id": 244583,
+      "name": "远行者的锋芒爪套",
+      "sourceName": "远行者的锋芒爪套",
+      "quality": "史诗",
+      "inventoryType": "手部",
+      "itemClass": "护甲",
+      "itemSubclass": "锁甲",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244584": {
+      "id": 244584,
+      "name": "远行者的板层护腕",
+      "sourceName": "远行者的板层护腕",
+      "quality": "史诗",
+      "inventoryType": "腕部",
+      "itemClass": "护甲",
+      "itemSubclass": "锁甲",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244602": {
+      "id": 244602,
+      "name": "游侠将军之握",
+      "sourceName": "游侠将军之握",
+      "quality": "史诗",
+      "inventoryType": "手部",
+      "itemClass": "护甲",
+      "itemSubclass": "锁甲",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1243876,
+          "name": "游侠将军的召唤",
+          "description": "装备： 对目标造成伤害有几率标记目标，使一名精灵游侠从远处发动突袭！此次突袭对目标造成6,530点物理伤害。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244605": {
+      "id": 244605,
+      "name": "掷斧腕带",
+      "sourceName": "掷斧腕带",
+      "quality": "史诗",
+      "inventoryType": "腕部",
+      "itemClass": "护甲",
+      "itemSubclass": "锁甲",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1243871,
+          "name": "战斗狂热",
+          "description": "装备： 你的法术和技能有几率使你陷入战斗狂热。战斗狂热使你的急速提高2，持续15秒，最多叠加5次。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244609": {
+      "id": 244609,
+      "name": "世界照护者的树干板甲",
+      "sourceName": "世界照护者的树干板甲",
+      "quality": "史诗",
+      "inventoryType": "胸部",
+      "itemClass": "护甲",
+      "itemSubclass": "锁甲",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": 1967,
+      "setName": "护根者的战甲"
+    },
+    "244610": {
+      "id": 244610,
+      "name": "世界照护者的根须便鞋",
+      "sourceName": "世界照护者的根须便鞋",
+      "quality": "史诗",
+      "inventoryType": "脚部",
+      "itemClass": "护甲",
+      "itemSubclass": "锁甲",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": 1967,
+      "setName": "护根者的战甲"
+    },
+    "244611": {
+      "id": 244611,
+      "name": "世界照护者的树皮腰扣",
+      "sourceName": "世界照护者的树皮腰扣",
+      "quality": "史诗",
+      "inventoryType": "腰部",
+      "itemClass": "护甲",
+      "itemSubclass": "锁甲",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": 1967,
+      "setName": "护根者的战甲"
+    },
+    "244679": {
+      "id": 244679,
+      "name": "密谋小径鱼钩",
+      "sourceName": "密谋小径鱼钩",
+      "quality": "史诗",
+      "inventoryType": "单手",
+      "itemClass": "武器",
+      "itemSubclass": "匕首",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250529,
+          "name": "密谋小径鱼钩",
+          "description": "装备： 你的有害法术和技能有几率使你的目标流血，在10秒内造成846点物理伤害。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244745": {
+      "id": 244745,
+      "name": "以太流明成像目镜",
+      "sourceName": "以太流明成像目镜",
+      "quality": "史诗",
+      "inventoryType": "头部",
+      "itemClass": "护甲",
+      "itemSubclass": "锁甲",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244749": {
+      "id": 244749,
+      "name": "以太流明腕甲",
+      "sourceName": "以太流明腕甲",
+      "quality": "史诗",
+      "inventoryType": "腕部",
+      "itemClass": "护甲",
+      "itemSubclass": "锁甲",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244773": {
+      "id": 244773,
+      "name": "以太流明套靴",
+      "sourceName": "以太流明套靴",
+      "quality": "史诗",
+      "inventoryType": "脚部",
+      "itemClass": "护甲",
+      "itemSubclass": "锁甲",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "245769": {
+      "id": 245769,
+      "name": "艾林哈籁灯笼",
+      "sourceName": "艾林哈籁灯笼",
+      "quality": "史诗",
+      "inventoryType": "副手物品",
+      "itemClass": "护甲",
+      "itemSubclass": "其它",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "245770": {
+      "id": 245770,
+      "name": "艾林哈籁手杖",
+      "sourceName": "艾林哈籁手杖",
+      "quality": "史诗",
+      "inventoryType": "双手",
+      "itemClass": "武器",
+      "itemSubclass": "法杖",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "245771": {
+      "id": 245771,
+      "name": "艾林哈籁刺杖",
+      "sourceName": "艾林哈籁刺杖",
+      "quality": "史诗",
+      "inventoryType": "双手",
+      "itemClass": "武器",
+      "itemSubclass": "法杖",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "246304": {
+      "id": 246304,
+      "name": "暗月统御：狩猎",
+      "sourceName": "暗月统御：狩猎",
+      "quality": "史诗",
+      "inventoryType": "饰品",
+      "itemClass": "护甲",
+      "itemSubclass": "其它",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245050,
+          "name": "狩猎",
+          "description": "装备： 根据目标生物类型，你的法术和技能有几率会使你的次要属性提高168，持续15秒。\r\n\r\n此效果会被暗月徽记：狩猎所强化。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246305": {
+      "id": 246305,
+      "name": "暗月统御：鲜血",
+      "sourceName": "暗月统御：鲜血",
+      "quality": "史诗",
+      "inventoryType": "饰品",
+      "itemClass": "护甲",
+      "itemSubclass": "其它",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245001,
+          "name": "鲜血",
+          "description": "装备： 你的伤害法术和技能有几率赋予远行者的机敏，使你最低的次要属性提高444，持续15秒。\r\n\r\n当一名友方玩家死亡时，你最高的次要属性提高232，持续15秒。此效果每5分钟只能触发一次。\r\n\r\n此效果会被暗月徽记：鲜血所强化。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246306": {
+      "id": 246306,
+      "name": "暗月统御：腐烂",
+      "sourceName": "暗月统御：腐烂",
+      "quality": "史诗",
+      "inventoryType": "饰品",
+      "itemClass": "护甲",
+      "itemSubclass": "其它",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245051,
+          "name": "腐烂",
+          "description": "装备： 使你的目标受到腐烂的根系的折磨，每2秒造成214点自然伤害，持续6秒。此效果最多可叠加10层。新获得的层数不会刷新已有层数。\r\n\r\n此效果会被暗月徽记：腐烂所强化。\r\n"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246307": {
+      "id": 246307,
+      "name": "暗月统御：虚空",
+      "sourceName": "暗月统御：虚空",
+      "quality": "史诗",
+      "inventoryType": "饰品",
+      "itemClass": "护甲",
+      "itemSubclass": "其它",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1244254,
+          "name": "虚空",
+          "description": "装备： 你的伤害法术和技能有几率使你在虚空琉璃中获得勇气，在15秒秒内获得123全能。多次施加可以重叠生效。\r\n\r\n此效果会被暗月徽记：虚空所强化。"
         }
       ],
       "setId": null,
@@ -1370,6 +2093,26 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "251073": {
+      "id": 251073,
+      "name": "虚空石护盾阵列",
+      "sourceName": "虚空石护盾阵列",
+      "quality": "史诗",
+      "inventoryType": "颈部",
+      "itemClass": "护甲",
+      "itemSubclass": "其它",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251903,
+          "name": "虚空石屏障",
+          "description": "使用：激活阵列并生成虚空石屏障，吸收71,596点伤害，持续10秒。\r\n\r\n镶嵌宝石每有一种不同的颜色，使屏障效果额外提高1%。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
     "251079": {
       "id": 251079,
       "name": "琥珀叶护腕",
@@ -1719,6 +2462,26 @@ module.exports = {
       "spells": [],
       "setId": 1971,
       "setName": "虚空之光对戒"
+    },
+    "251513": {
+      "id": 251513,
+      "name": "神灵崇拜者的指环",
+      "sourceName": "神灵崇拜者的指环",
+      "quality": "史诗",
+      "inventoryType": "手指",
+      "itemClass": "护甲",
+      "itemSubclass": "其它",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251904,
+          "name": "神灵崇拜者的指环",
+          "description": "装备： 你的伤害法术和技能有几率为指环充能，召唤一个洛阿神灵的化身协助你战斗。\r\n\r\n镶嵌宝石每有一种不同的颜色，都允许召唤不同的洛阿神灵。这些效果包括对敌人造成伤害或为你赋予暂时力量。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
     },
     "252411": {
       "id": 252411,
@@ -2462,6 +3225,20 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "265337": {
+      "id": 265337,
+      "name": "艾林哈籁蔓枝弓",
+      "sourceName": "艾林哈籁蔓枝弓",
+      "quality": "史诗",
+      "inventoryType": "远程",
+      "itemClass": "武器",
+      "itemSubclass": "弓",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "265949": {
       "id": 265949,
       "name": "进军奎尔丹纳斯征服者的耀金战利品",
@@ -2602,6 +3379,108 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "268287": {
+      "id": 268287,
+      "name": "怨毒魔怪践踏靴",
+      "sourceName": "怨毒魔怪践踏靴",
+      "quality": "史诗",
+      "inventoryType": "脚部",
+      "itemClass": "护甲",
+      "itemSubclass": "锁甲",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "268288": {
+      "id": 268288,
+      "name": "真菌人荒谬腿甲",
+      "sourceName": "真菌人荒谬腿甲",
+      "quality": "史诗",
+      "inventoryType": "腿部",
+      "itemClass": "护甲",
+      "itemSubclass": "锁甲",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "268290": {
+      "id": 268290,
+      "name": "唤孢者的绽放指环",
+      "sourceName": "唤孢者的绽放指环",
+      "quality": "史诗",
+      "inventoryType": "手指",
+      "itemClass": "护甲",
+      "itemSubclass": "其它",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1285138,
+          "name": "唤孢者的绽放指环",
+          "description": "装备： 造成自然伤害有几率施加朽花，在15秒内造成1,718点自然伤害。如果敌人已经受到你的朽花影响，则将其消耗，造成剩余伤害的120%。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268291": {
+      "id": 268291,
+      "name": "腐沼的孢子之心",
+      "sourceName": "腐沼的孢子之心",
+      "quality": "史诗",
+      "inventoryType": "颈部",
+      "itemClass": "护甲",
+      "itemSubclass": "其它",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1285139,
+          "name": "腐沼的孢子之心",
+          "description": "装备： 你的治疗有几率生成保护性伞菌，吸收19,539点伤害，最多持续12秒。如果被打破，伞菌会爆炸并对附近的敌人造成2,695点自然伤害。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268292": {
+      "id": 268292,
+      "name": "孢子大王的菌丝徽记",
+      "sourceName": "孢子大王的菌丝徽记",
+      "quality": "史诗",
+      "inventoryType": "饰品",
+      "itemClass": "护甲",
+      "itemSubclass": "其它",
+      "binding": "拾取后绑定",
+      "description": "",
+      "spells": [
+        {
+          "id": 1284696,
+          "name": "孢子大王的菌丝",
+          "description": "装备： 你的法术和技能有几率滋养菌丝，为你提供215点随机次要属性和吸血，持续12秒。"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268477": {
+      "id": 268477,
+      "name": "P.O.W. x3",
+      "sourceName": "P.O.W. x3",
+      "quality": "史诗",
+      "inventoryType": "远程",
+      "itemClass": "武器",
+      "itemSubclass": "枪械",
+      "binding": "拾取后绑定",
+      "description": "再快点，火力全开！",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "269269": {
       "id": 269269,
       "name": "吞噬仪式高塔",
@@ -2631,6 +3510,36 @@ module.exports = {
         {
           "requiredCount": 2,
           "displayString": "套装：使闪避提高。"
+        }
+      ]
+    },
+    "1957": {
+      "id": 1957,
+      "name": "阳炎丝绸礼服",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "套装：生命值高于80%时，急速提高35。"
+        }
+      ]
+    },
+    "1958": {
+      "id": 1958,
+      "name": "奥纹礼服",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "套装：生命值高于80%时，爆击提高35。"
+        }
+      ]
+    },
+    "1967": {
+      "id": 1967,
+      "name": "护根者的战甲",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "套装：你的法术和技能可以向世界之树祈求其力量的碎片，随机使你的一项次要属性提高35，持续15秒。"
         }
       ]
     },

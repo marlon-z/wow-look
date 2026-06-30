@@ -34,16 +34,18 @@ async function main() {
   global.fetch = async () => ({
     ok: false,
     status: 429,
+    headers: { get: () => null },
     text: async () => '{"error":"rate_limited"}',
   });
   await assert.rejects(
-    () => wclGql('token', 'query { worldData { zones { id } } }', {}),
+    () => wclGql('token', 'query { worldData { zones { id } } }', {}, { maxRetries: 0 }),
     /WCL GraphQL HTTP 429/
   );
 
   global.fetch = async () => ({
     ok: true,
     status: 200,
+    headers: { get: () => null },
     text: async () => '{}',
   });
   await assert.rejects(

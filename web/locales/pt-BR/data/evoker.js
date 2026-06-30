@@ -4,7 +4,7 @@ module.exports = {
   "source": "blizzard-game-data-api",
   "region": "us",
   "namespace": "static-us",
-  "generatedAt": "2026-05-07T06:25:10.579Z",
+  "generatedAt": "2026-06-30T10:22:42.901Z",
   "classKey": "evoker",
   "items": {
     "49810": {
@@ -434,6 +434,272 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "237837": {
+      "id": 237837,
+      "name": "Misericórdia do Andarilho",
+      "sourceName": "远行者的慈悲",
+      "quality": "Épico",
+      "inventoryType": "Uma Mão",
+      "itemClass": "Arma",
+      "itemSubclass": "Adaga",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237838": {
+      "id": 237838,
+      "name": "Faca Ritualística do Magíster",
+      "sourceName": "魔导师的仪式之匕",
+      "quality": "Épico",
+      "inventoryType": "Uma Mão",
+      "itemClass": "Arma",
+      "itemSubclass": "Adaga",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237839": {
+      "id": 237839,
+      "name": "Lâmina do Quebra-feitiço",
+      "sourceName": "破法者的利剑",
+      "quality": "Épico",
+      "inventoryType": "Uma Mão",
+      "itemClass": "Arma",
+      "itemSubclass": "Espada",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237840": {
+      "id": 237840,
+      "name": "Glaive de Guerra do Quebra-feitiço",
+      "sourceName": "破法者的战刃",
+      "quality": "Épico",
+      "inventoryType": "Uma Mão",
+      "itemClass": "Arma",
+      "itemSubclass": "Glaives de Guerra",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237841": {
+      "id": 237841,
+      "name": "Ultimato do Quebra-feitiço",
+      "sourceName": "破法者的通牒",
+      "quality": "Épico",
+      "inventoryType": "Uma Mão",
+      "itemClass": "Arma",
+      "itemSubclass": "Maça",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237842": {
+      "id": 237842,
+      "name": "Machadão de Floraforja",
+      "sourceName": "绽铸大斧",
+      "quality": "Épico",
+      "inventoryType": "Duas mãos",
+      "itemClass": "Arma",
+      "itemSubclass": "Machado",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237843": {
+      "id": 237843,
+      "name": "Espada de Mana do Magíster",
+      "sourceName": "魔导师的法力之剑",
+      "quality": "Épico",
+      "inventoryType": "Uma Mão",
+      "itemClass": "Arma",
+      "itemSubclass": "Espada",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237844": {
+      "id": 237844,
+      "name": "Cutelo do Magíster",
+      "sourceName": "魔导师的砍斧",
+      "quality": "Épico",
+      "inventoryType": "Uma Mão",
+      "itemClass": "Arma",
+      "itemSubclass": "Machado",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237845": {
+      "id": 237845,
+      "name": "Garra de Floraforja",
+      "sourceName": "绽铸之爪",
+      "quality": "Épico",
+      "inventoryType": "Uma Mão",
+      "itemClass": "Arma",
+      "itemSubclass": "Arma de Punho",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237846": {
+      "id": 237846,
+      "name": "Lâmina de Guerra do Cavaleiro Sangrento",
+      "sourceName": "血骑士的战剑",
+      "quality": "Épico",
+      "inventoryType": "Duas mãos",
+      "itemClass": "Arma",
+      "itemSubclass": "Espada",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237847": {
+      "id": 237847,
+      "name": "Ímpeto do Cavaleiro Sangrento",
+      "sourceName": "血骑士的强击矛",
+      "quality": "Épico",
+      "inventoryType": "Duas mãos",
+      "itemClass": "Arma",
+      "itemSubclass": "Arma de Haste",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237848": {
+      "id": 237848,
+      "name": "Misericórdia do Cavaleiro Sangrento",
+      "sourceName": "血骑士的慈悲",
+      "quality": "Épico",
+      "inventoryType": "Duas mãos",
+      "itemClass": "Arma",
+      "itemSubclass": "Maça",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237849": {
+      "id": 237849,
+      "name": "Despedida do Magíster",
+      "sourceName": "魔导师的送别",
+      "quality": "Épico",
+      "inventoryType": "Duas mãos",
+      "itemClass": "Arma",
+      "itemSubclass": "Maça",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237850": {
+      "id": 237850,
+      "name": "Picador do Andarilho",
+      "sourceName": "远行者的劈斧",
+      "quality": "Épico",
+      "inventoryType": "Uma Mão",
+      "itemClass": "Arma",
+      "itemSubclass": "Machado",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239656": {
+      "id": 239656,
+      "name": "Mortalha Sedosa do Seguidor",
+      "sourceName": "信徒的流丝罩袍",
+      "quality": "Épico",
+      "inventoryType": "Costas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tecido",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239658": {
+      "id": 239658,
+      "name": "Manto de Fogo Solar",
+      "sourceName": "阳炎披风",
+      "quality": "Épico",
+      "inventoryType": "Costas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tecido",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": 1957,
+      "setName": "Ornamentos de Seda de Fogo Solar"
+    },
+    "239661": {
+      "id": 239661,
+      "name": "Manto de Arcanotrama",
+      "sourceName": "奥纹披风",
+      "quality": "Épico",
+      "inventoryType": "Costas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tecido",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": 1958,
+      "setName": "Ornamentos de Arcanotrama"
+    },
+    "240949": {
+      "id": 240949,
+      "name": "Elo Sin'dorei Magistral",
+      "sourceName": "精工辛多雷指环",
+      "quality": "Épico",
+      "inventoryType": "Dedo",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "240950": {
+      "id": 240950,
+      "name": "Amuleto Sin'dorei Magistral",
+      "sourceName": "精工辛多雷护符",
+      "quality": "Épico",
+      "inventoryType": "Pescoço",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "241044": {
       "id": 241044,
       "name": "Caixote Argussiano",
@@ -449,6 +715,463 @@ module.exports = {
           "id": 1230953,
           "name": "Coletar Caixote Argussiano",
           "description": "Usar: Coloca esta decoração no baú da sua casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241139": {
+      "id": 241139,
+      "name": "Torque de Fênix Talassiana",
+      "sourceName": "萨拉斯凤凰饰环",
+      "quality": "Épico",
+      "inventoryType": "Pescoço",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251815,
+          "name": "Torque de Fênix Talassiana",
+          "description": "Equipado: Seus feitiços e habilidades têm chance de evocar as Chamas da Fênix para envolver o seu alvo.\r\n\r\nSe o alvo for um aliado, ele terá 11.730 pontos de vida curados ao longo de 10 s. Se o alvo for um inimigo, ele receberá 7.821 de dano de Fogo ao longo de 10 s.\r\n\r\nCada cor de gema única engastada fortalecerá as chamas em 1%."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241140": {
+      "id": 241140,
+      "name": "Sinete das Bênçãos Azerothianas",
+      "sourceName": "艾泽拉斯祝福印戒",
+      "quality": "Épico",
+      "inventoryType": "Dedo",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251902,
+          "name": "Sinete das Bênçãos Azerothianas",
+          "description": "Equipado: Seus feitiços e habilidades podem fazer com que o sinete ressoe com a Alma do Mundo, concedendo uma dádiva de 4 a todos os seus atributos secundários por 15 s.\r\n\r\nToda cor única de gema engastada fortalece em 1% os atributos secundários associados a ela por essa dádiva."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241340": {
+      "id": 241340,
+      "name": "Pedra do Alquimista do Magíster",
+      "sourceName": "魔导师的炼金石",
+      "quality": "Épico",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "Pode ser usado para transmutação no lugar da Pedra Filosofal.",
+      "spells": [
+        {
+          "id": 1280591,
+          "name": "Pedra do Alquimista do Magíster",
+          "description": "Equipado: Quando curar ou causar dano, você tem chance de aumentar em 162 a Força, a Agilidade, o Intelecto ou o Espírito por 15 s. Seu maior atributo é sempre escolhido."
+        },
+        {
+          "id": 17619,
+          "name": "Pedra do Alquimista",
+          "description": "Equipado: Aumenta em 40% os efeitos de poções de cura e de mana no usuário. Estes efeitos não são cumulativos."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244179": {
+      "id": 244179,
+      "name": "Grande Foco do Magíster",
+      "sourceName": "魔导师的华丽法器",
+      "quality": "Épico",
+      "inventoryType": "Longo alcance",
+      "itemClass": "Arma",
+      "itemSubclass": "Varinha",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244577": {
+      "id": 244577,
+      "name": "Garras de Navalha do Andarilho",
+      "sourceName": "远行者的刀锋战靴",
+      "quality": "Épico",
+      "inventoryType": "Pés",
+      "itemClass": "Armadura",
+      "itemSubclass": "Malha",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244578": {
+      "id": 244578,
+      "name": "Colete de Patrulha do Andarilho",
+      "sourceName": "远行者的侦察背心",
+      "quality": "Épico",
+      "inventoryType": "Torso",
+      "itemClass": "Armadura",
+      "itemSubclass": "Malha",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244579": {
+      "id": 244579,
+      "name": "Semblante Inabalável do Andarilho",
+      "sourceName": "远行者的不懈守望",
+      "quality": "Épico",
+      "inventoryType": "Cabeça",
+      "itemClass": "Armadura",
+      "itemSubclass": "Malha",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244580": {
+      "id": 244580,
+      "name": "Plumas Brilhantes do Andarilho",
+      "sourceName": "远行者的璀璨之羽",
+      "quality": "Épico",
+      "inventoryType": "Ombros",
+      "itemClass": "Armadura",
+      "itemSubclass": "Malha",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244581": {
+      "id": 244581,
+      "name": "Cinto de Troféu do Andarilho",
+      "sourceName": "远行者的战利品腰带",
+      "quality": "Épico",
+      "inventoryType": "Cintura",
+      "itemClass": "Armadura",
+      "itemSubclass": "Malha",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244582": {
+      "id": 244582,
+      "name": "Falda Reforçada do Andarilho",
+      "sourceName": "远行者的加固腿铠",
+      "quality": "Épico",
+      "inventoryType": "Pernas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Malha",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244583": {
+      "id": 244583,
+      "name": "Garras Afiadas do Andarilho",
+      "sourceName": "远行者的锋芒爪套",
+      "quality": "Épico",
+      "inventoryType": "Mãos",
+      "itemClass": "Armadura",
+      "itemSubclass": "Malha",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244584": {
+      "id": 244584,
+      "name": "Braçadeiras de Placa do Andarilho",
+      "sourceName": "远行者的板层护腕",
+      "quality": "Épico",
+      "inventoryType": "Pulsos",
+      "itemClass": "Armadura",
+      "itemSubclass": "Malha",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244602": {
+      "id": 244602,
+      "name": "Guantes da General-patrulheira",
+      "sourceName": "游侠将军之握",
+      "quality": "Épico",
+      "inventoryType": "Mãos",
+      "itemClass": "Armadura",
+      "itemSubclass": "Malha",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1243876,
+          "name": "Chamado da General-patrulheira",
+          "description": "Equipado: Causar dano a um alvo tem chance de marcá-lo, fazendo com que um Patrulheiro Élfico lance um Ataque Surpresa de longe! Esse ataque surpresa causa 6.530 de dano Físico ao alvo."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244605": {
+      "id": 244605,
+      "name": "Embraces Lançadores de Machado",
+      "sourceName": "掷斧腕带",
+      "quality": "Épico",
+      "inventoryType": "Pulsos",
+      "itemClass": "Armadura",
+      "itemSubclass": "Malha",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1243871,
+          "name": "Fervor da Batalha",
+          "description": "Equipado: Seus feitiços e habilidades têm chance de encher você de Fervor da Batalha. O Fervor da Batalha aumenta em 2 sua aceleração para 15 s, acumulando até 5 vezes."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244609": {
+      "id": 244609,
+      "name": "Guarda-tronco do Conservador de Mundos",
+      "sourceName": "世界照护者的树干板甲",
+      "quality": "Épico",
+      "inventoryType": "Torso",
+      "itemClass": "Armadura",
+      "itemSubclass": "Malha",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": 1967,
+      "setName": "Paramentos do Guardirraiz"
+    },
+    "244610": {
+      "id": 244610,
+      "name": "Sapatiraiz do Conservador de Mundos",
+      "sourceName": "世界照护者的根须便鞋",
+      "quality": "Épico",
+      "inventoryType": "Pés",
+      "itemClass": "Armadura",
+      "itemSubclass": "Malha",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": 1967,
+      "setName": "Paramentos do Guardirraiz"
+    },
+    "244611": {
+      "id": 244611,
+      "name": "Arvofecho do Conservador de Mundos",
+      "sourceName": "世界照护者的树皮腰扣",
+      "quality": "Épico",
+      "inventoryType": "Cintura",
+      "itemClass": "Armadura",
+      "itemSubclass": "Malha",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": 1967,
+      "setName": "Paramentos do Guardirraiz"
+    },
+    "244679": {
+      "id": 244679,
+      "name": "Anzol da Travessa do Assassino",
+      "sourceName": "密谋小径鱼钩",
+      "quality": "Épico",
+      "inventoryType": "Uma Mão",
+      "itemClass": "Arma",
+      "itemSubclass": "Adaga",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250529,
+          "name": "Anzol da Travessa do Assassino",
+          "description": "Equipado: Suas habilidades e feitiços nocivos têm chance de fazer seu alvo sangrar, recebendo 846 de dano Físico ao longo de 10 s."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244745": {
+      "id": 244745,
+      "name": "Proteção de Visão de Aeterlúmen",
+      "sourceName": "以太流明成像目镜",
+      "quality": "Épico",
+      "inventoryType": "Cabeça",
+      "itemClass": "Armadura",
+      "itemSubclass": "Malha",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244749": {
+      "id": 244749,
+      "name": "Braceletes de Aeterlúmen",
+      "sourceName": "以太流明腕甲",
+      "quality": "Épico",
+      "inventoryType": "Pulsos",
+      "itemClass": "Armadura",
+      "itemSubclass": "Malha",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244773": {
+      "id": 244773,
+      "name": "Trambotas de Aeterlúmen",
+      "sourceName": "以太流明套靴",
+      "quality": "Épico",
+      "inventoryType": "Pés",
+      "itemClass": "Armadura",
+      "itemSubclass": "Malha",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "245769": {
+      "id": 245769,
+      "name": "Lanterna de Aln'hara",
+      "sourceName": "艾林哈籁灯笼",
+      "quality": "Épico",
+      "inventoryType": "Empunhado na mão secundária",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "245770": {
+      "id": 245770,
+      "name": "Bengala de Aln'hara",
+      "sourceName": "艾林哈籁手杖",
+      "quality": "Épico",
+      "inventoryType": "Duas mãos",
+      "itemClass": "Arma",
+      "itemSubclass": "Cajado",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "245771": {
+      "id": 245771,
+      "name": "Cajado-pique de Aln'hara",
+      "sourceName": "艾林哈籁刺杖",
+      "quality": "Épico",
+      "inventoryType": "Duas mãos",
+      "itemClass": "Arma",
+      "itemSubclass": "Cajado",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "246304": {
+      "id": 246304,
+      "name": "Domínio de Negraluna: Caçada",
+      "sourceName": "暗月统御：狩猎",
+      "quality": "Épico",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245050,
+          "name": "Caçada",
+          "description": "Equipado: Seus feitiços e habilidades têm chance de conceder 168 atributos secundários por 15 s com base no tipo da criatura-alvo.\r\n\r\nEste efeito é aprimorado pelo Signo de Negraluna: Caçada."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246305": {
+      "id": 246305,
+      "name": "Domínio de Negraluna: Sangue",
+      "sourceName": "暗月统御：鲜血",
+      "quality": "Épico",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245001,
+          "name": "Sangue",
+          "description": "Equipado: Suas habilidades e feitiços que causam dano têm chance de conceder Astúcia do Andarilho, aumentando em 444 seu segundo atributo mais baixo por 15 s.\r\n\r\nQuando um jogador aliado morre, você recebe 232 do seu atributo secundário mais alto por 15 s. Este efeito só pode ser ativado uma vez a cada 5 min.\r\n\r\nEste efeito é aprimorado por Signo de Negraluna: Sangue."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246306": {
+      "id": 246306,
+      "name": "Domínio de Negraluna: Podridão",
+      "sourceName": "暗月统御：腐烂",
+      "quality": "Épico",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245051,
+          "name": "Podridão",
+          "description": "Equipado: Atinge seu alvo com Raízes Pútridas, causando 214 de dano de Natureza a cada 2 s por 6 s. Este efeito acumula até 10 vezes. Novos acúmulos não renovam os já aplicados.\r\n\r\nEste efeito é aprimorado pelo Signo de Negraluna: Podridão.\r\n"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246307": {
+      "id": 246307,
+      "name": "Domínio de Negraluna: Caos",
+      "sourceName": "暗月统御：虚空",
+      "quality": "Épico",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1244254,
+          "name": "Caos",
+          "description": "Equipado: Suas habilidades e feitiços que causam dano têm chance de envolver você com Vidro Caótico, concedendo 123 de Versatilidade ao longo de 15 s. Múltiplas aplicações podem se sobrepor.\r\n\r\nEste efeito é aprimorado por Signo de Negraluna: Caos."
         }
       ],
       "setId": null,
@@ -1370,6 +2093,26 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "251073": {
+      "id": 251073,
+      "name": "Matriz de Proteção de Pedra do Caos",
+      "sourceName": "虚空石护盾阵列",
+      "quality": "Épico",
+      "inventoryType": "Pescoço",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251903,
+          "name": "Barreira de Pedra do Caos",
+          "description": "Ao usar: ativa a matriz e gera uma Barreira de Pedra do Caos, absorvendo 71.596 de dano pelos próximos 10 s.\r\n\r\nA barreira se fortalece em mais 1% por cor de gema única que você tiver engastado."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
     "251079": {
       "id": 251079,
       "name": "Braçadeiras da Fronde Âmbar",
@@ -1719,6 +2462,26 @@ module.exports = {
       "spells": [],
       "setId": 1971,
       "setName": "Amarras da Luz Caótica"
+    },
+    "251513": {
+      "id": 251513,
+      "name": "Elo do Adorador dos Loas",
+      "sourceName": "神灵崇拜者的指环",
+      "quality": "Épico",
+      "inventoryType": "Dedo",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251904,
+          "name": "Elo do Adorador dos Loas",
+          "description": "Equipado: Seus feitiços e habilidades que causam dano têm a chance de carregar o elo, evocando o avatar de um loa para ajudar você em combate.\r\n\r\nToda cor única de gema engastada que estiver no seu equipamento permitirá que um loa diferente seja evocado. Esses efeitos vão de causar dano aos seus inimigos até conceder a você poder temporário."
+        }
+      ],
+      "setId": null,
+      "setName": ""
     },
     "252411": {
       "id": 252411,
@@ -2462,6 +3225,20 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "265337": {
+      "id": 265337,
+      "name": "Mirarramo de Aln'hara",
+      "sourceName": "艾林哈籁蔓枝弓",
+      "quality": "Épico",
+      "inventoryType": "Longo alcance",
+      "itemClass": "Arma",
+      "itemSubclass": "Arco",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "265949": {
       "id": 265949,
       "name": "Troféu Reluzente do Subjugador da Marcha em Quel'Danas",
@@ -2602,6 +3379,108 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "268287": {
+      "id": 268287,
+      "name": "Pisoteadores do Demônio da Rixa",
+      "sourceName": "怨毒魔怪践踏靴",
+      "quality": "Épico",
+      "inventoryType": "Pés",
+      "itemClass": "Armadura",
+      "itemSubclass": "Malha",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "268288": {
+      "id": 268288,
+      "name": "Faldas da Folia Fungoriana",
+      "sourceName": "真菌人荒谬腿甲",
+      "quality": "Épico",
+      "inventoryType": "Pernas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Malha",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "268290": {
+      "id": 268290,
+      "name": "Aro Florescente do Chama-esporos",
+      "sourceName": "唤孢者的绽放指环",
+      "quality": "Épico",
+      "inventoryType": "Dedo",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1285138,
+          "name": "Aro Florescente do Chama-esporos",
+          "description": "Equipado: Causar dano de Natureza tem chance de aplicar Putriflória, causando 1.718 de dano de Natureza ao longo de 15 s. Se o inimigo já estiver sob efeito da sua Putriflória, ela é consumida para causar 120% do dano remanescente."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268291": {
+      "id": 268291,
+      "name": "Cardiesporo do Necrocharco",
+      "sourceName": "腐沼的孢子之心",
+      "quality": "Épico",
+      "inventoryType": "Pescoço",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1285139,
+          "name": "Cardiesporo do Necrocharco",
+          "description": "Equipado: Suas curas têm chance de gerar cogumelos protetores que absorvem 19.539 de dano por até 12 s. Se destruídos, os cogumelos explodem, causando 2.695 de dano de Natureza aos inimigos próximos."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268292": {
+      "id": 268292,
+      "name": "Insígnia Micelial do Esporolorde",
+      "sourceName": "孢子大王的菌丝徽记",
+      "quality": "Épico",
+      "inventoryType": "Berloque",
+      "itemClass": "Armadura",
+      "itemSubclass": "Diversos",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "",
+      "spells": [
+        {
+          "id": 1284696,
+          "name": "Micélio do Esporolorde",
+          "description": "Equipado: Seus feitiços e habilidades têm chance de nutrir o micélio, concedendo a você 215 de um atributo secundário aleatório e de Sorver por 12 s."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268477": {
+      "id": 268477,
+      "name": "P.O.U. x3",
+      "sourceName": "P.O.W. x3",
+      "quality": "Épico",
+      "inventoryType": "Longo alcance",
+      "itemClass": "Arma",
+      "itemSubclass": "Arma de fogo",
+      "binding": "Vincula-se ao ser recolhido",
+      "description": "Vai, atira ainda mais rápido!",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "269269": {
       "id": 269269,
       "name": "Pináculo Ritual Devorador",
@@ -2631,6 +3510,36 @@ module.exports = {
         {
           "requiredCount": 2,
           "displayString": "Conjunto: Aumenta a Evasão."
+        }
+      ]
+    },
+    "1957": {
+      "id": 1957,
+      "name": "Ornamentos de Seda de Fogo Solar",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Conjunto: Acima de 80% dos pontos de vida, ganha 35 de Aceleração."
+        }
+      ]
+    },
+    "1958": {
+      "id": 1958,
+      "name": "Ornamentos de Arcanotrama",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Conjunto: Acima de 80% dos pontos de vida, ganha 35 de Acerto Crítico."
+        }
+      ]
+    },
+    "1967": {
+      "id": 1967,
+      "name": "Paramentos do Guardirraiz",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Conjunto: Seus feitiços e habilidades podem implorar por um fragmento do poder da Árvore do Mundo, concedendo 35 de um atributo secundário aleatório a você por 15 s."
         }
       ]
     },

@@ -351,7 +351,7 @@ const UI_BY_LOCALE = {
     noResults: '没有符合当前条件的装备',
     empty: '当前没有可展示的装备',
     searchPlaceholder: '搜索装备、副本或首领',
-    chooseClass: '请选择你的职业',
+    chooseClass: '选择职业查询装备',
     announcement: '公告',
     favorites: '收藏夹',
     close: '关闭',
@@ -418,17 +418,17 @@ const UI_BY_LOCALE = {
     views: ['按部位', '按来源'],
     stats: ['暴击', '急速', '精通', '全能'],
     slots: ['头', '项链', '肩', '披', '胸', '腕', '手', '腰', '腿', '脚', '戒', '饰', '武', '其他'],
-    seoPageTitle: 'SeasonLoot — 魔兽世界掉落查询 · 至暗之夜赛季',
-    seoMetaDesc: '免费魔兽世界至暗之夜赛季装备掉落查询工具。按职业、部位、副属性、来源多维度筛选，支持收藏装备和分享配装方案。无需插件，打开即用。| SeasonLoot',
-    seoClassTitle: '{className}装备掉落 — 至暗之夜赛季 | SeasonLoot',
-    seoClassDesc: '魔兽世界至暗之夜赛季{className}全部装备掉落查询。按部位、副属性、来源筛选。| SeasonLoot',
-    seoTitle: '魔兽世界掉落查询 — 至暗之夜赛季',
-    seoDesc: '全13职业当赛季装备掉落查询。按部位、副属性（暴击/急速/精通/全能）、来源（地下城/团本/套装）多维度筛选。支持收藏装备、分享配装方案，免费无需插件。',
+    seoPageTitle: '魔兽世界装备查询 — 装备掉落、属性与职业筛选 | SeasonLoot',
+    seoMetaDesc: '免费魔兽世界装备查询工具。按职业、专精、部位、副属性和来源筛选当前赛季装备，找到候选装备后可切换到配装模拟器继续组装。| SeasonLoot',
+    seoClassTitle: '{className}配装模拟器 — 魔兽世界职业装备查询 | SeasonLoot',
+    seoClassDesc: '魔兽世界{className}配装模拟与装备查询。按专精、部位、副属性、地下城、团本和套装筛选，收藏并分享配装方案。| SeasonLoot',
+    seoTitle: '魔兽世界装备查询',
+    seoDesc: '面向正式服当前赛季的魔兽世界装备查询工具。选择职业和专精后，可以按部位、副属性（暴击/急速/精通/全能）、来源（地下城/团本/套装/制造业）筛选装备，找到候选装备后切换到配装模拟器继续组装。',
     seoFaqTitle: '常见问题',
     seoFaq: [
-      ['SeasonLoot 是什么？', 'SeasonLoot 是一款免费的魔兽世界至暗之夜赛季装备掉落查询工具。按职业、部位、属性、来源多维度筛选，无需安装插件或登录。'],
-      ['如何筛选装备？', '选择职业后，使用筛选栏按部位、副属性、来源缩小范围。点击任意装备查看详情、特效和掉落位置。'],
-      ['可以保存装备吗？', '可以。点击星标图标将装备加入收藏夹，还能通过链接分享你的配装方案。'],
+      ['SeasonLoot 是什么？', 'SeasonLoot 是一款免费的魔兽世界配装模拟器和装备查询工具，当前先以中文版网页验收，后续再扩展全语言版本。'],
+      ['可以按专精配装吗？', '可以。进入职业页面后选择专精，再按部位、副属性、来源和副本筛选装备，逐步组装候选配装。'],
+      ['支持分享配装吗？', '支持。你可以收藏候选装备，通过链接分享收藏或本次配装，让好友在网页端继续查看。'],
     ],
   }),
   'zh-TW': defineUi('zh-TW', {
@@ -1242,12 +1242,96 @@ const localeNames = {
   'ru-RU': 'Русский',
 };
 
+// 配装模拟器 / 排行榜配装 的新增 UI 文案。key-centric, 便于逐条核对各语言。
+// 当前先填 zh-CN + en-US; 其它语言由 buildI18nFor 回退(中文系→zh-CN, 其余→en-US), 后续再补全。
+const BUILD_I18N = {
+  modeBuild: { 'zh-CN': '配装模拟', 'en-US': 'Gear Planner' },
+  modeBuildSub: { 'zh-CN': '组槽位 · 算属性', 'en-US': 'Slots · Stats' },
+  modeEquip: { 'zh-CN': '装备查询', 'en-US': 'Loot Search' },
+  modeEquipSub: { 'zh-CN': '筛装备 · 看来源', 'en-US': 'Filter · Source' },
+  buildKicker: { 'zh-CN': '魔兽世界配装模拟器', 'en-US': 'WoW Gear Planner' },
+  planList: { 'zh-CN': '方案列表', 'en-US': 'Builds' },
+  buildSave: { 'zh-CN': '保存方案', 'en-US': 'Save build' },
+  buildSaveChanges: { 'zh-CN': '保存修改', 'en-US': 'Save changes' },
+  buildRename: { 'zh-CN': '重命名', 'en-US': 'Rename' },
+  buildNewPlan: { 'zh-CN': '新建方案', 'en-US': 'New build' },
+  buildShare: { 'zh-CN': '分享配装', 'en-US': 'Share build' },
+  selectClassToBuild: { 'zh-CN': '选择职业开始配装', 'en-US': 'Pick a class to start' },
+  specPanelTitle: { 'zh-CN': '{className}专精', 'en-US': '{className} specs' },
+  slotClickToSelect: { 'zh-CN': '点击选择装备', 'en-US': 'Tap to choose' },
+  twoHandOccupied: { 'zh-CN': '双手武器占用', 'en-US': 'Two-hand occupies' },
+  slotClear: { 'zh-CN': '清除', 'en-US': 'Clear' },
+  buildSummaryTitle: { 'zh-CN': '配装信息', 'en-US': 'Build summary' },
+  buildAvgIlvl: { 'zh-CN': '平均装等', 'en-US': 'Avg item level' },
+  buildSlotCount: { 'zh-CN': '{occupied} / {total} 个装备槽', 'en-US': '{occupied} / {total} slots' },
+  buildStamina: { 'zh-CN': '耐力', 'en-US': 'Stamina' },
+  buildSecondaryTotal: { 'zh-CN': '副属性合计', 'en-US': 'Secondary total' },
+  buildSummaryHint: { 'zh-CN': '已含90级基础主属性与耐力{armor}；不含种族、天赋、附魔、宝石及临时 Buff。', 'en-US': 'Includes level 90 base primary stat and stamina{armor}; excludes race, talents, enchants, gems and temporary buffs.' },
+  buildSummaryHintArmor: { 'zh-CN': '、护甲专精5%加成', 'en-US': ', +5% armor specialization' },
+  pickSelect: { 'zh-CN': '选择{label}', 'en-US': 'Select {label}' },
+  pickCount: { 'zh-CN': '{count} 件', 'en-US': '{count} items' },
+  pickNoItems: { 'zh-CN': '没有可用于该槽位的装备', 'en-US': 'No items available for this slot' },
+  craftTitle: { 'zh-CN': '选择制造业随机属性', 'en-US': 'Choose crafted random stats' },
+  craftSource: { 'zh-CN': '制造业', 'en-US': 'Crafted' },
+  craftDesc: { 'zh-CN': '这件装备需要选择 {count} 个副属性，确认后会计入配装统计。', 'en-US': 'This item needs {count} secondary stat(s); they count toward the summary once confirmed.' },
+  craftRandomSlot: { 'zh-CN': '随机属性 +{value}', 'en-US': 'Random +{value}' },
+  craftConfirm: { 'zh-CN': '确认装备', 'en-US': 'Equip' },
+  craftCancel: { 'zh-CN': '取消', 'en-US': 'Cancel' },
+  buildMainHand: { 'zh-CN': '主手', 'en-US': 'Main hand' },
+  buildOffHand: { 'zh-CN': '副手', 'en-US': 'Off hand' },
+  buildTwoHand: { 'zh-CN': '双手武器', 'en-US': 'Two-hand' },
+  buildShirt: { 'zh-CN': '衬衣', 'en-US': 'Shirt' },
+  buildTabard: { 'zh-CN': '战袍', 'en-US': 'Tabard' },
+  buildSlotRing: { 'zh-CN': '戒指', 'en-US': 'Ring' },
+  buildSlotTrinket: { 'zh-CN': '饰品', 'en-US': 'Trinket' },
+  wclTitle: { 'zh-CN': '排行榜配装', 'en-US': 'Leaderboard builds' },
+  wclMythicPlus: { 'zh-CN': '大秘境', 'en-US': 'Mythic+' },
+  wclRaid: { 'zh-CN': '团本', 'en-US': 'Raid' },
+  wclAll: { 'zh-CN': '全部', 'en-US': 'All' },
+  wclTopTier: { 'zh-CN': '最顶级', 'en-US': 'Top' },
+  wclUpdatedSuffix: { 'zh-CN': '更新', 'en-US': 'updated' },
+  wclApply: { 'zh-CN': '套用到模拟器', 'en-US': 'Apply to planner' },
+  wclWithCode: { 'zh-CN': '含天赋码', 'en-US': 'Talent code' },
+  wclNoCode: { 'zh-CN': '无天赋码', 'en-US': 'No talent code' },
+  wclLoading: { 'zh-CN': '加载排行榜配装中…', 'en-US': 'Loading leaderboard builds…' },
+  wclNoData: { 'zh-CN': '该专精暂无排行榜配装数据', 'en-US': 'No leaderboard builds for this spec yet' },
+  wclFileError: { 'zh-CN': '预设文件加载失败', 'en-US': 'Failed to load preset file' },
+  wclEmpty: { 'zh-CN': '当前没有可用预设', 'en-US': 'No presets available' },
+  wclApplyConfirm: { 'zh-CN': '套用「{name}」会覆盖当前所有装备槽，确定继续？', 'en-US': 'Applying "{name}" will overwrite all current gear slots. Continue?' },
+  wclApplied: { 'zh-CN': '已套用排行榜配装', 'en-US': 'Leaderboard build applied' },
+  wclAppliedMissing: { 'zh-CN': '已套用，{count} 件本地缺失按属性估算', 'en-US': 'Applied; {count} item(s) missing locally, estimated from stats' },
+  wclNeedBuild: { 'zh-CN': '请先选择职业和专精', 'en-US': 'Pick a class and spec first' },
+  wclTalentCode: { 'zh-CN': '天赋代码', 'en-US': 'Talent code' },
+  wclCopy: { 'zh-CN': '复制', 'en-US': 'Copy' },
+  wclCopied: { 'zh-CN': '天赋代码已复制', 'en-US': 'Talent code copied' },
+  wclCopyFail: { 'zh-CN': '复制失败', 'en-US': 'Copy failed' },
+  wclEnchantsGems: { 'zh-CN': '附魔宝石', 'en-US': 'Enchants & gems' },
+  wclEnchant: { 'zh-CN': '附魔', 'en-US': 'Enchant' },
+  wclGem: { 'zh-CN': '宝石', 'en-US': 'Gem' },
+  wclMissing: { 'zh-CN': '有 {count} 件装备本地库缺失，仅按预设属性估算', 'en-US': '{count} item(s) missing from local data; estimated from preset stats' },
+  wclScoreSuffix: { 'zh-CN': '分', 'en-US': ' pts' },
+  wclLevelSuffix: { 'zh-CN': '层', 'en-US': '' },
+  wclAppliedPrefix: { 'zh-CN': '排行榜：', 'en-US': 'Leaderboard: ' },
+};
+
+function buildI18nFor(locale) {
+  const out = {};
+  for (const key of Object.keys(BUILD_I18N)) {
+    const m = BUILD_I18N[key];
+    out[key] = m[locale] !== undefined
+      ? m[locale]
+      : (locale.startsWith('zh') ? (m['zh-CN'] ?? m['en-US']) : (m['en-US'] ?? m['zh-CN']));
+  }
+  return out;
+}
+
 const localeOverrides = Object.fromEntries(
   Object.keys(localeNames).map((locale) => [
     locale,
     {
       data: DATA_BY_LOCALE[locale],
       ...UI_BY_LOCALE[locale],
+      ...buildI18nFor(locale),
     },
   ]),
 );

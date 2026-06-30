@@ -32,6 +32,10 @@ function manualSpecsFromEnv(env) {
   return null;
 }
 
+function selectedSpecsFromEnv(env) {
+  return manualSpecsFromEnv(env) || listSpecs();
+}
+
 // 读取某专精在 COS 上的更新时间(generatedAt)；取不到/无数据视为最旧(0)。
 async function fetchGeneratedAt(spec) {
   try {
@@ -73,6 +77,7 @@ if (require.main === module) {
 }
 
 module.exports = {
+  selectedSpecsFromEnv,
   manualSpecsFromEnv,
   stalestSpecs,
   fetchGeneratedAt,

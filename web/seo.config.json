@@ -1,12 +1,13 @@
 {
   "baseUrl": "https://seasonloot.com",
   "siteName": "SeasonLoot",
-  "currentVersion": "4.3.x",
-  "dataDir": "data-4.3.x",
-  "cacheBust": "20260509-multilingual-seo",
-  "defaultLocale": "en-US",
+  "currentVersion": "4.4.x",
+  "dataDir": "data-4.4.x",
+  "cacheBust": "20260630-i18n2",
+  "defaultLocale": "zh-CN",
   "locales": [
-    { "locale": "en-US", "slug": "", "hreflang": "en-US" },
+    { "locale": "zh-CN", "slug": "", "hreflang": "zh-CN" },
+    { "locale": "en-US", "slug": "en-us", "hreflang": "en-US" },
     { "locale": "en-GB", "slug": "en-gb", "hreflang": "en-GB" },
     { "locale": "de-DE", "slug": "de", "hreflang": "de-DE" },
     { "locale": "fr-FR", "slug": "fr", "hreflang": "fr-FR" },
@@ -16,7 +17,9 @@
     { "locale": "it-IT", "slug": "it", "hreflang": "it-IT" },
     { "locale": "ru-RU", "slug": "ru", "hreflang": "ru-RU" },
     { "locale": "ko-KR", "slug": "ko", "hreflang": "ko-KR" },
-    { "locale": "zh-CN", "slug": "zh-cn", "hreflang": "zh-CN" },
     { "locale": "zh-TW", "slug": "zh-tw", "hreflang": "zh-TW" }
+  ],
+  "aliases": [
+    { "locale": "zh-CN", "slug": "zh-cn" }
   ]
 }

@@ -2512,3 +2512,256 @@ button {
     padding-inline: 8px;
   }
 }
+
+/* ─────────────── 排行榜配装 (WCL Presets) ─────────────── */
+.build-board-actions .primary {
+  background: var(--gold-2);
+  border-color: var(--gold-2);
+  color: #1a1410;
+  font-weight: 800;
+}
+.build-wcl-line {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: #7de3ff;
+  font-weight: 700;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+.class-workbench-actions .wcl-entry {
+  background: rgba(212, 168, 75, 0.16);
+  border-color: rgba(212, 168, 75, 0.5);
+  color: var(--cream);
+  font-weight: 800;
+}
+
+.overlay-panel.wcl-panel {
+  max-width: 760px;
+  width: min(94vw, 760px);
+  display: flex;
+  flex-direction: column;
+  max-height: min(88vh, 900px);
+}
+.wcl-updated {
+  flex: 0 0 auto;
+  margin: 0 0 12px;
+  padding: 0 24px;
+  font-size: 12px;
+  color: #7de3ff;
+  font-weight: 700;
+}
+.wcl-tab-row {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding: 0 24px;
+}
+.wcl-level-row {
+  flex-wrap: wrap;
+}
+.wcl-tab {
+  flex: 0 0 auto;
+  padding: 7px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  color: #cfc4a8;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.wcl-tab.on {
+  color: #1a1410;
+  background: var(--gold-2);
+  border-color: var(--gold-2);
+}
+.wcl-tab b {
+  margin-left: 6px;
+  opacity: 0.7;
+}
+.wcl-dungeon-row {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding: 12px 24px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.wcl-dungeon {
+  flex: 0 0 auto;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.wcl-dungeon.on {
+  color: var(--cream);
+  border-color: rgba(212, 168, 75, 0.5);
+  background: rgba(212, 168, 75, 0.14);
+}
+.wcl-dungeon b {
+  margin-left: 6px;
+  color: #7de3ff;
+}
+.wcl-list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 4px 24px 22px;
+}
+.wcl-group-title {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--gold-2);
+}
+.wcl-preset {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.wcl-preset-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.wcl-preset-main strong {
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 800;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wcl-preset-meta {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 600;
+}
+.wcl-preset-status {
+  font-size: 11px;
+  font-weight: 700;
+}
+.wcl-code-ready { color: #42f58d; }
+.wcl-code-missing { color: var(--dim); }
+.wcl-apply-btn {
+  flex: 0 0 auto;
+  padding: 9px 16px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 800;
+  color: #1a1410;
+  background: var(--gold-2);
+  border: 1px solid var(--gold-2);
+}
+.wcl-apply-btn:hover { background: var(--gold); border-color: var(--gold); }
+
+/* 套用后在配装信息面板内的展示块 */
+.wcl-applied {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(212, 168, 75, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.wcl-applied-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.wcl-applied-head strong {
+  font-size: 13px;
+  color: var(--gold);
+  font-weight: 800;
+}
+.wcl-applied-head span {
+  font-size: 12px;
+  color: #7de3ff;
+  font-weight: 700;
+}
+.wcl-talent-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.wcl-talent-label {
+  flex: 0 0 auto;
+  font-size: 12px;
+  font-weight: 800;
+  color: #7de3ff;
+}
+.wcl-talent-code {
+  flex: 1;
+  min-width: 0;
+  font-size: 11px;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+.wcl-talent-copy {
+  flex: 0 0 auto;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #1a1410;
+  background: var(--gold-2);
+  border: none;
+}
+.wcl-eg-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.wcl-eg-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--gold-2);
+  margin-bottom: 2px;
+}
+.wcl-eg-row {
+  display: flex;
+  gap: 10px;
+  font-size: 12px;
+  padding: 3px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.wcl-eg-slot {
+  flex: 0 0 52px;
+  color: var(--muted);
+  font-weight: 700;
+}
+.wcl-eg-text { color: #c9d6ff; }
+.wcl-missing {
+  margin: 0;
+  font-size: 12px;
+  color: var(--danger);
+}
+
+@media (max-width: 600px) {
+  .wcl-preset { flex-direction: column; align-items: stretch; }
+  .wcl-apply-btn { width: 100%; }
+}

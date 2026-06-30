@@ -4,7 +4,7 @@
   "source": "blizzard-game-data-api",
   "region": "eu",
   "namespace": "static-eu",
-  "generatedAt": "2026-05-07T06:25:08.344Z",
+  "generatedAt": "2026-06-30T10:07:43.027Z",
   "classKey": "shaman",
   "items": {
     "49810": {
@@ -446,6 +446,286 @@
       "setId": null,
       "setName": ""
     },
+    "237831": {
+      "id": 237831,
+      "name": "Zurechtweisung des Zauberbrechers",
+      "sourceName": "破法者的责难",
+      "quality": "Episch",
+      "inventoryType": "Schildhand",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Schild",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237837": {
+      "id": 237837,
+      "name": "Gnade des Weltenwanderers",
+      "sourceName": "远行者的慈悲",
+      "quality": "Episch",
+      "inventoryType": "Einhändig",
+      "itemClass": "Waffe",
+      "itemSubclass": "Dolch",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237838": {
+      "id": 237838,
+      "name": "Ritualmesser des Magisters",
+      "sourceName": "魔导师的仪式之匕",
+      "quality": "Episch",
+      "inventoryType": "Einhändig",
+      "itemClass": "Waffe",
+      "itemSubclass": "Dolch",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237839": {
+      "id": 237839,
+      "name": "Klinge des Zauberbrechers",
+      "sourceName": "破法者的利剑",
+      "quality": "Episch",
+      "inventoryType": "Einhändig",
+      "itemClass": "Waffe",
+      "itemSubclass": "Schwert",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237840": {
+      "id": 237840,
+      "name": "Kriegsgleve des Zauberbrechers",
+      "sourceName": "破法者的战刃",
+      "quality": "Episch",
+      "inventoryType": "Einhändig",
+      "itemClass": "Waffe",
+      "itemSubclass": "Kriegsgleven",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237841": {
+      "id": 237841,
+      "name": "Ultimatum des Zauberbrechers",
+      "sourceName": "破法者的通牒",
+      "quality": "Episch",
+      "inventoryType": "Einhändig",
+      "itemClass": "Waffe",
+      "itemSubclass": "Streitkolben",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237842": {
+      "id": 237842,
+      "name": "Blütengeschmiedete Großaxt",
+      "sourceName": "绽铸大斧",
+      "quality": "Episch",
+      "inventoryType": "Zweihändig",
+      "itemClass": "Waffe",
+      "itemSubclass": "Axt",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237843": {
+      "id": 237843,
+      "name": "Manaschwert des Magisters",
+      "sourceName": "魔导师的法力之剑",
+      "quality": "Episch",
+      "inventoryType": "Einhändig",
+      "itemClass": "Waffe",
+      "itemSubclass": "Schwert",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237844": {
+      "id": 237844,
+      "name": "Spaltbeil des Magisters",
+      "sourceName": "魔导师的砍斧",
+      "quality": "Episch",
+      "inventoryType": "Einhändig",
+      "itemClass": "Waffe",
+      "itemSubclass": "Axt",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237845": {
+      "id": 237845,
+      "name": "Blütengeschmiedete Klaue",
+      "sourceName": "绽铸之爪",
+      "quality": "Episch",
+      "inventoryType": "Einhändig",
+      "itemClass": "Waffe",
+      "itemSubclass": "Faustwaffe",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237846": {
+      "id": 237846,
+      "name": "Blutritterkriegsklinge",
+      "sourceName": "血骑士的战剑",
+      "quality": "Episch",
+      "inventoryType": "Zweihändig",
+      "itemClass": "Waffe",
+      "itemSubclass": "Schwert",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237847": {
+      "id": 237847,
+      "name": "Blutritterantrieb",
+      "sourceName": "血骑士的强击矛",
+      "quality": "Episch",
+      "inventoryType": "Zweihändig",
+      "itemClass": "Waffe",
+      "itemSubclass": "Stangenwaffe",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237848": {
+      "id": 237848,
+      "name": "Blutrittergnade",
+      "sourceName": "血骑士的慈悲",
+      "quality": "Episch",
+      "inventoryType": "Zweihändig",
+      "itemClass": "Waffe",
+      "itemSubclass": "Streitkolben",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237849": {
+      "id": 237849,
+      "name": "Abschied des Magisters",
+      "sourceName": "魔导师的送别",
+      "quality": "Episch",
+      "inventoryType": "Zweihändig",
+      "itemClass": "Waffe",
+      "itemSubclass": "Streitkolben",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237850": {
+      "id": 237850,
+      "name": "Zerhacker des Weltenwanderers",
+      "sourceName": "远行者的劈斧",
+      "quality": "Episch",
+      "inventoryType": "Einhändig",
+      "itemClass": "Waffe",
+      "itemSubclass": "Axt",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239656": {
+      "id": 239656,
+      "name": "Seidenschleier des Anhängers",
+      "sourceName": "信徒的流丝罩袍",
+      "quality": "Episch",
+      "inventoryType": "Rücken",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Stoff",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239658": {
+      "id": 239658,
+      "name": "Sonnenfeuerumhang",
+      "sourceName": "阳炎披风",
+      "quality": "Episch",
+      "inventoryType": "Rücken",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Stoff",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": 1957,
+      "setName": "Sonnenfeuerseidener Zierrat"
+    },
+    "239661": {
+      "id": 239661,
+      "name": "Arkanostoffumhang",
+      "sourceName": "奥纹披风",
+      "quality": "Episch",
+      "inventoryType": "Rücken",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Stoff",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": 1958,
+      "setName": "Arkanostoffzierrat"
+    },
+    "240949": {
+      "id": 240949,
+      "name": "Meisterlicher Ring der Sin'dorei",
+      "sourceName": "精工辛多雷指环",
+      "quality": "Episch",
+      "inventoryType": "Finger",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Verschiedenes",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "240950": {
+      "id": 240950,
+      "name": "Meisterliches Amulett der Sin'dorei",
+      "sourceName": "精工辛多雷护符",
+      "quality": "Episch",
+      "inventoryType": "Hals",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Verschiedenes",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "241044": {
       "id": 241044,
       "name": "Kiste von Argus",
@@ -461,6 +741,449 @@
           "id": 1230953,
           "name": "Kiste von Argus sammeln",
           "description": "Benutzen: Fügt diese Dekoration zu Eurer Haustruhe hinzu."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241139": {
+      "id": 241139,
+      "name": "Thalassischer Phönixhalsreif",
+      "sourceName": "萨拉斯凤凰饰环",
+      "quality": "Episch",
+      "inventoryType": "Hals",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Verschiedenes",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251815,
+          "name": "Thalassischer Phönixhalsreif",
+          "description": "Anlegen: Eure Zauber und Fähigkeiten haben eine Chance, Euer Ziel mit Phönixflammen zu umhüllen.\r\n\r\nVerbündete Ziele werden dabei um 11.730 Gesundheit im Verlauf von 10 Sek. geheilt. Gegnerische Ziele erleiden stattdessen 7.821 Feuerschaden im Verlauf von 10 Sek..\r\n\r\nJede einzigartige Farbe Eurer gesockelten Edelsteine verstärkt die Flammen um 1%."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241340": {
+      "id": 241340,
+      "name": "Alchemistenstein des Magisters",
+      "sourceName": "魔导师的炼金石",
+      "quality": "Episch",
+      "inventoryType": "Schmuck",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Verschiedenes",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "Kann anstelle eines Steins der Weisen für Transmutationen verwendet werden.",
+      "spells": [
+        {
+          "id": 1280591,
+          "name": "Alchemistenstein des Magisters",
+          "description": "Anlegen: Es besteht eine Chance, dass sich Eure Stärke, Beweglichkeit oder Intelligenz 15 Sek. lang um 162 erhöht, wenn Ihr Heilung oder Schaden verursacht. Es wird stets Euer höchster Wert gewählt."
+        },
+        {
+          "id": 17619,
+          "name": "Alchemistenstein",
+          "description": "Anlegen: Erhöht die Effekte, die Heil- und Manatränke auf den Träger haben, um 40%. Dieser Effekt ist nicht stapelbar."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244179": {
+      "id": 244179,
+      "name": "Großer Fokus des Magisters",
+      "sourceName": "魔导师的华丽法器",
+      "quality": "Episch",
+      "inventoryType": "Distanz",
+      "itemClass": "Waffe",
+      "itemSubclass": "Zauberstab",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244472": {
+      "id": 244472,
+      "name": "Palisade des Rittmeisters",
+      "sourceName": "骑士指挥官的雄关",
+      "quality": "Episch",
+      "inventoryType": "Schildhand",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Schild",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [
+        {
+          "id": 1237608,
+          "name": "Palisade des Rittmeisters",
+          "description": "Anlegen: Das Licht schützt. Wenn Ihr angegriffen werdet, besteht eine Chance, dass Ihr 'Schutz der Palisade' erhaltet, was für 6 Sek. einen Absorptionsschild gewährt, der 1.192 Schaden absorbiert.\r\n\r\nWird der Schild durchbrochen, bevor er abläuft, bricht die Magie des Schilds mit 'Sühne der Palisade' hervor und fügt Gegnern in der Nähe 1.192 Heiligschaden zu."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244577": {
+      "id": 244577,
+      "name": "Messerkrallen des Weltenwanderers",
+      "sourceName": "远行者的刀锋战靴",
+      "quality": "Episch",
+      "inventoryType": "Füße",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Kette",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244578": {
+      "id": 244578,
+      "name": "Späherweste des Weltenwanderers",
+      "sourceName": "远行者的侦察背心",
+      "quality": "Episch",
+      "inventoryType": "Brust",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Kette",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244579": {
+      "id": 244579,
+      "name": "Unerschütterliches Antlitz des Weltenwanderers",
+      "sourceName": "远行者的不懈守望",
+      "quality": "Episch",
+      "inventoryType": "Kopf",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Kette",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244580": {
+      "id": 244580,
+      "name": "Prachtvolle Schwingen des Weltenwanderers",
+      "sourceName": "远行者的璀璨之羽",
+      "quality": "Episch",
+      "inventoryType": "Schulter",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Kette",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244581": {
+      "id": 244581,
+      "name": "Trophäengürtel des Weltenwanderers",
+      "sourceName": "远行者的战利品腰带",
+      "quality": "Episch",
+      "inventoryType": "Taille",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Kette",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244582": {
+      "id": 244582,
+      "name": "Verstärkte Hüftplatten des Weltenwanderers",
+      "sourceName": "远行者的加固腿铠",
+      "quality": "Episch",
+      "inventoryType": "Beine",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Kette",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244583": {
+      "id": 244583,
+      "name": "Geschärfte Klauen des Weltenwanderers",
+      "sourceName": "远行者的锋芒爪套",
+      "quality": "Episch",
+      "inventoryType": "Hände",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Kette",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244584": {
+      "id": 244584,
+      "name": "Plattenarmschienen des Weltenwanderers",
+      "sourceName": "远行者的板层护腕",
+      "quality": "Episch",
+      "inventoryType": "Handgelenk",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Kette",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244602": {
+      "id": 244602,
+      "name": "Handschutz des Waldläufergenerals",
+      "sourceName": "游侠将军之握",
+      "quality": "Episch",
+      "inventoryType": "Hände",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Kette",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [
+        {
+          "id": 1243876,
+          "name": "Ruf des Waldläufergenerals",
+          "description": "Anlegen: Wenn Ihr einem Ziel Schaden zufügt, besteht eine Chance, es zu markieren, wodurch ein Elfenwaldläufer aus der Ferne einen Überraschungsangriff ausführt! Dieser Angriff fügt dem Ziel 6.530 körperlichen Schaden zu."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244605": {
+      "id": 244605,
+      "name": "Bänder des Axtschleuderers",
+      "sourceName": "掷斧腕带",
+      "quality": "Episch",
+      "inventoryType": "Handgelenk",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Kette",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [
+        {
+          "id": 1243871,
+          "name": "Kampfeslust",
+          "description": "Anlegen: Eure Zauber und Fähigkeiten haben eine Chance, Euch mit Kampfeslust zu erfüllen. Kampfeslust erhöht Euer Tempo 15 Sek. lang um 2 und ist bis zu 5-mal stapelbar."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244609": {
+      "id": 244609,
+      "name": "Stammplatte des Weltenwächters",
+      "sourceName": "世界照护者的树干板甲",
+      "quality": "Episch",
+      "inventoryType": "Brust",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Kette",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": 1967,
+      "setName": "Wurzelwächterornat"
+    },
+    "244610": {
+      "id": 244610,
+      "name": "Wurzelpantoffeln des Weltenwächters",
+      "sourceName": "世界照护者的根须便鞋",
+      "quality": "Episch",
+      "inventoryType": "Füße",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Kette",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": 1967,
+      "setName": "Wurzelwächterornat"
+    },
+    "244611": {
+      "id": 244611,
+      "name": "Rindenschnalle des Weltenwächters",
+      "sourceName": "世界照护者的树皮腰扣",
+      "quality": "Episch",
+      "inventoryType": "Taille",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Kette",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": 1967,
+      "setName": "Wurzelwächterornat"
+    },
+    "244679": {
+      "id": 244679,
+      "name": "Angelhaken der Mördergasse",
+      "sourceName": "密谋小径鱼钩",
+      "quality": "Episch",
+      "inventoryType": "Einhändig",
+      "itemClass": "Waffe",
+      "itemSubclass": "Dolch",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250529,
+          "name": "Angelhaken der Mördergasse",
+          "description": "Anlegen: Eure schädlichen Zauber und Fähigkeiten haben eine Chance, Eurem Ziel im Verlauf von 10 Sek. 846 körperlichen Blutungsschaden zuzufügen."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244745": {
+      "id": 244745,
+      "name": "Ätherlichtvisionsschleier",
+      "sourceName": "以太流明成像目镜",
+      "quality": "Episch",
+      "inventoryType": "Kopf",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Kette",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244749": {
+      "id": 244749,
+      "name": "Ätherlichtarmreife",
+      "sourceName": "以太流明腕甲",
+      "quality": "Episch",
+      "inventoryType": "Handgelenk",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Kette",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244773": {
+      "id": 244773,
+      "name": "Ätherlichtklapperer",
+      "sourceName": "以太流明套靴",
+      "quality": "Episch",
+      "inventoryType": "Füße",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Kette",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "245770": {
+      "id": 245770,
+      "name": "Stock von Aln'hara",
+      "sourceName": "艾林哈籁手杖",
+      "quality": "Episch",
+      "inventoryType": "Zweihändig",
+      "itemClass": "Waffe",
+      "itemSubclass": "Stab",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "245771": {
+      "id": 245771,
+      "name": "Pikenstab von Aln'hara",
+      "sourceName": "艾林哈籁刺杖",
+      "quality": "Episch",
+      "inventoryType": "Zweihändig",
+      "itemClass": "Waffe",
+      "itemSubclass": "Stab",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "246304": {
+      "id": 246304,
+      "name": "Dunkelmondherrschaft: Jagd",
+      "sourceName": "暗月统御：狩猎",
+      "quality": "Episch",
+      "inventoryType": "Schmuck",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Verschiedenes",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245050,
+          "name": "Jagd",
+          "description": "Anlegen: Eure Zauber und Fähigkeiten haben eine Chance, 15 Sek. lang 168 Sekundärwerte zu gewähren, je nach Art der Zielkreatur.\r\n\r\nDieser Effekt wird durch 'Dunkelmondsiegel: Jagd' verstärkt."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246305": {
+      "id": 246305,
+      "name": "Dunkelmondherrschaft: Blut",
+      "sourceName": "暗月统御：鲜血",
+      "quality": "Episch",
+      "inventoryType": "Schmuck",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Verschiedenes",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245001,
+          "name": "Blut",
+          "description": "Anlegen: Eure Schaden verursachenden Zauber und Fähigkeiten haben eine Chance, 'List des Weltenwanderers' zu gewähren, was Euren niedrigsten Sekundärwert 15 Sek. lang um 444 erhöht.\r\n\r\nWenn ein verbündeter Spielercharakter stirbt, erhaltet Ihr 15 Sek. lang 232 Eures höchsten Sekundärwerts. Dieser Effekt kann nur einmal alle 5 Min. ausgelöst werden.\r\n\r\nDieser Effekt wird durch 'Dunkelmondsiegel: Blut' verstärkt."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246306": {
+      "id": 246306,
+      "name": "Dunkelmondherrschaft: Fäulnis",
+      "sourceName": "暗月统御：腐烂",
+      "quality": "Episch",
+      "inventoryType": "Schmuck",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Verschiedenes",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245051,
+          "name": "Fäulnis",
+          "description": "Anlegen: Belegt Euer Ziel mit verfaulenden Wurzeln, die 6 Sek. lang alle 2 Sek. 214 Naturschaden verursachen. Dieser Effekt ist bis zu 10-mal stapelbar. Neue Stapel aktualisieren bereits angewendete Stapel nicht.\r\n\r\nDieser Effekt wird durch 'Dunkelmondsiegel: Fäulnis' verstärkt.\r\n"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246307": {
+      "id": 246307,
+      "name": "Dunkelmondherrschaft: Leere",
+      "sourceName": "暗月统御：虚空",
+      "quality": "Episch",
+      "inventoryType": "Schmuck",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Verschiedenes",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [
+        {
+          "id": 1244254,
+          "name": "Leere",
+          "description": "Anlegen: Eure Schaden verursachenden Zauber und Fähigkeiten haben eine Chance, Euch mit Leerenglas zu verstärken, wodurch Ihr 15 Sek. lang 123 Vielseitigkeit erhaltet. Mehrere Anwendungen können dabei überlappen.\r\n\r\nDieser Effekt wird durch 'Dunkelmondsiegel: Leere' verstärkt."
         }
       ],
       "setId": null,
@@ -1526,6 +2249,26 @@
       "setId": null,
       "setName": ""
     },
+    "251073": {
+      "id": 251073,
+      "name": "Leersteinabschirmung",
+      "sourceName": "虚空石护盾阵列",
+      "quality": "Episch",
+      "inventoryType": "Hals",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Verschiedenes",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251903,
+          "name": "Leersteinbarriere",
+          "description": "Aktiviert bei Benutzung die Abschirmung und generiert eine Barriere aus Leerstein, die 10 Sek. lang 71.596 Schaden absorbiert.\r\n\r\nDie Barriere wird zusätzlich pro einzigartiger Farbe gesockelter Edelsteine um 1% verstärkt."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
     "251079": {
       "id": 251079,
       "name": "Bernwedelarmschienen",
@@ -1917,6 +2660,26 @@
       "spells": [],
       "setId": 1971,
       "setName": "Leerenlichtbindungen"
+    },
+    "251513": {
+      "id": 251513,
+      "name": "Ring des Loaanbeters",
+      "sourceName": "神灵崇拜者的指环",
+      "quality": "Episch",
+      "inventoryType": "Finger",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Verschiedenes",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251904,
+          "name": "Ring des Loaanbeters",
+          "description": "Anlegen: Eure Schaden verursachenden Zauber und Fähigkeiten haben eine Chance, den Ring aufzuladen und den Avatar eines Loas herbeizurufen, der Euch im Kampf unterstützt.\r\n\r\nJede einzigartige Farbe Eurer gesockelten Edelsteine erlaubt Euch die Beschwörung eines anderen Loas. Die Effekte reichen dabei vom Verursachen von Schaden bis zur Gewährung von temporärer Macht."
+        }
+      ],
+      "setId": null,
+      "setName": ""
     },
     "252411": {
       "id": 252411,
@@ -2719,6 +3482,20 @@
       "setId": null,
       "setName": ""
     },
+    "265337": {
+      "id": 265337,
+      "name": "Zweigbogen von Aln'hara",
+      "sourceName": "艾林哈籁蔓枝弓",
+      "quality": "Episch",
+      "inventoryType": "Distanz",
+      "itemClass": "Waffe",
+      "itemSubclass": "Bogen",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "265949": {
       "id": 265949,
       "name": "Goldene Bezwingertrophäe für den Marsch auf Quel'Danas",
@@ -2859,6 +3636,108 @@
       "setId": null,
       "setName": ""
     },
+    "268287": {
+      "id": 268287,
+      "name": "Stampfer der Grollbestie",
+      "sourceName": "怨毒魔怪践踏靴",
+      "quality": "Episch",
+      "inventoryType": "Füße",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Kette",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "268288": {
+      "id": 268288,
+      "name": "Beinschutz des fungianischen Wahnwitzes",
+      "sourceName": "真菌人荒谬腿甲",
+      "quality": "Episch",
+      "inventoryType": "Beine",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Kette",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "268290": {
+      "id": 268290,
+      "name": "Blütenring des Sporenrufers",
+      "sourceName": "唤孢者的绽放指环",
+      "quality": "Episch",
+      "inventoryType": "Finger",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Verschiedenes",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [
+        {
+          "id": 1285138,
+          "name": "Blütenring des Sporenrufers",
+          "description": "Anlegen: Verursachter Naturschaden hat eine Chance, eine Faulblüte einzupflanzen, die im Verlauf von 15 Sek. 1.718 Naturschaden verursacht. Wenn der Gegner bereits von Eurer Faulblüte befallen ist, wird diese verbraucht und verursacht 120% des verbleibenden Schadens."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268291": {
+      "id": 268291,
+      "name": "Rottmoors Sporenherz",
+      "sourceName": "腐沼的孢子之心",
+      "quality": "Episch",
+      "inventoryType": "Hals",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Verschiedenes",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [
+        {
+          "id": 1285139,
+          "name": "Rottmoors Sporenherz",
+          "description": "Anlegen: Eure Heileffekte haben eine Chance, schützende Giftpilze zu erschaffen, die bis zu 12 Sek. lang 19.539 Schaden absorbieren. Wenn sie zerstört werden, explodieren die Pilze und fügen Gegnern in der Nähe 2.695 Naturschaden zu."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268292": {
+      "id": 268292,
+      "name": "Myzelinsigne des Sporenherrschers",
+      "sourceName": "孢子大王的菌丝徽记",
+      "quality": "Episch",
+      "inventoryType": "Schmuck",
+      "itemClass": "Rüstung",
+      "itemSubclass": "Verschiedenes",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "",
+      "spells": [
+        {
+          "id": 1284696,
+          "name": "Myzel des Sporenherrschers",
+          "description": "Anlegen: Eure Zauber und Fähigkeiten haben eine Chance, das Myzel zu nähren, was 12 Sek. lang einen zufälligen Sekundärwert und Euren Lebensraub um 215 erhöht."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268477": {
+      "id": 268477,
+      "name": "P.U.F.F. x3",
+      "sourceName": "P.O.W. x3",
+      "quality": "Episch",
+      "inventoryType": "Distanz",
+      "itemClass": "Waffe",
+      "itemSubclass": "Schusswaffe",
+      "binding": "Wird beim Aufheben gebunden",
+      "description": "Komm schon, schießt noch schneller!",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "269269": {
       "id": 269269,
       "name": "Verschlingende Ritualspitze",
@@ -2891,6 +3770,36 @@
         }
       ]
     },
+    "1957": {
+      "id": 1957,
+      "name": "Sonnenfeuerseidener Zierrat",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Set: Erhaltet 35 Tempo, solange Ihr mehr als 80% Gesundheit habt."
+        }
+      ]
+    },
+    "1958": {
+      "id": 1958,
+      "name": "Arkanostoffzierrat",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Set: Erhaltet 35 kritischen Trefferwert, solange Ihr mehr als 80% Gesundheit habt."
+        }
+      ]
+    },
+    "1967": {
+      "id": 1967,
+      "name": "Wurzelwächterornat",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Set: Mit Euren Zaubern und Fähigkeiten könnt Ihr die Weltenbäume anrufen, Euch einen kleinen Teil ihrer Macht zu gewähren und Euch 15 Sek. lang 35 eines zufälligen Sekundärwerts zu verleihen."
+        }
+      ]
+    },
     "1971": {
       "id": 1971,
       "name": "Leerenlichtbindungen",
@@ -2916,5 +3825,7 @@
       ]
     }
   },
-  "errors": {}
+  "errors": {
+    "241140": "500 Internal Server Error: Downstream Error"
+  }
 }

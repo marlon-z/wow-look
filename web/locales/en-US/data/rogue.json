@@ -4,7 +4,7 @@
   "source": "blizzard-game-data-api",
   "region": "us",
   "namespace": "static-us",
-  "generatedAt": "2026-05-07T06:25:02.742Z",
+  "generatedAt": "2026-06-30T09:58:07.296Z",
   "classKey": "rogue",
   "items": {
     "49806": {
@@ -333,6 +333,202 @@
       "setId": null,
       "setName": ""
     },
+    "237837": {
+      "id": 237837,
+      "name": "Farstrider's Mercy",
+      "sourceName": "远行者的慈悲",
+      "quality": "Epic",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Dagger",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237838": {
+      "id": 237838,
+      "name": "Magister's Ritual Knife",
+      "sourceName": "魔导师的仪式之匕",
+      "quality": "Epic",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Dagger",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237839": {
+      "id": 237839,
+      "name": "Spellbreaker's Blade",
+      "sourceName": "破法者的利剑",
+      "quality": "Epic",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Sword",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237840": {
+      "id": 237840,
+      "name": "Spellbreaker's Warglaive",
+      "sourceName": "破法者的战刃",
+      "quality": "Epic",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Warglaives",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237841": {
+      "id": 237841,
+      "name": "Spellbreaker's Ultimatum",
+      "sourceName": "破法者的通牒",
+      "quality": "Epic",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Mace",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237843": {
+      "id": 237843,
+      "name": "Magister's Mana Sword",
+      "sourceName": "魔导师的法力之剑",
+      "quality": "Epic",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Sword",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237844": {
+      "id": 237844,
+      "name": "Magister's Cleaver",
+      "sourceName": "魔导师的砍斧",
+      "quality": "Epic",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Axe",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237845": {
+      "id": 237845,
+      "name": "Bloomforged Claw",
+      "sourceName": "绽铸之爪",
+      "quality": "Epic",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Fist Weapon",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237850": {
+      "id": 237850,
+      "name": "Farstrider's Chopper",
+      "sourceName": "远行者的劈斧",
+      "quality": "Epic",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Axe",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239656": {
+      "id": 239656,
+      "name": "Adherent's Silken Shroud",
+      "sourceName": "信徒的流丝罩袍",
+      "quality": "Epic",
+      "inventoryType": "Back",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239658": {
+      "id": 239658,
+      "name": "Sunfire Cloak",
+      "sourceName": "阳炎披风",
+      "quality": "Epic",
+      "inventoryType": "Back",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": 1957,
+      "setName": "Sunfire Silk Trappings"
+    },
+    "239661": {
+      "id": 239661,
+      "name": "Arcanoweave Cloak",
+      "sourceName": "奥纹披风",
+      "quality": "Epic",
+      "inventoryType": "Back",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": 1958,
+      "setName": "Arcanoweave Trappings"
+    },
+    "240949": {
+      "id": 240949,
+      "name": "Masterwork Sin'dorei Band",
+      "sourceName": "精工辛多雷指环",
+      "quality": "Epic",
+      "inventoryType": "Finger",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "240950": {
+      "id": 240950,
+      "name": "Masterwork Sin'dorei Amulet",
+      "sourceName": "精工辛多雷护符",
+      "quality": "Epic",
+      "inventoryType": "Neck",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "241044": {
       "id": 241044,
       "name": "Argussian Crate",
@@ -348,6 +544,407 @@
           "id": 1230953,
           "name": "Collect Argussian Crate",
           "description": "Use: Add this Decor to your House Chest."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241139": {
+      "id": 241139,
+      "name": "Thalassian Phoenix Torque",
+      "sourceName": "萨拉斯凤凰饰环",
+      "quality": "Epic",
+      "inventoryType": "Neck",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251815,
+          "name": "Thalassian Phoenix Torque",
+          "description": "Equip: Your spells and abilities have a chance to call upon the Phoenix Flames to envelop your target.\r\n\r\nIf your target is friendly, they are healed for 11,730 over 10 sec. If your target is an enemy, they instead suffer 7,821 Fire damage over 10 sec.\r\n\r\nEvery unique socketed gem color will strengthen the flames by 1%."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241140": {
+      "id": 241140,
+      "name": "Signet of Azerothian Blessings",
+      "sourceName": "艾泽拉斯祝福印戒",
+      "quality": "Epic",
+      "inventoryType": "Finger",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251902,
+          "name": "Signet of Azerothian Blessings",
+          "description": "Equip: Your spells and abilities may cause the signet to resonate with the Worldsoul, granting you a boon of 4 to all of your secondary stats for 15 sec.\r\n\r\nEvery unique socketed gem color strengthens their associated secondary stat granted by this boon by 1%."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241340": {
+      "id": 241340,
+      "name": "Magister's Alchemist Stone",
+      "sourceName": "魔导师的炼金石",
+      "quality": "Epic",
+      "inventoryType": "Trinket",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "Can be used for transmutations in place of a Philosopher's Stone.",
+      "spells": [
+        {
+          "id": 1280591,
+          "name": "Magister's Alchemist Stone",
+          "description": "Equip: When you heal or deal damage you have a chance to increase your Strength, Agility, or Intellect by 162 for 15 sec. Your highest stat is always chosen."
+        },
+        {
+          "id": 17619,
+          "name": "Alchemist Stone",
+          "description": "Equip: Increases the effect that healing and mana potions have on the wearer by 40%.  This effect does not stack."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244569": {
+      "id": 244569,
+      "name": "Silvermoon Agent's Sneakers",
+      "sourceName": "银月城特工的匿踪靴",
+      "quality": "Epic",
+      "inventoryType": "Feet",
+      "itemClass": "Armor",
+      "itemSubclass": "Leather",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244570": {
+      "id": 244570,
+      "name": "Silvermoon Agent's Coat",
+      "sourceName": "银月城特工的外套",
+      "quality": "Epic",
+      "inventoryType": "Chest",
+      "itemClass": "Armor",
+      "itemSubclass": "Leather",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244571": {
+      "id": 244571,
+      "name": "Silvermoon Agent's Cover",
+      "sourceName": "银月城特工的面罩",
+      "quality": "Epic",
+      "inventoryType": "Head",
+      "itemClass": "Armor",
+      "itemSubclass": "Leather",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244572": {
+      "id": 244572,
+      "name": "Silvermoon Agent's Mantle",
+      "sourceName": "银月城特工的披肩",
+      "quality": "Epic",
+      "inventoryType": "Shoulder",
+      "itemClass": "Armor",
+      "itemSubclass": "Leather",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244573": {
+      "id": 244573,
+      "name": "Silvermoon Agent's Utility Belt",
+      "sourceName": "银月城特工的多功能腰带",
+      "quality": "Epic",
+      "inventoryType": "Waist",
+      "itemClass": "Armor",
+      "itemSubclass": "Leather",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244574": {
+      "id": 244574,
+      "name": "Silvermoon Agent's Leggings",
+      "sourceName": "银月城特工的护腿",
+      "quality": "Epic",
+      "inventoryType": "Legs",
+      "itemClass": "Armor",
+      "itemSubclass": "Leather",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244575": {
+      "id": 244575,
+      "name": "Silvermoon Agent's Handwraps",
+      "sourceName": "银月城特工的裹手",
+      "quality": "Epic",
+      "inventoryType": "Hands",
+      "itemClass": "Armor",
+      "itemSubclass": "Leather",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244576": {
+      "id": 244576,
+      "name": "Silvermoon Agent's Deflectors",
+      "sourceName": "银月城特工的偏斜腕甲",
+      "quality": "Epic",
+      "inventoryType": "Wrist",
+      "itemClass": "Armor",
+      "itemSubclass": "Leather",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244601": {
+      "id": 244601,
+      "name": "World Tree Rootwraps",
+      "sourceName": "世界之树根须裹足",
+      "quality": "Epic",
+      "inventoryType": "Feet",
+      "itemClass": "Armor",
+      "itemSubclass": "Leather",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1243903,
+          "name": "Azerothian Power",
+          "description": "Equip: Your spells and abilities have a chance to resonate with the Worldsoul, creating an Orb of Azerothian Power nearby. Gathering this orb empowers you, granting 25 of your highest secondary stat for 15 sec."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244606": {
+      "id": 244606,
+      "name": "Hexwoven Strand",
+      "sourceName": "妖纹束腰",
+      "quality": "Epic",
+      "inventoryType": "Waist",
+      "itemClass": "Armor",
+      "itemSubclass": "Leather",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1243883,
+          "name": "Necrotic Hexweave",
+          "description": "Equip: Your damaging spells and abilities have a chance to afflict your target with a Necrotic Hex, inflicting 1,612 Nature damage over 10 sec.\r\n\r\nThis hex spreads to enemies near your original victim every time it deals damage, up to 5 times."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244612": {
+      "id": 244612,
+      "name": "Row Walker's Deflectors",
+      "sourceName": "径巷行者的偏斜腕甲",
+      "quality": "Epic",
+      "inventoryType": "Wrist",
+      "itemClass": "Armor",
+      "itemSubclass": "Leather",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": 1966,
+      "setName": "Murder Row Materials"
+    },
+    "244613": {
+      "id": 244613,
+      "name": "Row Walker's Insurance",
+      "sourceName": "径巷行者的保险护胸",
+      "quality": "Epic",
+      "inventoryType": "Chest",
+      "itemClass": "Armor",
+      "itemSubclass": "Leather",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": 1966,
+      "setName": "Murder Row Materials"
+    },
+    "244614": {
+      "id": 244614,
+      "name": "Row Walker's Swiftgrips",
+      "sourceName": "径巷行者的迅影手套",
+      "quality": "Epic",
+      "inventoryType": "Hands",
+      "itemClass": "Armor",
+      "itemSubclass": "Leather",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": 1966,
+      "setName": "Murder Row Materials"
+    },
+    "244679": {
+      "id": 244679,
+      "name": "Murder Row Fishhook",
+      "sourceName": "密谋小径鱼钩",
+      "quality": "Epic",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Dagger",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250529,
+          "name": "Murder Row Fishhook",
+          "description": "Equip: Your harmful spells and abilities have a chance to bleed your target for 846 Physical damage over 10 sec."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244744": {
+      "id": 244744,
+      "name": "Aetherlume Optics",
+      "sourceName": "以太流明光学目镜",
+      "quality": "Epic",
+      "inventoryType": "Head",
+      "itemClass": "Armor",
+      "itemSubclass": "Leather",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244748": {
+      "id": 244748,
+      "name": "Aetherlume Bands",
+      "sourceName": "以太流明腕带",
+      "quality": "Epic",
+      "inventoryType": "Wrist",
+      "itemClass": "Armor",
+      "itemSubclass": "Leather",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244772": {
+      "id": 244772,
+      "name": "Aetherlume Runners",
+      "sourceName": "以太流明奔行靴",
+      "quality": "Epic",
+      "inventoryType": "Feet",
+      "itemClass": "Armor",
+      "itemSubclass": "Leather",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "246304": {
+      "id": 246304,
+      "name": "Darkmoon Dominion: Hunt",
+      "sourceName": "暗月统御：狩猎",
+      "quality": "Epic",
+      "inventoryType": "Trinket",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245050,
+          "name": "Hunt",
+          "description": "Equip: Your spells and abilities have the chance to grant 168 secondary stats for 15 sec  based on the target creature's type.\r\n\r\nThis effect is augmented by Darkmoon Sigil: Hunt."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246305": {
+      "id": 246305,
+      "name": "Darkmoon Dominion: Blood",
+      "sourceName": "暗月统御：鲜血",
+      "quality": "Epic",
+      "inventoryType": "Trinket",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245001,
+          "name": "Blood",
+          "description": "Equip: Your damaging spells and abilities have the chance to grant Farstrider's Guile, increasing your lowest secondary stat by 444 for 15 sec.\r\n\r\nWhen an allied player dies, gain 232 of your highest secondary stat for 15 sec. This effect can only occur once every 5 min.\r\n\r\nThis effect is augmented by Darkmoon Sigil: Blood."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246306": {
+      "id": 246306,
+      "name": "Darkmoon Dominion: Rot",
+      "sourceName": "暗月统御：腐烂",
+      "quality": "Epic",
+      "inventoryType": "Trinket",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245051,
+          "name": "Rot",
+          "description": "Equip: Afflict your target with Rotting Roots dealing 214 Nature Damage every 2 seconds for 6 sec. This effect stacks up to 10 times. New stacks do not refresh applied stacks.\r\n\r\nThis effect is augmented by Darkmoon Sigil: Rot.\r\n"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246307": {
+      "id": 246307,
+      "name": "Darkmoon Dominion: Void",
+      "sourceName": "暗月统御：虚空",
+      "quality": "Epic",
+      "inventoryType": "Trinket",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1244254,
+          "name": "Void",
+          "description": "Equip: Your damaging spells and abilities have the chance to embolden you in Void Glass granting 123 Versatility over 15 sec. Multiple applications can overlap.\r\n\r\nThis effect is augmented by Darkmoon Sigil: Void."
         }
       ],
       "setId": null,
@@ -1171,6 +1768,26 @@
       "setId": null,
       "setName": ""
     },
+    "251073": {
+      "id": 251073,
+      "name": "Voidstone Shielding Array",
+      "sourceName": "虚空石护盾阵列",
+      "quality": "Epic",
+      "inventoryType": "Neck",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251903,
+          "name": "Voidstone Barrier",
+          "description": "On Use: Activate the array and generate a Voidstone Barrier, absorbing 71,596 damage for the next 10 sec.\r\n\r\nThe barrier is further empowered by 1% per unique gem color you have socketed."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
     "251082": {
       "id": 251082,
       "name": "Snapvine Cinch",
@@ -1506,6 +2123,26 @@
       "spells": [],
       "setId": 1971,
       "setName": "Voidlight Bindings"
+    },
+    "251513": {
+      "id": 251513,
+      "name": "Loa Worshiper's Band",
+      "sourceName": "神灵崇拜者的指环",
+      "quality": "Epic",
+      "inventoryType": "Finger",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251904,
+          "name": "Loa Worshiper's Band",
+          "description": "Equip: Your damaging spells and abilities have a chance to charge the band, calling forth the avatar of a Loa to assist you in combat.\r\n\r\nEach unique socketed gem color in your gear allows for different Loa to be summoned. These effects range from dealing damage to your foes or granting you temporary power."
+        }
+      ],
+      "setId": null,
+      "setName": ""
     },
     "252420": {
       "id": 252420,
@@ -2386,6 +3023,94 @@
       "setId": null,
       "setName": ""
     },
+    "268283": {
+      "id": 268283,
+      "name": "Festerbloom Crown",
+      "sourceName": "溃烂之花冠冕",
+      "quality": "Epic",
+      "inventoryType": "Head",
+      "itemClass": "Armor",
+      "itemSubclass": "Leather",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "268286": {
+      "id": 268286,
+      "name": "Sash of the Putrid Giant",
+      "sourceName": "腐臭巨人的腰带",
+      "quality": "Epic",
+      "inventoryType": "Waist",
+      "itemClass": "Armor",
+      "itemSubclass": "Leather",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "268290": {
+      "id": 268290,
+      "name": "Sporecaller's Blooming Loop",
+      "sourceName": "唤孢者的绽放指环",
+      "quality": "Epic",
+      "inventoryType": "Finger",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1285138,
+          "name": "Sporecaller's Blooming Loop",
+          "description": "Equip: Dealing Nature damage has a chance to inflict Rotbloom, dealing 1,718 Nature damage over 15 sec. If the enemy is already afflicted by your Rotbloom, it is consumed to deal 120% of its remaining damage."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268291": {
+      "id": 268291,
+      "name": "Rotmire's Sporeheart",
+      "sourceName": "腐沼的孢子之心",
+      "quality": "Epic",
+      "inventoryType": "Neck",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1285139,
+          "name": "Rotmire's Sporeheart",
+          "description": "Equip: Your healing has a chance to spawn protective toadstools absorbing 19,539 damage for up to 12 sec. If broken, the toadstools burst to deal 2,695 Nature damage to nearby enemies."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268292": {
+      "id": 268292,
+      "name": "Sporelord's Mycelial Insignia",
+      "sourceName": "孢子大王的菌丝徽记",
+      "quality": "Epic",
+      "inventoryType": "Trinket",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1284696,
+          "name": "Sporelord's Mycelium",
+          "description": "Equip: Your spells and abilities have a chance to nourish the mycelium, granting you 215 of a random secondary stat and Leech for 12 sec."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
     "269269": {
       "id": 269269,
       "name": "Devouring Ritual Spire",
@@ -2415,6 +3140,36 @@
         {
           "requiredCount": 2,
           "displayString": "Set: Increases Avoidance."
+        }
+      ]
+    },
+    "1957": {
+      "id": 1957,
+      "name": "Sunfire Silk Trappings",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Set: Gain 35 Haste while above 80% health."
+        }
+      ]
+    },
+    "1958": {
+      "id": 1958,
+      "name": "Arcanoweave Trappings",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Set: Gain 35 Critical Strike while above 80% health."
+        }
+      ]
+    },
+    "1966": {
+      "id": 1966,
+      "name": "Murder Row Materials",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Set: Every 30 seconds during combat, you capitalize on your next critical strike to gain the Upper Hand. Every situation is different, as is your Upper Hand at the time. Healing tonics, poisoned daggers, and other magical contraband are all on the table."
         }
       ]
     },

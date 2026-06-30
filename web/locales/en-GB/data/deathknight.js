@@ -4,7 +4,7 @@ module.exports = {
   "source": "blizzard-game-data-api",
   "region": "eu",
   "namespace": "static-eu",
-  "generatedAt": "2026-05-07T06:25:02.763Z",
+  "generatedAt": "2026-06-30T09:59:15.784Z",
   "classKey": "deathknight",
   "items": {
     "49802": {
@@ -415,6 +415,384 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "237828": {
+      "id": 237828,
+      "name": "Spellbreaker's March",
+      "sourceName": "破法者的步伐",
+      "quality": "Epic",
+      "inventoryType": "Feet",
+      "itemClass": "Armor",
+      "itemSubclass": "Plate",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237829": {
+      "id": 237829,
+      "name": "Spellbreaker's Shelter",
+      "sourceName": "破法者的庇护",
+      "quality": "Epic",
+      "inventoryType": "Chest",
+      "itemClass": "Armor",
+      "itemSubclass": "Plate",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237830": {
+      "id": 237830,
+      "name": "Spellbreaker's Girdle",
+      "sourceName": "破法者的束带",
+      "quality": "Epic",
+      "inventoryType": "Waist",
+      "itemClass": "Armor",
+      "itemSubclass": "Plate",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237832": {
+      "id": 237832,
+      "name": "Spellbreaker's Cover",
+      "sourceName": "破法者的掩蔽",
+      "quality": "Epic",
+      "inventoryType": "Head",
+      "itemClass": "Armor",
+      "itemSubclass": "Plate",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237833": {
+      "id": 237833,
+      "name": "Spellbreaker's Legguards",
+      "sourceName": "破法者的腿甲",
+      "quality": "Epic",
+      "inventoryType": "Legs",
+      "itemClass": "Armor",
+      "itemSubclass": "Plate",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237834": {
+      "id": 237834,
+      "name": "Spellbreaker's Bracers",
+      "sourceName": "破法者的护腕",
+      "quality": "Epic",
+      "inventoryType": "Wrist",
+      "itemClass": "Armor",
+      "itemSubclass": "Plate",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237835": {
+      "id": 237835,
+      "name": "Spellbreaker's Mantle",
+      "sourceName": "破法者的披肩",
+      "quality": "Epic",
+      "inventoryType": "Shoulder",
+      "itemClass": "Armor",
+      "itemSubclass": "Plate",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237836": {
+      "id": 237836,
+      "name": "Spellbreaker's Resolve",
+      "sourceName": "破法者的决意",
+      "quality": "Epic",
+      "inventoryType": "Hands",
+      "itemClass": "Armor",
+      "itemSubclass": "Plate",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237837": {
+      "id": 237837,
+      "name": "Farstrider's Mercy",
+      "sourceName": "远行者的慈悲",
+      "quality": "Epic",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Dagger",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237838": {
+      "id": 237838,
+      "name": "Magister's Ritual Knife",
+      "sourceName": "魔导师的仪式之匕",
+      "quality": "Epic",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Dagger",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237839": {
+      "id": 237839,
+      "name": "Spellbreaker's Blade",
+      "sourceName": "破法者的利剑",
+      "quality": "Epic",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Sword",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237840": {
+      "id": 237840,
+      "name": "Spellbreaker's Warglaive",
+      "sourceName": "破法者的战刃",
+      "quality": "Epic",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Warglaives",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237841": {
+      "id": 237841,
+      "name": "Spellbreaker's Ultimatum",
+      "sourceName": "破法者的通牒",
+      "quality": "Epic",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Mace",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237842": {
+      "id": 237842,
+      "name": "Bloomforged Greataxe",
+      "sourceName": "绽铸大斧",
+      "quality": "Epic",
+      "inventoryType": "Two-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Axe",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237843": {
+      "id": 237843,
+      "name": "Magister's Mana Sword",
+      "sourceName": "魔导师的法力之剑",
+      "quality": "Epic",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Sword",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237844": {
+      "id": 237844,
+      "name": "Magister's Cleaver",
+      "sourceName": "魔导师的砍斧",
+      "quality": "Epic",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Axe",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237845": {
+      "id": 237845,
+      "name": "Bloomforged Claw",
+      "sourceName": "绽铸之爪",
+      "quality": "Epic",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Fist Weapon",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237846": {
+      "id": 237846,
+      "name": "Blood Knight's Warblade",
+      "sourceName": "血骑士的战剑",
+      "quality": "Epic",
+      "inventoryType": "Two-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Sword",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237847": {
+      "id": 237847,
+      "name": "Blood Knight's Impetus",
+      "sourceName": "血骑士的强击矛",
+      "quality": "Epic",
+      "inventoryType": "Two-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Polearm",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237848": {
+      "id": 237848,
+      "name": "Blood Knight's Mercy",
+      "sourceName": "血骑士的慈悲",
+      "quality": "Epic",
+      "inventoryType": "Two-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Mace",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237849": {
+      "id": 237849,
+      "name": "Magister's Valediction",
+      "sourceName": "魔导师的送别",
+      "quality": "Epic",
+      "inventoryType": "Two-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Mace",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237850": {
+      "id": 237850,
+      "name": "Farstrider's Chopper",
+      "sourceName": "远行者的劈斧",
+      "quality": "Epic",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Axe",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239656": {
+      "id": 239656,
+      "name": "Adherent's Silken Shroud",
+      "sourceName": "信徒的流丝罩袍",
+      "quality": "Epic",
+      "inventoryType": "Back",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239658": {
+      "id": 239658,
+      "name": "Sunfire Cloak",
+      "sourceName": "阳炎披风",
+      "quality": "Epic",
+      "inventoryType": "Back",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": 1957,
+      "setName": "Sunfire Silk Trappings"
+    },
+    "239661": {
+      "id": 239661,
+      "name": "Arcanoweave Cloak",
+      "sourceName": "奥纹披风",
+      "quality": "Epic",
+      "inventoryType": "Back",
+      "itemClass": "Armor",
+      "itemSubclass": "Cloth",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": 1958,
+      "setName": "Arcanoweave Trappings"
+    },
+    "240949": {
+      "id": 240949,
+      "name": "Masterwork Sin'dorei Band",
+      "sourceName": "精工辛多雷指环",
+      "quality": "Epic",
+      "inventoryType": "Finger",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "240950": {
+      "id": 240950,
+      "name": "Masterwork Sin'dorei Amulet",
+      "sourceName": "精工辛多雷护符",
+      "quality": "Epic",
+      "inventoryType": "Neck",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "241044": {
       "id": 241044,
       "name": "Argussian Crate",
@@ -430,6 +808,275 @@ module.exports = {
           "id": 1230953,
           "name": "Collect Argussian Crate",
           "description": "Use: Add this Decor to your House Chest."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241139": {
+      "id": 241139,
+      "name": "Thalassian Phoenix Torque",
+      "sourceName": "萨拉斯凤凰饰环",
+      "quality": "Epic",
+      "inventoryType": "Neck",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251815,
+          "name": "Thalassian Phoenix Torque",
+          "description": "Equip: Your spells and abilities have a chance to call upon the Phoenix Flames to envelop your target.\r\n\r\nIf your target is friendly, they are healed for 11,730 over 10 sec. If your target is an enemy, they instead suffer 7,821 Fire damage over 10 sec.\r\n\r\nEvery unique socketed gem color will strengthen the flames by 1%."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241140": {
+      "id": 241140,
+      "name": "Signet of Azerothian Blessings",
+      "sourceName": "艾泽拉斯祝福印戒",
+      "quality": "Epic",
+      "inventoryType": "Finger",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251902,
+          "name": "Signet of Azerothian Blessings",
+          "description": "Equip: Your spells and abilities may cause the signet to resonate with the Worldsoul, granting you a boon of 4 to all of your secondary stats for 15 sec.\r\n\r\nEvery unique socketed gem color strengthens their associated secondary stat granted by this boon by 1%."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241340": {
+      "id": 241340,
+      "name": "Magister's Alchemist Stone",
+      "sourceName": "魔导师的炼金石",
+      "quality": "Epic",
+      "inventoryType": "Trinket",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "Can be used for transmutations in place of a Philosopher's Stone.",
+      "spells": [
+        {
+          "id": 1280591,
+          "name": "Magister's Alchemist Stone",
+          "description": "Equip: When you heal or deal damage you have a chance to increase your Strength, Agility, or Intellect by 162 for 15 sec. Your highest stat is always chosen."
+        },
+        {
+          "id": 17619,
+          "name": "Alchemist Stone",
+          "description": "Equip: Increases the effect that healing and mana potions have on the wearer by 40%.  This effect does not stack."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244179": {
+      "id": 244179,
+      "name": "Magister's Grand Focus",
+      "sourceName": "魔导师的华丽法器",
+      "quality": "Epic",
+      "inventoryType": "Ranged",
+      "itemClass": "Weapon",
+      "itemSubclass": "Wand",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244463": {
+      "id": 244463,
+      "name": "Murder Row Fleet Feet",
+      "sourceName": "密谋小径健足靴",
+      "quality": "Epic",
+      "inventoryType": "Feet",
+      "itemClass": "Armor",
+      "itemSubclass": "Plate",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1237362,
+          "name": "Murder Row Fleet Feet",
+          "description": "Equip: Your harmful spells and abilities have a chance to increase your Avoidance by 80 for 10 sec."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244679": {
+      "id": 244679,
+      "name": "Murder Row Fishhook",
+      "sourceName": "密谋小径鱼钩",
+      "quality": "Epic",
+      "inventoryType": "One-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Dagger",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250529,
+          "name": "Murder Row Fishhook",
+          "description": "Equip: Your harmful spells and abilities have a chance to bleed your target for 846 Physical damage over 10 sec."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244746": {
+      "id": 244746,
+      "name": "Aetherlume Sun Guard",
+      "sourceName": "以太流明遮阳目镜",
+      "quality": "Epic",
+      "inventoryType": "Head",
+      "itemClass": "Armor",
+      "itemSubclass": "Plate",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244750": {
+      "id": 244750,
+      "name": "Aetherlume Guards",
+      "sourceName": "以太流明腕铠",
+      "quality": "Epic",
+      "inventoryType": "Wrist",
+      "itemClass": "Armor",
+      "itemSubclass": "Plate",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244774": {
+      "id": 244774,
+      "name": "Aetherlume Stompers",
+      "sourceName": "以太流明践踏靴",
+      "quality": "Epic",
+      "inventoryType": "Feet",
+      "itemClass": "Armor",
+      "itemSubclass": "Plate",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "245770": {
+      "id": 245770,
+      "name": "Aln'hara Cane",
+      "sourceName": "艾林哈籁手杖",
+      "quality": "Epic",
+      "inventoryType": "Two-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Staff",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "245771": {
+      "id": 245771,
+      "name": "Aln'hara Pikestaff",
+      "sourceName": "艾林哈籁刺杖",
+      "quality": "Epic",
+      "inventoryType": "Two-Hand",
+      "itemClass": "Weapon",
+      "itemSubclass": "Staff",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "246304": {
+      "id": 246304,
+      "name": "Darkmoon Dominion: Hunt",
+      "sourceName": "暗月统御：狩猎",
+      "quality": "Epic",
+      "inventoryType": "Trinket",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245050,
+          "name": "Hunt",
+          "description": "Equip: Your spells and abilities have the chance to grant 168 secondary stats for 15 sec  based on the target creature's type.\r\n\r\nThis effect is augmented by Darkmoon Sigil: Hunt."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246305": {
+      "id": 246305,
+      "name": "Darkmoon Dominion: Blood",
+      "sourceName": "暗月统御：鲜血",
+      "quality": "Epic",
+      "inventoryType": "Trinket",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245001,
+          "name": "Blood",
+          "description": "Equip: Your damaging spells and abilities have the chance to grant Farstrider's Guile, increasing your lowest secondary stat by 444 for 15 sec.\r\n\r\nWhen an allied player dies, gain 232 of your highest secondary stat for 15 sec. This effect can only occur once every 5 min.\r\n\r\nThis effect is augmented by Darkmoon Sigil: Blood."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246306": {
+      "id": 246306,
+      "name": "Darkmoon Dominion: Rot",
+      "sourceName": "暗月统御：腐烂",
+      "quality": "Epic",
+      "inventoryType": "Trinket",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245051,
+          "name": "Rot",
+          "description": "Equip: Afflict your target with Rotting Roots dealing 214 Nature Damage every 2 seconds for 6 sec. This effect stacks up to 10 times. New stacks do not refresh applied stacks.\r\n\r\nThis effect is augmented by Darkmoon Sigil: Rot.\r\n"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246307": {
+      "id": 246307,
+      "name": "Darkmoon Dominion: Void",
+      "sourceName": "暗月统御：虚空",
+      "quality": "Epic",
+      "inventoryType": "Trinket",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1244254,
+          "name": "Void",
+          "description": "Equip: Your damaging spells and abilities have the chance to embolden you in Void Glass granting 123 Versatility over 15 sec. Multiple applications can overlap.\r\n\r\nThis effect is augmented by Darkmoon Sigil: Void."
         }
       ],
       "setId": null,
@@ -1293,6 +1940,26 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "251073": {
+      "id": 251073,
+      "name": "Voidstone Shielding Array",
+      "sourceName": "虚空石护盾阵列",
+      "quality": "Epic",
+      "inventoryType": "Neck",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251903,
+          "name": "Voidstone Barrier",
+          "description": "On Use: Activate the array and generate a Voidstone Barrier, absorbing 71,596 damage for the next 10 sec.\r\n\r\nThe barrier is further empowered by 1% per unique gem color you have socketed."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
     "251078": {
       "id": 251078,
       "name": "Emberdawn Defender",
@@ -1628,6 +2295,26 @@ module.exports = {
       "spells": [],
       "setId": 1971,
       "setName": "Voidlight Bindings"
+    },
+    "251513": {
+      "id": 251513,
+      "name": "Loa Worshiper's Band",
+      "sourceName": "神灵崇拜者的指环",
+      "quality": "Epic",
+      "inventoryType": "Finger",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251904,
+          "name": "Loa Worshiper's Band",
+          "description": "Equip: Your damaging spells and abilities have a chance to charge the band, calling forth the avatar of a Loa to assist you in combat.\r\n\r\nEach unique socketed gem color in your gear allows for different Loa to be summoned. These effects range from dealing damage to your foes or granting you temporary power."
+        }
+      ],
+      "setId": null,
+      "setName": ""
     },
     "252418": {
       "id": 252418,
@@ -2408,6 +3095,20 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "265337": {
+      "id": 265337,
+      "name": "Aln'hara Sprigshot",
+      "sourceName": "艾林哈籁蔓枝弓",
+      "quality": "Epic",
+      "inventoryType": "Ranged",
+      "itemClass": "Weapon",
+      "itemSubclass": "Bow",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "265949": {
       "id": 265949,
       "name": "March on Quel'Danas Vanquisher's Aureate Trophy",
@@ -2548,6 +3249,108 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "268285": {
+      "id": 268285,
+      "name": "Putrid Tender's Battleplate",
+      "sourceName": "腐臭照看者的战甲",
+      "quality": "Epic",
+      "inventoryType": "Chest",
+      "itemClass": "Armor",
+      "itemSubclass": "Plate",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "268289": {
+      "id": 268289,
+      "name": "Girdle of Devouring Rot",
+      "sourceName": "吞噬腐烂腰铠",
+      "quality": "Epic",
+      "inventoryType": "Waist",
+      "itemClass": "Armor",
+      "itemSubclass": "Plate",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "268290": {
+      "id": 268290,
+      "name": "Sporecaller's Blooming Loop",
+      "sourceName": "唤孢者的绽放指环",
+      "quality": "Epic",
+      "inventoryType": "Finger",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1285138,
+          "name": "Sporecaller's Blooming Loop",
+          "description": "Equip: Dealing Nature damage has a chance to inflict Rotbloom, dealing 1,718 Nature damage over 15 sec. If the enemy is already afflicted by your Rotbloom, it is consumed to deal 120% of its remaining damage."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268291": {
+      "id": 268291,
+      "name": "Rotmire's Sporeheart",
+      "sourceName": "腐沼的孢子之心",
+      "quality": "Epic",
+      "inventoryType": "Neck",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1285139,
+          "name": "Rotmire's Sporeheart",
+          "description": "Equip: Your healing has a chance to spawn protective toadstools absorbing 19,539 damage for up to 12 sec. If broken, the toadstools burst to deal 2,695 Nature damage to nearby enemies."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268292": {
+      "id": 268292,
+      "name": "Sporelord's Mycelial Insignia",
+      "sourceName": "孢子大王的菌丝徽记",
+      "quality": "Epic",
+      "inventoryType": "Trinket",
+      "itemClass": "Armor",
+      "itemSubclass": "Miscellaneous",
+      "binding": "Binds when picked up",
+      "description": "",
+      "spells": [
+        {
+          "id": 1284696,
+          "name": "Sporelord's Mycelium",
+          "description": "Equip: Your spells and abilities have a chance to nourish the mycelium, granting you 215 of a random secondary stat and Leech for 12 sec."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268477": {
+      "id": 268477,
+      "name": "P.O.W. x3",
+      "sourceName": "P.O.W. x3",
+      "quality": "Epic",
+      "inventoryType": "Ranged",
+      "itemClass": "Weapon",
+      "itemSubclass": "Gun",
+      "binding": "Binds when picked up",
+      "description": "Come on, shoot even faster!",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "269269": {
       "id": 269269,
       "name": "Devouring Ritual Spire",
@@ -2577,6 +3380,26 @@ module.exports = {
         {
           "requiredCount": 2,
           "displayString": "Set: Increases Avoidance."
+        }
+      ]
+    },
+    "1957": {
+      "id": 1957,
+      "name": "Sunfire Silk Trappings",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Set: Gain 35 Haste while above 80% health."
+        }
+      ]
+    },
+    "1958": {
+      "id": 1958,
+      "name": "Arcanoweave Trappings",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Set: Gain 35 Critical Strike while above 80% health."
         }
       ]
     },

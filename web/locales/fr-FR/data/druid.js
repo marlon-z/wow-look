@@ -4,7 +4,7 @@ module.exports = {
   "source": "blizzard-game-data-api",
   "region": "eu",
   "namespace": "static-eu",
-  "generatedAt": "2026-05-07T06:25:08.371Z",
+  "generatedAt": "2026-06-30T10:09:29.450Z",
   "classKey": "druid",
   "items": {
     "49806": {
@@ -480,6 +480,272 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "237837": {
+      "id": 237837,
+      "name": "Miséricorde de pérégrin",
+      "sourceName": "远行者的慈悲",
+      "quality": "Épique",
+      "inventoryType": "À une main",
+      "itemClass": "Arme",
+      "itemSubclass": "Dague",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237838": {
+      "id": 237838,
+      "name": "Couteau rituel de magistère",
+      "sourceName": "魔导师的仪式之匕",
+      "quality": "Épique",
+      "inventoryType": "À une main",
+      "itemClass": "Arme",
+      "itemSubclass": "Dague",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237839": {
+      "id": 237839,
+      "name": "Lame de brise-sort",
+      "sourceName": "破法者的利剑",
+      "quality": "Épique",
+      "inventoryType": "À une main",
+      "itemClass": "Arme",
+      "itemSubclass": "Epée",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237840": {
+      "id": 237840,
+      "name": "Glaive de guerre de brise-sort",
+      "sourceName": "破法者的战刃",
+      "quality": "Épique",
+      "inventoryType": "À une main",
+      "itemClass": "Arme",
+      "itemSubclass": "Glaives de guerre",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237841": {
+      "id": 237841,
+      "name": "Ultimatum de brise-sort",
+      "sourceName": "破法者的通牒",
+      "quality": "Épique",
+      "inventoryType": "À une main",
+      "itemClass": "Arme",
+      "itemSubclass": "Masse",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237842": {
+      "id": 237842,
+      "name": "Bardiche forgeflore",
+      "sourceName": "绽铸大斧",
+      "quality": "Épique",
+      "inventoryType": "Deux mains",
+      "itemClass": "Arme",
+      "itemSubclass": "Hache",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237843": {
+      "id": 237843,
+      "name": "Épée de mana de magistère",
+      "sourceName": "魔导师的法力之剑",
+      "quality": "Épique",
+      "inventoryType": "À une main",
+      "itemClass": "Arme",
+      "itemSubclass": "Epée",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237844": {
+      "id": 237844,
+      "name": "Fendoir de magistère",
+      "sourceName": "魔导师的砍斧",
+      "quality": "Épique",
+      "inventoryType": "À une main",
+      "itemClass": "Arme",
+      "itemSubclass": "Hache",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237845": {
+      "id": 237845,
+      "name": "Griffe forgeflore",
+      "sourceName": "绽铸之爪",
+      "quality": "Épique",
+      "inventoryType": "À une main",
+      "itemClass": "Arme",
+      "itemSubclass": "Arme de pugilat",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237846": {
+      "id": 237846,
+      "name": "Lame de guerre de chevalier de sang",
+      "sourceName": "血骑士的战剑",
+      "quality": "Épique",
+      "inventoryType": "Deux mains",
+      "itemClass": "Arme",
+      "itemSubclass": "Epée",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237847": {
+      "id": 237847,
+      "name": "Impulsion de chevalier de sang",
+      "sourceName": "血骑士的强击矛",
+      "quality": "Épique",
+      "inventoryType": "Deux mains",
+      "itemClass": "Arme",
+      "itemSubclass": "Arme d’hast",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237848": {
+      "id": 237848,
+      "name": "Miséricorde de chevalier de sang",
+      "sourceName": "血骑士的慈悲",
+      "quality": "Épique",
+      "inventoryType": "Deux mains",
+      "itemClass": "Arme",
+      "itemSubclass": "Masse",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237849": {
+      "id": 237849,
+      "name": "Adieux de magistère",
+      "sourceName": "魔导师的送别",
+      "quality": "Épique",
+      "inventoryType": "Deux mains",
+      "itemClass": "Arme",
+      "itemSubclass": "Masse",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237850": {
+      "id": 237850,
+      "name": "Couperet de pérégrin",
+      "sourceName": "远行者的劈斧",
+      "quality": "Épique",
+      "inventoryType": "À une main",
+      "itemClass": "Arme",
+      "itemSubclass": "Hache",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239656": {
+      "id": 239656,
+      "name": "Voile d’adhésion en soie",
+      "sourceName": "信徒的流丝罩袍",
+      "quality": "Épique",
+      "inventoryType": "Dos",
+      "itemClass": "Armure",
+      "itemSubclass": "Tissu",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239658": {
+      "id": 239658,
+      "name": "Cape du feu solaire",
+      "sourceName": "阳炎披风",
+      "quality": "Épique",
+      "inventoryType": "Dos",
+      "itemClass": "Armure",
+      "itemSubclass": "Tissu",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": 1957,
+      "setName": "Ornements en soie du feu solaire"
+    },
+    "239661": {
+      "id": 239661,
+      "name": "Cape en tisse-arcane",
+      "sourceName": "奥纹披风",
+      "quality": "Épique",
+      "inventoryType": "Dos",
+      "itemClass": "Armure",
+      "itemSubclass": "Tissu",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": 1958,
+      "setName": "Ornements en tisse-arcane"
+    },
+    "240949": {
+      "id": 240949,
+      "name": "Bague sin’dorei ouvragée",
+      "sourceName": "精工辛多雷指环",
+      "quality": "Épique",
+      "inventoryType": "Doigt",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "240950": {
+      "id": 240950,
+      "name": "Amulette sin’dorei ouvragée",
+      "sourceName": "精工辛多雷护符",
+      "quality": "Épique",
+      "inventoryType": "Cou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "241044": {
       "id": 241044,
       "name": "Caisse argusséenne",
@@ -495,6 +761,463 @@ module.exports = {
           "id": 1230953,
           "name": "Récupérer une caisse argusséenne",
           "description": "Utiliser : Placez cet élément de décoration dans votre coffre de maison."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241139": {
+      "id": 241139,
+      "name": "Torque de phénix thalassien",
+      "sourceName": "萨拉斯凤凰饰环",
+      "quality": "Épique",
+      "inventoryType": "Cou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251815,
+          "name": "Torque de phénix thalassien",
+          "description": "Équipé : Vos sorts et techniques ont une chance d’invoquer des flammes de phénix qui enveloppent votre cible.\r\n\r\nS’il s’agit d’une cible alliée, elle récupère 11730 points de vie en 10 s. S’il s’agit d’une cible ennemie, elle subit 7821 points de dégâts de feu en 10 s.\r\n\r\nLes flammes gagnent 1 % de puissance par couleur de gemme unique enchâssée."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241140": {
+      "id": 241140,
+      "name": "Chevalière de bénédictions d’Azeroth",
+      "sourceName": "艾泽拉斯祝福印戒",
+      "quality": "Épique",
+      "inventoryType": "Doigt",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251902,
+          "name": "Chevalière de bénédictions d’Azeroth",
+          "description": "Équipé : Vos sorts et techniques ont une chance de faire entrer la chevalière en résonance avec l’Âme-monde, vous conférant un bonus de 4 à toutes vos caractéristiques secondaires pendant 15 s.\r\n\r\nChaque couleur de gemme unique enchâssée améliore la caractéristique secondaire octroyée par ce bonus qui lui est associée de 1 %."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241340": {
+      "id": 241340,
+      "name": "Pierre d’alchimiste de magistère",
+      "sourceName": "魔导师的炼金石",
+      "quality": "Épique",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "Peut être utilisée pour des transmutations à la place d’une pierre philosophale.",
+      "spells": [
+        {
+          "id": 1280591,
+          "name": "Pierre d’alchimiste de magistère",
+          "description": "Équipé : Lorsque vous soignez ou infligez des dégâts, vous avez une chance de bénéficier d’un bonus à la Force, l’Agilité ou l’Intelligence de 162 pendant 15 s. C’est toujours la caractéristique la plus élevée qui est améliorée."
+        },
+        {
+          "id": 17619,
+          "name": "Pierre d'alchimiste",
+          "description": "Équipé : Augmente de 40% l'efficacité des potions de soins et de mana sur son porteur. Cet effet ne se cumule pas."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244179": {
+      "id": 244179,
+      "name": "Grand canalisateur de magistère",
+      "sourceName": "魔导师的华丽法器",
+      "quality": "Épique",
+      "inventoryType": "À distance",
+      "itemClass": "Arme",
+      "itemSubclass": "Baguette",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244569": {
+      "id": 244569,
+      "name": "Chaussures d’agent de Lune-d’Argent",
+      "sourceName": "银月城特工的匿踪靴",
+      "quality": "Épique",
+      "inventoryType": "Pieds",
+      "itemClass": "Armure",
+      "itemSubclass": "Cuir",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244570": {
+      "id": 244570,
+      "name": "Manteau d’agent de Lune-d’Argent",
+      "sourceName": "银月城特工的外套",
+      "quality": "Épique",
+      "inventoryType": "Torse",
+      "itemClass": "Armure",
+      "itemSubclass": "Cuir",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244571": {
+      "id": 244571,
+      "name": "Couvre-chef d’agent de Lune-d’Argent",
+      "sourceName": "银月城特工的面罩",
+      "quality": "Épique",
+      "inventoryType": "Tête",
+      "itemClass": "Armure",
+      "itemSubclass": "Cuir",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244572": {
+      "id": 244572,
+      "name": "Mantelet d’agent de Lune-d’Argent",
+      "sourceName": "银月城特工的披肩",
+      "quality": "Épique",
+      "inventoryType": "Épaule",
+      "itemClass": "Armure",
+      "itemSubclass": "Cuir",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244573": {
+      "id": 244573,
+      "name": "Ceinture d’outils d’agent de Lune-d’Argent",
+      "sourceName": "银月城特工的多功能腰带",
+      "quality": "Épique",
+      "inventoryType": "Taille",
+      "itemClass": "Armure",
+      "itemSubclass": "Cuir",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244574": {
+      "id": 244574,
+      "name": "Jambières d’agent de Lune-d’Argent",
+      "sourceName": "银月城特工的护腿",
+      "quality": "Épique",
+      "inventoryType": "Jambes",
+      "itemClass": "Armure",
+      "itemSubclass": "Cuir",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244575": {
+      "id": 244575,
+      "name": "Protège-mains d’agent de Lune-d’Argent",
+      "sourceName": "银月城特工的裹手",
+      "quality": "Épique",
+      "inventoryType": "Mains",
+      "itemClass": "Armure",
+      "itemSubclass": "Cuir",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244576": {
+      "id": 244576,
+      "name": "Déflecteurs d’agent de Lune-d’Argent",
+      "sourceName": "银月城特工的偏斜腕甲",
+      "quality": "Épique",
+      "inventoryType": "Poignets",
+      "itemClass": "Armure",
+      "itemSubclass": "Cuir",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244601": {
+      "id": 244601,
+      "name": "Protège-pied de l’Arbre-Monde",
+      "sourceName": "世界之树根须裹足",
+      "quality": "Épique",
+      "inventoryType": "Pieds",
+      "itemClass": "Armure",
+      "itemSubclass": "Cuir",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1243903,
+          "name": "Puissance d’Azeroth",
+          "description": "Équipé : Vos sorts et techniques ont une chance d’entrer en résonance avec l’Âme-monde, ce qui crée un orbe de puissance d’Azeroth près de vous. Lorsque vous le ramassez, l’orbe vous confère un bonus de 25 à votre caractéristique secondaire la plus élevée pendant 15 s."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244606": {
+      "id": 244606,
+      "name": "Brin sort-tramé",
+      "sourceName": "妖纹束腰",
+      "quality": "Épique",
+      "inventoryType": "Taille",
+      "itemClass": "Armure",
+      "itemSubclass": "Cuir",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1243883,
+          "name": "Trame-sort nécrotique",
+          "description": "Équipé : Vos sorts et techniques de dégâts ont une chance de jeter un maléfice nécrotique à la cible, ce qui lui inflige 1612 points de dégâts de nature en 10 s.\r\n\r\nLe maléfice se propage aux adversaires proches de votre victime chaque fois qu’il inflige des dégâts, jusqu’à 5 fois."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244612": {
+      "id": 244612,
+      "name": "Déflecteurs de vadrouille dans l’allée",
+      "sourceName": "径巷行者的偏斜腕甲",
+      "quality": "Épique",
+      "inventoryType": "Poignets",
+      "itemClass": "Armure",
+      "itemSubclass": "Cuir",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": 1966,
+      "setName": "Matériaux de l’Allée du meurtre"
+    },
+    "244613": {
+      "id": 244613,
+      "name": "Couverture de vadrouille dans l’allée",
+      "sourceName": "径巷行者的保险护胸",
+      "quality": "Épique",
+      "inventoryType": "Torse",
+      "itemClass": "Armure",
+      "itemSubclass": "Cuir",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": 1966,
+      "setName": "Matériaux de l’Allée du meurtre"
+    },
+    "244614": {
+      "id": 244614,
+      "name": "Poignes véloces de vadrouille dans l’allée",
+      "sourceName": "径巷行者的迅影手套",
+      "quality": "Épique",
+      "inventoryType": "Mains",
+      "itemClass": "Armure",
+      "itemSubclass": "Cuir",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": 1966,
+      "setName": "Matériaux de l’Allée du meurtre"
+    },
+    "244679": {
+      "id": 244679,
+      "name": "Hameçon de l’Allée du meurtre",
+      "sourceName": "密谋小径鱼钩",
+      "quality": "Épique",
+      "inventoryType": "À une main",
+      "itemClass": "Arme",
+      "itemSubclass": "Dague",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250529,
+          "name": "Hameçon de l’Allée du meurtre",
+          "description": "Équipé : Vos sorts et techniques néfastes ont une chance de provoquer un saignement qui inflige à la cible 846 points de dégâts physiques en 10 s."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244744": {
+      "id": 244744,
+      "name": "Binocles en étherlume",
+      "sourceName": "以太流明光学目镜",
+      "quality": "Épique",
+      "inventoryType": "Tête",
+      "itemClass": "Armure",
+      "itemSubclass": "Cuir",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244748": {
+      "id": 244748,
+      "name": "Poignets en étherlume",
+      "sourceName": "以太流明腕带",
+      "quality": "Épique",
+      "inventoryType": "Poignets",
+      "itemClass": "Armure",
+      "itemSubclass": "Cuir",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244772": {
+      "id": 244772,
+      "name": "Sandalettes en étherlume",
+      "sourceName": "以太流明奔行靴",
+      "quality": "Épique",
+      "inventoryType": "Pieds",
+      "itemClass": "Armure",
+      "itemSubclass": "Cuir",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "245769": {
+      "id": 245769,
+      "name": "Lanterne d’Aln’hara",
+      "sourceName": "艾林哈籁灯笼",
+      "quality": "Épique",
+      "inventoryType": "Tenu(e) en main gauche",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "245770": {
+      "id": 245770,
+      "name": "Canne d’Aln’hara",
+      "sourceName": "艾林哈籁手杖",
+      "quality": "Épique",
+      "inventoryType": "Deux mains",
+      "itemClass": "Arme",
+      "itemSubclass": "Bâton",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "245771": {
+      "id": 245771,
+      "name": "Bâton à pointes d’Aln’hara",
+      "sourceName": "艾林哈籁刺杖",
+      "quality": "Épique",
+      "inventoryType": "Deux mains",
+      "itemClass": "Arme",
+      "itemSubclass": "Bâton",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "246304": {
+      "id": 246304,
+      "name": "Domination de Sombrelune : Chasse",
+      "sourceName": "暗月统御：狩猎",
+      "quality": "Épique",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245050,
+          "name": "Chasse",
+          "description": "Équipé : Vos sorts et techniques ont une chance de conférer un bonus de 168 aux caractéristiques secondaires pendant 15 s en fonction du type de la créature ciblée.\r\n\r\nLe cachet de Sombrelune : Chasse améliore cet effet."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246305": {
+      "id": 246305,
+      "name": "Domination de Sombrelune : Sang",
+      "sourceName": "暗月统御：鲜血",
+      "quality": "Épique",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245001,
+          "name": "Sang",
+          "description": "Équipé : Vos sorts et techniques de dégâts ont une chance de vous conférer Ruse de pérégrin, octroyant un bonus de 444 à votre caractéristique secondaire la plus basse pendant 15 s.\r\n\r\nLorsqu’un personnage-joueur allié meurt, vous bénéficiez d’un bonus de 232 à votre caractéristique secondaire la plus élevée pendant 15 s. Cet effet ne peut se produire qu’une fois toutes les 5 min.\r\n\r\nLe cachet de Sombrelune : Sang améliore cet effet."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246306": {
+      "id": 246306,
+      "name": "Domination de Sombrelune : Putréfaction",
+      "sourceName": "暗月统御：腐烂",
+      "quality": "Épique",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245051,
+          "name": "Putréfaction",
+          "description": "Équipé : Vous lancez des racines pourrissantes sur votre cible, infligeant 214 points de dégâts de nature toutes les 2 s pendant 6 s. Cet effet est cumulable 10 fois. Les nouveaux cumuls ne réinitialisent pas la durée des cumuls appliqués.\r\n\r\nLe cachet de Sombrelune : Putréfaction améliore cet effet.\r\n"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246307": {
+      "id": 246307,
+      "name": "Domination de Sombrelune : Vide",
+      "sourceName": "暗月统御：虚空",
+      "quality": "Épique",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1244254,
+          "name": "Vide",
+          "description": "Équipé : Vos sorts et techniques de dégâts ont une chance de vous enhardir dans du verre du Vide, ce qui augmente votre Polyvalence de 123 pendant 15 s. Cet effet peut être appliqué plusieurs fois simultanément.\r\n\r\nLe cachet de Sombrelune : Vide améliore cet effet."
         }
       ],
       "setId": null,
@@ -1620,6 +2343,26 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "251073": {
+      "id": 251073,
+      "name": "Matrice de protection en pierre du Vide",
+      "sourceName": "虚空石护盾阵列",
+      "quality": "Épique",
+      "inventoryType": "Cou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251903,
+          "name": "Barrière en pierre du Vide",
+          "description": "À l’utilisation, active la matrice et génère une barrière en pierre du Vide qui absorbe 71596 points de dégâts pendant 10 s.\r\n\r\nLa barrière est renforcée de 1 % par couleur de gemme unique enchâssée."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
     "251077": {
       "id": 251077,
       "name": "Rameau de garde-racines",
@@ -2011,6 +2754,26 @@ module.exports = {
       "spells": [],
       "setId": 1971,
       "setName": "Liens de Lumière du Vide"
+    },
+    "251513": {
+      "id": 251513,
+      "name": "Bague d’adoration de Loa",
+      "sourceName": "神灵崇拜者的指环",
+      "quality": "Épique",
+      "inventoryType": "Doigt",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251904,
+          "name": "Bague d’adoration de Loa",
+          "description": "Équipé : Vos sorts et techniques de dégâts ont une chance de charger la bague, ce qui invoque l’avatar d’un Loa pour vous aider au combat.\r\n\r\nChaque couleur de gemme unique enchâssée sur votre équipement invoque un Loa différent. Ils peuvent avoir pour effet d’infliger des dégâts à vos adversaires comme de vous conférer un bonus de puissance temporaire."
+        }
+      ],
+      "setId": null,
+      "setName": ""
     },
     "252411": {
       "id": 252411,
@@ -2853,6 +3616,20 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "265337": {
+      "id": 265337,
+      "name": "Tire-ramille d’Aln’hara",
+      "sourceName": "艾林哈籁蔓枝弓",
+      "quality": "Épique",
+      "inventoryType": "À distance",
+      "itemClass": "Arme",
+      "itemSubclass": "Arc",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "265949": {
       "id": 265949,
       "name": "Trophée doré de triomphe de la marche sur Quel’Danas",
@@ -2993,6 +3770,108 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "268283": {
+      "id": 268283,
+      "name": "Couronne suppure-fleur",
+      "sourceName": "溃烂之花冠冕",
+      "quality": "Épique",
+      "inventoryType": "Tête",
+      "itemClass": "Armure",
+      "itemSubclass": "Cuir",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "268286": {
+      "id": 268286,
+      "name": "Écharpe du géant putride",
+      "sourceName": "腐臭巨人的腰带",
+      "quality": "Épique",
+      "inventoryType": "Taille",
+      "itemClass": "Armure",
+      "itemSubclass": "Cuir",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "268290": {
+      "id": 268290,
+      "name": "Jonc fleuri de mande-spores",
+      "sourceName": "唤孢者的绽放指环",
+      "quality": "Épique",
+      "inventoryType": "Doigt",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1285138,
+          "name": "Jonc fleuri de mande-spores",
+          "description": "Équipé : Les dégâts de nature infligés ont une chance d’appliquer Floraison putride, infligeant 1718 points de dégâts de nature en 15 s. Si l’adversaire est déjà victime de votre Floraison putride, elle est consommée pour infliger 120 % de ses dégâts restants."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268291": {
+      "id": 268291,
+      "name": "Sporocœur d’Embourbe-pourri",
+      "sourceName": "腐沼的孢子之心",
+      "quality": "Épique",
+      "inventoryType": "Cou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1285139,
+          "name": "Sporocœur d’Embourbe-pourri",
+          "description": "Équipé : Vos soins ont une chance de faire apparaître des amanites protectrices qui absorbent 19539 points de dégâts sur une durée maximale de 12 s. S’ils sont détruits, ces champignons explosent en infligeant 2695 points de dégâts de nature aux adversaires proches."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268292": {
+      "id": 268292,
+      "name": "Insigne mycélien du seigneur des spores",
+      "sourceName": "孢子大王的菌丝徽记",
+      "quality": "Épique",
+      "inventoryType": "Bijou",
+      "itemClass": "Armure",
+      "itemSubclass": "Divers",
+      "binding": "Lié quand ramassé",
+      "description": "",
+      "spells": [
+        {
+          "id": 1284696,
+          "name": "Mycélium du seigneur des spores",
+          "description": "Équipé : Vos sorts et techniques ont une chance de nourrir le mycélium, ce qui vous confère un bonus de 215 à une caractéristique secondaire aléatoire et à la Ponction pendant 12 s."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268477": {
+      "id": 268477,
+      "name": "P.A.N. x3",
+      "sourceName": "P.O.W. x3",
+      "quality": "Épique",
+      "inventoryType": "À distance",
+      "itemClass": "Arme",
+      "itemSubclass": "Arme à feu",
+      "binding": "Lié quand ramassé",
+      "description": "Allez, tirez encore plus vite !",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "269269": {
       "id": 269269,
       "name": "Flèche rituelle dévorante",
@@ -3022,6 +3901,36 @@ module.exports = {
         {
           "requiredCount": 2,
           "displayString": "Complet : Augmente l’Évitement."
+        }
+      ]
+    },
+    "1957": {
+      "id": 1957,
+      "name": "Ornements en soie du feu solaire",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Complet : Vous bénéficiez d’un bonus de Hâte de 35 lorsque vous avez au moins 80 % de vos points de vie."
+        }
+      ]
+    },
+    "1958": {
+      "id": 1958,
+      "name": "Ornements en tisse-arcane",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Complet : Augmente le score de Coup critique de 35 tant que les points de vie sont au-dessus de 80 %."
+        }
+      ]
+    },
+    "1966": {
+      "id": 1966,
+      "name": "Matériaux de l’Allée du meurtre",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Complet : En combat, toutes les 30 secondes, vous profitez de votre prochain coup critique pour gagner l’avantage. Chaque situation est différente, tout comme l’avantage que vous recevez. Toniques de soins, dagues empoisonnées et autres fournitures magiques de contrebande sont sur la table."
         }
       ]
     },

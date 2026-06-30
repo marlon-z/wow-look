@@ -4,7 +4,7 @@
   "source": "blizzard-game-data-api",
   "region": "kr",
   "namespace": "static-kr",
-  "generatedAt": "2026-05-07T06:25:14.256Z",
+  "generatedAt": "2026-06-30T10:41:34.738Z",
   "classKey": "rogue",
   "items": {
     "49806": {
@@ -333,6 +333,202 @@
       "setId": null,
       "setName": ""
     },
+    "237837": {
+      "id": 237837,
+      "name": "원정순찰대원의 자비",
+      "sourceName": "远行者的慈悲",
+      "quality": "영웅",
+      "inventoryType": "한손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "단검",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237838": {
+      "id": 237838,
+      "name": "마법학자의 의식용 손칼",
+      "sourceName": "魔导师的仪式之匕",
+      "quality": "영웅",
+      "inventoryType": "한손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "단검",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237839": {
+      "id": 237839,
+      "name": "주문파괴자의 칼날",
+      "sourceName": "破法者的利剑",
+      "quality": "영웅",
+      "inventoryType": "한손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "도검",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237840": {
+      "id": 237840,
+      "name": "주문파괴자의 전투검",
+      "sourceName": "破法者的战刃",
+      "quality": "영웅",
+      "inventoryType": "한손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "전투검",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237841": {
+      "id": 237841,
+      "name": "주문파괴자의 최후통첩",
+      "sourceName": "破法者的通牒",
+      "quality": "영웅",
+      "inventoryType": "한손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "둔기",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237843": {
+      "id": 237843,
+      "name": "마법학자의 마나검",
+      "sourceName": "魔导师的法力之剑",
+      "quality": "영웅",
+      "inventoryType": "한손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "도검",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237844": {
+      "id": 237844,
+      "name": "마법학자의 가로날도끼",
+      "sourceName": "魔导师的砍斧",
+      "quality": "영웅",
+      "inventoryType": "한손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "도끼",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237845": {
+      "id": 237845,
+      "name": "만개벼림 발톱",
+      "sourceName": "绽铸之爪",
+      "quality": "영웅",
+      "inventoryType": "한손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "장착 무기",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237850": {
+      "id": 237850,
+      "name": "원정순찰대원의 절단도끼",
+      "sourceName": "远行者的劈斧",
+      "quality": "영웅",
+      "inventoryType": "한손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "도끼",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239656": {
+      "id": 239656,
+      "name": "신봉자의 비단 수의",
+      "sourceName": "信徒的流丝罩袍",
+      "quality": "영웅",
+      "inventoryType": "등",
+      "itemClass": "방어구",
+      "itemSubclass": "천",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239658": {
+      "id": 239658,
+      "name": "태양불꽃 망토",
+      "sourceName": "阳炎披风",
+      "quality": "영웅",
+      "inventoryType": "등",
+      "itemClass": "방어구",
+      "itemSubclass": "천",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": 1957,
+      "setName": "태양불꽃 비단 의복"
+    },
+    "239661": {
+      "id": 239661,
+      "name": "비전매듭 망토",
+      "sourceName": "奥纹披风",
+      "quality": "영웅",
+      "inventoryType": "등",
+      "itemClass": "방어구",
+      "itemSubclass": "천",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": 1958,
+      "setName": "비전매듭 의복"
+    },
+    "240949": {
+      "id": 240949,
+      "name": "걸작 신도레이 고리",
+      "sourceName": "精工辛多雷指环",
+      "quality": "영웅",
+      "inventoryType": "손가락",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "240950": {
+      "id": 240950,
+      "name": "걸작 신도레이 아뮬렛",
+      "sourceName": "精工辛多雷护符",
+      "quality": "영웅",
+      "inventoryType": "목",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "241044": {
       "id": 241044,
       "name": "아르거시안 상자",
@@ -348,6 +544,407 @@
           "id": 1230953,
           "name": "아르거시안 상자 획득",
           "description": "사용 효과: 이 장식을 집 보관함에 추가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241139": {
+      "id": 241139,
+      "name": "탈라시안 불사조 변환 장치",
+      "sourceName": "萨拉斯凤凰饰环",
+      "quality": "영웅",
+      "inventoryType": "목",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251815,
+          "name": "탈라시안 불사조 변환 장치",
+          "description": "착용 효과: 주문 및 능력 사용 시 일정 확률로 대상을 불사조의 불길로 휘감습니다.\r\n\r\n대상이 아군이면 10초에 걸쳐 11,730만큼 치유합니다. 대상이 적이면 10초에 걸쳐 7,821의 화염 피해를 입힙니다.\r\n\r\n홈에 장착된 보석의 색상 종류 하나당 불길의 효과가 1%만큼 증가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241140": {
+      "id": 241140,
+      "name": "아제로스의 축복 인장",
+      "sourceName": "艾泽拉斯祝福印戒",
+      "quality": "영웅",
+      "inventoryType": "손가락",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251902,
+          "name": "아제로스의 축복 인장",
+          "description": "착용 효과: 주문 및 능력 사용 시 일정 확률로 인장이 세계혼과 공명하여 15초 동안 모든 보조 능력치가 4만큼 증가합니다.\r\n\r\n홈에 장착된 보석의 각 색상 종류는 이 은혜로 얻는 관련 보조 능력치 증가 효과를 1%만큼 증가시킵니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241340": {
+      "id": 241340,
+      "name": "마법학자의 연금술사 돌",
+      "sourceName": "魔导师的炼金石",
+      "quality": "영웅",
+      "inventoryType": "장신구",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "현자의 돌 대신 변환에 사용할 수 있습니다.",
+      "spells": [
+        {
+          "id": 1280591,
+          "name": "마법학자의 연금술사 돌",
+          "description": "착용 효과: 생명력을 회복시키거나 피해를 입힐 때 일정 확률로 15초 동안 힘, 민첩성, 지능 중 가장 높은 능력치가 162만큼 증가합니다."
+        },
+        {
+          "id": 17619,
+          "name": "연금술사 돌",
+          "description": "착용 효과: 착용자의 치유 및 마나 물약 복용 효과가 40%만큼 증가합니다. 이 효과는 중복 적용되지 않습니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244569": {
+      "id": 244569,
+      "name": "실버문 요원의 신발",
+      "sourceName": "银月城特工的匿踪靴",
+      "quality": "영웅",
+      "inventoryType": "발",
+      "itemClass": "방어구",
+      "itemSubclass": "가죽",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244570": {
+      "id": 244570,
+      "name": "실버문 요원의 외투",
+      "sourceName": "银月城特工的外套",
+      "quality": "영웅",
+      "inventoryType": "가슴",
+      "itemClass": "방어구",
+      "itemSubclass": "가죽",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244571": {
+      "id": 244571,
+      "name": "실버문 요원의 머리덮개",
+      "sourceName": "银月城特工的面罩",
+      "quality": "영웅",
+      "inventoryType": "머리",
+      "itemClass": "방어구",
+      "itemSubclass": "가죽",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244572": {
+      "id": 244572,
+      "name": "실버문 요원의 어깨덧옷",
+      "sourceName": "银月城特工的披肩",
+      "quality": "영웅",
+      "inventoryType": "어깨",
+      "itemClass": "방어구",
+      "itemSubclass": "가죽",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244573": {
+      "id": 244573,
+      "name": "실버문 요원의 연장허리띠",
+      "sourceName": "银月城特工的多功能腰带",
+      "quality": "영웅",
+      "inventoryType": "허리",
+      "itemClass": "방어구",
+      "itemSubclass": "가죽",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244574": {
+      "id": 244574,
+      "name": "실버문 요원의 다리보호구",
+      "sourceName": "银月城特工的护腿",
+      "quality": "영웅",
+      "inventoryType": "다리",
+      "itemClass": "방어구",
+      "itemSubclass": "가죽",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244575": {
+      "id": 244575,
+      "name": "실버문 요원의 손등싸개",
+      "sourceName": "银月城特工的裹手",
+      "quality": "영웅",
+      "inventoryType": "손",
+      "itemClass": "방어구",
+      "itemSubclass": "가죽",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244576": {
+      "id": 244576,
+      "name": "실버문 요원의 굴절보호대",
+      "sourceName": "银月城特工的偏斜腕甲",
+      "quality": "영웅",
+      "inventoryType": "손목",
+      "itemClass": "방어구",
+      "itemSubclass": "가죽",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244601": {
+      "id": 244601,
+      "name": "세계수 뿌리발등싸개",
+      "sourceName": "世界之树根须裹足",
+      "quality": "영웅",
+      "inventoryType": "발",
+      "itemClass": "방어구",
+      "itemSubclass": "가죽",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1243903,
+          "name": "아제로스의 힘",
+          "description": "착용 효과: 주문 및 능력 사용 시 일정 확률로 세계혼과 공명하여 주위에 아제로스의 힘 보주를 생성합니다. 이 보주를 흡수하면 강화되어 15초 동안 가장 높은 보조 능력치가 25만큼 증가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244606": {
+      "id": 244606,
+      "name": "사술매듭 가닥",
+      "sourceName": "妖纹束腰",
+      "quality": "영웅",
+      "inventoryType": "허리",
+      "itemClass": "방어구",
+      "itemSubclass": "가죽",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1243883,
+          "name": "괴저 사술매듭",
+          "description": "착용 효과: 공격 주문 및 능력 사용 시 일정 확률로 대상에게 괴저 사술을 걸어 10초에 걸쳐 1,612의 자연 피해를 입힙니다.\r\n\r\n이 사술은 피해를 입힐 때마다 최초 대상 주위의 적에게로 전이되며, 최대 5번까지 전이됩니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244612": {
+      "id": 244612,
+      "name": "골목 방랑자의 굴절띠",
+      "sourceName": "径巷行者的偏斜腕甲",
+      "quality": "영웅",
+      "inventoryType": "손목",
+      "itemClass": "방어구",
+      "itemSubclass": "가죽",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": 1966,
+      "setName": "죽음의 골목 재료"
+    },
+    "244613": {
+      "id": 244613,
+      "name": "골목 방랑자의 보험",
+      "sourceName": "径巷行者的保险护胸",
+      "quality": "영웅",
+      "inventoryType": "가슴",
+      "itemClass": "방어구",
+      "itemSubclass": "가죽",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": 1966,
+      "setName": "죽음의 골목 재료"
+    },
+    "244614": {
+      "id": 244614,
+      "name": "골목 방랑자의 신속손아귀",
+      "sourceName": "径巷行者的迅影手套",
+      "quality": "영웅",
+      "inventoryType": "손",
+      "itemClass": "방어구",
+      "itemSubclass": "가죽",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": 1966,
+      "setName": "죽음의 골목 재료"
+    },
+    "244679": {
+      "id": 244679,
+      "name": "죽음의 골목 낚시 바늘",
+      "sourceName": "密谋小径鱼钩",
+      "quality": "영웅",
+      "inventoryType": "한손 장비",
+      "itemClass": "무기",
+      "itemSubclass": "단검",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250529,
+          "name": "죽음의 골목 낚시 바늘",
+          "description": "착용 효과: 해로운 주문 및 능력 사용 시 일정 확률로 대상에게 출혈을 일으켜 10초에 걸쳐 846의 물리 피해를 입힙니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244744": {
+      "id": 244744,
+      "name": "실체 없는 빛 탐지경",
+      "sourceName": "以太流明光学目镜",
+      "quality": "영웅",
+      "inventoryType": "머리",
+      "itemClass": "방어구",
+      "itemSubclass": "가죽",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244748": {
+      "id": 244748,
+      "name": "실체 없는 빛 손목매듭",
+      "sourceName": "以太流明腕带",
+      "quality": "영웅",
+      "inventoryType": "손목",
+      "itemClass": "방어구",
+      "itemSubclass": "가죽",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244772": {
+      "id": 244772,
+      "name": "실체 없는 빛 신발",
+      "sourceName": "以太流明奔行靴",
+      "quality": "영웅",
+      "inventoryType": "발",
+      "itemClass": "방어구",
+      "itemSubclass": "가죽",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "246304": {
+      "id": 246304,
+      "name": "다크문 지배: 사냥",
+      "sourceName": "暗月统御：狩猎",
+      "quality": "영웅",
+      "inventoryType": "장신구",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245050,
+          "name": "사냥",
+          "description": "착용 효과: 주문 및 능력 사용 시 일정 확률로 대상 생명체의 유형에 따라 15초 동안 보조 능력치가 168만큼 증가합니다.\r\n\r\n이 효과는 다크문 인장: 사냥으로 강화됩니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246305": {
+      "id": 246305,
+      "name": "다크문 지배: 혈기",
+      "sourceName": "暗月统御：鲜血",
+      "quality": "영웅",
+      "inventoryType": "장신구",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245001,
+          "name": "혈기",
+          "description": "착용 효과: 공격 주문 및 능력 사용 시 일정 확률로 원정순찰대원의 기만 효과가 부여되어 15초 동안 가장 낮은 보조 능력치가 444만큼 증가합니다.\r\n\r\n아군 플레이어가 사망하면 15초 동안 가장 높은 보조 능력치가 232만큼 증가합니다. 이 효과는 5분에 한 번씩만 발동합니다.\r\n\r\n이 효과는 다크문 인장: 혈기로 강화됩니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246306": {
+      "id": 246306,
+      "name": "다크문 지배: 부식",
+      "sourceName": "暗月统御：腐烂",
+      "quality": "영웅",
+      "inventoryType": "장신구",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245051,
+          "name": "부식",
+          "description": "착용 효과: 대상에게 부패하는 뿌리를 걸어 6초 동안 2초마다 214의 자연 피해를 입힙니다. 이 효과는 최대 10번까지 중첩됩니다. 새로운 중첩이 쌓여도 부여된 중첩이 갱신되지는 않습니다.\r\n\r\n이 효과는 다크문 인장: 부식으로 강화됩니다.\r\n"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246307": {
+      "id": 246307,
+      "name": "다크문 지배: 공허",
+      "sourceName": "暗月统御：虚空",
+      "quality": "영웅",
+      "inventoryType": "장신구",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1244254,
+          "name": "공허",
+          "description": "착용 효과: 공격 주문 및 능력 사용 시 일정 확률로 자신을 공허 유리로 강화해 15초에 걸쳐 유연성이 123만큼 증가합니다. 여러 번 사용 시 효과가 중첩됩니다.\r\n\r\n이 효과는 다크문 인장: 공허로 강화됩니다."
         }
       ],
       "setId": null,
@@ -1171,6 +1768,26 @@
       "setId": null,
       "setName": ""
     },
+    "251073": {
+      "id": 251073,
+      "name": "공허석 보호막 배열기",
+      "sourceName": "虚空石护盾阵列",
+      "quality": "영웅",
+      "inventoryType": "목",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251903,
+          "name": "공허석 방벽",
+          "description": "사용 효과: 배열기를 활성화해 다음 10초 동안 71,596의 피해를 흡수하는 공허석 방벽을 생성합니다.\r\n\r\n홈에 장착된 보석 색상 종류 하나당 방벽이 1%만큼 추가로 강화됩니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
     "251082": {
       "id": 251082,
       "name": "치악덩굴 허리끈",
@@ -1506,6 +2123,26 @@
       "spells": [],
       "setId": 1971,
       "setName": "공허불빛 결속"
+    },
+    "251513": {
+      "id": 251513,
+      "name": "로아 신봉자의 고리",
+      "sourceName": "神灵崇拜者的指环",
+      "quality": "영웅",
+      "inventoryType": "손가락",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251904,
+          "name": "로아 신봉자의 고리",
+          "description": "착용 효과: 공격 주문 및 능력 사용 시 일정 확률로 고리가 충전되어 로아의 화신을 불러 전투를 돕게 합니다.\r\n\r\n장비 홈에 장착된 보석 색상 종류에 따라 서로 다른 로아를 소환합니다. 적에게 피해를 입히거나 일시적으로 힘을 얻는 등 다양한 효과를 발휘합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
     },
     "252420": {
       "id": 252420,
@@ -2386,6 +3023,94 @@
       "setId": null,
       "setName": ""
     },
+    "268283": {
+      "id": 268283,
+      "name": "구린꽃 왕관",
+      "sourceName": "溃烂之花冠冕",
+      "quality": "영웅",
+      "inventoryType": "머리",
+      "itemClass": "방어구",
+      "itemSubclass": "가죽",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "268286": {
+      "id": 268286,
+      "name": "부패한 거인의 장식띠",
+      "sourceName": "腐臭巨人的腰带",
+      "quality": "영웅",
+      "inventoryType": "허리",
+      "itemClass": "방어구",
+      "itemSubclass": "가죽",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "268290": {
+      "id": 268290,
+      "name": "포자소환사의 피어나는 실반지",
+      "sourceName": "唤孢者的绽放指环",
+      "quality": "영웅",
+      "inventoryType": "손가락",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1285138,
+          "name": "포자소환사의 피어나는 실반지",
+          "description": "착용 효과: 자연 피해를 입히면 일정 확률로 부패꽃을 걸어 15초에 걸쳐 1,718의 자연 피해를 입힙니다. 이때 적이 이미 부패꽃에 걸려 있다면, 해당 효과를 소모하고 남은 피해의 120%를 입힙니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268291": {
+      "id": 268291,
+      "name": "부식수렁의 포자심장",
+      "sourceName": "腐沼的孢子之心",
+      "quality": "영웅",
+      "inventoryType": "목",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1285139,
+          "name": "부식수렁의 포자심장",
+          "description": "착용 효과: 치유 시 일정 확률로 보호의 독버섯을 생성합니다. 이 독버섯은 최대 12초 동안 19,539의 피해를 흡수합니다. 보호막이 파괴되면 독버섯이 폭발해 주위의 적에게 2,695의 자연 피해를 입힙니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268292": {
+      "id": 268292,
+      "name": "포자군주의 진균 휘장",
+      "sourceName": "孢子大王的菌丝徽记",
+      "quality": "영웅",
+      "inventoryType": "장신구",
+      "itemClass": "방어구",
+      "itemSubclass": "기타",
+      "binding": "획득 시 귀속",
+      "description": "",
+      "spells": [
+        {
+          "id": 1284696,
+          "name": "포자군주의 진균",
+          "description": "착용 효과: 주문 및 능력 사용 시 일정 확률로 진균류를 자라나게 하여 12초 동안 무작위 보조 능력치와 생기흡수가 215만큼 증가합니다."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
     "269269": {
       "id": 269269,
       "name": "포식의 의식 첨탑",
@@ -2415,6 +3140,36 @@
         {
           "requiredCount": 2,
           "displayString": "세트 효과: 광역회피가 증가합니다."
+        }
+      ]
+    },
+    "1957": {
+      "id": 1957,
+      "name": "태양불꽃 비단 의복",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "세트 효과: 생명력이 80% 이상일 때 가속이 35만큼 증가합니다."
+        }
+      ]
+    },
+    "1958": {
+      "id": 1958,
+      "name": "비전매듭 의복",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "세트 효과: 생명력이 80% 이상일 때 치명타 및 극대화가 35만큼 증가합니다."
+        }
+      ]
+    },
+    "1966": {
+      "id": 1966,
+      "name": "죽음의 골목 재료",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "세트 효과: 전투 중 30초마다 다음 치명타 및 극대화 효과를 발휘할 때 우위를 얻습니다. 모든 상황이 다르며 우위도 마찬가지로 다릅니다. 치유의 명약이나 독 묻은 단검, 그 외 온갖 마법 밀수품을 두루두루 활용합니다."
         }
       ]
     },

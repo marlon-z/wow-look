@@ -1,5 +1,5 @@
-import { ASSET_BASE, DATA_BASE, DATA_DIR_NAME, LOCALE_DATA_BASE, REMOTE_COS_BASE, STORAGE_KEYS } from './config.js?v=20260630-stat-colors';
-import { SUPPORTED_LOCALES, createI18n, getLocaleName, resolveLocale } from './i18n.js?v=20260630-stat-colors';
+import { ASSET_BASE, DATA_BASE, DATA_DIR_NAME, LOCALE_DATA_BASE, REMOTE_COS_BASE, STORAGE_KEYS } from './config.js?v=20260630-i18n2';
+import { SUPPORTED_LOCALES, createI18n, getLocaleName, resolveLocale } from './i18n.js?v=20260630-i18n2';
 
 const CLASS_LIST = [
   { id: 1, key: 'warrior', name: '战士', shortName: '战士', armorType: 'plate', armorTypeName: '板甲', color: '#C69B6D', abbr: '战', assetCode: 'zs' },
@@ -407,6 +407,24 @@ function getSeoModel() {
 
 function t(path, vars) {
   return i18n.t(path, vars);
+}
+
+// 配装槽位的本地化名称(主手/副手/戒指1/饰品2/衬衣/战袍 等)
+function buildSlotLabel(slotKey) {
+  switch (slotKey) {
+    case 'weapon': return t('buildMainHand');
+    case 'weapon2': return t('buildOffHand');
+    case 'shirt': return t('buildShirt');
+    case 'tabard': return t('buildTabard');
+    case 'finger1': return `${t('buildSlotRing')} 1`;
+    case 'finger2': return `${t('buildSlotRing')} 2`;
+    case 'trinket1': return `${t('buildSlotTrinket')} 1`;
+    case 'trinket2': return `${t('buildSlotTrinket')} 2`;
+    default: {
+      const slot = BUILD_SLOT_META.find((item) => item.key === slotKey)?.slot || slotKey;
+      return t(`slots.${slot}`);
+    }
+  }
 }
 
 function dataLabel(category, key, fallback = '') {
@@ -1742,7 +1760,6 @@ function renderLocaleSelector() {
 }
 
 function renderModeSwitch(activeMode = 'equipment', className = '', equipmentClassKey = state.classKey) {
-  if (state.locale !== 'zh-CN') return '';
   const activeBuild = activeMode === 'build' ? currentBuild() : null;
   const buildHref = activeBuild
     ? buildSpecRouteHref(activeBuild.classKey, activeBuild.specId)
@@ -1752,12 +1769,12 @@ function renderModeSwitch(activeMode = 'equipment', className = '', equipmentCla
   return `
     <nav class="mode-switch" aria-label="${escapeHtml(context)}">
       <a class="${activeMode === 'equipment' ? 'active' : ''}" href="${equipmentHref}" ${activeMode === 'equipment' ? 'aria-current="page"' : ''}>
-        <span>装备查询</span>
-        <small>筛装备 · 看来源</small>
+        <span>${escapeHtml(t('modeEquip'))}</span>
+        <small>${escapeHtml(t('modeEquipSub'))}</small>
       </a>
       <a class="${activeMode === 'build' ? 'active' : ''}" href="${buildHref}" ${activeMode === 'build' ? 'aria-current="page"' : ''}>
-        <span>配装模拟</span>
-        <small>组槽位 · 算属性</small>
+        <span>${escapeHtml(t('modeBuild'))}</span>
+        <small>${escapeHtml(t('modeBuildSub'))}</small>
       </a>
     </nav>
   `;
@@ -1974,11 +1991,11 @@ function renderBuildView() {
       <header class="top-bar build-web-top">
         <a class="back-btn" href="${buildPageHref()}" data-action="home" aria-label="Back to home">‹</a>
         <div class="top-title-wrap">
-          <strong>${escapeHtml(build ? `${classLabel(build.classKey, build.className)} · ${build.specName}` : '配装模拟器')}</strong>
+          <strong>${escapeHtml(build ? `${classLabel(build.classKey, build.className)} · ${specLabel({ id: build.specId, name: build.specName })}` : t('buildKicker'))}</strong>
         </div>
         <div class="top-actions">
           ${renderLocaleSelector()}
-          <button class="pill-button compact" data-action="buildList">方案列表${state.buildList.length ? `<b>${state.buildList.length}</b>` : ''}</button>
+          <button class="pill-button compact" data-action="buildList">${escapeHtml(t('planList'))}${state.buildList.length ? `<b>${state.buildList.length}</b>` : ''}</button>
         </div>
       </header>
       ${build ? '' : renderHomeToolHero(getFavorites().length, false)}
@@ -1997,8 +2014,8 @@ function renderBuildSelector() {
   const countMap = {};
   (state.overview?.classes || []).forEach((item) => { countMap[item.key] = item.itemCount; });
   return `
-    <div class="prompt-wrap build-prompt"><span>选择职业开始配装</span></div>
-    <section class="class-grid-wrap build-class-grid" aria-label="选择职业开始配装">
+    <div class="prompt-wrap build-prompt"><span>${escapeHtml(t('selectClassToBuild'))}</span></div>
+    <section class="class-grid-wrap build-class-grid" aria-label="${escapeHtml(t('selectClassToBuild'))}">
       ${[CLASS_LIST.slice(0, 4), CLASS_LIST.slice(4, 9), CLASS_LIST.slice(9, 13)].map((row) => `
         <div class="class-row">
           ${row.map((item) => {
@@ -2016,7 +2033,7 @@ function renderBuildSelector() {
     </section>
     ${selectedClass ? `
       <section class="build-spec-panel">
-        <h2>${escapeHtml(classLabel(selectedClass.key, selectedClass.name))}专精</h2>
+        <h2>${escapeHtml(t('specPanelTitle', { className: classLabel(selectedClass.key, selectedClass.name) }))}</h2>
         <div class="build-spec-grid">
           ${specs.length ? specs.map((spec) => `
             <a href="${buildSpecRouteHref(selectedClass.key, spec.id)}" data-action="startBuild" data-class="${selectedClass.key}" data-spec-id="${spec.id}" data-spec-name="${escapeHtml(specLabel(spec))}">${escapeHtml(specLabel(spec))}</a>
@@ -2035,16 +2052,16 @@ function renderBuildWorkbench(build) {
       <img src="${assets.banner}" alt="">
       <div class="hero-shade"></div>
       <div class="build-board-hero-content">
-        <p class="tool-kicker">魔兽世界配装模拟器</p>
+        <p class="tool-kicker">${escapeHtml(t('buildKicker'))}</p>
         <h1>${escapeHtml(build.name)}</h1>
         <div class="build-board-actions">
-          <button class="primary" data-action="openWcl">排行榜配装</button>
-          <button data-action="saveBuild">${escapeHtml(build.draft ? '保存方案' : '保存修改')}</button>
-          <button data-action="renameBuild">重命名</button>
-          <button data-action="newBuildPlan">新建方案</button>
-          <button data-action="shareSavedBuild">分享配装</button>
+          <button class="primary" data-action="openWcl">${escapeHtml(t('wclTitle'))}</button>
+          <button data-action="saveBuild">${escapeHtml(build.draft ? t('buildSave') : t('buildSaveChanges'))}</button>
+          <button data-action="renameBuild">${escapeHtml(t('buildRename'))}</button>
+          <button data-action="newBuildPlan">${escapeHtml(t('buildNewPlan'))}</button>
+          <button data-action="shareSavedBuild">${escapeHtml(t('buildShare'))}</button>
         </div>
-        ${build.wclPreset ? `<p class="build-wcl-line">排行榜：${escapeHtml(build.wclPreset.name || '')}${build.wclPreset.talents?.exportString ? ' · 含天赋码' : ''}</p>` : ''}
+        ${build.wclPreset ? `<p class="build-wcl-line">${escapeHtml(t('wclAppliedPrefix'))}${escapeHtml(build.wclPreset.name || '')}${build.wclPreset.talents?.exportString ? ` · ${escapeHtml(t('wclWithCode'))}` : ''}</p>` : ''}
       </div>
     </section>
     ${renderBuildSpecSwitch(build)}
@@ -2085,12 +2102,13 @@ function renderBuildSpecSwitch(build) {
 function renderBuildSlot(build, slotKey) {
   const meta = BUILD_SLOT_META.find((item) => item.key === slotKey);
   const item = build.slots?.[slotKey];
+  const label = buildSlotLabel(slotKey);
   if (meta?.placeholder) {
     return `
       <article class="build-slot-card placeholder-slot">
-        <div class="build-slot-icon"><span>${escapeHtml(meta.label)}</span></div>
+        <div class="build-slot-icon"><span>${escapeHtml(label)}</span></div>
         <div class="build-slot-body">
-          <strong>${escapeHtml(meta.label)}</strong>
+          <strong>${escapeHtml(label)}</strong>
           <p>—</p>
         </div>
       </article>
@@ -2100,14 +2118,14 @@ function renderBuildSlot(build, slotKey) {
   return `
     <article class="build-slot-card ${item ? 'filled' : ''} ${disabled ? 'disabled' : ''}" data-action="${disabled ? 'noop' : 'openSlotPicker'}" data-slot="${slotKey}">
       <div class="build-slot-icon">
-        ${item?.iconAsset ? `<img src="${escapeHtml(item.iconAsset)}" alt="">` : `<span>${escapeHtml(meta?.label || slotKey)}</span>`}
+        ${item?.iconAsset ? `<img src="${escapeHtml(item.iconAsset)}" alt="">` : `<span>${escapeHtml(label)}</span>`}
       </div>
       <div class="build-slot-body">
-        <strong>${escapeHtml(itemNameLabel(item) || meta?.label || slotKey)}</strong>
-        <p>${escapeHtml(item ? (item.statLine || buildStatLine(item)) : (disabled ? '双手武器占用' : '点击选择装备'))}</p>
-        ${item ? `<small>ilvl${escapeHtml(item.ilvl)} · ${escapeHtml(instanceNameLabel(item.instanceName) || item.instanceName || meta?.label || '')}</small>` : ''}
+        <strong>${escapeHtml(itemNameLabel(item) || label)}</strong>
+        <p>${escapeHtml(item ? (item.statLine || buildStatLine(item)) : (disabled ? t('twoHandOccupied') : t('slotClickToSelect')))}</p>
+        ${item ? `<small>ilvl${escapeHtml(item.ilvl)} · ${escapeHtml(instanceNameLabel(item.instanceName) || item.instanceName || label)}</small>` : ''}
       </div>
-      ${item ? `<button class="slot-clear" data-action="clearBuildSlot" data-slot="${slotKey}">清除</button>` : ''}
+      ${item ? `<button class="slot-clear" data-action="clearBuildSlot" data-slot="${slotKey}">${escapeHtml(t('slotClear'))}</button>` : ''}
     </article>
   `;
 }
@@ -2117,31 +2135,31 @@ function renderBuildSummary(summary, build = currentBuild()) {
   return `
     <aside class="build-summary-panel">
       <div class="build-summary-head">
-        <h2>配装信息</h2>
+        <h2>${escapeHtml(t('buildSummaryTitle'))}</h2>
         <strong>${escapeHtml(summary.avgIlvl)}</strong>
-        <span>平均装等</span>
+        <span>${escapeHtml(t('buildAvgIlvl'))}</span>
       </div>
-      <div class="build-summary-count">${escapeHtml(summary.occupiedSlots)} / ${escapeHtml(summary.totalSlots)} 个装备槽</div>
+      <div class="build-summary-count">${escapeHtml(t('buildSlotCount', { occupied: summary.occupiedSlots, total: summary.totalSlots }))}</div>
       <div class="build-stat-grid">
         ${[
-          ['crit', '暴击', secondary.crit],
-          ['haste', '急速', secondary.haste],
-          ['mastery', '精通', secondary.mastery],
-          ['versatility', '全能', secondary.versatility],
-        ].map(([key, label, stat]) => `
+          ['crit', secondary.crit],
+          ['haste', secondary.haste],
+          ['mastery', secondary.mastery],
+          ['versatility', secondary.versatility],
+        ].map(([key, stat]) => `
           <div class="stat-card stat-${key}">
-            <span>${label}</span>
+            <span>${escapeHtml(t(`stats.${key}`))}</span>
             <strong>${escapeHtml(stat.rating)}</strong>
             <em>${escapeHtml(stat.percentText)}%</em>
           </div>
         `).join('')}
       </div>
       <div class="build-primary-list">
-        ${summary.primaryStats.map((stat) => `<p><span>${escapeHtml(stat.name)}</span><strong>${escapeHtml(stat.value)}</strong></p>`).join('')}
-        <p><span>耐力</span><strong>${escapeHtml(summary.stamina)}</strong></p>
-        <p><span>副属性合计</span><strong>${escapeHtml(summary.secondaryTotal)}</strong></p>
+        ${summary.primaryStats.map((stat) => `<p><span>${escapeHtml(stat.type ? t(`data.statTypes.${stat.type}`) : stat.name)}</span><strong>${escapeHtml(stat.value)}</strong></p>`).join('')}
+        <p><span>${escapeHtml(t('buildStamina'))}</span><strong>${escapeHtml(summary.stamina)}</strong></p>
+        <p><span>${escapeHtml(t('buildSecondaryTotal'))}</span><strong>${escapeHtml(summary.secondaryTotal)}</strong></p>
       </div>
-      <small>已含90级基础主属性与耐力${summary.armorSpecializationActive ? '、护甲专精5%加成' : ''}；不含种族、天赋、附魔、宝石及临时 Buff。</small>
+      <small>${escapeHtml(t('buildSummaryHint', { armor: summary.armorSpecializationActive ? t('buildSummaryHintArmor') : '' }))}</small>
       ${renderWclAppliedInfo(build)}
     </aside>
   `;
@@ -2169,12 +2187,12 @@ function renderBuildSlotPicker() {
     <div class="modal-mask" data-action="closeSlotPicker">
       <section class="overlay-panel build-picker-panel" data-stop>
         <header class="overlay-head">
-          <div class="overlay-title-line"><h2>选择${escapeHtml(meta?.label || '装备')}</h2><span class="overlay-count-badge">${items.length} 件</span></div>
+          <div class="overlay-title-line"><h2>${escapeHtml(t('pickSelect', { label: slotKey ? buildSlotLabel(slotKey) : '' }))}</h2><span class="overlay-count-badge">${escapeHtml(t('pickCount', { count: items.length }))}</span></div>
           <button class="panel-x" data-action="closeSlotPicker"></button>
         </header>
         <div class="panel-divider"></div>
         <div class="build-picker-list">
-          ${items.length ? items.map((item) => renderBuildPickerItem(item, slotKey)).join('') : `<div class="favorite-empty">没有可用于该槽位的装备</div>`}
+          ${items.length ? items.map((item) => renderBuildPickerItem(item, slotKey)).join('') : `<div class="favorite-empty">${escapeHtml(t('pickNoItems'))}</div>`}
         </div>
       </section>
     </div>
@@ -2203,20 +2221,20 @@ function renderCraftingPicker() {
     <div class="modal-mask" data-action="closeCraftingPicker">
       <section class="overlay-panel crafting-picker-panel" data-stop>
         <header class="overlay-head">
-          <div class="overlay-title-line"><h2>选择制造业随机属性</h2><span class="overlay-count-badge">${escapeHtml(itemNameLabel(item))}</span></div>
+          <div class="overlay-title-line"><h2>${escapeHtml(t('craftTitle'))}</h2><span class="overlay-count-badge">${escapeHtml(itemNameLabel(item))}</span></div>
           <button class="panel-x" data-action="closeCraftingPicker"></button>
         </header>
         <div class="crafting-picker-body">
-          <p>这件装备需要选择 ${slots.length} 个副属性，确认后会计入配装统计。</p>
-          <div class="crafting-random-slots">${slots.map((slot) => `<span>随机属性 +${escapeHtml(slot.value)}</span>`).join('')}</div>
+          <p>${escapeHtml(t('craftDesc', { count: slots.length }))}</p>
+          <div class="crafting-random-slots">${slots.map((slot) => `<span>${escapeHtml(t('craftRandomSlot', { value: slot.value }))}</span>`).join('')}</div>
           <div class="crafting-stat-options">
             ${STAT_OPTIONS.map((type) => `
               <button class="stat-option stat-${type} ${selected.includes(type) ? 'on' : ''}" data-action="toggleCraftingStat" data-type="${type}">${escapeHtml(t(`stats.${type}`))}</button>
             `).join('')}
           </div>
           <div class="panel-actions">
-            <button data-action="closeCraftingPicker">取消</button>
-            <button data-action="confirmCraftingStats" ${selected.length === slots.length ? '' : 'disabled'}>确认装备</button>
+            <button data-action="closeCraftingPicker">${escapeHtml(t('craftCancel'))}</button>
+            <button data-action="confirmCraftingStats" ${selected.length === slots.length ? '' : 'disabled'}>${escapeHtml(t('craftConfirm'))}</button>
           </div>
         </div>
       </section>
@@ -2847,7 +2865,8 @@ function formatWclUpdatedAt(ts) {
   const date = new Date(Number(ts) || 0);
   if (!date.getTime()) return '';
   const pad = (n) => String(n).padStart(2, '0');
-  return `${date.getMonth() + 1}月${date.getDate()}日 ${pad(date.getHours())}:${pad(date.getMinutes())}更新`;
+  const stamp = `${date.getMonth() + 1}-${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}`;
+  return `${stamp} ${t('wclUpdatedSuffix')}`;
 }
 
 function wclContentList(index = state.wcl.index, contentType = state.wcl.contentType) {
@@ -2855,9 +2874,25 @@ function wclContentList(index = state.wcl.index, contentType = state.wcl.content
   return contentType === 'raid' ? (index.raid || []) : (index.mythicPlus || []);
 }
 
+// 副本/首领名: 中文系用 localName, 其它语言用暴雪英文 name(数据里自带)
+function wclEncounterName(encounter) {
+  if (!encounter) return '';
+  return state.locale.startsWith('zh')
+    ? (encounter.localName || encounter.name || '')
+    : (encounter.name || encounter.localName || '');
+}
+
+// 层数标签: 大秘境按钥石层数推导(非中文不显示中文"层"); 团本难度暂随数据
+function wclLevelLabel(lvl) {
+  if (!lvl) return '';
+  if (state.locale.startsWith('zh')) return lvl.name;
+  if (state.wcl.contentType === 'raid') return lvl.name || '';
+  return Number(lvl.level) === 0 ? t('wclTopTier') : `+${lvl.level}`;
+}
+
 async function openWcl() {
   const build = currentBuild();
-  if (!build) { showToast('请先选择职业和专精'); return; }
+  if (!build) { showToast(t('wclNeedBuild')); return; }
   state.wcl = {
     open: true,
     classKey: build.classKey,
@@ -2896,7 +2931,7 @@ async function loadWclForCurrent() {
     state.wcl.loading = false;
     state.wcl.index = null;
     state.wcl.file = null;
-    state.wcl.error = '该专精暂无排行榜配装数据';
+    state.wcl.error = t('wclNoData');
     render();
   }
 }
@@ -2919,7 +2954,7 @@ async function loadWclFileInto(fileKey) {
     if (state.wcl.fileKey !== fileKey) return;
     state.wcl.loading = false;
     state.wcl.file = null;
-    state.wcl.error = '预设文件加载失败';
+    state.wcl.error = t('wclFileError');
     render();
   }
 }
@@ -2934,11 +2969,11 @@ function selectWclContent(contentType) {
 
 function wclDungeonFilters() {
   const entries = state.wcl.file?.entries || [];
-  const filters = [{ id: 'all', name: '全部', count: entries.reduce((sum, e) => sum + ((e.presets || []).length), 0) }];
+  const filters = [{ id: 'all', name: t('wclAll'), count: entries.reduce((sum, e) => sum + ((e.presets || []).length), 0) }];
   entries.forEach((entry) => {
     filters.push({
       id: String(entry.encounter?.id),
-      name: entry.encounter?.localName || entry.encounter?.name || '未知副本',
+      name: wclEncounterName(entry.encounter),
       count: (entry.presets || []).length,
     });
   });
@@ -2960,7 +2995,7 @@ function wclBuildEnchantsGems(slots) {
     const enchant = slot.enchantName || '';
     const gems = (slot.gems || []).map((gem) => gem.name || '').filter(Boolean);
     if (!enchant && !gems.length) return;
-    list.push({ slot: wclSlotLabel(key), enchant, gemText: gems.join('、') });
+    list.push({ slotKey: key, enchant, gemText: gems.join('、') });
   });
   return list;
 }
@@ -3001,8 +3036,8 @@ function applyWclPreset(entryIndex, presetIndex) {
   const entry = state.wcl.file?.entries?.[entryIndex];
   const preset = entry?.presets?.[presetIndex];
   const build = currentBuild();
-  if (!preset || !build) { showToast('套用失败'); return; }
-  if (!window.confirm(`套用「${preset.name}」会覆盖当前所有装备槽，确定继续？`)) return;
+  if (!preset || !build) { showToast(t('wclApplied')); return; }
+  if (!window.confirm(t('wclApplyConfirm', { name: preset.name }))) return;
 
   const slots = emptyBuildSlots();
   const missing = [];
@@ -3030,7 +3065,7 @@ function applyWclPreset(entryIndex, presetIndex) {
   if (updated) state.buildId = updated.id;
   state.wcl.open = false;
   render();
-  showToast(missing.length ? `已套用，${missing.length} 件本地缺失按属性估算` : '已套用排行榜配装');
+  showToast(missing.length ? t('wclAppliedMissing', { count: missing.length }) : t('wclApplied'));
 }
 
 function renderWclPanel() {
@@ -3044,7 +3079,7 @@ function renderWclPanel() {
       <section class="overlay-panel wcl-panel" data-stop>
         <header class="overlay-head">
           <div class="overlay-title-line">
-            <h2>排行榜配装</h2>
+            <h2>${escapeHtml(t('wclTitle'))}</h2>
             <span class="overlay-count-badge">${escapeHtml(classLabel(state.wcl.classKey, className))} · ${escapeHtml(specLabel({ id: state.wcl.specId, name: specName }))}</span>
           </div>
           <button class="panel-x" data-action="closeWcl"></button>
@@ -3052,11 +3087,11 @@ function renderWclPanel() {
         ${updated ? `<p class="wcl-updated">${escapeHtml(updated)}</p>` : ''}
         ${index ? `
           <div class="wcl-tab-row">
-            ${(index.mythicPlus || []).length ? `<button class="wcl-tab ${state.wcl.contentType === 'mythicPlus' ? 'on' : ''}" data-action="wclContent" data-content="mythicPlus">大秘境</button>` : ''}
-            ${(index.raid || []).length ? `<button class="wcl-tab ${state.wcl.contentType === 'raid' ? 'on' : ''}" data-action="wclContent" data-content="raid">团本</button>` : ''}
+            ${(index.mythicPlus || []).length ? `<button class="wcl-tab ${state.wcl.contentType === 'mythicPlus' ? 'on' : ''}" data-action="wclContent" data-content="mythicPlus">${escapeHtml(t('wclMythicPlus'))}</button>` : ''}
+            ${(index.raid || []).length ? `<button class="wcl-tab ${state.wcl.contentType === 'raid' ? 'on' : ''}" data-action="wclContent" data-content="raid">${escapeHtml(t('wclRaid'))}</button>` : ''}
           </div>
           <div class="wcl-tab-row wcl-level-row">
-            ${levelList.map((lvl) => `<button class="wcl-tab ${lvl.fileKey === state.wcl.fileKey ? 'on' : ''}" data-action="wclLevel" data-file="${escapeHtml(lvl.fileKey)}">${escapeHtml(lvl.name)}<b>${lvl.presetCount || 0}</b></button>`).join('')}
+            ${levelList.map((lvl) => `<button class="wcl-tab ${lvl.fileKey === state.wcl.fileKey ? 'on' : ''}" data-action="wclLevel" data-file="${escapeHtml(lvl.fileKey)}">${escapeHtml(wclLevelLabel(lvl))}<b>${lvl.presetCount || 0}</b></button>`).join('')}
           </div>
           ${state.wcl.file && wclDungeonFilters().length > 1 ? `
             <div class="wcl-dungeon-row">
@@ -3071,17 +3106,17 @@ function renderWclPanel() {
 }
 
 function renderWclList() {
-  if (state.wcl.loading) return '<div class="favorite-empty">加载排行榜配装中…</div>';
+  if (state.wcl.loading) return `<div class="favorite-empty">${escapeHtml(t('wclLoading'))}</div>`;
   if (state.wcl.error) return `<div class="favorite-empty">${escapeHtml(state.wcl.error)}</div>`;
   const entries = wclVisibleEntries();
-  if (!entries.length) return '<div class="favorite-empty">当前没有可用预设</div>';
+  if (!entries.length) return `<div class="favorite-empty">${escapeHtml(t('wclEmpty'))}</div>`;
   const allEntries = state.wcl.file?.entries || [];
   return entries.map((entry) => {
     const entryIndex = allEntries.indexOf(entry);
     if (!(entry.presets || []).length) return '';
     return `
       <div class="wcl-group">
-        <h3 class="wcl-group-title">${escapeHtml(entry.encounter?.localName || entry.encounter?.name || '')}</h3>
+        <h3 class="wcl-group-title">${escapeHtml(wclEncounterName(entry.encounter))}</h3>
         ${entry.presets.map((preset, presetIndex) => renderWclPreset(preset, entryIndex, presetIndex)).join('')}
       </div>
     `;
@@ -3094,11 +3129,11 @@ function renderWclPreset(preset, entryIndex, presetIndex) {
   const meta = [
     `${Math.round(source.amount || 0).toLocaleString()} ${metric}`,
     source.server ? `${source.server.region || ''} ${source.server.name || ''}`.trim() : '',
-    source.score ? `${source.score}分` : '',
-    source.bracket ? `+${source.bracket}层` : (source.difficultyName || ''),
+    source.score ? `${source.score}${t('wclScoreSuffix')}` : '',
+    source.bracket ? `+${source.bracket}${t('wclLevelSuffix')}` : (source.difficultyName || ''),
   ].filter(Boolean).join(' · ');
   const code = preset.talents?.exportString || '';
-  const codeStatus = code ? '<span class="wcl-code-ready">含天赋码</span>' : '<span class="wcl-code-missing">无天赋码</span>';
+  const codeStatus = code ? `<span class="wcl-code-ready">${escapeHtml(t('wclWithCode'))}</span>` : `<span class="wcl-code-missing">${escapeHtml(t('wclNoCode'))}</span>`;
   return `
     <div class="wcl-preset">
       <div class="wcl-preset-main">
@@ -3106,7 +3141,7 @@ function renderWclPreset(preset, entryIndex, presetIndex) {
         <span class="wcl-preset-meta">${escapeHtml(meta)}</span>
         <span class="wcl-preset-status">${codeStatus}</span>
       </div>
-      <button class="wcl-apply-btn" data-action="applyWcl" data-entry="${entryIndex}" data-preset="${presetIndex}">套用到模拟器</button>
+      <button class="wcl-apply-btn" data-action="applyWcl" data-entry="${entryIndex}" data-preset="${presetIndex}">${escapeHtml(t('wclApply'))}</button>
     </div>
   `;
 }
@@ -3116,24 +3151,25 @@ function renderWclAppliedInfo(build) {
   const info = build?.wclPreset;
   if (!info) return '';
   const source = info.source || {};
-  const meta = [source.score ? `${source.score}分` : '', source.bracket ? `+${source.bracket}层` : (source.difficultyName || '')].filter(Boolean).join(' · ');
+  const meta = [source.score ? `${source.score}${t('wclScoreSuffix')}` : '', source.bracket ? `+${source.bracket}${t('wclLevelSuffix')}` : (source.difficultyName || '')].filter(Boolean).join(' · ');
   const code = info.talents?.exportString || '';
   const eg = (info.enchantsGems || []).map((row) => {
-    const parts = [row.enchant ? `附魔 · ${row.enchant}` : '', row.gemText ? `宝石 · ${row.gemText}` : ''].filter(Boolean).join('　');
-    return `<div class="wcl-eg-row"><span class="wcl-eg-slot">${escapeHtml(row.slot)}</span><span class="wcl-eg-text">${escapeHtml(parts)}</span></div>`;
+    const slotName = row.slotKey ? buildSlotLabel(row.slotKey) : (row.slot || '');
+    const parts = [row.enchant ? `${t('wclEnchant')} · ${row.enchant}` : '', row.gemText ? `${t('wclGem')} · ${row.gemText}` : ''].filter(Boolean).join('　');
+    return `<div class="wcl-eg-row"><span class="wcl-eg-slot">${escapeHtml(slotName)}</span><span class="wcl-eg-text">${escapeHtml(parts)}</span></div>`;
   }).join('');
   return `
     <div class="wcl-applied">
-      <div class="wcl-applied-head"><strong>排行榜配装 · ${escapeHtml(info.name || '')}</strong>${meta ? `<span>${escapeHtml(meta)}</span>` : ''}</div>
+      <div class="wcl-applied-head"><strong>${escapeHtml(t('wclTitle'))} · ${escapeHtml(info.name || '')}</strong>${meta ? `<span>${escapeHtml(meta)}</span>` : ''}</div>
       ${code ? `
         <div class="wcl-talent-row">
-          <span class="wcl-talent-label">天赋代码</span>
+          <span class="wcl-talent-label">${escapeHtml(t('wclTalentCode'))}</span>
           <code class="wcl-talent-code">${escapeHtml(code)}</code>
-          <button class="wcl-talent-copy" data-action="copyTalentCode" data-code="${escapeHtml(code)}">复制</button>
+          <button class="wcl-talent-copy" data-action="copyTalentCode" data-code="${escapeHtml(code)}">${escapeHtml(t('wclCopy'))}</button>
         </div>
       ` : ''}
-      ${eg ? `<div class="wcl-eg-block"><span class="wcl-eg-title">附魔宝石</span>${eg}</div>` : ''}
-      ${(info.missing || []).length ? `<p class="wcl-missing">有 ${info.missing.length} 件装备本地库缺失，仅按预设属性估算</p>` : ''}
+      ${eg ? `<div class="wcl-eg-block"><span class="wcl-eg-title">${escapeHtml(t('wclEnchantsGems'))}</span>${eg}</div>` : ''}
+      ${(info.missing || []).length ? `<p class="wcl-missing">${escapeHtml(t('wclMissing', { count: info.missing.length }))}</p>` : ''}
     </div>
   `;
 }
@@ -3339,7 +3375,7 @@ function handleClick(event) {
   if (action === 'wclLevel') { if (target.dataset.file !== state.wcl.fileKey) loadWclFileInto(target.dataset.file); }
   if (action === 'wclDungeon') { state.wcl.dungeonId = target.dataset.id; render(); }
   if (action === 'applyWcl') applyWclPreset(Number(target.dataset.entry), Number(target.dataset.preset));
-  if (action === 'copyTalentCode') copyTextToClipboard(target.dataset.code).then((ok) => showToast(ok ? '天赋代码已复制' : '复制失败'));
+  if (action === 'copyTalentCode') copyTextToClipboard(target.dataset.code).then((ok) => showToast(ok ? t('wclCopied') : t('wclCopyFail')));
 }
 
 function handleInput(event) {

@@ -4,7 +4,7 @@ module.exports = {
   "source": "blizzard-game-data-api",
   "region": "us",
   "namespace": "static-us",
-  "generatedAt": "2026-05-07T06:25:08.936Z",
+  "generatedAt": "2026-06-30T10:20:29.936Z",
   "classKey": "priest",
   "items": {
     "49805": {
@@ -442,6 +442,480 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "237837": {
+      "id": 237837,
+      "name": "Piedad de errante",
+      "sourceName": "远行者的慈悲",
+      "quality": "Épico",
+      "inventoryType": "Una mano",
+      "itemClass": "Arma",
+      "itemSubclass": "Daga",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237838": {
+      "id": 237838,
+      "name": "Cuchillo ritual de magíster",
+      "sourceName": "魔导师的仪式之匕",
+      "quality": "Épico",
+      "inventoryType": "Una mano",
+      "itemClass": "Arma",
+      "itemSubclass": "Daga",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237839": {
+      "id": 237839,
+      "name": "Sable de rompechizos",
+      "sourceName": "破法者的利剑",
+      "quality": "Épico",
+      "inventoryType": "Una mano",
+      "itemClass": "Arma",
+      "itemSubclass": "Espada",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237840": {
+      "id": 237840,
+      "name": "Guja de guerra de rompechizos",
+      "sourceName": "破法者的战刃",
+      "quality": "Épico",
+      "inventoryType": "Una mano",
+      "itemClass": "Arma",
+      "itemSubclass": "Gujas de guerra",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237841": {
+      "id": 237841,
+      "name": "Ultimátum de rompechizos",
+      "sourceName": "破法者的通牒",
+      "quality": "Épico",
+      "inventoryType": "Una mano",
+      "itemClass": "Arma",
+      "itemSubclass": "Maza",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237842": {
+      "id": 237842,
+      "name": "Gran hacha forjaflor",
+      "sourceName": "绽铸大斧",
+      "quality": "Épico",
+      "inventoryType": "Dos manos",
+      "itemClass": "Arma",
+      "itemSubclass": "Hacha",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237843": {
+      "id": 237843,
+      "name": "Espada de maná de magíster",
+      "sourceName": "魔导师的法力之剑",
+      "quality": "Épico",
+      "inventoryType": "Una mano",
+      "itemClass": "Arma",
+      "itemSubclass": "Espada",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237844": {
+      "id": 237844,
+      "name": "Cuchilla de magíster",
+      "sourceName": "魔导师的砍斧",
+      "quality": "Épico",
+      "inventoryType": "Una mano",
+      "itemClass": "Arma",
+      "itemSubclass": "Hacha",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237845": {
+      "id": 237845,
+      "name": "Garra forjaflor",
+      "sourceName": "绽铸之爪",
+      "quality": "Épico",
+      "inventoryType": "Una mano",
+      "itemClass": "Arma",
+      "itemSubclass": "Arma de puño",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237846": {
+      "id": 237846,
+      "name": "Guja de guerra de caballero de sangre",
+      "sourceName": "血骑士的战剑",
+      "quality": "Épico",
+      "inventoryType": "Dos manos",
+      "itemClass": "Arma",
+      "itemSubclass": "Espada",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237847": {
+      "id": 237847,
+      "name": "Ímpetu de caballero de sangre",
+      "sourceName": "血骑士的强击矛",
+      "quality": "Épico",
+      "inventoryType": "Dos manos",
+      "itemClass": "Arma",
+      "itemSubclass": "Arma de asta",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237848": {
+      "id": 237848,
+      "name": "Piedad de caballero de sangre",
+      "sourceName": "血骑士的慈悲",
+      "quality": "Épico",
+      "inventoryType": "Dos manos",
+      "itemClass": "Arma",
+      "itemSubclass": "Maza",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237849": {
+      "id": 237849,
+      "name": "Despedida de magíster",
+      "sourceName": "魔导师的送别",
+      "quality": "Épico",
+      "inventoryType": "Dos manos",
+      "itemClass": "Arma",
+      "itemSubclass": "Maza",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "237850": {
+      "id": 237850,
+      "name": "Trozadora de errante",
+      "sourceName": "远行者的劈斧",
+      "quality": "Épico",
+      "inventoryType": "Una mano",
+      "itemClass": "Arma",
+      "itemSubclass": "Hacha",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239648": {
+      "id": 239648,
+      "name": "Ataduras de mártir",
+      "sourceName": "殉难者的裹腕",
+      "quality": "Épico",
+      "inventoryType": "Muñecas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tela",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239649": {
+      "id": 239649,
+      "name": "Ajustador de mártir",
+      "sourceName": "殉难者的裹腰",
+      "quality": "Épico",
+      "inventoryType": "Cintura",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tela",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239650": {
+      "id": 239650,
+      "name": "Manto de mártir",
+      "sourceName": "殉难者的披肩",
+      "quality": "Épico",
+      "inventoryType": "Hombro",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tela",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239651": {
+      "id": 239651,
+      "name": "Leotardos de mártir",
+      "sourceName": "殉难者的护腿",
+      "quality": "Épico",
+      "inventoryType": "Piernas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tela",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239652": {
+      "id": 239652,
+      "name": "Corona de mártir",
+      "sourceName": "殉难者的冠冕",
+      "quality": "Épico",
+      "inventoryType": "Cabeza",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tela",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239653": {
+      "id": 239653,
+      "name": "Guantes de mártir",
+      "sourceName": "殉难者的手套",
+      "quality": "Épico",
+      "inventoryType": "Manos",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tela",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239654": {
+      "id": 239654,
+      "name": "Zapatillas de mártir",
+      "sourceName": "殉难者的便鞋",
+      "quality": "Épico",
+      "inventoryType": "Pies",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tela",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239655": {
+      "id": 239655,
+      "name": "Vestimentas de mártir",
+      "sourceName": "殉难者的法衣",
+      "quality": "Épico",
+      "inventoryType": "Pecho",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tela",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239656": {
+      "id": 239656,
+      "name": "Sudario de seda de partidario",
+      "sourceName": "信徒的流丝罩袍",
+      "quality": "Épico",
+      "inventoryType": "Espalda",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tela",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "239657": {
+      "id": 239657,
+      "name": "Brazales de fuego solar",
+      "sourceName": "阳炎护腕",
+      "quality": "Épico",
+      "inventoryType": "Muñecas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tela",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": 1957,
+      "setName": "Ajuar de seda de fuego solar"
+    },
+    "239658": {
+      "id": 239658,
+      "name": "Capa de fuego solar",
+      "sourceName": "阳炎披风",
+      "quality": "Épico",
+      "inventoryType": "Espalda",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tela",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": 1957,
+      "setName": "Ajuar de seda de fuego solar"
+    },
+    "239659": {
+      "id": 239659,
+      "name": "Botines de fuego solar",
+      "sourceName": "阳炎软鞋",
+      "quality": "Épico",
+      "inventoryType": "Pies",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tela",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": 1957,
+      "setName": "Ajuar de seda de fuego solar"
+    },
+    "239660": {
+      "id": 239660,
+      "name": "Brazales de tejido arcano",
+      "sourceName": "奥纹护腕",
+      "quality": "Épico",
+      "inventoryType": "Muñecas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tela",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": 1958,
+      "setName": "Ajuar de tejido arcano"
+    },
+    "239661": {
+      "id": 239661,
+      "name": "Capa de tejido arcano",
+      "sourceName": "奥纹披风",
+      "quality": "Épico",
+      "inventoryType": "Espalda",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tela",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": 1958,
+      "setName": "Ajuar de tejido arcano"
+    },
+    "239662": {
+      "id": 239662,
+      "name": "Botines de tejido arcano",
+      "sourceName": "奥纹软鞋",
+      "quality": "Épico",
+      "inventoryType": "Pies",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tela",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": 1958,
+      "setName": "Ajuar de tejido arcano"
+    },
+    "239663": {
+      "id": 239663,
+      "name": "Fajín de fuego solar",
+      "sourceName": "阳炎腰带",
+      "quality": "Épico",
+      "inventoryType": "Cintura",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tela",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [
+        {
+          "id": 1241503,
+          "name": "Fajín de fuego solar",
+          "description": "Equipar: Tus hechizos y habilidades tienen una probabilidad de infligir 3,707 p. de daño radiante a tu objetivo actual."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "239664": {
+      "id": 239664,
+      "name": "Cordón de tejido arcano",
+      "sourceName": "奥纹束带",
+      "quality": "Épico",
+      "inventoryType": "Cintura",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tela",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [
+        {
+          "id": 1241529,
+          "name": "Cordón de tejido arcano",
+          "description": "Equipar: Tus hechizos de sanación y daño tienen una probabilidad de aumentar tu maestría 30 p. durante 12 s."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "240949": {
+      "id": 240949,
+      "name": "Sortija de obra maestra sin'dorei",
+      "sourceName": "精工辛多雷指环",
+      "quality": "Épico",
+      "inventoryType": "Dedo",
+      "itemClass": "Armadura",
+      "itemSubclass": "Miscelánea",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "240950": {
+      "id": 240950,
+      "name": "Amuleto de obra maestra sin'dorei",
+      "sourceName": "精工辛多雷护符",
+      "quality": "Épico",
+      "inventoryType": "Cuello",
+      "itemClass": "Armadura",
+      "itemSubclass": "Miscelánea",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "241044": {
       "id": 241044,
       "name": "Cajón argusiano",
@@ -457,6 +931,269 @@ module.exports = {
           "id": 1230953,
           "name": "Recoger cajón argusiano",
           "description": "Usar: Agrega esta decoración a tu cofre de la casa."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241139": {
+      "id": 241139,
+      "name": "Torques de fénix thalassiano",
+      "sourceName": "萨拉斯凤凰饰环",
+      "quality": "Épico",
+      "inventoryType": "Cuello",
+      "itemClass": "Armadura",
+      "itemSubclass": "Miscelánea",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251815,
+          "name": "Torques de fénix thalassiano",
+          "description": "Equipar: Tus hechizos y habilidades tienen una probabilidad de invocar las Llamas del fénix para que envuelvan a tu objetivo.\r\n\r\nSi tu objetivo es aliado, recupera 11,730 p. de salud durante 10 s. Si tu objetivo es un enemigo, en cambio sufre 7,821 p. de daño de fuego durante 10 s.\r\n\r\nCada color de gema único que tengas engarzado fortalecerá un 1% las llamas."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241140": {
+      "id": 241140,
+      "name": "Sello de bendiciones azerothianas",
+      "sourceName": "艾泽拉斯祝福印戒",
+      "quality": "Épico",
+      "inventoryType": "Dedo",
+      "itemClass": "Armadura",
+      "itemSubclass": "Miscelánea",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251902,
+          "name": "Sello de bendiciones azerothianas",
+          "description": "Equipar: Tus hechizos y habilidades pueden hacer que el sello resuene con el alma del mundo, lo que te otorga un favor de 4 p. en todas tus estadística secundarias durante 15 s.\r\n\r\nCada color de gema engarzada único fortalece un 1% la estadística secundaria asociada que otorga este favor."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "241340": {
+      "id": 241340,
+      "name": "Piedra de alquimista de magíster",
+      "sourceName": "魔导师的炼金石",
+      "quality": "Épico",
+      "inventoryType": "Abalorio",
+      "itemClass": "Armadura",
+      "itemSubclass": "Miscelánea",
+      "binding": "Se liga al recogerlo",
+      "description": "Puede usarse para transmutar en lugar de una piedra filosofal.",
+      "spells": [
+        {
+          "id": 1280591,
+          "name": "Piedra de alquimista de magíster",
+          "description": "Equipar: Cuando sanas o infliges daño, tienes la probabilidad de aumentar tu fuerza, agilidad o intelecto 162 p. durante 15 s. Siempre se elige la estadística más elevada."
+        },
+        {
+          "id": 17619,
+          "name": "Piedra de alquimista",
+          "description": "Equipar: Aumenta el efecto de las pociones de sanación y maná en su portador en un 40%. Este efecto no se acumula."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244179": {
+      "id": 244179,
+      "name": "Gran enfoque de magíster",
+      "sourceName": "魔导师的华丽法器",
+      "quality": "Épico",
+      "inventoryType": "A distancia",
+      "itemClass": "Arma",
+      "itemSubclass": "Varita",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244679": {
+      "id": 244679,
+      "name": "Anzuelo del Frontal",
+      "sourceName": "密谋小径鱼钩",
+      "quality": "Épico",
+      "inventoryType": "Una mano",
+      "itemClass": "Arma",
+      "itemSubclass": "Daga",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [
+        {
+          "id": 1250529,
+          "name": "Anzuelo del Frontal",
+          "description": "Equipar: Tus hechizos y habilidades dañinos tienen una probabilidad de provocar un sangrado en tu objetivo que inflige 846 p. de daño físico durante 10 s."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "244743": {
+      "id": 244743,
+      "name": "Venda de ojo de eterlumo",
+      "sourceName": "以太流明遮目镜",
+      "quality": "Épico",
+      "inventoryType": "Cabeza",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tela",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244747": {
+      "id": 244747,
+      "name": "Puños de seda de eterlumo",
+      "sourceName": "以太流明丝质腕扣",
+      "quality": "Épico",
+      "inventoryType": "Muñecas",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tela",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "244771": {
+      "id": 244771,
+      "name": "Piesuaves de eterlumo",
+      "sourceName": "以太流明软鞋",
+      "quality": "Épico",
+      "inventoryType": "Pies",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tela",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "245769": {
+      "id": 245769,
+      "name": "Farol de Aln'hara",
+      "sourceName": "艾林哈籁灯笼",
+      "quality": "Épico",
+      "inventoryType": "Mano izquierda",
+      "itemClass": "Armadura",
+      "itemSubclass": "Miscelánea",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "245770": {
+      "id": 245770,
+      "name": "Bastón de Aln'hara",
+      "sourceName": "艾林哈籁手杖",
+      "quality": "Épico",
+      "inventoryType": "Dos manos",
+      "itemClass": "Arma",
+      "itemSubclass": "Bastón",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "245771": {
+      "id": 245771,
+      "name": "Bastón de pica de Aln'hara",
+      "sourceName": "艾林哈籁刺杖",
+      "quality": "Épico",
+      "inventoryType": "Dos manos",
+      "itemClass": "Arma",
+      "itemSubclass": "Bastón",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "246304": {
+      "id": 246304,
+      "name": "Dominio de la Luna Negra: Caza",
+      "sourceName": "暗月统御：狩猎",
+      "quality": "Épico",
+      "inventoryType": "Abalorio",
+      "itemClass": "Armadura",
+      "itemSubclass": "Miscelánea",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245050,
+          "name": "Caza",
+          "description": "Equipar: Tus hechizos y habilidades tienen la probabilidad de otorgar 168 p. de estadísticas secundarias durante 15 s según el tipo de criatura objetivo.\r\n\r\nEste efecto se potencia con Sigilo Luna Negra: Caza."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246305": {
+      "id": 246305,
+      "name": "Dominio de la Luna Negra: Sangre",
+      "sourceName": "暗月统御：鲜血",
+      "quality": "Épico",
+      "inventoryType": "Abalorio",
+      "itemClass": "Armadura",
+      "itemSubclass": "Miscelánea",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245001,
+          "name": "Sangre",
+          "description": "Equipar: Tus hechizos y habilidades de daño tienen la probabilidad de otorgar Astucia de errante, lo que aumenta 444 p. tu estadística secundaria más baja durante 15 s.\r\n\r\nCuando un jugador aliado muere, obtienes 232 p. de tu estadística secundaria más alta durante 15 s. Este efecto solo puede ocurrir una vez cada 5 min.\r\n\r\nEste efecto se potencia con Sigilo Luna Negra: Sangre."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246306": {
+      "id": 246306,
+      "name": "Dominio de la Luna Negra: Podredumbre",
+      "sourceName": "暗月统御：腐烂",
+      "quality": "Épico",
+      "inventoryType": "Abalorio",
+      "itemClass": "Armadura",
+      "itemSubclass": "Miscelánea",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [
+        {
+          "id": 1245051,
+          "name": "Podredumbre",
+          "description": "Equipar: Aflige a tu objetivo con Raíces putrefactas que infligen 214 p. de daño de naturaleza cada 2 s durante 6 s. Este efecto se acumula un máximo de 10 veces. Las acumulaciones nuevas no renuevan las ya aplicadas.\r\n\r\nEste efecto se potencia con Sigilo Luna Negra: Podredumbre.\r\n"
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "246307": {
+      "id": 246307,
+      "name": "Dominio de la Luna Negra: Vacío",
+      "sourceName": "暗月统御：虚空",
+      "quality": "Épico",
+      "inventoryType": "Abalorio",
+      "itemClass": "Armadura",
+      "itemSubclass": "Miscelánea",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [
+        {
+          "id": 1244254,
+          "name": "Vacío",
+          "description": "Equipar: Tus hechizos y habilidades de daño tienen la probabilidad de envalentonarte con vidrio del Vacío, que otorga 123 p. de versatilidad durante 15 s s. Se pueden superponer varias aplicaciones.\r\n\r\nEste efecto se potencia con Sigilo Luna Negra: Vacío."
         }
       ],
       "setId": null,
@@ -1364,6 +2101,26 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "251073": {
+      "id": 251073,
+      "name": "Arreglo protector de piedra del Vacío",
+      "sourceName": "虚空石护盾阵列",
+      "quality": "Épico",
+      "inventoryType": "Cuello",
+      "itemClass": "Armadura",
+      "itemSubclass": "Miscelánea",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251903,
+          "name": "Barrera de piedra del Vacío",
+          "description": "Uso: Activa el arreglo y genera una Barrera de piedra del Vacío, que absorbe 71,596 p. de daño durante los próximos 10 s.\r\n\r\nLa barrera se fortalece un 1% más por cada color de gema único que tengas engarzado."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
     "251080": {
       "id": 251080,
       "name": "Halo de amanecer espinoso",
@@ -1671,6 +2428,26 @@ module.exports = {
       "spells": [],
       "setId": 1971,
       "setName": "Ataduras de vacioluz"
+    },
+    "251513": {
+      "id": 251513,
+      "name": "Sortija de adorador de loa",
+      "sourceName": "神灵崇拜者的指环",
+      "quality": "Épico",
+      "inventoryType": "Dedo",
+      "itemClass": "Armadura",
+      "itemSubclass": "Miscelánea",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [
+        {
+          "id": 1251904,
+          "name": "Sortija de adorador de loa",
+          "description": "Equipar: Tus hechizos y habilidades de daño tienen una probabilidad de cargar la sortija e invocar el avatar de un loa para que te ayude en combate.\r\n\r\nCada color de gema engarzada único de tu equipo permite invocar a otro loa. Estos efectos van desde infligir daño a tus enemigos hasta otorgarte poder temporal."
+        }
+      ],
+      "setId": null,
+      "setName": ""
     },
     "252411": {
       "id": 252411,
@@ -2414,6 +3191,20 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "265337": {
+      "id": 265337,
+      "name": "Tallo fulminante de Aln'hara",
+      "sourceName": "艾林哈籁蔓枝弓",
+      "quality": "Épico",
+      "inventoryType": "A distancia",
+      "itemClass": "Arma",
+      "itemSubclass": "Arco",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "265949": {
       "id": 265949,
       "name": "Trofeo áureo de vencedor de Marcha sobre Quel'Danas",
@@ -2554,6 +3345,108 @@ module.exports = {
       "setId": null,
       "setName": ""
     },
+    "268282": {
+      "id": 268282,
+      "name": "Margazancos lujosos",
+      "sourceName": "奢华沃壤踏靴",
+      "quality": "Épico",
+      "inventoryType": "Pies",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tela",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "268284": {
+      "id": 268284,
+      "name": "Togas putrefactas de micomante",
+      "sourceName": "丝菌师的腐朽长袍",
+      "quality": "Épico",
+      "inventoryType": "Pecho",
+      "itemClass": "Armadura",
+      "itemSubclass": "Tela",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
+    "268290": {
+      "id": 268290,
+      "name": "Anillo florecido de clamaesporas",
+      "sourceName": "唤孢者的绽放指环",
+      "quality": "Épico",
+      "inventoryType": "Dedo",
+      "itemClass": "Armadura",
+      "itemSubclass": "Miscelánea",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [
+        {
+          "id": 1285138,
+          "name": "Anillo florecido de clamaesporas",
+          "description": "Equipar: Infligir daño de naturaleza tiene una probabilidad de aplicar Putreflor, lo que inflige 1,718 p. de daño de naturaleza durante 15 s. Si el enemigo ya está bajo los efectos de Putreflor, se consume para infligir un 120% de su daño restante."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268291": {
+      "id": 268291,
+      "name": "Cuorespora de Cienagadumbre",
+      "sourceName": "腐沼的孢子之心",
+      "quality": "Épico",
+      "inventoryType": "Cuello",
+      "itemClass": "Armadura",
+      "itemSubclass": "Miscelánea",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [
+        {
+          "id": 1285139,
+          "name": "Cuorespora de Cienagadumbre",
+          "description": "Equipar: Tu sanación tiene una probabilidad de engendrar hongos protectores que absorben 19,539 p. de daño durante un máximo de 12 s. Si se interrumpe, los hongos explotan e infligen 2,695 p. de daño de naturaleza a los enemigos cercanos."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268292": {
+      "id": 268292,
+      "name": "Insignia micelial del señor de esporas",
+      "sourceName": "孢子大王的菌丝徽记",
+      "quality": "Épico",
+      "inventoryType": "Abalorio",
+      "itemClass": "Armadura",
+      "itemSubclass": "Miscelánea",
+      "binding": "Se liga al recogerlo",
+      "description": "",
+      "spells": [
+        {
+          "id": 1284696,
+          "name": "Micelio del señor de esporas",
+          "description": "Equipar: Tus hechizos y habilidades tienen una probabilidad de nutrir el micelio, lo que te otorga 215 p. de una estadística secundaria aleatoria y robo de vida durante 12 s."
+        }
+      ],
+      "setId": null,
+      "setName": ""
+    },
+    "268477": {
+      "id": 268477,
+      "name": "PAM x3",
+      "sourceName": "P.O.W. x3",
+      "quality": "Épico",
+      "inventoryType": "A distancia",
+      "itemClass": "Arma",
+      "itemSubclass": "Arma de fuego",
+      "binding": "Se liga al recogerlo",
+      "description": "¡Vamos, dispara aún más rápido!",
+      "spells": [],
+      "setId": null,
+      "setName": ""
+    },
     "269269": {
       "id": 269269,
       "name": "Aguja de ritual devorador",
@@ -2597,6 +3490,26 @@ module.exports = {
         {
           "requiredCount": 3,
           "displayString": "Conjunto: Mutación umbría también aumenta tu maestría."
+        }
+      ]
+    },
+    "1957": {
+      "id": 1957,
+      "name": "Ajuar de seda de fuego solar",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Conjunto: Obtienes 35 p. de celeridad mientras tienes más del 80% de salud."
+        }
+      ]
+    },
+    "1958": {
+      "id": 1958,
+      "name": "Ajuar de tejido arcano",
+      "effects": [
+        {
+          "requiredCount": 2,
+          "displayString": "Conjunto: Obtienes 35 p. de golpe crítico mientras tienes más del 80% de salud."
         }
       ]
     },

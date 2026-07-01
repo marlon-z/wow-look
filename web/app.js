@@ -1,5 +1,5 @@
-import { ASSET_BASE, DATA_BASE, DATA_DIR_NAME, LOCALE_DATA_BASE, REMOTE_COS_BASE, STORAGE_KEYS } from './config.js?v=20260630-i18n2';
-import { SUPPORTED_LOCALES, createI18n, getLocaleName, resolveLocale } from './i18n.js?v=20260630-i18n2';
+import { ASSET_BASE, DATA_BASE, DATA_DIR_NAME, LOCALE_DATA_BASE, REMOTE_COS_BASE, STORAGE_KEYS } from './config.js?v=20260701-wclnames';
+import { SUPPORTED_LOCALES, createI18n, getLocaleName, resolveLocale } from './i18n.js?v=20260701-wclnames';
 
 const CLASS_LIST = [
   { id: 1, key: 'warrior', name: '战士', shortName: '战士', armorType: 'plate', armorTypeName: '板甲', color: '#C69B6D', abbr: '战', assetCode: 'zs' },
@@ -287,6 +287,7 @@ const state = {
     loading: false,
     error: '',
   },
+  wclNameCache: {},
   filters: {
     keyword: '',
     selectedSpec: null,
@@ -1641,6 +1642,8 @@ async function openBuildPage(buildId = '', buildShare = '', initialClassKey = ''
       state.buildItemMap = {};
     }
   }
+  // 载入的方案已套用排行榜时, 先备好附魔/宝石字典再渲染
+  if (currentBuild()?.wclPreset) await ensureWclNamesLoaded();
   render();
 }
 
@@ -2863,10 +2866,55 @@ function equipBuildItem(slotKey, item) {
 // ─────────────────────── 排行榜配装 (WCL Presets) ───────────────────────
 // 排行榜数据每天 cron 更新在 COS、未 commit 本地，因此这条线始终直连 COS。
 const WCL_BASE = `${REMOTE_COS_BASE}/wcl-presets/${DATA_DIR_NAME}`;
+const WCL_NAMES_VERSION = '20260701-wclnames2';
 const WCL_STAT_NAME = { crit: '暴击', haste: '急速', mastery: '精通', versatility: '全能' };
 
 function wclStatName(stat) {
   return statNameLabel({ type: stat?.type, name: stat?.name || WCL_STAT_NAME[stat?.type] || stat?.type || '' });
+}
+
+async function loadWclNames(locale = state.locale) {
+  const key = resolveLocale(locale);
+  if (state.wclNameCache[key] !== undefined) return state.wclNameCache[key];
+  try {
+    const data = await fetchJson(`${LOCALE_DATA_BASE}/${key}/wcl-names.json?v=${WCL_NAMES_VERSION}`);
+    state.wclNameCache[key] = data || null;
+  } catch {
+    state.wclNameCache[key] = null;
+  }
+  return state.wclNameCache[key];
+}
+
+async function ensureWclNamesLoaded() {
+  const locale = resolveLocale(state.locale);
+  await loadWclNames(locale);
+  if (locale !== 'en-US') await loadWclNames('en-US');
+}
+
+function wclNameLookup(kind, id) {
+  const key = String(id || '');
+  if (!key) return '';
+  const current = state.wclNameCache[resolveLocale(state.locale)]?.[kind]?.[key];
+  if (current) return current;
+  const english = state.wclNameCache['en-US']?.[kind]?.[key];
+  if (english) return english;
+  return '';
+}
+
+function wclEnchantLabel(slot) {
+  const id = slot?.permanentEnchant;
+  const localized = wclNameLookup('enchants', id);
+  if (localized) return localized;
+  if (isChineseLocale() && slot?.enchantName) return slot.enchantName;
+  return id ? `#${id}` : '';
+}
+
+function wclGemLabel(gem) {
+  const id = gem?.id;
+  const localized = wclNameLookup('gems', id);
+  if (localized) return localized;
+  if (isChineseLocale() && gem?.name) return gem.name;
+  return id ? `#${id}` : '';
 }
 
 function joinWclList(values) {
@@ -3003,15 +3051,20 @@ function wclVisibleEntries() {
 }
 
 // 排行榜预设 → 模拟器 (对齐小程序 applyWclPresetToBuild)
+// 只存 id + 中文内嵌兜底, 名称在渲染期按当前语言解析(切语言可重译)。
 function wclBuildEnchantsGems(slots) {
   const list = [];
   BUILD_SLOT_KEYS.forEach((key) => {
     const slot = slots[key];
     if (!slot) return;
-    const enchant = slot.enchantName || '';
-    const gems = (slot.gems || []).map((gem) => gem.name || '').filter(Boolean);
-    if (!enchant && !gems.length) return;
-    list.push({ slotKey: key, enchant, gemText: joinWclList(gems) });
+    const gems = slot.gems || [];
+    if (!slot.permanentEnchant && !slot.enchantName && !gems.length) return;
+    list.push({
+      slotKey: key,
+      enchantId: slot.permanentEnchant || null,
+      enchantZh: slot.enchantName || '',
+      gems: gems.map((gem) => ({ id: gem.id || null, zh: gem.name || '' })),
+    });
   });
   return list;
 }
@@ -3048,12 +3101,13 @@ function wclApplySlotOverrides(baseItem, wclSlot, slotKey) {
   return item;
 }
 
-function applyWclPreset(entryIndex, presetIndex) {
+async function applyWclPreset(entryIndex, presetIndex) {
   const entry = state.wcl.file?.entries?.[entryIndex];
   const preset = entry?.presets?.[presetIndex];
   const build = currentBuild();
   if (!preset || !build) { showToast(t('wclApplied')); return; }
   if (!window.confirm(t('wclApplyConfirm', { name: preset.name }))) return;
+  await ensureWclNamesLoaded();
 
   const slots = emptyBuildSlots();
   const missing = [];
@@ -3180,7 +3234,18 @@ function renderWclAppliedInfo(build) {
   const code = info.talents?.exportString || '';
   const eg = (info.enchantsGems || []).map((row) => {
     const slotName = row.slotKey ? buildSlotLabel(row.slotKey) : (row.slot || '');
-    const parts = [row.enchant ? `${t('wclEnchant')} · ${row.enchant}` : '', row.gemText ? `${t('wclGem')} · ${row.gemText}` : ''].filter(Boolean).join('　');
+    let enchant;
+    let gemText;
+    if (row.enchantId !== undefined || row.gems !== undefined) {
+      // 新格式: 存 id, 渲染期按当前语言解析
+      enchant = wclEnchantLabel({ permanentEnchant: row.enchantId, enchantName: row.enchantZh });
+      gemText = joinWclList((row.gems || []).map((gem) => wclGemLabel({ id: gem.id, name: gem.zh })).filter(Boolean));
+    } else {
+      // 旧格式(已保存方案): 用套用时烤好的字符串
+      enchant = row.enchant || '';
+      gemText = row.gemText || '';
+    }
+    const parts = [enchant ? `${t('wclEnchant')} · ${enchant}` : '', gemText ? `${t('wclGem')} · ${gemText}` : ''].filter(Boolean).join('　');
     return `<div class="wcl-eg-row"><span class="wcl-eg-slot">${escapeHtml(slotName)}</span><span class="wcl-eg-text">${escapeHtml(parts)}</span></div>`;
   }).join('');
   return `
@@ -3422,6 +3487,8 @@ async function applyLocale(locale) {
       state.selectedItem = buildItemDetail(state.itemMap[state.selectedItem.id], state.filters.selectedSpec, state.classData?.specs || []);
     }
   }
+  // 配装页有已套用的排行榜预设时, 切语言要重译附魔/宝石名 -> 先加载新语言字典
+  if (state.view === 'build' && currentBuild()?.wclPreset) await ensureWclNamesLoaded();
   updateSeoMeta();
   updateLangUrl();
   render();

@@ -254,6 +254,17 @@ const DATA_BY_LOCALE = {
 
 DATA_BY_LOCALE['en-GB'] = DATA_BY_LOCALE['en-US'];
 
+// 补 4.4.x 新副本本地化名(暴雪 journal-instance API), 未在 INSTANCE_KEYS 里的新 id 走这里, 避免非中文页显示中文
+const INSTANCE_EXTRA = {
+  1305: { 'zh-CN': '孢陨幽境', 'zh-TW': '孢子之殞', 'en-US': 'Sporefall', 'de-DE': 'Sporenfall', 'fr-FR': 'Chute-des-Spores', 'es-ES': 'Micosis', 'es-MX': 'Esporalia', 'pt-BR': 'Esporasca', 'it-IT': 'Sporandia', 'ru-RU': 'Споропад', 'ko-KR': '진균나락' },
+};
+Object.keys(DATA_BY_LOCALE).forEach((loc) => {
+  const instances = DATA_BY_LOCALE[loc].instances;
+  Object.entries(INSTANCE_EXTRA).forEach(([id, names]) => {
+    if (instances[id] === undefined) instances[id] = names[loc] || names['en-US'] || names['zh-CN'];
+  });
+});
+
 const UI_BY_LOCALE = {
   'en-US': defineUi('en-US', {
     appName: 'WoWLook',

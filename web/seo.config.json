@@ -3,7 +3,7 @@
   "siteName": "SeasonLoot",
   "currentVersion": "4.4.x",
   "dataDir": "data-4.4.x",
-  "cacheBust": "20260701-p2",
+  "cacheBust": "20260701-p2b",
   "defaultLocale": "zh-CN",
   "locales": [
     { "locale": "zh-CN", "slug": "", "hreflang": "zh-CN" },

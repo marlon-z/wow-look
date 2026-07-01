@@ -1314,13 +1314,147 @@ const BUILD_I18N = {
   wclAppliedPrefix: { 'zh-CN': '排行榜：', 'en-US': 'Leaderboard: ' },
 };
 
+// 其余语言(locale-centric, 便于逐语言核对)。es-MX→es-ES、en-GB→en-US、zh-TW→zh-CN 由 buildI18nFor 家族回退。
+const BUILD_I18N_EXTRA = {
+  'de-DE': {
+    modeBuild: 'Ausrüstungsplaner', modeBuildSub: 'Slots · Werte', modeEquip: 'Beutesuche', modeEquipSub: 'Filter · Quelle',
+    buildKicker: 'WoW Ausrüstungsplaner', planList: 'Builds', buildSave: 'Build speichern', buildSaveChanges: 'Änderungen speichern',
+    buildRename: 'Umbenennen', buildNewPlan: 'Neuer Build', buildShare: 'Build teilen', selectClassToBuild: 'Klasse wählen zum Starten',
+    specPanelTitle: '{className}-Spezialisierungen', slotClickToSelect: 'Zum Auswählen tippen', twoHandOccupied: 'Zweihänder belegt', slotClear: 'Entfernen',
+    buildSummaryTitle: 'Build-Übersicht', buildAvgIlvl: 'Ø Gegenstandsstufe', buildSlotCount: '{occupied} / {total} Plätze', buildStamina: 'Ausdauer',
+    buildSecondaryTotal: 'Sekundärwerte gesamt', buildSummaryHint: 'Enthält Basis-Primärwert und Ausdauer auf Stufe 90{armor}; ohne Volk, Talente, Verzauberungen, Steine und temporäre Buffs.',
+    buildSummaryHintArmor: ', +5% Rüstungsspezialisierung', pickSelect: '{label} wählen', pickCount: '{count} Gegenstände', pickNoItems: 'Keine Gegenstände für diesen Platz',
+    craftTitle: 'Zufallswerte (Handwerk) wählen', craftSource: 'Handwerk', craftDesc: 'Dieser Gegenstand benötigt {count} Sekundärwert(e); nach Bestätigung zählen sie zur Übersicht.',
+    craftRandomSlot: 'Zufällig +{value}', craftConfirm: 'Anlegen', craftCancel: 'Abbrechen', buildMainHand: 'Waffenhand', buildOffHand: 'Schildhand', buildTwoHand: 'Zweihänder',
+    buildShirt: 'Hemd', buildTabard: 'Wappenrock', buildSlotRing: 'Ring', buildSlotTrinket: 'Schmuck', wclTitle: 'Bestenlisten-Builds', wclMythicPlus: 'Mythisch+', wclRaid: 'Schlachtzug',
+    wclAll: 'Alle', wclTopTier: 'Top', wclUpdatedSuffix: 'aktualisiert', wclApply: 'Auf Planer anwenden', wclWithCode: 'Talentcode', wclNoCode: 'Kein Talentcode',
+    wclLoading: 'Bestenlisten-Builds werden geladen…', wclNoData: 'Noch keine Bestenlisten-Builds für diese Spezialisierung', wclFileError: 'Preset-Datei konnte nicht geladen werden', wclEmpty: 'Keine Presets verfügbar',
+    wclApplyConfirm: '„{name}" anwenden überschreibt alle aktuellen Ausrüstungsplätze. Fortfahren?', wclApplied: 'Bestenlisten-Build angewendet', wclAppliedMissing: 'Angewendet; {count} Gegenstand/Gegenstände lokal fehlend, aus Werten geschätzt',
+    wclNeedBuild: 'Zuerst Klasse und Spezialisierung wählen', wclTalentCode: 'Talentcode', wclCopy: 'Kopieren', wclCopied: 'Talentcode kopiert', wclCopyFail: 'Kopieren fehlgeschlagen',
+    wclEnchantsGems: 'Verzauberungen & Steine', wclEnchant: 'Verzauberung', wclGem: 'Stein', wclMissing: '{count} Gegenstand/Gegenstände fehlen in lokalen Daten; aus Preset-Werten geschätzt',
+    wclScoreSuffix: ' Pkt.', wclLevelSuffix: '', wclAppliedPrefix: 'Bestenliste: ',
+  },
+  'fr-FR': {
+    modeBuild: 'Simulateur d’équipement', modeBuildSub: 'Emplacements · Stats', modeEquip: 'Recherche de butin', modeEquipSub: 'Filtres · Source',
+    buildKicker: 'Simulateur d’équipement WoW', planList: 'Builds', buildSave: 'Enregistrer le build', buildSaveChanges: 'Enregistrer les modifications',
+    buildRename: 'Renommer', buildNewPlan: 'Nouveau build', buildShare: 'Partager le build', selectClassToBuild: 'Choisissez une classe pour commencer',
+    specPanelTitle: 'Spécialisations {className}', slotClickToSelect: 'Appuyez pour choisir', twoHandOccupied: 'Arme à 2 mains occupe', slotClear: 'Retirer',
+    buildSummaryTitle: 'Résumé du build', buildAvgIlvl: 'Niv. d’objet moyen', buildSlotCount: '{occupied} / {total} emplacements', buildStamina: 'Endurance',
+    buildSecondaryTotal: 'Total secondaires', buildSummaryHint: 'Inclut la caractéristique principale de base et l’endurance au niveau 90{armor} ; hors race, talents, enchantements, gemmes et bonus temporaires.',
+    buildSummaryHintArmor: ', +5% de spécialisation d’armure', pickSelect: 'Choisir {label}', pickCount: '{count} objets', pickNoItems: 'Aucun objet disponible pour cet emplacement',
+    craftTitle: 'Choisir les stats aléatoires (artisanat)', craftSource: 'Artisanat', craftDesc: 'Cet objet nécessite {count} stat(s) secondaire(s) ; comptabilisées après confirmation.',
+    craftRandomSlot: 'Aléatoire +{value}', craftConfirm: 'Équiper', craftCancel: 'Annuler', buildMainHand: 'Main droite', buildOffHand: 'Main gauche', buildTwoHand: 'Deux mains',
+    buildShirt: 'Chemise', buildTabard: 'Tabard', buildSlotRing: 'Anneau', buildSlotTrinket: 'Bijou', wclTitle: 'Builds du classement', wclMythicPlus: 'Mythique+', wclRaid: 'Raid',
+    wclAll: 'Tous', wclTopTier: 'Top', wclUpdatedSuffix: 'mis à jour', wclApply: 'Appliquer au simulateur', wclWithCode: 'Code de talents', wclNoCode: 'Pas de code de talents',
+    wclLoading: 'Chargement des builds du classement…', wclNoData: 'Pas encore de builds de classement pour cette spécialisation', wclFileError: 'Échec du chargement du preset', wclEmpty: 'Aucun preset disponible',
+    wclApplyConfirm: 'Appliquer « {name} » remplacera tous les emplacements d’équipement. Continuer ?', wclApplied: 'Build du classement appliqué', wclAppliedMissing: 'Appliqué ; {count} objet(s) manquant(s) en local, estimé(s) d’après les stats',
+    wclNeedBuild: 'Choisissez d’abord une classe et une spécialisation', wclTalentCode: 'Code de talents', wclCopy: 'Copier', wclCopied: 'Code de talents copié', wclCopyFail: 'Échec de la copie',
+    wclEnchantsGems: 'Enchantements & gemmes', wclEnchant: 'Enchantement', wclGem: 'Gemme', wclMissing: '{count} objet(s) absent(s) des données locales ; estimé(s) d’après le preset',
+    wclScoreSuffix: ' pts', wclLevelSuffix: '', wclAppliedPrefix: 'Classement : ',
+  },
+  'es-ES': {
+    modeBuild: 'Simulador de equipo', modeBuildSub: 'Ranuras · Estadísticas', modeEquip: 'Búsqueda de botín', modeEquipSub: 'Filtros · Origen',
+    buildKicker: 'Simulador de equipo de WoW', planList: 'Builds', buildSave: 'Guardar build', buildSaveChanges: 'Guardar cambios',
+    buildRename: 'Renombrar', buildNewPlan: 'Nuevo build', buildShare: 'Compartir build', selectClassToBuild: 'Elige una clase para empezar',
+    specPanelTitle: 'Especializaciones de {className}', slotClickToSelect: 'Toca para elegir', twoHandOccupied: 'Arma a dos manos ocupa', slotClear: 'Quitar',
+    buildSummaryTitle: 'Resumen del build', buildAvgIlvl: 'Nivel de objeto medio', buildSlotCount: '{occupied} / {total} ranuras', buildStamina: 'Aguante',
+    buildSecondaryTotal: 'Total secundarias', buildSummaryHint: 'Incluye la característica principal base y el aguante de nivel 90{armor}; sin raza, talentos, encantamientos, gemas ni beneficios temporales.',
+    buildSummaryHintArmor: ', +5% de especialización de armadura', pickSelect: 'Elegir {label}', pickCount: '{count} objetos', pickNoItems: 'No hay objetos para esta ranura',
+    craftTitle: 'Elegir estadísticas aleatorias (creación)', craftSource: 'Creación', craftDesc: 'Este objeto necesita {count} estadística(s) secundaria(s); se cuentan tras confirmar.',
+    craftRandomSlot: 'Aleatoria +{value}', craftConfirm: 'Equipar', craftCancel: 'Cancelar', buildMainHand: 'Mano derecha', buildOffHand: 'Mano izquierda', buildTwoHand: 'Dos manos',
+    buildShirt: 'Camisa', buildTabard: 'Tabardo', buildSlotRing: 'Anillo', buildSlotTrinket: 'Abalorio', wclTitle: 'Builds del ranking', wclMythicPlus: 'Mítica+', wclRaid: 'Banda',
+    wclAll: 'Todos', wclTopTier: 'Top', wclUpdatedSuffix: 'actualizado', wclApply: 'Aplicar al simulador', wclWithCode: 'Código de talentos', wclNoCode: 'Sin código de talentos',
+    wclLoading: 'Cargando builds del ranking…', wclNoData: 'Aún no hay builds del ranking para esta especialización', wclFileError: 'Error al cargar el preset', wclEmpty: 'No hay presets disponibles',
+    wclApplyConfirm: 'Aplicar «{name}» sobrescribirá todas las ranuras de equipo. ¿Continuar?', wclApplied: 'Build del ranking aplicado', wclAppliedMissing: 'Aplicado; faltan {count} objeto(s) en local, estimados por estadísticas',
+    wclNeedBuild: 'Elige primero clase y especialización', wclTalentCode: 'Código de talentos', wclCopy: 'Copiar', wclCopied: 'Código de talentos copiado', wclCopyFail: 'Error al copiar',
+    wclEnchantsGems: 'Encantamientos y gemas', wclEnchant: 'Encantamiento', wclGem: 'Gema', wclMissing: 'Faltan {count} objeto(s) en los datos locales; estimados por el preset',
+    wclScoreSuffix: ' pts', wclLevelSuffix: '', wclAppliedPrefix: 'Ranking: ',
+  },
+  'pt-BR': {
+    modeBuild: 'Simulador de equipamento', modeBuildSub: 'Espaços · Atributos', modeEquip: 'Busca de saque', modeEquipSub: 'Filtros · Origem',
+    buildKicker: 'Simulador de equipamento WoW', planList: 'Builds', buildSave: 'Salvar build', buildSaveChanges: 'Salvar alterações',
+    buildRename: 'Renomear', buildNewPlan: 'Novo build', buildShare: 'Compartilhar build', selectClassToBuild: 'Escolha uma classe para começar',
+    specPanelTitle: 'Especializações de {className}', slotClickToSelect: 'Toque para escolher', twoHandOccupied: 'Arma de duas mãos ocupa', slotClear: 'Remover',
+    buildSummaryTitle: 'Resumo do build', buildAvgIlvl: 'Nível de item médio', buildSlotCount: '{occupied} / {total} espaços', buildStamina: 'Vigor',
+    buildSecondaryTotal: 'Total de secundários', buildSummaryHint: 'Inclui atributo primário base e vigor de nível 90{armor}; sem raça, talentos, encantamentos, gemas e bônus temporários.',
+    buildSummaryHintArmor: ', +5% de especialização de armadura', pickSelect: 'Escolher {label}', pickCount: '{count} itens', pickNoItems: 'Nenhum item disponível para este espaço',
+    craftTitle: 'Escolher atributos aleatórios (ofício)', craftSource: 'Ofício', craftDesc: 'Este item precisa de {count} atributo(s) secundário(s); contam após confirmar.',
+    craftRandomSlot: 'Aleatório +{value}', craftConfirm: 'Equipar', craftCancel: 'Cancelar', buildMainHand: 'Mão principal', buildOffHand: 'Mão secundária', buildTwoHand: 'Duas mãos',
+    buildShirt: 'Camisa', buildTabard: 'Tabardo', buildSlotRing: 'Anel', buildSlotTrinket: 'Berloque', wclTitle: 'Builds do ranking', wclMythicPlus: 'Mítico+', wclRaid: 'Raide',
+    wclAll: 'Todos', wclTopTier: 'Top', wclUpdatedSuffix: 'atualizado', wclApply: 'Aplicar ao simulador', wclWithCode: 'Código de talentos', wclNoCode: 'Sem código de talentos',
+    wclLoading: 'Carregando builds do ranking…', wclNoData: 'Ainda não há builds de ranking para esta especialização', wclFileError: 'Falha ao carregar o preset', wclEmpty: 'Nenhum preset disponível',
+    wclApplyConfirm: 'Aplicar «{name}» vai substituir todos os espaços de equipamento. Continuar?', wclApplied: 'Build do ranking aplicado', wclAppliedMissing: 'Aplicado; {count} item(ns) ausente(s) localmente, estimado(s) por atributos',
+    wclNeedBuild: 'Escolha primeiro classe e especialização', wclTalentCode: 'Código de talentos', wclCopy: 'Copiar', wclCopied: 'Código de talentos copiado', wclCopyFail: 'Falha ao copiar',
+    wclEnchantsGems: 'Encantamentos e gemas', wclEnchant: 'Encantamento', wclGem: 'Gema', wclMissing: '{count} item(ns) ausente(s) dos dados locais; estimado(s) pelo preset',
+    wclScoreSuffix: ' pts', wclLevelSuffix: '', wclAppliedPrefix: 'Ranking: ',
+  },
+  'it-IT': {
+    modeBuild: 'Simulatore equipaggiamento', modeBuildSub: 'Slot · Statistiche', modeEquip: 'Ricerca bottino', modeEquipSub: 'Filtri · Fonte',
+    buildKicker: 'Simulatore equipaggiamento WoW', planList: 'Build', buildSave: 'Salva build', buildSaveChanges: 'Salva modifiche',
+    buildRename: 'Rinomina', buildNewPlan: 'Nuovo build', buildShare: 'Condividi build', selectClassToBuild: 'Scegli una classe per iniziare',
+    specPanelTitle: 'Specializzazioni {className}', slotClickToSelect: 'Tocca per scegliere', twoHandOccupied: 'Arma a due mani occupa', slotClear: 'Rimuovi',
+    buildSummaryTitle: 'Riepilogo build', buildAvgIlvl: 'Livello oggetto medio', buildSlotCount: '{occupied} / {total} slot', buildStamina: 'Tempra',
+    buildSecondaryTotal: 'Totale secondarie', buildSummaryHint: 'Include caratteristica primaria base e tempra al livello 90{armor}; esclude razza, talenti, incantesimi, gemme e buff temporanei.',
+    buildSummaryHintArmor: ', +5% specializzazione armatura', pickSelect: 'Scegli {label}', pickCount: '{count} oggetti', pickNoItems: 'Nessun oggetto per questo slot',
+    craftTitle: 'Scegli statistiche casuali (creazione)', craftSource: 'Creazione', craftDesc: 'Questo oggetto richiede {count} statistica/e secondaria/e; conteggiate dopo la conferma.',
+    craftRandomSlot: 'Casuale +{value}', craftConfirm: 'Equipaggia', craftCancel: 'Annulla', buildMainHand: 'Mano primaria', buildOffHand: 'Mano secondaria', buildTwoHand: 'Due mani',
+    buildShirt: 'Camicia', buildTabard: 'Tabarro', buildSlotRing: 'Anello', buildSlotTrinket: 'Gingillo', wclTitle: 'Build della classifica', wclMythicPlus: 'Mitica+', wclRaid: 'Incursione',
+    wclAll: 'Tutti', wclTopTier: 'Top', wclUpdatedSuffix: 'aggiornato', wclApply: 'Applica al simulatore', wclWithCode: 'Codice talenti', wclNoCode: 'Nessun codice talenti',
+    wclLoading: 'Caricamento build della classifica…', wclNoData: 'Nessun build della classifica per questa specializzazione', wclFileError: 'Impossibile caricare il preset', wclEmpty: 'Nessun preset disponibile',
+    wclApplyConfirm: 'Applicare «{name}» sovrascriverà tutti gli slot equipaggiamento. Continuare?', wclApplied: 'Build della classifica applicato', wclAppliedMissing: 'Applicato; {count} oggetto/i mancante/i in locale, stimato/i dalle statistiche',
+    wclNeedBuild: 'Scegli prima classe e specializzazione', wclTalentCode: 'Codice talenti', wclCopy: 'Copia', wclCopied: 'Codice talenti copiato', wclCopyFail: 'Copia non riuscita',
+    wclEnchantsGems: 'Incantesimi e gemme', wclEnchant: 'Incantesimo', wclGem: 'Gemma', wclMissing: '{count} oggetto/i assente/i dai dati locali; stimato/i dal preset',
+    wclScoreSuffix: ' pt', wclLevelSuffix: '', wclAppliedPrefix: 'Classifica: ',
+  },
+  'ru-RU': {
+    modeBuild: 'Планировщик экипировки', modeBuildSub: 'Слоты · хар-ки', modeEquip: 'Поиск добычи', modeEquipSub: 'Фильтр · источник',
+    buildKicker: 'Планировщик экипировки WoW', planList: 'Сборки', buildSave: 'Сохранить сборку', buildSaveChanges: 'Сохранить изменения',
+    buildRename: 'Переименовать', buildNewPlan: 'Новая сборка', buildShare: 'Поделиться сборкой', selectClassToBuild: 'Выберите класс, чтобы начать',
+    specPanelTitle: 'Специализации: {className}', slotClickToSelect: 'Нажмите, чтобы выбрать', twoHandOccupied: 'Занято двуручным', slotClear: 'Убрать',
+    buildSummaryTitle: 'Сводка сборки', buildAvgIlvl: 'Ср. уровень предметов', buildSlotCount: '{occupied} / {total} слотов', buildStamina: 'Выносливость',
+    buildSecondaryTotal: 'Сумма вторичных', buildSummaryHint: 'Включает базовую основную характеристику и выносливость 90 уровня{armor}; без расы, талантов, чар, самоцветов и временных эффектов.',
+    buildSummaryHintArmor: ', +5% специализации брони', pickSelect: 'Выбрать: {label}', pickCount: '{count} предм.', pickNoItems: 'Нет предметов для этого слота',
+    craftTitle: 'Выбор случайных характеристик (ремесло)', craftSource: 'Ремесло', craftDesc: 'Этому предмету нужно выбрать {count} вторичн. характеристик(и); учитываются после подтверждения.',
+    craftRandomSlot: 'Случайно +{value}', craftConfirm: 'Экипировать', craftCancel: 'Отмена', buildMainHand: 'Правая рука', buildOffHand: 'Левая рука', buildTwoHand: 'Двуручное',
+    buildShirt: 'Рубаха', buildTabard: 'Гербовая накидка', buildSlotRing: 'Кольцо', buildSlotTrinket: 'Аксессуар', wclTitle: 'Сборки из рейтинга', wclMythicPlus: 'Эпохальный+', wclRaid: 'Рейд',
+    wclAll: 'Все', wclTopTier: 'Топ', wclUpdatedSuffix: 'обновлено', wclApply: 'Применить в планировщике', wclWithCode: 'Код талантов', wclNoCode: 'Нет кода талантов',
+    wclLoading: 'Загрузка сборок из рейтинга…', wclNoData: 'Пока нет сборок из рейтинга для этой специализации', wclFileError: 'Не удалось загрузить пресет', wclEmpty: 'Нет доступных пресетов',
+    wclApplyConfirm: 'Применение «{name}» перезапишет все слоты экипировки. Продолжить?', wclApplied: 'Сборка из рейтинга применена', wclAppliedMissing: 'Применено; {count} предмет(ов) нет локально, оценка по характеристикам',
+    wclNeedBuild: 'Сначала выберите класс и специализацию', wclTalentCode: 'Код талантов', wclCopy: 'Копировать', wclCopied: 'Код талантов скопирован', wclCopyFail: 'Не удалось скопировать',
+    wclEnchantsGems: 'Чары и самоцветы', wclEnchant: 'Чары', wclGem: 'Самоцвет', wclMissing: '{count} предмет(ов) нет в локальных данных; оценка по пресету',
+    wclScoreSuffix: ' очк.', wclLevelSuffix: '', wclAppliedPrefix: 'Рейтинг: ',
+  },
+  'ko-KR': {
+    modeBuild: '장비 시뮬레이터', modeBuildSub: '슬롯 · 능력치', modeEquip: '전리품 검색', modeEquipSub: '필터 · 출처',
+    buildKicker: 'WoW 장비 시뮬레이터', planList: '빌드', buildSave: '빌드 저장', buildSaveChanges: '변경 사항 저장',
+    buildRename: '이름 변경', buildNewPlan: '새 빌드', buildShare: '빌드 공유', selectClassToBuild: '시작할 직업을 선택하세요',
+    specPanelTitle: '{className} 전문화', slotClickToSelect: '눌러서 선택', twoHandOccupied: '양손 무기 점유', slotClear: '제거',
+    buildSummaryTitle: '빌드 요약', buildAvgIlvl: '평균 아이템 레벨', buildSlotCount: '{occupied} / {total} 슬롯', buildStamina: '체력',
+    buildSecondaryTotal: '보조 능력치 합계', buildSummaryHint: '90레벨 기본 주 능력치와 체력 포함{armor}; 종족, 특성, 마법부여, 보석, 임시 버프 제외.',
+    buildSummaryHintArmor: ', 방어구 전문화 +5%', pickSelect: '{label} 선택', pickCount: '{count}개', pickNoItems: '이 슬롯에 사용할 아이템이 없습니다',
+    craftTitle: '제작 무작위 능력치 선택', craftSource: '제작', craftDesc: '이 아이템은 보조 능력치 {count}개를 선택해야 하며, 확인 후 통계에 반영됩니다.',
+    craftRandomSlot: '무작위 +{value}', craftConfirm: '착용', craftCancel: '취소', buildMainHand: '주장비', buildOffHand: '보조장비', buildTwoHand: '양손',
+    buildShirt: '속옷', buildTabard: '휘장', buildSlotRing: '반지', buildSlotTrinket: '장신구', wclTitle: '순위표 빌드', wclMythicPlus: '신화+', wclRaid: '공격대',
+    wclAll: '전체', wclTopTier: '최상위', wclUpdatedSuffix: '업데이트', wclApply: '시뮬레이터에 적용', wclWithCode: '특성 코드 있음', wclNoCode: '특성 코드 없음',
+    wclLoading: '순위표 빌드 불러오는 중…', wclNoData: '이 전문화의 순위표 빌드가 아직 없습니다', wclFileError: '프리셋 파일을 불러오지 못했습니다', wclEmpty: '사용 가능한 프리셋이 없습니다',
+    wclApplyConfirm: '"{name}"을(를) 적용하면 현재 모든 장비 슬롯을 덮어씁니다. 계속할까요?', wclApplied: '순위표 빌드 적용됨', wclAppliedMissing: '적용됨; {count}개 아이템이 로컬에 없어 능력치로 추정',
+    wclNeedBuild: '먼저 직업과 전문화를 선택하세요', wclTalentCode: '특성 코드', wclCopy: '복사', wclCopied: '특성 코드 복사됨', wclCopyFail: '복사 실패',
+    wclEnchantsGems: '마법부여 & 보석', wclEnchant: '마법부여', wclGem: '보석', wclMissing: '로컬 데이터에 {count}개 아이템이 없어 프리셋 능력치로 추정',
+    wclScoreSuffix: '점', wclLevelSuffix: '단계', wclAppliedPrefix: '순위표: ',
+  },
+};
+
+const BUILD_I18N_FAMILY = { 'es-MX': 'es-ES', 'en-GB': 'en-US', 'zh-TW': 'zh-CN' };
+
 function buildI18nFor(locale) {
+  const fam = BUILD_I18N_FAMILY[locale];
   const out = {};
   for (const key of Object.keys(BUILD_I18N)) {
-    const m = BUILD_I18N[key];
-    out[key] = m[locale] !== undefined
-      ? m[locale]
-      : (locale.startsWith('zh') ? (m['zh-CN'] ?? m['en-US']) : (m['en-US'] ?? m['zh-CN']));
+    const base = BUILD_I18N[key];
+    out[key] = BUILD_I18N_EXTRA[locale]?.[key]
+      ?? base[locale]
+      ?? (fam && (BUILD_I18N_EXTRA[fam]?.[key] ?? base[fam]))
+      ?? (locale.startsWith('zh') ? (base['zh-CN'] ?? base['en-US']) : (base['en-US'] ?? base['zh-CN']));
   }
   return out;
 }

@@ -1976,6 +1976,7 @@ function renderEquipmentView() {
       ${state.isLoading ? `<section class="empty-state">${escapeHtml(t('loading'))}</section>` : ''}
       ${state.loadError ? `<section class="empty-state">${escapeHtml(state.loadError)}</section>` : ''}
       ${!state.isLoading && !state.loadError ? renderGroups(groups) : ''}
+      ${!state.isLoading && !state.loadError ? renderClassSeoSection() : ''}
       <div class="page-end-pad"></div>
     </main>
   `;
@@ -2205,6 +2206,42 @@ function renderBuildSeoSection(build) {
       </ul>
     </section>
   `;
+}
+
+// 职业级可见 SEO 板块(装备查询页, 与 class noscript 内容对等)
+function classSeoFaq() {
+  const zh = isChineseLocale();
+  const className = classLabel(state.classKey, state.classData?.class?.name || '');
+  const armor = t(`data.armorTypes.${getClassMeta(state.classKey)?.armorType || ''}`);
+  const specNames = (state.classData?.specs || []).map((spec) => specLabel(spec)).filter(Boolean);
+  const items = state.allItems || [];
+  const sources = [...new Set(items.map((it) => instanceNameLabel(it.instanceName) || it.instanceName).filter(Boolean))];
+  const faq = [];
+  faq.push(zh ? { q: `${className}能穿什么护甲？`, a: `${className}使用${armor}。` } : { q: `What armor does ${className} wear?`, a: `${className} uses ${armor}.` });
+  faq.push(zh ? { q: `${className}有哪些专精？`, a: `共 ${specNames.length} 个专精：${specNames.join('、')}。` } : { q: `Which specs does ${className} have?`, a: `${specNames.length} specs: ${specNames.join(', ')}.` });
+  faq.push(zh ? { q: `本赛季${className}有多少可用装备、来自哪里？`, a: `当前赛季共有 ${items.length} 件可用装备，来源包括 ${sources.slice(0, 8).join('、')} 等。` } : { q: `How much ${className} gear is available and where from?`, a: `${items.length} items this season, from ${sources.slice(0, 8).join(', ')}.` });
+  faq.push(zh ? { q: `怎么查${className}装备、怎么配装？`, a: `用装备查询按专精、部位、副属性、地下城、团本和套装筛选；找到候选后切到配装模拟器组装整套并查看装等与属性。` } : { q: `How do I find ${className} gear and build?`, a: `Filter by spec, slot, secondary stats and source, then switch to the gear planner.` });
+  return faq;
+}
+
+function renderClassSeoSection() {
+  if (!state.classData || !(state.allItems || []).length) return '';
+  const zh = isChineseLocale();
+  const className = classLabel(state.classKey, state.classData?.class?.name || '');
+  const faq = classSeoFaq();
+  const specLinks = (state.classData.specs || []).map((spec) => `<li><a href="${buildSpecRouteHref(state.classKey, spec.id)}" data-action="startBuild" data-class="${state.classKey}" data-spec-id="${spec.id}" data-spec-name="${escapeHtml(specLabel(spec))}">${escapeHtml(zh ? `${className}${specLabel(spec)}配装` : `${className} ${specLabel(spec)} planner`)}</a></li>`).join('');
+  return `
+    <section class="build-seo class-seo" aria-label="${escapeHtml(className)} SEO">
+      <h2>${escapeHtml(zh ? '常见问题' : 'FAQ')}</h2>
+      <div class="build-seo-faq">
+        ${faq.map((item, i) => `<details ${i === 0 ? 'open' : ''}><summary>${escapeHtml(item.q)}</summary><p>${escapeHtml(item.a)}</p></details>`).join('')}
+      </div>
+      <h2>${escapeHtml(zh ? '配装模拟' : 'Gear planner')}</h2>
+      <ul class="build-seo-links">
+        ${specLinks}
+        <li><a href="${buildDefaultSpecRouteHref(state.classKey)}" data-action="buildPage">${escapeHtml(zh ? `${className}配装模拟器` : `${className} gear planner`)}</a></li>
+      </ul>
+    </section>`;
 }
 
 function renderBuildSpecSwitch(build) {

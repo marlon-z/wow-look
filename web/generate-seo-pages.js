@@ -259,27 +259,37 @@ function htmlShell({ locale, classKey = '', title, description, canonical, ogUrl
 `;
 }
 
-function homeJsonLd(locale, meta) {
+function homeJsonLd(locale, meta, options = {}) {
   const i18n = i18nModule.createI18n(locale);
-  return `<script type="application/ld+json">
-${JSON.stringify({
-  '@context': 'https://schema.org',
-  '@type': 'WebApplication',
-  name: config.siteName,
-  url: absoluteUrl(locale),
-  description: stripSeoBrand(meta.description),
-  applicationCategory: 'GameApplication',
-  operatingSystem: 'Web Browser',
-  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-  inLanguage: locale,
-  featureList: [
-    i18n.t('filters.spec'),
-    i18n.t('filters.slot'),
-    i18n.t('filters.stat'),
-    i18n.t('filters.source'),
-  ],
-}, null, 2)}
-</script>`;
+  const blocks = [{
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: config.siteName,
+    url: absoluteUrl(locale),
+    description: stripSeoBrand(meta.description),
+    applicationCategory: 'GameApplication',
+    operatingSystem: 'Web Browser',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    inLanguage: locale,
+    featureList: [
+      i18n.t('filters.spec'),
+      i18n.t('filters.slot'),
+      i18n.t('filters.stat'),
+      i18n.t('filters.source'),
+    ],
+  }];
+  if (options.website) {
+    // WebSite 实体(建立站点名/URL)。暂不加 SearchAction: 站内搜索是"先选职业再筛选",
+    // 没有可直接返回结果的全站搜索端点; 加假的 SearchAction 违反 Google 规范。
+    blocks.push({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: config.siteName,
+      url: absoluteUrl(locale),
+      inLanguage: locale,
+    });
+  }
+  return blocks.map((block) => `<script type="application/ld+json">\n${JSON.stringify(block, null, 2)}\n</script>`).join('\n');
 }
 
 function homeNoscript(locale, overview) {
@@ -325,7 +335,7 @@ function buildHomePage(locale, overview) {
     description: meta.description,
     canonical,
     ogUrl: canonical,
-    jsonLd: homeJsonLd(locale, meta),
+    jsonLd: homeJsonLd(locale, meta, { website: true }),
     noscript: homeNoscript(locale, overview),
   });
 }
@@ -460,6 +470,37 @@ function specFactsFaq(locale, classData, className, specName, specId, items, ove
 
 function faqNoscriptHtml(faq) {
   return `<dl>${faq.map((item) => `\n<dt>${escapeHtml(item.q)}</dt>\n<dd>${escapeHtml(item.a)}</dd>`).join('')}\n</dl>`;
+}
+
+// 职业级事实 FAQ
+function classFactsFaq(locale, classData, className, items) {
+  const zh = isZh(locale);
+  const armor = localizedArmorType(locale, classData.class?.armorType);
+  const specNames = (classData.specs || []).map((spec) => localizedSpecName(locale, spec)).filter(Boolean);
+  const sources = [...new Set(flattenItems(classData.instances || []).map((it) => localizedInstanceName(locale, it.instanceId, it.instanceName)).filter(Boolean))];
+  const faq = [];
+  faq.push(zh ? { q: `${className}能穿什么护甲？`, a: `${className}使用${armor}。` }
+    : { q: `What armor does ${className} wear?`, a: `${className} uses ${armor}.` });
+  faq.push(zh ? { q: `${className}有哪些专精？`, a: `共 ${specNames.length} 个专精：${specNames.join('、')}。` }
+    : { q: `Which specs does ${className} have?`, a: `${specNames.length} specs: ${specNames.join(', ')}.` });
+  faq.push(zh ? { q: `本赛季${className}有多少可用装备、来自哪里？`, a: `当前赛季共有 ${items.length} 件可用装备，来源包括 ${sources.slice(0, 8).join('、')} 等。` }
+    : { q: `How much ${className} gear is available and where from?`, a: `${items.length} items this season, from ${sources.slice(0, 8).join(', ')}.` });
+  faq.push(zh ? { q: `怎么查${className}装备、怎么配装？`, a: `用装备查询按专精、部位、副属性、地下城、团本和套装筛选；找到候选后切到配装模拟器组装整套并查看装等与属性。` }
+    : { q: `How do I find ${className} gear and build?`, a: `Filter gear by spec, slot, secondary stats and source, then switch to the gear planner to assemble a full build and review stats.` });
+  return faq;
+}
+
+function classBuildLinksHtml(locale, classKey, className, classData) {
+  const zh = isZh(locale);
+  const specs = (classData.specs || []).map((spec) => {
+    const name = localizedSpecName(locale, spec);
+    return `<li><a href="${urlPath(locale, `build/${classKey}/${spec.id}`)}">${escapeHtml(zh ? `${className}${name}配装` : `${className} ${name} planner`)}</a></li>`;
+  }).join('\n');
+  return `<h2>${escapeHtml(zh ? '配装模拟' : 'Gear planner')}</h2>
+<ul>
+${specs}
+<li><a href="${urlPath(locale, 'equipment')}">${escapeHtml(zh ? '装备查询' : 'Gear search')}</a></li>
+</ul>`;
 }
 
 // 专精页(build/<class>/<spec>): 富内容 noscript — 介绍 + 事实FAQ + BiS + 可爬内链
@@ -645,6 +686,15 @@ ${JSON.stringify({
     { '@type': 'ListItem', position: 2, name: className, item: canonical },
   ],
 }, null, 2)}
+</script>
+<script type="application/ld+json">
+${JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: classFactsFaq(locale, classData, className, items).map((item) => ({
+    '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+}, null, 2)}
 </script>`;
 }
 
@@ -688,6 +738,9 @@ ${rows}
     ...(overview.scope?.raids || []),
   ].map((source) => `<li>${escapeHtml(localizedInstanceName(locale, source.id, source.name))}</li>`).join('\n');
 
+  const buildLinks = classBuildLinksHtml(locale, classKey, className, classData);
+  const faqSection = `<h2>${escapeHtml(locale === 'zh-CN' ? '常见问题' : 'FAQ')}</h2>\n${faqNoscriptHtml(classFactsFaq(locale, classData, className, items))}`;
+
   if (locale === 'zh-CN') {
     return `<h1>${escapeHtml(className)}配装模拟器</h1>
 <p>${escapeHtml(className)}职业装备查询与配装模拟页面。当前装备池共 ${escapeHtml(items.length)} 件，支持按专精、部位、副属性、地下城、团本和套装筛选。</p>
@@ -699,8 +752,8 @@ ${sections}
 <ul>
 ${sourceRows}
 </ul>
-<h2>配装模拟</h2>
-<p>你可以在网页端收藏候选装备、分享配装链接，并在后续版本使用完整装备槽和 WCL 排行榜配装功能。</p>`;
+${buildLinks}
+${faqSection}`;
   }
 
   return `<h1>${escapeHtml(meta.heading)}</h1>
@@ -711,7 +764,9 @@ ${sections}
 <h2>${escapeHtml(i18n.t('filters.source'))}</h2>
 <ul>
 ${sourceRows}
-</ul>`;
+</ul>
+${buildLinks}
+${faqSection}`;
 }
 
 function buildClassPage(locale, classKey, classData, overview, fallbackData) {

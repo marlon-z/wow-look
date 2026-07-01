@@ -1,0 +1,708 @@
+{
+  "generatedAt": "2026-07-01T07:16:13.578Z",
+  "dataVersion": "4.4.x",
+  "specs": {
+    "62": {
+      "classKey": "mage",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "mastery",
+        "crit",
+        "haste",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 720,
+        "haste": 528,
+        "mastery": 778,
+        "versatility": 228
+      }
+    },
+    "63": {
+      "classKey": "mage",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "haste",
+        "mastery",
+        "versatility",
+        "crit"
+      ],
+      "avg": {
+        "crit": 98,
+        "haste": 1130,
+        "mastery": 803,
+        "versatility": 147
+      }
+    },
+    "64": {
+      "classKey": "mage",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "crit",
+        "mastery",
+        "haste",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 879,
+        "haste": 537,
+        "mastery": 870,
+        "versatility": 18
+      }
+    },
+    "65": {
+      "classKey": "paladin",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "haste",
+        "mastery",
+        "crit",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 366,
+        "haste": 894,
+        "mastery": 834,
+        "versatility": 267
+      }
+    },
+    "66": {
+      "classKey": "paladin",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "haste",
+        "crit",
+        "mastery",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 755,
+        "haste": 832,
+        "mastery": 355,
+        "versatility": 316
+      }
+    },
+    "70": {
+      "classKey": "paladin",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "mastery",
+        "crit",
+        "haste",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 751,
+        "haste": 637,
+        "mastery": 906,
+        "versatility": 47
+      }
+    },
+    "71": {
+      "classKey": "warrior",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "haste",
+        "crit",
+        "mastery",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 904,
+        "haste": 1012,
+        "mastery": 399,
+        "versatility": 25
+      }
+    },
+    "72": {
+      "classKey": "warrior",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "haste",
+        "mastery",
+        "crit",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 410,
+        "haste": 1073,
+        "mastery": 930,
+        "versatility": 63
+      }
+    },
+    "73": {
+      "classKey": "warrior",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "haste",
+        "mastery",
+        "crit",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 443,
+        "haste": 1008,
+        "mastery": 692,
+        "versatility": 228
+      }
+    },
+    "102": {
+      "classKey": "druid",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "mastery",
+        "crit",
+        "haste",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 763,
+        "haste": 750,
+        "mastery": 813,
+        "versatility": 13
+      }
+    },
+    "103": {
+      "classKey": "druid",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "mastery",
+        "haste",
+        "crit",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 490,
+        "haste": 765,
+        "mastery": 1046,
+        "versatility": 66
+      }
+    },
+    "104": {
+      "classKey": "druid",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "haste",
+        "mastery",
+        "versatility",
+        "crit"
+      ],
+      "avg": {
+        "crit": 331,
+        "haste": 1038,
+        "mastery": 453,
+        "versatility": 428
+      }
+    },
+    "105": {
+      "classKey": "druid",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "haste",
+        "mastery",
+        "versatility",
+        "crit"
+      ],
+      "avg": {
+        "crit": 88,
+        "haste": 1022,
+        "mastery": 977,
+        "versatility": 234
+      }
+    },
+    "250": {
+      "classKey": "deathknight",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "mastery",
+        "versatility",
+        "crit",
+        "haste"
+      ],
+      "avg": {
+        "crit": 450,
+        "haste": 369,
+        "mastery": 833,
+        "versatility": 615
+      }
+    },
+    "251": {
+      "classKey": "deathknight",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "mastery",
+        "crit",
+        "haste",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 926,
+        "haste": 386,
+        "mastery": 1046,
+        "versatility": 13
+      }
+    },
+    "252": {
+      "classKey": "deathknight",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "mastery",
+        "crit",
+        "haste",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 965,
+        "haste": 270,
+        "mastery": 1130,
+        "versatility": 0
+      }
+    },
+    "254": {
+      "classKey": "hunter",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "crit",
+        "mastery",
+        "haste",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 1112,
+        "haste": 315,
+        "mastery": 717,
+        "versatility": 75
+      }
+    },
+    "255": {
+      "classKey": "hunter",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "mastery",
+        "crit",
+        "haste",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 740,
+        "haste": 530,
+        "mastery": 885,
+        "versatility": 63
+      }
+    },
+    "256": {
+      "classKey": "priest",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "haste",
+        "mastery",
+        "crit",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 614,
+        "haste": 890,
+        "mastery": 813,
+        "versatility": 26
+      }
+    },
+    "257": {
+      "classKey": "priest",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "haste",
+        "crit",
+        "versatility",
+        "mastery"
+      ],
+      "avg": {
+        "crit": 611,
+        "haste": 752,
+        "mastery": 344,
+        "versatility": 591
+      }
+    },
+    "258": {
+      "classKey": "priest",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "haste",
+        "mastery",
+        "crit",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 536,
+        "haste": 1042,
+        "mastery": 764,
+        "versatility": 35
+      }
+    },
+    "259": {
+      "classKey": "rogue",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "crit",
+        "haste",
+        "mastery",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 948,
+        "haste": 741,
+        "mastery": 509,
+        "versatility": 121
+      }
+    },
+    "260": {
+      "classKey": "rogue",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "crit",
+        "haste",
+        "mastery",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 1019,
+        "haste": 802,
+        "mastery": 293,
+        "versatility": 187
+      }
+    },
+    "261": {
+      "classKey": "rogue",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "mastery",
+        "haste",
+        "crit",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 567,
+        "haste": 569,
+        "mastery": 1077,
+        "versatility": 89
+      }
+    },
+    "262": {
+      "classKey": "shaman",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "mastery",
+        "crit",
+        "haste",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 723,
+        "haste": 490,
+        "mastery": 1031,
+        "versatility": 53
+      }
+    },
+    "263": {
+      "classKey": "shaman",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "mastery",
+        "haste",
+        "crit",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 369,
+        "haste": 890,
+        "mastery": 1102,
+        "versatility": 17
+      }
+    },
+    "264": {
+      "classKey": "shaman",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "crit",
+        "versatility",
+        "haste",
+        "mastery"
+      ],
+      "avg": {
+        "crit": 841,
+        "haste": 469,
+        "mastery": 241,
+        "versatility": 635
+      }
+    },
+    "265": {
+      "classKey": "warlock",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "haste",
+        "crit",
+        "mastery",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 818,
+        "haste": 927,
+        "mastery": 556,
+        "versatility": 57
+      }
+    },
+    "266": {
+      "classKey": "warlock",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "crit",
+        "haste",
+        "mastery",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 900,
+        "haste": 814,
+        "mastery": 662,
+        "versatility": 6
+      }
+    },
+    "267": {
+      "classKey": "warlock",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "crit",
+        "haste",
+        "mastery",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 858,
+        "haste": 822,
+        "mastery": 724,
+        "versatility": 14
+      }
+    },
+    "268": {
+      "classKey": "monk",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "crit",
+        "mastery",
+        "versatility",
+        "haste"
+      ],
+      "avg": {
+        "crit": 888,
+        "haste": 229,
+        "mastery": 569,
+        "versatility": 474
+      }
+    },
+    "269": {
+      "classKey": "monk",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "haste",
+        "mastery",
+        "crit",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 654,
+        "haste": 890,
+        "mastery": 768,
+        "versatility": 70
+      }
+    },
+    "270": {
+      "classKey": "monk",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "haste",
+        "crit",
+        "versatility",
+        "mastery"
+      ],
+      "avg": {
+        "crit": 783,
+        "haste": 863,
+        "mastery": 188,
+        "versatility": 468
+      }
+    },
+    "577": {
+      "classKey": "demonhunter",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "crit",
+        "mastery",
+        "haste",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 1017,
+        "haste": 218,
+        "mastery": 998,
+        "versatility": 21
+      }
+    },
+    "581": {
+      "classKey": "demonhunter",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "haste",
+        "crit",
+        "mastery",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 541,
+        "haste": 1015,
+        "mastery": 382,
+        "versatility": 340
+      }
+    },
+    "1467": {
+      "classKey": "evoker",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "crit",
+        "haste",
+        "mastery",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 987,
+        "haste": 815,
+        "mastery": 479,
+        "versatility": 54
+      }
+    },
+    "1468": {
+      "classKey": "evoker",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "haste",
+        "crit",
+        "mastery",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 630,
+        "haste": 797,
+        "mastery": 513,
+        "versatility": 351
+      }
+    },
+    "1473": {
+      "classKey": "evoker",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "haste",
+        "crit",
+        "mastery",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 937,
+        "haste": 968,
+        "mastery": 209,
+        "versatility": 47
+      }
+    },
+    "1480": {
+      "classKey": "demonhunter",
+      "contentType": "mythicPlus",
+      "fileKey": "mythic-plus-top",
+      "sampleCount": 24,
+      "order": [
+        "haste",
+        "mastery",
+        "crit",
+        "versatility"
+      ],
+      "avg": {
+        "crit": 321,
+        "haste": 1008,
+        "mastery": 892,
+        "versatility": 0
+      }
+    }
+  }
+}

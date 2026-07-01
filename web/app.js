@@ -288,6 +288,7 @@ const state = {
     error: '',
   },
   wclNameCache: {},
+  statTendency: null,
   filters: {
     keyword: '',
     selectedSpec: null,
@@ -1644,7 +1645,19 @@ async function openBuildPage(buildId = '', buildShare = '', initialClassKey = ''
   }
   // 载入的方案已套用排行榜时, 先备好附魔/宝石字典再渲染
   if (currentBuild()?.wclPreset) await ensureWclNamesLoaded();
+  await loadStatTendency();
   render();
+}
+
+// 副属性倾向数据(本地小文件, 同源 0 COS), 供可见 SEO 板块使用
+async function loadStatTendency() {
+  if (state.statTendency !== null) return state.statTendency;
+  try {
+    state.statTendency = await fetchJson(`${DATA_BASE}/wcl-stat-tendency.json?v=${WCL_NAMES_VERSION}`);
+  } catch {
+    state.statTendency = { specs: {} };
+  }
+  return state.statTendency;
 }
 
 async function loadBuildClass(classKey) {
@@ -2092,6 +2105,104 @@ function renderBuildWorkbench(build) {
         </div>
       </div>
       ${renderBuildSummary(summary, build)}
+    </section>
+    ${renderBuildSeoSection(build)}
+  `;
+}
+
+// ───────── 可见 SEO 内容板块(用户与爬虫看同一份, 全本地数据 0 COS) ─────────
+const SEO_BIS_SLOTS = ['head', 'neck', 'shoulder', 'cloak', 'chest', 'wrist', 'hand', 'waist', 'legs', 'feet', 'finger', 'trinket', 'weapon'];
+
+function seoSpecItems(build) {
+  return (state.buildAllItems || []).filter((item) => !Array.isArray(item.specs) || !item.specs.length || item.specs.includes(build.specId));
+}
+
+function seoBisBySlot(items) {
+  const best = {};
+  items.forEach((item) => {
+    const key = item.slot;
+    if (!SEO_BIS_SLOTS.includes(key)) return;
+    if (!best[key] || (item.ilvl || 0) > (best[key].ilvl || 0)) best[key] = item;
+  });
+  return SEO_BIS_SLOTS.filter((key) => best[key]).map((key) => ({
+    slot: t(`slots.${key}`),
+    name: itemNameLabel(best[key]),
+    ilvl: best[key].ilvl || 0,
+    source: instanceNameLabel(best[key].instanceName) || best[key].instanceName || '',
+  }));
+}
+
+function seoTendencySentence(build) {
+  const zh = isChineseLocale();
+  const data = state.statTendency?.specs?.[String(build.specId)];
+  if (!data || !data.order?.length || !data.avg) return '';
+  const parts = data.order.map((type) => `${t(`stats.${type}`)} ≈ ${data.avg[type]}`);
+  const className = classLabel(build.classKey, build.className);
+  const specName = build.specName;
+  return zh
+    ? `据 WCL 高分日志统计（样本 ${data.sampleCount} 套），前列${className}${specName}每套装备的平均副属性 rating（按原始数值累积）依次为 ${parts.join('、')}。此为对高分日志装备的客观统计，非绝对最优优先级。`
+    : `Based on top WCL logs (${data.sampleCount} builds), average secondary stat rating per ${className} ${specName} build (by raw rating) is ${parts.join(', ')}. An objective tally of top-log gear, not a prescriptive priority.`;
+}
+
+function seoFaq(build, items) {
+  const zh = isChineseLocale();
+  const className = classLabel(build.classKey, build.className);
+  const specName = build.specName;
+  const armor = t(`data.armorTypes.${getClassMeta(build.classKey)?.armorType || ''}`);
+  const slotList = SEO_BIS_SLOTS.map((key) => t(`slots.${key}`)).join(zh ? '、' : ', ');
+  const sources = [...new Set(items.map((it) => instanceNameLabel(it.instanceName) || it.instanceName).filter(Boolean))];
+  const mastery = MASTERY_COEFFICIENTS[Number(build.specId)];
+  const faq = [];
+  faq.push(zh ? { q: `${className}${specName}能穿什么护甲？`, a: `${className}使用${armor}。` }
+    : { q: `What armor does ${className} ${specName} wear?`, a: `${className} uses ${armor}.` });
+  faq.push(zh ? { q: `${className}${specName}有哪些装备槽？`, a: `配装涵盖以下部位：${slotList}（含双持/副手规则）。` }
+    : { q: `Which gear slots does ${className} ${specName} use?`, a: `Builds cover: ${slotList} (with weapon/off-hand rules).` });
+  if (zh && mastery) faq.push({ q: `${className}${specName}的精通主要提升什么？`, a: `主要提升${mastery[1]}。` });
+  faq.push(zh ? { q: `本赛季${className}${specName}有多少可用装备、来自哪里？`, a: `当前赛季共有 ${items.length} 件可用装备，来源包括 ${sources.slice(0, 8).join('、')} 等。` }
+    : { q: `How much ${className} ${specName} gear is available and where from?`, a: `${items.length} items this season, from ${sources.slice(0, 8).join(', ')}.` });
+  const tendency = seoTendencySentence(build);
+  if (tendency) faq.push(zh ? { q: `${className}${specName}的副属性怎么堆？`, a: tendency } : { q: `Which secondary stats do top ${className} ${specName} builds stack?`, a: tendency });
+  faq.push(zh ? { q: `怎么用这个配装模拟器？`, a: `选择职业与专精，点击装备槽从当前专精可用装备中选装，实时查看平均装等、暴击/急速/精通/全能百分比与主属性、耐力；可保存方案、分享链接，或一键套用 WCL 排行榜配装。` }
+    : { q: `How do I use this gear planner?`, a: `Pick a class and spec, click a slot to choose spec-usable gear, and watch item level and secondary stats update live. Save, share, or apply a WCL leaderboard build.` });
+  return faq;
+}
+
+function renderBuildSeoSection(build) {
+  if (!build || !state.buildClassData) return '';
+  const zh = isChineseLocale();
+  const items = seoSpecItems(build);
+  if (!items.length) return '';
+  const className = classLabel(build.classKey, build.className);
+  const specName = build.specName;
+  const bis = seoBisBySlot(items);
+  const faq = seoFaq(build, items);
+  const siblings = (state.buildClassData.specs || []).filter((spec) => spec.id !== build.specId);
+  return `
+    <section class="build-seo" aria-label="${escapeHtml(`${className}${specName}`)} SEO">
+      <p class="build-seo-intro">${escapeHtml(zh
+        ? `为${className}${specName}专精组装整套装备，实时计算平均装等与暴击/急速/精通/全能，并可一键套用 WCL 排行榜配装。`
+        : `Assemble a full ${className} ${specName} build with live item level and secondary stats, and apply WCL leaderboard builds.`)}</p>
+
+      <h2>${escapeHtml(zh ? '常见问题' : 'FAQ')}</h2>
+      <div class="build-seo-faq">
+        ${faq.map((item, i) => `
+          <details ${i === 0 ? 'open' : ''}>
+            <summary>${escapeHtml(item.q)}</summary>
+            <p>${escapeHtml(item.a)}</p>
+          </details>`).join('')}
+      </div>
+
+      <h2>${escapeHtml(zh ? `${className}${specName}各部位可用最高装等装备` : `Highest item level ${className} ${specName} gear by slot`)}</h2>
+      <ul class="build-seo-bis">
+        ${bis.map((row) => `<li><span class="bis-slot">${escapeHtml(row.slot)}</span><span class="bis-name">${escapeHtml(row.name)}</span><span class="bis-meta">ilvl ${escapeHtml(row.ilvl)}${row.source ? ` · ${escapeHtml(row.source)}` : ''}</span></li>`).join('')}
+      </ul>
+
+      <h2>${escapeHtml(zh ? '相关页面' : 'Related pages')}</h2>
+      <ul class="build-seo-links">
+        ${siblings.map((spec) => `<li><a href="${buildSpecRouteHref(build.classKey, spec.id)}" data-action="startBuild" data-class="${build.classKey}" data-spec-id="${spec.id}" data-spec-name="${escapeHtml(specLabel(spec))}">${escapeHtml(zh ? `${className}${specLabel(spec)}配装` : `${className} ${specLabel(spec)} planner`)}</a></li>`).join('')}
+        <li><a href="${buildPageHref(build.classKey)}" data-action="class" data-class="${build.classKey}">${escapeHtml(zh ? `${className}装备查询` : `${className} gear`)}</a></li>
+        <li><a href="${equipmentRouteHref()}" data-action="buildPage">${escapeHtml(zh ? '装备查询' : 'Gear search')}</a></li>
+      </ul>
     </section>
   `;
 }
@@ -2866,7 +2977,7 @@ function equipBuildItem(slotKey, item) {
 // ─────────────────────── 排行榜配装 (WCL Presets) ───────────────────────
 // 排行榜数据每天 cron 更新在 COS、未 commit 本地，因此这条线始终直连 COS。
 const WCL_BASE = `${REMOTE_COS_BASE}/wcl-presets/${DATA_DIR_NAME}`;
-const WCL_NAMES_VERSION = '20260701-wclnames2';
+const WCL_NAMES_VERSION = '20260701-seo';
 const WCL_STAT_NAME = { crit: '暴击', haste: '急速', mastery: '精通', versatility: '全能' };
 
 function wclStatName(stat) {

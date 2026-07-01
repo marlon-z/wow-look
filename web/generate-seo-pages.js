@@ -44,6 +44,15 @@ const config = readJSON(CONFIG_PATH);
 const i18nModule = loadI18n();
 const DATA_DIR = path.join(WEB_DIR, config.dataDir);
 const DEFAULT_LOCALE = config.defaultLocale;
+
+// SEO 内容数据源(全本地, 生成期 0 COS)
+const MASTERY_COEFFICIENTS = (() => {
+  try { return require('../miniprogram/utils/mastery-coefficients.js').MASTERY_COEFFICIENTS || {}; } catch { return {}; }
+})();
+const STAT_TENDENCY = (() => {
+  const file = path.join(DATA_DIR, 'wcl-stat-tendency.json');
+  return fs.existsSync(file) ? readJSON(file) : { specs: {} };
+})();
 const localeConfigs = config.locales.filter((item) => i18nModule.SUPPORTED_LOCALES.includes(item.locale));
 const aliasConfigs = (config.aliases || []).filter((item) => i18nModule.SUPPORTED_LOCALES.includes(item.locale) && item.slug);
 const localeByCode = Object.fromEntries(localeConfigs.map((item) => [item.locale, item]));
@@ -376,37 +385,213 @@ function buildSimulatorName(locale, buildClass = null, buildSpec = null) {
   return 'WoW Gear Planner';
 }
 
-function buildSimulatorNoscript(locale, overview, buildClass = null, buildSpec = null) {
-  const pageName = buildSimulatorName(locale, buildClass, buildSpec);
-  if (locale === 'zh-CN') {
-    const classes = (overview.classes || [])
-      .map((cls) => `<li><a href="${urlPath(locale, `build/${cls.key}`)}">${escapeHtml(localizedClassName(locale, cls.key, cls.name))}配装</a></li>`)
-      .join('\n');
-    const context = buildClass && buildSpec
-      ? `当前页面面向${escapeHtml(buildClass.name)}${escapeHtml(buildSpec.name)}专精配装。`
-      : (buildClass ? `当前页面面向${escapeHtml(buildClass.name)}职业配装，选择专精后进入装备槽。` : '选择职业和专精后进入装备槽。');
-    return `<h1>${escapeHtml(pageName)}</h1>
-<p>${context}填入头、项链、肩、披风、胸、衬衣、战袍、护腕、手、腰、腿、脚、戒指、饰品、主手和副手装备槽，查看平均装等、副属性百分比、主属性、耐力和护甲专精统计。</p>
-<h2>支持职业</h2>
-<ul>
-${classes}
-</ul>
-<h2>当前阶段</h2>
-<p>当前页面已支持手动配装、保存方案、分享链接、制造业随机属性选择和 WCL 排行榜配装。排行榜配装可按大秘境、团本、层数和首领选择预设，并一键套用到模拟器。</p>`;
-  }
-  return `<h1>${escapeHtml(pageName)}</h1>
-<p>Select a class and spec, fill equipment slots, review item level and stat totals, then save and share the build.</p>`;
+// ───────── SEO 内容助手 (全本地数据, 生成期 0 COS) ─────────
+const SEO_SLOT_ORDER = ['head', 'neck', 'shoulder', 'cloak', 'chest', 'wrist', 'hand', 'waist', 'legs', 'feet', 'finger', 'trinket', 'weapon'];
+const isZh = (locale) => String(locale).startsWith('zh');
+
+function specItems(classData, specId) {
+  return flattenItems(classData.instances || []).filter((item) => {
+    if (!Array.isArray(item.specs) || !item.specs.length) return true;
+    return item.specs.includes(Number(specId));
+  });
 }
 
-function buildSimulatorPage(locale, overview, buildClass = null, buildSpec = null) {
+// 每部位可用最高装等装备 -> [{key, slot, name, ilvl, source}]
+function bisBySlot(locale, items, localeData, fallbackData) {
+  const best = {};
+  items.forEach((item) => {
+    const key = slotKey(item.slot);
+    if (key === 'unknown') return;
+    if (!best[key] || (item.ilvl || 0) > (best[key].ilvl || 0)) best[key] = item;
+  });
+  return SEO_SLOT_ORDER.filter((key) => best[key]).map((key) => ({
+    key,
+    slot: localizedSlot(locale, key),
+    name: localizedItemName(best[key].id, localeData, fallbackData),
+    ilvl: best[key].ilvl || 0,
+    source: localizedInstanceName(locale, best[key].instanceId, best[key].instanceName),
+  }));
+}
+
+function statTendencySentence(locale, specId, className, specName) {
+  const t = STAT_TENDENCY.specs?.[String(specId)];
+  if (!t || !t.order?.length || !t.avg) return '';
+  const parts = t.order.map((type) => `${localizedStat(locale, type)} ≈ ${t.avg[type]}`);
+  if (isZh(locale)) {
+    return `据 WCL 高分日志统计（样本 ${t.sampleCount} 套），前列${className}${specName}每套装备的平均副属性 rating（按原始数值累积）依次为 ${parts.join('、')}。此为对高分日志装备的客观统计，非绝对最优优先级。`;
+  }
+  return `Based on top WCL logs (${t.sampleCount} builds), average secondary stat rating per ${className} ${specName} build (by raw rating) is ${parts.join(', ')}. An objective tally of top-log gear, not a prescriptive priority.`;
+}
+
+function masteryFact(locale, specId) {
+  const m = MASTERY_COEFFICIENTS[String(specId)];
+  if (!m || !isZh(locale)) return null; // 精通名目前仅有中文
+  return { q: `${m.specName}${m.className}的精通是什么？`, a: `${m.masteryName}，主要提升${m.effect}。` };
+}
+
+// 事实 FAQ (A 类, 全部可核实) -> [{q,a}]
+function specFactsFaq(locale, classData, className, specName, specId, items, overview) {
+  const zh = isZh(locale);
+  const armor = localizedArmorType(locale, classData.class?.armorType);
+  const slotList = SEO_SLOT_ORDER.map((key) => localizedSlot(locale, key)).join(zh ? '、' : ', ');
+  const sources = [...new Set(items.map((it) => localizedInstanceName(locale, it.instanceId, it.instanceName)).filter(Boolean))];
+  const count = items.length;
+  const faq = [];
+  faq.push(zh
+    ? { q: `${className}${specName}能穿什么护甲？`, a: `${className}使用${armor}。` }
+    : { q: `What armor does ${className} ${specName} wear?`, a: `${className} uses ${armor}.` });
+  faq.push(zh
+    ? { q: `${className}${specName}有哪些装备槽？`, a: `配装涵盖以下部位：${slotList}（含双持/副手规则）。` }
+    : { q: `Which gear slots does ${className} ${specName} use?`, a: `Builds cover these slots: ${slotList} (with weapon/off-hand rules).` });
+  const mastery = masteryFact(locale, specId);
+  if (mastery) faq.push(mastery);
+  faq.push(zh
+    ? { q: `本赛季${className}${specName}有多少可用装备、来自哪里？`, a: `当前赛季共有 ${count} 件可用装备，来源包括 ${sources.slice(0, 8).join('、')} 等。` }
+    : { q: `How much ${className} ${specName} gear is available and where from?`, a: `${count} items this season, from sources such as ${sources.slice(0, 8).join(', ')}.` });
+  const tendency = statTendencySentence(locale, specId, className, specName);
+  if (tendency) faq.push(zh
+    ? { q: `${className}${specName}的副属性怎么堆？`, a: tendency }
+    : { q: `Which secondary stats do top ${className} ${specName} builds stack?`, a: tendency });
+  faq.push(zh
+    ? { q: `怎么用这个配装模拟器？`, a: `选择职业与专精，点击装备槽从当前专精可用装备中选装，实时查看平均装等、暴击/急速/精通/全能百分比与主属性、耐力；可保存方案、分享链接，或一键套用 WCL 排行榜配装。` }
+    : { q: `How do I use this gear planner?`, a: `Pick a class and spec, click a slot to choose from spec-usable gear, and watch item level and crit/haste/mastery/versatility update live. Save builds, share links, or apply a WCL leaderboard build in one click.` });
+  return faq;
+}
+
+function faqNoscriptHtml(faq) {
+  return `<dl>${faq.map((item) => `\n<dt>${escapeHtml(item.q)}</dt>\n<dd>${escapeHtml(item.a)}</dd>`).join('')}\n</dl>`;
+}
+
+// 专精页(build/<class>/<spec>): 富内容 noscript — 介绍 + 事实FAQ + BiS + 可爬内链
+function specSimulatorNoscript(locale, overview, buildClass, buildSpec, ctx) {
+  const zh = isZh(locale);
+  const pageName = buildSimulatorName(locale, buildClass, buildSpec);
+  const className = buildClass.name;
+  const specName = buildSpec.name;
+  const { classData, localeData, fallbackData } = ctx;
+  const items = specItems(classData, buildSpec.id);
+  const faq = specFactsFaq(locale, classData, className, specName, buildSpec.id, items, overview);
+  const bis = bisBySlot(locale, items, localeData, fallbackData);
+  const siblings = (classData.specs || []).filter((spec) => spec.id !== buildSpec.id);
+
+  const intro = zh
+    ? `${pageName}：为${className}${specName}专精组装整套装备，实时计算平均装等、暴击/急速/精通/全能百分比与主属性、耐力，并可一键套用 WCL 排行榜配装。`
+    : `${pageName}: assemble a full ${className} ${specName} build, compute item level and crit/haste/mastery/versatility live, and apply a WCL leaderboard build in one click.`;
+  const faqHeading = zh ? '常见问题' : 'FAQ';
+  const bisHeading = zh ? `${className}${specName}各部位可用最高装等装备` : `Highest item level ${className} ${specName} gear by slot`;
+  const bisList = bis.map((row) => zh
+    ? `<li>${escapeHtml(row.slot)}：${escapeHtml(row.name)}（ilvl ${escapeHtml(row.ilvl)}${row.source ? `，${escapeHtml(row.source)}` : ''}）</li>`
+    : `<li>${escapeHtml(row.slot)}: ${escapeHtml(row.name)} (ilvl ${escapeHtml(row.ilvl)}${row.source ? `, ${escapeHtml(row.source)}` : ''})</li>`).join('\n');
+  const relHeading = zh ? '相关页面' : 'Related pages';
+  const relLinks = [
+    ...siblings.map((spec) => {
+      const sName = localizedSpecName(locale, spec);
+      return `<li><a href="${urlPath(locale, `build/${buildClass.key}/${spec.id}`)}">${escapeHtml(zh ? `${className}${sName}配装` : `${className} ${sName} planner`)}</a></li>`;
+    }),
+    `<li><a href="${urlPath(locale, buildClass.key)}">${escapeHtml(zh ? `${className}装备查询` : `${className} gear`)}</a></li>`,
+    `<li><a href="${urlPath(locale, 'equipment')}">${escapeHtml(zh ? '装备查询' : 'Gear search')}</a></li>`,
+  ].join('\n');
+
+  return `<h1>${escapeHtml(pageName)}</h1>
+<p>${escapeHtml(intro)}</p>
+<h2>${escapeHtml(faqHeading)}</h2>
+${faqNoscriptHtml(faq)}
+<h2>${escapeHtml(bisHeading)}</h2>
+<ul>
+${bisList}
+</ul>
+<h2>${escapeHtml(relHeading)}</h2>
+<ul>
+${relLinks}
+</ul>`;
+}
+
+function buildSimulatorNoscript(locale, overview, buildClass = null, buildSpec = null, ctx = null) {
+  if (buildClass && buildSpec && ctx?.classData) {
+    return specSimulatorNoscript(locale, overview, buildClass, buildSpec, ctx);
+  }
+  const zh = isZh(locale);
+  const pageName = buildSimulatorName(locale, buildClass, buildSpec);
+  const classes = (overview.classes || [])
+    .map((cls) => `<li><a href="${urlPath(locale, `build/${cls.key}`)}">${escapeHtml(zh ? `${localizedClassName(locale, cls.key, cls.name)}配装` : `${localizedClassName(locale, cls.key, cls.name)} planner`)}</a></li>`)
+    .join('\n');
+  const context = buildClass
+    ? (zh ? `当前页面面向${escapeHtml(buildClass.name)}职业配装，选择专精后进入装备槽。` : `Pick a ${escapeHtml(buildClass.name)} spec to open the slot board.`)
+    : (zh ? '选择职业和专精后进入装备槽。' : 'Pick a class and spec to open the slot board.');
+  const slotsLine = zh
+    ? '填入头、颈、肩、背、胸、腕、手、腰、腿、脚、戒指、饰品、主手和副手装备槽，查看平均装等、副属性百分比、主属性、耐力和护甲专精统计。'
+    : 'Fill head, neck, shoulder, back, chest, wrist, hand, waist, legs, feet, ring, trinket, main-hand and off-hand slots to see item level, secondary stat percentages, primary stats, stamina and armor specialization.';
+  const classesHeading = zh ? '支持职业' : 'Classes';
+  return `<h1>${escapeHtml(pageName)}</h1>
+<p>${context}${slotsLine}</p>
+<h2>${escapeHtml(classesHeading)}</h2>
+<ul>
+${classes}
+</ul>`;
+}
+
+function specSimulatorJsonLd(locale, buildClass, buildSpec, ctx, canonical, pageName, description) {
+  const { classData, localeData, fallbackData } = ctx;
+  const className = buildClass.name;
+  const specName = buildSpec.name;
+  const items = specItems(classData, buildSpec.id);
+  const faq = specFactsFaq(locale, classData, className, specName, buildSpec.id, items, {});
+  const bis = bisBySlot(locale, items, localeData, fallbackData);
+  const home = locale === DEFAULT_LOCALE ? config.baseUrl : absoluteUrl(locale);
+  const blocks = [];
+  blocks.push({
+    '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: pageName,
+    applicationCategory: 'GameApplication', operatingSystem: 'Web Browser', url: canonical,
+    description: stripSeoBrand(description), inLanguage: locale,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  });
+  blocks.push({
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: config.siteName, item: home },
+      { '@type': 'ListItem', position: 2, name: buildSimulatorName(locale, null, null), item: absoluteUrl(locale, 'build') },
+      { '@type': 'ListItem', position: 3, name: buildSimulatorName(locale, buildClass, null), item: absoluteUrl(locale, `build/${buildClass.key}`) },
+      { '@type': 'ListItem', position: 4, name: pageName, item: canonical },
+    ],
+  });
+  if (bis.length) {
+    blocks.push({
+      '@context': 'https://schema.org', '@type': 'ItemList',
+      name: isZh(locale) ? `${className}${specName}各部位最高装等装备` : `Highest item level ${className} ${specName} gear by slot`,
+      url: canonical, numberOfItems: bis.length,
+      itemListElement: bis.map((row, i) => ({
+        '@type': 'ListItem', position: i + 1, name: row.name,
+        description: [`ilvl ${row.ilvl}`, row.slot, row.source].filter(Boolean).join(' - '),
+      })),
+    });
+  }
+  if (faq.length) {
+    blocks.push({
+      '@context': 'https://schema.org', '@type': 'FAQPage',
+      mainEntity: faq.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })),
+    });
+  }
+  return blocks.map((block) => `<script type="application/ld+json">\n${JSON.stringify(block, null, 2)}\n</script>`).join('\n');
+}
+
+function buildSimulatorPage(locale, overview, buildClass = null, buildSpec = null, ctx = null) {
   const pathKey = buildSimulatorPathKey(buildClass, buildSpec);
   const pageName = buildSimulatorName(locale, buildClass, buildSpec);
-  const title = locale === 'zh-CN'
-    ? `${pageName} — 装备槽与属性统计 | SeasonLoot`
-    : `${pageName} | ${config.siteName}`;
-  const description = locale === 'zh-CN'
-    ? `${pageName}支持按头、项链、肩、胸、衬衣、战袍、饰品、戒指、主手和副手等装备槽组装方案，查看装等和属性统计，并保存或分享。| SeasonLoot`
-    : `Create a ${pageName} build, fill equipment slots, review stats, save and share builds. | SeasonLoot`;
+  const isSpec = Boolean(buildClass && buildSpec && ctx?.classData);
+  const zh = isZh(locale);
+  const title = zh
+    ? `${pageName} — ${isSpec ? '毕业装BiS与属性统计' : '装备槽与属性统计'} | SeasonLoot`
+    : `${pageName}${isSpec ? ' — BiS & Stats' : ''} | ${config.siteName}`;
+  let description;
+  if (isSpec) {
+    description = zh
+      ? `${pageName}与毕业装(BiS)参考：按部位组装、实时计算装等与暴击/急速/精通/全能，并可一键套用 WCL 排行榜配装。| SeasonLoot`
+      : `${pageName} and BiS reference: build by slot, live item level and secondary stats, and apply WCL leaderboard builds. | SeasonLoot`;
+  } else {
+    description = zh
+      ? `${pageName}支持按装备槽组装方案，查看装等和属性统计，并保存或分享。| SeasonLoot`
+      : `Create a ${pageName} build, fill equipment slots, review stats, save and share. | SeasonLoot`;
+  }
   const canonical = absoluteUrl(locale, pathKey);
   return htmlShell({
     locale,
@@ -416,8 +601,8 @@ function buildSimulatorPage(locale, overview, buildClass = null, buildSpec = nul
     canonical,
     ogUrl: canonical,
     appAttrs: ' data-page="build"',
-    jsonLd: homeJsonLd(locale, { description }),
-    noscript: buildSimulatorNoscript(locale, overview, buildClass, buildSpec),
+    jsonLd: isSpec ? specSimulatorJsonLd(locale, buildClass, buildSpec, ctx, canonical, pageName, description) : homeJsonLd(locale, { description }),
+    noscript: buildSimulatorNoscript(locale, overview, buildClass, buildSpec, ctx),
   });
 }
 
@@ -654,11 +839,13 @@ function main() {
       };
       writePage(locale, `build/${classKey}`, buildSimulatorPage(locale, overview, buildClass));
       pageCount++;
+      const localeData = readLocaleData(locale, classKey);
+      const specCtx = { classData, localeData, fallbackData };
       for (const spec of classData.specs || []) {
         writePage(locale, `build/${classKey}/${spec.id}`, buildSimulatorPage(locale, overview, buildClass, {
           id: spec.id,
           name: localizedSpecName(locale, spec),
-        }));
+        }, specCtx));
         pageCount++;
       }
       writePage(locale, classKey, buildClassPage(locale, classKey, classData, overview, fallbackData));
@@ -672,11 +859,13 @@ function main() {
       };
       writePageToSlug(alias.slug, `build/${classKey}`, buildSimulatorPage(alias.locale, overview, buildClass));
       pageCount++;
+      const aliasLocaleData = readLocaleData(alias.locale, classKey);
+      const aliasSpecCtx = { classData, localeData: aliasLocaleData, fallbackData };
       for (const spec of classData.specs || []) {
         writePageToSlug(alias.slug, `build/${classKey}/${spec.id}`, buildSimulatorPage(alias.locale, overview, buildClass, {
           id: spec.id,
           name: localizedSpecName(alias.locale, spec),
-        }));
+        }, aliasSpecCtx));
         pageCount++;
       }
       writePageToSlug(alias.slug, classKey, buildClassPage(alias.locale, classKey, classData, overview, fallbackData));

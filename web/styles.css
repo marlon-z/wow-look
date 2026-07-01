@@ -2765,3 +2765,88 @@ button {
   .wcl-preset { flex-direction: column; align-items: stretch; }
   .wcl-apply-btn { width: 100%; }
 }
+
+/* ───────── 可见 SEO 内容板块 (配装专精页) ───────── */
+.build-seo {
+  max-width: 1180px;
+  margin: 12px auto 0;
+  padding: 20px 18px 28px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+.build-seo h2 {
+  margin: 22px 0 12px;
+  font-size: 17px;
+  color: var(--cream);
+}
+.build-seo-intro {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #c9bfa8;
+}
+.build-seo-faq details {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 4px 14px;
+  margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.02);
+}
+.build-seo-faq summary {
+  cursor: pointer;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cream);
+  list-style: none;
+}
+.build-seo-faq summary::-webkit-details-marker { display: none; }
+.build-seo-faq summary::before { content: "＋"; color: var(--gold-2); margin-right: 8px; font-weight: 700; }
+.build-seo-faq details[open] summary::before { content: "－"; }
+.build-seo-faq details p {
+  margin: 0 0 12px;
+  padding-left: 20px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.build-seo-bis {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 8px;
+}
+.build-seo-bis li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  font-size: 13px;
+}
+.build-seo-bis .bis-slot { flex: 0 0 52px; color: var(--muted); font-weight: 700; }
+.build-seo-bis .bis-name { flex: 1; color: var(--epic); font-weight: 700; }
+.build-seo-bis .bis-meta { color: var(--dim); font-size: 12px; white-space: nowrap; }
+.build-seo-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+}
+.build-seo-links a {
+  color: var(--gold-2);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  border-bottom: 1px dashed rgba(212, 168, 75, 0.4);
+}
+.build-seo-links a:hover { color: var(--gold); }
+@media (max-width: 640px) {
+  .build-seo-bis { grid-template-columns: 1fr; }
+}

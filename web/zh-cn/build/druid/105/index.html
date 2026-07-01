@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#09080d">
-    <title>德鲁伊恢复配装模拟器 — 装备槽与属性统计 | SeasonLoot</title>
-    <meta name="description" content="德鲁伊恢复配装模拟器支持按头、项链、肩、胸、衬衣、战袍、饰品、戒指、主手和副手等装备槽组装方案，查看装等和属性统计，并保存或分享。| SeasonLoot">
+    <title>德鲁伊恢复配装模拟器 — 毕业装BiS与属性统计 | SeasonLoot</title>
+    <meta name="description" content="德鲁伊恢复配装模拟器与毕业装(BiS)参考：按部位组装、实时计算装等与暴击/急速/精通/全能，并可一键套用 WCL 排行榜配装。| SeasonLoot">
     <link rel="icon" href="../../../assets/public/logo.png">
     <link rel="canonical" href="https://seasonloot.com/build/druid/105/">
     <link rel="alternate" hreflang="zh-CN" href="https://seasonloot.com/build/druid/105/">
@@ -22,64 +22,256 @@
     <link rel="alternate" hreflang="zh-TW" href="https://seasonloot.com/zh-tw/build/druid/105/">
     <link rel="alternate" hreflang="x-default" href="https://seasonloot.com/build/druid/105/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="德鲁伊恢复配装模拟器 — 装备槽与属性统计">
-    <meta property="og:description" content="德鲁伊恢复配装模拟器支持按头、项链、肩、胸、衬衣、战袍、饰品、戒指、主手和副手等装备槽组装方案，查看装等和属性统计，并保存或分享。">
+    <meta property="og:title" content="德鲁伊恢复配装模拟器 — 毕业装BiS与属性统计">
+    <meta property="og:description" content="德鲁伊恢复配装模拟器与毕业装(BiS)参考：按部位组装、实时计算装等与暴击/急速/精通/全能，并可一键套用 WCL 排行榜配装。">
     <meta property="og:image" content="https://seasonloot.com/assets/public/og-card.png">
     <meta property="og:url" content="https://seasonloot.com/build/druid/105/">
     <meta property="og:site_name" content="SeasonLoot">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="德鲁伊恢复配装模拟器 — 装备槽与属性统计">
-    <meta name="twitter:description" content="德鲁伊恢复配装模拟器支持按头、项链、肩、胸、衬衣、战袍、饰品、戒指、主手和副手等装备槽组装方案，查看装等和属性统计，并保存或分享。">
+    <meta name="twitter:title" content="德鲁伊恢复配装模拟器 — 毕业装BiS与属性统计">
+    <meta name="twitter:description" content="德鲁伊恢复配装模拟器与毕业装(BiS)参考：按部位组装、实时计算装等与暴击/急速/精通/全能，并可一键套用 WCL 排行榜配装。">
     <meta name="twitter:image" content="https://seasonloot.com/assets/public/og-card.png">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "SeasonLoot",
-  "url": "https://seasonloot.com/",
-  "description": "德鲁伊恢复配装模拟器支持按头、项链、肩、胸、衬衣、战袍、饰品、戒指、主手和副手等装备槽组装方案，查看装等和属性统计，并保存或分享。",
+  "@type": "SoftwareApplication",
+  "name": "德鲁伊恢复配装模拟器",
   "applicationCategory": "GameApplication",
   "operatingSystem": "Web Browser",
+  "url": "https://seasonloot.com/build/druid/105/",
+  "description": "德鲁伊恢复配装模拟器与毕业装(BiS)参考：按部位组装、实时计算装等与暴击/急速/精通/全能，并可一键套用 WCL 排行榜配装。",
+  "inLanguage": "zh-CN",
   "offers": {
     "@type": "Offer",
     "price": "0",
     "priceCurrency": "USD"
-  },
-  "inLanguage": "zh-CN",
-  "featureList": [
-    "专精",
-    "部位",
-    "副属性",
-    "来源"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "SeasonLoot",
+      "item": "https://seasonloot.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "魔兽世界配装模拟器",
+      "item": "https://seasonloot.com/build/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "德鲁伊配装模拟器",
+      "item": "https://seasonloot.com/build/druid/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "德鲁伊恢复配装模拟器",
+      "item": "https://seasonloot.com/build/druid/105/"
+    }
   ]
 }
 </script>
-    <link rel="stylesheet" href="../../../styles.css?v=20260701-wclnames2">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "德鲁伊恢复各部位最高装等装备",
+  "url": "https://seasonloot.com/build/druid/105/",
+  "numberOfItems": 13,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "溃烂之花冠冕",
+      "description": "ilvl 298 - 头 - 孢陨幽境"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "腐沼的孢子之心",
+      "description": "ilvl 298 - 项链 - 孢陨幽境"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "暮光之锋护肩",
+      "description": "ilvl 289 - 肩 - 执政团之座"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "阵亡主教斗篷",
+      "description": "ilvl 289 - 披 - 萨隆矿坑"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "虚空之拥外套",
+      "description": "ilvl 289 - 胸 - 执政团之座"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "碎羽护腕",
+      "description": "ilvl 289 - 腕 - 萨隆矿坑"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "黑暗遮蔽手套",
+      "description": "ilvl 289 - 手 - 执政团之座"
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "name": "腐臭巨人的腰带",
+      "description": "ilvl 298 - 腰 - 孢陨幽境"
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "name": "位移追猎者皮裤",
+      "description": "ilvl 289 - 腿 - 执政团之座"
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "name": "渗透恐惧薄靴",
+      "description": "ilvl 289 - 脚 - 执政团之座"
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
+      "name": "唤孢者的绽放指环",
+      "description": "ilvl 298 - 戒 - 孢陨幽境"
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "name": "鲁拉的回响",
+      "description": "ilvl 298 - 饰 - 执政团之座"
+    },
+    {
+      "@type": "ListItem",
+      "position": 13,
+      "name": "祖拉尔的暗影尖塔",
+      "description": "ilvl 298 - 武 - 执政团之座"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "德鲁伊恢复能穿什么护甲？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "德鲁伊使用皮甲。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "德鲁伊恢复有哪些装备槽？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "配装涵盖以下部位：头、项链、肩、披、胸、腕、手、腰、腿、脚、戒、饰、武（含双持/副手规则）。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "恢复德鲁伊的精通是什么？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "精通：和谐，主要提升治疗量。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "本赛季德鲁伊恢复有多少可用装备、来自哪里？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "当前赛季共有 163 件可用装备，来源包括 执政团之座、萨隆矿坑、通天峰、艾杰斯亚学院、风行者之塔、魔导师平台、希纳斯节点、秘萨拉洞窟 等。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "德鲁伊恢复的副属性怎么堆？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "据 WCL 高分日志统计（样本 24 套），前列德鲁伊恢复每套装备的平均副属性 rating（按原始数值累积）依次为 急速 ≈ 1022、精通 ≈ 977、全能 ≈ 234、暴击 ≈ 88。此为对高分日志装备的客观统计，非绝对最优优先级。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "怎么用这个配装模拟器？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "选择职业与专精，点击装备槽从当前专精可用装备中选装，实时查看平均装等、暴击/急速/精通/全能百分比与主属性、耐力；可保存方案、分享链接，或一键套用 WCL 排行榜配装。"
+      }
+    }
+  ]
+}
+</script>
+    <link rel="stylesheet" href="../../../styles.css?v=20260701-seo">
   </head>
   <body>
     <div id="app" data-locale="zh-CN" data-page="build"></div>
     <noscript>
       <h1>德鲁伊恢复配装模拟器</h1>
-<p>当前页面面向德鲁伊恢复专精配装。填入头、项链、肩、披风、胸、衬衣、战袍、护腕、手、腰、腿、脚、戒指、饰品、主手和副手装备槽，查看平均装等、副属性百分比、主属性、耐力和护甲专精统计。</p>
-<h2>支持职业</h2>
+<p>德鲁伊恢复配装模拟器：为德鲁伊恢复专精组装整套装备，实时计算平均装等、暴击/急速/精通/全能百分比与主属性、耐力，并可一键套用 WCL 排行榜配装。</p>
+<h2>常见问题</h2>
+<dl>
+<dt>德鲁伊恢复能穿什么护甲？</dt>
+<dd>德鲁伊使用皮甲。</dd>
+<dt>德鲁伊恢复有哪些装备槽？</dt>
+<dd>配装涵盖以下部位：头、项链、肩、披、胸、腕、手、腰、腿、脚、戒、饰、武（含双持/副手规则）。</dd>
+<dt>恢复德鲁伊的精通是什么？</dt>
+<dd>精通：和谐，主要提升治疗量。</dd>
+<dt>本赛季德鲁伊恢复有多少可用装备、来自哪里？</dt>
+<dd>当前赛季共有 163 件可用装备，来源包括 执政团之座、萨隆矿坑、通天峰、艾杰斯亚学院、风行者之塔、魔导师平台、希纳斯节点、秘萨拉洞窟 等。</dd>
+<dt>德鲁伊恢复的副属性怎么堆？</dt>
+<dd>据 WCL 高分日志统计（样本 24 套），前列德鲁伊恢复每套装备的平均副属性 rating（按原始数值累积）依次为 急速 ≈ 1022、精通 ≈ 977、全能 ≈ 234、暴击 ≈ 88。此为对高分日志装备的客观统计，非绝对最优优先级。</dd>
+<dt>怎么用这个配装模拟器？</dt>
+<dd>选择职业与专精，点击装备槽从当前专精可用装备中选装，实时查看平均装等、暴击/急速/精通/全能百分比与主属性、耐力；可保存方案、分享链接，或一键套用 WCL 排行榜配装。</dd>
+</dl>
+<h2>德鲁伊恢复各部位可用最高装等装备</h2>
 <ul>
-<li><a href="/build/warrior/">战士配装</a></li>
-<li><a href="/build/paladin/">圣骑士配装</a></li>
-<li><a href="/build/hunter/">猎人配装</a></li>
-<li><a href="/build/rogue/">盗贼配装</a></li>
-<li><a href="/build/priest/">牧师配装</a></li>
-<li><a href="/build/deathknight/">死亡骑士配装</a></li>
-<li><a href="/build/shaman/">萨满祭司配装</a></li>
-<li><a href="/build/mage/">法师配装</a></li>
-<li><a href="/build/warlock/">术士配装</a></li>
-<li><a href="/build/monk/">武僧配装</a></li>
-<li><a href="/build/druid/">德鲁伊配装</a></li>
-<li><a href="/build/demonhunter/">恶魔猎手配装</a></li>
-<li><a href="/build/evoker/">唤魔师配装</a></li>
+<li>头：溃烂之花冠冕（ilvl 298，孢陨幽境）</li>
+<li>项链：腐沼的孢子之心（ilvl 298，孢陨幽境）</li>
+<li>肩：暮光之锋护肩（ilvl 289，执政团之座）</li>
+<li>披：阵亡主教斗篷（ilvl 289，萨隆矿坑）</li>
+<li>胸：虚空之拥外套（ilvl 289，执政团之座）</li>
+<li>腕：碎羽护腕（ilvl 289，萨隆矿坑）</li>
+<li>手：黑暗遮蔽手套（ilvl 289，执政团之座）</li>
+<li>腰：腐臭巨人的腰带（ilvl 298，孢陨幽境）</li>
+<li>腿：位移追猎者皮裤（ilvl 289，执政团之座）</li>
+<li>脚：渗透恐惧薄靴（ilvl 289，执政团之座）</li>
+<li>戒：唤孢者的绽放指环（ilvl 298，孢陨幽境）</li>
+<li>饰：鲁拉的回响（ilvl 298，执政团之座）</li>
+<li>武：祖拉尔的暗影尖塔（ilvl 298，执政团之座）</li>
 </ul>
-<h2>当前阶段</h2>
-<p>当前页面已支持手动配装、保存方案、分享链接、制造业随机属性选择和 WCL 排行榜配装。排行榜配装可按大秘境、团本、层数和首领选择预设，并一键套用到模拟器。</p>
+<h2>相关页面</h2>
+<ul>
+<li><a href="/build/druid/102/">德鲁伊平衡配装</a></li>
+<li><a href="/build/druid/103/">德鲁伊野性配装</a></li>
+<li><a href="/build/druid/104/">德鲁伊守护配装</a></li>
+<li><a href="/druid/">德鲁伊装备查询</a></li>
+<li><a href="/equipment/">装备查询</a></li>
+</ul>
     </noscript>
-    <script type="module" src="../../../app.js?v=20260701-wclnames2"></script>
+    <script type="module" src="../../../app.js?v=20260701-seo"></script>
   </body>
 </html>

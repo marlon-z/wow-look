@@ -1,4 +1,4 @@
-import { ASSET_BASE, DATA_BASE, DATA_DIR_NAME, LOCALE_DATA_BASE, REMOTE_COS_BASE, STORAGE_KEYS } from './config.js?v=20260701-wclnames';
+import { ASSET_BASE, DATA_BASE, DATA_DIR_NAME, GAME_VERSION, LOCALE_DATA_BASE, REMOTE_COS_BASE, STORAGE_KEYS } from './config.js?v=20260701-gamever';
 import { SUPPORTED_LOCALES, createI18n, getLocaleName, resolveLocale } from './i18n.js?v=20260701-p2b';
 
 const CLASS_LIST = [
@@ -1880,8 +1880,8 @@ function renderHomeToolHero(favoriteCount, isEquipmentLanding = false) {
           <span>当前赛季装备</span>
         </div>
         <div>
-          <strong>4.4.x</strong>
-          <span>网页数据版本</span>
+          <strong>${escapeHtml(GAME_VERSION)}</strong>
+          <span>对应游戏版本</span>
         </div>
       </div>
     </section>

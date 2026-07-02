@@ -14,6 +14,8 @@ const LOCAL_BASE = localBaseFromPath(location.pathname);
 
 export const DATA_VERSION = '4.4.x';
 export const DATA_DIR_NAME = `data-${DATA_VERSION}`;
+// 数据内部版本 4.4.x 对应的游戏补丁号(玩家可识别)
+export const GAME_VERSION = '12.0.7';
 export const DATA_BASE = useRemoteCos ? `${REMOTE_COS_BASE}/${DATA_DIR_NAME}` : `${LOCAL_BASE}/${DATA_DIR_NAME}`;
 export const LOCALE_DATA_BASE = `${LOCAL_BASE}/locales`;
 export const ASSET_BASE = useRemoteCos ? REMOTE_COS_BASE : LOCAL_BASE;

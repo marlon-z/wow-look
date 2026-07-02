@@ -3,14 +3,10 @@ export const REMOTE_COS_BASE = 'https://wowlook-1308073800.cos.ap-guangzhou.myqc
 const params = new URLSearchParams(window.location.search);
 const useRemoteCos = params.get('remote') === '1';
 
-function localBaseFromPath(pathname) {
-  const normalized = pathname.replace(/\/index\.html$/i, '/');
-  const segments = normalized.split('/').filter(Boolean);
-  if (!segments.length) return '.';
-  return Array.from({ length: segments.length }, () => '..').join('/');
-}
-
-const LOCAL_BASE = localBaseFromPath(location.pathname);
+// 本站部署在域名根目录, 本地资源/数据用"从根开始的绝对路径"(/assets、/data-4.4.x)。
+// 不能用按当前路径算的相对路径: 切换语言时 SPA 会用 replaceState 改 URL 深度,
+// 相对路径会按新深度错位解析导致图片/数据 404(需刷新才恢复)。绝对根路径不受影响。
+const LOCAL_BASE = '';
 
 export const DATA_VERSION = '4.4.x';
 export const DATA_DIR_NAME = `data-${DATA_VERSION}`;

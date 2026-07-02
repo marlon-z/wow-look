@@ -1,4 +1,4 @@
-import { ASSET_BASE, DATA_BASE, DATA_DIR_NAME, GAME_VERSION, LOCALE_DATA_BASE, REMOTE_COS_BASE, STORAGE_KEYS } from './config.js?v=20260701-gamever';
+import { ASSET_BASE, DATA_BASE, DATA_DIR_NAME, GAME_VERSION, LOCALE_DATA_BASE, REMOTE_COS_BASE, STORAGE_KEYS } from './config.js?v=20260702-abspath';
 import { SUPPORTED_LOCALES, createI18n, getLocaleName, resolveLocale } from './i18n.js?v=20260701-p2b';
 
 const CLASS_LIST = [

@@ -31,7 +31,7 @@ const SPEC_CONFIG = {
     className: 'Hunter',
     localName: '猎人',
     specs: {
-      253: { specName: 'Beast Mastery', localName: '野兽控制', role: 'dps' },
+      253: { specName: 'BeastMastery', localName: '野兽控制', role: 'dps' },
       254: { specName: 'Marksmanship', localName: '射击', role: 'dps' },
       255: { specName: 'Survival', localName: '生存', role: 'dps' },
     },

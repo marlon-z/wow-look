@@ -117,6 +117,8 @@ Page({
 
   onLoad: function (options) {
     cleanupDrafts();
+    // 从首页"大神排行榜"入口进来(无职业): 选职业进入配装后自动打开排行榜配装面板
+    this.pendingWcl = options.openWcl === '1';
     if (options.buildId) {
       var build = getBuild(options.buildId);
       if (build) {
@@ -161,6 +163,10 @@ Page({
       var build = createBuild(classKey, classMeta.name, firstSpec.id, firstSpec.name, true);
       this.setData({ specs: data.specs });
       this.enterBuildPhase(build);
+      if (this.pendingWcl && typeof this.openWclPresets === 'function') {
+        this.pendingWcl = false;
+        this.openWclPresets();
+      }
     }.bind(this)).catch(function () {
       wx.hideLoading();
       wx.showToast({ title: '加载失败', icon: 'none' });

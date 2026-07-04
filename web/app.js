@@ -289,6 +289,7 @@ const state = {
   },
   wclNameCache: {},
   statTendency: null,
+  buildWclIntent: false, // 从"排行榜配装"入口进来: 选职业后自动打开 WCL 面板
   filters: {
     keyword: '',
     selectedSpec: null,
@@ -1867,6 +1868,7 @@ function renderHomeToolHero(favoriteCount, isEquipmentLanding = false) {
           ${isEquipmentLanding
             ? `<a class="tool-primary" href="#class-grid">选择职业查装备</a><a class="tool-secondary" href="${buildRouteHref()}" data-action="buildPage">开始配装模拟</a>`
             : `<a class="tool-primary" href="${buildRouteHref()}" data-action="buildPage">开始配装模拟</a><a class="tool-secondary" href="${equipmentRouteHref()}">装备查询</a>`}
+          <a class="tool-secondary" href="${buildRouteHref()}#wcl=1" data-action="buildPage">排行榜配装</a>
           <button class="tool-secondary" data-action="favorites"><span class="icon star"></span>打开收藏夹${favoriteCount ? ` · ${favoriteCount}` : ''}</button>
         </div>
       </div>
@@ -2038,15 +2040,16 @@ function renderBuildSelector() {
   const specs = selectedClass && state.buildClassData?.specs ? state.buildClassData.specs : [];
   const countMap = {};
   (state.overview?.classes || []).forEach((item) => { countMap[item.key] = item.itemCount; });
+  const wclHash = state.buildWclIntent ? '#wcl=1' : ''; // 携带"排行榜配装"意图到专精页, 落地后自动开面板
   return `
-    <div class="prompt-wrap build-prompt"><span>${escapeHtml(t('selectClassToBuild'))}</span></div>
+    <div class="prompt-wrap build-prompt"><span>${escapeHtml(state.buildWclIntent ? '选择职业看排行榜配装' : t('selectClassToBuild'))}</span></div>
     <section class="class-grid-wrap build-class-grid" aria-label="${escapeHtml(t('selectClassToBuild'))}">
       ${[CLASS_LIST.slice(0, 4), CLASS_LIST.slice(4, 9), CLASS_LIST.slice(9, 13)].map((row) => `
         <div class="class-row">
           ${row.map((item) => {
             const assets = getClassVisualAssets(item.key);
             return `
-              <a class="class-cell build-class-cell ${state.buildClassKey === item.key ? 'active' : ''}" href="${buildDefaultSpecRouteHref(item.key)}" data-action="selectBuildClass" data-class="${item.key}">
+              <a class="class-cell build-class-cell ${state.buildClassKey === item.key ? 'active' : ''}" href="${buildDefaultSpecRouteHref(item.key)}${wclHash}" data-action="selectBuildClass" data-class="${item.key}">
                 <img class="class-emblem" src="${assets.emblem}" alt="">
                 <span class="class-label" style="color:${item.color}">${escapeHtml(classLabel(item.key, item.shortName))}</span>
                 <small>${countMap[item.key] || 0}</small>
@@ -2061,7 +2064,7 @@ function renderBuildSelector() {
         <h2>${escapeHtml(t('specPanelTitle', { className: classLabel(selectedClass.key, selectedClass.name) }))}</h2>
         <div class="build-spec-grid">
           ${specs.length ? specs.map((spec) => `
-            <a href="${buildSpecRouteHref(selectedClass.key, spec.id)}" data-action="startBuild" data-class="${selectedClass.key}" data-spec-id="${spec.id}" data-spec-name="${escapeHtml(specLabel(spec))}">${escapeHtml(specLabel(spec))}</a>
+            <a href="${buildSpecRouteHref(selectedClass.key, spec.id)}${wclHash}" data-action="startBuild" data-class="${selectedClass.key}" data-spec-id="${spec.id}" data-spec-name="${escapeHtml(specLabel(spec))}">${escapeHtml(specLabel(spec))}</a>
           `).join('') : `<span>${escapeHtml(t('loading'))}</span>`}
         </div>
       </section>
@@ -3678,6 +3681,7 @@ async function boot() {
   state.view = route.view;
   loadOverview();
   if (route.view === 'build') {
+    state.buildWclIntent = route.wclAuto; // 无职业时透传给职业选择, 选完自动开面板
     await openBuildPage(route.buildId, route.buildShare, route.classKey, route.buildSpecId);
     if (route.wclAuto && currentBuild()) openWcl();
   } else if (route.classKey) await openClass(route.classKey, { requestBuild: route.requestBuild });

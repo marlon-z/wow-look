@@ -3129,6 +3129,23 @@ function closeWcl() {
   render();
 }
 
+async function selectWclSpec(specId) {
+  specId = Number(specId);
+  if (!specId || specId === state.wcl.specId) return;
+  const spec = (state.buildClassData?.specs || []).find((s) => s.id === specId);
+  state.wcl.specId = specId;
+  state.wcl.specName = spec ? spec.name : '';
+  state.wcl.index = null;
+  state.wcl.file = null;
+  state.wcl.fileKey = '';
+  state.wcl.contentType = 'mythicPlus';
+  state.wcl.dungeonId = 'all';
+  state.wcl.loading = true;
+  state.wcl.error = '';
+  render();
+  await loadWclForCurrent();
+}
+
 async function loadWclForCurrent() {
   const { classKey, specId } = state.wcl;
   try {
@@ -3260,6 +3277,12 @@ async function applyWclPreset(entryIndex, presetIndex) {
   if (!window.confirm(t('wclApplyConfirm', { name: preset.name }))) return;
   await ensureWclNamesLoaded();
 
+  // 面板专精可能与配装当前专精不同（专精切换按钮）——套用时以面板专精为准，并联动切换配装专精。
+  const targetSpecId = state.wcl.specId || build.specId;
+  const targetSpec = (state.buildClassData?.specs || []).find((s) => s.id === targetSpecId);
+  const targetSpecName = targetSpec ? specLabel(targetSpec) : build.specName;
+  const specChanged = targetSpecId !== build.specId;
+
   const slots = emptyBuildSlots();
   const missing = [];
   Object.keys(preset.slots || {}).forEach((slotKey) => {
@@ -3267,11 +3290,11 @@ async function applyWclPreset(entryIndex, presetIndex) {
     const wclSlot = preset.slots[slotKey];
     if (!wclSlot || !wclSlot.itemId) return;
     const base = state.buildItemMap[wclSlot.itemId];
-    const usable = base && itemSupportsSpec(base, build.specId) ? base : null;
+    const usable = base && itemSupportsSpec(base, targetSpecId) ? base : null;
     const item = wclApplySlotOverrides(usable, wclSlot, slotKey);
     if (item.wclMissingLocalItem) missing.push(slotKey);
     if (slotKey === 'weapon' || slotKey === 'weapon2') {
-      const result = applyWeaponSelection(slots, build.specId, slotKey, item);
+      const result = applyWeaponSelection(slots, targetSpecId, slotKey, item);
       if (!result.ok) {
         missing.push(slotKey);
         return;
@@ -3283,6 +3306,7 @@ async function applyWclPreset(entryIndex, presetIndex) {
   });
 
   const updated = updateBuild(build.id, {
+    ...(specChanged ? { specId: targetSpecId, specName: targetSpecName } : {}),
     slots,
     wclPreset: {
       name: preset.name,
@@ -3294,6 +3318,10 @@ async function applyWclPreset(entryIndex, presetIndex) {
   });
   if (updated) state.buildId = updated.id;
   state.wcl.open = false;
+  if (specChanged) {
+    // URL 对齐目标专精，保证刷新/分享落到正确的专精页面。
+    history.replaceState(null, '', buildSpecRouteHref(build.classKey, targetSpecId));
+  }
   render();
   showToast(missing.length ? t('wclAppliedMissing', { count: missing.length }) : t('wclApplied'));
 }
@@ -3304,6 +3332,12 @@ function renderWclPanel() {
   const index = state.wcl.index;
   const updated = index?.generatedAt ? formatWclUpdatedAt(index.generatedAt) : '';
   const levelList = wclContentList();
+  const specs = state.buildClassData?.specs || [];
+  const specPills = specs.length > 1 ? `
+    <div class="wcl-spec-row">
+      ${specs.map((spec) => `<button class="wcl-spec-pill ${spec.id === state.wcl.specId ? 'on' : ''}" data-action="wclSpec" data-spec-id="${spec.id}">${escapeHtml(specLabel(spec))}</button>`).join('')}
+    </div>
+  ` : '';
   return `
     <div class="modal-mask" data-action="closeWcl">
       <section class="overlay-panel wcl-panel" data-stop>
@@ -3314,6 +3348,7 @@ function renderWclPanel() {
           </div>
           <button class="panel-x" data-action="closeWcl"></button>
         </header>
+        ${specPills}
         ${updated ? `<p class="wcl-updated">${escapeHtml(updated)}</p>` : ''}
         ${index ? `
           <div class="wcl-tab-row">
@@ -3612,6 +3647,7 @@ function handleClick(event) {
   }
   if (action === 'openWcl') openWcl();
   if (action === 'closeWcl') closeWcl();
+  if (action === 'wclSpec') selectWclSpec(Number(target.dataset.specId));
   if (action === 'wclContent') selectWclContent(target.dataset.content);
   if (action === 'wclLevel') { if (target.dataset.file !== state.wcl.fileKey) loadWclFileInto(target.dataset.file); }
   if (action === 'wclDungeon') { state.wcl.dungeonId = target.dataset.id; render(); }

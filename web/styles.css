@@ -2549,6 +2549,35 @@ button {
   color: #7de3ff;
   font-weight: 700;
 }
+.wcl-spec-row {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 12px;
+  padding: 0 24px;
+}
+.wcl-spec-pill {
+  flex: 0 0 auto;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  color: #cfc4a8;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 168, 75, 0.35);
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.wcl-spec-pill:hover {
+  border-color: var(--gold-2);
+}
+.wcl-spec-pill.on {
+  color: #1a1410;
+  background: var(--gold-2);
+  border-color: var(--gold-2);
+}
 .wcl-tab-row {
   flex: 0 0 auto;
   display: flex;

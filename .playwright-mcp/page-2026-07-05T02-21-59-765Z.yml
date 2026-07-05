@@ -1,0 +1,112 @@
+- main [ref=e3]:
+  - generic [ref=e4]:
+    - link "Back to home" [ref=e5] [cursor=pointer]:
+      - /url: /
+      - text: ‹
+    - strong [ref=e7]: 魔兽世界配装模拟器
+    - generic [ref=e8]:
+      - generic [ref=e9]:
+        - generic [ref=e10]: 语言
+        - combobox "语言" [ref=e11]:
+          - option "简体中文" [selected]
+          - option "繁體中文"
+          - option "English US"
+          - option "English UK"
+          - option "Deutsch"
+          - option "Français"
+          - option "Español EU"
+          - option "Español LATAM"
+          - option "Português BR"
+          - option "한국어"
+          - option "Italiano"
+          - option "Русский"
+      - button "方案列表" [ref=e12] [cursor=pointer]
+  - region "魔兽世界配装模拟器" [ref=e13]:
+    - generic [ref=e14]:
+      - paragraph [ref=e15]: SeasonLoot · 中文验收版
+      - heading "魔兽世界配装模拟器" [level=1] [ref=e16]
+      - paragraph [ref=e17]: 先选择配装模拟或装备查询，再按职业进入对应流程；配装页支持装备槽、属性统计、保存方案和分享链接。
+      - generic [ref=e18]:
+        - link "开始配装模拟" [ref=e19] [cursor=pointer]:
+          - /url: /build/
+        - link "装备查询" [ref=e20] [cursor=pointer]:
+          - /url: /equipment/
+        - link "排行榜配装" [ref=e21] [cursor=pointer]:
+          - /url: /build/#wcl=1
+        - button "打开收藏夹" [ref=e22] [cursor=pointer]: 打开收藏夹
+    - generic "当前数据概览" [ref=e24]:
+      - generic [ref=e25]:
+        - strong [ref=e26]: "13"
+        - generic [ref=e27]: 职业装备池
+      - generic [ref=e28]:
+        - strong [ref=e29]: "2221"
+        - generic [ref=e30]: 当前赛季装备
+      - generic [ref=e31]:
+        - strong [ref=e32]: 12.0.7
+        - generic [ref=e33]: 对应游戏版本
+  - navigation "魔兽世界工具切换" [ref=e34]:
+    - link "装备查询 筛装备 · 看来源" [ref=e35] [cursor=pointer]:
+      - /url: /equipment/
+      - generic [ref=e36]: 装备查询
+      - generic [ref=e37]: 筛装备 · 看来源
+    - link "配装模拟 组槽位 · 算属性" [ref=e38] [cursor=pointer]:
+      - /url: /build/
+      - generic [ref=e39]: 配装模拟
+      - generic [ref=e40]: 组槽位 · 算属性
+  - generic [ref=e41]: ✧ 选择职业开始配装 ✧
+  - region "选择职业开始配装" [ref=e42]:
+    - generic [ref=e43]:
+      - link "战士 169" [ref=e44] [cursor=pointer]:
+        - /url: /build/warrior/71/
+        - generic [ref=e45]: 战士
+        - generic [ref=e46]: "169"
+      - link "圣骑士 186" [ref=e47] [cursor=pointer]:
+        - /url: /build/paladin/65/
+        - generic [ref=e48]: 圣骑士
+        - generic [ref=e49]: "186"
+      - link "猎人 164" [ref=e50] [cursor=pointer]:
+        - /url: /build/hunter/253/
+        - generic [ref=e51]: 猎人
+        - generic [ref=e52]: "164"
+      - link "盗贼 146" [ref=e53] [cursor=pointer]:
+        - /url: /build/rogue/259/
+        - generic [ref=e54]: 盗贼
+        - generic [ref=e55]: "146"
+    - generic [ref=e56]:
+      - link "牧师 169" [ref=e57] [cursor=pointer]:
+        - /url: /build/priest/256/
+        - generic [ref=e58]: 牧师
+        - generic [ref=e59]: "169"
+      - link "死亡骑士 161" [ref=e60] [cursor=pointer]:
+        - /url: /build/deathknight/250/
+        - generic [ref=e61]: 死亡骑士
+        - generic [ref=e62]: "161"
+      - link "萨满祭司 185" [ref=e63] [cursor=pointer]:
+        - /url: /build/shaman/262/
+        - generic [ref=e64]: 萨满祭司
+        - generic [ref=e65]: "185"
+      - link "法师 162" [ref=e66] [cursor=pointer]:
+        - /url: /build/mage/62/
+        - generic [ref=e67]: 法师
+        - generic [ref=e68]: "162"
+      - link "术士 162" [ref=e69] [cursor=pointer]:
+        - /url: /build/warlock/265/
+        - generic [ref=e70]: 术士
+        - generic [ref=e71]: "162"
+    - generic [ref=e72]:
+      - link "武僧 194" [ref=e73] [cursor=pointer]:
+        - /url: /build/monk/268/
+        - generic [ref=e74]: 武僧
+        - generic [ref=e75]: "194"
+      - link "德鲁伊 191" [ref=e76] [cursor=pointer]:
+        - /url: /build/druid/102/
+        - generic [ref=e77]: 德鲁伊
+        - generic [ref=e78]: "191"
+      - link "恶魔猎手 161" [ref=e79] [cursor=pointer]:
+        - /url: /build/demonhunter/577/
+        - generic [ref=e80]: 恶魔猎手
+        - generic [ref=e81]: "161"
+      - link "唤魔师 171" [ref=e82] [cursor=pointer]:
+        - /url: /build/evoker/1467/
+        - generic [ref=e83]: 唤魔师
+        - generic [ref=e84]: "171"

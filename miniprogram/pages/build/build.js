@@ -99,6 +99,7 @@ Page({
     showBuildList: false,
     buildList: [],
     showWclPresets: false,
+    wclSpecId: null,
     wclPresetIndex: null,
     wclPresetUpdatedText: '',
     wclContentTabs: [],
@@ -308,13 +309,27 @@ Page({
   },
 
   openWclPresets: function () {
-    var self = this;
     this.setData({
       showWclPresets: true,
       pageStyle: 'overflow:hidden;height:100vh;',
       wclPresetLoading: true,
+      wclSpecId: this.data.selectedSpecId,
     });
-    loadWclPresetIndex(this.data.selectedClassKey, this.data.selectedSpecId).then(function (index) {
+    this.loadWclIndexForSpec(this.data.selectedSpecId);
+  },
+
+  // 面板内切专精(与配装专精联动): 换该专精的排行榜; 套用时会直接切到该专精
+  onWclSpecTap: function (e) {
+    var specId = Number(e.currentTarget.dataset.specId);
+    if (specId === this.data.wclSpecId) return;
+    this.setData({ wclSpecId: specId, wclPresetLoading: true });
+    this.loadWclIndexForSpec(specId);
+  },
+
+  loadWclIndexForSpec: function (specId) {
+    var self = this;
+    loadWclPresetIndex(this.data.selectedClassKey, specId).then(function (index) {
+      if (self.data.wclSpecId !== specId) return; // 加载期间又切了专精
       var contentTabs = self.buildWclContentTabs(index);
       if (!index || !contentTabs.length) {
         self.setData({
@@ -345,6 +360,7 @@ Page({
       });
       self.loadWclPresetFile(first.fileKey, first.name);
     }).catch(function () {
+      if (self.data.wclSpecId !== specId) return;
       self.setData({ wclPresetLoading: false });
       wx.showToast({ title: '排行榜配装加载失败', icon: 'none' });
     });
@@ -432,7 +448,7 @@ Page({
       wclPresetAllEntries: [],
       wclPresetEntries: [],
     });
-    loadWclPresetFile(this.data.selectedClassKey, this.data.selectedSpecId, fileKey).then(function (content) {
+    loadWclPresetFile(this.data.selectedClassKey, this.data.wclSpecId, fileKey).then(function (content) {
       var entries = self.normalizeWclPresetEntries(content && Array.isArray(content.entries) ? content.entries : []);
       var dungeonFilters = self.buildWclDungeonFilters(entries);
       self.setData({
@@ -531,13 +547,20 @@ Page({
 
   applyWclPreset: function (preset) {
     var self = this;
+    // 面板选的专精(可能与当前配装专精不同): 套用时直接切到该专精
+    var targetSpecId = this.data.wclSpecId || this.data.selectedSpecId;
+    var targetSpec = (this.data.specs || []).filter(function (s) { return s.id === targetSpecId; })[0];
+    var targetSpecName = targetSpec ? targetSpec.name : this.data.selectedSpecName;
     wx.showLoading({ title: '套用中' });
     loadClassData(this.data.selectedClassKey).then(function (classData) {
+      if (targetSpecId !== self.data.selectedSpecId) {
+        updateBuild(self.data.currentBuildId, { specId: targetSpecId, specName: targetSpecName, wclPreset: null });
+      }
       var result = applyWclPresetToBuild(
         self.data.currentBuildId,
         preset,
         classData,
-        self.data.selectedSpecId,
+        targetSpecId,
         self.data.slots
       );
       wx.hideLoading();
@@ -546,10 +569,12 @@ Page({
         return;
       }
       self.setData({
+        selectedSpecId: targetSpecId,
+        selectedSpecName: targetSpecName,
         slots: result.build.slots,
         summary: result.build.summary,
         currentWclPresetInfo: result.build.wclPreset || null,
-        bottomSlots: getWeaponSlotsForSpec(self.data.selectedSpecId, result.build.slots),
+        bottomSlots: getWeaponSlotsForSpec(targetSpecId, result.build.slots),
         showWclPresets: false,
         pageStyle: '',
       });

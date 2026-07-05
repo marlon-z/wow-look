@@ -887,6 +887,43 @@
   font-weight: 700;
 }
 
+/* 面板内专精切换(按钮式, 非下拉) */
+.wcl-head-spec {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10rpx;
+  margin-top: 2rpx;
+}
+
+.wcl-head-class {
+  font-size: 22rpx;
+  color: var(--text-soft);
+  font-weight: 700;
+  margin-right: 2rpx;
+}
+
+.wcl-spec-pill {
+  padding: 6rpx 18rpx;
+  border-radius: 99rpx;
+  font-size: 22rpx;
+  font-weight: 700;
+  color: var(--text-soft);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1rpx solid rgba(255, 255, 255, 0.08);
+  transition: all 0.15s;
+}
+
+.wcl-spec-pill.active {
+  color: #1a1410;
+  background: #d4a84b;
+  border-color: #d4a84b;
+}
+
+.wcl-spec-pill:active {
+  transform: scale(0.95);
+}
+
 .wcl-head-updated {
   font-size: 20rpx;
   color: #7de3ff;

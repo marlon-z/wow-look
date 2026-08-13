@@ -12,13 +12,14 @@
     <view wx:if="{{favoriteCount}}" class="favorite-entry-count">{{favoriteCount}}</view>
   </view>
 
+  <!-- Hero Header Section (Variant 4 Split Matrix HUD) -->
   <view class="header-section">
     <view class="home-logo-4b">
       <view class="home-logo-4b-badge">同步更新到正式服12.1</view>
       <view class="home-logo-4b-title">
         <text class="home-logo-4b-gold">艾泽</text>
         <text class="home-logo-4b-divider">|</text>
-        <text class="home-logo-4b-copper">配装</text>
+        <text class="home-logo-4b-silver">配装</text>
       </view>
       <text class="home-logo-4b-subtitle">全职业 · 模拟配装 · 来源速查</text>
     </view>

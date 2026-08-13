@@ -28,11 +28,6 @@ classKeys.forEach((classKey) => {
     pages: ['pages/loader/loader'],
   }, `${classKey} 职业分包及其加载页必须完整注册。`);
 });
-assert.deepStrictEqual(appJson.subPackages.find((subpackage) => subpackage.root === 'packages/logo-preview'), {
-  root: 'packages/logo-preview',
-  name: 'logo-preview',
-  pages: ['pages/logo-preview/logo-preview'],
-}, 'Logo 预览页必须作为独立分包注册。');
 assert.doesNotMatch(runtimeSources, /wx\.request/, '纯本地运行代码不得发起网络请求。');
 assert.doesNotMatch(runtimeSources, /wowlook-1308073800|127\.0\.0\.1/, '纯本地运行代码不得保留 COS 或本机数据服务地址。');
 

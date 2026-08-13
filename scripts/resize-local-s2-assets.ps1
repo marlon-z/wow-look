@@ -16,10 +16,10 @@ function Save-ScaledJpeg([string]$Source, [string]$Target, [int]$MaxWidth, [long
   Ensure-ParentDirectory $Target
   $sourceImage = [System.Drawing.Image]::FromFile($Source)
   try {
-    $scale = [Math]::Min(1, $MaxWidth / [double]$sourceImage.Width)
+    $scale = [Math]::Min(1.0, [double]$MaxWidth / [double]$sourceImage.Width)
     $width = [Math]::Max(1, [int][Math]::Round($sourceImage.Width * $scale))
     $height = [Math]::Max(1, [int][Math]::Round($sourceImage.Height * $scale))
-    $bitmap = New-Object System.Drawing.Bitmap $width, $height, ([System.Drawing.Imaging.PixelFormat]::Format24bppRgb)
+    $bitmap = [System.Drawing.Bitmap]::new([int]$width, [int]$height, [System.Drawing.Imaging.PixelFormat]::Format24bppRgb)
     try {
       $graphics = [System.Drawing.Graphics]::FromImage($bitmap)
       try {
@@ -50,13 +50,14 @@ function Save-ScaledPng([string]$Source, [string]$Target, [int]$MaxWidth) {
   Ensure-ParentDirectory $Target
   $sourceImage = [System.Drawing.Image]::FromFile($Source)
   try {
-    $scale = [Math]::Min(1, $MaxWidth / [double]$sourceImage.Width)
+    $scale = [Math]::Min(1.0, [double]$MaxWidth / [double]$sourceImage.Width)
     $width = [Math]::Max(1, [int][Math]::Round($sourceImage.Width * $scale))
     $height = [Math]::Max(1, [int][Math]::Round($sourceImage.Height * $scale))
-    $bitmap = New-Object System.Drawing.Bitmap $width, $height, ([System.Drawing.Imaging.PixelFormat]::Format32bppArgb)
+    $bitmap = [System.Drawing.Bitmap]::new([int]$width, [int]$height)
     try {
       $graphics = [System.Drawing.Graphics]::FromImage($bitmap)
       try {
+        $graphics.Clear([System.Drawing.Color]::Transparent)
         $graphics.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
         $graphics.CompositingQuality = [System.Drawing.Drawing2D.CompositingQuality]::HighQuality
         $graphics.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::HighQuality

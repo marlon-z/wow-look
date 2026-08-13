@@ -10,7 +10,7 @@ const classes = [
   'mage', 'warlock', 'monk', 'druid', 'demonhunter', 'evoker',
 ];
 const PACKAGE_LIMIT = 2 * 1024 * 1024;
-const MAIN_ASSET_LIMIT = 1200 * 1024;
+const MAIN_PACKAGE_LIMIT = 2 * 1024 * 1024;
 
 function flattenItems(instances) {
   return (instances || []).flatMap((instance) => (instance.encounters || []).flatMap((encounter) => encounter.items || []));
@@ -62,7 +62,12 @@ assert.strictEqual(overview.releaseStatus, 'finalized');
 
 const mainAssetRoot = path.join(root, 'miniprogram', 'assets');
 const mainAssetSize = packageSize(mainAssetRoot);
-assert.ok(mainAssetSize < MAIN_ASSET_LIMIT, '主包本地资源必须保留足够的 2 MiB 代码空间。');
+const mainProgramSize = fs.readdirSync(path.join(root, 'miniprogram'), { recursive: true })
+  .map((relativePath) => path.join(root, 'miniprogram', relativePath))
+  .filter((filePath) => fs.statSync(filePath).isFile() && !filePath.includes(`${path.sep}packages${path.sep}`))
+  .reduce((total, filePath) => total + fs.statSync(filePath).size, 0);
+assert.ok(mainAssetSize < MAIN_PACKAGE_LIMIT, '主包资源不得超过 2 MiB。');
+assert.ok(mainProgramSize < MAIN_PACKAGE_LIMIT, '主包（代码与资源）不得超过 2 MiB。');
 classes.forEach((classKey) => {
   const assetCode = require(path.join(root, 'miniprogram', 'utils', 'class-data.js')).getClassMeta(classKey).assetCode;
   assert.ok(fs.existsSync(path.join(mainAssetRoot, 'classes', 'banner', `${assetCode}.jpg`)), `${classKey} 横幅必须本地存在。`);

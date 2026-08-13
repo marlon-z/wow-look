@@ -63,8 +63,9 @@ assert.match(core, /StartAutomaticCapture/);
 assert.match(core, /SLASH_WOWLOOKCRAFTEXPORT1/);
 assert.match(core, /command == "preflight"/);
 assert.match(core, /final_export_blocked_until_manifest_finalized/);
-assert.match(core, /buildNumber < config.minimumBuild/);
-assert.doesNotMatch(core, /buildNumber\) ~= tonumber\(config\.testedBuild\)/);
+assert.match(core, /tonumber\(buildNumber\) < tonumber\(config\.minimumBuild\)/);
+assert.match(core, /buildNumber\) ~= tonumber\(config\.testedBuild\)/);
+assert.match(core, /将继续采集并记录实际 Build/);
 
 for (const command of ['scan', 'capture', 'status', 'reset', 'help']) {
   assert.match(core, new RegExp(`command == "${command}"`));

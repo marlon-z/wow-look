@@ -21,5 +21,12 @@ WoWLookSeasonConfig = {
         "红玉新生法池",
         "塞塔里斯神庙",
     },
+    -- Client truth from Adventure Guide -> 本赛季团队副本. The broader expansion
+    -- tier contains additional old raids, so retain only these three cards.
+    preflightRaidNames = {
+        "至暗之夜",
+        "潮鸣石窟",
+        "烈毒之渊",
+    },
     finalRules = nil,
 }

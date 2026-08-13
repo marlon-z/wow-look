@@ -68,7 +68,7 @@ assert.match(core, /final_export_blocked_until_manifest_finalized/);
 assert.match(core, /tonumber\(buildNumber\) < tonumber\(config\.minimumBuild\)/);
 assert.match(core, /buildNumber\) ~= tonumber\(config\.testedBuild\)/);
 assert.match(core, /将继续采集并记录实际 Build/);
-assert.match(core, /正在等待制造订单目录/);
+assert.match(scanner, /正在等待制造订单目录/);
 assert.match(core, /预检扫描已完成/);
 assert.match(core, /扫描等待超时/);
 

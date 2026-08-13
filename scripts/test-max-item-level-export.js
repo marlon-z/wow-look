@@ -82,7 +82,10 @@ function runStaticChecks() {
   assert(/seasonName\s*=\s*"Midnight Season 2"/.test(config), '普通装备插件尚未切换到 Midnight S2。');
   assert(/testedBuild\s*=\s*69273/.test(config), '普通装备插件未锁定客户端 Build 69273。');
   assert(/releaseStatus\s*=\s*"preflight_required"/.test(config), '普通装备插件必须先处于 S2 预检状态。');
+  assert(/preflightDungeonNames\s*=\s*\{/.test(config), '普通装备插件缺少 S2 冒险指南副本回退范围。');
+  assert(/"毒牙祭坛"/.test(config) && /"塞塔里斯神庙"/.test(config), 'S2 冒险指南副本范围不完整。');
   assert(addon.includes('local function FinalizePreflight'), '普通装备插件缺少预检导出构造函数。');
+  assert(addon.includes('DetectConfiguredPreflightDungeons'), '普通装备插件没有新版钥石 API 的预检回退。');
   assert(addon.includes('cmd == "preflight"'), '普通装备插件缺少 /wowlook preflight 命令。');
   assert(addon.includes('final_export_blocked_until_manifest_finalized'), '普通装备插件没有阻止未确认规则下的最终导出。');
 

@@ -262,7 +262,34 @@ local function BuildJournalIndex()
     return byName
 end
 
-local function DetectSeasonDungeons()
+local function DetectConfiguredPreflightDungeons(config, journalIndex)
+    local detected = {}
+    local unresolved = {}
+    local seen = {}
+    for order, expectedName in ipairs(config.preflightDungeonNames or {}) do
+        local match = journalIndex[NormalizeName(expectedName)]
+        if match and not seen[match.id] then
+            seen[match.id] = true
+            detected[#detected + 1] = {
+                id = match.id,
+                name = match.name,
+                mapId = nil,
+                order = order,
+                isRaid = false,
+                difficulty = DUNGEON_DIFFICULTY,
+                discoverySource = "configured_preflight_journal",
+            }
+        else
+            unresolved[#unresolved + 1] = {
+                name = expectedName,
+                reason = "adventure_guide_instance_not_found",
+            }
+        end
+    end
+    return detected, unresolved
+end
+
+local function DetectSeasonDungeons(config)
     if not (C_ChallengeMode and C_ChallengeMode.GetMapTable and C_ChallengeMode.GetMapUIInfo) then
         error("客户端未提供 ChallengeMode API。")
     end
@@ -294,7 +321,15 @@ local function DetectSeasonDungeons()
         end
     end
 
-    return detected, unresolved
+    if #detected > 0 then
+        return detected, unresolved, "challenge_mode"
+    end
+
+    local fallbackDetected, fallbackUnresolved = DetectConfiguredPreflightDungeons(config or {}, journalIndex)
+    if #fallbackDetected > 0 then
+        return fallbackDetected, fallbackUnresolved, "configured_preflight_journal"
+    end
+    return detected, unresolved, "challenge_mode_empty"
 end
 
 local function CountLootForInstance(instanceId, difficultyId)
@@ -1420,8 +1455,8 @@ local function FillItemDetails(itemsById, encounterCache, config)
     return captured, missing, maxStats
 end
 
-local function BuildExportData()
-    local dungeons, unresolvedDungeons = DetectSeasonDungeons()
+local function BuildExportData(config)
+    local dungeons, unresolvedDungeons, dungeonDiscoverySource = DetectSeasonDungeons(config)
     if #dungeons == 0 then
         error("未识别到当前赛季地下城。")
     end
@@ -1468,6 +1503,7 @@ local function BuildExportData()
         dungeonMeta = {
             instances = dungeons,
             unresolved = unresolvedDungeons,
+            discoverySource = dungeonDiscoverySource,
         },
         raidMeta = {
             instances = raids,
@@ -1672,7 +1708,7 @@ local function DoExport(mode)
     end
 
     Print(mode == "preflight" and "开始 S2 预检采集 ..." or "开始 S2 最终导出 ...")
-    local ok, scan = pcall(BuildExportData)
+    local ok, scan = pcall(BuildExportData, config)
     if not ok then
         WoWLookExport3DB.lastError = scan
         PrintWarn("扫描失败: " .. tostring(scan))

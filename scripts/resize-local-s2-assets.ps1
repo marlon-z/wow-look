@@ -1,7 +1,6 @@
 param(
   [Parameter(Mandatory = $true)][string]$SourceRoot,
-  [Parameter(Mandatory = $true)][string]$TargetRoot,
-  [Parameter(Mandatory = $true)][string]$PackageRoot
+  [Parameter(Mandatory = $true)][string]$TargetRoot
 )
 
 Add-Type -AssemblyName System.Drawing
@@ -76,21 +75,15 @@ function Save-ScaledPng([string]$Source, [string]$Target, [int]$MaxWidth) {
 }
 
 Get-ChildItem (Join-Path $SourceRoot 'zhiye\banner') -Filter '*.png' -File | ForEach-Object {
-  Save-ScaledJpeg $_.FullName (Join-Path $TargetRoot ("classes\banner\{0}.jpg" -f $_.BaseName)) 320 56
+  Save-ScaledJpeg $_.FullName (Join-Path $TargetRoot ("classes\banner\{0}.jpg" -f $_.BaseName)) 220 48
 }
 
 Get-ChildItem (Join-Path $SourceRoot 'zhiye\emblem') -Filter '*.png' -File | ForEach-Object {
-  Save-ScaledPng $_.FullName (Join-Path $TargetRoot ("classes\emblem\{0}.png" -f $_.BaseName)) 60
+  Save-ScaledPng $_.FullName (Join-Path $TargetRoot ("classes\emblem\{0}.png" -f $_.BaseName)) 44
 }
 
-Save-ScaledPng (Join-Path $SourceRoot 'public\logo.png') (Join-Path $TargetRoot 'public\logo.png') 330
+Save-ScaledPng (Join-Path $SourceRoot 'public\logo.png') (Join-Path $TargetRoot 'public\logo.png') 220
 
-# The quality scanner limits images/audio inside every code package to 200 KiB.
-# Equipment icons render at 52 CSS px at most, so 40 px JPEGs preserve the
-# visual treatment while keeping even the largest class package under the cap.
-Get-ChildItem -Path $PackageRoot -Recurse -Filter '*.jpg' -File |
-  Where-Object { $_.FullName -match '[\\/]assets[\\/]icons[\\/]' } |
-  ForEach-Object {
-    $source = Join-Path $SourceRoot ("icons\\{0}" -f $_.Name)
-    Save-ScaledJpeg $source $_.FullName 32 72
-  }
+# Equipment icons are generated as standalone WebP files by
+# convert-local-s2-icons.js. Keep this script limited to the non-icon class
+# visuals so the generator has a single, deterministic owner for each asset.

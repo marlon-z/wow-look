@@ -92,7 +92,7 @@
             data-slot-name="{{item.name}}"
           >
             <view class="slot-icon-wrap">
-              <image wx:if="{{slots[item.key].iconAsset}}" class="slot-icon-img" src="{{slots[item.key].iconAsset}}" mode="aspectFill" />
+                  <image wx:if="{{slots[item.key].iconAsset}}" class="slot-icon-img" src="{{slots[item.key].iconAsset}}" mode="aspectFill" webp="{{true}}" />
               <text wx:elif="{{slots[item.key]}}" class="slot-icon-letter">{{slots[item.key].iconText}}</text>
               <text wx:else class="slot-placeholder-text">{{item.name}}</text>
               <view wx:if="{{slots[item.key]}}" class="slot-icon-border"></view>
@@ -122,7 +122,7 @@
           data-slot-name="{{item.name}}"
         >
           <view class="slot-icon-wrap">
-            <image wx:if="{{slots[item.key].iconAsset}}" class="slot-icon-img" src="{{slots[item.key].iconAsset}}" mode="aspectFill" />
+                <image wx:if="{{slots[item.key].iconAsset}}" class="slot-icon-img" src="{{slots[item.key].iconAsset}}" mode="aspectFill" webp="{{true}}" />
             <text wx:elif="{{slots[item.key]}}" class="slot-icon-letter">{{slots[item.key].iconText}}</text>
             <text wx:else class="slot-placeholder-text">{{item.name}}</text>
             <view wx:if="{{slots[item.key]}}" class="slot-icon-border"></view>
@@ -154,7 +154,7 @@
         data-disabled="{{item.disabled}}"
       >
         <view class="slot-icon-wrap">
-          <image wx:if="{{slots[item.key].iconAsset}}" class="slot-icon-img" src="{{slots[item.key].iconAsset}}" mode="aspectFill" />
+                <image wx:if="{{slots[item.key].iconAsset}}" class="slot-icon-img" src="{{slots[item.key].iconAsset}}" mode="aspectFill" webp="{{true}}" />
           <text wx:elif="{{slots[item.key]}}" class="slot-icon-letter">{{slots[item.key].iconText}}</text>
           <text wx:else class="slot-placeholder-text">{{item.name}}</text>
           <view wx:if="{{slots[item.key]}}" class="slot-icon-border"></view>

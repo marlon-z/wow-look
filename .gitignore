@@ -5,6 +5,9 @@ web/.playwright-mcp/
 Thumbs.db
 .cache/
 tmp/
+node_modules/
+.tooling/
+.tmp-webp-test/
 WoWLookExport3.lua
 WoWLookExport3 copy.lua
 WoWLookTierExport.lua

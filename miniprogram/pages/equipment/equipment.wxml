@@ -226,7 +226,7 @@
             data-item-id="{{equip.id}}"
           >
             <view class="item-icon-wrap">
-              <image wx:if="{{equip.iconAsset}}" class="item-icon-img" mode="aspectFill" src="{{equip.iconAsset}}" />
+              <image wx:if="{{equip.iconAsset}}" class="item-icon-img" mode="aspectFill" src="{{equip.iconAsset}}" webp="{{true}}" />
               <text wx:else class="item-icon-letter">{{equip.iconText}}</text>
               <view class="icon-border"></view>
             </view>
@@ -353,7 +353,7 @@
               data-class-name="{{favorite.className}}"
             >
               <view class="favorite-icon-wrap">
-                <image wx:if="{{favorite.iconAsset}}" class="favorite-icon-img" src="{{favorite.iconAsset}}" mode="aspectFill" />
+              <image wx:if="{{favorite.iconAsset}}" class="favorite-icon-img" src="{{favorite.iconAsset}}" mode="aspectFill" webp="{{true}}" />
                 <text wx:else class="favorite-icon-letter">{{favorite.iconText}}</text>
                 <view class="favorite-icon-border"></view>
               </view>
@@ -417,7 +417,7 @@
             data-key="{{item.key}}"
           >
             <view class="favorite-icon-wrap">
-              <image wx:if="{{item.iconAsset}}" class="favorite-icon-img" src="{{item.iconAsset}}" mode="aspectFill" />
+          <image wx:if="{{item.iconAsset}}" class="favorite-icon-img" src="{{item.iconAsset}}" mode="aspectFill" webp="{{true}}" />
               <text wx:else class="favorite-icon-letter">{{item.iconText}}</text>
               <view class="favorite-icon-border"></view>
             </view>

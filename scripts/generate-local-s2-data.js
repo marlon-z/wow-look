@@ -3,8 +3,9 @@
  *
  * Source files are retained untouched in cos-upload/ as export evidence. This
  * script writes only fields the mini-program renders, then creates one data
- * subpackage per class and copies the assets those records reference into the
- * same package. This keeps the main bundle below WeChat's audit limits.
+ * subpackage per class and generates each rendered icon once in the main
+ * package as a compact WebP thumbnail. This keeps WeChat's aggregate media
+ * audit under its 200 KiB limit without changing icon-to-item mapping.
  */
 const fs = require('fs');
 const path = require('path');
@@ -50,26 +51,16 @@ function writeModule(filePath, value) {
   fs.writeFileSync(filePath, `'use strict';\n\nmodule.exports = ${JSON.stringify(value)};\n`, 'utf8');
 }
 
-function copyFile(sourcePath, targetPath) {
-  ensureDirectory(path.dirname(targetPath));
-  fs.copyFileSync(sourcePath, targetPath);
-}
-
-function localAssetPath(sourceAssetPath) {
-  return sourceAssetPath;
-}
-
-function trimItem(item, classKey) {
+function trimItem(item) {
   const { tooltipRaw, dropVersion, captureStatus, ...runtimeItem } = item;
-  const sourceIcon = localAssetPath(runtimeItem.iconAsset || '');
-  const iconName = path.basename(sourceIcon);
+  const iconName = path.basename(runtimeItem.iconAsset || '');
   return {
     ...runtimeItem,
-    iconAsset: iconName ? `/packages/class-${classKey}/assets/icons/${iconName}` : '',
+    iconAsset: iconName ? `/assets/icons/${path.parse(iconName).name}.webp` : '',
   };
 }
 
-function trimInstances(instances, classKey) {
+function trimInstances(instances) {
   return (instances || []).map((instance) => ({
     id: instance.id,
     name: instance.name,
@@ -80,12 +71,12 @@ function trimInstances(instances, classKey) {
       id: encounter.id,
       name: encounter.name,
       order: encounter.order,
-      items: (encounter.items || []).map((item) => trimItem(item, classKey)),
+      items: (encounter.items || []).map(trimItem),
     })),
   }));
 }
 
-function buildClassData(source, classKey) {
+function buildClassData(source) {
   return {
     version: source.version,
     dataVersion: source.dataVersion,
@@ -97,7 +88,7 @@ function buildClassData(source, classKey) {
     class: source.class,
     specs: source.specs,
     meta: source.meta,
-    instances: trimInstances(source.instances, classKey),
+    instances: trimInstances(source.instances),
   };
 }
 
@@ -134,10 +125,11 @@ function main() {
   const overview = JSON.parse(fs.readFileSync(path.join(SOURCE_ROOT, 'overview.json'), 'utf8'));
   writeModule(path.join(LOCAL_DATA_ROOT, 'overview.js'), overview);
 
+  const iconSourceNames = new Set();
   const packageReport = [];
   CLASS_LIST.forEach(({ key }) => {
     const source = JSON.parse(fs.readFileSync(path.join(SOURCE_ROOT, `${key}.json`), 'utf8'));
-    const classData = buildClassData(source, key);
+    const classData = buildClassData(source);
     const packageDirectory = path.join(PACKAGE_ROOT, `class-${key}`);
     const dataPath = path.join(packageDirectory, 'data', `${key}.js`);
     writeModule(dataPath, classData);
@@ -151,12 +143,25 @@ function main() {
     fs.writeFileSync(path.join(packageDirectory, 'pages', 'loader', 'loader.wxml'), '<view></view>\n', 'utf8');
     fs.writeFileSync(path.join(packageDirectory, 'pages', 'loader', 'loader.wxss'), '', 'utf8');
 
-    collectIconAssets(classData).forEach((assetPath) => {
-      const sourcePath = path.join(SOURCE_ASSET_ROOT, 'icons', path.basename(assetPath));
-      const targetPath = path.join(packageDirectory, 'assets', 'icons', path.basename(assetPath));
-      copyFile(sourcePath, targetPath);
+    collectIconAssets(source).forEach((assetPath) => {
+      iconSourceNames.add(path.basename(assetPath));
     });
   });
+
+  const iconManifestPath = path.join(ROOT, 'tmp', 'local-s2-icon-manifest.json');
+  ensureDirectory(path.dirname(iconManifestPath));
+  fs.writeFileSync(iconManifestPath, `${JSON.stringify([...iconSourceNames].sort(), null, 2)}\n`, 'utf8');
+
+  childProcess.execFileSync(
+    process.execPath,
+    [
+      path.join(__dirname, 'convert-local-s2-icons.js'),
+      '--source-root', path.join(SOURCE_ASSET_ROOT, 'icons'),
+      '--target-root', path.join(LOCAL_ASSET_ROOT, 'icons'),
+      '--manifest', iconManifestPath,
+    ],
+    { stdio: 'inherit' }
+  );
 
   childProcess.execFileSync(
     'powershell.exe',
@@ -165,7 +170,6 @@ function main() {
       path.join(__dirname, 'resize-local-s2-assets.ps1'),
       '-SourceRoot', SOURCE_ASSET_ROOT,
       '-TargetRoot', LOCAL_ASSET_ROOT,
-      '-PackageRoot', PACKAGE_ROOT,
     ],
     { stdio: 'inherit' }
   );
@@ -184,7 +188,7 @@ function main() {
     `${JSON.stringify({ dataVersion: overview.dataVersion, packages: packageReport }, null, 2)}\n`,
     'utf8'
   );
-  console.log(`Generated ${packageReport.length} local S2 class packages with package-local icons.`);
+  console.log(`Generated ${packageReport.length} local S2 class packages and ${iconSourceNames.size} shared local WebP icons.`);
 }
 
 main();

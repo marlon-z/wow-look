@@ -4,7 +4,7 @@
 
 **Goal:** Package all required 12.1 S2 runtime data and assets inside the mini-program without changing current user-visible behavior.
 
-**Architecture:** A deterministic Node generator trims only non-runtime capture evidence, writes thirteen per-class data subpackages, and places each class's rendered equipment icons beside its data. `class-data` retains its Promise interface but resolves local modules through `wx.loadSubPackage` and `require.async` instead of `wx.request`.
+**Architecture:** A deterministic Node generator trims only non-runtime capture evidence, writes thirteen per-class data subpackages, and creates one independent compact WebP thumbnail per rendered equipment icon in the main package. `class-data` retains its Promise interface but resolves local modules through `wx.loadSubPackage` and `require.async` instead of `wx.request`.
 
 **Tech Stack:** Node.js generation/assertion scripts; WeChat mini-program JavaScript, JSON, WXML assets, and `wx.loadSubPackage`.
 
@@ -56,6 +56,6 @@
 - Modify: `scripts/resize-local-s2-assets.ps1`
 - Modify: `tests/test-local-s2-data-packages.js`
 
-- [x] Move equipment icon assets from the main package into their owning class package.
-- [x] Generate display-size icon thumbnails and scale public visual assets without changing paths or UI behavior.
-- [x] Enforce main package < 1.5 MiB and per-package media < 200 KiB through tests.
+- [x] Deduplicate equipment assets into the main package and generate independent 24px WebP thumbnails without changing item-to-icon paths at the UI layer.
+- [x] Scale public visual assets while retaining local paths and UI behavior.
+- [x] Enforce main package < 1.5 MiB and aggregate code-package media < 200 KiB through tests.

@@ -4,7 +4,7 @@
 
     <view class="tt-header">
       <view class="tt-icon-wrap">
-        <image wx:if="{{item.iconAsset}}" class="tt-icon-img" mode="aspectFill" src="{{item.iconAsset}}" />
+    <image wx:if="{{item.iconAsset}}" class="tt-icon-img" mode="aspectFill" src="{{item.iconAsset}}" webp="{{true}}" />
         <text wx:else class="tt-icon-letter">{{item.iconText}}</text>
         <view class="tt-icon-border"></view>
       </view>

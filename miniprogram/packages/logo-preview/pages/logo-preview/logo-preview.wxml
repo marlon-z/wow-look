@@ -2,113 +2,61 @@
 
 <view class="logo-preview-page">
   <view class="logo-preview-intro">
-    <text class="logo-preview-eyebrow">EPIC GOLD LOGO STUDY</text>
-    <text class="logo-preview-heading">艾泽配装 · 史诗金色徽记</text>
-    <text class="logo-preview-description">六套纯原生文字方案，保留史诗题字和锻造金属感，不使用图片或冷色强调。</text>
+    <text class="logo-preview-eyebrow">METAL TYPE STUDY</text>
+    <text class="logo-preview-heading">方案二 · 金属题字变体</text>
+    <text class="logo-preview-description">不换字体、不用图片。三层同字叠印，比较金属边缘、高光与立体深度。</text>
   </view>
 
-  <view class="logo-preview-card logo-preview-crown">
-    <text class="logo-preview-card-name">方案一 · 王冠铭牌</text>
-    <view class="logo-preview-crown-stage">
-      <view class="logo-preview-crown-crest">
-        <view class="logo-preview-crown-wing logo-preview-crown-wing-left"></view>
-        <view class="logo-preview-crown-spire logo-preview-crown-spire-left"></view>
-        <view class="logo-preview-crown-spire logo-preview-crown-spire-center"></view>
-        <view class="logo-preview-crown-spire logo-preview-crown-spire-right"></view>
-        <view class="logo-preview-crown-wing logo-preview-crown-wing-right"></view>
-        <view class="logo-preview-crown-amber"></view>
+  <view class="logo-preview-card logo-preview-metal-hard">
+    <text class="logo-preview-card-name">方案二A · 鎏金硬朗</text>
+    <view class="logo-preview-metal-stage">
+      <view class="logo-preview-metal-title-stack">
+        <text class="logo-preview-title-depth">艾泽配装</text>
+        <text class="logo-preview-title-mid">艾泽配装</text>
+        <text class="logo-preview-title-face">艾泽配装</text>
       </view>
-      <view class="logo-preview-crown-title-row">
-        <view class="logo-preview-crown-rule"></view>
-        <text class="logo-preview-display-title">艾泽配装</text>
-        <view class="logo-preview-crown-rule logo-preview-mirror"></view>
-      </view>
-      <view class="logo-preview-subtitle-row">
-        <view class="logo-preview-subtitle-rule"></view>
+      <view class="logo-preview-metal-footer">
+        <view class="logo-preview-metal-rule"></view>
+        <view class="logo-preview-metal-diamond"></view>
         <text class="logo-preview-subtitle">当前赛季毕业装速查</text>
-        <view class="logo-preview-subtitle-rule logo-preview-mirror"></view>
+        <view class="logo-preview-metal-diamond"></view>
+        <view class="logo-preview-metal-rule logo-preview-mirror"></view>
       </view>
     </view>
   </view>
 
-  <view class="logo-preview-card logo-preview-blades">
-    <text class="logo-preview-card-name">方案二 · 双刃徽记</text>
-    <view class="logo-preview-blades-stage">
-      <view class="logo-preview-blades-mark">
-        <view class="logo-preview-blade logo-preview-blade-left"></view>
-        <view class="logo-preview-blade logo-preview-blade-right"></view>
-        <view class="logo-preview-blades-diamond"></view>
+  <view class="logo-preview-card logo-preview-metal-glow">
+    <text class="logo-preview-card-name">方案二B · 浮雕高光</text>
+    <view class="logo-preview-metal-stage">
+      <view class="logo-preview-metal-title-stack">
+        <text class="logo-preview-title-depth">艾泽配装</text>
+        <text class="logo-preview-title-mid">艾泽配装</text>
+        <text class="logo-preview-title-face">艾泽配装</text>
       </view>
-      <text class="logo-preview-display-title">艾泽配装</text>
-      <view class="logo-preview-blades-footer">
-        <view class="logo-preview-blades-footer-line"></view>
-        <view class="logo-preview-blades-footer-diamond"></view>
+      <view class="logo-preview-metal-footer">
+        <view class="logo-preview-metal-rule"></view>
+        <view class="logo-preview-metal-diamond"></view>
         <text class="logo-preview-subtitle">当前赛季毕业装速查</text>
-        <view class="logo-preview-blades-footer-diamond"></view>
-        <view class="logo-preview-blades-footer-line logo-preview-mirror"></view>
+        <view class="logo-preview-metal-diamond"></view>
+        <view class="logo-preview-metal-rule logo-preview-mirror"></view>
       </view>
     </view>
   </view>
 
-  <view class="logo-preview-card logo-preview-temple">
-    <text class="logo-preview-card-name">方案三 · 圣殿印章</text>
-    <view class="logo-preview-temple-stage">
-      <view class="logo-preview-temple-arch logo-preview-temple-arch-outer"></view>
-      <view class="logo-preview-temple-arch logo-preview-temple-arch-inner"></view>
-      <view class="logo-preview-temple-seal"><view class="logo-preview-temple-seal-core"></view></view>
-      <view class="logo-preview-temple-plaque">
-        <text class="logo-preview-display-title">艾泽配装</text>
+  <view class="logo-preview-card logo-preview-metal-etched">
+    <text class="logo-preview-card-name">方案二C · 铭刻深影</text>
+    <view class="logo-preview-metal-stage">
+      <view class="logo-preview-metal-title-stack">
+        <text class="logo-preview-title-depth">艾泽配装</text>
+        <text class="logo-preview-title-mid">艾泽配装</text>
+        <text class="logo-preview-title-face">艾泽配装</text>
       </view>
-      <view class="logo-preview-subtitle-row">
-        <view class="logo-preview-subtitle-rule"></view>
+      <view class="logo-preview-metal-footer">
+        <view class="logo-preview-metal-rule"></view>
+        <view class="logo-preview-metal-diamond"></view>
         <text class="logo-preview-subtitle">当前赛季毕业装速查</text>
-        <view class="logo-preview-subtitle-rule logo-preview-mirror"></view>
-      </view>
-    </view>
-  </view>
-
-  <view class="logo-preview-card logo-preview-badge">
-    <text class="logo-preview-card-name">方案四 · 徽章侧标</text>
-    <view class="logo-preview-badge-stage">
-      <view class="logo-preview-badge-shield"><view class="logo-preview-badge-shield-core"></view></view>
-      <view class="logo-preview-badge-divider"></view>
-      <view class="logo-preview-badge-copy">
-        <text class="logo-preview-compact-title">艾泽配装</text>
-        <view class="logo-preview-badge-copy-rule"></view>
-        <text class="logo-preview-subtitle">当前赛季毕业装速查</text>
-      </view>
-    </view>
-  </view>
-
-  <view class="logo-preview-card logo-preview-dual-line">
-    <text class="logo-preview-card-name">方案五 · 双线字标</text>
-    <view class="logo-preview-dual-line-stage">
-      <view class="logo-preview-dual-line-top">
-        <view class="logo-preview-dual-line-rule logo-preview-dual-line-rule-long"></view>
-        <view class="logo-preview-dual-line-medal"><view></view></view>
-        <view class="logo-preview-dual-line-rule logo-preview-dual-line-rule-short logo-preview-mirror"></view>
-      </view>
-      <text class="logo-preview-display-title">艾泽配装</text>
-      <view class="logo-preview-dual-line-bottom">
-        <view class="logo-preview-dual-line-rule logo-preview-dual-line-rule-short"></view>
-        <text class="logo-preview-subtitle">当前赛季毕业装速查</text>
-        <view class="logo-preview-dual-line-rule logo-preview-dual-line-rule-long logo-preview-mirror"></view>
-      </view>
-    </view>
-  </view>
-
-  <view class="logo-preview-card logo-preview-column">
-    <text class="logo-preview-card-name">方案六 · 分栏刻印</text>
-    <view class="logo-preview-column-stage">
-      <view class="logo-preview-column-mark">
-        <view class="logo-preview-column-mark-top"></view>
-        <view class="logo-preview-column-mark-gem"></view>
-        <view class="logo-preview-column-mark-bottom"></view>
-      </view>
-      <view class="logo-preview-column-copy">
-        <text class="logo-preview-compact-title">艾泽配装</text>
-        <view class="logo-preview-column-title-rule"></view>
-        <text class="logo-preview-subtitle">当前赛季毕业装速查</text>
+        <view class="logo-preview-metal-diamond"></view>
+        <view class="logo-preview-metal-rule logo-preview-mirror"></view>
       </view>
     </view>
   </view>

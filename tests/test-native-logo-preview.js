@@ -18,12 +18,9 @@ const wxss = fs.readFileSync(path.join(pageRoot, 'logo-preview.wxss'), 'utf8');
 const js = fs.readFileSync(path.join(pageRoot, 'logo-preview.js'), 'utf8');
 
 const variants = [
-  ['王冠铭牌', 'logo-preview-crown'],
-  ['双刃徽记', 'logo-preview-blades'],
-  ['圣殿印章', 'logo-preview-temple'],
-  ['徽章侧标', 'logo-preview-badge'],
-  ['双线字标', 'logo-preview-dual-line'],
-  ['分栏刻印', 'logo-preview-column'],
+  ['方案二A · 鎏金硬朗', 'logo-preview-metal-hard'],
+  ['方案二B · 浮雕高光', 'logo-preview-metal-glow'],
+  ['方案二C · 铭刻深影', 'logo-preview-metal-etched'],
 ];
 
 variants.forEach(([name, rootClass]) => {
@@ -36,7 +33,7 @@ variants.forEach(([name, rootClass]) => {
 
 const cardClasses = [...wxml.matchAll(/<view\s+class="([^"]*\blogo-preview-card\b[^"]*)"/g)]
   .map((match) => match[1].trim().split(/\s+/));
-assert.strictEqual(cardClasses.length, 6, '预览页必须恰好包含六张 Logo 方案卡。');
+assert.strictEqual(cardClasses.length, 3, '预览页必须恰好包含三张方案二文字质感变体卡。');
 const variantRoots = variants.map(([, rootClass]) => rootClass);
 const cardVariantRoots = cardClasses.map((classes) => classes.filter((className) => variantRoots.includes(className)));
 cardVariantRoots.forEach((roots) => {
@@ -49,9 +46,13 @@ variantRoots.forEach((rootClass) => {
     `${rootClass} 必须恰好出现在一张方案卡上。`,
   );
 });
-assert.ok(!wxml.includes('符文印记'), '预览页不得保留符文印记方案。');
-assert.ok(!wxml.includes('logo-preview-rune-'), '预览页不得保留符文印记元素。');
-assert.ok(!wxss.includes('logo-preview-rune-'), 'WXSS 不得保留符文印记选择器。');
+['双刃徽记', '王冠铭牌', '圣殿印章', '徽章侧标', '双线字标', '分栏刻印', 'logo-preview-blade', 'logo-preview-rune-'].forEach((legacy) => {
+  assert.ok(!wxml.includes(legacy), `预览页不得保留旧方案元素：${legacy}`);
+  assert.ok(!wxss.includes(legacy), `WXSS 不得保留旧方案选择器：${legacy}`);
+});
+assert.strictEqual((wxml.match(/logo-preview-title-face/g) || []).length, 3, '每个变体必须有一层浅金高光字面。');
+assert.strictEqual((wxml.match(/logo-preview-title-mid/g) || []).length, 3, '每个变体必须有一层深金过渡字面。');
+assert.strictEqual((wxml.match(/logo-preview-title-depth/g) || []).length, 3, '每个变体必须有一层深褐立体字面。');
 
 const allowedTags = new Set(['page-meta', 'view', 'text', 'button']);
 const tags = [...wxml.matchAll(/<\/?([a-z-]+)(?:\s[^>]*)?\/?\s*>/g)].map((match) => match[1]);
@@ -125,10 +126,10 @@ const disallowedNamedColors = new Set([
   'mark', 'marktext', 'selecteditem', 'selecteditemtext', 'visitedtext',
 ]);
 const namedColorPattern = new RegExp(`\\b(?:${[...disallowedNamedColors].join('|')})\\b`, 'i');
-const wxssDeclarationValues = [...wxss.matchAll(/\{([^{}]*)\}/g)].map((match) => match[1]).join('\n');
-assert.ok(!namedColorPattern.test(wxssDeclarationValues), 'WXSS 不得使用 CSS 命名颜色；仅 transparent 可用。');
 const colorFunctionProperties = /^(?:color|background(?:-(?:color|image))?|border(?:-[a-z-]+)?|outline(?:-color)?|box-shadow|text-shadow|fill|stroke)$/;
 const wxssDeclarations = [...wxss.matchAll(/(?:^|[;{])\s*([a-z-]+)\s*:\s*([^;{}]+?)\s*(?=;|\})/gm)];
+const wxssDeclarationValues = wxssDeclarations.map((match) => match[2]).join('\n');
+assert.ok(!namedColorPattern.test(wxssDeclarationValues), 'WXSS 不得使用 CSS 命名颜色；仅 transparent 可用。');
 wxssDeclarations.forEach((match) => {
   const property = match[1].toLowerCase();
   if (!colorFunctionProperties.test(property)) return;

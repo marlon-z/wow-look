@@ -39,7 +39,6 @@ assert.doesNotMatch(seasonConfig, /targetItemLevel\s*=/);
 
 assert.match(scanner + core, /CRAFTINGORDERS_CUSTOMER_OPTIONS_PARSED/);
 assert.match(scanner, /Scanner\.CompleteScan\(\)/);
-assert.match(scanner, /扫描等待超时/);
 assert.match(scanner, /扫描结果仍未就绪/);
 assert.match(scanner, /C_CraftingOrders\.ParseCustomerOptions/);
 assert.match(scanner, /type\(option\.iLvlMin\)\s*~=\s*"number"/);
@@ -71,6 +70,7 @@ assert.match(core, /buildNumber\) ~= tonumber\(config\.testedBuild\)/);
 assert.match(core, /将继续采集并记录实际 Build/);
 assert.match(core, /正在等待制造订单目录/);
 assert.match(core, /预检扫描已完成/);
+assert.match(core, /扫描等待超时/);
 
 for (const command of ['scan', 'capture', 'status', 'reset', 'help']) {
   assert.match(core, new RegExp(`command == "${command}"`));

@@ -170,6 +170,7 @@ function groupItems(items = []) {
   items.forEach((item) => {
     if (!groups[item.slot]) {
       groups[item.slot] = {
+        key: item.slot,
         slotType: item.slot,
         slotName: item.slotName,
         items: [],
@@ -213,6 +214,31 @@ function groupItemsBySource(items = []) {
       ...group,
       items: group.items.sort((left, right) => left._sort.order - right._sort.order),
     }));
+}
+
+function paginateGroups(groups = [], maxItems = 0) {
+  let remaining = Math.max(0, Number(maxItems) || 0);
+  const visibleGroups = [];
+
+  (groups || []).forEach((group) => {
+    if (!remaining || !group || !Array.isArray(group.items) || !group.items.length) {
+      return;
+    }
+
+    const items = group.items.slice(0, remaining);
+    if (!items.length) {
+      return;
+    }
+
+    visibleGroups.push({
+      ...group,
+      totalCount: typeof group.totalCount === 'number' ? group.totalCount : group.items.length,
+      items,
+    });
+    remaining -= items.length;
+  });
+
+  return visibleGroups;
 }
 
 function buildStatLine(item) {
@@ -448,6 +474,7 @@ module.exports = {
   filterItems,
   groupItems,
   groupItemsBySource,
+  paginateGroups,
   buildStatLine,
   buildSpecNames,
   buildMetaLine,

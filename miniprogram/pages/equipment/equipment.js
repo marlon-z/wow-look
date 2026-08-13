@@ -5,6 +5,7 @@ const {
   filterItems,
   groupItems,
   groupItemsBySource,
+  paginateGroups,
   buildStatLine,
   buildSpecNames,
   buildMetaLine,
@@ -49,9 +50,15 @@ const {
   buildCraftedItemWithSelectedStats,
 } = require('../../utils/crafting');
 
+const PAGE_SIZE = 30;
+
 Page({
   itemMap: {},
   classItemCache: {},
+  allItems: [],
+  filteredGroups: [],
+  filteredItemCount: 0,
+  isLoadingMore: false,
 
   data: {
     cosBase: COS_BASE,
@@ -90,9 +97,11 @@ Page({
       { type: 'source', name: '按来源' },
     ],
     selectedViewMode: 'slot',
-    allItems: [],
     groupedItems: [],
     resultCount: 0,
+    loadedResultCount: 0,
+    hasMoreItems: false,
+    isLoadingMore: false,
     hasAnyData: false,
     isLoading: true,
     emptyMessage: '数据加载中',
@@ -174,7 +183,7 @@ Page({
   },
 
   onShow() {
-    if (this.data.allItems.length) {
+    if (this.allItems.length) {
       this.refreshFavoriteFlags();
     }
     this.refreshFavorites();
@@ -207,6 +216,7 @@ Page({
       allItems.forEach((item) => {
         this.itemMap[item.id] = item;
       });
+      this.allItems = allItems;
 
       const instanceOptions = buildInstanceOptions((data && data.instances) || []);
 
@@ -218,7 +228,6 @@ Page({
         specs: (data && data.specs) || [],
         instanceOptions,
         visibleInstanceOptions: instanceOptions,
-        allItems,
         hasAnyData: allItems.length > 0,
         isLoading: false,
       });
@@ -236,7 +245,7 @@ Page({
   refreshFavoriteFlags() {
     const favorites = getFavorites();
     const buildDraft = getBuildDraft();
-    const allItems = this.data.allItems.map((item) => ({
+    const allItems = this.allItems.map((item) => ({
       ...item,
       isFavorite: isFavorite(this.data.classKey, item.id, favorites),
       isBuildSelected: isBuildDraftItem(this.data.classKey, item.id, buildDraft),
@@ -245,8 +254,8 @@ Page({
     allItems.forEach((item) => {
       this.itemMap[item.id] = item;
     });
+    this.allItems = allItems;
     this.setData({
-      allItems,
       selectedItem: this.data.selectedItem
         ? {
           ...this.data.selectedItem,
@@ -408,7 +417,7 @@ Page({
   applyFilters() {
     const selectedStats = this.data.stats.filter((item) => item.state === 'include').map((item) => item.type);
     const excludedStats = this.data.stats.filter((item) => item.state === 'exclude').map((item) => item.type);
-    let filteredItems = filterItems(this.data.allItems, {
+    let filteredItems = filterItems(this.allItems, {
       selectedSpec: this.data.selectedSpec,
       selectedSlots: this.data.selectedSlots,
       selectedStats,
@@ -427,9 +436,10 @@ Page({
       ));
     }
 
-    const groupedItems = this.data.selectedViewMode === 'source'
+    this.filteredGroups = this.data.selectedViewMode === 'source'
       ? groupItemsBySource(filteredItems)
       : groupItems(filteredItems);
+    this.filteredItemCount = filteredItems.length;
     const activeFilterParts = [];
     const selectedSpec = this.data.specs.find((item) => item.id === this.data.selectedSpec);
     const selectedInstance = this.data.instanceOptions.find((item) => item.id === this.data.selectedInstanceId);
@@ -465,8 +475,7 @@ Page({
       activeFilterParts.push(`搜索:${this.data.keyword.trim()}`);
     }
 
-    this.setData({
-      groupedItems,
+    this.resetVisibleItems({
       resultCount: filteredItems.length,
       activeFiltersText: activeFilterParts.length ? activeFilterParts.join(' · ') : '当前显示该职业全部可用装备',
       emptyMessage: getEmptyMessage(
@@ -481,6 +490,51 @@ Page({
           this.data.keyword.trim()
         )
       ),
+    });
+  },
+
+  resetVisibleItems(extraData = {}) {
+    const loadedResultCount = Math.min(PAGE_SIZE, this.filteredItemCount);
+    this.isLoadingMore = false;
+    this.setData({
+      ...extraData,
+      groupedItems: paginateGroups(this.filteredGroups, loadedResultCount),
+      loadedResultCount,
+      hasMoreItems: loadedResultCount < this.filteredItemCount,
+      isLoadingMore: false,
+    });
+  },
+
+  loadMoreItems() {
+    if (this.isLoadingMore || !this.data.hasMoreItems) {
+      return;
+    }
+
+    this.isLoadingMore = true;
+    this.setData({ isLoadingMore: true });
+
+    const loadedResultCount = Math.min(
+      this.data.loadedResultCount + PAGE_SIZE,
+      this.filteredItemCount
+    );
+    this.setData({
+      groupedItems: paginateGroups(this.filteredGroups, loadedResultCount),
+      loadedResultCount,
+      hasMoreItems: loadedResultCount < this.filteredItemCount,
+      isLoadingMore: false,
+    }, () => {
+      this.isLoadingMore = false;
+    });
+  },
+
+  onReachBottom() {
+    this.loadMoreItems();
+  },
+
+  onIconImageError(event) {
+    console.error('local equipment icon failed to load', {
+      itemId: event.currentTarget.dataset.itemId,
+      detail: event.detail,
     });
   },
 
@@ -702,8 +756,8 @@ Page({
       buildDraftCount: buildDraftList.length,
     });
 
-    if (this.data.allItems.length) {
-      const allItems = this.data.allItems.map((item) => ({
+    if (this.allItems.length) {
+      const allItems = this.allItems.map((item) => ({
         ...item,
         isBuildSelected: draft.classKey === this.data.classKey && isBuildDraftItem(this.data.classKey, item.id, draft),
       }));
@@ -711,8 +765,8 @@ Page({
       allItems.forEach((item) => {
         this.itemMap[item.id] = item;
       });
+      this.allItems = allItems;
       this.setData({
-        allItems,
         selectedItem: this.data.selectedItem
           ? {
             ...this.data.selectedItem,
@@ -791,17 +845,17 @@ Page({
     }
 
     const result = toggleFavorite(buildFavoriteSnapshot(this.data.classKey, this.data.className, item));
-    const allItems = this.data.allItems.map((equip) => (
+    const allItems = this.allItems.map((equip) => (
       equip.id === item.id ? { ...equip, isFavorite: result.isFavorite } : equip
     ));
     this.itemMap = {};
     allItems.forEach((equip) => {
       this.itemMap[equip.id] = equip;
     });
+    this.allItems = allItems;
     this.refreshCachedFavoriteState(this.data.classKey, item.id, result.isFavorite);
 
     this.setData({
-      allItems,
       selectedItem: this.data.selectedItem && this.data.selectedItem.id === item.id
         ? { ...this.data.selectedItem, isFavorite: result.isFavorite }
         : this.data.selectedItem,

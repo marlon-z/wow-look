@@ -1723,6 +1723,13 @@
   background: rgba(255, 187, 18, 0.1);
 }
 
+.equipment-load-state {
+  padding: 28rpx 32rpx 12rpx;
+  text-align: center;
+  color: rgba(214, 204, 184, 0.62);
+  font-size: 22rpx;
+}
+
 @media (max-width: 420px) {
   .build-panel-head {
     gap: 14rpx;

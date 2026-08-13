@@ -1,28 +1,49 @@
 const BUILD_DRAFT_STORAGE_KEY = 'wowlook_build_draft_v1';
+const { normalizeLocalIconPath } = require('./local-icon-path');
 
-function normalizeDraft(value) {
+function normalizeDraftWithMigration(value) {
   if (!value || typeof value !== 'object') {
     return {
-      classKey: '',
-      className: '',
-      items: [],
-      updatedAt: 0,
+      draft: { classKey: '', className: '', items: [], updatedAt: 0 },
+      migrated: false,
     };
   }
 
+  let migrated = false;
+  const items = Array.isArray(value.items)
+    ? value.items
+      .filter((item) => item && item.key && item.itemId && item.classKey)
+      .map((item) => {
+        const iconAsset = normalizeLocalIconPath(item.iconAsset);
+        if (iconAsset === item.iconAsset) {
+          return item;
+        }
+        migrated = true;
+        return { ...item, iconAsset };
+      })
+    : [];
   return {
+    draft: {
     classKey: value.classKey || '',
     className: value.className || '',
-    items: Array.isArray(value.items)
-      ? value.items.filter((item) => item && item.key && item.itemId && item.classKey)
-      : [],
+    items,
     updatedAt: value.updatedAt || 0,
+    },
+    migrated,
   };
+}
+
+function normalizeDraft(value) {
+  return normalizeDraftWithMigration(value).draft;
 }
 
 function getBuildDraft() {
   try {
-    return normalizeDraft(wx.getStorageSync(BUILD_DRAFT_STORAGE_KEY));
+    const normalized = normalizeDraftWithMigration(wx.getStorageSync(BUILD_DRAFT_STORAGE_KEY));
+    if (normalized.migrated) {
+      wx.setStorageSync(BUILD_DRAFT_STORAGE_KEY, normalized.draft);
+    }
+    return normalized.draft;
   } catch (err) {
     console.error('get build draft failed', err);
     return normalizeDraft(null);

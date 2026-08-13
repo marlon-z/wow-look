@@ -2,15 +2,13 @@
 
 /*
  * Generates the standalone mini-program item icons used by the local-only
- * 12.1 S2 build. WebP keeps every item as an independent image (no sprite
- * coordinates or UI changes) while retaining enough source detail for mobile
- * equipment cards.
+ * 12.1 S2 build. JPEG keeps every item as an independent image (no sprite
+ * coordinates or UI changes) and works reliably as a local asset on devices.
  */
 const fs = require('fs');
 const path = require('path');
 const ICON_SIZE = 56;
-const WEBP_QUALITY = 82;
-const WEBP_EFFORT = 6;
+const JPEG_QUALITY = 90;
 let sharp;
 try {
   sharp = require('sharp');
@@ -41,19 +39,19 @@ async function main() {
       const iconName = iconNames[index];
       index += 1;
       const source = path.join(sourceRoot, iconName);
-      const target = path.join(targetRoot, `${path.parse(iconName).name}.webp`);
+      const target = path.join(targetRoot, `${path.parse(iconName).name}.jpg`);
       if (!fs.existsSync(source)) {
         throw new Error(`Local icon source does not exist: ${source}`);
       }
       await sharp(source)
         .resize(ICON_SIZE, ICON_SIZE, { fit: 'fill' })
-        .webp({ quality: WEBP_QUALITY, effort: WEBP_EFFORT })
+        .jpeg({ quality: JPEG_QUALITY, mozjpeg: true })
         .toFile(target);
     }
   }
 
   await Promise.all(Array.from({ length: Math.min(concurrency, iconNames.length) }, worker));
-  console.log(`Generated ${iconNames.length} standalone WebP item icons.`);
+  console.log(`Generated ${iconNames.length} standalone JPEG item icons.`);
 }
 
 if (require.main === module) {
@@ -65,6 +63,5 @@ if (require.main === module) {
 
 module.exports = {
   ICON_SIZE,
-  WEBP_QUALITY,
-  WEBP_EFFORT,
+  JPEG_QUALITY,
 };

@@ -4,8 +4,8 @@
  * Source files are retained untouched in cos-upload/ as export evidence. This
  * script writes only fields the mini-program renders, then creates one data
  * subpackage per class and generates each rendered icon once in the main
- * package as a compact WebP thumbnail. This keeps WeChat's aggregate media
- * audit under its 200 KiB limit without changing icon-to-item mapping.
+ * package as a compatible JPEG thumbnail without changing icon-to-item
+ * mapping.
  */
 const fs = require('fs');
 const path = require('path');
@@ -56,7 +56,7 @@ function trimItem(item) {
   const iconName = path.basename(runtimeItem.iconAsset || '');
   return {
     ...runtimeItem,
-    iconAsset: iconName ? `/assets/icons/${path.parse(iconName).name}.webp` : '',
+    iconAsset: iconName ? `/assets/icons/${path.parse(iconName).name}.jpg` : '',
   };
 }
 
@@ -188,7 +188,7 @@ function main() {
     `${JSON.stringify({ dataVersion: overview.dataVersion, packages: packageReport }, null, 2)}\n`,
     'utf8'
   );
-  console.log(`Generated ${packageReport.length} local S2 class packages and ${iconSourceNames.size} shared local WebP icons.`);
+  console.log(`Generated ${packageReport.length} local S2 class packages and ${iconSourceNames.size} shared local JPEG icons.`);
 }
 
 main();

@@ -137,7 +137,7 @@
               data-class-name="{{favorite.className}}"
             >
               <view class="favorite-icon-wrap">
-              <image wx:if="{{favorite.iconAsset}}" class="favorite-icon-img" src="{{favorite.iconAsset}}" mode="aspectFill" webp="{{true}}" lazy-load="{{true}}" />
+              <image wx:if="{{favorite.iconAsset}}" class="favorite-icon-img" src="{{favorite.iconAsset}}" mode="aspectFill" lazy-load="{{true}}" />
                 <text wx:else class="favorite-icon-letter">{{favorite.iconText}}</text>
                 <view class="favorite-icon-border"></view>
               </view>

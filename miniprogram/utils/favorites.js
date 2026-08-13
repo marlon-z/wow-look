@@ -1,4 +1,5 @@
 const FAVORITES_STORAGE_KEY = 'wowlook_favorites_v1';
+const { normalizeLocalIconPath } = require('./local-icon-path');
 const FAVORITE_SLOT_ORDER = [
   '头',
   '项',
@@ -19,16 +20,35 @@ function getFavoriteKey(classKey, itemId) {
   return `${classKey}:${itemId}`;
 }
 
-function normalizeFavorites(value) {
+function normalizeFavoritesWithMigration(value) {
   if (!Array.isArray(value)) {
-    return [];
+    return { favorites: [], migrated: false };
   }
-  return value.filter((item) => item && item.key && item.itemId && item.classKey);
+  let migrated = false;
+  const favorites = value
+    .filter((item) => item && item.key && item.itemId && item.classKey)
+    .map((item) => {
+      const iconAsset = normalizeLocalIconPath(item.iconAsset);
+      if (iconAsset === item.iconAsset) {
+        return item;
+      }
+      migrated = true;
+      return { ...item, iconAsset };
+    });
+  return { favorites, migrated };
+}
+
+function normalizeFavorites(value) {
+  return normalizeFavoritesWithMigration(value).favorites;
 }
 
 function getFavorites() {
   try {
-    return normalizeFavorites(wx.getStorageSync(FAVORITES_STORAGE_KEY));
+    const normalized = normalizeFavoritesWithMigration(wx.getStorageSync(FAVORITES_STORAGE_KEY));
+    if (normalized.migrated) {
+      wx.setStorageSync(FAVORITES_STORAGE_KEY, normalized.favorites);
+    }
+    return normalized.favorites;
   } catch (err) {
     console.error('get favorites failed', err);
     return [];

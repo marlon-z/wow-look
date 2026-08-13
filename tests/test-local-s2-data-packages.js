@@ -51,7 +51,7 @@ classes.forEach((classKey) => {
     assert.strictEqual(localItem.tooltipRaw, undefined, '不应将原始提示文本打进小程序。');
     assert.strictEqual(localItem.dropVersion, undefined, '不应将升级前采集快照打进小程序。');
     assert.strictEqual(localItem.captureStatus, undefined, '不应将采集审计状态打进小程序。');
-    assert.match(localItem.iconAsset || '', /^\/assets\/icons\/.+\.webp$/, '图标应指向唯一的主包 WebP 本地资源。');
+    assert.match(localItem.iconAsset || '', /^\/assets\/icons\/.+\.jpg$/, '图标应指向唯一的主包 JPEG 本地资源。');
     assert.ok(fs.existsSync(path.join(root, 'miniprogram', localItem.iconAsset.replace(/^\//, ''))), '每个装备图标必须在本地存在。');
   });
 
@@ -78,7 +78,7 @@ assert.ok(mainProgramSize < MAIN_PACKAGE_LIMIT, '主包（代码与资源）不�
 const totalMediaBytes = mediaSize(path.join(root, 'miniprogram'));
 console.log(`local mini-program media: ${totalMediaBytes} bytes (${(totalMediaBytes / 1024).toFixed(1)} KiB)`);
 assert.ok(fs.existsSync(path.join(mainAssetRoot, 'icons')), '唯一图标目录必须位于主包。');
-assert.strictEqual(fs.readdirSync(path.join(mainAssetRoot, 'icons')).filter((name) => name.endsWith('.webp')).length, 390, '应生成完整且唯一的 390 个独立 WebP 图标。');
+assert.strictEqual(fs.readdirSync(path.join(mainAssetRoot, 'icons')).filter((name) => name.endsWith('.jpg')).length, 390, '应生成完整且唯一的 390 个独立 JPEG 图标。');
 classes.forEach((classKey) => {
   const assetCode = require(path.join(root, 'miniprogram', 'utils', 'class-data.js')).getClassMeta(classKey).assetCode;
   assert.ok(fs.existsSync(path.join(mainAssetRoot, 'classes', 'banner', `${assetCode}.jpg`)), `${classKey} 横幅必须本地存在。`);

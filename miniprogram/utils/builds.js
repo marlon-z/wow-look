@@ -1,6 +1,7 @@
 var { summarizeSlots, BUILD_SLOT_KEYS } = require('./stat-calc');
 var { applyWeaponSelection } = require('./weapon-rules');
 var { getAssetBase } = require('./class-data');
+var { normalizeLocalIconPath } = require('./local-icon-path');
 
 var BUILDS_STORAGE_KEY = 'wowlook_builds_v1';
 
@@ -12,31 +13,51 @@ function emptySlots() {
   return slots;
 }
 
-function normalizeBuilds(value) {
-  if (!Array.isArray(value)) return [];
-  return value
+function normalizeBuildsWithMigration(value) {
+  if (!Array.isArray(value)) return { builds: [], migrated: false };
+  var migrated = false;
+  var builds = value
     .filter(function (build) {
       return build && build.id && build.classKey;
     })
     .map(function (build) {
+      var normalizedBuild = Object.assign({}, build);
       if (build.slots) {
+        normalizedBuild.slots = {};
         Object.keys(build.slots).forEach(function (slotKey) {
           var item = build.slots[slotKey];
           if (item && item.iconAsset && item.iconAsset.charAt(0) === '/') {
-            item.iconAsset = getAssetBase() + item.iconAsset;
+            var iconAsset = normalizeLocalIconPath(item.iconAsset);
+            if (iconAsset !== item.iconAsset) {
+              migrated = true;
+            }
+            normalizedBuild.slots[slotKey] = Object.assign({}, item, {
+              iconAsset: getAssetBase() + iconAsset,
+            });
+          } else {
+            normalizedBuild.slots[slotKey] = item;
           }
         });
       }
-      if (build.slots && build.specId) {
-        build.summary = summarizeSlots(build.slots, build.specId);
+      if (normalizedBuild.slots && normalizedBuild.specId) {
+        normalizedBuild.summary = summarizeSlots(normalizedBuild.slots, normalizedBuild.specId);
       }
-      return build;
+      return normalizedBuild;
     });
+  return { builds: builds, migrated: migrated };
+}
+
+function normalizeBuilds(value) {
+  return normalizeBuildsWithMigration(value).builds;
 }
 
 function getBuilds() {
   try {
-    return normalizeBuilds(wx.getStorageSync(BUILDS_STORAGE_KEY));
+    var normalized = normalizeBuildsWithMigration(wx.getStorageSync(BUILDS_STORAGE_KEY));
+    if (normalized.migrated) {
+      wx.setStorageSync(BUILDS_STORAGE_KEY, normalized.builds);
+    }
+    return normalized.builds;
   } catch (err) {
     console.error('get builds failed', err);
     return [];

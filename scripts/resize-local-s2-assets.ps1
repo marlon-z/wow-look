@@ -79,11 +79,11 @@ Get-ChildItem (Join-Path $SourceRoot 'zhiye\banner') -Filter '*.png' -File | For
 }
 
 Get-ChildItem (Join-Path $SourceRoot 'zhiye\emblem') -Filter '*.png' -File | ForEach-Object {
-  Save-ScaledPng $_.FullName (Join-Path $TargetRoot ("classes\emblem\{0}.png" -f $_.BaseName)) 44
+  Save-ScaledPng $_.FullName (Join-Path $TargetRoot ("classes\emblem\{0}.png" -f $_.BaseName)) 128
 }
 
 Save-ScaledPng (Join-Path $SourceRoot 'public\logo.png') (Join-Path $TargetRoot 'public\logo.png') 220
 
-# Equipment icons are generated as standalone WebP files by
+# Equipment icons are generated as standalone JPEG files by
 # convert-local-s2-icons.js. Keep this script limited to the non-icon class
 # visuals so the generator has a single, deterministic owner for each asset.

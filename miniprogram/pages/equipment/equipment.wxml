@@ -195,7 +195,7 @@
   </block>
 
   <block wx:else>
-    <block wx:for="{{groupedItems}}" wx:key="slotType">
+    <block wx:for="{{groupedItems}}" wx:key="key">
       <view class="group-section">
         <block wx:if="{{selectedViewMode === 'slot'}}">
           <view class="group-head">
@@ -203,7 +203,7 @@
               <view class="group-badge"></view>
               <text class="group-title">{{item.slotName}}</text>
             </view>
-            <text class="group-count">共 {{item.items.length}} 件</text>
+            <text class="group-count">已显示 {{item.items.length}} / 共 {{item.totalCount}} 件</text>
           </view>
         </block>
         <block wx:else>
@@ -212,7 +212,7 @@
               <text class="group-title">{{item.title}}</text>
               <text class="group-sub">{{item.subtitle}}<block wx:if="{{item.difficultyName}}"> · {{item.difficultyName}}</block></text>
             </view>
-            <text class="group-count">共 {{item.items.length}} 件</text>
+            <text class="group-count">已显示 {{item.items.length}} / 共 {{item.totalCount}} 件</text>
           </view>
         </block>
 
@@ -226,7 +226,7 @@
             data-item-id="{{equip.id}}"
           >
             <view class="item-icon-wrap">
-              <image wx:if="{{equip.iconAsset}}" class="item-icon-img" mode="aspectFill" src="{{equip.iconAsset}}" webp="{{true}}" lazy-load="{{true}}" />
+              <image wx:if="{{equip.iconAsset}}" class="item-icon-img" mode="aspectFill" src="{{equip.iconAsset}}" lazy-load="{{true}}" binderror="onIconImageError" data-item-id="{{equip.id}}" />
               <text wx:else class="item-icon-letter">{{equip.iconText}}</text>
               <view class="icon-border"></view>
             </view>
@@ -262,6 +262,10 @@
       </view>
     </block>
   </block>
+
+  <view class="equipment-load-state" wx:if="{{isLoadingMore}}">正在加载更多装备…</view>
+  <view class="equipment-load-state" wx:elif="{{hasMoreItems}}">继续向下滑动，加载更多装备</view>
+  <view class="equipment-load-state" wx:elif="{{loadedResultCount}}">已加载全部 {{loadedResultCount}} 件装备</view>
 
   <view class="page-end-pad"></view>
 
@@ -353,7 +357,7 @@
               data-class-name="{{favorite.className}}"
             >
               <view class="favorite-icon-wrap">
-              <image wx:if="{{favorite.iconAsset}}" class="favorite-icon-img" src="{{favorite.iconAsset}}" mode="aspectFill" webp="{{true}}" lazy-load="{{true}}" />
+              <image wx:if="{{favorite.iconAsset}}" class="favorite-icon-img" src="{{favorite.iconAsset}}" mode="aspectFill" lazy-load="{{true}}" />
                 <text wx:else class="favorite-icon-letter">{{favorite.iconText}}</text>
                 <view class="favorite-icon-border"></view>
               </view>
@@ -417,7 +421,7 @@
             data-key="{{item.key}}"
           >
             <view class="favorite-icon-wrap">
-          <image wx:if="{{item.iconAsset}}" class="favorite-icon-img" src="{{item.iconAsset}}" mode="aspectFill" webp="{{true}}" lazy-load="{{true}}" />
+          <image wx:if="{{item.iconAsset}}" class="favorite-icon-img" src="{{item.iconAsset}}" mode="aspectFill" lazy-load="{{true}}" />
               <text wx:else class="favorite-icon-letter">{{item.iconText}}</text>
               <view class="favorite-icon-border"></view>
             </view>

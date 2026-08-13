@@ -207,6 +207,31 @@ local CLASS_ORDER = {
     "druid", "demonhunter", "evoker",
 }
 
+local function ApplySeasonTierManifest()
+    local config = WoWLookTierSeasonConfig or {}
+    for _, classKey in ipairs(CLASS_ORDER) do
+        local setInfo = TIER_SETS[classKey]
+        local itemIds = (config.tierItems or {})[classKey]
+        local anchorIds = (config.tierAnchors or {})[classKey]
+        if setInfo and type(itemIds) == "table" and #itemIds == 9 and type(anchorIds) == "table" and #anchorIds == 5 then
+            setInfo.bonusItemIds = anchorIds
+            setInfo.appearanceItemIds = {}
+            for _, itemId in ipairs(itemIds) do
+                local isAnchor = false
+                for _, anchorId in ipairs(anchorIds) do
+                    if anchorId == itemId then
+                        isAnchor = true
+                        break
+                    end
+                end
+                if not isAnchor then
+                    setInfo.appearanceItemIds[#setInfo.appearanceItemIds + 1] = itemId
+                end
+            end
+        end
+    end
+end
+
 local STAT_LABELS = {
     ["力量"] = "strength",
     ["敏捷"] = "agility",
@@ -1097,7 +1122,7 @@ local function BuildClassExport(classKey, maximumConfig)
     for _, itemId in ipairs(appearanceItemIds) do
         local itemRecord = ProbeItem(itemId, classKey, setInfo, {
             includeSpecBonuses = false,
-            collectionKind = "appearance",
+            collectionKind = "companion",
             isBonusPiece = false,
             maximumConfig = maximumConfig,
         })
@@ -1661,4 +1686,5 @@ SlashCmdList["WOWTIEREXPORT"] = function(msg)
     StartExport(classKeys)
 end
 
-Print("已加载 v" .. ADDON_VERSION .. "。请先输入 /wowtierexport preflight。")
+ApplySeasonTierManifest()
+Print("已加载 v" .. ADDON_VERSION .. "。S2 九件套清单已由暴雪 API 校验；输入 /wowtierexport all 开始客户端满级采集。")

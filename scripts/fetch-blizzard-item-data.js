@@ -16,6 +16,17 @@ function parseArgs(argv) {
   return args;
 }
 
+function parseItemRange(value) {
+  const match = String(value || '').match(/^(\d+)-(\d+)$/);
+  if (!match) throw new Error('--range 格式必须为起始ID-结束ID，例如 271451-271567。');
+  const start = Number(match[1]);
+  const end = Number(match[2]);
+  if (!Number.isInteger(start) || !Number.isInteger(end) || start <= 0 || end < start || end - start > 1000) {
+    throw new Error('--range 不是安全的物品 ID 范围。');
+  }
+  return Array.from({ length: end - start + 1 }, (_, index) => start + index);
+}
+
 function requestJson(url, options = {}) {
   return new Promise((resolve, reject) => {
     const request = https.request(url, options, (response) => {
@@ -100,15 +111,21 @@ async function fetchItems(itemIds, token, region, locale) {
 
 async function main() {
   const args = parseArgs(process.argv);
-  if (!args.input) throw new Error('用法: node scripts/fetch-blizzard-item-data.js --input <WoWLookTierExport.lua> [--output .cache/blizzard-items/s2.json]');
+  if (!args.input && !args.range) throw new Error('用法: node scripts/fetch-blizzard-item-data.js --input <WoWLookTierExport.lua> 或 --range 271451-271567 [--output 文件]');
   const clientId = process.env.BLIZZARD_CLIENT_ID;
   const clientSecret = process.env.BLIZZARD_CLIENT_SECRET;
   if (!clientId || !clientSecret) throw new Error('请仅在当前终端设置 BLIZZARD_CLIENT_ID 与 BLIZZARD_CLIENT_SECRET；不要把密钥写入文件。');
-  const raw = fs.readFileSync(path.resolve(process.cwd(), args.input), 'utf8');
-  const match = raw.match(/(?:\["payload"\]|payload)\s*=\s*"((?:[^"\\]|\\.)*)"/s);
-  if (!match) throw new Error('未找到 WoWLookTierExport payload。请先运行 /wowtierexport export-preflight 并退出游戏保存。');
-  const payload = JSON.parse(JSON.parse(`"${match[1]}"`));
-  const itemIds = collectItemIds(payload);
+  let payload = {};
+  let itemIds = [];
+  if (args.range) {
+    itemIds = parseItemRange(args.range);
+  } else {
+    const raw = fs.readFileSync(path.resolve(process.cwd(), args.input), 'utf8');
+    const match = raw.match(/(?:\["payload"\]|payload)\s*=\s*"((?:[^"\\]|\\.)*)"/s);
+    if (!match) throw new Error('未找到 WoWLookTierExport payload。请先运行 /wowtierexport export-preflight 并退出游戏保存。');
+    payload = JSON.parse(JSON.parse(`"${match[1]}"`));
+    itemIds = collectItemIds(payload);
+  }
   if (!itemIds.length) throw new Error('套装导出中没有物品 ID。');
   const token = await getAccessToken(clientId, clientSecret);
   const region = args.region || 'us';
@@ -119,7 +136,7 @@ async function main() {
     region,
     locale,
     fetchedAt: new Date().toISOString(),
-    sourcePayload: { mode: payload.mode || '', dataVersion: payload.dataVersion || '', clientBuild: payload.clientBuild || 0 },
+    sourcePayload: { mode: payload.mode || '', dataVersion: payload.dataVersion || '', clientBuild: payload.clientBuild || 0, range: args.range || '' },
     itemCount: itemIds.length,
     items,
   };
@@ -133,4 +150,4 @@ if (require.main === module) {
   main().catch((error) => { console.error(error.message); process.exit(1); });
 }
 
-module.exports = { collectItemIds, compactItem };
+module.exports = { collectItemIds, compactItem, parseItemRange };

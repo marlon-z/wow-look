@@ -1,5 +1,9 @@
 const assert = require('assert');
-const { collectItemIds, compactItem } = require('../scripts/fetch-blizzard-item-data');
+const { collectItemIds, compactItem, parseItemRange } = require('../scripts/fetch-blizzard-item-data');
+
+assert.deepEqual(parseItemRange('271451-271453'), [271451, 271452, 271453]);
+assert.throws(() => parseItemRange('271453-271451'), /安全/);
+assert.throws(() => parseItemRange('wrong'), /格式/);
 
 assert.deepEqual(collectItemIds({ classes: [
   { items: [{ itemId: 271456 }, { itemId: 271456 }, { itemId: 0 }] },

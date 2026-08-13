@@ -19,6 +19,14 @@ for (const classKey of expectedClasses) {
   ids.forEach((id) => assert(id >= 271000 && id < 272000, `${classKey} anchor is not S2`));
 }
 
+const manifests = [...config.matchAll(/\n\s*(\w+)\s*=\s*\{\s*(271\d+(?:\s*,\s*271\d+){8})\s*\}/g)]
+  .filter((match) => expectedClasses.includes(match[1]));
+assert.strictEqual(manifests.length, 13, 'S2 manifest must contain 13 class rows');
+const manifestIds = manifests.flatMap((match) => match[2].match(/\d+/g).map(Number));
+assert.strictEqual(manifestIds.length, 117, 'S2 manifest must contain 117 real items');
+assert.strictEqual(new Set(manifestIds).size, 117, 'S2 manifest item IDs must be unique');
+assert.deepEqual([...manifestIds].sort((a, b) => a - b), Array.from({ length: 117 }, (_, index) => 271451 + index));
+
 for (const symbol of ['GetItemInfo', 'GetSetsContainingSourceID', 'GetAllSourceIDs', 'GetSourceItemID']) {
   assert(addon.includes(symbol), `missing client-discovery API: ${symbol}`);
 }
@@ -30,6 +38,7 @@ assert(addon.includes('ambiguous_transmog_set_'), 'must reject ambiguous set can
 assert(addon.includes('item_data_pending'), 'must retry asynchronous item loads');
 assert(addon.includes('/wowtierexport discover'), 'help must expose discovery command');
 assert(addon.includes('export-preflight'), 'addon must export complete raw client records');
+assert(addon.includes('ApplySeasonTierManifest()'), 'addon must use the verified API manifest before exporting');
 assert(parser.includes('equip: equipEffects'), 'tier conversion must retain equip effects');
 assert(parser.includes('use: useEffects'), 'tier conversion must retain use effects');
 

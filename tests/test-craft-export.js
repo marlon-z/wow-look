@@ -77,6 +77,8 @@ assert.match(core, /预检扫描已完成/);
 assert.match(core, /扫描未完成/);
 assert.match(core, /PollPreflightScan/);
 assert.match(core, /PREFLIGHT_MAX_POLLS\s*=\s*9/);
+assert.match(core, /BeginPreflightPolling/);
+assert.match(core, /eventFrame:SetScript\("OnUpdate"/);
 assert.match(core, /SLASH_WOWLOOKCRAFTEXPORT2\s*=\s*"\/wc"/);
 
 for (const command of ['scan', 'capture', 'status', 'reset', 'help']) {

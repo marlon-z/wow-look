@@ -3,11 +3,14 @@
 /*
  * Generates the standalone mini-program item icons used by the local-only
  * 12.1 S2 build. WebP keeps every item as an independent image (no sprite
- * coordinates or UI changes) while staying below WeChat's aggregate 200 KiB
- * media threshold.
+ * coordinates or UI changes) while retaining enough source detail for mobile
+ * equipment cards.
  */
 const fs = require('fs');
 const path = require('path');
+const ICON_SIZE = 56;
+const WEBP_QUALITY = 82;
+const WEBP_EFFORT = 6;
 let sharp;
 try {
   sharp = require('sharp');
@@ -43,8 +46,8 @@ async function main() {
         throw new Error(`Local icon source does not exist: ${source}`);
       }
       await sharp(source)
-        .resize(24, 24, { fit: 'fill' })
-        .webp({ quality: 35, effort: 6 })
+        .resize(ICON_SIZE, ICON_SIZE, { fit: 'fill' })
+        .webp({ quality: WEBP_QUALITY, effort: WEBP_EFFORT })
         .toFile(target);
     }
   }
@@ -53,7 +56,15 @@ async function main() {
   console.log(`Generated ${iconNames.length} standalone WebP item icons.`);
 }
 
-main().catch((error) => {
-  console.error(error.stack || error.message);
-  process.exitCode = 1;
-});
+if (require.main === module) {
+  main().catch((error) => {
+    console.error(error.stack || error.message);
+    process.exitCode = 1;
+  });
+}
+
+module.exports = {
+  ICON_SIZE,
+  WEBP_QUALITY,
+  WEBP_EFFORT,
+};

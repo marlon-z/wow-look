@@ -75,7 +75,7 @@ function Save-ScaledPng([string]$Source, [string]$Target, [int]$MaxWidth) {
 }
 
 Get-ChildItem (Join-Path $SourceRoot 'zhiye\banner') -Filter '*.png' -File | ForEach-Object {
-  Save-ScaledJpeg $_.FullName (Join-Path $TargetRoot ("classes\banner\{0}.jpg" -f $_.BaseName)) 220 48
+  Save-ScaledJpeg $_.FullName (Join-Path $TargetRoot ("classes\banner\{0}.jpg" -f $_.BaseName)) 220 82
 }
 
 Get-ChildItem (Join-Path $SourceRoot 'zhiye\emblem') -Filter '*.png' -File | ForEach-Object {

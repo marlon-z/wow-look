@@ -1,5 +1,5 @@
 local ADDON_NAME = ...
-local ADDON_VERSION = "0.6.0"
+local ADDON_VERSION = "1.0.0-s2-preflight"
 
 WoWLookTierExportDB = WoWLookTierExportDB or {
     version = ADDON_VERSION,
@@ -11,6 +11,7 @@ WoWLookTierExportDB = WoWLookTierExportDB or {
 
 WoWLookTierExportDB.version = ADDON_VERSION
 WoWLookTierExportDB.classes = WoWLookTierExportDB.classes or {}
+WoWLookTierExportDB.preflightItems = WoWLookTierExportDB.preflightItems or {}
 
 local TIER_SETS = {
     deathknight = {
@@ -311,9 +312,8 @@ local function ValidateSeasonConfig()
     if type(config) ~= "table"
         or type(config.profileVersion) ~= "number"
         or type(config.minimumBuild) ~= "number"
-        or type(config.targetItemLevel) ~= "number"
-        or type(config.trackBonusId) ~= "number"
-        or type(config.qualityBonusId) ~= "number" then
+        or type(config.releaseStatus) ~= "string"
+        or type(config.dataVersion) ~= "string" then
         return nil, "season_config_invalid"
     end
 
@@ -321,6 +321,14 @@ local function ValidateSeasonConfig()
     local buildNumber = tonumber(rawBuildNumber) or 0
     if buildNumber < config.minimumBuild then
         return nil, "season_build_too_old"
+    end
+    if config.releaseStatus ~= "finalized" then
+        return config
+    end
+    if type(config.targetItemLevel) ~= "number"
+        or type(config.trackBonusId) ~= "number"
+        or type(config.qualityBonusId) ~= "number" then
+        return nil, "season_final_rules_invalid"
     end
     if config.testedBuild and buildNumber ~= config.testedBuild then
         PrintWarn(string.format(
@@ -330,6 +338,44 @@ local function ValidateSeasonConfig()
         ))
     end
     return config
+end
+
+local function BuildPreflightPayload()
+    local config, configError = ValidateSeasonConfig()
+    if not config then
+        error(configError)
+    end
+    local buildVersion, rawBuildNumber = GetBuildInfo()
+    local classes = {}
+    for _, classKey in ipairs(CLASS_ORDER) do
+        local setInfo = TIER_SETS[classKey]
+        classes[#classes + 1] = {
+            classKey = classKey,
+            classId = setInfo.classId,
+            className = setInfo.className,
+            classNameZh = setInfo.classNameZh,
+            specs = setInfo.specs,
+            evidenceStatus = "needs_live_s2_item_links",
+        }
+    end
+    return {
+        mode = "preflight",
+        dataVersion = config.dataVersion,
+        seasonName = config.seasonName,
+        clientBuild = tonumber(rawBuildNumber) or 0,
+        build = buildVersion or "",
+        addonVersion = ADDON_VERSION,
+        locale = GetLocale(),
+        exportedAt = date("%Y-%m-%d %H:%M:%S"),
+        classes = classes,
+        items = WoWLookTierExportDB.preflightItems or {},
+        summary = {
+            mode = "preflight",
+            classCount = #classes,
+            capturedItemCount = #WoWLookTierExportDB.preflightItems,
+            note = "职业/专精结构已列出；S2 物品链接、说明框和2/4件效果必须用 capture 从客户端确认。",
+        },
+    }
 end
 
 local function GetItemLevelBonusId(levelDifference)
@@ -1021,12 +1067,61 @@ local function ResetExportDB()
         version = ADDON_VERSION,
         summary = nil,
         classes = {},
+        preflightItems = {},
         payload = "",
         lastError = nil,
     }
 end
 
+local function CapturePreflightItem(link)
+    local itemId = ExtractItemIdFromLink(link)
+    if not itemId then
+        return false, "请在命令后 Shift 点击一件 S2 套装物品链接"
+    end
+    local tooltipLines = GetTooltipLines(link)
+    local parsedTooltip = ParseTooltipLines(tooltipLines)
+    if #tooltipLines == 0 or (parsedTooltip.itemLevel or 0) <= 0 then
+        return false, "物品说明框尚未加载；请等待后再次 Shift 点击链接"
+    end
+    local name, normalizedLink, quality, _, _, itemType, itemSubType, _, equipLoc, icon = GetItemInfo(link)
+    local _, rawBuildNumber = GetBuildInfo()
+    local record = {
+        itemId = itemId,
+        rawLink = normalizedLink or link,
+        name = name or "",
+        quality = quality or 0,
+        itemType = itemType or "",
+        itemSubType = itemSubType or "",
+        equipLoc = equipLoc or "",
+        icon = icon or 0,
+        tooltipItemLevel = parsedTooltip.itemLevel or 0,
+        upgradeTrack = parsedTooltip.upgradeTrack or "",
+        setData = parsedTooltip.setData or {},
+        tooltipRaw = tooltipLines,
+        clientBuild = tonumber(rawBuildNumber) or 0,
+        capturedAt = date("!%Y-%m-%dT%H:%M:%SZ"),
+    }
+    local replaced = false
+    for index, existing in ipairs(WoWLookTierExportDB.preflightItems) do
+        if existing.itemId == itemId then
+            WoWLookTierExportDB.preflightItems[index] = record
+            replaced = true
+            break
+        end
+    end
+    if not replaced then
+        WoWLookTierExportDB.preflightItems[#WoWLookTierExportDB.preflightItems + 1] = record
+    end
+    WoWLookTierExportDB.lastError = nil
+    return true, record
+end
+
 local function StartExport(classKeys)
+    if WoWLookTierSeasonConfig.releaseStatus ~= "finalized" then
+        WoWLookTierExportDB.lastError = "final_export_blocked_until_manifest_finalized"
+        PrintWarn("S2 最终套装规则尚未确认。请先运行 /wowtierexport preflight。")
+        return
+    end
     RequestLoadForClassKeys(classKeys)
     Print(string.format("预加载 %d 个职业套装，3秒后开始导出。", #classKeys))
 
@@ -1081,7 +1176,9 @@ end
 
 local function PrintHelp()
     Print("用法:")
-    Print("  /wowtierexport all")
+    Print("  /wowtierexport preflight")
+    Print("  /wowtierexport capture <Shift 点击一件 S2 套装物品链接>")
+    Print("  /wowtierexport all（S2 规则确认前会拒绝）")
     Print("  /wowtierexport monk")
     Print("  /wowtierexport monk,druid,mage")
     Print("  /wowtierexport summary")
@@ -1112,6 +1209,32 @@ SLASH_WOWTIEREXPORT1 = "/wowtierexport"
 SlashCmdList["WOWTIEREXPORT"] = function(msg)
     local arg = (msg or ""):lower():match("^%s*(.-)%s*$")
 
+    if arg == "preflight" then
+        local ok, payload = pcall(BuildPreflightPayload)
+        if not ok then
+            WoWLookTierExportDB.lastError = payload
+            PrintWarn("预检失败: " .. tostring(payload))
+            return
+        end
+        WoWLookTierExportDB.payload = jsonEncode(payload)
+        WoWLookTierExportDB.summary = payload.summary
+        WoWLookTierExportDB.lastError = nil
+        Print("S2 套装预检完成。请 /reload 保存；把 SavedVariables 文件交回以确认 13 职业和专精范围。")
+        return
+    end
+
+    local captureLink = arg:match("^capture%s+(.+)$")
+    if captureLink then
+        local ok, result = CapturePreflightItem(captureLink)
+        if ok then
+            Print(string.format("已记录 S2 套装预检：%s（装等%d）。再运行 /wowtierexport preflight 生成交付文件。",
+                result.name ~= "" and result.name or tostring(result.itemId), result.tooltipItemLevel or 0))
+        else
+            PrintWarn(tostring(result))
+        end
+        return
+    end
+
     if arg == "" or arg == "all" then
         StartExport(CLASS_ORDER)
         return
@@ -1137,4 +1260,4 @@ SlashCmdList["WOWTIEREXPORT"] = function(msg)
     StartExport(classKeys)
 end
 
-Print("已加载 v" .. ADDON_VERSION .. "。输入 /wowtierexport help 查看命令。")
+Print("已加载 v" .. ADDON_VERSION .. "。请先输入 /wowtierexport preflight。")

@@ -1,17 +1,11 @@
--- WoWLookTierExport season-specific maximum item-level rules.
--- Update this file when a new season changes its maximum track or Bonus IDs.
-
+-- S2 tier IDs, final links, and 2/4-piece text must come from the live client.
 WoWLookTierSeasonConfig = {
-    profileVersion = 1,
-    seasonId = 16,
-    seasonName = "Midnight Season 1",
-    testedBuild = 68256,
-    minimumBuild = 68232,
-
-    targetItemLevel = 289,
-    track = "myth",
-    rank = 6,
-    trackBonusId = 12806,
-    qualityBonusId = 1674,
-    expectedUpgradeTrack = "神话 6/6",
+    profileVersion = 2,
+    seasonId = 17,
+    seasonName = "Midnight Season 2",
+    testedBuild = 69273,
+    minimumBuild = 69273,
+    releaseStatus = "preflight_required",
+    dataVersion = "12.1-s2",
+    tierSets = nil,
 }

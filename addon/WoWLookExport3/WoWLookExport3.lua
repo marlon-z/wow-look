@@ -1,5 +1,5 @@
 local ADDON_NAME = ...
-local ADDON_VERSION = "3.3.3"
+local ADDON_VERSION = "4.0.0-s2-preflight"
 
 WoWLookExport3DB = WoWLookExport3DB or {
     version = ADDON_VERSION,
@@ -915,10 +915,20 @@ local function ValidateSeasonConfig()
     end
     if type(config.profileVersion) ~= "number"
         or type(config.minimumBuild) ~= "number"
-        or type(config.dungeon) ~= "table"
-        or type(config.raid) ~= "table"
-        or type(config.raid.tracks) ~= "table" then
+        or type(config.releaseStatus) ~= "string"
+        or type(config.dataVersion) ~= "string" then
         return nil, "season_config_invalid: required fields are missing"
+    end
+    local _, buildNumber = GetClientBuildInfo()
+    if buildNumber < config.minimumBuild then
+        return nil, string.format(
+            "season_build_mismatch: client build %d is older than profile minimum %d",
+            buildNumber,
+            config.minimumBuild
+        )
+    end
+    if config.releaseStatus ~= "finalized" then
+        return config
     end
     if type(config.dungeon.targetItemLevel) ~= "number"
         or type(config.dungeon.trackBonusId) ~= "number"
@@ -945,14 +955,6 @@ local function ValidateSeasonConfig()
         return nil, "season_config_invalid: raid maximum rule is invalid"
     end
 
-    local _, buildNumber = GetClientBuildInfo()
-    if buildNumber < config.minimumBuild then
-        return nil, string.format(
-            "season_build_mismatch: client build %d is older than profile minimum %d",
-            buildNumber,
-            config.minimumBuild
-        )
-    end
     if config.testedBuild and buildNumber ~= config.testedBuild then
         PrintWarn(string.format(
             "赛季配置测试版本为 %d，当前客户端为 %d；将继续导出，但必须检查最高装等验证结果。",
@@ -1578,7 +1580,78 @@ local function FinalizeExport(scan, config)
     Print("================================")
 end
 
-local function DoExport()
+local function FinalizePreflight(scan, config)
+    Print("S2 预检：补抓冒险者手册展示链接和说明框证据 ...")
+    local resolveStats = ResolveMissingDisplayLinks(scan.itemsById)
+    local classSpecStats = ResolveClassSpecAvailability(scan.itemsById, resolveStats.cache)
+    local buildVersion, buildNumber = GetClientBuildInfo()
+
+    for _, item in pairs(scan.itemsById) do
+        if item.displayLink then
+            item.dropVersion = CaptureItemVersion(item.displayLink)
+            item.preflightEvidence = {
+                rawLink = item.dropVersion.link or item.displayLink,
+                tooltipItemLevel = item.dropVersion.itemLevel or 0,
+                upgradeTrack = item.dropVersion.upgradeTrack or "",
+                tooltipRaw = (item.dropVersion.tooltip or {}).rawLines or {},
+            }
+        else
+            item.preflightEvidence = {
+                rawLink = "",
+                tooltipItemLevel = 0,
+                upgradeTrack = "",
+                tooltipRaw = {},
+            }
+        end
+        item.maxVersion = nil
+    end
+
+    local payload = {
+        mode = "preflight",
+        dataVersion = config.dataVersion,
+        seasonName = config.seasonName,
+        exportTime = date("%Y-%m-%d %H:%M:%S"),
+        build = buildVersion,
+        clientBuild = buildNumber,
+        locale = GetLocale(),
+        addonVersion = ADDON_VERSION,
+        scope = {
+            dungeonDifficulty = DUNGEON_DIFFICULTY,
+            raidDifficulty = HEROIC_RAID_DIFFICULTY,
+            dungeons = scan.dungeonMeta.instances,
+            unresolvedDungeons = scan.dungeonMeta.unresolved,
+            raids = scan.raidMeta.instances,
+            skippedRaids = scan.raidMeta.skipped,
+            raidExpansionId = scan.raidMeta.expansionId,
+            raidTierId = scan.raidMeta.tierId,
+        },
+        diagnostics = {
+            resolvedDisplayLinkCount = resolveStats.resolved,
+            missingDisplayLinkCount = #resolveStats.missing,
+            missingDisplayLinks = resolveStats.missing,
+            classifiedClassSpecCount = classSpecStats.classified,
+            missingClassSpecCount = #classSpecStats.missing,
+            missingClassSpecs = classSpecStats.missing,
+        },
+        instances = scan.instances,
+        items = scan.itemsById,
+    }
+    WoWLookExport3DB.payload = jsonEncode(payload)
+    WoWLookExport3DB.summary = {
+        mode = payload.mode,
+        exportedAt = payload.exportTime,
+        clientBuild = payload.clientBuild,
+        dungeonCount = #scan.dungeonMeta.instances,
+        raidCount = #scan.raidMeta.instances,
+        itemCount = #scan.itemIds,
+        missingDisplayLinkCount = #resolveStats.missing,
+        missingClassSpecCount = #classSpecStats.missing,
+    }
+    WoWLookExport3DB.lastError = nil
+    Print("S2 预检完成。请 /reload 保存；此文件只能用于确认 S2 规则，不能发布。")
+end
+
+local function DoExport(mode)
     WoWLookExport3DB.version = ADDON_VERSION
     if not EnsureEJLoaded() then
         PrintWarn("无法加载冒险者手册 API。")
@@ -1592,7 +1665,13 @@ local function DoExport()
         return
     end
 
-    Print("开始导出 v3.3（实际可获得最高装等）...")
+    if mode ~= "preflight" and config.releaseStatus ~= "finalized" then
+        WoWLookExport3DB.lastError = "final_export_blocked_until_manifest_finalized"
+        PrintWarn("S2 最终规则尚未由客户端预检确认。请先运行 /wowlook preflight。")
+        return
+    end
+
+    Print(mode == "preflight" and "开始 S2 预检采集 ..." or "开始 S2 最终导出 ...")
     local ok, scan = pcall(BuildExportData)
     if not ok then
         WoWLookExport3DB.lastError = scan
@@ -1620,7 +1699,8 @@ local function DoExport()
                 PrintWarn(string.format("仍有 %d 件物品未完成缓存，将继续导出。", uncached))
             end
 
-            local finalizeOk, finalizeErr = pcall(FinalizeExport, scan, config)
+            local finalize = mode == "preflight" and FinalizePreflight or FinalizeExport
+            local finalizeOk, finalizeErr = pcall(finalize, scan, config)
             if not finalizeOk then
                 WoWLookExport3DB.lastError = finalizeErr
                 PrintWarn("导出失败: " .. tostring(finalizeErr))
@@ -1635,8 +1715,10 @@ SLASH_WOWLOOKMAXEXPORT1 = "/wowlook"
 SLASH_WOWLOOKMAXEXPORT2 = "/wle"
 local function HandleSlashCommand(msg)
     local cmd = strlower(strtrim(msg or ""))
-    if cmd == "" or cmd == "export" then
-        DoExport()
+    if cmd == "preflight" then
+        DoExport("preflight")
+    elseif cmd == "" or cmd == "export" then
+        DoExport("final")
     elseif cmd == "status" then
         if WoWLookExport3DB.lastError then
             PrintWarn("最近错误: " .. tostring(WoWLookExport3DB.lastError))
@@ -1661,7 +1743,8 @@ local function HandleSlashCommand(msg)
         WoWLookExport3DB.lastError = nil
         Print("已清空导出缓存。/reload 后写盘。")
     else
-        Print("/wowlook export  开始导出")
+        Print("/wowlook preflight  采集 S2 客户端事实和说明框证据")
+        Print("/wowlook export     S2 规则确认前会拒绝最终导出")
         Print("/wowlook status  查看状态")
         Print("/wowlook reset   清空缓存")
     end
@@ -1685,4 +1768,4 @@ SlashCmdList.WOWLOOKMAXEXPORT = function(msg)
     end
 end
 
-Print("v3.3.3 已加载。输入 /wowlook（或 /wle）开始导出最高可获得装等。")
+Print("v" .. ADDON_VERSION .. " 已加载。请先输入 /wowlook preflight。")

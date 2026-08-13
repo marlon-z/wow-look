@@ -66,6 +66,7 @@ function Scanner.BuildSearchParams()
 end
 
 local function BuildOptionRecord(option, apiInfo)
+    local _, rawBuildNumber = GetBuildInfo()
     return {
         recipeId = option.spellID,
         itemId = option.itemID,
@@ -91,6 +92,7 @@ local function BuildOptionRecord(option, apiInfo)
         subClassId = apiInfo and apiInfo.subClassId or nil,
         discoveredAt = Now(),
         discoveredBy = CharacterName(),
+        clientBuild = tonumber(rawBuildNumber) or 0,
     }
 end
 
@@ -122,6 +124,7 @@ function Scanner.CompleteScan()
     end
 
     local db = CraftExport.GetDB()
+    local config = CraftExport.SEASON_CONFIG or {}
     local stats = {
         scanned = 0,
         candidates = 0,
@@ -162,6 +165,10 @@ function Scanner.CompleteScan()
     end
 
     db.lastScan = {
+        mode = "preflight",
+        dataVersion = config.dataVersion or "",
+        seasonName = config.seasonName or "",
+        clientBuild = tonumber(select(2, GetBuildInfo())) or 0,
         completedAt = Now(),
         character = CharacterName(),
         stats = stats,

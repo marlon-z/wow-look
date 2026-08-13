@@ -1,8 +1,8 @@
-## Interface: 120007
+## Interface: 120100
 ## Title: WoWLookExport3
 ## Notes: 从冒险者手册导出当前赛季地下城与团本装备数据
 ## Author: WoWLook
-## Version: 3.3.3
+## Version: 4.0.0-s2-preflight
 ## SavedVariables: WoWLookExport3DB
 
 SeasonConfig.lua

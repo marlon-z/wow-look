@@ -61,16 +61,18 @@ function runStaticChecks() {
   const configIndex = toc.indexOf('SeasonConfig.lua');
   const addonIndex = toc.indexOf('WoWLookTierExport.lua');
   assert(configIndex >= 0 && configIndex < addonIndex, 'TOC 必须先加载 SeasonConfig.lua。');
-  assert(/targetItemLevel\s*=\s*289/.test(config), '套装目标装等不是289。');
-  assert(/trackBonusId\s*=\s*12806/.test(config), '套装神话6\/6 Bonus ID不是12806。');
-  assert(/qualityBonusId\s*=\s*1674/.test(config), '套装史诗品质 Bonus ID不是1674。');
-  assert(/local ADDON_VERSION = "0\.6\.0"/.test(addon), '套装插件版本不是0.6.0。');
-  assert(addon.includes('local function GetItemLevelBonusId'), '缺少等级差 Bonus ID计算函数。');
-  assert(addon.includes('local function BuildMaximumTierLink'), '缺少289套装链接构造函数。');
-  assert(addon.includes('local function ValidateMaximumTierItem'), '缺少289套装验证函数。');
-  assert(addon.includes('target_item_level_mismatch'), '缺少目标装等不一致状态。');
-  assert(!addon.includes('local SEASON_BONUS_ID = 3524'), '旧英雄2/6模板仍在使用。');
-  console.log('套装289静态检查通过。');
+  assert(/seasonName\s*=\s*"Midnight Season 2"/.test(config), '套装插件尚未切换到 Midnight S2。');
+  assert(/testedBuild\s*=\s*69273/.test(config), '套装插件未锁定客户端 Build 69273。');
+  assert(/releaseStatus\s*=\s*"preflight_required"/.test(config), '套装插件必须先处于 S2 预检状态。');
+  assert(addon.includes('local function BuildPreflightPayload'), '套装插件缺少预检导出构造函数。');
+  assert(addon.includes('local function CapturePreflightItem'), '套装插件缺少真实 S2 物品链接采集函数。');
+  assert(addon.includes('arg == "preflight"'), '套装插件缺少 /wowtierexport preflight 命令。');
+  assert(addon.includes('arg:match("^capture%s+(.+)$")'), '套装插件缺少 /wowtierexport capture 命令。');
+  assert(addon.includes('final_export_blocked_until_manifest_finalized'), '套装插件没有阻止未确认规则下的最终导出。');
+  assert(!/targetItemLevel\s*=\s*289/.test(config), 'S1 套装装等仍写入 S2 配置。');
+  assert(!/trackBonusId\s*=\s*12806/.test(config), 'S1 套装 Bonus ID 仍写入 S2 配置。');
+  assert(/local ADDON_VERSION = "1\.0\.0-s2-preflight"/.test(addon), '套装插件版本不是 S2 预检版。');
+  console.log('S2 套装预检插件静态检查通过。');
 }
 
 function runPayloadChecks(inputPath) {

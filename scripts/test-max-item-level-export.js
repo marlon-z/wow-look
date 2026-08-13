@@ -79,34 +79,19 @@ function runStaticChecks() {
   assert(readNumber(config, 'seasonId') > 0, 'seasonId 无效。');
   assert(readNumber(config, 'testedBuild') > 0, 'testedBuild 无效。');
   assert(readNumber(config, 'minimumBuild') > 0, 'minimumBuild 无效。');
+  assert(/seasonName\s*=\s*"Midnight Season 2"/.test(config), '普通装备插件尚未切换到 Midnight S2。');
+  assert(/testedBuild\s*=\s*69273/.test(config), '普通装备插件未锁定客户端 Build 69273。');
+  assert(/releaseStatus\s*=\s*"preflight_required"/.test(config), '普通装备插件必须先处于 S2 预检状态。');
+  assert(addon.includes('local function FinalizePreflight'), '普通装备插件缺少预检导出构造函数。');
+  assert(addon.includes('cmd == "preflight"'), '普通装备插件缺少 /wowlook preflight 命令。');
+  assert(addon.includes('final_export_blocked_until_manifest_finalized'), '普通装备插件没有阻止未确认规则下的最终导出。');
 
-  const targetLevels = [...config.matchAll(/targetItemLevel\s*=\s*(\d+)/g)].map((match) => Number(match[1]));
-  const trackBonuses = [...config.matchAll(/trackBonusId\s*=\s*(\d+)/g)].map((match) => Number(match[1]));
-  assert(targetLevels.length >= 2 && targetLevels.every((value) => value > 0), '目标装等配置缺失或为占位值。');
-  assert(trackBonuses.length >= 2 && trackBonuses.every((value) => value > 0), '轨道 Bonus ID 缺失或为占位值。');
-  assert(/voidforged\s*=\s*\{/.test(config), '缺少虚空铸造配置。');
-  assert(/voidforged[\s\S]*?targetItemLevel\s*=\s*298/.test(config), '虚空铸造目标装等不是 298。');
-  assert(/itemContext\s*=\s*35/.test(config), '虚空铸造物品上下文不是 35。');
-  assert(/markerBonusId\s*=\s*13654/.test(config), '缺少虚空铸造史诗标记 13654。');
-  assert(/commonBonusIds\s*=\s*\{\s*13440,\s*6652\s*\}/.test(config), '虚空铸造公共 Bonus ID 不完整。');
-  assert(/trinketBonusId\s*=\s*12699/.test(config), '虚空铸造饰品 Bonus ID 不正确。');
-  assert(/weaponBonusId\s*=\s*12701/.test(config), '虚空铸造武器 Bonus ID 不正确。');
-  assert(/INVTYPE_TRINKET\s*=\s*12699/.test(config), '虚空铸造配置未映射饰品。');
-  assert(/INVTYPE_WEAPONMAINHAND\s*=\s*12701/.test(config), '虚空铸造配置未映射主手武器。');
-  assert(/INVTYPE_WEAPONOFFHAND\s*=\s*12701/.test(config), '虚空铸造配置未映射副手武器。');
-  assert(addon.includes('local function ValidateMaxVersion'), '缺少最高档验证函数。');
-  assert(addon.includes('local function ApplyVoidforgedRule'), '缺少虚空铸造规则选择函数。');
-  assert(!addon.includes('local function ApplySpecialSlotCap'), '旧的通用 298 上限逻辑尚未移除。');
+  assert(!/targetItemLevel\s*=\s*289/.test(config), 'S1 目标装等仍写入 S2 配置。');
+  assert(!/trackBonusId\s*=\s*12806/.test(config), 'S1 轨道 Bonus ID 仍写入 S2 配置。');
+  assert(!/voidforged\s*=\s*\{/.test(config), 'S1 虚空铸造规则仍写入 S2 配置。');
   assert(addon.includes('addonVersion = ADDON_VERSION'), '导出元数据没有使用当前源码版本。');
-  assert(addon.includes('local ADDON_VERSION = "3.3.3"'), '插件源码版本不是 3.3.3。');
-  const converter = fs.readFileSync(path.join(ROOT, 'scripts', 'parse-export.js'), 'utf8');
-  assert(converter.includes('voidforgedMarkerBonusId'), '转换脚本未验证虚空铸造史诗标记。');
-  assert(converter.includes('voidforgedTrinketBonusId'), '转换脚本未验证虚空铸造饰品 Bonus ID。');
-  assert(converter.includes('voidforgedWeaponBonusId'), '转换脚本未验证虚空铸造武器 Bonus ID。');
-  assert(addon.includes('target_item_level_mismatch'), '缺少目标装等不一致状态。');
-  assert(addon.includes('item_identity_mismatch'), '缺少装备身份不一致状态。');
-  assert(addon.includes('item.dropVersion'), '导出器未保留 dropVersion。');
-  assert(addon.includes('item.maxVersion'), '导出器未生成 maxVersion。');
+  assert(addon.includes('local ADDON_VERSION = "4.0.0-s2-preflight"'), '插件源码版本不是 S2 预检版。');
+  assert(addon.includes('item.preflightEvidence'), '导出器未写入预检证据。');
   assert(addon.includes('SLASH_WOWLOOKMAXEXPORT1 = "/wowlook"'), '主斜杠命令注册名无效。');
   assert(addon.includes('SLASH_WOWLOOKMAXEXPORT2 = "/wle"'), '短斜杠命令注册名无效。');
   assert(addon.includes('SlashCmdList.WOWLOOKMAXEXPORT = function'), '斜杠命令处理函数未注册。');
@@ -117,7 +102,7 @@ function runStaticChecks() {
   assert(addon.includes('xpcall(function()'), '斜杠命令入口缺少异常保护。');
   assert(!addon.includes('SLASH_WOWLOOKEXPORT31'), '斜杠命令内部名称不能以命令数字和别名数字连写。');
   assert(!addon.includes('= "/wowlook3"'), 'WoW 斜杠命令主体不能依赖末尾数字。');
-  console.log('静态检查通过：配置、加载顺序、验证门禁和双版本字段完整。');
+  console.log('S2 普通装备预检插件静态检查通过。');
 }
 
 function runPayloadChecks(inputPath) {

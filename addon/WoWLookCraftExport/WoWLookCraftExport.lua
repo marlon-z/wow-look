@@ -64,6 +64,9 @@ function CraftExport.RefreshSummary()
     local db = EnsureDatabase()
     db.updatedAt = Now()
     db.summary = {
+        mode = db.mode or "preflight",
+        dataVersion = (CraftExport.SEASON_CONFIG or {}).dataVersion or "",
+        clientBuild = tonumber(select(2, GetBuildInfo())) or 0,
         accepted = CountEntries(db.items),
         candidates = CountEntries(db.candidates),
         rejected = CountEntries(db.rejected),
@@ -324,6 +327,9 @@ end
 
 
 function CraftExport.StartAutomaticCapture()
+    if (CraftExport.SEASON_CONFIG or {}).releaseStatus ~= "finalized" then
+        return false, "final_export_blocked_until_manifest_finalized"
+    end
     if CraftExport.automaticCaptureRunning then
         return false, "自动目标装等验证正在运行"
     end
@@ -606,7 +612,8 @@ local function ShowStatus()
 end
 
 local function ShowHelp()
-    Print("/wowcraft scan - 无需打开界面，按赛季配置验证并导出最高装等制造装备")
+    Print("/wowcraft preflight - 采集 S2 制造订单候选和客户端实际预览证据")
+    Print("/wowcraft scan - S2 规则确认前会拒绝最终制造装备导出")
     Print("/wowcraft capture - 手动补采自动验证失败的当前订单预览")
     Print("/wowcraft status - 查看采集数量")
     Print("/wowcraft reset confirm - 清空本插件的采集数据")
@@ -617,7 +624,26 @@ local function HandleCommand(message)
     local command, rest = tostring(message or ""):match("^%s*(%S*)%s*(.-)%s*$")
     command = string.lower(command or "")
 
-    if command == "scan" then
+    if command == "preflight" then
+        local config = CraftExport.SEASON_CONFIG or {}
+        local _, buildNumber = GetBuildInfo()
+        if tonumber(buildNumber) ~= tonumber(config.testedBuild) then
+            Print("当前客户端 Build 与预检目标不一致：" .. tostring(buildNumber))
+            return
+        end
+        local db = EnsureDatabase()
+        db.mode = "preflight"
+        db.dataVersion = config.dataVersion
+        db.seasonName = config.seasonName
+        db.clientBuild = tonumber(buildNumber) or 0
+        local ok, result = CraftExport.Scanner.RequestScan()
+        Print(result)
+        if not ok then RecordError("preflight_request_failed", result) end
+    elseif command == "scan" then
+        if (CraftExport.SEASON_CONFIG or {}).releaseStatus ~= "finalized" then
+            Print("final_export_blocked_until_manifest_finalized：请先运行 /wowcraft preflight")
+            return
+        end
         local ok, result = CraftExport.Scanner.RequestScan()
         Print(result)
         if not ok then
@@ -673,9 +699,13 @@ eventFrame:SetScript("OnEvent", function(_, event, ...)
                 result.candidates,
                 result.rejected
             ))
-            C_Timer.After(0, function()
-                CraftExport.StartAutomaticCapture()
-            end)
+            if (CraftExport.SEASON_CONFIG or {}).releaseStatus == "finalized" then
+                C_Timer.After(0, function()
+                    CraftExport.StartAutomaticCapture()
+                end)
+            else
+                Print("S2 制造预检完成。请 /reload 保存；候选清单不能作为最终制造数据发布。")
+            end
         else
             Print(result)
             RecordError("scan_failed", result)

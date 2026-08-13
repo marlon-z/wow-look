@@ -19,8 +19,12 @@ function getClassMeta(classKey) {
 }
 
 const COS_BASE = 'https://wowlook-1308073800.cos.ap-guangzhou.myqcloud.com';
-const DATA_VERSION = '4.4.x';
+const DATA_SOURCE = 'local-s2-crafted-preview';
+const DATA_VERSION = DATA_SOURCE === 'local-s2-crafted-preview' ? '12.1-s2' : '4.4.x';
 const DATA_DIR = `data-${DATA_VERSION}`;
+const LOCAL_S2_PREVIEW = DATA_SOURCE === 'local-s2-crafted-preview'
+  ? require('../local-data/s2-crafted-preview')
+  : null;
 
 function getClassVisualAssets(classKey) {
   const classMeta = getClassMeta(classKey);
@@ -33,6 +37,9 @@ function getClassVisualAssets(classKey) {
 }
 
 function loadOverview() {
+  if (LOCAL_S2_PREVIEW) {
+    return Promise.resolve(LOCAL_S2_PREVIEW.getOverview());
+  }
   return new Promise((resolve) => {
     wx.request({
       url: `${COS_BASE}/${DATA_DIR}/overview.json`,
@@ -50,6 +57,9 @@ function loadClassData(classKey) {
   if (validKeys.indexOf(classKey) === -1) {
     return Promise.resolve(null);
   }
+  if (LOCAL_S2_PREVIEW) {
+    return Promise.resolve(LOCAL_S2_PREVIEW.getClassData(classKey));
+  }
   return new Promise((resolve) => {
     wx.request({
       url: `${COS_BASE}/${DATA_DIR}/${classKey}.json`,
@@ -64,6 +74,7 @@ function loadClassData(classKey) {
 
 module.exports = {
   COS_BASE,
+  DATA_SOURCE,
   DATA_VERSION,
   DATA_DIR,
   CLASS_LIST,

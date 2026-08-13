@@ -44,10 +44,41 @@
     </view>
   </view>
 
+  <view class="home-share-cta" bindtap="openHomeShare">
+    <view class="home-share-cta-icon"></view>
+    <view class="home-share-cta-copy">
+      <text class="home-share-cta-title">分享给队友</text>
+      <text class="home-share-cta-desc">一键查毕业装备、模拟配装</text>
+    </view>
+    <text class="home-share-cta-arrow">›</text>
+  </view>
+
   <view class="footer-note">
     <view class="footer-ornament"></view>
     <text>采集数据 · 仅供参考</text>
     <view class="footer-ornament"></view>
+  </view>
+
+  <view wx:if="{{showHomeShare}}" class="home-share-mask" bindtap="closeHomeShare">
+    <view class="home-share-panel" catchtap="preventClose">
+      <view class="home-share-panel-glow"></view>
+      <view class="home-share-panel-head">
+        <view class="home-share-panel-icon"></view>
+        <view class="home-share-panel-title-wrap">
+          <text class="home-share-panel-eyebrow">艾泽配装</text>
+          <text class="home-share-panel-title">把配装工具分享给队友</text>
+        </view>
+        <view class="favorite-close" catchtap="closeHomeShare"></view>
+      </view>
+      <view class="favorite-divider"></view>
+      <view class="home-share-panel-body">
+        <text class="home-share-panel-lead">一键查毕业装备、模拟配装</text>
+        <text class="home-share-panel-text">把当赛季装备信息和配装工具分享给你的队友。</text>
+      </view>
+      <view class="home-share-panel-actions">
+        <button class="home-share-panel-button" open-type="share" data-share-kind="home">立即转发</button>
+      </view>
+    </view>
   </view>
 
   <favorite-panel

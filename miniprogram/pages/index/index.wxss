@@ -429,6 +429,199 @@
   z-index: 1;
 }
 
+/* ── Homepage share CTA ── */
+.home-share-cta {
+  width: 100%;
+  min-height: 104rpx;
+  margin-top: 28rpx;
+  padding: 0 28rpx;
+  box-sizing: border-box;
+  border-radius: 22rpx;
+  border: 1rpx solid rgba(246, 198, 84, 0.66);
+  background: linear-gradient(105deg, rgba(112, 69, 20, 0.94), rgba(47, 33, 31, 0.98) 56%, rgba(22, 18, 28, 0.98));
+  box-shadow:
+    0 12rpx 30rpx rgba(0, 0, 0, 0.52),
+    0 0 28rpx rgba(222, 166, 62, 0.18),
+    inset 0 1rpx 0 rgba(255, 239, 178, 0.38);
+  display: flex;
+  align-items: center;
+  gap: 18rpx;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-share-cta::before {
+  content: '';
+  position: absolute;
+  inset: 5rpx;
+  border: 1rpx solid rgba(255, 237, 171, 0.15);
+  border-radius: 17rpx;
+  pointer-events: none;
+}
+
+.home-share-cta:active {
+  transform: scale(0.985);
+  box-shadow: 0 6rpx 16rpx rgba(0, 0, 0, 0.7), inset 0 1rpx 0 rgba(255, 239, 178, 0.24);
+}
+
+.home-share-cta-icon,
+.home-share-panel-icon {
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #fff0b4, #e4ae48 56%, #a6601b);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M18 8a3 3 0 10-2.83-4A3 3 0 0012.8 8.2l-4.55 2.28a3 3 0 100 3.04l4.55 2.28A3 3 0 1014 14.1l-4.55-2.28a3.2 3.2 0 000-.64L14 8.9A3 3 0 0018 8z'/%3E%3C/svg%3E");
+  -webkit-mask-size: cover;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M18 8a3 3 0 10-2.83-4A3 3 0 0012.8 8.2l-4.55 2.28a3 3 0 100 3.04l4.55 2.28A3 3 0 1014 14.1l-4.55-2.28a3.2 3.2 0 000-.64L14 8.9A3 3 0 0018 8z'/%3E%3C/svg%3E");
+  mask-size: cover;
+}
+
+.home-share-cta-icon {
+  width: 42rpx;
+  height: 42rpx;
+  filter: drop-shadow(0 0 9rpx rgba(255, 199, 80, 0.52));
+}
+
+.home-share-cta-copy {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  gap: 5rpx;
+}
+
+.home-share-cta-title {
+  color: #fff0c9;
+  font-size: 29rpx;
+  font-weight: 900;
+  letter-spacing: 3rpx;
+}
+
+.home-share-cta-desc {
+  color: rgba(250, 220, 157, 0.78);
+  font-size: 22rpx;
+  font-weight: 700;
+}
+
+.home-share-cta-arrow {
+  color: #ffe09c;
+  font-size: 42rpx;
+  font-weight: 300;
+}
+
+.home-share-mask {
+  position: fixed;
+  inset: 0;
+  z-index: 130;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 38rpx;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.home-share-panel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  border: 2rpx solid rgba(232, 181, 70, 0.56);
+  border-radius: 34rpx;
+  background: linear-gradient(155deg, #2a201d 0%, #17121a 54%, #0e0b11 100%);
+  box-shadow: 0 26rpx 70rpx rgba(0, 0, 0, 0.86), 0 0 52rpx rgba(226, 162, 48, 0.14), inset 0 1rpx 0 rgba(255, 237, 174, 0.22);
+}
+
+.home-share-panel-glow {
+  position: absolute;
+  top: -150rpx;
+  left: 50%;
+  width: 560rpx;
+  height: 360rpx;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(222, 151, 43, 0.24), rgba(222, 151, 43, 0));
+  pointer-events: none;
+}
+
+.home-share-panel-head {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 18rpx;
+  padding: 38rpx 40rpx 28rpx;
+}
+
+.home-share-panel-icon {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.home-share-panel-title-wrap {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5rpx;
+}
+
+.home-share-panel-eyebrow {
+  color: #cba963;
+  font-size: 20rpx;
+  font-weight: 800;
+  letter-spacing: 3rpx;
+}
+
+.home-share-panel-title {
+  color: #fff0cd;
+  font-size: 33rpx;
+  font-weight: 900;
+  letter-spacing: 2rpx;
+}
+
+.home-share-panel-body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 32rpx 42rpx 38rpx;
+  gap: 14rpx;
+}
+
+.home-share-panel-lead {
+  color: #f7d98f;
+  font-size: 29rpx;
+  font-weight: 900;
+  letter-spacing: 2rpx;
+}
+
+.home-share-panel-text {
+  color: #b8aa94;
+  font-size: 25rpx;
+  font-weight: 600;
+  line-height: 1.65;
+}
+
+.home-share-panel-actions {
+  position: relative;
+  z-index: 1;
+  padding: 0 40rpx 42rpx;
+}
+
+.home-share-panel-button {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  border: 0;
+  border-radius: 18rpx;
+  color: #271706;
+  font-size: 29rpx;
+  font-weight: 900;
+  letter-spacing: 4rpx;
+  background: linear-gradient(135deg, #fff0ad, #e7b44e 52%, #b97622);
+  box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.36), inset 0 2rpx 0 rgba(255, 255, 255, 0.5);
+}
+
+.home-share-panel-button::after {
+  border: 0;
+}
+
 /* ── Footer ── */
 .footer-note {
   margin-top: auto;

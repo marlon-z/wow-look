@@ -394,6 +394,7 @@ Page({
     sharedFavoriteError: '',
     isSharedFavoriteLoading: false,
     showSharedFavorites: false,
+    showHomeShare: false,
     announcement: getAnnouncement(),
     showAnnouncement: false,
     hasUnreadAnnouncement: false,
@@ -446,6 +447,20 @@ Page({
       favoriteCount: favoriteList.length,
       showFavorites: true,
       pageStyle: 'overflow:hidden;height:100vh;',
+    });
+  },
+
+  openHomeShare() {
+    this.setData({
+      showHomeShare: true,
+      pageStyle: 'overflow:hidden;height:100vh;',
+    });
+  },
+
+  closeHomeShare() {
+    this.setData({
+      showHomeShare: false,
+      pageStyle: '',
     });
   },
 
@@ -929,6 +944,13 @@ Page({
   },
 
   onShareAppMessage(options = {}) {
+    if (options.from === 'button' && options.target && options.target.dataset.shareKind === 'home') {
+      return {
+        title: '魔兽当前赛季：一键查毕业装备、模拟配装',
+        path: '/pages/index/index',
+      };
+    }
+
     if (options.from === 'button') {
       const favoriteList = this.data.favoriteList.length ? this.data.favoriteList : getFavorites();
       const payload = buildFavoriteSharePayload(favoriteList);
@@ -952,7 +974,7 @@ Page({
     }
 
     return {
-      title: '艾泽配装 · 当赛季装备一键速查',
+      title: '魔兽当前赛季：一键查毕业装备、模拟配装',
       path: '/pages/index/index',
     };
   },
@@ -970,7 +992,7 @@ Page({
     }
 
     return {
-      title: '艾泽配装 · 当赛季装备一键速查',
+      title: '魔兽当前赛季：一键查毕业装备、模拟配装',
     };
   },
 

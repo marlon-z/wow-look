@@ -22,9 +22,7 @@ const COS_BASE = 'https://wowlook-1308073800.cos.ap-guangzhou.myqcloud.com';
 const DATA_SOURCE = 'local-s2-crafted-preview';
 const DATA_VERSION = DATA_SOURCE === 'local-s2-crafted-preview' ? '12.1-s2' : '4.4.x';
 const DATA_DIR = `data-${DATA_VERSION}`;
-const LOCAL_S2_PREVIEW = DATA_SOURCE === 'local-s2-crafted-preview'
-  ? require('../local-data/s2-crafted-preview')
-  : null;
+const LOCAL_PREVIEW_BASE = 'http://127.0.0.1:8787';
 
 function getClassVisualAssets(classKey) {
   const classMeta = getClassMeta(classKey);
@@ -37,12 +35,11 @@ function getClassVisualAssets(classKey) {
 }
 
 function loadOverview() {
-  if (LOCAL_S2_PREVIEW) {
-    return Promise.resolve(LOCAL_S2_PREVIEW.getOverview());
-  }
+  const baseUrl = DATA_SOURCE === 'local-s2-crafted-preview' ? LOCAL_PREVIEW_BASE : COS_BASE;
+  const dataDirectory = DATA_SOURCE === 'local-s2-crafted-preview' ? `${DATA_DIR}-crafted-preview` : DATA_DIR;
   return new Promise((resolve) => {
     wx.request({
-      url: `${COS_BASE}/${DATA_DIR}/overview.json`,
+      url: `${baseUrl}/${dataDirectory}/overview.json`,
       success(res) { resolve(res.data); },
       fail(err) {
         console.error('load overview failed', err);
@@ -57,12 +54,11 @@ function loadClassData(classKey) {
   if (validKeys.indexOf(classKey) === -1) {
     return Promise.resolve(null);
   }
-  if (LOCAL_S2_PREVIEW) {
-    return Promise.resolve(LOCAL_S2_PREVIEW.getClassData(classKey));
-  }
+  const baseUrl = DATA_SOURCE === 'local-s2-crafted-preview' ? LOCAL_PREVIEW_BASE : COS_BASE;
+  const dataDirectory = DATA_SOURCE === 'local-s2-crafted-preview' ? `${DATA_DIR}-crafted-preview` : DATA_DIR;
   return new Promise((resolve) => {
     wx.request({
-      url: `${COS_BASE}/${DATA_DIR}/${classKey}.json`,
+      url: `${baseUrl}/${dataDirectory}/${classKey}.json`,
       success(res) { resolve(res.data); },
       fail(err) {
         console.error(`load class data failed: ${classKey}`, err);
@@ -74,6 +70,7 @@ function loadClassData(classKey) {
 
 module.exports = {
   COS_BASE,
+  LOCAL_PREVIEW_BASE,
   DATA_SOURCE,
   DATA_VERSION,
   DATA_DIR,

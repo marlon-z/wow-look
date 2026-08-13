@@ -4,7 +4,7 @@
 
 **Goal:** Build an isolated local S2 preview dataset and let the mini-program load it without COS.
 
-**Architecture:** Generate a local module from the S2 preview data directory and switch `class-data` between it and the existing COS client. Reuse the existing crafted-item schema and enforce candidate/finalized boundaries in the generator.
+**Architecture:** Generate the S2 preview data directory under `cos-upload`, serve it locally from `127.0.0.1`, and switch `class-data` between that local server and the existing COS client. Reuse the existing crafted-item schema and enforce candidate/finalized boundaries in the generator.
 
 **Tech Stack:** Node.js generators/tests, WeChat mini-program CommonJS modules, JSON data files.
 
@@ -19,18 +19,18 @@
 
 - [ ] Build the preview directory from the existing S2 tier preflight source.
 - [ ] Preserve release metadata and add crafted verification counters.
-- [ ] Generate a CommonJS local-data module from each JSON payload.
+- [ ] Keep generated JSON exclusively under `cos-upload` for both local review and later upload.
 - [ ] Verify class/overview payload consistency and crafted random-stat isolation.
 
 ### Task 2: Select the local source in the mini-program
 
 **Files:**
-- Create: `miniprogram/local-data/s2-preview.js`
+- Create: `scripts/serve-local-cos-preview.js`
 - Modify: `miniprogram/utils/class-data.js`
 - Test: `tests/test-s2-local-preview.js`
 
 - [ ] Add an explicit local preview mode.
-- [ ] Load local overview/class data without `wx.request` in that mode.
+- [ ] Load local overview/class data from the loopback-only preview server.
 - [ ] Keep the existing COS request behavior unchanged when the mode is disabled.
 
 ### Task 3: Verify and hand off

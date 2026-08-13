@@ -6,7 +6,7 @@ Make the WeChat mini-program load an isolated Midnight S2 preview dataset from t
 
 ## Data flow
 
-`cos-upload/data-12.1-s2-crafted-preview` is the editable and reviewable source directory. A small generated module under `miniprogram/local-data` exposes the same class and overview payloads to the local mini-program. A local-preview flag selects that module before any COS request is made.
+`cos-upload/data-12.1-s2-crafted-preview` is the editable and reviewable source directory. During local verification, the mini-program requests this directory from a tiny HTTP server listening only on `127.0.0.1`; it does not call COS. This keeps the verification files identical to the later upload set and avoids embedding the full dataset in the mini-program package.
 
 ## Crafted equipment
 
@@ -14,4 +14,4 @@ Crafted records use the established model: fixed secondary stats remain in `stat
 
 ## Safety and validation
 
-The preview directory is new and never replaces `data-4.4.x`. Its overview reports `releaseStatus`, `equipmentVariant`, and crafted verification counters. Tests verify that the local loader does not make a COS request in preview mode and that preview crafted data cannot contain selectable random stats inside `stats.secondary`.
+The preview directory is new and never replaces `data-4.4.x`. Its overview reports `releaseStatus`, `equipmentVariant`, and crafted verification counters. Tests verify that the local loader requests only `127.0.0.1` in preview mode and that preview crafted data cannot contain selectable random stats inside `stats.secondary`.

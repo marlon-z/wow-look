@@ -1,0 +1,58 @@
+<page-meta page-style="background: #09080d;" />
+
+<view class="logo-preview-page">
+  <view class="logo-preview-intro">
+    <text class="logo-preview-eyebrow">NATIVE LOGO STUDY</text>
+    <text class="logo-preview-heading">艾泽配装 · 原生文字方案</text>
+    <text class="logo-preview-description">全部由小程序原生文字与几何样式组成，请在真机上比较清晰度与风格。</text>
+  </view>
+
+  <view class="logo-preview-card logo-preview-forge">
+    <text class="logo-preview-card-name">方案一 · 锻造铭牌</text>
+    <view class="logo-preview-forge-stage">
+      <view class="logo-preview-forge-medal">
+        <view class="logo-preview-forge-medal-core"></view>
+      </view>
+      <view class="logo-preview-forge-rule logo-preview-forge-rule-left"></view>
+      <view class="logo-preview-forge-rule logo-preview-forge-rule-right"></view>
+      <text class="logo-preview-forge-title">艾泽配装</text>
+      <view class="logo-preview-forge-subtitle-row">
+        <view class="logo-preview-forge-subtitle-line"></view>
+        <text class="logo-preview-forge-subtitle">当前赛季毕业装速查</text>
+        <view class="logo-preview-forge-subtitle-line"></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="logo-preview-card logo-preview-utility">
+    <text class="logo-preview-card-name">方案二 · 简洁工具</text>
+    <view class="logo-preview-utility-stage">
+      <view class="logo-preview-utility-mark">
+        <view class="logo-preview-utility-mark-inner"></view>
+      </view>
+      <view class="logo-preview-utility-divider"></view>
+      <view class="logo-preview-utility-copy">
+        <text class="logo-preview-utility-title">艾泽配装</text>
+        <text class="logo-preview-utility-subtitle">当前赛季毕业装速查</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="logo-preview-card logo-preview-rune">
+    <text class="logo-preview-card-name">方案三 · 符文印记</text>
+    <view class="logo-preview-rune-stage">
+      <view class="logo-preview-rune-frame logo-preview-rune-frame-outer"></view>
+      <view class="logo-preview-rune-frame logo-preview-rune-frame-inner"></view>
+      <view class="logo-preview-rune-corner logo-preview-rune-corner-top-left"></view>
+      <view class="logo-preview-rune-corner logo-preview-rune-corner-top-right"></view>
+      <view class="logo-preview-rune-corner logo-preview-rune-corner-bottom-left"></view>
+      <view class="logo-preview-rune-corner logo-preview-rune-corner-bottom-right"></view>
+      <view class="logo-preview-rune-diamond"></view>
+      <text class="logo-preview-rune-title">艾泽配装</text>
+      <view class="logo-preview-rune-divider"></view>
+      <text class="logo-preview-rune-subtitle">当前赛季毕业装速查</text>
+    </view>
+  </view>
+
+  <button class="logo-preview-back" bindtap="backToHome">返回首页</button>
+</view>

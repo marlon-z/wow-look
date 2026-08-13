@@ -17,7 +17,22 @@ assert.match(source, /require\.async/, '职业数据应通过分包异步化读�
 assert.match(source, /warrior:\s*\(\)\s*=>\s*require\.async\('\.\.\/packages\/class-warrior\/data\/warrior'\)/, '战士分包必须使用静态 require.async 路径。');
 assert.strictEqual((source.match(/require\.async\('\.\.\/packages\/class-[^']+\/data\/[^']+'\)/g) || []).length, 13, '13 个职业都必须有静态分包模块入口。');
 assert.ok(Array.isArray(appJson.subPackages), 'app.json 必须声明本地职业分包。');
-assert.strictEqual(appJson.subPackages.length, 13, '必须有 13 个职业分包。');
+const classKeys = [
+  'warrior', 'paladin', 'hunter', 'rogue', 'priest', 'deathknight', 'shaman',
+  'mage', 'warlock', 'monk', 'druid', 'demonhunter', 'evoker',
+];
+classKeys.forEach((classKey) => {
+  assert.deepStrictEqual(appJson.subPackages.find((subpackage) => subpackage.name === `class-${classKey}`), {
+    root: `packages/class-${classKey}`,
+    name: `class-${classKey}`,
+    pages: ['pages/loader/loader'],
+  }, `${classKey} 职业分包及其加载页必须完整注册。`);
+});
+assert.deepStrictEqual(appJson.subPackages.find((subpackage) => subpackage.root === 'packages/logo-preview'), {
+  root: 'packages/logo-preview',
+  name: 'logo-preview',
+  pages: ['pages/logo-preview/logo-preview'],
+}, 'Logo 预览页必须作为独立分包注册。');
 assert.doesNotMatch(runtimeSources, /wx\.request/, '纯本地运行代码不得发起网络请求。');
 assert.doesNotMatch(runtimeSources, /wowlook-1308073800|127\.0\.0\.1/, '纯本地运行代码不得保留 COS 或本机数据服务地址。');
 

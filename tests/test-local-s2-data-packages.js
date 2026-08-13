@@ -77,6 +77,11 @@ assert.ok(mainAssetSize < MAIN_PACKAGE_LIMIT, '主包资源不得超过 2 MiB。
 assert.ok(mainProgramSize < MAIN_PACKAGE_LIMIT, '主包（代码与资源）不得超过 1.5 MiB。');
 const totalMediaBytes = mediaSize(path.join(root, 'miniprogram'));
 console.log(`local mini-program media: ${totalMediaBytes} bytes (${(totalMediaBytes / 1024).toFixed(1)} KiB)`);
+const previewPackageRoot = path.join(packageRoot, 'logo-preview');
+assert.ok(fs.existsSync(previewPackageRoot), 'Logo 样式预览必须位于独立分包。');
+const previewPackageSize = packageSize(previewPackageRoot);
+console.log(`logo preview subpackage: ${previewPackageSize} bytes (${(previewPackageSize / 1024).toFixed(1)} KiB)`);
+assert.ok(previewPackageSize < PACKAGE_LIMIT, 'Logo 样式预览分包不得超过 2 MiB。');
 assert.ok(fs.existsSync(path.join(mainAssetRoot, 'icons')), '唯一图标目录必须位于主包。');
 assert.strictEqual(fs.readdirSync(path.join(mainAssetRoot, 'icons')).filter((name) => name.endsWith('.jpg')).length, 390, '应生成完整且唯一的 390 个独立 JPEG 图标。');
 classes.forEach((classKey) => {

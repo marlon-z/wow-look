@@ -18,7 +18,8 @@
     { "root": "packages/class-monk", "name": "class-monk", "pages": ["pages/loader/loader"] },
     { "root": "packages/class-druid", "name": "class-druid", "pages": ["pages/loader/loader"] },
     { "root": "packages/class-demonhunter", "name": "class-demonhunter", "pages": ["pages/loader/loader"] },
-    { "root": "packages/class-evoker", "name": "class-evoker", "pages": ["pages/loader/loader"] }
+    { "root": "packages/class-evoker", "name": "class-evoker", "pages": ["pages/loader/loader"] },
+    { "root": "packages/logo-preview", "name": "logo-preview", "pages": ["pages/logo-preview/logo-preview"] }
   ],
   "window": {
     "backgroundTextStyle": "dark",

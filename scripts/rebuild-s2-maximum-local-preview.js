@@ -11,6 +11,7 @@ const CLASS_KEYS = [
   'warrior', 'paladin', 'hunter', 'rogue', 'priest', 'deathknight', 'shaman',
   'mage', 'warlock', 'monk', 'druid', 'demonhunter', 'evoker',
 ];
+const TARGET_RAID_IDS = new Set([1317, 1320]);
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -53,6 +54,60 @@ function mergeClassData(maximumData, existingData) {
   };
 }
 
+function buildScopedPayload(inputPath, outputPath) {
+  const source = fs.readFileSync(inputPath, 'utf8');
+  const match = source.match(/(?:\["payload"\]|payload)\s*=\s*"((?:[^"\\]|\\.)*)"/s);
+  if (!match) throw new Error('最终导出缺少 payload。');
+  const payload = JSON.parse(JSON.parse(`"${match[1]}"`));
+  const instances = (payload.instances || []).filter((instance) => !instance.isRaid || TARGET_RAID_IDS.has(Number(instance.id)));
+  const itemIds = new Set(instances.flatMap((instance) => (
+    (instance.encounters || []).flatMap((encounter) => encounter.itemIds || [])
+  )).map(String));
+  const items = Object.fromEntries(Object.entries(payload.items || {}).filter(([itemId]) => itemIds.has(String(itemId))));
+  const excluded = Object.values(items).filter((item) => item.maxVersion?.status !== 'ok');
+  if (excluded.some((item) => Number(item.itemClassId) !== 9)) {
+    throw new Error(`范围内存在非配方的最高装等失败物品：${excluded.map((item) => item.itemId).join(', ')}`);
+  }
+  const finalItems = Object.fromEntries(Object.entries(items).filter(([, item]) => item.maxVersion?.status === 'ok'));
+  const finalInstances = instances.map((instance) => ({
+    ...instance,
+    encounters: (instance.encounters || []).map((encounter) => ({
+      ...encounter,
+      itemIds: (encounter.itemIds || []).filter((itemId) => Object.prototype.hasOwnProperty.call(finalItems, String(itemId))),
+    })),
+  }));
+  const scoped = {
+    ...payload,
+    releaseStatus: 'finalized',
+    equipmentVariant: 'maximum_version',
+    instances: finalInstances,
+    items: finalItems,
+    scope: {
+      ...(payload.scope || {}),
+      raids: (payload.scope?.raids || []).filter((raid) => TARGET_RAID_IDS.has(Number(raid.id))),
+      skippedRaids: [
+        ...(payload.scope?.skippedRaids || []),
+        ...(payload.scope?.raids || []).filter((raid) => !TARGET_RAID_IDS.has(Number(raid.id))).map((raid) => ({
+          id: raid.id,
+          name: raid.name,
+          reason: '不在两个目标 S2 团本范围',
+        })),
+      ],
+    },
+    diagnostics: {
+      ...(payload.diagnostics || {}),
+      maxVersionSuccessCount: Object.keys(finalItems).length,
+      maxVersionFailureCount: 0,
+      maxVersionStatuses: { ok: Object.keys(finalItems).length },
+      maxVersionFailures: [],
+      excludedRecipeCount: excluded.length,
+    },
+  };
+  const db = `WoWLookExport3DB = {\n  payload = ${JSON.stringify(JSON.stringify(scoped))}\n}\n`;
+  fs.writeFileSync(outputPath, db, 'utf8');
+  return { itemCount: Object.keys(finalItems).length, excludedRecipeCount: excluded.length };
+}
+
 function runParser(inputPath, outputDir) {
   execFileSync(process.execPath, [
     path.join(ROOT, 'scripts', 'parse-export.js'),
@@ -63,12 +118,21 @@ function runParser(inputPath, outputDir) {
   ], { cwd: ROOT, stdio: 'inherit' });
 }
 
+function fillIcons() {
+  execFileSync(process.execPath, [path.join(ROOT, 'scripts', 'fill-s2-preview-icons.js')], {
+    cwd: ROOT,
+    stdio: 'inherit',
+  });
+}
+
 function main() {
   const inputPath = path.resolve(process.cwd(), process.argv[2] || DEFAULT_EXPORT);
   if (!fs.existsSync(inputPath)) throw new Error(`找不到最终导出：${inputPath}`);
   const temporaryDir = fs.mkdtempSync(path.join(os.tmpdir(), 'wowlook-s2-maximum-'));
   try {
-    runParser(inputPath, temporaryDir);
+    const scopedInput = path.join(temporaryDir, 'WoWLookExport3-scoped.lua');
+    const scopedInfo = buildScopedPayload(inputPath, scopedInput);
+    runParser(scopedInput, temporaryDir);
     const maximumOverview = readJson(path.join(temporaryDir, 'overview.json'));
     if (maximumOverview.releaseStatus !== 'finalized'
         || maximumOverview.equipmentVariant !== 'maximum_version'
@@ -97,7 +161,8 @@ function main() {
         verification: 'WoW client generated-link and tooltip validation',
       },
     });
-    console.log(`已合并 ${ordinaryRecordCount} 条已验证的 334 普通装备；套装与制造业记录保持不变。`);
+    fillIcons();
+    console.log(`已合并 ${ordinaryRecordCount} 条已验证的 334 普通装备；已排除 ${scopedInfo.excludedRecipeCount} 件配方；套装与制造业记录保持不变。`);
   } finally {
     fs.rmSync(temporaryDir, { recursive: true, force: true });
   }
@@ -112,4 +177,4 @@ if (require.main === module) {
   }
 }
 
-module.exports = { mergeClassData, preservedInstances };
+module.exports = { buildScopedPayload, mergeClassData, preservedInstances };

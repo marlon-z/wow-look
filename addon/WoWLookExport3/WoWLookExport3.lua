@@ -355,9 +355,6 @@ local function CountLootForInstance(instanceId, difficultyId)
 end
 
 local function IsConfiguredPreflightRaid(config, raidId)
-    if config.releaseStatus == "finalized" then
-        return true
-    end
     for _, expectedId in ipairs(config.preflightRaidInstanceIds or {}) do
         if raidId == expectedId then
             return true
@@ -1133,12 +1130,14 @@ local function SelectItemSpecialization(item)
 end
 
 local function IsUpgradeableItem(itemId)
-    local _, _, _, equipLoc = C_Item.GetItemInfoInstant(itemId)
+    local _, _, _, equipLoc, _, itemClassId = C_Item.GetItemInfoInstant(itemId)
     -- Trinkets, rings, necklaces and cloaks are not all represented by the
     -- Armor/Weapon item classes.  The inventory location is the authoritative
     -- test here: every actual equipment slot is eligible for the same client
     -- link/tooltip validation, while toys, currencies and other loot are not.
-    return type(equipLoc) == "string"
+    local recipeClass = Enum and Enum.ItemClass and Enum.ItemClass.Recipe or 9
+    return itemClassId ~= recipeClass
+        and type(equipLoc) == "string"
         and equipLoc ~= ""
         and equipLoc ~= "INVTYPE_NON_EQUIP"
         and equipLoc ~= "INVTYPE_BAG"

@@ -13,5 +13,6 @@ assert.match(config, /trackBonusId\s*=\s*12854/);
 assert.match(config, /voidforged\s*=\s*\{\s*enabled\s*=\s*false/s);
 assert.match(addon, /local ADDON_VERSION = "4\.1\.0-s2-maximum"/);
 assert.match(addon, /equipLoc ~= "INVTYPE_NON_EQUIP"/);
+assert.doesNotMatch(addon, /if config\.releaseStatus == "finalized" then\s*return true/s);
 assert.match(toc, /## Version: 4\.1\.0-s2-maximum/);
 console.log('S2 maximum addon config tests passed.');

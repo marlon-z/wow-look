@@ -1,11 +1,25 @@
 {
   "version": "12.1-s2",
   "dataVersion": "12.1-s2",
-  "addonVersion": "4.0.0-s2-preflight",
-  "updatedAt": "2026-08-13 10:53:12",
-  "releaseStatus": "preflight_drop_versions",
-  "equipmentVariant": "drop_version",
-  "maximumProfile": null,
+  "addonVersion": "4.1.0-s2-maximum",
+  "updatedAt": "2026-08-13 16:44:56",
+  "releaseStatus": "finalized",
+  "equipmentVariant": "maximum_version",
+  "maximumProfile": {
+    "dungeonTargetItemLevel": 334,
+    "profileVersion": 4,
+    "raidTargetItemLevel": 334,
+    "seasonId": 17,
+    "seasonName": "Midnight Season 2",
+    "testedBuild": 69273,
+    "trinketTargetItemLevel": 0,
+    "voidforgedEnabled": false,
+    "voidforgedItemContext": 0,
+    "voidforgedMarkerBonusId": 0,
+    "voidforgedTrinketBonusId": 0,
+    "voidforgedWeaponBonusId": 0,
+    "weaponTargetItemLevel": 0
+  },
   "scope": {
     "dungeonCount": 8,
     "raidCount": 2,
@@ -95,7 +109,7 @@
       {
         "id": 1312,
         "name": "至暗之夜",
-        "reason": "不在两个目标 S2 团本范围"
+        "reason": "英雄难度无有效战利品"
       },
       {
         "id": 1314,
@@ -124,8 +138,8 @@
       "id": 1,
       "key": "warrior",
       "name": "战士",
-      "itemCount": 114,
-      "tierItemCount": 9,
+      "itemCount": 108,
+      "tierItemCount": 0,
       "color": "#C69B6D",
       "abbr": "战",
       "armorTypeName": "板甲"
@@ -134,8 +148,8 @@
       "id": 2,
       "key": "paladin",
       "name": "圣骑士",
-      "itemCount": 132,
-      "tierItemCount": 9,
+      "itemCount": 126,
+      "tierItemCount": 0,
       "color": "#F48CBA",
       "abbr": "骑",
       "armorTypeName": "板甲"
@@ -144,8 +158,8 @@
       "id": 3,
       "key": "hunter",
       "name": "猎人",
-      "itemCount": 113,
-      "tierItemCount": 9,
+      "itemCount": 107,
+      "tierItemCount": 0,
       "color": "#AAD372",
       "abbr": "猎",
       "armorTypeName": "锁甲"
@@ -154,8 +168,8 @@
       "id": 4,
       "key": "rogue",
       "name": "盗贼",
-      "itemCount": 106,
-      "tierItemCount": 9,
+      "itemCount": 100,
+      "tierItemCount": 0,
       "color": "#FFF468",
       "abbr": "贼",
       "armorTypeName": "皮甲"
@@ -164,8 +178,8 @@
       "id": 5,
       "key": "priest",
       "name": "牧师",
-      "itemCount": 113,
-      "tierItemCount": 9,
+      "itemCount": 107,
+      "tierItemCount": 0,
       "color": "#FFFFFF",
       "abbr": "牧",
       "armorTypeName": "布甲"
@@ -174,8 +188,8 @@
       "id": 6,
       "key": "deathknight",
       "name": "死亡骑士",
-      "itemCount": 108,
-      "tierItemCount": 9,
+      "itemCount": 101,
+      "tierItemCount": 0,
       "color": "#C41E3A",
       "abbr": "骑",
       "armorTypeName": "板甲"
@@ -184,8 +198,8 @@
       "id": 7,
       "key": "shaman",
       "name": "萨满祭司",
-      "itemCount": 129,
-      "tierItemCount": 9,
+      "itemCount": 123,
+      "tierItemCount": 0,
       "color": "#0070DD",
       "abbr": "萨",
       "armorTypeName": "锁甲"
@@ -194,8 +208,8 @@
       "id": 8,
       "key": "mage",
       "name": "法师",
-      "itemCount": 107,
-      "tierItemCount": 9,
+      "itemCount": 101,
+      "tierItemCount": 0,
       "color": "#3FC7EB",
       "abbr": "法",
       "armorTypeName": "布甲"
@@ -204,8 +218,8 @@
       "id": 9,
       "key": "warlock",
       "name": "术士",
-      "itemCount": 107,
-      "tierItemCount": 9,
+      "itemCount": 101,
+      "tierItemCount": 0,
       "color": "#8788EE",
       "abbr": "术",
       "armorTypeName": "布甲"
@@ -214,8 +228,8 @@
       "id": 10,
       "key": "monk",
       "name": "武僧",
-      "itemCount": 139,
-      "tierItemCount": 9,
+      "itemCount": 133,
+      "tierItemCount": 0,
       "color": "#00FF98",
       "abbr": "僧",
       "armorTypeName": "皮甲"
@@ -224,8 +238,8 @@
       "id": 11,
       "key": "druid",
       "name": "德鲁伊",
-      "itemCount": 135,
-      "tierItemCount": 9,
+      "itemCount": 129,
+      "tierItemCount": 0,
       "color": "#FF7C0A",
       "abbr": "德",
       "armorTypeName": "皮甲"
@@ -234,8 +248,8 @@
       "id": 12,
       "key": "demonhunter",
       "name": "恶魔猎手",
-      "itemCount": 120,
-      "tierItemCount": 9,
+      "itemCount": 114,
+      "tierItemCount": 0,
       "color": "#A330C9",
       "abbr": "猎",
       "armorTypeName": "皮甲"
@@ -244,8 +258,8 @@
       "id": 13,
       "key": "evoker",
       "name": "唤魔师",
-      "itemCount": 115,
-      "tierItemCount": 9,
+      "itemCount": 109,
+      "tierItemCount": 0,
       "color": "#33937F",
       "abbr": "唤",
       "armorTypeName": "锁甲"
@@ -320,5 +334,10 @@
         "count": 51
       }
     ]
+  },
+  "normalEquipment": {
+    "targetItemLevel": 334,
+    "recordCount": 1459,
+    "verification": "WoW client generated-link and tooltip validation"
   }
 }

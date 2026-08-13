@@ -32,6 +32,7 @@ assert.doesNotMatch(constants, /CANDIDATE_ITEM_LEVEL\s*=/);
 assert.doesNotMatch(constants, /TARGET_ITEM_LEVEL\s*=/);
 assert.match(seasonConfig, /releaseStatus\s*=\s*"preflight_required"/);
 assert.match(seasonConfig, /testedBuild\s*=\s*69273/);
+assert.match(seasonConfig, /minimumBuild\s*=\s*69273/);
 assert.match(seasonConfig, /normalProfile\s*=\s*nil/);
 assert.match(seasonConfig, /specialProfile\s*=\s*nil/);
 assert.doesNotMatch(seasonConfig, /targetItemLevel\s*=/);
@@ -62,6 +63,8 @@ assert.match(core, /StartAutomaticCapture/);
 assert.match(core, /SLASH_WOWLOOKCRAFTEXPORT1/);
 assert.match(core, /command == "preflight"/);
 assert.match(core, /final_export_blocked_until_manifest_finalized/);
+assert.match(core, /buildNumber < config.minimumBuild/);
+assert.doesNotMatch(core, /buildNumber\) ~= tonumber\(config\.testedBuild\)/);
 
 for (const command of ['scan', 'capture', 'status', 'reset', 'help']) {
   assert.match(core, new RegExp(`command == "${command}"`));

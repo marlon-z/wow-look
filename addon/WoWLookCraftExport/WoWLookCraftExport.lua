@@ -627,9 +627,14 @@ local function HandleCommand(message)
     if command == "preflight" then
         local config = CraftExport.SEASON_CONFIG or {}
         local _, buildNumber = GetBuildInfo()
-        if tonumber(buildNumber) ~= tonumber(config.testedBuild) then
-            Print("当前客户端 Build 与预检目标不一致：" .. tostring(buildNumber))
+        if tonumber(buildNumber) < tonumber(config.minimumBuild) then
+            Print("当前客户端 Build 过旧：" .. tostring(buildNumber)
+                .. "，至少需要 " .. tostring(config.minimumBuild))
             return
+        end
+        if tonumber(buildNumber) ~= tonumber(config.testedBuild) then
+            Print("当前客户端 Build 为 " .. tostring(buildNumber)
+                .. "（预检基线 " .. tostring(config.testedBuild) .. "）；将继续采集并记录实际 Build。")
         end
         local db = EnsureDatabase()
         db.mode = "preflight"

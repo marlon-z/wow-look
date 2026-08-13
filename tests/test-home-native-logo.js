@@ -19,9 +19,9 @@ assert.ok(!/home-logo-4b[^}]*url\(/s.test(wxss), '首页原生 Logo 不得依赖
 const homeLogoRule = wxss.match(/\.home-logo-4b\s*\{([\s\S]*?)\n\}/);
 assert.ok(homeLogoRule, '首页必须定义原生 Logo 容器样式。');
 assert.ok(!/\bborder(?:-\w+)?\s*:/.test(homeLogoRule[1]), '首页 Logo 容器不得显示边框。');
-assert.match(homeLogoRule[1], /min-height:\s*240rpx/, '首页 Logo 容器应提高到 240rpx，保证整体比例更大。');
-assert.match(wxss, /\.home-logo-4b-title\s*\{[\s\S]*?font-size:\s*76rpx/, '首页主标题应放大到 76rpx。');
-assert.match(wxss, /\.home-logo-4b-badge\s*\{[\s\S]*?font-size:\s*22rpx/, '首页顶部铭牌应同步放大到 22rpx。');
-assert.match(wxss, /\.home-logo-4b-subtitle\s*\{[\s\S]*?font-size:\s*24rpx/, '首页副标题应同步放大到 24rpx。');
+assert.match(homeLogoRule[1], /min-height:\s*300rpx/, '首页 Logo 容器应提高到 300rpx，保证整体比例更大。');
+assert.match(wxss, /\.home-logo-4b-title\s*\{[\s\S]*?font-size:\s*92rpx/, '首页主标题应放大到 92rpx。');
+assert.match(wxss, /\.home-logo-4b-badge\s*\{[\s\S]*?font-size:\s*26rpx/, '首页顶部铭牌应同步放大到 26rpx。');
+assert.match(wxss, /\.home-logo-4b-subtitle\s*\{[\s\S]*?font-size:\s*28rpx/, '首页副标题应同步放大到 28rpx。');
 
 console.log('home native logo tests passed');

@@ -314,8 +314,8 @@
   display: flex;
   box-sizing: border-box;
   width: 100%;
-  min-height: 240rpx;
-  padding: 36rpx 20rpx;
+  min-height: 300rpx;
+  padding: 44rpx 20rpx;
   align-items: center;
   flex-direction: column;
   justify-content: center;
@@ -324,12 +324,12 @@
 }
 
 .home-logo-4b-badge {
-  margin-bottom: 18rpx;
-  padding: 6rpx 22rpx;
+  margin-bottom: 22rpx;
+  padding: 7rpx 26rpx;
   border-left: 4rpx solid #fb923c;
   border-radius: 4rpx;
   color: #fdba74;
-  font-size: 22rpx;
+  font-size: 26rpx;
   font-weight: 900;
   letter-spacing: 6rpx;
   background: linear-gradient(90deg, rgba(251, 146, 60, 0.25), rgba(217, 169, 68, 0.1));
@@ -338,8 +338,8 @@
 .home-logo-4b-title {
   display: flex;
   align-items: center;
-  gap: 18rpx;
-  font-size: 76rpx;
+  gap: 22rpx;
+  font-size: 92rpx;
   font-weight: 900;
   letter-spacing: 6rpx;
 }
@@ -354,7 +354,7 @@
 
 .home-logo-4b-divider {
   color: #b45309;
-  font-size: 52rpx;
+  font-size: 62rpx;
   font-weight: 300;
   opacity: 0.7;
 }
@@ -368,9 +368,9 @@
 }
 
 .home-logo-4b-subtitle {
-  margin-top: 18rpx;
+  margin-top: 22rpx;
   color: #fdba74;
-  font-size: 24rpx;
+  font-size: 28rpx;
   font-weight: 600;
   letter-spacing: 3rpx;
 }

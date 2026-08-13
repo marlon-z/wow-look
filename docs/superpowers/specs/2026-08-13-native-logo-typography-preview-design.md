@@ -36,6 +36,6 @@
 
 ## 验证
 
-- 新增静态回归测试：WXML 仅允许 `page-meta`、`view`、`text`、`button` 标签，并断言不含 `<image>`、`src=`、远程 URL 或 Canvas；JS 只允许回退导航逻辑且不含存储/网络 API；WXSS 不含 `@font-face`、`url(` 或资源引用。测试同时检查分包注册、三个方案标题和副标题。
-- 运行现有本地数据包测试，确认新增分包后主包仍通过 1.5 MiB 硬限制，并报告分包大小。
+- 新增静态回归测试：WXML 仅允许 `page-meta`、`view`、`text`、`button` 标签，并断言不含 `<image>`、`src=`、远程 URL 或 Canvas；JS 只允许回退导航逻辑且不含存储/网络 API；WXSS 不含 `@font-face`、`url(` 或资源引用。测试同时检查精确的分包 `root`、`name`、`page` 注册、三个方案标题和副标题，并计算、报告且断言预览分包小于 2 MiB。
+- 更新 `tests/test-local-s2-class-data.js`：不再以 `subPackages.length === 13` 把全部分包数量固定为 13；改为断言 13 个既有职业分包均完整注册，允许额外的非职业预览分包。运行现有本地数据包测试，确认新增分包后主包仍通过 1.5 MiB 硬限制。
 - 在微信开发者工具和真机打开 `packages/logo-preview/pages/logo-preview/logo-preview`，检查三个方案中文文字完整、没有字体加载错误；在 320px 和 375px 宽度下不横向溢出。

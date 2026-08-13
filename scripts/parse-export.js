@@ -75,6 +75,49 @@ function readPayload(inputPath) {
   return JSON.parse(decodeLuaString(match[1]));
 }
 
+function materializePreflightDropVersions(payload) {
+  if (!payload || payload.mode !== 'preflight') {
+    throw new Error('--preflight-drop-versions 仅可用于 WoWLookExport3 的预检导出。');
+  }
+
+  const failures = [];
+  const items = {};
+  Object.entries(payload.items || {}).forEach(([itemId, item]) => {
+    const dropVersion = item && item.dropVersion;
+    if (!dropVersion || dropVersion.status !== 'ok' || !dropVersion.link || !dropVersion.itemLevel) {
+      failures.push(itemId);
+      return;
+    }
+
+    // 预检阶段只已验证了实际掉落版本。将其展开为可消费的普通装备数据，
+    // 但保留 dropVersion，并用 releaseStatus 阻止它被误当作最终最高装等数据。
+    items[itemId] = {
+      ...item,
+      ...dropVersion,
+      itemId: item.itemId || Number(itemId),
+      classes: item.classes || [],
+      specsByClass: item.specsByClass || {},
+      sources: item.sources || [],
+      displayLink: item.displayLink || dropVersion.link,
+      link: dropVersion.link,
+      captureStatus: 'preflight_drop_version',
+      dropVersion,
+      maxVersion: null,
+    };
+  });
+
+  if (failures.length > 0) {
+    throw new Error(`预检导出中有 ${failures.length} 件装备缺少可用掉落版本：${failures.slice(0, 10).join(', ')}`);
+  }
+
+  return {
+    ...payload,
+    items,
+    releaseStatus: 'preflight_drop_versions',
+    equipmentVariant: 'drop_version',
+  };
+}
+
 function validateMaximumPayload(payload) {
   if (!payload || !payload.maximumProfile) {
     return { enabled: false, successCount: 0, failureCount: 0, statuses: {} };
@@ -720,6 +763,8 @@ function buildClassPayload(classConfig, payload, iconAssetMap, tierPayload, data
     ...(dataVersion ? { dataVersion } : {}),
     addonVersion: payload.addonVersion,
     updatedAt: payload.exportTime,
+    releaseStatus: payload.releaseStatus || 'finalized',
+    equipmentVariant: payload.equipmentVariant || 'maximum_version',
     maximumProfile: payload.maximumProfile || null,
     class: {
       id: classConfig.id,
@@ -788,6 +833,8 @@ function buildOverviewPayload(payload, classSummaries, dataVersion = '') {
     ...(dataVersion ? { dataVersion } : {}),
     addonVersion: payload.addonVersion,
     updatedAt: payload.exportTime,
+    releaseStatus: payload.releaseStatus || 'finalized',
+    equipmentVariant: payload.equipmentVariant || 'maximum_version',
     maximumProfile: payload.maximumProfile || null,
     scope: {
       dungeonCount: Array.isArray(scope.dungeons) ? scope.dungeons.length : 0,
@@ -895,7 +942,13 @@ async function main() {
     return;
   }
 
-  const payload = readPayload(path.resolve(process.cwd(), inputPath));
+  let payload = readPayload(path.resolve(process.cwd(), inputPath));
+  const usePreflightDropVersions = args['preflight-drop-versions'] === 'true'
+    || args['preflight-drop-versions'] === '1';
+  if (usePreflightDropVersions) {
+    payload = materializePreflightDropVersions(payload);
+    console.log(`预检掉落版本已展开：${Object.keys(payload.items || {}).length} 件普通装备（非最终满级数据）`);
+  }
   const maximumValidation = validateMaximumPayload(payload);
   if (maximumValidation.enabled) {
     console.log(`最高装等验证通过：${maximumValidation.successCount} 件`);
@@ -924,7 +977,13 @@ async function main() {
   console.log(`输出目录: ${outputDir}`);
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}
+
+module.exports = {
+  materializePreflightDropVersions,
+};

@@ -354,9 +354,14 @@ local function CountLootForInstance(instanceId, difficultyId)
     return totalLoot
 end
 
-local function IsConfiguredPreflightRaid(config, raidName)
+local function IsConfiguredPreflightRaid(config, raidId, raidName)
     if config.releaseStatus == "finalized" then
         return true
+    end
+    for _, expectedId in ipairs(config.preflightRaidInstanceIds or {}) do
+        if raidId == expectedId then
+            return true
+        end
     end
     local normalizedName = NormalizeName(raidName)
     for _, expectedName in ipairs(config.preflightRaidNames or {}) do
@@ -394,7 +399,7 @@ local function DetectSeasonRaids(config)
         local hasHeroicDifficulty = SafeSetDifficulty(HEROIC_RAID_DIFFICULTY)
         local lootCount = hasHeroicDifficulty and CountLootForInstance(raidId, HEROIC_RAID_DIFFICULTY) or 0
 
-        if hasHeroicDifficulty and lootCount > 0 and IsConfiguredPreflightRaid(config or {}, raidName) then
+        if hasHeroicDifficulty and lootCount > 0 and IsConfiguredPreflightRaid(config or {}, raidId, raidName) then
             detected[#detected + 1] = {
                 id = raidId,
                 name = raidName,
@@ -406,7 +411,7 @@ local function DetectSeasonRaids(config)
             skipped[#skipped + 1] = {
                 id = raidId,
                 name = raidName,
-                reason = not IsConfiguredPreflightRaid(config or {}, raidName) and "不在 S2 预检团本范围"
+                reason = not IsConfiguredPreflightRaid(config or {}, raidId, raidName) and "不在 S2 预检团本范围"
                     or (hasHeroicDifficulty and "英雄难度无有效战利品" or "不支持英雄难度"),
             }
         end

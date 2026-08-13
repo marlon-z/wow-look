@@ -25,8 +25,14 @@ WoWLookSeasonConfig = {
     -- tier contains additional old raids. Product scope explicitly excludes
     -- 至暗之夜, so retain only the two selected raids.
     preflightRaidNames = {
-        "潮鸣石窟",
+        -- Adventure Guide displays 潮鸣石窟, while the Encounter Journal API
+        -- returns 潮缚石窟. Instance IDs are the stable source of truth.
+        "潮缚石窟",
         "烈毒之渊",
+    },
+    preflightRaidInstanceIds = {
+        1317,
+        1320,
     },
     finalRules = nil,
 }

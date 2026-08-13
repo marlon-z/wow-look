@@ -20,6 +20,25 @@ const LOCAL_ASSET_BASE = '/assets';
 const classDataCache = {};
 const classLoadTasks = {};
 
+// Keep every cross-package module path as a literal. Mini Program's compiler
+// statically registers require.async targets; a template string can pass unit
+// mocks yet be absent from the runtime module registry.
+const CLASS_MODULE_LOADERS = {
+  warrior: () => require.async('../packages/class-warrior/data/warrior'),
+  paladin: () => require.async('../packages/class-paladin/data/paladin'),
+  hunter: () => require.async('../packages/class-hunter/data/hunter'),
+  rogue: () => require.async('../packages/class-rogue/data/rogue'),
+  priest: () => require.async('../packages/class-priest/data/priest'),
+  deathknight: () => require.async('../packages/class-deathknight/data/deathknight'),
+  shaman: () => require.async('../packages/class-shaman/data/shaman'),
+  mage: () => require.async('../packages/class-mage/data/mage'),
+  warlock: () => require.async('../packages/class-warlock/data/warlock'),
+  monk: () => require.async('../packages/class-monk/data/monk'),
+  druid: () => require.async('../packages/class-druid/data/druid'),
+  demonhunter: () => require.async('../packages/class-demonhunter/data/demonhunter'),
+  evoker: () => require.async('../packages/class-evoker/data/evoker'),
+};
+
 function getClassMeta(classKey) {
   return CLASS_LIST.find((item) => item.key === classKey) || null;
 }
@@ -57,35 +76,19 @@ function loadClassData(classKey) {
     return classLoadTasks[classKey];
   }
 
-  classLoadTasks[classKey] = new Promise((resolve) => {
-    if (typeof wx === 'undefined' || typeof wx.loadSubPackage !== 'function') {
-      console.error(`local ${classKey} package loader is unavailable`);
-      resolve(null);
-      return;
-    }
-
-    wx.loadSubPackage({
-      name: `class-${classKey}`,
-      success() {
-        // Cross-package modules use the Promise form of require.async. The
-        // callback form belongs to require(), so using it here silently left
-        // every class data load unresolved in the mini-program runtime.
-        require.async(`../packages/class-${classKey}/data/${classKey}`)
-          .then((data) => {
-            classDataCache[classKey] = data;
-            resolve(data);
-          })
-          .catch((error) => {
-            console.error(`load local ${classKey} data failed`, error);
-            resolve(null);
-          });
-      },
-      fail(error) {
-        console.error(`download local ${classKey} package failed`, error);
-        resolve(null);
-      },
-    });
-  }).finally(() => {
+  // require.async is the Mini Program cross-package loader. It downloads the
+  // target package as needed; calling wx.loadSubPackage first is neither
+  // necessary nor available in all DevTools runtime contexts.
+  classLoadTasks[classKey] = CLASS_MODULE_LOADERS[classKey]()
+    .then((data) => {
+      classDataCache[classKey] = data;
+      return data;
+    })
+    .catch((error) => {
+      console.error(`load local ${classKey} data failed`, error);
+      return null;
+    })
+    .finally(() => {
     delete classLoadTasks[classKey];
   });
 

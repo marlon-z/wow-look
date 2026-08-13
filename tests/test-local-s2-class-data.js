@@ -13,9 +13,9 @@ const runtimeSources = fs.readdirSync(path.join(root, 'miniprogram'), { recursiv
 
 assert.doesNotMatch(source, /wx\.request/, '职业数据加载器不得发起网络请求。');
 assert.doesNotMatch(source, /https?:\/\//, '职业数据加载器不得包含远端地址。');
-assert.match(source, /wx\.loadSubPackage/, '职业数据应按需下载微信本地分包。');
 assert.match(source, /require\.async/, '职业数据应通过分包异步化读取。');
-assert.match(source, /require\.async\([^\n]+\)\s*\.then\(/, '跨分包职业数据必须使用 require.async 的 Promise 形式。');
+assert.match(source, /warrior:\s*\(\)\s*=>\s*require\.async\('\.\.\/packages\/class-warrior\/data\/warrior'\)/, '战士分包必须使用静态 require.async 路径。');
+assert.strictEqual((source.match(/require\.async\('\.\.\/packages\/class-[^']+\/data\/[^']+'\)/g) || []).length, 13, '13 个职业都必须有静态分包模块入口。');
 assert.ok(Array.isArray(appJson.subPackages), 'app.json 必须声明本地职业分包。');
 assert.strictEqual(appJson.subPackages.length, 13, '必须有 13 个职业分包。');
 assert.doesNotMatch(runtimeSources, /wx\.request/, '纯本地运行代码不得发起网络请求。');
@@ -40,22 +40,18 @@ Promise.all([
   };
   runtimeRequire.async = (request) => Promise.resolve(require(path.join(root, 'miniprogram', request.replace(/^\.\.\//, ''))));
   const runtimeModule = { exports: {} };
-  const runtimeWx = {
-    loadSubPackage({ success }) {
-      success();
-    },
-  };
   vm.runInNewContext(source, {
     require: runtimeRequire,
     module: runtimeModule,
     exports: runtimeModule.exports,
-    wx: runtimeWx,
     Promise,
     console,
   }, { filename: classDataPath });
   const runtimeClassData = runtimeModule.exports;
   const warrior = await runtimeClassData.loadClassData('warrior');
   assert.ok(warrior && warrior.instances && warrior.instances.length > 0, '模拟小程序分包加载时必须能读取战士装备数据。');
+  const paladin = await runtimeClassData.loadClassData('paladin');
+  assert.ok(paladin && paladin.instances && paladin.instances.length > 0, '模拟小程序分包加载时必须能读取圣骑士装备数据。');
   console.log('local S2 class-data tests passed');
 }).catch((error) => {
   console.error(error);

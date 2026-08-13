@@ -7,7 +7,7 @@ const wxml = fs.readFileSync(path.join(root, 'miniprogram', 'pages', 'index', 'i
 const wxss = fs.readFileSync(path.join(root, 'miniprogram', 'pages', 'index', 'index.wxss'), 'utf8');
 
 assert.ok(!wxml.includes('class="logo-img"'), '首页不应继续渲染旧 PNG Logo。');
-['home-logo-4b', 'AZEROTH COMPASS', '艾泽', '配装', '全职业 · 模拟配装 · 来源速查'].forEach((text) => {
+['home-logo-4b', '同步更新到正式服12.1', '艾泽', '配装', '全职业 · 模拟配装 · 来源速查'].forEach((text) => {
   assert.ok(wxml.includes(text), `首页原生 Logo 必须包含 ${text}。`);
 });
 ['.home-logo-4b', '.home-logo-4b-badge', '.home-logo-4b-title', '.home-logo-4b-gold', '.home-logo-4b-subtitle'].forEach((selector) => {

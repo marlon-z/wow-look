@@ -818,12 +818,18 @@ local function GetSharedSetIdsForAnchors(anchorIds)
         end
         anchorSources[#anchorSources + 1] = sourceId
         local ok, setIds = pcall(C_TransmogSets.GetSetsContainingSourceID, sourceId)
-        if not ok or type(setIds) ~= "table" or #setIds == 0 then
+        if not ok or type(setIds) ~= "table" then
             return nil, nil, string.format("anchor_%d_set_missing", itemId)
         end
         local current = {}
-        for _, setId in ipairs(setIds) do
-            current[setId] = true
+        for key, value in pairs(setIds) do
+            local setId = type(value) == "number" and value or (type(key) == "number" and key or nil)
+            if setId and setId > 0 then
+                current[setId] = true
+            end
+        end
+        if not next(current) then
+            return nil, nil, string.format("anchor_%d_set_missing", itemId)
         end
         if not candidates then
             candidates = current
@@ -867,7 +873,9 @@ local function DiscoverTierSet(classKey)
     end
 
     local records, unresolved, pendingItemIds, bySlot, seenItems, seenSources = {}, {}, {}, {}, {}, {}
-    for _, sourceId in ipairs(sourceIds) do
+    for key, value in pairs(sourceIds) do
+        local sourceId = type(value) == "number" and value or (type(key) == "number" and key or nil)
+        if sourceId and sourceId > 0 then
         local itemId, itemError = GetItemIdForTransmogSource(sourceId)
         if not itemId then
             unresolved[#unresolved + 1] = { sourceId = sourceId, reason = itemError }
@@ -889,6 +897,7 @@ local function DiscoverTierSet(classKey)
                     seenSources[sourceId] = true
                 end
             end
+        end
         end
     end
 
@@ -1487,7 +1496,11 @@ local function StartDiscovery(classKeys)
     local function RunAttempt(attempt)
         local ready, pending = 0, 0
         for _, classKey in ipairs(classKeys) do
-            local result = DiscoverTierSet(classKey)
+            local ok, result = pcall(DiscoverTierSet, classKey)
+            if not ok then
+                result = { classKey = classKey, status = "discovery_lua_error_" .. tostring(result), items = {} }
+                PrintWarn(string.format("%s 套装发现异常：%s", classKey, tostring(result.status)))
+            end
             WoWLookTierExportDB.discoveries[classKey] = result
             if result.status == "ok" then
                 ready = ready + 1

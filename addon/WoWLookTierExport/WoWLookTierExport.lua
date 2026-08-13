@@ -1251,14 +1251,8 @@ local function RequestLoadForClassKeys(classKeys)
     for _, classKey in ipairs(classKeys) do
         local setInfo = TIER_SETS[classKey]
         if setInfo then
-            local discovery = WoWLookTierExportDB.discoveries[classKey]
-            for _, item in ipairs(discovery and discovery.items or {}) do
-                local itemId = item.itemId
-                if itemId then
-                    C_Item.RequestLoadItemDataByID(itemId)
-                end
-            end
-            for _, itemId in ipairs(setInfo.bonusItemIds or {}) do
+            local itemIds = (WoWLookTierSeasonConfig.tierItems or {})[classKey]
+            for _, itemId in ipairs(itemIds or {}) do
                 C_Item.RequestLoadItemDataByID(itemId)
             end
         end

@@ -618,6 +618,13 @@ function buildTierItem(rawItem, classConfig, classData, iconAssetMap) {
     .map(normalizeStatRecord)
     .filter(Boolean);
   const stamina = normalizeStatRecord(parsed.stamina);
+  const rawEffects = rawItem.effects || {};
+  const equipEffects = normalizeEffectList(
+    Array.isArray(rawEffects.equip) ? rawEffects.equip : (parsed.equipEffects || []),
+  );
+  const useEffects = normalizeEffectList(
+    Array.isArray(rawEffects.use) ? rawEffects.use : (parsed.useEffects || []),
+  );
   const tierBonusesBySpec = normalizeTierBonusesBySpec(rawItem.bonusesBySpec || {});
   const classSpecs = (classData.specs || []).map((spec) => spec.id || spec.specId).filter(Boolean);
   const sourceName = setName || '职业套装';
@@ -658,8 +665,8 @@ function buildTierItem(rawItem, classConfig, classData, iconAssetMap) {
       stamina,
       secondary: secondaryStats,
       effects: {
-        equip: [],
-        use: [],
+        equip: equipEffects,
+        use: useEffects,
       },
       white: whiteStats,
     },

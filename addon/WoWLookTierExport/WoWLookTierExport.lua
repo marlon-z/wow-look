@@ -1,5 +1,5 @@
 local ADDON_NAME = ...
-local ADDON_VERSION = "1.0.0-s2-preflight"
+local ADDON_VERSION = "1.1.0-s2-client-discovery"
 
 WoWLookTierExportDB = WoWLookTierExportDB or {
     version = ADDON_VERSION,
@@ -12,6 +12,21 @@ WoWLookTierExportDB = WoWLookTierExportDB or {
 WoWLookTierExportDB.version = ADDON_VERSION
 WoWLookTierExportDB.classes = WoWLookTierExportDB.classes or {}
 WoWLookTierExportDB.preflightItems = WoWLookTierExportDB.preflightItems or {}
+WoWLookTierExportDB.discoveries = WoWLookTierExportDB.discoveries or {}
+
+local REQUIRED_TIER_SLOTS = {
+    INVTYPE_HEAD = "head",
+    INVTYPE_SHOULDER = "shoulder",
+    INVTYPE_CHEST = "chest",
+    INVTYPE_WRIST = "wrist",
+    INVTYPE_HAND = "hands",
+    INVTYPE_WAIST = "waist",
+    INVTYPE_LEGS = "legs",
+    INVTYPE_FEET = "feet",
+    INVTYPE_CLOAK = "back",
+}
+
+local REQUIRED_SLOT_ORDER = { "head", "shoulder", "chest", "wrist", "hands", "waist", "legs", "feet", "back" }
 
 local TIER_SETS = {
     deathknight = {
@@ -747,6 +762,177 @@ local function HasText(value)
     return type(value) == "string" and value:match("%S") ~= nil
 end
 
+local function TableContains(values, expected)
+    for _, value in ipairs(values or {}) do
+        if value == expected then
+            return true
+        end
+    end
+    return false
+end
+
+local function SortedNumericKeys(values)
+    local result = {}
+    for key in pairs(values or {}) do
+        if type(key) == "number" then
+            result[#result + 1] = key
+        end
+    end
+    table.sort(result)
+    return result
+end
+
+local function GetTransmogSourceIdForItem(itemId)
+    if not (C_TransmogCollection and type(C_TransmogCollection.GetItemInfo) == "function") then
+        return nil, "transmog_item_api_unavailable"
+    end
+    local ok, _, sourceId = pcall(C_TransmogCollection.GetItemInfo, itemId)
+    if not ok or not sourceId or sourceId <= 0 then
+        return nil, "transmog_source_unavailable"
+    end
+    return sourceId
+end
+
+local function GetItemIdForTransmogSource(sourceId)
+    if not (C_TransmogCollection and type(C_TransmogCollection.GetSourceItemID) == "function") then
+        return nil, "transmog_source_item_api_unavailable"
+    end
+    local ok, itemId = pcall(C_TransmogCollection.GetSourceItemID, sourceId)
+    if not ok or not itemId or itemId <= 0 then
+        return nil, "transmog_source_item_unavailable"
+    end
+    return itemId
+end
+
+local function GetSharedSetIdsForAnchors(anchorIds)
+    if not (C_TransmogSets and type(C_TransmogSets.GetSetsContainingSourceID) == "function") then
+        return nil, nil, "transmog_sets_api_unavailable"
+    end
+
+    local anchorSources = {}
+    local candidates = nil
+    for _, itemId in ipairs(anchorIds or {}) do
+        local sourceId, sourceError = GetTransmogSourceIdForItem(itemId)
+        if not sourceId then
+            return nil, nil, string.format("anchor_%d_%s", itemId, sourceError)
+        end
+        anchorSources[#anchorSources + 1] = sourceId
+        local ok, setIds = pcall(C_TransmogSets.GetSetsContainingSourceID, sourceId)
+        if not ok or type(setIds) ~= "table" or #setIds == 0 then
+            return nil, nil, string.format("anchor_%d_set_missing", itemId)
+        end
+        local current = {}
+        for _, setId in ipairs(setIds) do
+            current[setId] = true
+        end
+        if not candidates then
+            candidates = current
+        else
+            for setId in pairs(candidates) do
+                if not current[setId] then
+                    candidates[setId] = nil
+                end
+            end
+        end
+    end
+
+    local resolvedCandidates = SortedNumericKeys(candidates)
+    if #resolvedCandidates == 0 then
+        return nil, anchorSources, "no_shared_transmog_set"
+    end
+    if #resolvedCandidates > 1 then
+        return nil, anchorSources, "ambiguous_transmog_set_" .. table.concat(resolvedCandidates, "_")
+    end
+    return resolvedCandidates[1], anchorSources
+end
+
+local function DiscoverTierSet(classKey)
+    local config = WoWLookTierSeasonConfig or {}
+    local anchors = (config.tierAnchors or {})[classKey]
+    if type(anchors) ~= "table" or #anchors ~= 5 then
+        return { classKey = classKey, status = "anchor_config_invalid", items = {} }
+    end
+
+    local setId, anchorSources, setError = GetSharedSetIdsForAnchors(anchors)
+    if not setId then
+        return { classKey = classKey, status = setError, anchorItemIds = anchors, anchorSourceIds = anchorSources or {}, items = {} }
+    end
+    if not (C_TransmogSets and type(C_TransmogSets.GetAllSourceIDs) == "function") then
+        return { classKey = classKey, status = "transmog_set_sources_api_unavailable", anchorItemIds = anchors, anchorSourceIds = anchorSources, transmogSetId = setId, items = {} }
+    end
+
+    local ok, sourceIds = pcall(C_TransmogSets.GetAllSourceIDs, setId)
+    if not ok or type(sourceIds) ~= "table" then
+        return { classKey = classKey, status = "transmog_set_sources_unavailable", anchorItemIds = anchors, anchorSourceIds = anchorSources, transmogSetId = setId, items = {} }
+    end
+
+    local records, unresolved, pendingItemIds, bySlot, seenItems, seenSources = {}, {}, {}, {}, {}, {}
+    for _, sourceId in ipairs(sourceIds) do
+        local itemId, itemError = GetItemIdForTransmogSource(sourceId)
+        if not itemId then
+            unresolved[#unresolved + 1] = { sourceId = sourceId, reason = itemError }
+        elseif not seenItems[itemId] and not seenSources[sourceId] then
+            local _, _, _, _, _, _, _, _, equipLoc = GetItemInfo(itemId)
+            if not equipLoc and C_Item and type(C_Item.RequestLoadItemDataByID) == "function" then
+                C_Item.RequestLoadItemDataByID(itemId)
+                pendingItemIds[#pendingItemIds + 1] = itemId
+            end
+            local slotKey = REQUIRED_TIER_SLOTS[equipLoc]
+            if slotKey then
+                local record = { itemId = itemId, sourceId = sourceId, slotKey = slotKey }
+                if bySlot[slotKey] then
+                    unresolved[#unresolved + 1] = { sourceId = sourceId, itemId = itemId, reason = "duplicate_slot_" .. slotKey }
+                else
+                    records[#records + 1] = record
+                    bySlot[slotKey] = record
+                    seenItems[itemId] = true
+                    seenSources[sourceId] = true
+                end
+            end
+        end
+    end
+
+    local missingSlots, missingAnchors = {}, {}
+    for _, slotKey in ipairs(REQUIRED_SLOT_ORDER) do
+        if not bySlot[slotKey] then
+            missingSlots[#missingSlots + 1] = slotKey
+        end
+    end
+    for _, anchorId in ipairs(anchors) do
+        if not seenItems[anchorId] then
+            missingAnchors[#missingAnchors + 1] = anchorId
+        end
+    end
+    table.sort(records, function(a, b) return a.slotKey < b.slotKey end)
+
+    local status = "ok"
+    if #pendingItemIds > 0 then
+        status = "item_data_pending"
+    elseif #unresolved > 0 then
+        status = "source_resolution_incomplete"
+    elseif #missingSlots > 0 then
+        status = "required_slots_missing"
+    elseif #missingAnchors > 0 then
+        status = "anchors_not_in_discovered_set"
+    elseif #records ~= 9 then
+        status = "item_count_not_nine"
+    end
+    local _, buildNumber = GetBuildInfo()
+    return {
+        classKey = classKey,
+        status = status,
+        clientBuild = tonumber(buildNumber) or 0,
+        transmogSetId = setId,
+        anchorItemIds = anchors,
+        anchorSourceIds = anchorSources,
+        items = records,
+        unresolved = unresolved,
+        pendingItemIds = pendingItemIds,
+        missingSlots = missingSlots,
+        missingAnchors = missingAnchors,
+    }
+end
+
 local function CountMissingBonusTexts(payload)
     local missingCount = 0
 
@@ -1031,10 +1217,14 @@ local function RequestLoadForClassKeys(classKeys)
     for _, classKey in ipairs(classKeys) do
         local setInfo = TIER_SETS[classKey]
         if setInfo then
-            for _, itemId in ipairs(setInfo.bonusItemIds or {}) do
-                C_Item.RequestLoadItemDataByID(itemId)
+            local discovery = WoWLookTierExportDB.discoveries[classKey]
+            for _, item in ipairs(discovery and discovery.items or {}) do
+                local itemId = item.itemId
+                if itemId then
+                    C_Item.RequestLoadItemDataByID(itemId)
+                end
             end
-            for _, itemId in ipairs(setInfo.appearanceItemIds or {}) do
+            for _, itemId in ipairs(setInfo.bonusItemIds or {}) do
                 C_Item.RequestLoadItemDataByID(itemId)
             end
         end
@@ -1068,8 +1258,121 @@ local function ResetExportDB()
         summary = nil,
         classes = {},
         preflightItems = {},
+        discoveries = {},
         payload = "",
         lastError = nil,
+    }
+end
+
+local function ProbeItemRaw(itemId, classKey, setInfo, discoveryItem)
+    local name, baseLink, quality, _, minLevel, itemType, itemSubType,
+        stackCount, equipLoc, icon, sellPrice, itemClassId, itemSubclassId, bindType, expacId, setId =
+        GetItemInfo(itemId)
+    if not name and C_Item and type(C_Item.RequestLoadItemDataByID) == "function" then
+        C_Item.RequestLoadItemDataByID(itemId)
+    end
+    local link = baseLink or string.format("item:%d", itemId)
+    local tooltipLines = GetTooltipLines(link)
+    local parsedTooltip = ParseTooltipLines(tooltipLines)
+    local isBonusPiece = TableContains((WoWLookTierSeasonConfig.tierAnchors or {})[classKey], itemId)
+    local specBonuses, bonusSpecCount = {}, 0
+    if isBonusPiece then
+        specBonuses, bonusSpecCount = BuildSpecBonusRecords(itemId, link, setInfo.classId, setInfo.specs)
+    end
+    return {
+        itemId = itemId,
+        classKey = classKey,
+        seasonLink = link,
+        baseLink = baseLink or "",
+        name = name or "",
+        quality = quality or 0,
+        minLevel = minLevel or 0,
+        itemType = itemType or "",
+        itemSubType = itemSubType or "",
+        stackCount = stackCount or 0,
+        equipLoc = equipLoc or "",
+        icon = icon or 0,
+        sellPrice = sellPrice or 0,
+        itemClassId = itemClassId or 0,
+        itemSubclassId = itemSubclassId or 0,
+        bindType = bindType or 0,
+        expacId = expacId or 0,
+        setId = setId or 0,
+        setInfoRaw = GetSetInfoSafe(setId),
+        collectionKind = isBonusPiece and "bonus" or "companion",
+        isBonusPiece = isBonusPiece,
+        appearance = {
+            transmogSetId = discoveryItem.transmogSetId,
+            sourceId = discoveryItem.sourceId,
+            slotKey = discoveryItem.slotKey,
+        },
+        captureStatus = (HasText(name) and #tooltipLines > 0) and "ok" or "item_data_pending",
+        itemLevel = parsedTooltip.itemLevel or 0,
+        tooltip = { rawLines = tooltipLines, parsed = parsedTooltip },
+        bonusSpecCount = bonusSpecCount,
+        bonusesBySpec = specBonuses,
+    }
+end
+
+local function BuildClassPreflightExport(classKey)
+    local setInfo = TIER_SETS[classKey]
+    local discovery = WoWLookTierExportDB.discoveries[classKey]
+    if not setInfo or not discovery or discovery.status ~= "ok" then
+        return nil, discovery and discovery.status or "discovery_missing"
+    end
+    local items, pending, bonusSpecMatches = {}, 0, 0
+    for _, discoveryItem in ipairs(discovery.items or {}) do
+        discoveryItem.transmogSetId = discovery.transmogSetId
+        local item = ProbeItemRaw(discoveryItem.itemId, classKey, setInfo, discoveryItem)
+        items[#items + 1] = item
+        bonusSpecMatches = bonusSpecMatches + (item.bonusSpecCount or 0)
+        if item.captureStatus ~= "ok" then
+            pending = pending + 1
+        end
+    end
+    if #items ~= 9 then
+        return nil, "discovered_item_count_not_nine"
+    end
+    return {
+        classKey = classKey,
+        classId = setInfo.classId,
+        className = setInfo.className,
+        classNameZh = setInfo.classNameZh,
+        setName = "",
+        specs = setInfo.specs,
+        itemCount = #items,
+        bonusItemCount = 5,
+        appearanceItemCount = #items,
+        extraAppearanceItemCount = 4,
+        bonusSpecMatches = bonusSpecMatches,
+        rawCapturePendingCount = pending,
+        transmogSet = { setID = discovery.transmogSetId, name = "", description = "", label = "", localizedItemSetName = "", warnings = discovery.unresolved or {} },
+        items = items,
+    }
+end
+
+local function BuildPreflightEquipmentPayload(classKeys)
+    local buildVersion, rawBuildNumber = GetBuildInfo()
+    local classes, failures, pending = {}, {}, 0
+    for _, classKey in ipairs(classKeys) do
+        local classData, failure = BuildClassPreflightExport(classKey)
+        if not classData then
+            failures[#failures + 1] = { classKey = classKey, reason = failure }
+        else
+            classes[#classes + 1] = classData
+            pending = pending + (classData.rawCapturePendingCount or 0)
+        end
+    end
+    return {
+        addonVersion = ADDON_VERSION,
+        mode = "preflight_equipment",
+        dataVersion = WoWLookTierSeasonConfig.dataVersion,
+        releaseStatus = "preflight_raw_client_items",
+        equipmentVariant = "drop_version",
+        clientBuild = tonumber(rawBuildNumber) or 0,
+        build = buildVersion or "",
+        classes = classes,
+        summary = { mode = "preflight_equipment", classCount = #classes, itemCount = #classes * 9, rawCapturePendingCount = pending, failures = failures },
     }
 end
 
@@ -1174,9 +1477,66 @@ local function StartExport(classKeys)
     end)
 end
 
+local function StartDiscovery(classKeys)
+    local config, configError = ValidateSeasonConfig()
+    if not config then
+        PrintWarn("S2 套装发现失败: " .. tostring(configError))
+        return
+    end
+    local maxAttempts = 8
+    local function RunAttempt(attempt)
+        local ready, pending = 0, 0
+        for _, classKey in ipairs(classKeys) do
+            local result = DiscoverTierSet(classKey)
+            WoWLookTierExportDB.discoveries[classKey] = result
+            if result.status == "ok" then
+                ready = ready + 1
+            elseif result.status == "item_data_pending" then
+                pending = pending + 1
+            end
+        end
+        if pending > 0 and attempt < maxAttempts then
+            Print(string.format("套装 ID 发现第 %d/%d 次：%d 个职业等待物品缓存，1 秒后重试。", attempt, maxAttempts, pending))
+            C_Timer.After(1, function() RunAttempt(attempt + 1) end)
+            return
+        end
+        local _, buildNumber = GetBuildInfo()
+        WoWLookTierExportDB.discoveryBuild = tonumber(buildNumber) or 0
+        WoWLookTierExportDB.lastError = ready == #classKeys and nil or "tier_discovery_incomplete"
+        Print(string.format("S2 套装 ID 发现完成：%d/%d 个职业各 9 件。使用 /wowtierexport status 查看失败原因。", ready, #classKeys))
+        Print("成功后运行 /wowtierexport export-preflight 采集完整客户端装备信息。")
+    end
+    Print(string.format("开始发现 %d 个职业的 S2 九件套 ID。", #classKeys))
+    RunAttempt(1)
+end
+
+local function StartPreflightEquipmentExport(classKeys)
+    RequestLoadForClassKeys(classKeys)
+    local maxAttempts = 8
+    local function RunAttempt(attempt)
+        local payload = BuildPreflightEquipmentPayload(classKeys)
+        local pending = payload.summary.rawCapturePendingCount or 0
+        if pending > 0 and attempt < maxAttempts then
+            Print(string.format("客户端套装信息第 %d/%d 次采集仍有 %d 件未加载，1 秒后重试。", attempt, maxAttempts, pending))
+            C_Timer.After(1, function() RunAttempt(attempt + 1) end)
+            return
+        end
+        WoWLookTierExportDB.payload = jsonEncode(payload)
+        WoWLookTierExportDB.summary = payload.summary
+        WoWLookTierExportDB.lastError = (#(payload.summary.failures or {}) > 0 or pending > 0) and "preflight_equipment_incomplete" or nil
+        Print(string.format("S2 套装预检装备导出完成：%d 个职业，%d 件完整装备记录，待加载 %d，失败职业 %d。",
+            payload.summary.classCount or 0, payload.summary.itemCount or 0, pending, #(payload.summary.failures or {})))
+        Print("数据已保存到 SavedVariables/WoWLookTierExport.lua；该数据仍不是最高装等正式版。")
+    end
+    Print("开始读取已发现的套装物品说明框。")
+    C_Timer.After(2, function() RunAttempt(1) end)
+end
+
 local function PrintHelp()
     Print("用法:")
     Print("  /wowtierexport preflight")
+    Print("  /wowtierexport discover（从幻化套装发现 13 职业各 9 个物品 ID）")
+    Print("  /wowtierexport export-preflight（导出完整客户端装备记录，不可正式发布）")
     Print("  /wowtierexport capture <Shift 点击一件 S2 套装物品链接>")
     Print("  /wowtierexport all（S2 规则确认前会拒绝）")
     Print("  /wowtierexport monk")
@@ -1184,6 +1544,19 @@ local function PrintHelp()
     Print("  /wowtierexport summary")
     Print("  /wowtierexport help")
     Print("可用职业: " .. table.concat(CLASS_ORDER, ", "))
+end
+
+local function PrintDiscoveryStatus()
+    local ready, total = 0, #CLASS_ORDER
+    for _, classKey in ipairs(CLASS_ORDER) do
+        local discovery = WoWLookTierExportDB.discoveries[classKey]
+        if discovery and discovery.status == "ok" then
+            ready = ready + 1
+        else
+            PrintWarn(string.format("%s: %s", classKey, discovery and discovery.status or "not_discovered"))
+        end
+    end
+    Print(string.format("S2 九件套发现状态：%d/%d 完成；发现客户端 Build %d。", ready, total, WoWLookTierExportDB.discoveryBuild or 0))
 end
 
 local function PrintSummary()
@@ -1223,6 +1596,16 @@ SlashCmdList["WOWTIEREXPORT"] = function(msg)
         return
     end
 
+    if arg == "discover" then
+        StartDiscovery(CLASS_ORDER)
+        return
+    end
+
+    if arg == "export-preflight" then
+        StartPreflightEquipmentExport(CLASS_ORDER)
+        return
+    end
+
     local captureLink = arg:match("^capture%s+(.+)$")
     if captureLink then
         local ok, result = CapturePreflightItem(captureLink)
@@ -1247,6 +1630,11 @@ SlashCmdList["WOWTIEREXPORT"] = function(msg)
 
     if arg == "summary" then
         PrintSummary()
+        return
+    end
+
+    if arg == "status" then
+        PrintDiscoveryStatus()
         return
     end
 

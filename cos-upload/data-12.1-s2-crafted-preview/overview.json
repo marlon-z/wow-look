@@ -258,13 +258,67 @@
     "uploadApproved": false
   },
   "craftedEquipment": {
-    "catalogStatus": "candidate_catalog_only",
-    "sourceAddonVersion": "2.0.2-s2-preflight",
-    "clientBuild": 69283,
-    "capturedAt": "",
-    "candidateCount": 237,
-    "verifiedMaximumCount": 0,
-    "visibleItemCount": 0,
-    "note": "制造候选已保存；S2 最高装等与随机属性数值尚未验证，因此未展示为可配装装备。"
+    "catalogStatus": "tooltip_verified_s2_myth_quality_5",
+    "targetItemLevel": 331,
+    "targetRule": "s2_myth_mistcrest_quality_5",
+    "candidateCount": 98,
+    "verifiedMaximumCount": 98,
+    "visibleItemCount": 98,
+    "source": "Wowhead item tooltip API with ilvl=331",
+    "verificationNote": "仅包含本客户端导出的 246 起始装等 S2 制造候选；随机属性槽保留为玩家可选配置。",
+    "classes": [
+      {
+        "key": "warrior",
+        "count": 48
+      },
+      {
+        "key": "paladin",
+        "count": 67
+      },
+      {
+        "key": "hunter",
+        "count": 50
+      },
+      {
+        "key": "rogue",
+        "count": 40
+      },
+      {
+        "key": "priest",
+        "count": 52
+      },
+      {
+        "key": "deathknight",
+        "count": 46
+      },
+      {
+        "key": "shaman",
+        "count": 78
+      },
+      {
+        "key": "mage",
+        "count": 52
+      },
+      {
+        "key": "warlock",
+        "count": 52
+      },
+      {
+        "key": "monk",
+        "count": 80
+      },
+      {
+        "key": "druid",
+        "count": 75
+      },
+      {
+        "key": "demonhunter",
+        "count": 40
+      },
+      {
+        "key": "evoker",
+        "count": 51
+      }
+    ]
   }
 }

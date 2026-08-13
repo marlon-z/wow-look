@@ -1,4 +1,4 @@
-var { COS_BASE, DATA_DIR } = require('./class-data');
+var { COS_BASE, DATA_DIR, getAssetBase } = require('./class-data');
 var { flattenItems, buildStatLine } = require('./equipment');
 var { updateBuild } = require('./builds');
 
@@ -175,7 +175,7 @@ function applyWclSlotOverrides(baseItem, wclSlot, slotKey) {
 
   var item = Object.assign({}, baseItem);
   if (item.iconAsset && item.iconAsset.charAt(0) === '/') {
-    item.iconAsset = COS_BASE + item.iconAsset;
+    item.iconAsset = getAssetBase() + item.iconAsset;
   }
   item.ilvl = wclSlot.ilvl || item.ilvl || 0;
   item.wcl = {

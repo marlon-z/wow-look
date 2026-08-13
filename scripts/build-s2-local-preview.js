@@ -30,9 +30,12 @@ function parseCraftCandidates(inputPath) {
       itemName: candidate.itemName || '',
       professionId: Number(candidate.professionId) || 0,
       professionName: candidate.professionName || '',
+      skillLineAbilityId: Number(candidate.skillLineAbilityId) || 0,
+      expansionId: Number(candidate.expansionId) || 0,
       equipLoc: candidate.equipLoc || '',
       itemType: candidate.itemType || '',
       itemSubType: candidate.itemSubType || '',
+      icon: Number(candidate.icon) || 0,
       iLvlMin: Number(candidate.iLvlMin) || 0,
       craftingQualityIds: Array.isArray(candidate.craftingQualityIds) ? candidate.craftingQualityIds : [],
       qualityIlvlBonuses: Array.isArray(candidate.qualityIlvlBonuses) ? candidate.qualityIlvlBonuses : [],
@@ -84,13 +87,29 @@ function main() {
   if (!fs.existsSync(craftInput)) throw new Error(`制造候选导出不存在：${craftInput}`);
 
   const catalog = parseCraftCandidates(craftInput);
-  const overview = buildOverview(readJson(path.join(SOURCE_DIR, 'overview.json')), catalog);
+  const existingOverviewPath = path.join(OUTPUT_DIR, 'overview.json');
+  const existingOverview = fs.existsSync(existingOverviewPath) ? readJson(existingOverviewPath) : null;
+  const overview = existingOverview && existingOverview.craftedEquipment
+    && existingOverview.craftedEquipment.catalogStatus === 'tooltip_verified_s2_myth_quality_5'
+    ? {
+      ...buildOverview(readJson(path.join(SOURCE_DIR, 'overview.json')), catalog),
+      craftedEquipment: existingOverview.craftedEquipment,
+    }
+    : buildOverview(readJson(path.join(SOURCE_DIR, 'overview.json')), catalog);
   writeJson(path.join(OUTPUT_DIR, 'overview.json'), overview);
   writeJson(path.join(OUTPUT_DIR, 'crafting-candidates.json'), catalog);
 
   CLASS_KEYS.forEach((classKey) => {
     const classData = readJson(path.join(SOURCE_DIR, `${classKey}.json`));
-    writeJson(path.join(OUTPUT_DIR, `${classKey}.json`), classData);
+    const outputClassPath = path.join(OUTPUT_DIR, `${classKey}.json`);
+    const existingClassData = fs.existsSync(outputClassPath) ? readJson(outputClassPath) : null;
+    const hasVerifiedCraftedItems = existingClassData
+      && Array.isArray(existingClassData.instances)
+      && existingClassData.instances.some((instance) => instance.id === 'manufacturing'
+        && (instance.encounters || []).some((encounter) => (encounter.items || []).some((item) => item.sourceType === 'crafted')));
+    if (!hasVerifiedCraftedItems) {
+      writeJson(outputClassPath, classData);
+    }
   });
   fs.writeFileSync(path.join(OUTPUT_DIR, 'README.md'), [
     '# Midnight S2 本地制造业预览数据',

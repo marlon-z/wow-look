@@ -1,0 +1,6188 @@
+{
+  "dataVersion": "12.1-s2",
+  "targetItemLevel": 331,
+  "targetRule": "s2_myth_mistcrest_quality_5",
+  "recordCount": 98,
+  "records": [
+    {
+      "recipeId": 1228942,
+      "itemId": 239652,
+      "name": "殉难者的冠冕",
+      "icon": 7266379,
+      "iconName": "inv_helm_cloth_questbloodelf_b_01",
+      "professionId": 197,
+      "professionName": "裁缝",
+      "skillLineAbilityId": 52173,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "布甲",
+      "equipLoc": "INVTYPE_HEAD",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 99,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 99,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 84
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=239652?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1228943,
+      "itemId": 239653,
+      "name": "殉难者的手套",
+      "icon": 7266378,
+      "iconName": "inv_glove_cloth_questbloodelf_b_01",
+      "professionId": 197,
+      "professionName": "裁缝",
+      "skillLineAbilityId": 52174,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "布甲",
+      "equipLoc": "INVTYPE_HAND",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 74,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 74,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 63
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=239653?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1228944,
+      "itemId": 239649,
+      "name": "殉难者的裹腰",
+      "icon": 7266372,
+      "iconName": "inv_belt_cloth_questbloodelf_b_01",
+      "professionId": 197,
+      "professionName": "裁缝",
+      "skillLineAbilityId": 52175,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "布甲",
+      "equipLoc": "INVTYPE_WAIST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 74,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 74,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 63
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=239649?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1228945,
+      "itemId": 239648,
+      "name": "殉难者的裹腕",
+      "icon": 7266375,
+      "iconName": "inv_bracer_cloth_questbloodelf_b_01",
+      "professionId": 197,
+      "professionName": "裁缝",
+      "skillLineAbilityId": 52176,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "布甲",
+      "equipLoc": "INVTYPE_WRIST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 103
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2124
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 56,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 56,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 56
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=239648?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1228946,
+      "itemId": 239655,
+      "name": "殉难者的法衣",
+      "icon": 7266382,
+      "iconName": "inv_robe_cloth_questbloodelf_b_01",
+      "professionId": 197,
+      "professionName": "裁缝",
+      "skillLineAbilityId": 52177,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "布甲",
+      "equipLoc": "INVTYPE_ROBE",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 99,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 99,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 112
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=239655?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1228947,
+      "itemId": 239651,
+      "name": "殉难者的护腿",
+      "icon": 7266381,
+      "iconName": "inv_pant_cloth_questbloodelf_b_01",
+      "professionId": 197,
+      "professionName": "裁缝",
+      "skillLineAbilityId": 52178,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "布甲",
+      "equipLoc": "INVTYPE_LEGS",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 99,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 99,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 98
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=239651?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1228948,
+      "itemId": 239654,
+      "name": "殉难者的便鞋",
+      "icon": 7266373,
+      "iconName": "inv_boot_cloth_questbloodelf_b_01",
+      "professionId": 197,
+      "professionName": "裁缝",
+      "skillLineAbilityId": 52179,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "布甲",
+      "equipLoc": "INVTYPE_FEET",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 74,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 74,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 70
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=239654?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1228949,
+      "itemId": 239650,
+      "name": "殉难者的披肩",
+      "icon": 7266384,
+      "iconName": "inv_shoulder_cloth_questbloodelf_b_01",
+      "professionId": 197,
+      "professionName": "裁缝",
+      "skillLineAbilityId": 52180,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "布甲",
+      "equipLoc": "INVTYPE_SHOULDER",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 74,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 74,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 77
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=239650?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1228950,
+      "itemId": 239656,
+      "name": "信徒的流丝罩袍",
+      "icon": 7266376,
+      "iconName": "inv_cape_cloth_questbloodelf_b_01",
+      "professionId": 197,
+      "professionName": "裁缝",
+      "skillLineAbilityId": 52181,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "布甲",
+      "equipLoc": "INVTYPE_CLOAK",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 103
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2124
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 56,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 56,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 77
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=239656?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1228981,
+      "itemId": 239657,
+      "name": "阳炎护腕",
+      "icon": 7266375,
+      "iconName": "inv_bracer_cloth_questbloodelf_b_01",
+      "professionId": 197,
+      "professionName": "裁缝",
+      "skillLineAbilityId": 52212,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "布甲",
+      "equipLoc": "INVTYPE_WRIST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 103
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2124
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 56
+      },
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=239657?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1228982,
+      "itemId": 239658,
+      "name": "阳炎披风",
+      "icon": 516313,
+      "iconName": "inv_cape_firelands_fireset_d_01",
+      "professionId": 197,
+      "professionName": "裁缝",
+      "skillLineAbilityId": 52213,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "布甲",
+      "equipLoc": "INVTYPE_CLOAK",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 103
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2124
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 77
+      },
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=239658?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1228983,
+      "itemId": 239659,
+      "name": "阳炎软鞋",
+      "icon": 7266373,
+      "iconName": "inv_boot_cloth_questbloodelf_b_01",
+      "professionId": 197,
+      "professionName": "裁缝",
+      "skillLineAbilityId": 52214,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "布甲",
+      "equipLoc": "INVTYPE_FEET",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 70
+      },
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=239659?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1228984,
+      "itemId": 239660,
+      "name": "奥纹护腕",
+      "icon": 7266375,
+      "iconName": "inv_bracer_cloth_questbloodelf_b_01",
+      "professionId": 197,
+      "professionName": "裁缝",
+      "skillLineAbilityId": 52215,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "布甲",
+      "equipLoc": "INVTYPE_WRIST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 103
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2124
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 56
+      },
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=239660?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1228985,
+      "itemId": 239661,
+      "name": "奥纹披风",
+      "icon": 7266376,
+      "iconName": "inv_cape_cloth_questbloodelf_b_01",
+      "professionId": 197,
+      "professionName": "裁缝",
+      "skillLineAbilityId": 52216,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "布甲",
+      "equipLoc": "INVTYPE_CLOAK",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 103
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2124
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 77
+      },
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=239661?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1228986,
+      "itemId": 239662,
+      "name": "奥纹软鞋",
+      "icon": 7266373,
+      "iconName": "inv_boot_cloth_questbloodelf_b_01",
+      "professionId": 197,
+      "professionName": "裁缝",
+      "skillLineAbilityId": 52217,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "布甲",
+      "equipLoc": "INVTYPE_FEET",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 70
+      },
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=239662?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1228987,
+      "itemId": 239663,
+      "name": "阳炎腰带",
+      "icon": 7266372,
+      "iconName": "inv_belt_cloth_questbloodelf_b_01",
+      "professionId": 197,
+      "professionName": "裁缝",
+      "skillLineAbilityId": 52218,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "布甲",
+      "equipLoc": "INVTYPE_WAIST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [
+          "你的法术和技能有几率对你当前的目标造成(1 * 13017)点光辉伤害。"
+        ],
+        "use": []
+      },
+      "white": {
+        "armor": 63
+      },
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=239663?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1228988,
+      "itemId": 239664,
+      "name": "奥纹束带",
+      "icon": 7266372,
+      "iconName": "inv_belt_cloth_questbloodelf_b_01",
+      "professionId": 197,
+      "professionName": "裁缝",
+      "skillLineAbilityId": 52219,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "布甲",
+      "equipLoc": "INVTYPE_WAIST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [
+          "你的治疗和伤害法术有几率使你的精通提高136，持续12秒。"
+        ],
+        "use": []
+      },
+      "white": {
+        "armor": 63
+      },
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=239664?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229646,
+      "itemId": 237850,
+      "name": "远行者的劈斧",
+      "icon": 7260419,
+      "iconName": "inv_axe_1h_questbloodelf_b_01",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52381,
+      "expansionId": 11,
+      "itemType": "武器",
+      "itemSubType": "单手斧",
+      "equipLoc": "INVTYPE_WEAPON",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 92
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "agility"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 1888
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 50,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 50,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=237850?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229647,
+      "itemId": 237849,
+      "name": "魔导师的送别",
+      "icon": 517163,
+      "iconName": "mace_2h_blacksmithing_d_04_icon",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52382,
+      "expansionId": 11,
+      "itemType": "武器",
+      "itemSubType": "双手锤",
+      "equipLoc": "INVTYPE_2HWEAPON",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 815
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 99,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 99,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=237849?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229648,
+      "itemId": 237846,
+      "name": "血骑士的战剑",
+      "icon": 7118838,
+      "iconName": "inv_sword_2h_questbloodelf_b_01",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52383,
+      "expansionId": 11,
+      "itemType": "武器",
+      "itemSubType": "双手剑",
+      "equipLoc": "INVTYPE_2HWEAPON",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 99,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 99,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=237846?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229649,
+      "itemId": 237845,
+      "name": "绽铸之爪",
+      "icon": 7065188,
+      "iconName": "inv_hand_1h_dungeonharronir_c_01",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52384,
+      "expansionId": 11,
+      "itemType": "武器",
+      "itemSubType": "拳套",
+      "equipLoc": "INVTYPE_WEAPON",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 92
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "agility"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 1888
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 50,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 50,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=237845?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229650,
+      "itemId": 237838,
+      "name": "魔导师的仪式之匕",
+      "icon": 7091028,
+      "iconName": "inv_knife_1h_questbloodelf_b_01",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52385,
+      "expansionId": 11,
+      "itemType": "武器",
+      "itemSubType": "匕首",
+      "equipLoc": "INVTYPE_WEAPON",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 534
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 1888
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 50,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 50,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=237838?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229651,
+      "itemId": 237843,
+      "name": "魔导师的法力之剑",
+      "icon": 7139837,
+      "iconName": "inv_sword_1h_questbloodelf_b_01",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52386,
+      "expansionId": 11,
+      "itemType": "武器",
+      "itemSubType": "单手剑",
+      "equipLoc": "INVTYPE_WEAPON",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 534
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 1888
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 50,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 50,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=237843?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229652,
+      "itemId": 237848,
+      "name": "血骑士的慈悲",
+      "icon": 517163,
+      "iconName": "mace_2h_blacksmithing_d_04_icon",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52387,
+      "expansionId": 11,
+      "itemType": "武器",
+      "itemSubType": "双手锤",
+      "equipLoc": "INVTYPE_2HWEAPON",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "agility"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 99,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 99,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=237848?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229653,
+      "itemId": 237847,
+      "name": "血骑士的强击矛",
+      "icon": 7303256,
+      "iconName": "inv_polearm_2h_questbloodelf_b_01",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52388,
+      "expansionId": 11,
+      "itemType": "武器",
+      "itemSubType": "长柄武器",
+      "equipLoc": "INVTYPE_2HWEAPON",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "agility"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 99,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 99,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=237847?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229654,
+      "itemId": 237844,
+      "name": "魔导师的砍斧",
+      "icon": 7260419,
+      "iconName": "inv_axe_1h_questbloodelf_b_01",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52389,
+      "expansionId": 11,
+      "itemType": "武器",
+      "itemSubType": "单手斧",
+      "equipLoc": "INVTYPE_WEAPON",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 534
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 1888
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 50,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 50,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=237844?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229655,
+      "itemId": 237842,
+      "name": "绽铸大斧",
+      "icon": 7231718,
+      "iconName": "inv_axe_2h_dungeonharronir_c_01",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52390,
+      "expansionId": 11,
+      "itemType": "武器",
+      "itemSubType": "双手斧",
+      "equipLoc": "INVTYPE_2HWEAPON",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "agility"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 99,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 99,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=237842?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229656,
+      "itemId": 237841,
+      "name": "破法者的通牒",
+      "icon": 7281355,
+      "iconName": "inv_mace_1h_questbloodelf_b_01",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52391,
+      "expansionId": 11,
+      "itemType": "武器",
+      "itemSubType": "单手锤",
+      "equipLoc": "INVTYPE_WEAPON",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 92
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "agility"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 1888
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 50,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 50,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=237841?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229657,
+      "itemId": 237840,
+      "name": "破法者的战刃",
+      "icon": 7151971,
+      "iconName": "inv_glaive_1h_questbloodelf_b_01",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52392,
+      "expansionId": 11,
+      "itemType": "武器",
+      "itemSubType": "战刃",
+      "equipLoc": "INVTYPE_WEAPON",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 442
+        },
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 92
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect",
+        "agility"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 1888
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 50,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 50,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=237840?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229658,
+      "itemId": 237839,
+      "name": "破法者的利剑",
+      "icon": 7139837,
+      "iconName": "inv_sword_1h_questbloodelf_b_01",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52393,
+      "expansionId": 11,
+      "itemType": "武器",
+      "itemSubType": "单手剑",
+      "equipLoc": "INVTYPE_WEAPON",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 92
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "agility"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 1888
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 50,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 50,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=237839?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229659,
+      "itemId": 237837,
+      "name": "远行者的慈悲",
+      "icon": 7517186,
+      "iconName": "inv_knife_1h_questbloodelf_b_02",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52394,
+      "expansionId": 11,
+      "itemType": "武器",
+      "itemSubType": "匕首",
+      "equipLoc": "INVTYPE_WEAPON",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 92
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 1888
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 50,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 50,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=237837?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229660,
+      "itemId": 237836,
+      "name": "破法者的决意",
+      "icon": 7195216,
+      "iconName": "inv_plate_questbloodelf_b_01_glove",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52395,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "板甲",
+      "equipLoc": "INVTYPE_HAND",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 74,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 74,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 240
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=237836?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229661,
+      "itemId": 237835,
+      "name": "破法者的披肩",
+      "icon": 7195219,
+      "iconName": "inv_plate_questbloodelf_b_01_shoulder",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52396,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "板甲",
+      "equipLoc": "INVTYPE_SHOULDER",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 74,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 74,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 293
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=237835?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229662,
+      "itemId": 237834,
+      "name": "破法者的护腕",
+      "icon": 7195194,
+      "iconName": "inv_plate_questbloodelf_b_01_bracer",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52397,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "板甲",
+      "equipLoc": "INVTYPE_WRIST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 103
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2124
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 56,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 56,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 213
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=237834?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229663,
+      "itemId": 237833,
+      "name": "破法者的腿甲",
+      "icon": 7195218,
+      "iconName": "inv_plate_questbloodelf_b_01_pant",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52398,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "板甲",
+      "equipLoc": "INVTYPE_LEGS",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 99,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 99,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 373
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=237833?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229664,
+      "itemId": 237832,
+      "name": "破法者的掩蔽",
+      "icon": 7195217,
+      "iconName": "inv_plate_questbloodelf_b_01_helm",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52399,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "板甲",
+      "equipLoc": "INVTYPE_HEAD",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 99,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 99,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 319
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=237832?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229665,
+      "itemId": 237831,
+      "name": "破法者的责难",
+      "icon": 7369044,
+      "iconName": "inv_shield_1h_questbloodelf_b_01",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52400,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "盾牌",
+      "equipLoc": "INVTYPE_SHIELD",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 92
+        },
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 281
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 1888
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 50,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 50,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 1248
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=237831?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229666,
+      "itemId": 237830,
+      "name": "破法者的束带",
+      "icon": 7195179,
+      "iconName": "inv_plate_questbloodelf_b_01_belt",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52401,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "板甲",
+      "equipLoc": "INVTYPE_WAIST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 74,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 74,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 240
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=237830?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229667,
+      "itemId": 237829,
+      "name": "破法者的庇护",
+      "icon": 7195215,
+      "iconName": "inv_plate_questbloodelf_b_01_chest",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52402,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "板甲",
+      "equipLoc": "INVTYPE_CHEST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 99,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 99,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 426
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=237829?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229668,
+      "itemId": 237828,
+      "name": "破法者的步伐",
+      "icon": 7195180,
+      "iconName": "inv_plate_questbloodelf_b_01_boot",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52403,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "板甲",
+      "equipLoc": "INVTYPE_FEET",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 74,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 74,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 266
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=237828?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229870,
+      "itemId": 244743,
+      "name": "以太流明遮目镜",
+      "icon": 133149,
+      "iconName": "inv_helmet_47",
+      "professionId": 202,
+      "professionName": "工程学",
+      "skillLineAbilityId": 52426,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "布甲",
+      "equipLoc": "INVTYPE_HEAD",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 1,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 198,
+          "label": "随机属性1"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 84
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244743?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229871,
+      "itemId": 244744,
+      "name": "以太流明光学目镜",
+      "icon": 133149,
+      "iconName": "inv_helmet_47",
+      "professionId": 202,
+      "professionName": "工程学",
+      "skillLineAbilityId": 52427,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "皮甲",
+      "equipLoc": "INVTYPE_HEAD",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 1,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 198,
+          "label": "随机属性1"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 144
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244744?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229872,
+      "itemId": 244745,
+      "name": "以太流明成像目镜",
+      "icon": 133149,
+      "iconName": "inv_helmet_47",
+      "professionId": 202,
+      "professionName": "工程学",
+      "skillLineAbilityId": 52428,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "锁甲",
+      "equipLoc": "INVTYPE_HEAD",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 1,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 198,
+          "label": "随机属性1"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 212
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244745?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229873,
+      "itemId": 244746,
+      "name": "以太流明遮阳目镜",
+      "icon": 133149,
+      "iconName": "inv_helmet_47",
+      "professionId": 202,
+      "professionName": "工程学",
+      "skillLineAbilityId": 52429,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "板甲",
+      "equipLoc": "INVTYPE_HEAD",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 1,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 198,
+          "label": "随机属性1"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 319
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244746?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229874,
+      "itemId": 244747,
+      "name": "以太流明丝质腕扣",
+      "icon": 7266375,
+      "iconName": "inv_bracer_cloth_questbloodelf_b_01",
+      "professionId": 202,
+      "professionName": "工程学",
+      "skillLineAbilityId": 52430,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "布甲",
+      "equipLoc": "INVTYPE_WRIST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 103
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2124
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 1,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 112,
+          "label": "随机属性1"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 56
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244747?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229875,
+      "itemId": 244748,
+      "name": "以太流明腕带",
+      "icon": 7287089,
+      "iconName": "inv_bracer_leather_questbloodelf_b_01",
+      "professionId": 202,
+      "professionName": "工程学",
+      "skillLineAbilityId": 52431,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "皮甲",
+      "equipLoc": "INVTYPE_WRIST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 103
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2124
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 1,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 112,
+          "label": "随机属性1"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 96
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244748?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229876,
+      "itemId": 244749,
+      "name": "以太流明腕甲",
+      "icon": 7082302,
+      "iconName": "inv_bracer_mail_questbloodelf_b_01",
+      "professionId": 202,
+      "professionName": "工程学",
+      "skillLineAbilityId": 52432,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "锁甲",
+      "equipLoc": "INVTYPE_WRIST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 103
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2124
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 1,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 112,
+          "label": "随机属性1"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 142
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244749?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229877,
+      "itemId": 244750,
+      "name": "以太流明腕铠",
+      "icon": 7195194,
+      "iconName": "inv_plate_questbloodelf_b_01_bracer",
+      "professionId": 202,
+      "professionName": "工程学",
+      "skillLineAbilityId": 52433,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "板甲",
+      "equipLoc": "INVTYPE_WRIST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 103
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2124
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 1,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 112,
+          "label": "随机属性1"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 213
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244750?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229878,
+      "itemId": 244771,
+      "name": "以太流明软鞋",
+      "icon": 7266373,
+      "iconName": "inv_boot_cloth_questbloodelf_b_01",
+      "professionId": 202,
+      "professionName": "工程学",
+      "skillLineAbilityId": 52434,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "布甲",
+      "equipLoc": "INVTYPE_FEET",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 1,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 149,
+          "label": "随机属性1"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 70
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244771?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229879,
+      "itemId": 244772,
+      "name": "以太流明奔行靴",
+      "icon": 7287088,
+      "iconName": "inv_boot_leather_questbloodelf_b_01",
+      "professionId": 202,
+      "professionName": "工程学",
+      "skillLineAbilityId": 52435,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "皮甲",
+      "equipLoc": "INVTYPE_FEET",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 1,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 149,
+          "label": "随机属性1"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 120
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244772?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229880,
+      "itemId": 244773,
+      "name": "以太流明套靴",
+      "icon": 7082301,
+      "iconName": "inv_boot_mail_questbloodelf_b_01",
+      "professionId": 202,
+      "professionName": "工程学",
+      "skillLineAbilityId": 52436,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "锁甲",
+      "equipLoc": "INVTYPE_FEET",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 1,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 149,
+          "label": "随机属性1"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 177
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244773?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1229881,
+      "itemId": 244774,
+      "name": "以太流明践踏靴",
+      "icon": 7195180,
+      "iconName": "inv_plate_questbloodelf_b_01_boot",
+      "professionId": 202,
+      "professionName": "工程学",
+      "skillLineAbilityId": 52437,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "板甲",
+      "equipLoc": "INVTYPE_FEET",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 1,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 149,
+          "label": "随机属性1"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 266
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244774?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1230059,
+      "itemId": 245771,
+      "name": "艾林哈籁刺杖",
+      "icon": 6936235,
+      "iconName": "inv_staff_2h_dungeonharronir_c_01",
+      "professionId": 773,
+      "professionName": "铭文",
+      "skillLineAbilityId": 52543,
+      "expansionId": 11,
+      "itemType": "武器",
+      "itemSubType": "法杖",
+      "equipLoc": "INVTYPE_2HWEAPON",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 99,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 99,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=245771?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1230060,
+      "itemId": 245770,
+      "name": "艾林哈籁手杖",
+      "icon": 7287363,
+      "iconName": "inv_staff_2h_dungeonharronir_c_02",
+      "professionId": 773,
+      "professionName": "铭文",
+      "skillLineAbilityId": 52544,
+      "expansionId": 11,
+      "itemType": "武器",
+      "itemSubType": "法杖",
+      "equipLoc": "INVTYPE_2HWEAPON",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 815
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 99,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 99,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=245770?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1230061,
+      "itemId": 245769,
+      "name": "艾林哈籁灯笼",
+      "icon": 7431122,
+      "iconName": "inv_offhand_1h_dungeonharronir_c_01",
+      "professionId": 773,
+      "professionName": "铭文",
+      "skillLineAbilityId": 52545,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "其它",
+      "equipLoc": "INVTYPE_HOLDABLE",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 281
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 1888
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 50,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 50,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=245769?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1230062,
+      "itemId": 265337,
+      "name": "艾林哈籁蔓枝弓",
+      "icon": 6998205,
+      "iconName": "inv_bow_1h_dungeonharronir_c_01",
+      "professionId": 773,
+      "professionName": "铭文",
+      "skillLineAbilityId": 52546,
+      "expansionId": 11,
+      "itemType": "武器",
+      "itemSubType": "弓",
+      "equipLoc": "INVTYPE_RANGED",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 99,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 99,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=265337?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1230070,
+      "itemId": 246305,
+      "name": "暗月统御：鲜血",
+      "icon": 7549068,
+      "iconName": "inv_12_profession_inscriptions_darkmoondominions_hunt",
+      "professionId": 773,
+      "professionName": "铭文",
+      "skillLineAbilityId": 52554,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "其它",
+      "equipLoc": "INVTYPE_TRINKET",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 174
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "agility",
+        "intellect"
+      ],
+      "stamina": null,
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [
+          "你的伤害法术和技能有几率赋予远行者的机敏，使你最低的次要属性提高836，持续15秒。"
+        ],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=246305?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1230071,
+      "itemId": 246306,
+      "name": "暗月统御：腐烂",
+      "icon": 7549069,
+      "iconName": "inv_12_profession_inscriptions_darkmoondominions_rot",
+      "professionId": 773,
+      "professionName": "铭文",
+      "skillLineAbilityId": 52555,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "其它",
+      "equipLoc": "INVTYPE_TRINKET",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 174
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "agility",
+        "intellect"
+      ],
+      "stamina": null,
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [
+          "使你的目标受到腐烂的根系的折磨，每2秒造成753点自然伤害，持续6秒。此效果最多可叠加10层。新获得的层数不会刷新已有层数。"
+        ],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=246306?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1230072,
+      "itemId": 246304,
+      "name": "暗月统御：狩猎",
+      "icon": 7549067,
+      "iconName": "inv_12_profession_inscriptions_darkmoondominions_bloom",
+      "professionId": 773,
+      "professionName": "铭文",
+      "skillLineAbilityId": 52556,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "其它",
+      "equipLoc": "INVTYPE_TRINKET",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 174
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "agility",
+        "intellect"
+      ],
+      "stamina": null,
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [
+          "根据目标生物类型，你的法术和技能有几率会使你的次要属性提高317，持续15秒。"
+        ],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=246304?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1230073,
+      "itemId": 246307,
+      "name": "暗月统御：虚空",
+      "icon": 7549071,
+      "iconName": "inv_12_profession_inscriptions_darkmoondominions_void",
+      "professionId": 773,
+      "professionName": "铭文",
+      "skillLineAbilityId": 52557,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "其它",
+      "equipLoc": "INVTYPE_TRINKET",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 174
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "agility",
+        "intellect"
+      ],
+      "stamina": null,
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [
+          "你的伤害法术和技能有几率使你在虚空琉璃中获得勇气，在15秒秒内获得232全能。多次施加可以重叠生效。"
+        ],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=246307?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1230479,
+      "itemId": 251513,
+      "name": "神灵崇拜者的指环",
+      "icon": 7549154,
+      "iconName": "inv_12_profession_jewelcrafting_ring3_silver",
+      "professionId": 755,
+      "professionName": "珠宝加工",
+      "skillLineAbilityId": 52613,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "其它",
+      "equipLoc": "INVTYPE_FINGER",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [],
+      "primaryStatOptionTypes": [],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2124
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [
+          "你的伤害法术和技能有几率为指环充能，召唤一个洛阿神灵的化身协助你战斗。"
+        ],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": true
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=251513?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1230485,
+      "itemId": 240949,
+      "name": "精工辛多雷指环",
+      "icon": 7549155,
+      "iconName": "inv_12_profession_jewelcrafting_ring4_gold",
+      "professionId": 755,
+      "professionName": "珠宝加工",
+      "skillLineAbilityId": 52618,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "其它",
+      "equipLoc": "INVTYPE_FINGER",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [],
+      "primaryStatOptionTypes": [],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2124
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 199,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 199,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": true
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=240949?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1230486,
+      "itemId": 240950,
+      "name": "精工辛多雷护符",
+      "icon": 7549118,
+      "iconName": "inv_12_profession_jewelcrafting_necklace2_gold",
+      "professionId": 755,
+      "professionName": "珠宝加工",
+      "skillLineAbilityId": 52619,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "其它",
+      "equipLoc": "INVTYPE_NECK",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [],
+      "primaryStatOptionTypes": [],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2124
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 199,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 199,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": true
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=240950?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1230487,
+      "itemId": 241140,
+      "name": "艾泽拉斯祝福印戒",
+      "icon": 7549149,
+      "iconName": "inv_12_profession_jewelcrafting_ring1_gold",
+      "professionId": 755,
+      "professionName": "珠宝加工",
+      "skillLineAbilityId": 52620,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "其它",
+      "equipLoc": "INVTYPE_FINGER",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [],
+      "primaryStatOptionTypes": [],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2124
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [
+          "你的法术和技能可能使印戒与世界之魂产生共鸣，使你的所有次要属性提高21，持续15秒。"
+        ],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": true
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=241140?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1230488,
+      "itemId": 241139,
+      "name": "萨拉斯凤凰饰环",
+      "icon": 7549116,
+      "iconName": "inv_12_profession_jewelcrafting_necklace1_gold",
+      "professionId": 755,
+      "professionName": "珠宝加工",
+      "skillLineAbilityId": 52621,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "其它",
+      "equipLoc": "INVTYPE_NECK",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [],
+      "primaryStatOptionTypes": [],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2124
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [
+          "你的法术和技能有几率唤起不死鸟之焰，将你的目标包围其中。"
+        ],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": true
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=241139?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1230766,
+      "itemId": 244463,
+      "name": "密谋小径健足靴",
+      "icon": 7195180,
+      "iconName": "inv_plate_questbloodelf_b_01_boot",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52674,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "板甲",
+      "equipLoc": "INVTYPE_FEET",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 74,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 74,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [
+          "你的有害法术和技能有几率使你的闪避提高282，持续10秒。"
+        ],
+        "use": []
+      },
+      "white": {
+        "armor": 266
+      },
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244463?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1230767,
+      "itemId": 244472,
+      "name": "骑士指挥官的雄关",
+      "icon": 7369044,
+      "iconName": "inv_shield_1h_questbloodelf_b_01",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52675,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "盾牌",
+      "equipLoc": "INVTYPE_SHIELD",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "strength",
+          "name": "力量",
+          "value": 92
+        },
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 281
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "strength",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 1888
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 50,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 50,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [
+          "圣光守护着你。受到攻击时有几率获得壁垒之护，提供持续6秒的吸收护盾，可吸收4186点伤害。"
+        ],
+        "use": []
+      },
+      "white": {
+        "armor": 1248
+      },
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244472?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1230768,
+      "itemId": 244679,
+      "name": "密谋小径鱼钩",
+      "icon": 7517186,
+      "iconName": "inv_knife_1h_questbloodelf_b_02",
+      "professionId": 164,
+      "professionName": "锻造",
+      "skillLineAbilityId": 52676,
+      "expansionId": 11,
+      "itemType": "武器",
+      "itemSubType": "匕首",
+      "equipLoc": "INVTYPE_WEAPON",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 92
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 1888
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 50,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 50,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [
+          "你的有害法术和技能有几率使你的目标流血，在10秒内每2造成(1 * 2972)点物理伤害。"
+        ],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244679?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1230885,
+      "itemId": 241340,
+      "name": "魔导师的炼金石",
+      "icon": 7548890,
+      "iconName": "inv_12_profession_alchemy_alchemists_stone",
+      "professionId": 171,
+      "professionName": "炼金术",
+      "skillLineAbilityId": 52712,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "其它",
+      "equipLoc": "INVTYPE_TRINKET",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [],
+      "primaryStatOptionTypes": [],
+      "stamina": null,
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [
+          "当你进行治疗或对敌人造成伤害时，有一定几率使你的力量、敏捷或者智力提高359点，持续15秒。总是会提升数值最高的那个属性。",
+          "使你在饮用治疗药水和法力药水时获得的效果提高40%。这个效果无法叠加。"
+        ],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=241340?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1236490,
+      "itemId": 244179,
+      "name": "魔导师的华丽法器",
+      "icon": 135487,
+      "iconName": "inv_wand_24",
+      "professionId": 333,
+      "professionName": "附魔",
+      "skillLineAbilityId": 53014,
+      "expansionId": 11,
+      "itemType": "武器",
+      "itemSubType": "魔杖",
+      "equipLoc": "INVTYPE_RANGEDRIGHT",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "intellect",
+          "name": "智力",
+          "value": 534
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 1888
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 50,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 50,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244179?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237486,
+      "itemId": 244612,
+      "name": "径巷行者的偏斜腕甲",
+      "icon": 7287089,
+      "iconName": "inv_bracer_leather_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53030,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "皮甲",
+      "equipLoc": "INVTYPE_WRIST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 103
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2124
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 96
+      },
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244612?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237487,
+      "itemId": 244613,
+      "name": "径巷行者的保险护胸",
+      "icon": 7287091,
+      "iconName": "inv_chest_leather_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53031,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "皮甲",
+      "equipLoc": "INVTYPE_CHEST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 192
+      },
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244613?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237488,
+      "itemId": 244614,
+      "name": "径巷行者的迅影手套",
+      "icon": 7287092,
+      "iconName": "inv_glove_leather_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53032,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "皮甲",
+      "equipLoc": "INVTYPE_HAND",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 108
+      },
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244614?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237489,
+      "itemId": 244606,
+      "name": "妖纹束腰",
+      "icon": 7287086,
+      "iconName": "inv_belt_leather_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53033,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "皮甲",
+      "equipLoc": "INVTYPE_WAIST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [
+          "你的伤害法术和技能有几率使你的目标受到死疽妖术的折磨，在10秒内造成(1 * 382 * 10)点自然伤害。"
+        ],
+        "use": []
+      },
+      "white": {
+        "armor": 108
+      },
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244606?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237498,
+      "itemId": 244601,
+      "name": "世界之树根须裹足",
+      "icon": 7287088,
+      "iconName": "inv_boot_leather_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53042,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "皮甲",
+      "equipLoc": "INVTYPE_FEET",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [
+          "你的法术和技能有几率与世界之魂产生共鸣，在附近创造一个艾泽拉斯之力法球。拾取此法球将为你注入力量，使你最高的次要属性提高75，持续15秒。"
+        ],
+        "use": []
+      },
+      "white": {
+        "armor": 120
+      },
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244601?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237507,
+      "itemId": 244570,
+      "name": "银月城特工的外套",
+      "icon": 7287091,
+      "iconName": "inv_chest_leather_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53051,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "皮甲",
+      "equipLoc": "INVTYPE_CHEST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 99,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 99,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 192
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244570?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237508,
+      "itemId": 244569,
+      "name": "银月城特工的匿踪靴",
+      "icon": 7287088,
+      "iconName": "inv_boot_leather_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53052,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "皮甲",
+      "equipLoc": "INVTYPE_FEET",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 74,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 74,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 120
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244569?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237509,
+      "itemId": 244575,
+      "name": "银月城特工的裹手",
+      "icon": 7287092,
+      "iconName": "inv_glove_leather_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53053,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "皮甲",
+      "equipLoc": "INVTYPE_HAND",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 74,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 74,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 108
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244575?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237510,
+      "itemId": 244571,
+      "name": "银月城特工的面罩",
+      "icon": 7287093,
+      "iconName": "inv_helm_leather_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53054,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "皮甲",
+      "equipLoc": "INVTYPE_HEAD",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 99,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 99,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 144
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244571?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237511,
+      "itemId": 244574,
+      "name": "银月城特工的护腿",
+      "icon": 7287094,
+      "iconName": "inv_pant_leather_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53055,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "皮甲",
+      "equipLoc": "INVTYPE_LEGS",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 99,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 99,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 168
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244574?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237512,
+      "itemId": 244572,
+      "name": "银月城特工的披肩",
+      "icon": 7287095,
+      "iconName": "inv_shoulder_leather_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53056,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "皮甲",
+      "equipLoc": "INVTYPE_SHOULDER",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 74,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 74,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 132
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244572?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237513,
+      "itemId": 244573,
+      "name": "银月城特工的多功能腰带",
+      "icon": 7287086,
+      "iconName": "inv_belt_leather_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53057,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "皮甲",
+      "equipLoc": "INVTYPE_WAIST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 74,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 74,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 108
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244573?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237514,
+      "itemId": 244576,
+      "name": "银月城特工的偏斜腕甲",
+      "icon": 7287089,
+      "iconName": "inv_bracer_leather_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53058,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "皮甲",
+      "equipLoc": "INVTYPE_WRIST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 103
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2124
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 56,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 56,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 96
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244576?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237515,
+      "itemId": 244602,
+      "name": "游侠将军之握",
+      "icon": 7082304,
+      "iconName": "inv_glove_mail_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53059,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "锁甲",
+      "equipLoc": "INVTYPE_HAND",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [
+          "对目标造成伤害有几率标记目标，使一名精灵游侠从远处发动突袭！此次突袭对目标造成(1 * 15456)点物理伤害。"
+        ],
+        "use": []
+      },
+      "white": {
+        "armor": 159
+      },
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244602?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237516,
+      "itemId": 244605,
+      "name": "掷斧腕带",
+      "icon": 7082302,
+      "iconName": "inv_bracer_mail_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53060,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "锁甲",
+      "equipLoc": "INVTYPE_WRIST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 103
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2124
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [
+          "你的法术和技能有几率使你陷入战斗狂热。战斗狂热使你的急速提高11，持续15秒，最多叠加5次。"
+        ],
+        "use": []
+      },
+      "white": {
+        "armor": 142
+      },
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244605?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237517,
+      "itemId": 244609,
+      "name": "世界照护者的树干板甲",
+      "icon": 7082303,
+      "iconName": "inv_chest_mail_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53061,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "锁甲",
+      "equipLoc": "INVTYPE_CHEST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 283
+      },
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244609?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237518,
+      "itemId": 244610,
+      "name": "世界照护者的根须便鞋",
+      "icon": 7082301,
+      "iconName": "inv_boot_mail_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53062,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "锁甲",
+      "equipLoc": "INVTYPE_FEET",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 177
+      },
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244610?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237519,
+      "itemId": 244611,
+      "name": "世界照护者的树皮腰扣",
+      "icon": 7082300,
+      "iconName": "inv_belt_mail_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53063,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "锁甲",
+      "equipLoc": "INVTYPE_WAIST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 159
+      },
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244611?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237536,
+      "itemId": 244578,
+      "name": "远行者的侦察背心",
+      "icon": 7082303,
+      "iconName": "inv_chest_mail_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53080,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "锁甲",
+      "equipLoc": "INVTYPE_CHEST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 99,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 99,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 283
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244578?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237537,
+      "itemId": 244577,
+      "name": "远行者的刀锋战靴",
+      "icon": 7082301,
+      "iconName": "inv_boot_mail_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53081,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "锁甲",
+      "equipLoc": "INVTYPE_FEET",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 74,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 74,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 177
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244577?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237538,
+      "itemId": 244583,
+      "name": "远行者的锋芒爪套",
+      "icon": 7082304,
+      "iconName": "inv_glove_mail_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53082,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "锁甲",
+      "equipLoc": "INVTYPE_HAND",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 74,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 74,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 159
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244583?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237539,
+      "itemId": 244579,
+      "name": "远行者的不懈守望",
+      "icon": 7082305,
+      "iconName": "inv_helm_mail_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53083,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "锁甲",
+      "equipLoc": "INVTYPE_HEAD",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 99,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 99,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 212
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244579?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237540,
+      "itemId": 244582,
+      "name": "远行者的加固腿铠",
+      "icon": 7082306,
+      "iconName": "inv_pant_mail_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53084,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "锁甲",
+      "equipLoc": "INVTYPE_LEGS",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 99,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 99,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 248
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244582?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237541,
+      "itemId": 244580,
+      "name": "远行者的璀璨之羽",
+      "icon": 7082307,
+      "iconName": "inv_shoulder_mail_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53085,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "锁甲",
+      "equipLoc": "INVTYPE_SHOULDER",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 74,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 74,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 195
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244580?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237542,
+      "itemId": 244581,
+      "name": "远行者的战利品腰带",
+      "icon": 7082300,
+      "iconName": "inv_belt_mail_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53086,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "锁甲",
+      "equipLoc": "INVTYPE_WAIST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 138
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2832
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 74,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 74,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 159
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244581?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1237543,
+      "itemId": 244584,
+      "name": "远行者的板层护腕",
+      "icon": 7082302,
+      "iconName": "inv_bracer_mail_questbloodelf_b_01",
+      "professionId": 165,
+      "professionName": "制皮",
+      "skillLineAbilityId": 53087,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "锁甲",
+      "equipLoc": "INVTYPE_WRIST",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 103
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility",
+        "intellect"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2124
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 2,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 56,
+          "label": "随机属性1"
+        },
+        {
+          "index": 2,
+          "value": 56,
+          "label": "随机属性2"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {
+        "armor": 142
+      },
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=244584?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1251983,
+      "itemId": 251073,
+      "name": "虚空石护盾阵列",
+      "icon": 7549121,
+      "iconName": "inv_12_profession_jewelcrafting_necklace3_silver",
+      "professionId": 755,
+      "professionName": "珠宝加工",
+      "skillLineAbilityId": 54686,
+      "expansionId": 11,
+      "itemType": "护甲",
+      "itemSubType": "其它",
+      "equipLoc": "INVTYPE_NECK",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [],
+      "primaryStatOptionTypes": [],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 2124
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 0,
+      "randomAttributeSlots": [],
+      "effects": {
+        "equip": [],
+        "use": [
+          "使用：激活阵列并生成虚空石屏障，吸收169441点伤害，持续10秒。"
+        ]
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": true,
+        "prismaticSocket": true
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=251073?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    },
+    {
+      "recipeId": 1282456,
+      "itemId": 268477,
+      "name": "P.O.W. x3",
+      "icon": 7525805,
+      "iconName": "inv_firearm_2h_raidmidnight_d_01",
+      "professionId": 202,
+      "professionName": "工程学",
+      "skillLineAbilityId": 57185,
+      "expansionId": 11,
+      "itemType": "武器",
+      "itemSubType": "枪械",
+      "equipLoc": "INVTYPE_RANGEDRIGHT",
+      "quality": 4,
+      "itemLevel": 331,
+      "primaryStats": [
+        {
+          "type": "agility",
+          "name": "敏捷",
+          "value": 183
+        }
+      ],
+      "primaryStatOptionTypes": [
+        "agility"
+      ],
+      "stamina": {
+        "type": "stamina",
+        "name": "耐力",
+        "value": 3777
+      },
+      "fixedSecondaryStats": [],
+      "randomAttributeCount": 1,
+      "randomAttributeSlots": [
+        {
+          "index": 1,
+          "value": 198,
+          "label": "随机属性1"
+        }
+      ],
+      "effects": {
+        "equip": [],
+        "use": []
+      },
+      "white": {},
+      "flags": {
+        "uniqueEquipped": false,
+        "prismaticSocket": false
+      },
+      "tooltipRaw": [],
+      "link": "https://www.wowhead.com/item=268477?ilvl=331",
+      "source": {
+        "type": "crafted",
+        "candidateItemLevel": 246,
+        "targetItemLevel": 331,
+        "targetRule": "s2_myth_mistcrest_quality_5",
+        "tooltipSource": "wowhead_item_tooltip_ilvl",
+        "tooltipSourceItemLevel": 331
+      },
+      "captureStatus": "tooltip_verified"
+    }
+  ]
+}

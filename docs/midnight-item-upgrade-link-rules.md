@@ -58,6 +58,19 @@ item:<itemId>:<enchant>:<gem1>:<gem2>:<gem3>:<gem4>::<playerLevel>:<specId>::<bo
 
 任何一项失败都必须写入失败原因，例如 `base_item_level_unavailable`、`bonus_mapping_missing`、`target_item_level_mismatch`、`required_bonus_missing` 或 `tooltip_unavailable`。
 
+## 制造业：S2 最高品质规则
+
+制造业不使用上面的“基础链接 + 轨道 Bonus ID”重建方式。每个制造物品必须以 `recipeId` 为主键，并遵守以下独立链路：
+
+1. 仅接受客户端订单目录中当赛季的可变装等候选。本次 S2 的筛选证据为 `iLvlMin = 246`，共 98 个唯一物品 ID；低于这一档的历史候选不进入小程序。
+2. 选择 Myth Mistcrest 和最高品质（质量 5）。S2 该组合的目标装等是 **331**。这一等级不是普通掉落的 334，也不能套用至暗熔炉等后续赛季机制。
+3. 用配方的最高品质/目标装等取到该物品的真实 tooltip，再提取装备栏位、护甲或伤害、主属性、耐力、固定副属性、装备/使用特效、唯一/插槽标志及随机属性槽。
+4. tooltip 中的“随机属性 1/2/…”只能写到 `crafting.randomAttributeSlots`。它们不能预先写入 `stats.secondary`，由小程序在玩家选择暴击、急速、精通、全能后生成展示和配装快照。
+5. 如果同一物品显示“力量或智力”之类的可变主属性，必须按可用专精拆分为相同物品 ID 的专精记录；每条记录只含该专精实际获得的主属性。不能把一个职业的属性套给另一个职业。
+6. 每条记录保存 `recipeId`、`candidateItemLevel`、`targetItemLevel`、`targetRule` 和 tooltip 来源证据。只有目标 tooltip 的物品等级严格为 331 时，记录才可展示。
+
+本地验收阶段，`scripts/build-s2-crafted-equipment.js` 生成 `cos-upload/data-12.1-s2-crafted-preview/crafted-equipment.json` 与十三个职业 JSON。它使用 `ilvl=331` 的物品说明框作为独立核验，并保留客户端导出的配方、物品 ID 与随机属性结构；上线前仍应以同 Build 的客户端预览再抽样复核。
+
 ## 不可泛化的例外
 
 以下项目必须在赛季规则文件中单独声明并以客户端实测确认：
@@ -84,4 +97,3 @@ item:<itemId>:<enchant>:<gem1>:<gem2>:<gem3>:<gem4>::<playerLevel>:<specId>::<bo
 S2 的 13 职业 × 9 件套装必须由客户端幻化套装接口发现：核心五件的 Catalyst ID 只用于定位套装，插件必须将 `物品 ID → 幻化来源 ID → 套装来源 ID → 物品 ID` 的证据一并保存。幻化来源或外观 ID 不能直接作为小程序装备 ID。每个职业只有在头、肩、胸、腕、手、腰、腿、脚、背九个部位各得到一件真实物品且五个核心 ID 均在其中时，才能导出完整的预检装备记录。
 
 预检记录逐件从客户端读取名称、链接、装等、属性、特效与说明框；它们不是仅供展示的外观数据。最高装等链接和属性仍须按下文规则独立验证后才能正式发布。
-

@@ -810,4 +810,11 @@ if (require.main === module) {
   });
 }
 
-module.exports = { LuaParser };
+module.exports = {
+  LuaParser,
+  CLASS_CONFIG,
+  buildCraftedItem,
+  buildCraftedInstance,
+  removeExistingCraftedInstances,
+  countItems,
+};

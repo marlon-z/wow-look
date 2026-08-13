@@ -1,4 +1,4 @@
-const { COS_BASE, getClassMeta, getClassVisualAssets, loadClassData } = require('../../utils/class-data');
+const { COS_BASE, getAssetBase, getClassMeta, getClassVisualAssets, loadClassData } = require('../../utils/class-data');
 const {
   SLOT_OPTIONS,
   flattenItems,
@@ -190,7 +190,7 @@ Page({
       const allItems = data
         ? flattenItems(data.instances || []).map((item) => ({
           ...item,
-          iconAsset: item.iconAsset ? COS_BASE + item.iconAsset : '',
+          iconAsset: item.iconAsset ? getAssetBase() + item.iconAsset : '',
           statLine: buildStatLine(item),
           specNames: buildSpecNames(item, data.specs || []),
           metaLine: buildMetaLine(item),
@@ -664,7 +664,7 @@ Page({
       const classMeta = (data && data.class) || getClassMeta(classKey) || {};
       const items = flattenItems(data.instances || []).map((item) => ({
         ...item,
-        iconAsset: item.iconAsset ? COS_BASE + item.iconAsset : '',
+        iconAsset: item.iconAsset ? getAssetBase() + item.iconAsset : '',
         statLine: buildStatLine(item),
         specNames: buildSpecNames(item, data.specs || []),
         metaLine: buildMetaLine(item),

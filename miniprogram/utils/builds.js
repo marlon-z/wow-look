@@ -1,6 +1,6 @@
 var { summarizeSlots, BUILD_SLOT_KEYS } = require('./stat-calc');
 var { applyWeaponSelection } = require('./weapon-rules');
-var { COS_BASE } = require('./class-data');
+var { getAssetBase } = require('./class-data');
 
 var BUILDS_STORAGE_KEY = 'wowlook_builds_v1';
 
@@ -23,7 +23,7 @@ function normalizeBuilds(value) {
         Object.keys(build.slots).forEach(function (slotKey) {
           var item = build.slots[slotKey];
           if (item && item.iconAsset && item.iconAsset.charAt(0) === '/') {
-            item.iconAsset = COS_BASE + item.iconAsset;
+            item.iconAsset = getAssetBase() + item.iconAsset;
           }
         });
       }

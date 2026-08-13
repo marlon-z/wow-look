@@ -24,6 +24,10 @@ const DATA_VERSION = DATA_SOURCE === 'local-s2-crafted-preview' ? '12.1-s2' : '4
 const DATA_DIR = `data-${DATA_VERSION}`;
 const LOCAL_PREVIEW_BASE = 'http://127.0.0.1:8787';
 
+function getAssetBase() {
+  return DATA_SOURCE === 'local-s2-crafted-preview' ? LOCAL_PREVIEW_BASE : COS_BASE;
+}
+
 function getClassVisualAssets(classKey) {
   const classMeta = getClassMeta(classKey);
   const assetCode = (classMeta && classMeta.assetCode) || 'ws';
@@ -71,6 +75,7 @@ function loadClassData(classKey) {
 module.exports = {
   COS_BASE,
   LOCAL_PREVIEW_BASE,
+  getAssetBase,
   DATA_SOURCE,
   DATA_VERSION,
   DATA_DIR,

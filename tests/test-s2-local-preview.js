@@ -17,7 +17,10 @@ const catalog = JSON.parse(fs.readFileSync(path.join(dataDir, 'crafting-candidat
 assert.equal(overview.dataVersion, '12.1-s2');
 assert.equal(overview.preview.localOnly, true);
 assert.equal(overview.preview.uploadApproved, false);
-assert.equal(overview.craftedEquipment.catalogStatus, 'candidate_catalog_only');
+assert.equal(overview.craftedEquipment.catalogStatus, 'tooltip_verified_s2_myth_quality_5');
+assert.equal(overview.craftedEquipment.targetItemLevel, 331);
+assert.equal(overview.craftedEquipment.verifiedMaximumCount, 98);
+assert.equal(overview.craftedEquipment.visibleItemCount, 98);
 assert.equal(catalog.candidateCount, 237);
 assert.equal(catalog.candidates.length, 237);
 assert.equal(catalog.verifiedMaximumCount, 0);
@@ -26,9 +29,38 @@ assert.ok(catalog.candidates.every((item) => item.recipeId > 0 && item.itemId > 
 classKeys.forEach((key) => {
   const data = JSON.parse(fs.readFileSync(path.join(dataDir, `${key}.json`), 'utf8'));
   const items = (data.instances || []).flatMap((instance) => (instance.encounters || []).flatMap((encounter) => encounter.items || []));
-  assert.equal(items.filter((item) => item.sourceType === 'crafted').length, 0, `${key} 不应显示未验证制造装备。`);
+  const craftedItems = items.filter((item) => item.sourceType === 'crafted');
+  assert.ok(craftedItems.length > 0, `${key} 应显示本职业可用的 S2 制造装备。`);
+  craftedItems.forEach((item) => {
+    assert.equal(item.ilvl, 331, `${key} 的制造装备必须为 S2 Myth 最高装等。`);
+    assert.equal(item.crafting.targetItemLevel, 331);
+    assert.ok(Array.isArray(item.crafting.randomAttributeSlots));
+    assert.ok(item.iconAsset, '制造业装备应具有本地可访问的图标。');
+    assert.ok(item.stats.secondary.every((stat) => !stat.craftedRandom), '随机属性不能写入固定副属性。');
+  });
   assert.equal(items.filter((item) => item.sourceType === 'tier').length, 9, `${key} 应保留 9 件 S2 套装。`);
 });
+
+const paladin = JSON.parse(fs.readFileSync(path.join(dataDir, 'paladin.json'), 'utf8'));
+const paladinCrafted = paladin.instances.find((instance) => instance.id === 'manufacturing').encounters[0].items;
+const paladinShelters = paladinCrafted.filter((item) => item.id === 237829);
+assert.deepEqual(paladinShelters.map((item) => item.specs.join(',')).sort(), ['65', '66,70']);
+assert.deepEqual(
+  paladinShelters.find((item) => item.specs.includes(65)).stats.primaryStats,
+  [{ type: 'intellect', name: '智力', value: 183 }],
+);
+assert.deepEqual(
+  paladinShelters.find((item) => item.specs.includes(66)).stats.primaryStats,
+  [{ type: 'strength', name: '力量', value: 183 }],
+);
+
+assert.ok(
+  fs.existsSync(path.join(dataDir, 'crafted-equipment.json')),
+  'S2 最高品质制造业档案缺失。',
+);
+const craftedArchive = JSON.parse(fs.readFileSync(path.join(dataDir, 'crafted-equipment.json'), 'utf8'));
+assert.equal(craftedArchive.recordCount, 98);
+assert.equal(craftedArchive.targetItemLevel, 331);
 
 const requestUrls = [];
 global.wx = {

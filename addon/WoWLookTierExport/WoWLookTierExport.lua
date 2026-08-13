@@ -1617,8 +1617,10 @@ local function PrintSummary()
 end
 
 SLASH_WOWTIEREXPORT1 = "/wowtierexport"
+SLASH_WOWTIEREXPORT2 = "/wte"
 SlashCmdList["WOWTIEREXPORT"] = function(msg)
     local arg = (msg or ""):lower():match("^%s*(.-)%s*$")
+    Print("命令已收到：" .. (arg ~= "" and arg or "all"))
 
     if arg == "preflight" then
         local ok, payload = pcall(BuildPreflightPayload)

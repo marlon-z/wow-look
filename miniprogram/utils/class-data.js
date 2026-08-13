@@ -14,69 +14,89 @@ const CLASS_LIST = [
   { id: 13, key: 'evoker', name: '唤魔师', shortName: '唤魔师', armorType: 'mail', armorTypeName: '锁甲', color: '#33937F', abbr: '唤', assetCode: 'hms' },
 ];
 
+const DATA_VERSION = '12.1-s2';
+const DATA_DIR = `data-${DATA_VERSION}`;
+const LOCAL_ASSET_BASE = '/assets';
+const classDataCache = {};
+const classLoadTasks = {};
+
 function getClassMeta(classKey) {
   return CLASS_LIST.find((item) => item.key === classKey) || null;
 }
 
-const COS_BASE = 'https://wowlook-1308073800.cos.ap-guangzhou.myqcloud.com';
-const DATA_SOURCE = 'local-s2-crafted-preview';
-const DATA_VERSION = DATA_SOURCE === 'local-s2-crafted-preview' ? '12.1-s2' : '4.4.x';
-const DATA_DIR = `data-${DATA_VERSION}`;
-const LOCAL_PREVIEW_BASE = 'http://127.0.0.1:8787';
-
 function getAssetBase() {
-  return DATA_SOURCE === 'local-s2-crafted-preview' ? LOCAL_PREVIEW_BASE : COS_BASE;
+  return '';
 }
 
 function getClassVisualAssets(classKey) {
   const classMeta = getClassMeta(classKey);
   const assetCode = (classMeta && classMeta.assetCode) || 'ws';
-
   return {
-    banner: `${COS_BASE}/assets/zhiye/banner/${assetCode}.png`,
-    emblem: `${COS_BASE}/assets/zhiye/emblem/${assetCode}.png`,
+    banner: `${LOCAL_ASSET_BASE}/classes/banner/${assetCode}.jpg`,
+    emblem: `${LOCAL_ASSET_BASE}/classes/emblem/${assetCode}.png`,
   };
 }
 
 function loadOverview() {
-  const baseUrl = DATA_SOURCE === 'local-s2-crafted-preview' ? LOCAL_PREVIEW_BASE : COS_BASE;
-  const dataDirectory = DATA_SOURCE === 'local-s2-crafted-preview' ? `${DATA_DIR}-crafted-preview` : DATA_DIR;
-  return new Promise((resolve) => {
-    wx.request({
-      url: `${baseUrl}/${dataDirectory}/overview.json`,
-      success(res) { resolve(res.data); },
-      fail(err) {
-        console.error('load overview failed', err);
-        resolve(null);
-      },
-    });
-  });
+  try {
+    return Promise.resolve(require('../local-data/overview'));
+  } catch (err) {
+    console.error('load local overview failed', err);
+    return Promise.resolve(null);
+  }
 }
 
 function loadClassData(classKey) {
-  const validKeys = ['warrior', 'paladin', 'hunter', 'rogue', 'priest', 'deathknight', 'shaman', 'mage', 'warlock', 'monk', 'druid', 'demonhunter', 'evoker'];
-  if (validKeys.indexOf(classKey) === -1) {
+  if (!getClassMeta(classKey)) {
     return Promise.resolve(null);
   }
-  const baseUrl = DATA_SOURCE === 'local-s2-crafted-preview' ? LOCAL_PREVIEW_BASE : COS_BASE;
-  const dataDirectory = DATA_SOURCE === 'local-s2-crafted-preview' ? `${DATA_DIR}-crafted-preview` : DATA_DIR;
-  return new Promise((resolve) => {
-    wx.request({
-      url: `${baseUrl}/${dataDirectory}/${classKey}.json`,
-      success(res) { resolve(res.data); },
-      fail(err) {
-        console.error(`load class data failed: ${classKey}`, err);
+  if (classDataCache[classKey]) {
+    return Promise.resolve(classDataCache[classKey]);
+  }
+  if (classLoadTasks[classKey]) {
+    return classLoadTasks[classKey];
+  }
+
+  classLoadTasks[classKey] = new Promise((resolve) => {
+    if (typeof wx === 'undefined' || typeof wx.loadSubPackage !== 'function') {
+      console.error(`local ${classKey} package loader is unavailable`);
+      resolve(null);
+      return;
+    }
+
+    wx.loadSubPackage({
+      name: `class-${classKey}`,
+      success() {
+        require.async(
+          `../packages/class-${classKey}/data/${classKey}`,
+          (data) => {
+            classDataCache[classKey] = data;
+            resolve(data);
+          },
+          (error) => {
+            console.error(`load local ${classKey} data failed`, error);
+            resolve(null);
+          }
+        );
+      },
+      fail(error) {
+        console.error(`download local ${classKey} package failed`, error);
         resolve(null);
       },
     });
+  }).finally(() => {
+    delete classLoadTasks[classKey];
   });
+
+  return classLoadTasks[classKey];
 }
 
 module.exports = {
-  COS_BASE,
-  LOCAL_PREVIEW_BASE,
+  COS_BASE: '',
+  LOCAL_PREVIEW_BASE: '',
+  LOCAL_ASSET_BASE,
   getAssetBase,
-  DATA_SOURCE,
+  DATA_SOURCE: 'local-package',
   DATA_VERSION,
   DATA_DIR,
   CLASS_LIST,

@@ -1,5 +1,4 @@
 const {
-  COS_BASE,
   getClassMeta,
   getClassVisualAssets,
   loadClassData,
@@ -380,7 +379,7 @@ Page({
   classItemCache: {},
 
   data: {
-    cosBase: COS_BASE,
+    cosBase: '',
     favoriteCount: 0,
     favoriteList: [],
     favoriteGroups: [],

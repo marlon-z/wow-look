@@ -69,24 +69,15 @@ const craftedArchive = JSON.parse(fs.readFileSync(path.join(dataDir, 'crafted-eq
 assert.equal(craftedArchive.recordCount, 98);
 assert.equal(craftedArchive.targetItemLevel, 331);
 
-const requestUrls = [];
-global.wx = {
-  request(options) {
-    requestUrls.push(options.url);
-    const filename = path.basename(options.url);
-    const localFile = path.join(dataDir, filename);
-    options.success({ data: JSON.parse(fs.readFileSync(localFile, 'utf8')) });
-  },
-};
 const classDataPath = path.join(root, 'miniprogram', 'utils', 'class-data.js');
 delete require.cache[require.resolve(classDataPath)];
 const classData = require(classDataPath);
-assert.equal(classData.DATA_SOURCE, 'local-s2-crafted-preview');
+assert.equal(classData.DATA_SOURCE, 'local-package');
 
-Promise.all([classData.loadOverview(), classData.loadClassData('deathknight')])
-  .then(([localOverview, deathknight]) => {
-    assert.equal(requestUrls.length, 2, '本地预览应从本机服务读取两个数据文件。');
-    assert.ok(requestUrls.every((url) => url.startsWith('http://127.0.0.1:8787/')), '本地预览不能请求 COS。');
+Promise.resolve(classData.loadOverview())
+  .then((localOverview) => {
+    const deathknight = require(path.join(root, 'miniprogram', 'packages', 'class-deathknight', 'data', 'deathknight.js'));
+    assert.equal(typeof global.wx, 'undefined', '纯本地预览不得依赖网络 API。');
     assert.equal(localOverview.preview.id, 's2-crafted-local-preview');
     assert.equal(deathknight.dataVersion, '12.1-s2');
     console.log('S2 local preview tests passed.');
@@ -95,4 +86,3 @@ Promise.all([classData.loadOverview(), classData.loadClassData('deathknight')])
     console.error(error);
     process.exitCode = 1;
   })
-  .finally(() => { delete global.wx; });

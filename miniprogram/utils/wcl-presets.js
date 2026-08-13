@@ -1,4 +1,4 @@
-var { COS_BASE, DATA_DIR, getAssetBase } = require('./class-data');
+var { getAssetBase } = require('./class-data');
 var { flattenItems, buildStatLine } = require('./equipment');
 var { updateBuild } = require('./builds');
 
@@ -44,8 +44,6 @@ function buildEnchantsGems(presetSlots) {
   return list;
 }
 
-var WCL_REMOTE_ONLY = true;
-var WCL_REMOTE_PREFIX = 'wcl-presets/' + DATA_DIR;
 // Keep this false until the S2 WCL season is open and the preset feed has data.
 var WCL_SEASON_AVAILABLE = false;
 
@@ -73,56 +71,12 @@ function loadLocalFile(classKey, specId, fileKey) {
   return entry.files[fileKey]();
 }
 
-function loadRemoteJson(relativePath) {
-  return new Promise(function (resolve) {
-    var separator = relativePath.indexOf('?') === -1 ? '?' : '&';
-    wx.request({
-      url: COS_BASE + '/' + relativePath + separator + '_wclts=' + Date.now(),
-      success: function (res) {
-        if (res.statusCode >= 200 && res.statusCode < 300) {
-          if (typeof res.data === 'string') {
-            try {
-              resolve(JSON.parse(res.data));
-            } catch (err) {
-              console.error('parse wcl preset failed', relativePath, err);
-              resolve(null);
-            }
-            return;
-          }
-          resolve(res.data || null);
-          return;
-        }
-        console.error('load wcl preset failed', relativePath, res.statusCode);
-        resolve(null);
-      },
-      fail: function (err) {
-        console.error('load wcl preset failed', relativePath, err);
-        resolve(null);
-      },
-    });
-  });
-}
-
 function loadWclPresetIndex(classKey, specId) {
-  return loadRemoteJson(WCL_REMOTE_PREFIX + '/' + classKey + '/' + specId + '/index.json').then(function (remote) {
-    if (remote) {
-      remote.dataSource = 'remote';
-      return remote;
-    }
-    if (WCL_REMOTE_ONLY) return null;
-    return loadLocalIndex(classKey, specId);
-  });
+  return Promise.resolve(loadLocalIndex(classKey, specId));
 }
 
 function loadWclPresetFile(classKey, specId, fileKey) {
-  return loadRemoteJson(WCL_REMOTE_PREFIX + '/' + classKey + '/' + specId + '/' + fileKey + '.json').then(function (remote) {
-    if (remote) {
-      remote.dataSource = 'remote';
-      return remote;
-    }
-    if (WCL_REMOTE_ONLY) return null;
-    return loadLocalFile(classKey, specId, fileKey);
-  });
+  return Promise.resolve(loadLocalFile(classKey, specId, fileKey));
 }
 
 function cloneStats(stats) {

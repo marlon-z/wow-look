@@ -5,6 +5,21 @@
     "pages/equipment/equipment",
     "pages/build/build"
   ],
+  "subPackages": [
+    { "root": "packages/class-warrior", "name": "class-warrior", "pages": ["pages/loader/loader"] },
+    { "root": "packages/class-paladin", "name": "class-paladin", "pages": ["pages/loader/loader"] },
+    { "root": "packages/class-hunter", "name": "class-hunter", "pages": ["pages/loader/loader"] },
+    { "root": "packages/class-rogue", "name": "class-rogue", "pages": ["pages/loader/loader"] },
+    { "root": "packages/class-priest", "name": "class-priest", "pages": ["pages/loader/loader"] },
+    { "root": "packages/class-deathknight", "name": "class-deathknight", "pages": ["pages/loader/loader"] },
+    { "root": "packages/class-shaman", "name": "class-shaman", "pages": ["pages/loader/loader"] },
+    { "root": "packages/class-mage", "name": "class-mage", "pages": ["pages/loader/loader"] },
+    { "root": "packages/class-warlock", "name": "class-warlock", "pages": ["pages/loader/loader"] },
+    { "root": "packages/class-monk", "name": "class-monk", "pages": ["pages/loader/loader"] },
+    { "root": "packages/class-druid", "name": "class-druid", "pages": ["pages/loader/loader"] },
+    { "root": "packages/class-demonhunter", "name": "class-demonhunter", "pages": ["pages/loader/loader"] },
+    { "root": "packages/class-evoker", "name": "class-evoker", "pages": ["pages/loader/loader"] }
+  ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#09080d",

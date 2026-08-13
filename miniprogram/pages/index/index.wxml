@@ -13,7 +13,7 @@
   </view>
 
   <view class="header-section">
-    <image class="logo-img" src="{{cosBase}}/assets/public/logo.png" mode="widthFix" />
+    <image class="logo-img" src="/assets/public/logo.png" mode="widthFix" />
   </view>
 
   <!-- Feature Cards -->

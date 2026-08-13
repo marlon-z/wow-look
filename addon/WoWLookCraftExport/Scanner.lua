@@ -3,6 +3,8 @@ local AddonName, CraftExport = ...
 CraftExport.Scanner = {}
 local Scanner = CraftExport.Scanner
 
+local CUSTOMER_ORDERS_ADDON = "Blizzard_ProfessionsCustomerOrders"
+
 local function Now()
     return date("!%Y-%m-%dT%H:%M:%SZ")
 end
@@ -65,6 +67,81 @@ function Scanner.BuildSearchParams()
     }
 end
 
+local function IsCustomerOrdersAddonLoaded()
+    if C_AddOns and type(C_AddOns.IsAddOnLoaded) == "function" then
+        return C_AddOns.IsAddOnLoaded(CUSTOMER_ORDERS_ADDON) and true or false
+    end
+    if type(IsAddOnLoaded) == "function" then
+        return IsAddOnLoaded(CUSTOMER_ORDERS_ADDON) and true or false
+    end
+    return nil
+end
+
+-- The customer-order browser is a Blizzard load-on-demand module.  Loading it
+-- here makes the catalog request independent of whether the player has opened
+-- the profession window in this session.
+function Scanner.EnsureCustomerOrdersModule()
+    local loaded = IsCustomerOrdersAddonLoaded()
+    if loaded then
+        return true, "制造订单模块已就绪"
+    end
+
+    local loader = nil
+    if C_AddOns and type(C_AddOns.LoadAddOn) == "function" then
+        loader = C_AddOns.LoadAddOn
+    elseif type(LoadAddOn) == "function" then
+        loader = LoadAddOn
+    end
+
+    if not loader then
+        -- The catalog API itself is the authoritative availability check below.
+        return true, "客户端未提供订单模块加载接口，继续检查订单接口"
+    end
+
+    local ok, loadResult, loadReason = pcall(loader, CUSTOMER_ORDERS_ADDON)
+    if not ok then
+        return false, "无法加载制造订单模块：" .. tostring(loadResult)
+    end
+    if loadResult == false then
+        return false, "游戏拒绝加载制造订单模块：" .. tostring(loadReason or "未知原因")
+    end
+    return true, "已请求加载制造订单模块"
+end
+
+function Scanner.GetDiagnostics()
+    local moduleState = IsCustomerOrdersAddonLoaded()
+    local apiReady = C_CraftingOrders
+        and type(C_CraftingOrders.ParseCustomerOptions) == "function"
+        and type(C_CraftingOrders.GetCustomerOptions) == "function"
+    local attempts = tonumber(Scanner.scanAttempts) or 0
+    local lastResult = Scanner.lastScanResult or "尚未检查结果"
+    return string.format(
+        "订单模块=%s，接口=%s，请求次数=%d，最近结果=%s",
+        moduleState == true and "已加载" or (moduleState == false and "未加载" or "未知"),
+        apiReady and "可用" or "不可用",
+        attempts,
+        tostring(lastResult)
+    )
+end
+
+function Scanner.RequestCustomerOptions()
+    if not C_CraftingOrders
+        or type(C_CraftingOrders.ParseCustomerOptions) ~= "function"
+        or type(C_CraftingOrders.GetCustomerOptions) ~= "function" then
+        Scanner.lastScanResult = "制造订单接口不可用"
+        return false, "当前客户端没有可用的制造订单接口"
+    end
+
+    Scanner.scanAttempts = (tonumber(Scanner.scanAttempts) or 0) + 1
+    local ok, errorMessage = pcall(C_CraftingOrders.ParseCustomerOptions)
+    if not ok then
+        Scanner.lastScanResult = "ParseCustomerOptions 失败：" .. tostring(errorMessage)
+        return false, "无法解析制造订单：" .. tostring(errorMessage)
+    end
+    Scanner.lastScanResult = "已请求客户端订单目录"
+    return true, nil
+end
+
 local function BuildOptionRecord(option, apiInfo)
     local _, rawBuildNumber = GetBuildInfo()
     return {
@@ -97,20 +174,28 @@ local function BuildOptionRecord(option, apiInfo)
 end
 
 function Scanner.RequestScan()
-    if not C_CraftingOrders
-        or type(C_CraftingOrders.ParseCustomerOptions) ~= "function"
-        or type(C_CraftingOrders.GetCustomerOptions) ~= "function" then
-        return false, "当前客户端没有可用的制造订单接口"
+    local moduleOk, moduleMessage = Scanner.EnsureCustomerOrdersModule()
+    if not moduleOk then
+        return false, moduleMessage
     end
 
     Scanner.scanRequested = true
     Scanner.scanStartedAt = GetTime and GetTime() or 0
-    local ok, errorMessage = pcall(C_CraftingOrders.ParseCustomerOptions)
+    Scanner.scanAttempts = 0
+    Scanner.lastScanResult = nil
+    local ok, errorMessage = Scanner.RequestCustomerOptions()
     if not ok then
         Scanner.scanRequested = false
-        return false, "无法解析制造订单：" .. tostring(errorMessage)
+        return false, errorMessage
     end
-    return true, "正在等待制造订单目录（最多 12 秒；完成后会提示）"
+    return true, moduleMessage .. "；正在自动读取制造订单目录（最多 18 秒；完成后会提示）"
+end
+
+function Scanner.RetryScanRequest()
+    if not Scanner.scanRequested then
+        return false, "没有等待中的扫描任务"
+    end
+    return Scanner.RequestCustomerOptions()
 end
 
 function Scanner.CompleteScan()
@@ -121,8 +206,11 @@ function Scanner.CompleteScan()
 
     local ok, searchResults = pcall(C_CraftingOrders.GetCustomerOptions, Scanner.BuildSearchParams())
     if not ok or not searchResults or type(searchResults.options) ~= "table" then
+        Scanner.lastScanResult = "目录尚未返回：" .. tostring(searchResults)
         return false, "扫描结果仍未就绪：" .. tostring(searchResults)
     end
+
+    Scanner.lastScanResult = "已返回 " .. tostring(#searchResults.options) .. " 项"
 
     local db = CraftExport.GetDB()
     local config = CraftExport.SEASON_CONFIG or {}

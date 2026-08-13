@@ -41,6 +41,10 @@ assert.match(scanner + core, /CRAFTINGORDERS_CUSTOMER_OPTIONS_PARSED/);
 assert.match(scanner, /Scanner\.CompleteScan\(\)/);
 assert.match(scanner, /扫描结果仍未就绪/);
 assert.match(scanner, /C_CraftingOrders\.ParseCustomerOptions/);
+assert.match(scanner, /Blizzard_ProfessionsCustomerOrders/);
+assert.match(scanner, /EnsureCustomerOrdersModule/);
+assert.match(scanner, /RetryScanRequest/);
+assert.match(scanner, /GetDiagnostics/);
 assert.match(scanner, /type\(option\.iLvlMin\)\s*~=\s*"number"/);
 assert.match(scanner, /option\.iLvlMax\s*~=\s*nil/);
 assert.match(scanner, /type\(option\.craftingQualityIDs\)\s*~=\s*"table"/);
@@ -68,9 +72,12 @@ assert.match(core, /final_export_blocked_until_manifest_finalized/);
 assert.match(core, /tonumber\(buildNumber\) < tonumber\(config\.minimumBuild\)/);
 assert.match(core, /buildNumber\) ~= tonumber\(config\.testedBuild\)/);
 assert.match(core, /将继续采集并记录实际 Build/);
-assert.match(scanner, /正在等待制造订单目录/);
+assert.match(scanner, /正在自动读取制造订单目录/);
 assert.match(core, /预检扫描已完成/);
-assert.match(core, /扫描等待超时/);
+assert.match(core, /扫描未完成/);
+assert.match(core, /PollPreflightScan/);
+assert.match(core, /PREFLIGHT_MAX_POLLS\s*=\s*9/);
+assert.match(core, /SLASH_WOWLOOKCRAFTEXPORT2\s*=\s*"\/wc"/);
 
 for (const command of ['scan', 'capture', 'status', 'reset', 'help']) {
   assert.match(core, new RegExp(`command == "${command}"`));

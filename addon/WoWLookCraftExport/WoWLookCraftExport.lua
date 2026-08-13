@@ -612,7 +612,7 @@ local function ShowStatus()
 end
 
 local function ShowHelp()
-    Print("/wowcraft preflight - 采集 S2 制造订单候选和客户端实际预览证据")
+    Print("/wowcraft preflight - 自动加载订单模块并采集 S2 制造订单候选")
     Print("/wowcraft scan - S2 规则确认前会拒绝最终制造装备导出")
     Print("/wowcraft capture - 手动补采自动验证失败的当前订单预览")
     Print("/wowcraft status - 查看采集数量")
@@ -631,6 +631,47 @@ local function FinishPreflightScan(trigger)
         return true
     end
     return false, result
+end
+
+local PREFLIGHT_POLL_SECONDS = 2
+local PREFLIGHT_MAX_POLLS = 9
+
+local function StopPreflightScan(code, message)
+    CraftExport.Scanner.scanRequested = false
+    Print(message)
+    RecordError(code, message, CraftExport.Scanner.GetDiagnostics())
+end
+
+local function PollPreflightScan(attempt)
+    if not CraftExport.Scanner.scanRequested then
+        return
+    end
+
+    local completed, result = FinishPreflightScan("timer_" .. tostring(attempt))
+    if completed then
+        return
+    end
+
+    if attempt >= PREFLIGHT_MAX_POLLS then
+        StopPreflightScan(
+            "preflight_timeout",
+            "扫描未完成：18 秒内没有得到订单目录。" .. CraftExport.Scanner.GetDiagnostics()
+        )
+        return
+    end
+
+    local retryOk, retryMessage = CraftExport.Scanner.RetryScanRequest()
+    if not retryOk then
+        StopPreflightScan("preflight_retry_failed", retryMessage .. "。" .. CraftExport.Scanner.GetDiagnostics())
+        return
+    end
+
+    if attempt == 1 or attempt % 3 == 0 then
+        Print(string.format("仍在自动读取制造订单目录（第 %d/%d 次检查）。", attempt, PREFLIGHT_MAX_POLLS))
+    end
+    C_Timer.After(PREFLIGHT_POLL_SECONDS, function()
+        PollPreflightScan(attempt + 1)
+    end)
 end
 
 local function HandleCommand(message)
@@ -661,20 +702,7 @@ local function HandleCommand(message)
         else
             C_Timer.After(1, function()
                 if CraftExport.Scanner.scanRequested then
-                    Print("仍在等待制造订单目录，请稍候；最长等待 12 秒。")
-                end
-            end)
-            C_Timer.After(3, function()
-                if CraftExport.Scanner.scanRequested then
-                    FinishPreflightScan("timer_3s")
-                end
-            end)
-            C_Timer.After(12, function()
-                if CraftExport.Scanner.scanRequested then
-                    CraftExport.Scanner.scanRequested = false
-                    local message = "扫描等待超时：客户端没有返回制造订单目录。请打开一次制造订单界面后重试 /wowcraft preflight。"
-                    Print(message)
-                    RecordError("preflight_timeout", message)
+                    PollPreflightScan(1)
                 end
             end)
         end
@@ -718,6 +746,7 @@ local function HandleCommand(message)
 end
 
 SLASH_WOWLOOKCRAFTEXPORT1 = "/wowcraft"
+SLASH_WOWLOOKCRAFTEXPORT2 = "/wc"
 SlashCmdList.WOWLOOKCRAFTEXPORT = HandleCommand
 
 eventFrame:RegisterEvent("ADDON_LOADED")
@@ -730,9 +759,6 @@ eventFrame:SetScript("OnEvent", function(_, event, ...)
             CraftExport.RefreshSummary()
         end
     elseif event == "CRAFTINGORDERS_CUSTOMER_OPTIONS_PARSED" and CraftExport.Scanner.scanRequested then
-        local ok, result = FinishPreflightScan("client_event")
-        if not ok then
-            Print(tostring(result))
-        end
+        FinishPreflightScan("client_event")
     end
 end)

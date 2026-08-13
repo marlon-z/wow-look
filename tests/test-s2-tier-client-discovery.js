@@ -39,6 +39,7 @@ assert(addon.includes('item_data_pending'), 'must retry asynchronous item loads'
 assert(addon.includes('/wowtierexport discover'), 'help must expose discovery command');
 assert(addon.includes('export-preflight'), 'addon must export complete raw client records');
 assert(addon.includes('ApplySeasonTierManifest()'), 'addon must use the verified API manifest before exporting');
+assert(addon.includes('满级采集启动失败'), 'final export startup errors must be visible in chat');
 assert(parser.includes('equip: equipEffects'), 'tier conversion must retain equip effects');
 assert(parser.includes('use: useEffects'), 'tier conversion must retain use effects');
 

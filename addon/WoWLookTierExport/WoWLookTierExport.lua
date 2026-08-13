@@ -1511,6 +1511,14 @@ local function StartExport(classKeys)
     end)
 end
 
+local function StartExportSafely(classKeys)
+    local ok, err = pcall(StartExport, classKeys)
+    if not ok then
+        WoWLookTierExportDB.lastError = "final_export_start_error: " .. tostring(err)
+        PrintWarn("满级采集启动失败：" .. tostring(err))
+    end
+end
+
 local function StartDiscovery(classKeys)
     local config, configError = ValidateSeasonConfig()
     if not config then
@@ -1659,7 +1667,7 @@ SlashCmdList["WOWTIEREXPORT"] = function(msg)
     end
 
     if arg == "" or arg == "all" then
-        StartExport(CLASS_ORDER)
+        StartExportSafely(CLASS_ORDER)
         return
     end
 
@@ -1685,7 +1693,7 @@ SlashCmdList["WOWTIEREXPORT"] = function(msg)
         return
     end
 
-    StartExport(classKeys)
+    StartExportSafely(classKeys)
 end
 
 ApplySeasonTierManifest()

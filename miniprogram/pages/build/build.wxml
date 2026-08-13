@@ -301,7 +301,7 @@
       <view class="picker-head">
         <view class="wcl-head-title">
           <text class="picker-title">排行榜配装</text>
-          <view class="wcl-head-spec">
+          <view wx:if="{{wclSeasonAvailable}}" class="wcl-head-spec">
             <text class="wcl-head-class">{{selectedClassName}}</text>
             <view
               class="wcl-spec-pill {{item.id === wclSpecId ? 'active' : ''}}"
@@ -316,7 +316,12 @@
         <view class="picker-close" catchtap="closeWclPresets">✕</view>
       </view>
 
-      <view wx:if="{{wclContentTabs.length}}" class="wcl-content-tabs">
+      <view wx:if="{{!wclSeasonAvailable}}" class="wcl-season-unavailable">
+        <text class="wcl-season-unavailable-title">排行榜配装暂未开放</text>
+        <text class="wcl-season-unavailable-text">该功能暂未开放，待赛季开始后将接入。</text>
+      </view>
+
+      <view wx:if="{{wclSeasonAvailable && wclContentTabs.length}}" class="wcl-content-tabs">
         <view
           class="wcl-content-tab {{item.type === selectedWclContentType ? 'active' : ''}}"
           wx:for="{{wclContentTabs}}"
@@ -329,7 +334,7 @@
         </view>
       </view>
 
-      <view wx:if="{{wclPresetLevels.length}}" class="wcl-level-tabs">
+      <view wx:if="{{wclSeasonAvailable && wclPresetLevels.length}}" class="wcl-level-tabs">
         <view
           class="wcl-level-tab {{item.fileKey === selectedWclFileKey ? 'active' : ''}}"
           wx:for="{{wclPresetLevels}}"
@@ -343,7 +348,7 @@
         </view>
       </view>
 
-      <scroll-view wx:if="{{wclDungeonFilters.length}}" class="wcl-dungeon-tabs" scroll-x enhanced show-scrollbar="{{false}}">
+      <scroll-view wx:if="{{wclSeasonAvailable && wclDungeonFilters.length}}" class="wcl-dungeon-tabs" scroll-x enhanced show-scrollbar="{{false}}">
         <view class="wcl-dungeon-tabs-inner">
           <view
             class="wcl-dungeon-tab {{item.id === selectedWclDungeonId ? 'active' : ''}}"
@@ -358,7 +363,7 @@
         </view>
       </scroll-view>
 
-      <scroll-view class="picker-list wcl-preset-list" scroll-y enhanced show-scrollbar="{{false}}">
+      <scroll-view wx:if="{{wclSeasonAvailable}}" class="picker-list wcl-preset-list" scroll-y enhanced show-scrollbar="{{false}}">
         <view wx:if="{{wclPresetLoading}}" class="picker-empty">
           <text>加载排行榜配装中</text>
         </view>

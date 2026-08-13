@@ -887,6 +887,37 @@
   font-weight: 700;
 }
 
+.wcl-season-unavailable {
+  flex: 1;
+  min-height: 360rpx;
+  margin: 24rpx 28rpx 28rpx;
+  padding: 48rpx 36rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18rpx;
+  text-align: center;
+  border-radius: 24rpx;
+  border: 2rpx solid rgba(212, 168, 75, 0.22);
+  background: linear-gradient(135deg, rgba(212, 168, 75, 0.11), rgba(18, 15, 24, 0.88));
+  box-sizing: border-box;
+}
+
+.wcl-season-unavailable-title {
+  color: #f3e6c3;
+  font-size: 32rpx;
+  font-weight: 900;
+  letter-spacing: 2rpx;
+}
+
+.wcl-season-unavailable-text {
+  color: var(--text-soft);
+  font-size: 25rpx;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
 /* 面板内专精切换(按钮式, 非下拉) */
 .wcl-head-spec {
   display: flex;

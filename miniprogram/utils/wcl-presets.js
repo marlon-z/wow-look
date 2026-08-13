@@ -46,6 +46,8 @@ function buildEnchantsGems(presetSlots) {
 
 var WCL_REMOTE_ONLY = true;
 var WCL_REMOTE_PREFIX = 'wcl-presets/' + DATA_DIR;
+// Keep this false until the S2 WCL season is open and the preset feed has data.
+var WCL_SEASON_AVAILABLE = false;
 
 function entryKey(classKey, specId) {
   return classKey + ':' + specId;
@@ -263,6 +265,7 @@ function applyWclPresetToBuild(buildId, preset, classData, specId, currentSlots)
 }
 
 module.exports = {
+  WCL_SEASON_AVAILABLE: WCL_SEASON_AVAILABLE,
   loadWclPresetIndex: loadWclPresetIndex,
   loadWclPresetFile: loadWclPresetFile,
   applyWclPresetToBuild: applyWclPresetToBuild,

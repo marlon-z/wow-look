@@ -7,6 +7,7 @@ var {
 } = require('../../utils/builds');
 var { getLayouts, mainHandOccupiesBoth, sanitizeWeaponSlots } = require('../../utils/weapon-rules');
 var {
+  WCL_SEASON_AVAILABLE,
   loadWclPresetIndex,
   loadWclPresetFile,
   applyWclPresetToBuild,
@@ -99,6 +100,7 @@ Page({
     showBuildList: false,
     buildList: [],
     showWclPresets: false,
+    wclSeasonAvailable: WCL_SEASON_AVAILABLE,
     wclSpecId: null,
     wclPresetIndex: null,
     wclPresetUpdatedText: '',
@@ -312,14 +314,18 @@ Page({
     this.setData({
       showWclPresets: true,
       pageStyle: 'overflow:hidden;height:100vh;',
-      wclPresetLoading: true,
+      wclPresetLoading: WCL_SEASON_AVAILABLE,
       wclSpecId: this.data.selectedSpecId,
     });
+    if (!WCL_SEASON_AVAILABLE) {
+      return;
+    }
     this.loadWclIndexForSpec(this.data.selectedSpecId);
   },
 
   // 面板内切专精(与配装专精联动): 换该专精的排行榜; 套用时会直接切到该专精
   onWclSpecTap: function (e) {
+    if (!WCL_SEASON_AVAILABLE) return;
     var specId = Number(e.currentTarget.dataset.specId);
     if (specId === this.data.wclSpecId) return;
     this.setData({ wclSpecId: specId, wclPresetLoading: true });

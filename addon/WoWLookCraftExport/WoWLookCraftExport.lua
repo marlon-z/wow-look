@@ -633,83 +633,6 @@ local function FinishPreflightScan(trigger)
     return false, result
 end
 
-local PREFLIGHT_POLL_SECONDS = 2
-local PREFLIGHT_MAX_POLLS = 9
-local preflightPollState = nil
-
-local function StopPreflightPolling()
-    preflightPollState = nil
-    eventFrame:SetScript("OnUpdate", nil)
-end
-
-local function StopPreflightScan(code, message)
-    CraftExport.Scanner.scanRequested = false
-    StopPreflightPolling()
-    Print(message)
-    RecordError(code, message, CraftExport.Scanner.GetDiagnostics())
-end
-
-local function PollPreflightScan(attempt)
-    if not CraftExport.Scanner.scanRequested then
-        return
-    end
-
-    local completed, result = FinishPreflightScan("timer_" .. tostring(attempt))
-    if completed then
-        StopPreflightPolling()
-        return false
-    end
-
-    if attempt >= PREFLIGHT_MAX_POLLS then
-        StopPreflightScan(
-            "preflight_timeout",
-            "扫描未完成：18 秒内没有得到订单目录。" .. CraftExport.Scanner.GetDiagnostics()
-        )
-        return false
-    end
-
-    local retryOk, retryMessage = CraftExport.Scanner.RetryScanRequest()
-    if not retryOk then
-        StopPreflightScan("preflight_retry_failed", retryMessage .. "。" .. CraftExport.Scanner.GetDiagnostics())
-        return false
-    end
-
-    if attempt == 1 or attempt % 3 == 0 then
-        Print(string.format("仍在自动读取制造订单目录（第 %d/%d 次检查）。", attempt, PREFLIGHT_MAX_POLLS))
-    end
-    return true
-end
-
-local function BeginPreflightPolling()
-    -- C_Timer callbacks were not reliably dispatched by this client build while
-    -- customer options were loading.  Use an ordinary frame update instead so
-    -- the polling remains active even before the professions UI has been shown.
-    preflightPollState = {
-        elapsed = 0,
-        attempt = 0,
-        nextDelay = 1,
-    }
-    eventFrame:SetScript("OnUpdate", function(_, elapsed)
-        local state = preflightPollState
-        if not state or not CraftExport.Scanner.scanRequested then
-            StopPreflightPolling()
-            return
-        end
-
-        state.elapsed = state.elapsed + (tonumber(elapsed) or 0)
-        if state.elapsed < state.nextDelay then
-            return
-        end
-
-        state.elapsed = 0
-        state.attempt = state.attempt + 1
-        state.nextDelay = PREFLIGHT_POLL_SECONDS
-        if not PollPreflightScan(state.attempt) then
-            StopPreflightPolling()
-        end
-    end)
-end
-
 local function HandleCommand(message)
     local command, rest = tostring(message or ""):match("^%s*(%S*)%s*(.-)%s*$")
     command = string.lower(command or "")
@@ -736,7 +659,23 @@ local function HandleCommand(message)
         if not ok then
             RecordError("preflight_request_failed", result)
         else
-            BeginPreflightPolling()
+            -- This API is asynchronous only after the native profession UI has
+            -- initialized.  Do one immediate read for clients that expose the
+            -- catalog, then stop instead of leaving the user with a silent wait.
+            local completed, scanResult = FinishPreflightScan("immediate")
+            if not completed then
+                CraftExport.Scanner.scanRequested = false
+                local existingCandidates = CountEntries(db.candidates)
+                local existingRejected = CountEntries(db.rejected)
+                local message = string.format(
+                    "订单目录未即时回传，本次不再等待。已保留上次目录：候选 %d，排除 %d。%s",
+                    existingCandidates,
+                    existingRejected,
+                    CraftExport.Scanner.GetDiagnostics()
+                )
+                Print(message)
+                RecordError("preflight_catalog_not_immediate", scanResult, CraftExport.Scanner.GetDiagnostics())
+            end
         end
     elseif command == "scan" then
         if (CraftExport.SEASON_CONFIG or {}).releaseStatus ~= "finalized" then
@@ -791,8 +730,6 @@ eventFrame:SetScript("OnEvent", function(_, event, ...)
             CraftExport.RefreshSummary()
         end
     elseif event == "CRAFTINGORDERS_CUSTOMER_OPTIONS_PARSED" and CraftExport.Scanner.scanRequested then
-        if FinishPreflightScan("client_event") then
-            StopPreflightPolling()
-        end
+        FinishPreflightScan("client_event")
     end
 end)

@@ -74,11 +74,9 @@ assert.match(core, /buildNumber\) ~= tonumber\(config\.testedBuild\)/);
 assert.match(core, /将继续采集并记录实际 Build/);
 assert.match(scanner, /正在自动读取制造订单目录/);
 assert.match(core, /预检扫描已完成/);
-assert.match(core, /扫描未完成/);
-assert.match(core, /PollPreflightScan/);
-assert.match(core, /PREFLIGHT_MAX_POLLS\s*=\s*9/);
-assert.match(core, /BeginPreflightPolling/);
-assert.match(core, /eventFrame:SetScript\("OnUpdate"/);
+assert.match(core, /FinishPreflightScan\("immediate"\)/);
+assert.match(core, /订单目录未即时回传/);
+assert.doesNotMatch(core, /BeginPreflightPolling/);
 assert.match(core, /SLASH_WOWLOOKCRAFTEXPORT2\s*=\s*"\/wc"/);
 
 for (const command of ['scan', 'capture', 'status', 'reset', 'help']) {

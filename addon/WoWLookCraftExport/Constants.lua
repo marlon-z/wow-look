@@ -1,7 +1,7 @@
 local AddonName, CraftExport = ...
 
 CraftExport.ADDON_NAME = AddonName
-CraftExport.VERSION = "2.0.2-s2-preflight"
+CraftExport.VERSION = "2.0.3-s2-preflight"
 CraftExport.SCHEMA_VERSION = 2
 
 CraftExport.SUPPORTED_EQUIP_LOCS = {

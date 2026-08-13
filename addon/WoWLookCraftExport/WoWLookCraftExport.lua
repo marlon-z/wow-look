@@ -620,6 +620,19 @@ local function ShowHelp()
     Print("/wowcraft help - 显示本说明")
 end
 
+local function FinishPreflightScan(trigger)
+    local ok, result = CraftExport.Scanner.TryCompleteScan(trigger)
+    if ok then
+        Print(string.format(
+            "预检扫描已完成：共 %d 项，找到 %d 件可变装等战斗装备，排除 %d 项。",
+            result.scanned, result.candidates, result.rejected
+        ))
+        Print("S2 制造预检完成。请 /reload 保存；候选清单不能作为最终制造数据发布。")
+        return true
+    end
+    return false, result
+end
+
 local function HandleCommand(message)
     local command, rest = tostring(message or ""):match("^%s*(%S*)%s*(.-)%s*$")
     command = string.lower(command or "")
@@ -643,7 +656,28 @@ local function HandleCommand(message)
         db.clientBuild = tonumber(buildNumber) or 0
         local ok, result = CraftExport.Scanner.RequestScan()
         Print(result)
-        if not ok then RecordError("preflight_request_failed", result) end
+        if not ok then
+            RecordError("preflight_request_failed", result)
+        else
+            C_Timer.After(1, function()
+                if CraftExport.Scanner.scanRequested then
+                    Print("仍在等待制造订单目录，请稍候；最长等待 12 秒。")
+                end
+            end)
+            C_Timer.After(3, function()
+                if CraftExport.Scanner.scanRequested then
+                    FinishPreflightScan("timer_3s")
+                end
+            end)
+            C_Timer.After(12, function()
+                if CraftExport.Scanner.scanRequested then
+                    CraftExport.Scanner.scanRequested = false
+                    local message = "扫描等待超时：客户端没有返回制造订单目录。请打开一次制造订单界面后重试 /wowcraft preflight。"
+                    Print(message)
+                    RecordError("preflight_timeout", message)
+                end
+            end)
+        end
     elseif command == "scan" then
         if (CraftExport.SEASON_CONFIG or {}).releaseStatus ~= "finalized" then
             Print("final_export_blocked_until_manifest_finalized：请先运行 /wowcraft preflight")
@@ -696,24 +730,9 @@ eventFrame:SetScript("OnEvent", function(_, event, ...)
             CraftExport.RefreshSummary()
         end
     elseif event == "CRAFTINGORDERS_CUSTOMER_OPTIONS_PARSED" and CraftExport.Scanner.scanRequested then
-        local ok, result = CraftExport.Scanner.CompleteScan()
-        if ok then
-            Print(string.format(
-                "扫描完成：共 %d 项，找到 %d 件可变装等战斗装备，排除 %d 项",
-                result.scanned,
-                result.candidates,
-                result.rejected
-            ))
-            if (CraftExport.SEASON_CONFIG or {}).releaseStatus == "finalized" then
-                C_Timer.After(0, function()
-                    CraftExport.StartAutomaticCapture()
-                end)
-            else
-                Print("S2 制造预检完成。请 /reload 保存；候选清单不能作为最终制造数据发布。")
-            end
-        else
-            Print(result)
-            RecordError("scan_failed", result)
+        local ok, result = FinishPreflightScan("client_event")
+        if not ok then
+            Print(tostring(result))
         end
     end
 end)

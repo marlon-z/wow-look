@@ -104,12 +104,13 @@ function Scanner.RequestScan()
     end
 
     Scanner.scanRequested = true
+    Scanner.scanStartedAt = GetTime and GetTime() or 0
     local ok, errorMessage = pcall(C_CraftingOrders.ParseCustomerOptions)
     if not ok then
         Scanner.scanRequested = false
         return false, "无法解析制造订单：" .. tostring(errorMessage)
     end
-    return true, "正在读取当前版本的制造订单目录"
+    return true, "正在等待制造订单目录（最多 12 秒；完成后会提示）"
 end
 
 function Scanner.CompleteScan()
@@ -120,7 +121,7 @@ function Scanner.CompleteScan()
 
     local ok, searchResults = pcall(C_CraftingOrders.GetCustomerOptions, Scanner.BuildSearchParams())
     if not ok or not searchResults or type(searchResults.options) ~= "table" then
-        return false, "读取制造订单目录失败：" .. tostring(searchResults)
+        return false, "扫描结果仍未就绪：" .. tostring(searchResults)
     end
 
     local db = CraftExport.GetDB()
@@ -175,4 +176,17 @@ function Scanner.CompleteScan()
     }
     CraftExport.RefreshSummary()
     return true, stats
+end
+
+function Scanner.TryCompleteScan(trigger)
+    if not Scanner.scanRequested then
+        return false, "没有等待中的扫描任务"
+    end
+    local ok, result = Scanner.CompleteScan()
+    if ok then
+        result.trigger = trigger or "unknown"
+        return true, result
+    end
+    Scanner.scanRequested = true
+    return false, result
 end

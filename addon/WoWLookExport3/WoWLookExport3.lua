@@ -354,7 +354,19 @@ local function CountLootForInstance(instanceId, difficultyId)
     return totalLoot
 end
 
-local function DetectSeasonRaids()
+local function IsConfiguredPreflightRaid(config, raidId)
+    if config.releaseStatus == "finalized" then
+        return true
+    end
+    for _, expectedId in ipairs(config.preflightRaidInstanceIds or {}) do
+        if raidId == expectedId then
+            return true
+        end
+    end
+    return false
+end
+
+local function DetectSeasonRaids(config)
     if not (C_SeasonInfo and C_SeasonInfo.GetCurrentDisplaySeasonExpansion) then
         error("客户端未提供 SeasonInfo API。")
     end
@@ -381,7 +393,7 @@ local function DetectSeasonRaids()
         local hasHeroicDifficulty = SafeSetDifficulty(HEROIC_RAID_DIFFICULTY)
         local lootCount = hasHeroicDifficulty and CountLootForInstance(raidId, HEROIC_RAID_DIFFICULTY) or 0
 
-        if hasHeroicDifficulty and lootCount > 0 then
+        if hasHeroicDifficulty and lootCount > 0 and IsConfiguredPreflightRaid(config or {}, raidId) then
             detected[#detected + 1] = {
                 id = raidId,
                 name = raidName,
@@ -393,7 +405,8 @@ local function DetectSeasonRaids()
             skipped[#skipped + 1] = {
                 id = raidId,
                 name = raidName,
-                reason = hasHeroicDifficulty and "英雄难度无有效战利品" or "不支持英雄难度",
+                reason = not IsConfiguredPreflightRaid(config or {}, raidId) and "不在两个目标 S2 团本范围"
+                    or (hasHeroicDifficulty and "英雄难度无有效战利品" or "不支持英雄难度"),
             }
         end
 
@@ -1461,7 +1474,7 @@ local function BuildExportData(config)
         error("未识别到当前赛季地下城。")
     end
 
-    local raids, skippedRaids, raidMeta = DetectSeasonRaids()
+    local raids, skippedRaids, raidMeta = DetectSeasonRaids(config)
     if #raids == 0 then
         error("未识别到支持英雄难度的当前赛季团本。")
     end

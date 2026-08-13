@@ -84,10 +84,11 @@ function runStaticChecks() {
   assert(/releaseStatus\s*=\s*"preflight_required"/.test(config), '普通装备插件必须先处于 S2 预检状态。');
   assert(/preflightDungeonNames\s*=\s*\{/.test(config), '普通装备插件缺少 S2 冒险指南副本回退范围。');
   assert(/"毒牙祭坛"/.test(config) && /"塞塔里斯神庙"/.test(config), 'S2 冒险指南副本范围不完整。');
-  assert(/preflightRaidScope\s*=\s*"all_current_season"/.test(config), '普通装备插件未配置为采集本赛季全部团本。');
+  assert(/preflightRaidInstanceIds\s*=\s*\{[\s\S]*?1317[\s\S]*?1320[\s\S]*?\}/.test(config), '普通装备插件缺少两个目标 S2 团本实例 ID。');
   assert(addon.includes('local function FinalizePreflight'), '普通装备插件缺少预检导出构造函数。');
   assert(addon.includes('DetectConfiguredPreflightDungeons'), '普通装备插件没有新版钥石 API 的预检回退。');
-  assert(!addon.includes('IsConfiguredPreflightRaid'), '预检插件不应过滤本赛季团本。');
+  assert(addon.includes('IsConfiguredPreflightRaid'), '普通装备插件没有过滤非目标团本。');
+  assert(addon.includes('DetectSeasonRaids(config)'), '普通装备插件没有将赛季配置传给团本识别。');
   assert(addon.includes('cmd == "preflight"'), '普通装备插件缺少 /wowlook preflight 命令。');
   assert(addon.includes('final_export_blocked_until_manifest_finalized'), '普通装备插件没有阻止未确认规则下的最终导出。');
 

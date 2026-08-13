@@ -21,8 +21,11 @@ WoWLookSeasonConfig = {
         "红玉新生法池",
         "塞塔里斯神庙",
     },
-    -- Preflight exports every raid returned by the current-season journal.
-    -- Final data building removes the product-excluded 至暗之夜 hat later.
-    preflightRaidScope = "all_current_season",
+    -- Product scope: only these two S2 raids. IDs are stable even when the
+    -- Adventure Guide card name and Encounter Journal name differ.
+    preflightRaidInstanceIds = {
+        1317, -- 潮缚石窟（冒险指南：潮鸣石窟）
+        1320, -- 烈毒之渊
+    },
     finalRules = nil,
 }

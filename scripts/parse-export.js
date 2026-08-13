@@ -132,6 +132,7 @@ function validateMaximumPayload(payload) {
     'INVTYPE_SHIELD', 'INVTYPE_HOLDABLE', 'INVTYPE_RANGED', 'INVTYPE_RANGEDRIGHT', 'INVTYPE_THROWN',
   ]);
   const profile = payload.maximumProfile;
+  const voidforgedEnabled = profile.voidforgedEnabled === true;
   const linkHasBonusId = (link, bonusId) => {
     return Number.isFinite(Number(bonusId))
       && new RegExp(`:${Number(bonusId)}(?=:|$)`).test(link || '');
@@ -152,17 +153,19 @@ function validateMaximumPayload(payload) {
       reason = 'missing_drop_version';
     } else if (status !== 'ok') {
       reason = status;
+    } else if (!maxVersion.expectedItemLevel || maxVersion.expectedItemLevel <= 0) {
+      reason = 'final_target_missing';
     } else if (!maxVersion.itemLevel || item.itemLevel !== maxVersion.itemLevel) {
       reason = 'top_level_item_level_mismatch';
     } else if (maxVersion.expectedItemLevel > 0 && maxVersion.itemLevel !== maxVersion.expectedItemLevel) {
       reason = 'expected_item_level_mismatch';
     } else if (!item.link || item.link !== maxVersion.link) {
       reason = 'top_level_link_mismatch';
-    } else if (isTrinket && maxVersion.itemLevel !== profile.trinketTargetItemLevel) {
+    } else if (voidforgedEnabled && isTrinket && maxVersion.itemLevel !== profile.trinketTargetItemLevel) {
       reason = 'trinket_voidforged_level_mismatch';
-    } else if (isWeapon && maxVersion.itemLevel !== profile.weaponTargetItemLevel) {
+    } else if (voidforgedEnabled && isWeapon && maxVersion.itemLevel !== profile.weaponTargetItemLevel) {
       reason = 'weapon_voidforged_level_mismatch';
-    } else if ((isTrinket || isWeapon) && !isFixedSource && !isVoidforged) {
+    } else if (voidforgedEnabled && (isTrinket || isWeapon) && !isFixedSource && !isVoidforged) {
       reason = 'voidforged_rule_missing';
     } else if (isVoidforged && !linkHasBonusId(maxVersion.link, profile.voidforgedMarkerBonusId)) {
       reason = 'voidforged_marker_missing';

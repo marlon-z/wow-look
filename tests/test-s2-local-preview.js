@@ -38,6 +38,13 @@ classKeys.forEach((key) => {
     assert.ok(item.iconAsset, '制造业装备应具有本地可访问的图标。');
     assert.ok(item.stats.secondary.every((stat) => !stat.craftedRandom), '随机属性不能写入固定副属性。');
   });
+  items.forEach((item) => {
+    assert.ok(item.iconAsset, `${key} 的 ${item.name} 缺少图标资产。`);
+    assert.ok(
+      fs.existsSync(path.join(root, 'cos-upload', item.iconAsset.replace(/^\//, ''))),
+      `${key} 的 ${item.name} 图标文件不存在。`,
+    );
+  });
   assert.equal(items.filter((item) => item.sourceType === 'tier').length, 9, `${key} 应保留 9 件 S2 套装。`);
 });
 

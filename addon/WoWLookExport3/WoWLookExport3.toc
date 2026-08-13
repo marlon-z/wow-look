@@ -2,7 +2,7 @@
 ## Title: WoWLookExport3
 ## Notes: 从冒险者手册导出当前赛季地下城与团本装备数据
 ## Author: WoWLook
-## Version: 4.0.0-s2-preflight
+## Version: 4.1.0-s2-maximum
 ## SavedVariables: WoWLookExport3DB
 
 SeasonConfig.lua

@@ -1,5 +1,5 @@
 local ADDON_NAME = ...
-local ADDON_VERSION = "4.0.0-s2-preflight"
+local ADDON_VERSION = "4.1.0-s2-maximum"
 
 WoWLookExport3DB = WoWLookExport3DB or {
     version = ADDON_VERSION,
@@ -984,15 +984,19 @@ local function ValidateSeasonConfig()
         return nil, "season_config_invalid: dungeon maximum rule is invalid"
     end
     local voidforged = config.voidforged
-    if type(voidforged) ~= "table"
-        or type(voidforged.targetItemLevel) ~= "number"
+    if type(voidforged) ~= "table" then
+        return nil, "season_config_invalid: voidforged rule is invalid"
+    end
+    if voidforged.enabled == true and (
+        type(voidforged.targetItemLevel) ~= "number"
         or voidforged.targetItemLevel <= 0
         or type(voidforged.itemContext) ~= "number"
         or type(voidforged.markerBonusId) ~= "number"
         or type(voidforged.commonBonusIds) ~= "table"
         or type(voidforged.trinketBonusId) ~= "number"
         or type(voidforged.weaponBonusId) ~= "number"
-        or type(voidforged.slotBonusIds) ~= "table" then
+        or type(voidforged.slotBonusIds) ~= "table"
+    ) then
         return nil, "season_config_invalid: voidforged weapon/trinket rule is invalid"
     end
     local mythicRaid = config.raid.tracks[config.raid.maxDifficulty]
@@ -1129,10 +1133,15 @@ local function SelectItemSpecialization(item)
 end
 
 local function IsUpgradeableItem(itemId)
-    local _, _, _, _, _, itemClassId = C_Item.GetItemInfoInstant(itemId)
-    local armorClass = Enum and Enum.ItemClass and Enum.ItemClass.Armor or 4
-    local weaponClass = Enum and Enum.ItemClass and Enum.ItemClass.Weapon or 2
-    return itemClassId == armorClass or itemClassId == weaponClass
+    local _, _, _, equipLoc = C_Item.GetItemInfoInstant(itemId)
+    -- Trinkets, rings, necklaces and cloaks are not all represented by the
+    -- Armor/Weapon item classes.  The inventory location is the authoritative
+    -- test here: every actual equipment slot is eligible for the same client
+    -- link/tooltip validation, while toys, currencies and other loot are not.
+    return type(equipLoc) == "string"
+        and equipLoc ~= ""
+        and equipLoc ~= "INVTYPE_NON_EQUIP"
+        and equipLoc ~= "INVTYPE_BAG"
 end
 
 local function CopySourceWithDifficulty(source, difficulty)
@@ -1180,6 +1189,9 @@ local function ApplyVoidforgedRule(item, rule, config)
         return rule
     end
     local voidforged = config.voidforged
+    if not voidforged or voidforged.enabled ~= true then
+        return rule
+    end
     local equipLoc = item.dropVersion and item.dropVersion.equipLoc or nil
     if not equipLoc or equipLoc == "" then
         local _, _, _, instantEquipLoc = C_Item.GetItemInfoInstant(item.itemId)
@@ -1559,12 +1571,13 @@ local function FinalizeExport(scan, config)
             testedBuild = config.testedBuild,
             dungeonTargetItemLevel = config.dungeon.targetItemLevel,
             raidTargetItemLevel = config.raid.tracks[config.raid.maxDifficulty].targetItemLevel,
-            weaponTargetItemLevel = config.voidforged.targetItemLevel,
-            trinketTargetItemLevel = config.voidforged.targetItemLevel,
-            voidforgedItemContext = config.voidforged.itemContext,
-            voidforgedMarkerBonusId = config.voidforged.markerBonusId,
-            voidforgedTrinketBonusId = config.voidforged.trinketBonusId,
-            voidforgedWeaponBonusId = config.voidforged.weaponBonusId,
+            voidforgedEnabled = config.voidforged and config.voidforged.enabled == true,
+            weaponTargetItemLevel = config.voidforged and config.voidforged.targetItemLevel or 0,
+            trinketTargetItemLevel = config.voidforged and config.voidforged.targetItemLevel or 0,
+            voidforgedItemContext = config.voidforged and config.voidforged.itemContext or 0,
+            voidforgedMarkerBonusId = config.voidforged and config.voidforged.markerBonusId or 0,
+            voidforgedTrinketBonusId = config.voidforged and config.voidforged.trinketBonusId or 0,
+            voidforgedWeaponBonusId = config.voidforged and config.voidforged.weaponBonusId or 0,
         },
         scope = {
             dungeonDifficulty = DUNGEON_DIFFICULTY,
@@ -1817,4 +1830,4 @@ SlashCmdList.WOWLOOKMAXEXPORT = function(msg)
     end
 end
 
-Print("v" .. ADDON_VERSION .. " 已加载。请先输入 /wowlook preflight。")
+Print("v" .. ADDON_VERSION .. " 已加载。输入 /wowlook export 开始 S2 最高装等导出。")

@@ -22,9 +22,9 @@ WoWLookSeasonConfig = {
         "塞塔里斯神庙",
     },
     -- Client truth from Adventure Guide -> 本赛季团队副本. The broader expansion
-    -- tier contains additional old raids, so retain only these three cards.
+    -- tier contains additional old raids. Product scope explicitly excludes
+    -- 至暗之夜, so retain only the two selected raids.
     preflightRaidNames = {
-        "至暗之夜",
         "潮鸣石窟",
         "烈毒之渊",
     },

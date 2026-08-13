@@ -85,7 +85,8 @@ function runStaticChecks() {
   assert(/preflightDungeonNames\s*=\s*\{/.test(config), '普通装备插件缺少 S2 冒险指南副本回退范围。');
   assert(/"毒牙祭坛"/.test(config) && /"塞塔里斯神庙"/.test(config), 'S2 冒险指南副本范围不完整。');
   assert(/preflightRaidNames\s*=\s*\{/.test(config)
-    && /"至暗之夜"/.test(config) && /"潮鸣石窟"/.test(config) && /"烈毒之渊"/.test(config), '普通装备插件缺少 S2 团本预检范围。');
+    && /"潮鸣石窟"/.test(config) && /"烈毒之渊"/.test(config)
+    && !/"至暗之夜"/.test(config), '普通装备插件的 S2 团本预检范围不正确。');
   assert(addon.includes('local function FinalizePreflight'), '普通装备插件缺少预检导出构造函数。');
   assert(addon.includes('DetectConfiguredPreflightDungeons'), '普通装备插件没有新版钥石 API 的预检回退。');
   assert(addon.includes('IsConfiguredPreflightRaid'), '普通装备插件没有过滤旧团本。');

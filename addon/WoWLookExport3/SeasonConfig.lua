@@ -21,18 +21,8 @@ WoWLookSeasonConfig = {
         "红玉新生法池",
         "塞塔里斯神庙",
     },
-    -- Client truth from Adventure Guide -> 本赛季团队副本. The broader expansion
-    -- tier contains additional old raids. Product scope explicitly excludes
-    -- 至暗之夜, so retain only the two selected raids.
-    preflightRaidNames = {
-        -- Adventure Guide displays 潮鸣石窟, while the Encounter Journal API
-        -- returns 潮缚石窟. Instance IDs are the stable source of truth.
-        "潮缚石窟",
-        "烈毒之渊",
-    },
-    preflightRaidInstanceIds = {
-        1317,
-        1320,
-    },
+    -- Preflight exports every raid returned by the current-season journal.
+    -- Final data building removes the product-excluded 至暗之夜 hat later.
+    preflightRaidScope = "all_current_season",
     finalRules = nil,
 }

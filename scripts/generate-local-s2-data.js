@@ -3,7 +3,8 @@
  *
  * Source files are retained untouched in cos-upload/ as export evidence. This
  * script writes only fields the mini-program renders, then creates one data
- * subpackage per class and copies the assets those records reference.
+ * subpackage per class and copies the assets those records reference into the
+ * same package. This keeps the main bundle below WeChat's audit limits.
  */
 const fs = require('fs');
 const path = require('path');
@@ -55,18 +56,20 @@ function copyFile(sourcePath, targetPath) {
 }
 
 function localAssetPath(sourceAssetPath) {
-  return sourceAssetPath.replace(/^\/assets\//, '/assets/');
+  return sourceAssetPath;
 }
 
-function trimItem(item) {
+function trimItem(item, classKey) {
   const { tooltipRaw, dropVersion, captureStatus, ...runtimeItem } = item;
+  const sourceIcon = localAssetPath(runtimeItem.iconAsset || '');
+  const iconName = path.basename(sourceIcon);
   return {
     ...runtimeItem,
-    iconAsset: localAssetPath(runtimeItem.iconAsset || ''),
+    iconAsset: iconName ? `/packages/class-${classKey}/assets/icons/${iconName}` : '',
   };
 }
 
-function trimInstances(instances) {
+function trimInstances(instances, classKey) {
   return (instances || []).map((instance) => ({
     id: instance.id,
     name: instance.name,
@@ -77,12 +80,12 @@ function trimInstances(instances) {
       id: encounter.id,
       name: encounter.name,
       order: encounter.order,
-      items: (encounter.items || []).map(trimItem),
+      items: (encounter.items || []).map((item) => trimItem(item, classKey)),
     })),
   }));
 }
 
-function buildClassData(source) {
+function buildClassData(source, classKey) {
   return {
     version: source.version,
     dataVersion: source.dataVersion,
@@ -94,7 +97,7 @@ function buildClassData(source) {
     class: source.class,
     specs: source.specs,
     meta: source.meta,
-    instances: trimInstances(source.instances),
+    instances: trimInstances(source.instances, classKey),
   };
 }
 
@@ -131,11 +134,10 @@ function main() {
   const overview = JSON.parse(fs.readFileSync(path.join(SOURCE_ROOT, 'overview.json'), 'utf8'));
   writeModule(path.join(LOCAL_DATA_ROOT, 'overview.js'), overview);
 
-  const copiedAssets = new Set();
   const packageReport = [];
   CLASS_LIST.forEach(({ key }) => {
     const source = JSON.parse(fs.readFileSync(path.join(SOURCE_ROOT, `${key}.json`), 'utf8'));
-    const classData = buildClassData(source);
+    const classData = buildClassData(source, key);
     const packageDirectory = path.join(PACKAGE_ROOT, `class-${key}`);
     const dataPath = path.join(packageDirectory, 'data', `${key}.js`);
     writeModule(dataPath, classData);
@@ -150,19 +152,10 @@ function main() {
     fs.writeFileSync(path.join(packageDirectory, 'pages', 'loader', 'loader.wxss'), '', 'utf8');
 
     collectIconAssets(classData).forEach((assetPath) => {
-      const sourcePath = path.join(SOURCE_ASSET_ROOT, assetPath.replace(/^\/assets\//, ''));
-      const targetPath = path.join(TARGET_ROOT, assetPath.replace(/^\//, ''));
-      if (!copiedAssets.has(assetPath)) {
-        copyFile(sourcePath, targetPath);
-        copiedAssets.add(assetPath);
-      }
+      const sourcePath = path.join(SOURCE_ASSET_ROOT, 'icons', path.basename(assetPath));
+      const targetPath = path.join(packageDirectory, 'assets', 'icons', path.basename(assetPath));
+      copyFile(sourcePath, targetPath);
     });
-
-    const size = directorySize(packageDirectory);
-    if (size >= PACKAGE_LIMIT) {
-      throw new Error(`${key} package is ${(size / 1024 / 1024).toFixed(2)} MiB; must remain below 2 MiB.`);
-    }
-    packageReport.push({ key, bytes: size, kib: Number((size / 1024).toFixed(1)) });
   });
 
   childProcess.execFileSync(
@@ -172,16 +165,26 @@ function main() {
       path.join(__dirname, 'resize-local-s2-assets.ps1'),
       '-SourceRoot', SOURCE_ASSET_ROOT,
       '-TargetRoot', LOCAL_ASSET_ROOT,
+      '-PackageRoot', PACKAGE_ROOT,
     ],
     { stdio: 'inherit' }
   );
+
+  CLASS_LIST.forEach(({ key }) => {
+    const packageDirectory = path.join(PACKAGE_ROOT, `class-${key}`);
+    const size = directorySize(packageDirectory);
+    if (size >= PACKAGE_LIMIT) {
+      throw new Error(`${key} package is ${(size / 1024 / 1024).toFixed(2)} MiB; must remain below 2 MiB.`);
+    }
+    packageReport.push({ key, bytes: size, kib: Number((size / 1024).toFixed(1)) });
+  });
 
   fs.writeFileSync(
     path.join(LOCAL_DATA_ROOT, 'package-report.json'),
     `${JSON.stringify({ dataVersion: overview.dataVersion, packages: packageReport }, null, 2)}\n`,
     'utf8'
   );
-  console.log(`Generated ${packageReport.length} local S2 class packages and ${copiedAssets.size} local assets.`);
+  console.log(`Generated ${packageReport.length} local S2 class packages with package-local icons.`);
 }
 
 main();

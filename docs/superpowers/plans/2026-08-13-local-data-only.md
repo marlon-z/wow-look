@@ -4,7 +4,7 @@
 
 **Goal:** Package all required 12.1 S2 runtime data and assets inside the mini-program without changing current user-visible behavior.
 
-**Architecture:** A deterministic Node generator trims only non-runtime capture evidence, copies each required asset into the main package, and writes thirteen per-class data subpackages. `class-data` retains its Promise interface but resolves local modules through `wx.loadSubPackage` and `require.async` instead of `wx.request`.
+**Architecture:** A deterministic Node generator trims only non-runtime capture evidence, writes thirteen per-class data subpackages, and places each class's rendered equipment icons beside its data. `class-data` retains its Promise interface but resolves local modules through `wx.loadSubPackage` and `require.async` instead of `wx.request`.
 
 **Tech Stack:** Node.js generation/assertion scripts; WeChat mini-program JavaScript, JSON, WXML assets, and `wx.loadSubPackage`.
 
@@ -22,7 +22,7 @@
 
 - [x] Write a failing test for all classes, preserved fields, icon existence, no audit fields, and per-package byte budget.
 - [x] Generate overview and thirteen per-class data packages from finalized S2 source data.
-- [x] Copy only referenced local asset files into the main package and rewrite asset paths to their local locations.
+- [x] Copy only referenced local asset files into the owning class package and rewrite asset paths to their local locations.
 - [x] Run generator and test.
 
 ### Task 2: Replace remote loading without changing callers
@@ -47,3 +47,15 @@
 - [x] Run generator, all local-data tests, crafting tests, and `git diff --check`.
 - [x] Inspect generated package size report and record it in the final handoff.
 - [x] Mark completed steps and commit only local-data changes, generated data/assets, tests, docs, and configuration.
+
+### Task 4: Meet WeChat quality-scan resource thresholds
+
+**Files:**
+
+- Modify: `scripts/generate-local-s2-data.js`
+- Modify: `scripts/resize-local-s2-assets.ps1`
+- Modify: `tests/test-local-s2-data-packages.js`
+
+- [x] Move equipment icon assets from the main package into their owning class package.
+- [x] Generate display-size icon thumbnails and scale public visual assets without changing paths or UI behavior.
+- [x] Enforce main package < 1.5 MiB and per-package media < 200 KiB through tests.

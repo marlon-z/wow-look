@@ -10,7 +10,8 @@ const classes = [
   'mage', 'warlock', 'monk', 'druid', 'demonhunter', 'evoker',
 ];
 const PACKAGE_LIMIT = 2 * 1024 * 1024;
-const MAIN_PACKAGE_LIMIT = 2 * 1024 * 1024;
+const MAIN_PACKAGE_LIMIT = 1.5 * 1024 * 1024;
+const PACKAGE_MEDIA_LIMIT = 200 * 1024;
 
 function flattenItems(instances) {
   return (instances || []).flatMap((instance) => (instance.encounters || []).flatMap((encounter) => encounter.items || []));
@@ -20,6 +21,13 @@ function packageSize(directory) {
   return fs.readdirSync(directory, { recursive: true })
     .map((relativePath) => path.join(directory, relativePath))
     .filter((filePath) => fs.statSync(filePath).isFile())
+    .reduce((total, filePath) => total + fs.statSync(filePath).size, 0);
+}
+
+function mediaSize(directory) {
+  return fs.readdirSync(directory, { recursive: true })
+    .map((relativePath) => path.join(directory, relativePath))
+    .filter((filePath) => fs.statSync(filePath).isFile() && /\.(png|jpe?g|gif|webp|mp3|wav|aac)$/i.test(filePath))
     .reduce((total, filePath) => total + fs.statSync(filePath).size, 0);
 }
 
@@ -44,12 +52,13 @@ classes.forEach((classKey) => {
     assert.strictEqual(localItem.tooltipRaw, undefined, '不应将原始提示文本打进小程序。');
     assert.strictEqual(localItem.dropVersion, undefined, '不应将升级前采集快照打进小程序。');
     assert.strictEqual(localItem.captureStatus, undefined, '不应将采集审计状态打进小程序。');
-    assert.ok(localItem.iconAsset && localItem.iconAsset.indexOf('/assets/icons/') === 0, '图标应指向主包本地资源。');
+    assert.ok(localItem.iconAsset && localItem.iconAsset.indexOf(`/packages/class-${classKey}/assets/icons/`) === 0, '图标应指向所属职业分包。');
     assert.ok(fs.existsSync(path.join(root, 'miniprogram', localItem.iconAsset.replace(/^\//, ''))), '每个装备图标必须在本地存在。');
   });
 
   const directory = path.join(packageRoot, `class-${classKey}`);
   assert.ok(packageSize(directory) < PACKAGE_LIMIT, `${classKey} 分包不得超过 2 MiB。`);
+  assert.ok(mediaSize(directory) < PACKAGE_MEDIA_LIMIT, `${classKey} 分包图片音频资源不得超过 200 KiB。`);
   const loader = fs.readFileSync(path.join(directory, 'pages', 'loader', 'loader.js'), 'utf8');
   assert.match(loader, new RegExp(`require\\('../../data/${classKey}'\\)`), '分包必须有静态依赖锚点，防止构建时裁掉数据。');
 });
@@ -67,7 +76,9 @@ const mainProgramSize = fs.readdirSync(path.join(root, 'miniprogram'), { recursi
   .filter((filePath) => fs.statSync(filePath).isFile() && !filePath.includes(`${path.sep}packages${path.sep}`))
   .reduce((total, filePath) => total + fs.statSync(filePath).size, 0);
 assert.ok(mainAssetSize < MAIN_PACKAGE_LIMIT, '主包资源不得超过 2 MiB。');
-assert.ok(mainProgramSize < MAIN_PACKAGE_LIMIT, '主包（代码与资源）不得超过 2 MiB。');
+assert.ok(mainProgramSize < MAIN_PACKAGE_LIMIT, '主包（代码与资源）不得超过 1.5 MiB。');
+assert.ok(mediaSize(path.join(root, 'miniprogram')) - mediaSize(packageRoot) < PACKAGE_MEDIA_LIMIT, '主包图片音频资源不得超过 200 KiB。');
+assert.ok(!fs.existsSync(path.join(mainAssetRoot, 'icons')), '装备图标不得残留在主包。');
 classes.forEach((classKey) => {
   const assetCode = require(path.join(root, 'miniprogram', 'utils', 'class-data.js')).getClassMeta(classKey).assetCode;
   assert.ok(fs.existsSync(path.join(mainAssetRoot, 'classes', 'banner', `${assetCode}.jpg`)), `${classKey} 横幅必须本地存在。`);

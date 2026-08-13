@@ -3,68 +3,68 @@
   "packages": [
     {
       "key": "warrior",
-      "bytes": 444412,
-      "kib": 434
+      "bytes": 588624,
+      "kib": 574.8
     },
     {
       "key": "paladin",
-      "bytes": 533932,
-      "kib": 521.4
+      "bytes": 694250,
+      "kib": 678
     },
     {
       "key": "hunter",
-      "bytes": 432797,
-      "kib": 422.7
+      "bytes": 577169,
+      "kib": 563.6
     },
     {
       "key": "rogue",
-      "bytes": 399789,
-      "kib": 390.4
+      "bytes": 523358,
+      "kib": 511.1
     },
     {
       "key": "priest",
-      "bytes": 424596,
-      "kib": 414.6
+      "bytes": 566173,
+      "kib": 552.9
     },
     {
       "key": "deathknight",
-      "bytes": 422052,
-      "kib": 412.2
+      "bytes": 559198,
+      "kib": 546.1
     },
     {
       "key": "shaman",
-      "bytes": 531496,
-      "kib": 519
+      "bytes": 689562,
+      "kib": 673.4
     },
     {
       "key": "mage",
-      "bytes": 400457,
-      "kib": 391.1
+      "bytes": 534305,
+      "kib": 521.8
     },
     {
       "key": "warlock",
-      "bytes": 402358,
-      "kib": 392.9
+      "bytes": 537004,
+      "kib": 524.4
     },
     {
       "key": "monk",
-      "bytes": 562015,
-      "kib": 548.8
+      "bytes": 723615,
+      "kib": 706.7
     },
     {
       "key": "druid",
-      "bytes": 551109,
-      "kib": 538.2
+      "bytes": 711569,
+      "kib": 694.9
     },
     {
       "key": "demonhunter",
-      "bytes": 455088,
-      "kib": 444.4
+      "bytes": 593211,
+      "kib": 579.3
     },
     {
       "key": "evoker",
-      "bytes": 437290,
-      "kib": 427
+      "bytes": 579833,
+      "kib": 566.2
     }
   ]
 }

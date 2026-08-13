@@ -1,6 +1,7 @@
 const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
+const vm = require('vm');
 
 const root = path.resolve(__dirname, '..');
 const source = fs.readFileSync(path.join(root, 'miniprogram', 'utils', 'class-data.js'), 'utf8');
@@ -14,6 +15,7 @@ assert.doesNotMatch(source, /wx\.request/, '职业数据加载器不得发起网
 assert.doesNotMatch(source, /https?:\/\//, '职业数据加载器不得包含远端地址。');
 assert.match(source, /wx\.loadSubPackage/, '职业数据应按需下载微信本地分包。');
 assert.match(source, /require\.async/, '职业数据应通过分包异步化读取。');
+assert.match(source, /require\.async\([^\n]+\)\s*\.then\(/, '跨分包职业数据必须使用 require.async 的 Promise 形式。');
 assert.ok(Array.isArray(appJson.subPackages), 'app.json 必须声明本地职业分包。');
 assert.strictEqual(appJson.subPackages.length, 13, '必须有 13 个职业分包。');
 assert.doesNotMatch(runtimeSources, /wx\.request/, '纯本地运行代码不得发起网络请求。');
@@ -27,9 +29,33 @@ const classData = require(classDataPath);
 Promise.all([
   classData.loadOverview(),
   classData.loadClassData('not-a-class'),
-]).then(([overview, invalid]) => {
+]).then(async ([overview, invalid]) => {
   assert.strictEqual(overview.dataVersion, '12.1-s2', '本地总览必须可读取。');
   assert.strictEqual(invalid, null, '未知职业必须保持原有空结果语义。');
+  const runtimeRequire = (request) => {
+    if (request === '../local-data/overview') {
+      return require(path.join(root, 'miniprogram', 'local-data', 'overview'));
+    }
+    return require(request);
+  };
+  runtimeRequire.async = (request) => Promise.resolve(require(path.join(root, 'miniprogram', request.replace(/^\.\.\//, ''))));
+  const runtimeModule = { exports: {} };
+  const runtimeWx = {
+    loadSubPackage({ success }) {
+      success();
+    },
+  };
+  vm.runInNewContext(source, {
+    require: runtimeRequire,
+    module: runtimeModule,
+    exports: runtimeModule.exports,
+    wx: runtimeWx,
+    Promise,
+    console,
+  }, { filename: classDataPath });
+  const runtimeClassData = runtimeModule.exports;
+  const warrior = await runtimeClassData.loadClassData('warrior');
+  assert.ok(warrior && warrior.instances && warrior.instances.length > 0, '模拟小程序分包加载时必须能读取战士装备数据。');
   console.log('local S2 class-data tests passed');
 }).catch((error) => {
   console.error(error);

@@ -67,17 +67,18 @@ function loadClassData(classKey) {
     wx.loadSubPackage({
       name: `class-${classKey}`,
       success() {
-        require.async(
-          `../packages/class-${classKey}/data/${classKey}`,
-          (data) => {
+        // Cross-package modules use the Promise form of require.async. The
+        // callback form belongs to require(), so using it here silently left
+        // every class data load unresolved in the mini-program runtime.
+        require.async(`../packages/class-${classKey}/data/${classKey}`)
+          .then((data) => {
             classDataCache[classKey] = data;
             resolve(data);
-          },
-          (error) => {
+          })
+          .catch((error) => {
             console.error(`load local ${classKey} data failed`, error);
             resolve(null);
-          }
-        );
+          });
       },
       fail(error) {
         console.error(`download local ${classKey} package failed`, error);

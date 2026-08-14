@@ -10,6 +10,7 @@
 const fs = require('fs');
 const path = require('path');
 const childProcess = require('child_process');
+const { filterAppearanceUnlockItems } = require('./s2-appearance-unlock-filter');
 
 const ROOT = path.resolve(__dirname, '..');
 const SOURCE_ROOT = path.join(ROOT, 'cos-upload', 'data-12.1-s2-crafted-preview');
@@ -129,7 +130,8 @@ function main() {
   const packageReport = [];
   CLASS_LIST.forEach(({ key }) => {
     const source = JSON.parse(fs.readFileSync(path.join(SOURCE_ROOT, `${key}.json`), 'utf8'));
-    const classData = buildClassData(source);
+    const filtered = filterAppearanceUnlockItems(source);
+    const classData = buildClassData(filtered.data);
     const packageDirectory = path.join(PACKAGE_ROOT, `class-${key}`);
     const dataPath = path.join(packageDirectory, 'data', `${key}.js`);
     writeModule(dataPath, classData);
@@ -143,7 +145,7 @@ function main() {
     fs.writeFileSync(path.join(packageDirectory, 'pages', 'loader', 'loader.wxml'), '<view></view>\n', 'utf8');
     fs.writeFileSync(path.join(packageDirectory, 'pages', 'loader', 'loader.wxss'), '', 'utf8');
 
-    collectIconAssets(source).forEach((assetPath) => {
+    collectIconAssets(classData).forEach((assetPath) => {
       iconSourceNames.add(path.basename(assetPath));
     });
   });

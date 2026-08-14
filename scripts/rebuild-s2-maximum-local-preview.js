@@ -2,6 +2,7 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const { execFileSync } = require('child_process');
+const { filterAppearanceUnlockItems, isAppearanceUnlockItem } = require('./s2-appearance-unlock-filter');
 
 const ROOT = path.resolve(__dirname, '..');
 const PREVIEW_DIR = path.join(ROOT, 'cos-upload', 'data-12.1-s2-crafted-preview');
@@ -35,13 +36,14 @@ function preservedInstances(data) {
 
 function mergeClassData(maximumData, existingData) {
   const ordinary = itemList(maximumData.instances)
-    .filter((item) => item.sourceType !== 'tier' && item.sourceType !== 'crafted');
+    .filter((item) => item.sourceType !== 'tier' && item.sourceType !== 'crafted')
+    .filter((item) => !isAppearanceUnlockItem(item));
   if (!ordinary.length || ordinary.some((item) => item.ilvl !== 334)) {
     throw new Error(`最高装等普通装备不完整：共 ${ordinary.length} 条，非 334 条目 ${ordinary.filter((item) => item.ilvl !== 334).length}。`);
   }
   const instances = [...(maximumData.instances || []), ...preservedInstances(existingData)];
   const items = itemList(instances);
-  return {
+  return filterAppearanceUnlockItems({
     ...maximumData,
     meta: {
       ...(maximumData.meta || {}),
@@ -51,7 +53,7 @@ function mergeClassData(maximumData, existingData) {
       craftedItemCount: itemList(preservedInstances(existingData)).filter((item) => item.sourceType === 'crafted').length,
     },
     instances,
-  };
+  }).data;
 }
 
 function buildScopedPayload(inputPath, outputPath) {

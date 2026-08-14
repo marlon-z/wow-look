@@ -1,0 +1,419 @@
+<page-meta page-style="{{pageStyle}}"></page-meta>
+<view class="page-shell build-page">
+
+  <!-- Phase 1: Select Class -->
+  <block wx:if="{{phase === 'select'}}">
+    <view class="build-header">
+      <text class="build-title">配装模拟器</text>
+      <text class="build-subtitle">选择你的职业</text>
+    </view>
+    <view class="class-grid-wrap">
+      <view class="class-row">
+        <view class="class-cell" wx:for="{{classRow1}}" wx:key="id" bindtap="onClassTap" data-key="{{item.key}}">
+          <image class="class-emblem" src="{{item.emblem}}" mode="aspectFit" />
+          <text class="class-label" style="color: {{item.color}};">{{item.shortName}}</text>
+        </view>
+      </view>
+      <view class="class-row">
+        <view class="class-cell" wx:for="{{classRow2}}" wx:key="id" bindtap="onClassTap" data-key="{{item.key}}">
+          <image class="class-emblem" src="{{item.emblem}}" mode="aspectFit" />
+          <text class="class-label" style="color: {{item.color}};">{{item.shortName}}</text>
+        </view>
+      </view>
+      <view class="class-row">
+        <view class="class-cell" wx:for="{{classRow3}}" wx:key="id" bindtap="onClassTap" data-key="{{item.key}}">
+          <image class="class-emblem" src="{{item.emblem}}" mode="aspectFit" />
+          <text class="class-label" style="color: {{item.color}};">{{item.shortName}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- Phase 2: Build Panel -->
+  <block wx:if="{{phase === 'build'}}">
+    <!-- Hero Banner -->
+    <view class="build-hero">
+      <image class="build-hero-banner" src="{{heroBannerAsset}}" mode="aspectFill" />
+      <view class="build-hero-shade"></view>
+      <view class="build-hero-content">
+        <view class="build-hero-top">
+          <view class="build-hero-title-area">
+            <text class="build-class-name">{{selectedClassName}} · {{selectedSpecName}}</text>
+            <text wx:if="{{isDraft}}" class="build-draft-badge">草稿</text>
+          </view>
+          <view class="build-top-right">
+            <view class="build-top-btn" bindtap="openWclPresets">排行榜配装</view>
+            <view class="build-top-btn" bindtap="openBuildList">方案列表</view>
+            <view wx:if="{{!isDraft}}" class="build-top-btn" bindtap="onRenameBuild">重命名</view>
+          </view>
+        </view>
+        <view class="build-hero-bottom">
+          <text class="build-plan-name">{{isDraft ? '未保存的配装' : currentBuildName}}</text>
+          <text wx:if="{{summary}}" class="build-avg-ilvl">平均装等: {{summary.avgIlvl}}</text>
+        </view>
+        <view wx:if="{{currentWclPresetInfo}}" class="wcl-applied-line">
+          <text>排行榜: {{currentWclPresetInfo.source.encounterName}} · {{currentWclPresetInfo.name}}</text>
+          <text wx:if="{{currentWclPresetInfo.talents}}">天赋{{currentWclPresetInfo.talents.pointCount || currentWclPresetInfo.talents.talentTree.length}}点</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- Spec Switch -->
+    <view class="spec-switch-bar">
+      <view
+        class="spec-switch-item {{item.id === selectedSpecId ? 'active' : ''}}"
+        wx:for="{{specs}}"
+        wx:key="id"
+        bindtap="switchSpec"
+        data-id="{{item.id}}"
+        data-name="{{item.name}}"
+      >{{item.name}}</view>
+    </view>
+
+    <!-- Main Panel: Left Slots / Right Slots -->
+    <view class="build-panel">
+      <view class="build-column build-left">
+        <block wx:for="{{leftSlots}}" wx:key="key">
+          <!-- Placeholder slots (shirt/tabard) -->
+          <view wx:if="{{item.placeholder}}" class="slot-cell empty placeholder-slot">
+            <view class="slot-icon-wrap">
+              <text class="slot-placeholder-text">{{item.name}}</text>
+            </view>
+            <view class="slot-info">
+              <text class="slot-empty-hint placeholder-hint">—</text>
+            </view>
+          </view>
+          <!-- Normal equippable slots -->
+          <view
+            wx:else
+            class="slot-cell {{slots[item.key] ? 'filled' : 'empty'}}"
+            bindtap="onSlotTap"
+            data-slot-key="{{item.key}}"
+            data-slot-name="{{item.name}}"
+          >
+            <view class="slot-icon-wrap">
+                  <image wx:if="{{slots[item.key].iconAsset}}" class="slot-icon-img" src="{{slots[item.key].iconAsset}}" mode="aspectFill" lazy-load="{{true}}" />
+              <text wx:elif="{{slots[item.key]}}" class="slot-icon-letter">{{slots[item.key].iconText}}</text>
+              <text wx:else class="slot-placeholder-text">{{item.name}}</text>
+              <view wx:if="{{slots[item.key]}}" class="slot-icon-border"></view>
+            </view>
+            <view class="slot-info" wx:if="{{slots[item.key]}}">
+              <text class="slot-item-name">{{slots[item.key].name}}</text>
+              <text class="slot-item-stat">{{slots[item.key].statLine}}</text>
+              <view class="slot-item-meta-row">
+                <text class="slot-item-ilvl">ilvl{{slots[item.key].ilvl}}</text>
+                <text wx:if="{{slots[item.key].instanceName}}" class="slot-item-source">{{slots[item.key].instanceName}}</text>
+              </view>
+            </view>
+            <view class="slot-info" wx:else>
+              <text class="slot-empty-hint">点击选择</text>
+            </view>
+          </view>
+        </block>
+      </view>
+
+      <view class="build-column build-right">
+        <view
+          class="slot-cell {{slots[item.key] ? 'filled' : 'empty'}}"
+          wx:for="{{rightSlots}}"
+          wx:key="key"
+          bindtap="onSlotTap"
+          data-slot-key="{{item.key}}"
+          data-slot-name="{{item.name}}"
+        >
+          <view class="slot-icon-wrap">
+                <image wx:if="{{slots[item.key].iconAsset}}" class="slot-icon-img" src="{{slots[item.key].iconAsset}}" mode="aspectFill" lazy-load="{{true}}" />
+            <text wx:elif="{{slots[item.key]}}" class="slot-icon-letter">{{slots[item.key].iconText}}</text>
+            <text wx:else class="slot-placeholder-text">{{item.name}}</text>
+            <view wx:if="{{slots[item.key]}}" class="slot-icon-border"></view>
+          </view>
+          <view class="slot-info" wx:if="{{slots[item.key]}}">
+            <text class="slot-item-name">{{slots[item.key].name}}</text>
+            <text class="slot-item-stat">{{slots[item.key].statLine}}</text>
+            <view class="slot-item-meta-row">
+              <text class="slot-item-ilvl">ilvl{{slots[item.key].ilvl}}</text>
+              <text wx:if="{{slots[item.key].instanceName}}" class="slot-item-source">{{slots[item.key].instanceName}}</text>
+            </view>
+          </view>
+          <view class="slot-info" wx:else>
+            <text class="slot-empty-hint">点击选择</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- Weapon Slots -->
+    <view class="build-weapon-row">
+      <view
+        class="slot-cell weapon-slot {{slots[item.key] ? 'filled' : 'empty'}} {{item.disabled ? 'weapon-slot-disabled' : ''}}"
+        wx:for="{{bottomSlots}}"
+        wx:key="key"
+        bindtap="onSlotTap"
+        data-slot-key="{{item.key}}"
+        data-slot-name="{{item.name}}"
+        data-disabled="{{item.disabled}}"
+      >
+        <view class="slot-icon-wrap">
+                <image wx:if="{{slots[item.key].iconAsset}}" class="slot-icon-img" src="{{slots[item.key].iconAsset}}" mode="aspectFill" lazy-load="{{true}}" />
+          <text wx:elif="{{slots[item.key]}}" class="slot-icon-letter">{{slots[item.key].iconText}}</text>
+          <text wx:else class="slot-placeholder-text">{{item.name}}</text>
+          <view wx:if="{{slots[item.key]}}" class="slot-icon-border"></view>
+        </view>
+        <view class="slot-info" wx:if="{{slots[item.key]}}">
+          <text class="slot-item-name">{{slots[item.key].name}}</text>
+          <text class="slot-item-stat">{{slots[item.key].statLine}}</text>
+          <view class="slot-item-meta-row">
+            <text class="slot-item-ilvl">ilvl{{slots[item.key].ilvl}}</text>
+            <text wx:if="{{slots[item.key].instanceName}}" class="slot-item-source">{{slots[item.key].instanceName}}</text>
+          </view>
+        </view>
+        <view class="slot-info" wx:else>
+          <text class="slot-empty-hint">{{item.disabled ? '更换主手后可用' : '点击选择'}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- Bottom Stats Section -->
+    <view class="build-stats-bottom" wx:if="{{summary}}">
+      <view class="stats-bottom-header">
+        <text class="stats-bottom-title">配装信息</text>
+        <text class="stats-bottom-count">{{summary.occupiedSlots}} / {{summary.totalSlots}} 个装备槽</text>
+      </view>
+
+      <view class="stats-bottom-secondary">
+        <view class="stats-bottom-item">
+          <text class="stats-bottom-label stats-label-crit">暴击</text>
+          <text class="stats-bottom-value">{{summary.secondary.crit.rating}}</text>
+          <text class="stats-bottom-percent">{{summary.secondary.crit.percentText}}%</text>
+        </view>
+        <view class="stats-bottom-item">
+          <text class="stats-bottom-label stats-label-haste">急速</text>
+          <text class="stats-bottom-value">{{summary.secondary.haste.rating}}</text>
+          <text class="stats-bottom-percent">{{summary.secondary.haste.percentText}}%</text>
+        </view>
+        <view class="stats-bottom-item">
+          <text class="stats-bottom-label stats-label-mastery">精通</text>
+          <text class="stats-bottom-value">{{summary.secondary.mastery.rating}}</text>
+          <text class="stats-bottom-percent">{{summary.secondary.mastery.percentText}}%</text>
+        </view>
+        <view class="stats-bottom-item">
+          <text class="stats-bottom-label stats-label-vers">全能</text>
+          <text class="stats-bottom-value">{{summary.secondary.versatility.rating}}</text>
+          <text class="stats-bottom-percent">{{summary.secondary.versatility.percentText}}%</text>
+        </view>
+      </view>
+
+      <view class="stats-bottom-total">
+        <text class="stats-bottom-total-label">副属性合计</text>
+        <text class="stats-bottom-total-value">{{summary.secondaryTotal}}</text>
+      </view>
+
+      <view wx:if="{{currentWclPresetInfo && currentWclPresetInfo.talents && currentWclPresetInfo.talents.exportString}}" class="wcl-talent-code-row">
+        <view class="wcl-talent-code-main">
+          <text class="wcl-talent-code-label">天赋代码</text>
+          <text class="wcl-talent-code-text" selectable="true">{{currentWclPresetInfo.talents.exportString}}</text>
+        </view>
+        <view class="wcl-talent-copy" bindtap="copyWclTalentCode">复制</view>
+      </view>
+      <view wx:elif="{{currentWclPresetInfo && currentWclPresetInfo.talents}}" class="wcl-talent-code-row wcl-talent-code-row-muted">
+        <view class="wcl-talent-code-main">
+          <text class="wcl-talent-code-label">天赋代码</text>
+          <text class="wcl-talent-code-text">暂无可导入代码</text>
+          <text wx:if="{{currentWclPresetInfo.talents.exportMissingText}}" class="wcl-talent-code-text wcl-talent-code-reason">{{currentWclPresetInfo.talents.exportMissingText}}</text>
+        </view>
+      </view>
+
+      <!-- 附魔宝石 -->
+      <view wx:if="{{currentWclPresetInfo && currentWclPresetInfo.enchantsGems.length}}" class="wcl-eg-section">
+        <text class="wcl-eg-title">附魔宝石</text>
+        <view class="wcl-eg-row" wx:for="{{currentWclPresetInfo.enchantsGems}}" wx:key="key">
+          <text class="wcl-eg-slot">{{item.slot}}</text>
+          <view class="wcl-eg-detail">
+            <text wx:if="{{item.enchant}}" class="wcl-eg-enchant">附魔 · {{item.enchant}}</text>
+            <text wx:if="{{item.gemText}}" class="wcl-eg-gem">宝石 · {{item.gemText}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- Primary stats row -->
+      <view class="stats-bottom-primary" wx:if="{{summary.primaryStats.length || summary.stamina}}">
+        <view class="stats-bottom-item" wx:for="{{summary.primaryStats}}" wx:key="type" wx:for-item="stat">
+          <text class="stats-bottom-label">{{stat.name}}</text>
+          <text class="stats-bottom-value">{{stat.value}}</text>
+        </view>
+        <view class="stats-bottom-item" wx:if="{{summary.stamina}}">
+          <text class="stats-bottom-label">耐力</text>
+          <text class="stats-bottom-value">{{summary.stamina}}</text>
+        </view>
+      </view>
+
+      <view class="stats-bottom-hint">
+        <text>已含90级基础主属性与耐力{{summary.armorSpecializationActive ? '、护甲专精5%加成' : ''}}；不含种族、天赋、附魔、宝石及临时 Buff</text>
+      </view>
+    </view>
+
+    <!-- Action Bar -->
+    <view class="build-action-bar">
+      <view class="build-action-btn build-action-clear" bindtap="clearAllSlotsTap">清空装备</view>
+      <view wx:if="{{isDraft}}" class="build-action-btn build-action-save" bindtap="onSaveBuild">保存方案</view>
+      <view wx:else class="build-action-btn build-action-new" bindtap="onNewBuild">新建方案</view>
+    </view>
+    <button class="build-share-full" open-type="share" data-share-type="build" hover-class="none">分享配装</button>
+  </block>
+
+  <!-- Build List Popup -->
+  <view wx:if="{{showBuildList}}" class="picker-mask" bindtap="closeBuildList">
+    <view class="picker-panel build-list-panel" catchtap="preventClose">
+      <view class="picker-head">
+        <text class="picker-title">配装方案列表</text>
+        <view class="picker-close" catchtap="closeBuildList">✕</view>
+      </view>
+      <scroll-view class="picker-list" scroll-y enhanced show-scrollbar="{{false}}">
+        <view wx:if="{{!buildList.length}}" class="picker-empty">
+          <text>还没有配装方案</text>
+        </view>
+        <view
+          wx:for="{{buildList}}"
+          wx:key="id"
+          class="build-list-item"
+          bindtap="onBuildListItemTap"
+          data-build-id="{{item.id}}"
+        >
+          <view class="build-list-item-body">
+            <text class="build-list-item-name">{{item.name}}</text>
+            <text class="build-list-item-meta">{{item.className}} · {{item.specName}} · 装等{{item.summary.avgIlvl}}</text>
+          </view>
+          <view class="build-list-item-actions">
+            <view
+              class="build-list-delete"
+              catchtap="onDeleteBuild"
+              data-build-id="{{item.id}}"
+            >删除</view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <!-- WCL Presets Popup -->
+  <view wx:if="{{showWclPresets}}" class="picker-mask" bindtap="closeWclPresets">
+    <view class="picker-panel wcl-preset-panel" catchtap="preventClose">
+      <view class="picker-head">
+        <view class="wcl-head-title">
+          <text class="picker-title">排行榜配装</text>
+          <view wx:if="{{wclSeasonAvailable}}" class="wcl-head-spec">
+            <text class="wcl-head-class">{{selectedClassName}}</text>
+            <view
+              class="wcl-spec-pill {{item.id === wclSpecId ? 'active' : ''}}"
+              wx:for="{{specs}}"
+              wx:key="id"
+              catchtap="onWclSpecTap"
+              data-spec-id="{{item.id}}"
+            >{{item.name}}</view>
+          </view>
+          <text wx:if="{{wclPresetUpdatedText}}" class="wcl-head-updated">{{wclPresetUpdatedText}}</text>
+        </view>
+        <view class="picker-close" catchtap="closeWclPresets">✕</view>
+      </view>
+
+      <view wx:if="{{!wclSeasonAvailable}}" class="wcl-season-unavailable">
+        <text class="wcl-season-unavailable-title">排行榜配装暂未开放</text>
+        <text class="wcl-season-unavailable-text">该功能暂未开放，待赛季开始后将接入。</text>
+      </view>
+
+      <view wx:if="{{wclSeasonAvailable && wclContentTabs.length}}" class="wcl-content-tabs">
+        <view
+          class="wcl-content-tab {{item.type === selectedWclContentType ? 'active' : ''}}"
+          wx:for="{{wclContentTabs}}"
+          wx:key="type"
+          bindtap="onWclContentTap"
+          data-content-type="{{item.type}}"
+        >
+          <text>{{item.name}}</text>
+          <text class="wcl-content-count">{{item.count}}套</text>
+        </view>
+      </view>
+
+      <view wx:if="{{wclSeasonAvailable && wclPresetLevels.length}}" class="wcl-level-tabs">
+        <view
+          class="wcl-level-tab {{item.fileKey === selectedWclFileKey ? 'active' : ''}}"
+          wx:for="{{wclPresetLevels}}"
+          wx:key="fileKey"
+          bindtap="onWclLevelTap"
+          data-file-key="{{item.fileKey}}"
+          data-name="{{item.name}}"
+        >
+          <text>{{item.name}}</text>
+          <text class="wcl-level-count">{{item.presetCount || item.bossCount}}套</text>
+        </view>
+      </view>
+
+      <scroll-view wx:if="{{wclSeasonAvailable && wclDungeonFilters.length}}" class="wcl-dungeon-tabs" scroll-x enhanced show-scrollbar="{{false}}">
+        <view class="wcl-dungeon-tabs-inner">
+          <view
+            class="wcl-dungeon-tab {{item.id === selectedWclDungeonId ? 'active' : ''}}"
+            wx:for="{{wclDungeonFilters}}"
+            wx:key="id"
+            bindtap="onWclDungeonTap"
+            data-encounter-id="{{item.id}}"
+          >
+            <text>{{item.name}}</text>
+            <text class="wcl-dungeon-count">{{item.count}}套</text>
+          </view>
+        </view>
+      </scroll-view>
+
+      <scroll-view wx:if="{{wclSeasonAvailable}}" class="picker-list wcl-preset-list" scroll-y enhanced show-scrollbar="{{false}}">
+        <view wx:if="{{wclPresetLoading}}" class="picker-empty">
+          <text>加载排行榜配装中</text>
+        </view>
+        <view wx:elif="{{!wclPresetEntries.length}}" class="picker-empty">
+          <text>当前没有可用预设</text>
+        </view>
+        <view wx:else>
+          <view class="wcl-dungeon-group" wx:for="{{wclPresetEntries}}" wx:key="encounter.id" wx:for-index="entryIndex">
+            <view class="wcl-dungeon-head">
+              <text class="wcl-dungeon-name">{{item.encounter.localName || item.encounter.name}}</text>
+              <text class="wcl-dungeon-meta">{{selectedWclLevelName}} · {{item.presets.length}}套</text>
+            </view>
+            <view
+              class="wcl-preset-item"
+              wx:for="{{item.presets}}"
+              wx:key="id"
+              wx:for-item="preset"
+              wx:for-index="presetIndex"
+              bindtap="onWclPresetTap"
+              data-entry-index="{{entryIndex}}"
+              data-preset-index="{{presetIndex}}"
+            >
+              <view class="wcl-preset-main">
+                <text class="wcl-preset-name">{{preset.name}}</text>
+                <text class="wcl-preset-meta">{{preset.source.amount}} {{preset.source.metricLabel || 'DPS'}} · {{preset.source.server ? preset.source.server.region : ''}} {{preset.source.server ? preset.source.server.name : ''}}</text>
+              </view>
+              <view class="wcl-preset-side">
+                <text wx:if="{{preset.source.score}}">{{preset.source.score}}分</text>
+                <text class="wcl-preset-code-status {{preset.talents.exportString ? 'ready' : 'missing'}}">{{preset.talents.exportStatusText}}</text>
+                <text wx:if="{{preset.source.bracket}}">{{preset.source.bracket}}层</text>
+                <text wx:else>{{preset.source.difficultyName || ''}}</text>
+              </view>
+              <button
+                class="wcl-preset-share"
+                size="mini"
+                open-type="share"
+                data-share-type="wcl-preset"
+                data-entry-index="{{entryIndex}}"
+                data-preset-index="{{presetIndex}}"
+                catchtap="preventClose"
+                hover-class="none"
+              >
+                <view class="wcl-share-icon"></view>
+                <text>分享</text>
+              </button>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+</view>

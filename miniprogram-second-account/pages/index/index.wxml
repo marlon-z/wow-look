@@ -1,0 +1,213 @@
+<page-meta page-style="{{pageStyle}}"></page-meta>
+<view class="page-shell index-page">
+
+  <view class="announcement-entry" bindtap="openAnnouncement">
+    <view class="announcement-entry-icon"></view>
+    <text class="announcement-entry-label">公告</text>
+    <view wx:if="{{hasUnreadAnnouncement}}" class="announcement-entry-dot"></view>
+  </view>
+  <view class="favorite-entry" bindtap="openFavorites">
+    <view class="favorite-entry-icon icon-star-filled"></view>
+    <text class="favorite-entry-label">收藏夹</text>
+    <view wx:if="{{favoriteCount}}" class="favorite-entry-count">{{favoriteCount}}</view>
+  </view>
+
+  <!-- Hero Header Section (Variant 4 Split Matrix HUD) -->
+  <view class="header-section">
+    <view class="home-logo-4b">
+      <view class="home-logo-4b-badge">同步更新到正式服12.1</view>
+      <view class="home-logo-4b-title">
+        <text class="home-logo-4b-gold">艾泽拉斯</text>
+        <text class="home-logo-4b-divider">|</text>
+        <text class="home-logo-4b-silver">装备搭配</text>
+      </view>
+      <text class="home-logo-4b-subtitle">全职业 · 模拟配装 · 来源速查</text>
+    </view>
+  </view>
+
+  <!-- Feature Cards -->
+  <view class="feature-cards">
+    <view class="feature-card feature-card-browse" bindtap="onBrowseCardTap">
+      <view class="feature-card-icon feature-card-icon-browse"></view>
+      <view class="feature-card-body">
+        <text class="feature-card-title">装备查询</text>
+        <text class="feature-card-desc">当赛季全职业装备 · 部位 · 来源</text>
+      </view>
+      <text class="feature-card-arrow">›</text>
+    </view>
+    <view class="feature-card feature-card-build" bindtap="onBuildTap">
+      <view class="feature-card-icon feature-card-icon-build"></view>
+      <view class="feature-card-body">
+        <text class="feature-card-title">配装模拟器</text>
+        <text class="feature-card-desc">装备槽搭配 · 属性总览 · 保存分享</text>
+      </view>
+      <text class="feature-card-arrow">›</text>
+    </view>
+    <view class="feature-card feature-card-leaderboard" bindtap="onLeaderboardTap">
+      <view class="feature-card-icon feature-card-icon-leaderboard"></view>
+      <view class="feature-card-body">
+        <text class="feature-card-title">排行榜配装</text>
+        <text class="feature-card-desc">WCL 高分配装 · 天赋 · 一键套用</text>
+      </view>
+      <text class="feature-card-arrow">›</text>
+    </view>
+  </view>
+
+  <view class="home-share-cta" bindtap="openHomeShare">
+    <view class="home-share-cta-icon"></view>
+    <view class="home-share-cta-copy">
+      <text class="home-share-cta-title">分享给队友</text>
+      <text class="home-share-cta-desc">一键查毕业装备、模拟配装</text>
+    </view>
+    <text class="home-share-cta-arrow">›</text>
+  </view>
+
+  <view class="footer-note">
+    <view class="footer-ornament"></view>
+    <text>采集数据 · 仅供参考</text>
+    <view class="footer-ornament"></view>
+  </view>
+
+  <view wx:if="{{showHomeShare}}" class="home-share-mask" bindtap="closeHomeShare">
+    <view class="home-share-panel" catchtap="preventClose">
+      <view class="home-share-panel-glow"></view>
+      <view class="home-share-panel-head">
+        <view class="home-share-panel-icon"></view>
+        <view class="home-share-panel-title-wrap">
+          <text class="home-share-panel-eyebrow">艾泽拉斯装备搭配</text>
+          <text class="home-share-panel-title">把配装工具分享给队友</text>
+        </view>
+        <view class="favorite-close" catchtap="closeHomeShare"></view>
+      </view>
+      <view class="favorite-divider"></view>
+      <view class="home-share-panel-body">
+        <text class="home-share-panel-lead">一键查毕业装备、模拟配装</text>
+        <text class="home-share-panel-text">把当赛季装备信息和配装工具分享给你的队友。</text>
+      </view>
+      <view class="home-share-panel-actions">
+        <button class="home-share-panel-button" open-type="share" data-share-kind="home">立即转发</button>
+      </view>
+    </view>
+  </view>
+
+  <favorite-panel
+    visible="{{showFavorites}}"
+    favorite-count="{{favoriteCount}}"
+    favorite-groups="{{favoriteGroups}}"
+    favorite-sort-mode="{{favoriteSortMode}}"
+    pending-remove-favorite-key="{{pendingRemoveFavoriteKey}}"
+    bind:close="closeFavorites"
+    bind:clearpending="clearPendingRemoveFavorite"
+    bind:togglesort="toggleFavoriteSort"
+    bind:clear="clearFavoriteItems"
+    bind:remove="removeFavoriteItem"
+    bind:itemtap="onFavoriteItemTap"
+  />
+
+  <view wx:if="{{showSharedFavorites}}" class="favorite-mask" bindtap="closeSharedFavorites">
+    <view class="favorite-panel shared-favorite-panel" catchtap="preventClose">
+      <view class="favorite-panel-head">
+        <view class="favorite-title-wrap shared-title-wrap">
+          <view class="favorite-title-icon icon-star-filled"></view>
+          <view class="shared-title-block">
+            <text class="favorite-title">好友分享的装备收藏</text>
+            <text wx:if="{{sharedFavoriteSummary}}" class="shared-summary">{{sharedFavoriteSummary}}</text>
+          </view>
+        </view>
+        <view class="favorite-close" catchtap="closeSharedFavorites"></view>
+      </view>
+      <view class="favorite-divider"></view>
+
+      <view wx:if="{{isSharedFavoriteLoading}}" class="favorite-empty shared-state">
+        <view class="favorite-empty-icon icon-star-outline"></view>
+        <text class="favorite-empty-text">正在加载分享内容</text>
+      </view>
+
+      <view wx:elif="{{sharedFavoriteError}}" class="favorite-empty shared-state">
+        <view class="favorite-empty-icon icon-star-outline"></view>
+        <text class="favorite-empty-text">{{sharedFavoriteError}}</text>
+      </view>
+
+      <block wx:else>
+        <scroll-view class="favorite-list shared-favorite-list" scroll-y enhanced show-scrollbar="{{false}}">
+          <view wx:for="{{sharedFavoriteGroups}}" wx:for-item="group" wx:key="classKey" class="favorite-group">
+            <view class="favorite-group-head">
+              <text class="favorite-group-title">{{group.className}}</text>
+              <text class="favorite-group-count">{{group.count}} 件</text>
+            </view>
+            <view
+              wx:for="{{group.items}}"
+              wx:for-item="favorite"
+              wx:key="key"
+              class="favorite-item"
+              catchtap="onFavoriteItemTap"
+              data-item-id="{{favorite.itemId}}"
+              data-class-key="{{favorite.classKey}}"
+              data-class-name="{{favorite.className}}"
+            >
+              <view class="favorite-icon-wrap">
+              <image wx:if="{{favorite.iconAsset}}" class="favorite-icon-img" src="{{favorite.iconAsset}}" mode="aspectFill" lazy-load="{{true}}" />
+                <text wx:else class="favorite-icon-letter">{{favorite.iconText}}</text>
+                <view class="favorite-icon-border"></view>
+              </view>
+              <view class="favorite-item-body">
+                <view class="favorite-row favorite-row-1">
+                  <text class="favorite-name">{{favorite.name}}</text>
+                  <view class="favorite-row-actions">
+                    <text class="favorite-slot">{{favorite.slotBadgeName || favorite.slotName}}</text>
+                  </view>
+                </view>
+                <view class="favorite-row favorite-row-2">
+                  <text class="favorite-stat">{{favorite.statLine}}</text>
+                </view>
+                <view class="favorite-row favorite-row-3">
+                  <text class="favorite-meta-line">{{favorite.className}} · ilvl{{favorite.ilvl}}</text>
+                  <view class="favorite-source-wrap">
+                    <text class="favorite-source">{{favorite.sourceName}}</text>
+                    <text class="favorite-arrow">›</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+        <view class="shared-action-bar">
+          <button class="shared-import-btn" bindtap="importSharedFavorites">保存到我的收藏夹</button>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view wx:if="{{showAnnouncement}}" class="announcement-mask" bindtap="closeAnnouncement">
+    <view class="announcement-panel" catchtap="preventClose">
+      <view class="announcement-head">
+        <view class="announcement-title-wrap">
+          <view class="announcement-title-icon"></view>
+          <view class="announcement-title-block">
+            <text class="announcement-title">{{announcement.title}}</text>
+            <text class="announcement-meta">{{announcement.version}} · {{announcement.date}}</text>
+          </view>
+        </view>
+        <view class="favorite-close announcement-close" catchtap="closeAnnouncement"></view>
+      </view>
+      <view class="favorite-divider"></view>
+      <view class="announcement-body">
+        <text class="announcement-summary">{{announcement.summary}}</text>
+        <view class="announcement-list">
+          <view wx:for="{{announcement.items}}" wx:key="*this" class="announcement-item">
+            <view class="announcement-bullet"></view>
+            <text class="announcement-item-text">{{item}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <equipment-detail
+    visible="{{showModal}}"
+    item="{{selectedItem}}"
+    bind:close="closeModal"
+    bind:favorite="onDetailFavoriteTap"
+  />
+
+</view>

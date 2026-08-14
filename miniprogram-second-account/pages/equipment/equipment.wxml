@@ -1,0 +1,471 @@
+<page-meta page-style="{{pageStyle}}"></page-meta>
+<view class="page-shell equipment-page">
+
+  <view class="page-bg-glow page-bg-glow-top"></view>
+  <view class="page-bg-glow page-bg-glow-bottom"></view>
+
+  <view class="top-bar">
+    <text class="back-btn" bindtap="onBackTap">‹</text>
+    <view class="top-title-wrap">
+      <image class="top-emblem" src="{{classEmblemAsset}}" mode="aspectFit" />
+      <text class="top-title">{{className}}</text>
+    </view>
+    <view class="favorite-entry top-favorite-entry" bindtap="openFavorites">
+      <view class="favorite-entry-icon icon-star-filled"></view>
+      <text class="favorite-entry-label">收藏夹</text>
+      <view wx:if="{{favoriteCount}}" class="favorite-entry-count">{{favoriteCount}}</view>
+    </view>
+  </view>
+
+  <view class="hero-panel">
+    <image class="hero-banner" src="{{heroBannerAsset}}" mode="aspectFill" />
+    <view class="hero-shade"></view>
+    <view class="hero-panel-content">
+      <view class="hero-summary-row">
+        <text class="hero-count">{{resultCount}}</text>
+        <text class="hero-count-unit">件装备</text>
+        <button
+          class="hero-share-btn"
+          open-type="share"
+          data-share-type="{{buildRequestMode && buildDraftCount ? 'build-draft' : 'build-request'}}"
+          hover-class="none"
+        >
+          <view class="hero-share-icon"></view>
+          {{buildRequestMode && buildDraftCount ? '分享本次配装' : '请好友配装'}}
+        </button>
+      </view>
+      <text class="hero-desc">{{activeFiltersText}}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{buildRequestMode && showBuildRequestIntro}}" class="build-request-card">
+    <view class="build-request-copy">
+      <text class="build-request-title">好友想请你帮他配一套{{className}}装备</text>
+      <text class="build-request-desc">本次配装会保存到临时清单，不会改动你的收藏夹。</text>
+    </view>
+    <view class="build-request-actions">
+      <view class="build-action-primary" bindtap="startNewBuildDraft">新建本次配装</view>
+      <view class="build-action-secondary" bindtap="openFavoritePicker">从收藏夹选择</view>
+      <view class="build-action-secondary" bindtap="openBuildDraft">查看本次配装</view>
+    </view>
+    <view class="build-request-close" bindtap="dismissBuildRequestIntro"></view>
+  </view>
+
+  <view wx:if="{{buildRequestMode && !showBuildRequestIntro}}" class="build-draft-strip">
+    <text class="build-draft-strip-text">本次配装 {{buildDraftCount}} 件</text>
+    <view class="build-draft-strip-actions">
+      <text bindtap="openFavoritePicker">从收藏夹选</text>
+      <text bindtap="openBuildDraft">查看</text>
+    </view>
+  </view>
+
+  <view wx:if="{{buildSlotPickMode}}" class="build-slot-pick-strip">
+    <text class="build-slot-pick-text">正在为「{{buildSlotPickSlotName}}」选择装备</text>
+    <text class="build-slot-pick-hint">点击装备即可装备</text>
+  </view>
+
+  <view class="filter-panel">
+    <view class="search-box">
+      <view class="search-icon"></view>
+      <input
+        class="search-input"
+        placeholder="搜索装备、副本或首领"
+        placeholder-class="search-ph"
+        value="{{keyword}}"
+        bindinput="onKeywordInput"
+      />
+    </view>
+
+    <view class="filter-row">
+      <view class="filter-head">
+        <view class="filter-symbol filter-symbol-spec"></view>
+        <text class="filter-label">专精</text>
+      </view>
+      <view class="chip-grid">
+        <view
+          wx:for="{{specs}}"
+          wx:key="id"
+          class="chip {{selectedSpec === item.id ? 'on' : ''}} {{lockedSpec === item.id ? 'locked' : ''}}"
+          bindtap="onSpecTap"
+          data-id="{{item.id}}"
+        >{{item.name}}{{lockedSpec === item.id ? '🔒' : ''}}</view>
+      </view>
+    </view>
+
+    <view class="filter-row">
+      <view class="filter-head">
+        <view class="filter-symbol filter-symbol-stat"></view>
+        <text class="filter-label">副属性</text>
+      </view>
+      <view class="chip-grid">
+        <view
+          wx:for="{{stats}}"
+          wx:key="type"
+          class="chip {{item.state === 'include' ? 'on' : ''}} {{item.state === 'exclude' ? 'excluded' : ''}}"
+          bindtap="onStatTap"
+          data-type="{{item.type}}"
+        >{{item.name}}</view>
+      </view>
+    </view>
+
+    <view class="filter-row">
+      <view class="filter-head">
+        <view class="filter-symbol filter-symbol-view"></view>
+        <text class="filter-label">视图</text>
+      </view>
+      <view class="chip-grid">
+        <view
+          wx:for="{{viewModes}}"
+          wx:key="type"
+          class="chip {{selectedViewMode === item.type ? 'on' : ''}}"
+          bindtap="onViewModeTap"
+          data-type="{{item.type}}"
+        >{{item.name}}</view>
+      </view>
+    </view>
+
+    <view class="filter-row">
+      <view class="filter-head">
+        <view class="filter-symbol filter-symbol-source"></view>
+        <text class="filter-label">来源</text>
+      </view>
+      <view class="chip-grid">
+        <view
+          wx:for="{{sourceTypes}}"
+          wx:key="type"
+          class="chip {{item.selected ? 'on' : ''}}"
+          bindtap="onSourceTypeTap"
+          data-type="{{item.type}}"
+        >{{item.name}}</view>
+      </view>
+    </view>
+
+    <view class="filter-row">
+      <view class="filter-head">
+        <view class="filter-symbol filter-symbol-slot"></view>
+        <text class="filter-label">部位</text>
+      </view>
+      <scroll-view class="chip-scroll-x" scroll-x="true" enhanced show-scrollbar="{{false}}">
+        <view class="chip-scroll-wrap">
+          <view
+            wx:for="{{slots}}"
+            wx:key="type"
+            class="chip sm {{item.selected ? 'on' : ''}} {{item.locked ? 'locked' : ''}}"
+            bindtap="onSlotTap"
+            data-type="{{item.type}}"
+          >{{item.name}}{{item.locked ? '🔒' : ''}}</view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <view class="filter-row filter-row-last">
+      <view class="filter-head">
+        <view class="filter-symbol filter-symbol-instance"></view>
+        <text class="filter-label">副本</text>
+      </view>
+      <scroll-view class="chip-scroll-x" scroll-x="true" enhanced show-scrollbar="{{false}}">
+        <view class="chip-scroll-wrap">
+          <block wx:for="{{visibleInstanceOptions}}" wx:key="id">
+            <view
+              class="chip instance-chip {{selectedInstanceId === item.id ? 'on' : ''}}"
+              bindtap="onInstanceTap"
+              data-id="{{item.id}}"
+            >{{item.name}}</view>
+          </block>
+        </view>
+      </scroll-view>
+    </view>
+
+    <view class="filter-actions">
+      <text class="filter-summary-note">{{activeFiltersText}}</text>
+      <text class="reset-btn" catchtap="resetFilters">重置</text>
+    </view>
+  </view>
+
+  <block wx:if="{{isLoading}}">
+    <view class="empty-state">
+      <text class="empty-text">加载中…</text>
+    </view>
+  </block>
+
+  <block wx:elif="{{groupedItems.length === 0}}">
+    <view class="empty-state">
+      <text class="empty-text">{{emptyMessage}}</text>
+    </view>
+  </block>
+
+  <block wx:else>
+    <block wx:for="{{groupedItems}}" wx:key="key">
+      <view class="group-section">
+        <block wx:if="{{selectedViewMode === 'slot'}}">
+          <view class="group-head">
+            <view class="group-title-wrap">
+              <view class="group-badge"></view>
+              <text class="group-title">{{item.slotName}}</text>
+            </view>
+            <text class="group-count">已显示 {{item.items.length}} / 共 {{item.totalCount}} 件</text>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="group-head">
+            <view class="group-meta">
+              <text class="group-title">{{item.title}}</text>
+              <text class="group-sub">{{item.subtitle}}<block wx:if="{{item.difficultyName}}"> · {{item.difficultyName}}</block></text>
+            </view>
+            <text class="group-count">已显示 {{item.items.length}} / 共 {{item.totalCount}} 件</text>
+          </view>
+        </block>
+
+        <view class="item-list">
+          <view
+            wx:for="{{item.items}}"
+            wx:key="id"
+            wx:for-item="equip"
+            class="item-card"
+            bindtap="onItemTap"
+            data-item-id="{{equip.id}}"
+          >
+            <view class="item-icon-wrap">
+              <image wx:if="{{equip.iconAsset}}" class="item-icon-img" mode="aspectFill" src="{{equip.iconAsset}}" lazy-load="{{true}}" binderror="onIconImageError" data-item-id="{{equip.id}}" />
+              <text wx:else class="item-icon-letter">{{equip.iconText}}</text>
+              <view class="icon-border"></view>
+            </view>
+
+            <view class="item-body">
+              <view class="item-row item-row-1">
+                <text class="item-name epic-text">{{equip.name}}</text>
+                <view class="item-row-actions">
+                  <view
+                    class="favorite-star item-favorite-star {{buildRequestMode ? (equip.isBuildSelected ? 'on' : '') : (equip.isFavorite ? 'on' : '')}}"
+                    catchtap="onFavoriteTap"
+                    data-item-id="{{equip.id}}"
+                  >
+                    <view class="favorite-icon"></view>
+                    <text class="favorite-text">{{buildRequestMode ? (equip.isBuildSelected ? '已加入' : '加入本次') : (equip.isFavorite ? '已收藏' : '收藏')}}</text>
+                  </view>
+                  <text class="item-quality-badge">{{equip.slotBadgeName || equip.slotName}}</text>
+                </view>
+              </view>
+              <view class="item-row item-row-2">
+                <text class="item-stat-line">{{equip.statLine}}</text>
+              </view>
+              <view class="item-row item-row-3">
+                <text class="item-meta-line">{{equip.rightMeta}} · ilvl{{equip.ilvl}}</text>
+                <view class="item-source-wrap">
+                  <text class="item-source-text">{{equip.instanceName}}</text>
+                  <text class="item-arrow">›</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </block>
+
+  <view class="equipment-load-state" wx:if="{{isLoadingMore}}">正在加载更多装备…</view>
+  <view class="equipment-load-state" wx:elif="{{hasMoreItems}}">继续向下滑动，加载更多装备</view>
+  <view class="equipment-load-state" wx:elif="{{loadedResultCount}}">已加载全部 {{loadedResultCount}} 件装备</view>
+
+  <view class="page-end-pad"></view>
+
+  <equipment-detail
+    visible="{{showModal}}"
+    item="{{selectedItem}}"
+    bind:close="closeModal"
+    bind:favorite="onDetailFavoriteTap"
+  />
+
+  <view wx:if="{{showCraftingStatPicker}}" class="crafting-stat-mask" bindtap="closeCraftingStatPicker">
+    <view class="crafting-stat-panel" catchtap="preventClose">
+      <view class="crafting-stat-head">
+        <view class="crafting-stat-title-wrap">
+          <text class="crafting-stat-title">选择制造业随机属性</text>
+          <text class="crafting-stat-subtitle">{{craftingStatPickerItem.name}}</text>
+        </view>
+        <view class="crafting-stat-close" catchtap="closeCraftingStatPicker"></view>
+      </view>
+
+      <view class="crafting-stat-desc">
+        <text>这件装备需要选择 {{craftingStatRequiredCount}} 个副属性，确认后会计入配装统计。</text>
+      </view>
+
+      <view class="crafting-stat-slots">
+        <text
+          wx:for="{{craftingStatSlots}}"
+          wx:key="index"
+          class="crafting-stat-slot"
+        >{{item.label || ('随机属性' + item.index)}} +{{item.value}}</text>
+      </view>
+
+      <view class="crafting-stat-grid">
+        <view
+          wx:for="{{craftingStatPickerOptions}}"
+          wx:key="type"
+          class="crafting-stat-chip {{item.selected ? 'on' : ''}}"
+          catchtap="onCraftingStatTap"
+          data-type="{{item.type}}"
+        >{{item.name}}</view>
+      </view>
+
+      <view class="crafting-stat-actions">
+        <view class="crafting-stat-cancel" catchtap="closeCraftingStatPicker">取消</view>
+        <view
+          class="crafting-stat-confirm {{craftingStatSelectedTypes.length === craftingStatRequiredCount ? 'ready' : ''}}"
+          catchtap="confirmCraftingStatSelection"
+        >确认装备</view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{showBuildDraft}}" class="favorite-mask" bindtap="closeBuildDraft">
+    <view class="favorite-panel build-draft-panel" catchtap="preventClose">
+      <view class="favorite-panel-head build-panel-head">
+        <view class="favorite-title-wrap build-panel-title-wrap">
+          <view class="favorite-title-icon icon-star-filled"></view>
+          <text class="favorite-title">本次配装</text>
+          <text class="favorite-count">共 {{buildDraftCount}} 件</text>
+        </view>
+        <view class="build-panel-head-side">
+          <view wx:if="{{buildDraftCount}}" class="favorite-head-actions build-panel-actions">
+            <button wx:if="{{buildDraftCount}}" class="build-share-mini" open-type="share" data-share-type="build-draft" hover-class="none">
+              <view class="build-share-icon"></view>
+              <text>分享配装</text>
+            </button>
+            <view wx:if="{{buildDraftCount}}" class="favorite-clear-mini build-clear-mini" catchtap="clearBuildDraftItems">清空</view>
+          </view>
+          <view class="favorite-close" catchtap="closeBuildDraft"></view>
+        </view>
+      </view>
+      <view class="favorite-divider"></view>
+
+      <block wx:if="{{buildDraftGroups.length}}">
+        <scroll-view class="favorite-list" scroll-y enhanced show-scrollbar="{{false}}">
+          <view wx:for="{{buildDraftGroups}}" wx:for-item="group" wx:key="classKey" class="favorite-group">
+            <view class="favorite-group-head">
+              <text class="favorite-group-title">{{group.className}}</text>
+              <text class="favorite-group-count">{{group.count}} 件</text>
+            </view>
+            <view
+              wx:for="{{group.items}}"
+              wx:for-item="favorite"
+              wx:key="key"
+              class="favorite-item"
+              catchtap="onFavoriteItemTap"
+              data-item-id="{{favorite.itemId}}"
+              data-class-key="{{favorite.classKey}}"
+              data-class-name="{{favorite.className}}"
+            >
+              <view class="favorite-icon-wrap">
+              <image wx:if="{{favorite.iconAsset}}" class="favorite-icon-img" src="{{favorite.iconAsset}}" mode="aspectFill" lazy-load="{{true}}" />
+                <text wx:else class="favorite-icon-letter">{{favorite.iconText}}</text>
+                <view class="favorite-icon-border"></view>
+              </view>
+              <view class="favorite-item-body">
+                <view class="favorite-row favorite-row-1">
+                  <text class="favorite-name">{{favorite.name}}</text>
+                  <view class="favorite-row-actions">
+                    <text class="favorite-slot">{{favorite.slotBadgeName || favorite.slotName}}</text>
+                    <view class="favorite-remove-btn" catchtap="removeBuildDraftFavorite" data-key="{{favorite.key}}">
+                      <view class="favorite-remove-icon-sm"></view>
+                    </view>
+                  </view>
+                </view>
+                <view class="favorite-row favorite-row-2">
+                  <text class="favorite-stat">{{favorite.statLine}}</text>
+                </view>
+                <view class="favorite-row favorite-row-3">
+                  <text class="favorite-meta-line">{{favorite.className}} · ilvl{{favorite.ilvl}}</text>
+                  <view class="favorite-source-wrap">
+                    <text class="favorite-source">{{favorite.sourceName}}</text>
+                    <text class="favorite-arrow">›</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </block>
+
+      <view wx:else class="favorite-empty">
+        <view class="favorite-empty-icon icon-star-outline"></view>
+        <text class="favorite-empty-text">还没有加入本次配装</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{showFavoritePicker}}" class="favorite-mask" bindtap="closeFavoritePicker">
+    <view class="favorite-panel build-draft-panel" catchtap="preventClose">
+      <view class="favorite-panel-head build-panel-head">
+        <view class="favorite-title-wrap build-panel-title-wrap">
+          <view class="favorite-title-icon icon-star-filled"></view>
+          <text class="favorite-title">从收藏夹选择</text>
+          <text class="favorite-count">共 {{favoritePickerList.length}} 件</text>
+        </view>
+        <view class="build-panel-head-side">
+          <view wx:if="{{favoritePickerList.length}}" class="favorite-head-actions build-panel-actions">
+            <view wx:if="{{favoritePickerList.length}}" class="favorite-clear-mini build-import-all" catchtap="addAllFavoritePickerItems">全部加入</view>
+          </view>
+          <view class="favorite-close" catchtap="closeFavoritePicker"></view>
+        </view>
+      </view>
+      <view class="favorite-divider"></view>
+
+      <block wx:if="{{favoritePickerList.length}}">
+        <scroll-view class="favorite-list" scroll-y enhanced show-scrollbar="{{false}}">
+          <view
+            wx:for="{{favoritePickerList}}"
+            wx:key="key"
+            class="favorite-item"
+            catchtap="addFavoritePickerItem"
+            data-key="{{item.key}}"
+          >
+            <view class="favorite-icon-wrap">
+          <image wx:if="{{item.iconAsset}}" class="favorite-icon-img" src="{{item.iconAsset}}" mode="aspectFill" lazy-load="{{true}}" />
+              <text wx:else class="favorite-icon-letter">{{item.iconText}}</text>
+              <view class="favorite-icon-border"></view>
+            </view>
+            <view class="favorite-item-body">
+              <view class="favorite-row favorite-row-1">
+                <text class="favorite-name">{{item.name}}</text>
+                <view class="favorite-row-actions">
+                  <text class="favorite-slot">{{item.slotBadgeName || item.slotName}}</text>
+                  <text class="build-picked-badge {{item.isPicked ? 'on' : ''}}">{{item.isPicked ? '已加入' : '加入'}}</text>
+                </view>
+              </view>
+              <view class="favorite-row favorite-row-2">
+                <text class="favorite-stat">{{item.statLine}}</text>
+              </view>
+              <view class="favorite-row favorite-row-3">
+                <text class="favorite-meta-line">{{item.className}} · ilvl{{item.ilvl}}</text>
+                <view class="favorite-source-wrap">
+                  <text class="favorite-source">{{item.sourceName}}</text>
+                  <text class="favorite-arrow">›</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </block>
+
+      <view wx:else class="favorite-empty">
+        <view class="favorite-empty-icon icon-star-outline"></view>
+        <text class="favorite-empty-text">这个职业还没有收藏装备</text>
+      </view>
+    </view>
+  </view>
+
+  <favorite-panel
+    visible="{{showFavorites}}"
+    favorite-count="{{favoriteCount}}"
+    favorite-groups="{{favoriteGroups}}"
+    favorite-sort-mode="{{favoriteSortMode}}"
+    pending-remove-favorite-key="{{pendingRemoveFavoriteKey}}"
+    bind:close="closeFavorites"
+    bind:clearpending="clearPendingRemoveFavorite"
+    bind:togglesort="toggleFavoriteSort"
+    bind:clear="clearFavoriteItems"
+    bind:remove="removeFavoriteItem"
+    bind:itemtap="onFavoriteItemTap"
+  />
+</view>

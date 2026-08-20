@@ -1,11 +1,11 @@
 # WCL 预设自动更新操作文档
 
-这套自动化负责每天从 WCL 拉取全职业全专精预设数据，生成 JSON 文件，然后上传到腾讯云 COS。小程序端会按当前职业/专精读取 COS 上对应的数据文件。
+这套自动化按小时从 WCL 拉取排行榜预设数据，生成 JSON 文件后上传到腾讯云 COS。主小程序端会按当前职业/专精按需读取 COS 上 `wcl-presets/data-12.1` 中对应的数据文件。
 
 当前自动化会更新：
 
 - 全职业、全专精
-- 大秘境：10层、16层、20层
+- 大秘境：最顶级、10层、16层
 - 团本：史诗团本、孢陨幽境
 - 每套预设包含：装备、制造业绿字、WCL 返回的天赋树
 - 有本地 WCL talent blueprint 的专精会额外生成可复制进游戏的天赋导入代码；缺 blueprint 的专精会在数据诊断里标记 `missing-blueprint`
@@ -148,10 +148,10 @@ node scripts/update-wcl-presets.js
 3. 每个专精只上传自己的目录：
 
 ```bash
-node scripts/upload-cos-prefix.js --source cos-upload/wcl-presets/data-4.4.x/{classKey}/{specId} --prefix wcl-presets/data-4.4.x/{classKey}/{specId}
+node scripts/upload-cos-prefix.js --source cos-upload/wcl-presets/data-12.1/{classKey}/{specId} --prefix wcl-presets/data-12.1/{classKey}/{specId}
 ```
 
-这样全量更新会被拆成多个 job，不会把所有职业塞进一个 60 分钟任务里，也不会每次重复上传其他专精的数据。
+每次运行只选择 COS 中更新时间最旧的 3 个专精，并发上限为 2；这样不会耗尽 WCL 免费 API 配额，也不会重复上传其他专精的数据。
 
 如果是局部取样运行，上传前缀会自动切到：
 
@@ -172,7 +172,7 @@ wcl-presets-test
 3. 左侧选择 **Update WCL Presets**。
 4. 点击右侧 **Run workflow**。
 5. 选择默认分支。
-6. 如果要全量更新，输入框留空。
+6. 输入框留空时，会更新当前最旧的 3 个专精；后续定时任务会继续轮转其余专精。
 7. 如果只想更新一个专精，填写：
 
 ```text
@@ -184,18 +184,18 @@ content   = all
 如果只是快速验证一个大秘境样本，可以填写：
 
 ```text
-class_key    = monk
-spec_id      = 270
+class_key    = druid
+spec_id      = 103
 content      = mythic-plus
 levels       = 10
-encounter_id = 361753
+encounter_id = 12993
 top_mplus    = 1
 ```
 
 这类带 `levels`、`encounter_id`、`content != all` 或自定义 top 数量的运行会自动写到测试前缀：
 
 ```text
-wcl-presets-test/data-4.4.x/{classKey}/{specId}/
+wcl-presets-test/data-12.1/{classKey}/{specId}/
 ```
 
 不会覆盖正式路径。
@@ -215,35 +215,35 @@ COS 上传完成
 当前定时任务配置是：
 
 ```yaml
-cron: '20 20 * * *'
+cron: '0 * * * *'
 ```
 
-GitHub Actions 的 cron 使用 UTC 时间。对应北京时间是每天：
+GitHub Actions 的 cron 使用 UTC 时间，对应北京时间每小时整点：
 
 ```text
-04:20
+08:00、09:00、10:00……
 ```
 
-也就是说，每天凌晨 4 点 20 分自动更新一次。
+也就是说，每小时自动更新最旧的 3 个专精；完整轮转约需 14 次运行。
 
 ## 8. COS 上会出现哪些文件
 
 上传路径按职业和专精拆分：
 
 ```text
-wcl-presets/data-4.4.x/{classKey}/{specId}/
+wcl-presets/data-12.1/{classKey}/{specId}/
 ```
 
 例如火法：
 
 ```text
-wcl-presets/data-4.4.x/mage/63/
+wcl-presets/data-12.1/mage/63/
 ```
 
 例如熊T：
 
 ```text
-wcl-presets/data-4.4.x/druid/104/
+wcl-presets/data-12.1/druid/104/
 ```
 
 每个专精目录下会上传这些文件：
@@ -252,15 +252,15 @@ wcl-presets/data-4.4.x/druid/104/
 index.json
 mythic-plus-10.json
 mythic-plus-16.json
-mythic-plus-20.json
-raid-mythic-vs-dr-mqd.json
-raid-mythic-sporefall.json
+mythic-plus-top.json
+raid-mythic-venomous-abyss.json
+mapping-audit.json
 ```
 
 小程序打开 WCL 预设时会先读取：
 
 ```text
-https://wowlook-1308073800.cos.ap-guangzhou.myqcloud.com/wcl-presets/data-4.4.x/{classKey}/{specId}/index.json
+https://wowlook-1308073800.cos.ap-guangzhou.myqcloud.com/wcl-presets/data-12.1/{classKey}/{specId}/index.json
 ```
 
 然后用户点哪个分类，才下载对应的那个数据文件。不会一次性下载所有 WCL 数据。
@@ -325,7 +325,7 @@ COS_SECRET_KEY
 按顺序检查：
 
 1. GitHub Actions 是否成功。
-2. COS 里当前职业/专精目录的 `index.json` 是否更新，例如 `wcl-presets/data-4.4.x/mage/63/index.json`。
+2. COS 里当前职业/专精目录的 `index.json` 是否更新，例如 `wcl-presets/data-12.1/mage/63/index.json`。
 3. 浏览器打开 index.json，看 `generatedAt` 是否变了。
 4. 小程序开发工具里重新编译或清缓存。
 

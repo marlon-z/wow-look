@@ -1,4 +1,4 @@
-const DATA_VERSION = '4.4.x';
+const DATA_VERSION = '12.1';
 const DEFAULT_LEADERBOARD = 'LogsOnly';
 const MYTHIC_RAID_DIFFICULTY = 5;
 
@@ -130,14 +130,14 @@ const SPEC_CONFIG = {
 };
 
 const MYTHIC_PLUS_DUNGEONS = [
-  { id: 112526, name: "Algeth'ar Academy", localName: '艾杰斯亚学院' },
-  { id: 12811, name: "Magisters' Terrace", localName: '魔导师平台' },
-  { id: 12874, name: 'Maisara Caverns', localName: '迈萨拉洞窟' },
-  { id: 12915, name: 'Nexus-Point Xenas', localName: '节点希纳斯' },
-  { id: 10658, name: 'Pit of Saron', localName: '萨隆矿坑' },
-  { id: 361753, name: 'Seat of the Triumvirate', localName: '执政团之座' },
-  { id: 61209, name: 'Skyreach', localName: '通天峰' },
-  { id: 12805, name: 'Windrunner Spire', localName: '风行者之塔' },
+  { id: 12993, name: 'Altar of Fangs', localName: '毒牙祭坛' },
+  { id: 12813, name: 'Murder Row', localName: '密谋小径' },
+  { id: 12825, name: 'Den of Nalorakk', localName: '纳洛拉克的洞穴' },
+  { id: 12859, name: 'The Blinding Vale', localName: '夺目谷' },
+  { id: 12923, name: 'Voidscar Arena', localName: '虚空之痕竞技场' },
+  { id: 61762, name: "Kings' Rest", localName: '诸王之眠' },
+  { id: 112521, name: 'Ruby Life Pools', localName: '红玉新生法池' },
+  { id: 61877, name: 'Temple of Sethraliss', localName: '塞塔里斯神庙' },
 ];
 
 // 大秘境三档：最顶级(不限层数，按 score 取) / +10 / +16；均按 score 排序、按玩家去重。
@@ -149,31 +149,21 @@ const MYTHIC_PLUS_LEVELS = [
 
 const RAIDS = [
   {
-    zoneId: 46,
-    name: 'VS / DR / MQD',
-    localName: '史诗团本',
+    zoneId: 53,
+    name: 'The Venomous Abyss',
+    localName: '烈毒之渊',
     difficultyName: '史诗',
-    fileKey: 'raid-mythic-vs-dr-mqd',
+    fileKey: 'raid-mythic-venomous-abyss',
     bosses: [
-      { id: 3176, name: 'Imperator Averzian', localName: '元首阿福扎恩' },
-      { id: 3177, name: 'Vorasius', localName: '弗拉希乌斯' },
-      { id: 3179, name: 'Fallen-King Salhadaar', localName: '陨落之王萨哈达尔' },
-      { id: 3178, name: 'Vaelgor & Ezzorak', localName: '威厄高尔和艾佐拉克' },
-      { id: 3180, name: 'Lightblinded Vanguard', localName: '光盲先锋军' },
-      { id: 3181, name: 'Crown of the Cosmos', localName: '宇宙之冕' },
-      { id: 3306, name: 'Chimaerus, the Undreamt God', localName: '奇美鲁斯，未梦之神' },
-      { id: 3182, name: "Belo'ren, Child of Al'ar", localName: '贝洛朗，奥的子嗣' },
-      { id: 3183, name: 'Midnight Falls', localName: '至暗之夜降临' },
-    ],
-  },
-  {
-    zoneId: 50,
-    name: 'Sporefall',
-    localName: '孢陨幽境',
-    difficultyName: '史诗',
-    fileKey: 'raid-mythic-sporefall',
-    bosses: [
-      { id: 3159, name: 'Rotmire', localName: '腐沼' },
+      { id: 3470, name: "Nek'zali the Soulcoiler", localName: '盘魂者内克扎莉' },
+      { id: 3445, name: 'Entombed Sentinels', localName: '陵寝哨兵' },
+      { id: 3455, name: 'Vashnik the Malignant', localName: '万毒邪祟者瓦什尼克' },
+      { id: 3497, name: 'The Lost Explorers', localName: '迷失的探险者' },
+      { id: 3420, name: 'Sszorak', localName: '斯索拉克' },
+      { id: 3421, name: 'The Twin Fangs', localName: '双子毒牙' },
+      { id: 3429, name: 'The Coiled Altar', localName: '盘卷祭坛' },
+      { id: 3492, name: "Ula'tek", localName: '乌拉特克' },
+      { id: 3379, name: 'Nymrissa Wavecaller', localName: '尼姆瑞莎·唤波者' },
     ],
   },
 ];

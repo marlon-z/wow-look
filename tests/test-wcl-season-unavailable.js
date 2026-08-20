@@ -10,14 +10,17 @@ const openWclStart = page.indexOf('openWclPresets: function () {');
 const openWclEnd = page.indexOf('\n  },', openWclStart);
 const openWclPresets = page.slice(openWclStart, openWclEnd);
 
-assert.strictEqual(presets.WCL_SEASON_AVAILABLE, false, '赛季开始前必须明确关闭 WCL 数据入口。');
+assert.strictEqual(presets.WCL_SEASON_AVAILABLE, true, '第二赛季已开放 WCL 数据入口。');
 assert.ok(openWclStart >= 0 && openWclEnd > openWclStart, '应能找到排行榜配装打开逻辑。');
 assert.ok(
-  openWclPresets.indexOf('if (!WCL_SEASON_AVAILABLE)') < openWclPresets.indexOf('this.loadWclIndexForSpec'),
-  '未开放时必须在请求索引前结束。'
+  openWclPresets.indexOf('this.loadWclIndexForSpec') >= 0,
+  '开放后必须请求当前专精的排行榜索引。'
 );
 assert.match(page, /wclSeasonAvailable:\s*WCL_SEASON_AVAILABLE/);
-assert.match(template, /该功能暂未开放，待赛季开始后将接入。/);
-assert.match(template, /wx:if="\{\{!wclSeasonAvailable\}\}"/);
+const fileLoaderStart = page.indexOf('loadWclPresetFile: function (fileKey, levelName) {');
+const fileLoaderEnd = page.indexOf('\n  },', fileLoaderStart);
+const fileLoader = page.slice(fileLoaderStart, fileLoaderEnd);
+assert.match(fileLoader, /if \(!content\)/);
+assert.match(fileLoader, /预设文件加载失败/);
 
 console.log('WCL season unavailable tests passed.');

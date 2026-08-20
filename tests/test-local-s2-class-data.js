@@ -6,10 +6,13 @@ const vm = require('vm');
 const root = path.resolve(__dirname, '..');
 const source = fs.readFileSync(path.join(root, 'miniprogram', 'utils', 'class-data.js'), 'utf8');
 const appJson = JSON.parse(fs.readFileSync(path.join(root, 'miniprogram', 'app.json'), 'utf8'));
-const runtimeSources = fs.readdirSync(path.join(root, 'miniprogram'), { recursive: true })
-  .filter((relativePath) => relativePath.endsWith('.js'))
+const runtimeFiles = fs.readdirSync(path.join(root, 'miniprogram'), { recursive: true })
+  .filter((relativePath) => relativePath.endsWith('.js'));
+const runtimeSources = runtimeFiles
+  .filter((relativePath) => relativePath !== path.join('utils', 'wcl-presets.js'))
   .map((relativePath) => fs.readFileSync(path.join(root, 'miniprogram', relativePath), 'utf8'))
   .join('\n');
+const wclSource = fs.readFileSync(path.join(root, 'miniprogram', 'utils', 'wcl-presets.js'), 'utf8');
 
 assert.doesNotMatch(source, /wx\.request/, '职业数据加载器不得发起网络请求。');
 assert.doesNotMatch(source, /https?:\/\//, '职业数据加载器不得包含远端地址。');
@@ -28,8 +31,10 @@ classKeys.forEach((classKey) => {
     pages: ['pages/loader/loader'],
   }, `${classKey} 职业分包及其加载页必须完整注册。`);
 });
-assert.doesNotMatch(runtimeSources, /wx\.request/, '纯本地运行代码不得发起网络请求。');
-assert.doesNotMatch(runtimeSources, /wowlook-1308073800|127\.0\.0\.1/, '纯本地运行代码不得保留 COS 或本机数据服务地址。');
+assert.doesNotMatch(runtimeSources, /wx\.request/, '除 WCL 外的纯本地运行代码不得发起网络请求。');
+assert.doesNotMatch(runtimeSources, /wowlook-1308073800|127\.0\.0\.1/, '除 WCL 外的纯本地运行代码不得保留 COS 或本机数据服务地址。');
+assert.match(wclSource, /wx\.request/, 'WCL 预设必须通过 COS 按需请求。');
+assert.match(wclSource, /WCL_DATA_DIR = 'data-12\.1'/, 'WCL 请求必须固定到新赛季目录。');
 
 delete global.wx;
 const classDataPath = path.join(root, 'miniprogram', 'utils', 'class-data.js');

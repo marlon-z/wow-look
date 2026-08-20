@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { buildDefaultSpecMap } = require('./wcl-preset-config');
+const { buildDefaultSpecMap, DATA_VERSION } = require('./wcl-preset-config');
 
 const WCL_BASE = 'https://www.warcraftlogs.com';
 const SLOT_BY_GEAR_INDEX = {
@@ -447,7 +447,7 @@ function defaultOutputFile(args, encounter) {
     process.cwd(),
     'cos-upload',
     'wcl-authority-presets',
-    'data-4.4.x',
+    `data-${DATA_VERSION}`,
     args.classKey,
     String(args.specId),
     `${safeName}-top${args.top}.json`

@@ -1,9 +1,25 @@
 const assert = require('assert');
+const fs = require('fs');
+const path = require('path');
 const {
+  DATA_VERSION,
+  MYTHIC_PLUS_DUNGEONS,
+  RAIDS,
   getSpecConfig,
   listSpecs,
   buildDefaultSpecMap,
 } = require('../scripts/wcl-preset-config');
+
+assert.strictEqual(DATA_VERSION, '12.1');
+assert.deepStrictEqual(MYTHIC_PLUS_DUNGEONS.map((dungeon) => dungeon.id), [12993, 12813, 12825, 12859, 12923, 61762, 112521, 61877]);
+assert.strictEqual(RAIDS.length, 1);
+assert.strictEqual(RAIDS[0].zoneId, 53);
+assert.strictEqual(RAIDS[0].fileKey, 'raid-mythic-venomous-abyss');
+assert.strictEqual(RAIDS[0].bosses.length, 9);
+
+const workflow = fs.readFileSync(path.join(__dirname, '..', '.github', 'workflows', 'update-wcl-presets.yml'), 'utf8');
+assert.match(workflow, /WCL_DATA_DIR=data-\$\(node -p/);
+assert.ok(!workflow.includes('data-4.4.x'), '工作流不能继续上传旧 WCL 数据目录。');
 
 const guardian = getSpecConfig('druid', 104);
 assert.strictEqual(guardian.className, 'Druid');

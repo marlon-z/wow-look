@@ -2,13 +2,6 @@ var { getAssetBase } = require('./class-data');
 var { flattenItems, buildStatLine } = require('./equipment');
 var { updateBuild } = require('./builds');
 
-var manifest = null;
-try {
-  manifest = require('../data/wcl-presets/manifest');
-} catch (err) {
-  manifest = { entries: {} };
-}
-
 var STAT_NAME = {
   crit: '暴击',
   haste: '急速',
@@ -44,39 +37,55 @@ function buildEnchantsGems(presetSlots) {
   return list;
 }
 
-// Keep this false until the S2 WCL season is open and the preset feed has data.
-var WCL_SEASON_AVAILABLE = false;
+// WCL 预设独立使用 COS：装备库已全部改成本地包，不能复用 class-data 的数据目录或地址。
+var WCL_COS_BASE = 'https://wowlook-1308073800.cos.ap-guangzhou.myqcloud.com';
+var WCL_DATA_DIR = 'data-12.1';
+var WCL_REMOTE_PREFIX = 'wcl-presets/' + WCL_DATA_DIR;
+var WCL_SEASON_AVAILABLE = true;
 
-function entryKey(classKey, specId) {
-  return classKey + ':' + specId;
-}
-
-function getLocalEntry(classKey, specId) {
-  return manifest && manifest.entries ? manifest.entries[entryKey(classKey, specId)] : null;
-}
-
-function loadLocalIndex(classKey, specId) {
-  var entry = getLocalEntry(classKey, specId);
-  if (!entry || typeof entry.index !== 'function') {
-    return null;
-  }
-  return entry.index();
-}
-
-function loadLocalFile(classKey, specId, fileKey) {
-  var entry = getLocalEntry(classKey, specId);
-  if (!entry || !entry.files || typeof entry.files[fileKey] !== 'function') {
-    return null;
-  }
-  return entry.files[fileKey]();
+function loadRemoteJson(relativePath) {
+  return new Promise(function (resolve) {
+    if (typeof wx === 'undefined' || typeof wx.request !== 'function') {
+      resolve(null);
+      return;
+    }
+    var separator = relativePath.indexOf('?') === -1 ? '?' : '&';
+    wx.request({
+      url: WCL_COS_BASE + '/' + relativePath + separator + '_wclts=' + Date.now(),
+      success: function (res) {
+        if (!res || res.statusCode < 200 || res.statusCode >= 300) {
+          resolve(null);
+          return;
+        }
+        if (typeof res.data === 'string') {
+          try {
+            resolve(JSON.parse(res.data));
+          } catch (err) {
+            resolve(null);
+          }
+          return;
+        }
+        resolve(res.data || null);
+      },
+      fail: function () {
+        resolve(null);
+      },
+    });
+  });
 }
 
 function loadWclPresetIndex(classKey, specId) {
-  return Promise.resolve(loadLocalIndex(classKey, specId));
+  return loadRemoteJson(WCL_REMOTE_PREFIX + '/' + classKey + '/' + specId + '/index.json').then(function (remote) {
+    if (remote) remote.dataSource = 'remote';
+    return remote;
+  });
 }
 
 function loadWclPresetFile(classKey, specId, fileKey) {
-  return Promise.resolve(loadLocalFile(classKey, specId, fileKey));
+  return loadRemoteJson(WCL_REMOTE_PREFIX + '/' + classKey + '/' + specId + '/' + fileKey + '.json').then(function (remote) {
+    if (remote) remote.dataSource = 'remote';
+    return remote;
+  });
 }
 
 function cloneStats(stats) {
@@ -219,6 +228,8 @@ function applyWclPresetToBuild(buildId, preset, classData, specId, currentSlots)
 }
 
 module.exports = {
+  WCL_COS_BASE: WCL_COS_BASE,
+  WCL_DATA_DIR: WCL_DATA_DIR,
   WCL_SEASON_AVAILABLE: WCL_SEASON_AVAILABLE,
   loadWclPresetIndex: loadWclPresetIndex,
   loadWclPresetFile: loadWclPresetFile,

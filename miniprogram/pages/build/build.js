@@ -455,6 +455,11 @@ Page({
       wclPresetEntries: [],
     });
     loadWclPresetFile(this.data.selectedClassKey, this.data.wclSpecId, fileKey).then(function (content) {
+      if (!content) {
+        self.setData({ wclPresetLoading: false });
+        wx.showToast({ title: '预设文件加载失败', icon: 'none' });
+        return;
+      }
       var entries = self.normalizeWclPresetEntries(content && Array.isArray(content.entries) ? content.entries : []);
       var dungeonFilters = self.buildWclDungeonFilters(entries);
       self.setData({

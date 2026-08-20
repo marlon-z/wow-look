@@ -33,7 +33,7 @@ on:
         required: false
         type: string
   schedule:
-    # 每小时整点跑一组(2个专精)，按时间轮转；约20小时刷完全部40个专精一圈。
+    # 每小时整点更新 COS 上最旧的 3 个专精，控制 WCL 免费 API 配额。
     - cron: '0 * * * *'
 
 jobs:
@@ -74,6 +74,7 @@ jobs:
       - name: Resolve WCL output target
         shell: bash
         run: |
+          echo "WCL_DATA_DIR=data-$(node -p \"require('./scripts/wcl-preset-config').DATA_VERSION\")" >> "$GITHUB_ENV"
           partial=0
           if [ -n "${{ inputs.content }}" ] && [ "${{ inputs.content }}" != "all" ]; then partial=1; fi
           if [ -n "${{ inputs.levels }}" ]; then partial=1; fi
@@ -101,6 +102,9 @@ jobs:
           WCL_TOP_RAID: ${{ inputs.top_raid }}
         run: node scripts/update-wcl-presets.js
 
+      - name: Audit WCL equipment mapping
+        run: node scripts/audit-wcl-preset-mapping.js --source "$WCL_OUTPUT_ROOT/$WCL_DATA_DIR/${{ matrix.spec.classKey }}/${{ matrix.spec.specId }}" --class-key "${{ matrix.spec.classKey }}" --spec-id "${{ matrix.spec.specId }}"
+
       - name: Install Tencent COS SDK
         run: npm install --no-save cos-nodejs-sdk-v5
 
@@ -110,4 +114,4 @@ jobs:
           COS_SECRET_KEY: ${{ secrets.COS_SECRET_KEY }}
           COS_BUCKET: ${{ secrets.COS_BUCKET }}
           COS_REGION: ${{ secrets.COS_REGION }}
-        run: node scripts/upload-cos-prefix.js --source "$WCL_OUTPUT_ROOT/data-4.4.x/${{ matrix.spec.classKey }}/${{ matrix.spec.specId }}" --prefix "$WCL_COS_PREFIX/data-4.4.x/${{ matrix.spec.classKey }}/${{ matrix.spec.specId }}"
+        run: node scripts/upload-cos-prefix.js --source "$WCL_OUTPUT_ROOT/$WCL_DATA_DIR/${{ matrix.spec.classKey }}/${{ matrix.spec.specId }}" --prefix "$WCL_COS_PREFIX/$WCL_DATA_DIR/${{ matrix.spec.classKey }}/${{ matrix.spec.specId }}"

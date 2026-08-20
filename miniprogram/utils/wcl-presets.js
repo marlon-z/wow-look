@@ -254,6 +254,8 @@ function applyWclPresetToBuild(buildId, preset, classData, specId, currentSlots,
       wclCombatantSnapshot: !!(options && options.enabled && preset.combatantStats),
       combatantStats: options && options.enabled ? preset.combatantStats || null : null,
       slotSummary: summarizePresetSlots(preset.slots),
+      fileKey: options && options.fileKey ? options.fileKey : '',
+      contentType: options && options.contentType ? options.contentType : '',
       appliedAt: Date.now(),
     },
   });

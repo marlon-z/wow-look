@@ -36,7 +36,9 @@ const preset = {
   },
 };
 
-const result = applyWclPresetToBuild(build.id, preset, classData, 103, emptySlots());
+const result = applyWclPresetToBuild(build.id, preset, classData, 103, emptySlots(), {
+  fileKey: 'mythic-plus-top', contentType: 'mythicPlus',
+});
 assert.ok(result.build);
 assert.strictEqual(result.missing.length, 0);
 assert.strictEqual(result.build.slots.wrist.wcl.permanentEnchant, 8001);
@@ -45,6 +47,8 @@ assert.deepStrictEqual(result.build.slots.wrist.selectedCraftingStats.map((stat)
 assert.deepStrictEqual(result.build.wclPreset.enchantsGems, [{
   key: 'wrist', slot: '护腕', enchant: '测试附魔', gemText: '测试宝石',
 }]);
+assert.strictEqual(result.build.wclPreset.fileKey, 'mythic-plus-top');
+assert.strictEqual(result.build.wclPreset.contentType, 'mythicPlus');
 
 const snapshotBuild = createBuild('druid', '德鲁伊', 103, '野性', true);
 const snapshotPreset = {

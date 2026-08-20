@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "选择职业",
+  "enableShareAppMessage": true,
+  "enableShareTimeline": true,
   "usingComponents": {}
 }

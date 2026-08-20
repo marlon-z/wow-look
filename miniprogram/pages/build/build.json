@@ -1,3 +1,5 @@
 {
-  "navigationBarTitleText": "艾泽配装·配装模拟器"
+  "navigationBarTitleText": "艾泽配装·配装模拟器",
+  "enableShareAppMessage": true,
+  "enableShareTimeline": true
 }

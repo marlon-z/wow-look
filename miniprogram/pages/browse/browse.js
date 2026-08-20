@@ -32,4 +32,17 @@ Page({
       url: `/pages/equipment/equipment?classKey=${key}&className=${name}`,
     });
   },
+
+  onShareAppMessage() {
+    return {
+      title: '艾泽配装 · 查装备',
+      path: '/pages/browse/browse',
+    };
+  },
+
+  onShareTimeline() {
+    return {
+      title: '艾泽配装 · 查装备',
+    };
+  },
 });

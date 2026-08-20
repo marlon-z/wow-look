@@ -5,6 +5,7 @@ var {
   clearSlot, deleteBuild, renameBuild,
   clearAllSlots, emptySlots,
 } = require('../../utils/builds');
+var { buildSharePayload } = require('../../utils/build-share');
 var { getLayouts, mainHandOccupiesBoth, sanitizeWeaponSlots } = require('../../utils/weapon-rules');
 var {
   WCL_SEASON_AVAILABLE,
@@ -67,6 +68,19 @@ function getWeaponSlotsForSpec(specId, slots) {
   ];
 }
 
+function decodeShareParam(value) {
+  if (typeof value !== 'string') return '';
+  try {
+    return decodeURIComponent(value);
+  } catch (err) {
+    return '';
+  }
+}
+
+function loadShareRestore() {
+  return require.async('../../packages/share/utils/share-restore');
+}
+
 Page({
   data: {
     cosBase: COS_BASE,
@@ -121,6 +135,16 @@ Page({
 
   onLoad: function (options) {
     cleanupDrafts();
+    options = options || {};
+    // 分享链接的异步恢复必须先完成校验，避免先生成一个空草稿。
+    if (options.shareBuild) {
+      this.restoreSharedBuild(options);
+      return;
+    }
+    if (options.openWcl === '1' && options.wclFileKey && options.wclPresetId) {
+      this.restoreSharedWclPreset(options);
+      return;
+    }
     // 从首页"大神排行榜"入口进来(无职业): 选职业进入配装后自动打开排行榜配装面板
     this.pendingWcl = options.openWcl === '1';
     if (options.buildId) {
@@ -149,6 +173,67 @@ Page({
     if (!classMeta) return;
     var build = createBuild(classKey, className || classMeta.name, specId, specName, true);
     this.enterBuildPhase(build);
+  },
+
+  fallbackFromSharedLink: function (options) {
+    var classKey = options && options.classKey;
+    var specId = Number(options && options.specId);
+    if (!getClassMeta(classKey) || !specId) return;
+    this.quickStart(
+      classKey,
+      decodeShareParam(options.className),
+      specId,
+      decodeShareParam(options.specName)
+    );
+  },
+
+  restoreSharedBuild: function (options) {
+    wx.showLoading({ title: '恢复配装中' });
+    loadShareRestore().then(function (restore) {
+      var parsed = restore.parseBuildSharePayload(decodeShareParam(options.shareBuild));
+      if (!parsed) return null;
+      return loadClassData(parsed.classKey).then(function (classData) {
+        return { parsed: parsed, build: classData ? restore.persistSharedBuild(parsed, classData) : null };
+      });
+    }).then(function (result) {
+      wx.hideLoading();
+      if (!result || !result.build) {
+        wx.showToast({ title: '分享配装已失效，已打开空白配装', icon: 'none' });
+        this.fallbackFromSharedLink(options);
+        return;
+      }
+      this.enterBuildPhase(result.build);
+      wx.showToast({ title: '已恢复' + Object.keys(result.parsed.slots).length + '件装备，可直接编辑', icon: 'none' });
+    }.bind(this)).catch(function () {
+      wx.hideLoading();
+      wx.showToast({ title: '配装恢复失败', icon: 'none' });
+      this.fallbackFromSharedLink(options);
+    }.bind(this));
+  },
+
+  restoreSharedWclPreset: function (options) {
+    wx.showLoading({ title: '恢复排行榜配装中' });
+    var sharedOptions = Object.assign({}, options, {
+      wclFileKey: decodeShareParam(options.wclFileKey),
+      wclPresetId: decodeShareParam(options.wclPresetId),
+      wclContent: decodeShareParam(options.wclContent),
+    });
+    loadShareRestore().then(function (restore) {
+      return restore.restoreWclPreset(sharedOptions);
+    }).then(function (build) {
+      wx.hideLoading();
+      if (!build) {
+        wx.showToast({ title: '排行榜配装已失效', icon: 'none' });
+        this.fallbackFromSharedLink(options);
+        return;
+      }
+      this.enterBuildPhase(build);
+      wx.showToast({ title: '已恢复排行榜配装，可直接编辑', icon: 'none' });
+    }.bind(this)).catch(function () {
+      wx.hideLoading();
+      wx.showToast({ title: '排行榜配装恢复失败', icon: 'none' });
+      this.fallbackFromSharedLink(options);
+    }.bind(this));
   },
 
   onClassTap: function (e) {
@@ -466,6 +551,8 @@ Page({
       entries.forEach(function (entry) {
         (entry.presets || []).forEach(function (preset) {
           preset.wclCombatantSnapshotEnabled = wclCombatantSnapshotEnabled;
+          preset.wclFileKey = fileKey;
+          preset.wclContentType = self.data.selectedWclContentType;
         });
       });
       var dungeonFilters = self.buildWclDungeonFilters(entries);
@@ -580,7 +667,11 @@ Page({
         classData,
         targetSpecId,
         self.data.slots,
-        { enabled: preset.wclCombatantSnapshotEnabled === true }
+        {
+          enabled: preset.wclCombatantSnapshotEnabled === true,
+          fileKey: preset.wclFileKey || self.data.selectedWclFileKey,
+          contentType: preset.wclContentType || self.data.selectedWclContentType,
+        }
       );
       wx.hideLoading();
       if (!result || !result.build) {
@@ -770,6 +861,31 @@ Page({
       + '&specName=' + encodeURIComponent(this.data.selectedSpecName || '');
   },
 
+  buildCurrentWclShareQuery: function () {
+    var preset = this.data.currentWclPresetInfo;
+    if (!preset || !preset.fileKey || !preset.id || !preset.contentType) return '';
+    return this.buildShareBase()
+      + '&openWcl=1&wclContent=' + encodeURIComponent(preset.contentType)
+      + '&wclFileKey=' + encodeURIComponent(preset.fileKey)
+      + '&wclPresetId=' + encodeURIComponent(preset.id);
+  },
+
+  buildCurrentBuildShareQuery: function () {
+    var wclQuery = this.buildCurrentWclShareQuery();
+    if (wclQuery) return wclQuery;
+    var build = this.data.currentBuildId ? getBuild(this.data.currentBuildId) : null;
+    var payload = build ? buildSharePayload(build) : null;
+    return payload ? this.buildShareBase() + '&shareBuild=' + encodeURIComponent(payload) : this.buildShareBase();
+  },
+
+  buildWclPresetShareQuery: function (preset) {
+    if (!preset || !preset.id || !preset.wclFileKey || !preset.wclContentType) return '';
+    return this.buildShareBase()
+      + '&openWcl=1&wclContent=' + encodeURIComponent(preset.wclContentType)
+      + '&wclFileKey=' + encodeURIComponent(preset.wclFileKey)
+      + '&wclPresetId=' + encodeURIComponent(preset.id);
+  },
+
   onShareAppMessage: function (options) {
     var ds = (options && options.target && options.target.dataset) || {};
     var classKey = this.data.selectedClassKey;
@@ -786,7 +902,7 @@ Page({
         : (className + specName + ' 排行榜配装 · 一键抄作业');
       return {
         title: title,
-        path: '/pages/build/build?' + this.buildShareBase() + '&openWcl=1&wclContent=' + (this.data.selectedWclContentType || ''),
+        path: '/pages/build/build?' + (this.buildWclPresetShareQuery(preset) || this.buildShareBase()),
       };
     }
 
@@ -794,13 +910,13 @@ Page({
     if (ds.shareType === 'build' && classKey) {
       return {
         title: '看看这套' + className + specName + '配装｜艾泽配装',
-        path: '/pages/build/build?' + this.buildShareBase(),
+        path: '/pages/build/build?' + this.buildCurrentBuildShareQuery(),
       };
     }
 
     // 默认(右上…菜单转发)
     if (classKey) {
-      return { title: className + specName + ' 配装 · 艾泽配装', path: '/pages/build/build?' + this.buildShareBase() };
+      return { title: className + specName + ' 配装 · 艾泽配装', path: '/pages/build/build?' + this.buildCurrentBuildShareQuery() };
     }
     return { title: '艾泽配装 · 配装模拟器', path: '/pages/build/build' };
   },
@@ -811,7 +927,7 @@ Page({
     }
     return {
       title: (this.data.selectedClassName || '') + (this.data.selectedSpecName || '') + ' 配装 · 艾泽配装',
-      query: this.buildShareBase(),
+      query: this.buildCurrentBuildShareQuery(),
     };
   },
 

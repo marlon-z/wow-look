@@ -126,30 +126,39 @@ function buildItemSnapshot(item) {
     source: item.source || null,
     instanceName: item.instanceName || '',
     encounterName: item.encounterName || '',
+    selectedCraftingStats: Array.isArray(item.selectedCraftingStats)
+      ? item.selectedCraftingStats.map(function (stat) { return Object.assign({}, stat); })
+      : [],
   };
 }
 
-function createBuild(classKey, className, specId, specName, isDraft) {
+function createBuildRecord(classKey, className, specId, specName, isDraft, slots) {
   var now = Date.now();
-  var builds = getBuilds();
-  var sameSpecCount = builds.filter(function (b) {
-    return b.classKey === classKey && b.specId === specId && !b.draft;
-  }).length;
-  var name = className + ' · ' + specName + (sameSpecCount > 0 ? ' ' + (sameSpecCount + 1) : '');
-
-  var build = {
+  var resolvedSlots = slots || emptySlots();
+  return {
     id: 'build_' + now,
-    name: name,
+    name: className + ' · ' + specName,
     classKey: classKey,
     className: className,
     specId: specId,
     specName: specName,
-    slots: emptySlots(),
-    summary: summarizeSlots(emptySlots(), specId),
+    slots: resolvedSlots,
+    summary: summarizeSlots(resolvedSlots, specId),
     draft: !!isDraft,
     createdAt: now,
     updatedAt: now,
   };
+}
+
+function createBuild(classKey, className, specId, specName, isDraft) {
+  var builds = getBuilds();
+  var sameSpecCount = builds.filter(function (b) {
+    return b.classKey === classKey && b.specId === specId && !b.draft;
+  }).length;
+  var build = createBuildRecord(classKey, className, specId, specName, isDraft);
+  if (sameSpecCount > 0) {
+    build.name += ' ' + (sameSpecCount + 1);
+  }
 
   builds.unshift(build);
   saveBuilds(builds);

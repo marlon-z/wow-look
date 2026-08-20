@@ -6,6 +6,7 @@
     "pages/build/build"
   ],
   "subPackages": [
+    { "root": "packages/share", "name": "share", "pages": ["pages/loader/loader"] },
     { "root": "packages/class-warrior", "name": "class-warrior", "pages": ["pages/loader/loader"] },
     { "root": "packages/class-paladin", "name": "class-paladin", "pages": ["pages/loader/loader"] },
     { "root": "packages/class-hunter", "name": "class-hunter", "pages": ["pages/loader/loader"] },

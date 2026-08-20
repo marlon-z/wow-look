@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const { buildDefaultSpecMap, DATA_VERSION } = require('./wcl-preset-config');
+const { getSpecCharacterBaseline } = require('../miniprogram/utils/stat-baselines');
 
 const WCL_BASE = 'https://www.warcraftlogs.com';
 const SLOT_BY_GEAR_INDEX = {
@@ -38,6 +39,18 @@ const STAT_TYPE_BY_RATING_ID = {
   36: 'haste',
   40: 'versatility',
   49: 'mastery',
+};
+
+const PRIMARY_STAT_BY_MARKER_ID = {
+  3: 'agility',
+  4: 'strength',
+  5: 'intellect',
+};
+
+const PRIMARY_STAT_DISPLAY = {
+  strength: '力量',
+  agility: '敏捷',
+  intellect: '智力',
 };
 
 const WOWHEAD_TOOLTIP_BASE = 'https://nether.wowhead.com/tooltip/item';
@@ -224,17 +237,65 @@ function findCombatant(report, ranking) {
   const actor = actors.find((item) => item.name === ranking.name && (!ranking.class || item.subType === ranking.class))
     || actors.find((item) => item.name === ranking.name);
   const fightId = ranking.report && Number(ranking.report.fightID);
-  const sameFight = function (item) {
-    return !fightId || Number(item.fight) === fightId;
-  };
-  if (actor) {
-    const byActor = events.find((item) => item.sourceID === actor.id && item.gear && sameFight(item))
-      || events.find((item) => item.sourceID === actor.id && item.gear);
-    if (byActor && byActor.gear) return byActor;
+  if (!actor || !fightId) return null;
+  return events.find((item) => item.sourceID === actor.id
+    && Number(item.fight) === fightId
+    && item.gear
+    && (!ranking.specID || Number(item.specID) === Number(ranking.specID))) || null;
+}
+
+function readCombatantNumber(combatant, field) {
+  const value = combatant && combatant[field];
+  if (typeof value !== 'number' || !Number.isFinite(value) || value < 0) {
+    throw new Error(`缺少或无效 WCL 总属性字段: ${field}`);
   }
-  return events.find((item) => item.gear && item.gear.length >= 16 && sameFight(item) && (!ranking.specID || item.specID === ranking.specID))
-    || events.find((item) => item.gear && item.gear.length >= 16)
-    || null;
+  return value;
+}
+
+function combatantRatingPreference(options = {}) {
+  if (options.role === 'healer') return ['Spell', 'Melee', 'Ranged'];
+  if (options.classKey === 'hunter') return ['Ranged', 'Melee', 'Spell'];
+  return ['Melee', 'Ranged', 'Spell'];
+}
+
+function readCombatantRating(combatant, prefix, preference) {
+  const fields = preference.map((suffix) => prefix + suffix);
+  for (let index = 0; index < fields.length; index += 1) {
+    const field = fields[index];
+    if (typeof (combatant || {})[field] !== 'undefined' && (combatant || {})[field] !== null) {
+      return { value: readCombatantNumber(combatant, field), field };
+    }
+  }
+  throw new Error(`缺少 WCL 总属性字段: ${fields.join('/')}`);
+}
+
+function extractCombatantStats(combatant, options = {}) {
+  const preference = combatantRatingPreference(options);
+  const crit = readCombatantRating(combatant, 'crit', preference);
+  const haste = readCombatantRating(combatant, 'haste', preference);
+  const fixedFields = {
+    strength: 'strength',
+    agility: 'agility',
+    intellect: 'intellect',
+    stamina: 'stamina',
+    armor: 'armor',
+    mastery: 'mastery',
+    versatility: 'versatilityDamageDone',
+  };
+  const stats = {
+    crit: crit.value,
+    haste: haste.value,
+    fieldSources: {
+      crit: crit.field,
+      haste: haste.field,
+    },
+  };
+  Object.keys(fixedFields).forEach((key) => {
+    const field = fixedFields[key];
+    stats[key] = readCombatantNumber(combatant, field);
+    stats.fieldSources[key] = field;
+  });
+  return stats;
 }
 
 function loadCraftingMap() {
@@ -334,63 +395,125 @@ function htmlDecode(text) {
     .replace(/&quot;/g, '"');
 }
 
-function parseCraftedStatsFromTooltip(tooltip) {
+function parsePositiveMarkerValue(rawValue, label) {
+  const value = Number(String(rawValue || '').replace(/,/g, ''));
+  if (!Number.isFinite(value) || value <= 0 || Math.floor(value) !== value) {
+    throw new Error(`无效${label}数值: ${rawValue || '(空)'}`);
+  }
+  return value;
+}
+
+function aggregateStats(stats) {
+  const byType = {};
+  const ordered = [];
+  stats.forEach((stat) => {
+    if (!byType[stat.type]) {
+      byType[stat.type] = Object.assign({}, stat);
+      ordered.push(byType[stat.type]);
+    } else {
+      byType[stat.type].value += stat.value;
+    }
+  });
+  return ordered;
+}
+
+function parseActualSecondaryStats(tooltip) {
+  const source = String(tooltip || '');
+  const section = source.match(/<!--ebstats-->([\s\S]*?)<!--egstats-->/);
+  if (!section) return [];
+  const body = section[1];
   const stats = [];
-  const regex = /<!--rtg(\d+)-->\s*([0-9,]+)\s*([^<]+)/g;
-  let match = regex.exec(tooltip || '');
+  const marker = /<!--rtg(\d+)-->/g;
+  let match = marker.exec(body);
   while (match) {
     const ratingId = Number(match[1]);
+    const nextMarker = marker.lastIndex;
+    const following = body.slice(nextMarker, body.indexOf('<!--rtg', nextMarker) === -1 ? body.length : body.indexOf('<!--rtg', nextMarker));
     const type = STAT_TYPE_BY_RATING_ID[ratingId];
     if (type) {
+      const valueMatch = following.match(/^[\s+<\/a-zA-Z="'#;:.-]*([0-9][0-9,]*)/);
+      if (!valueMatch) throw new Error(`无效绿字数值: rtg${ratingId}`);
       stats.push({
         type,
-        name: STAT_DISPLAY[type] || htmlDecode(match[3]).trim(),
-        value: Number(String(match[2]).replace(/,/g, '')) || 0,
-        ratingId,
+        name: STAT_DISPLAY[type],
+        value: parsePositiveMarkerValue(valueMatch[1], '绿字'),
       });
     }
-    match = regex.exec(tooltip || '');
+    match = marker.exec(body);
   }
-  return stats;
+  return aggregateStats(stats);
+}
+
+function parseItemSnapshotFromTooltip(tooltipData, options = {}) {
+  const tooltip = tooltipData && String(tooltipData.tooltip || '');
+  const name = tooltipData && typeof tooltipData.name === 'string' ? tooltipData.name.trim() : '';
+  if (!name) throw new Error('无法确定装备名称');
+  if (!tooltip.trim()) throw new Error('无法确定绿字解析状态：物品说明为空');
+
+  const primary = [];
+  let stamina = null;
+  const statMarker = /<!--stat(\d+)-->([\s\S]*?)(?=<!--stat\d+-->|<!--ebstats-->|<!--|$)/g;
+  let statMatch = statMarker.exec(tooltip);
+  while (statMatch) {
+    const markerId = Number(statMatch[1]);
+    const supportedType = PRIMARY_STAT_BY_MARKER_ID[markerId]
+      || ((markerId === 71 || markerId === 74) && options.primaryType);
+    if (supportedType || markerId === 7) {
+      const valueMatch = statMatch[2].match(/\+?\s*([0-9][0-9,]*)/);
+      const value = parsePositiveMarkerValue(valueMatch && valueMatch[1], markerId === 7 ? '耐力' : '主属性');
+      if (markerId === 7) {
+        stamina = stamina ? { name: '耐力', value: stamina.value + value } : { name: '耐力', value };
+      } else {
+        primary.push({ type: supportedType, name: PRIMARY_STAT_DISPLAY[supportedType], value });
+      }
+    }
+    statMatch = statMarker.exec(tooltip);
+  }
+
+  const armorMatch = tooltip.match(/<!--amr-->([^<]*)/);
+  const armor = armorMatch
+    ? parsePositiveMarkerValue((armorMatch[1].match(/([0-9][0-9,]*)/) || [])[1], '护甲')
+    : 0;
+  return {
+    name,
+    primaryStats: aggregateStats(primary),
+    stamina,
+    armor,
+    secondaryStats: parseActualSecondaryStats(tooltip),
+  };
+}
+
+function parseCraftedStatsFromTooltip(tooltip) {
+  return parseActualSecondaryStats(tooltip).map((stat) => Object.assign({}, stat, {
+    ratingId: Object.keys(STAT_TYPE_BY_RATING_ID).map(Number).find((id) => STAT_TYPE_BY_RATING_ID[id] === stat.type),
+  }));
+}
+
+async function resolveGearStats(slotEntry, gearItem, craftingMap, tooltipOptions) {
+  const crafted = isCraftedCandidate(gearItem, craftingMap);
+  const craftedItem = (craftingMap.craftedItems && craftingMap.craftedItems[String(gearItem.id)]) || {};
+  const tooltip = await fetchWowheadTooltip(gearItem, tooltipOptions);
+  const snapshot = parseItemSnapshotFromTooltip(tooltip, tooltipOptions);
+  const result = {
+    ...slotEntry,
+    snapshotStatus: 'resolved',
+    snapshot,
+    snapshotSource: tooltip.url,
+  };
+  if (crafted) {
+    result.crafted = true;
+    result.craftedName = tooltip.name || craftedItem.name || '';
+    result.craftedStats = snapshot.secondaryStats.map((stat, index) => ({
+      ...stat,
+      randomAttributeIndex: index + 1,
+    }));
+    result.craftedStatsSource = tooltip.url;
+  }
+  return result;
 }
 
 async function resolveCrafting(slotEntry, gearItem, craftingMap, tooltipOptions) {
-  if (!isCraftedCandidate(gearItem, craftingMap)) return slotEntry;
-  const craftedItem = (craftingMap.craftedItems && craftingMap.craftedItems[String(gearItem.id)]) || {};
-  const key = `${gearItem.id}|${normalizeBonusIDs(gearItem.bonusIDs)}`;
-  try {
-    const tooltip = await fetchWowheadTooltip(gearItem, tooltipOptions);
-    const stats = parseCraftedStatsFromTooltip(tooltip.tooltip);
-    if (!stats.length) {
-      return {
-        ...slotEntry,
-        crafted: true,
-        craftedName: tooltip.name || craftedItem.name || '',
-        craftedStatsUnknown: true,
-        missingCraftingTooltip: key,
-        craftedStatsSource: tooltip.url,
-      };
-    }
-    return {
-      ...slotEntry,
-      crafted: true,
-      craftedName: tooltip.name || craftedItem.name || '',
-      craftedStats: stats.map((stat, index) => ({
-        ...stat,
-        randomAttributeIndex: index + 1,
-      })),
-      craftedStatsSource: tooltip.url,
-    };
-  } catch (err) {
-    return {
-      ...slotEntry,
-      crafted: true,
-      craftedName: craftedItem.name || '',
-      craftedStatsUnknown: true,
-      missingCraftingTooltip: key,
-      craftedStatsError: err.message,
-    };
-  }
+  return resolveGearStats(slotEntry, gearItem, craftingMap, tooltipOptions);
 }
 
 async function gearToSlots(gear, craftingMap, tooltipOptions) {
@@ -406,7 +529,7 @@ async function gearToSlots(gear, craftingMap, tooltipOptions) {
     };
     if (gearItem.permanentEnchant) entry.permanentEnchant = gearItem.permanentEnchant;
     if (Array.isArray(gearItem.gems) && gearItem.gems.length) entry.gems = gearItem.gems;
-    slots[slotKey] = await resolveCrafting(entry, gearItem, craftingMap, tooltipOptions);
+    slots[slotKey] = await resolveGearStats(entry, gearItem, craftingMap, tooltipOptions);
   }
   return slots;
 }
@@ -437,7 +560,10 @@ async function buildPreset(encounter, ranking, combatant, rankIndex, craftingMap
       pvpTalents,
       exportString: '',
     },
-    slots: await gearToSlots(combatant.gear || [], craftingMap, tooltipOptions),
+    combatantStats: extractCombatantStats(combatant, tooltipOptions),
+    slots: await gearToSlots(combatant.gear || [], craftingMap, Object.assign({}, tooltipOptions, {
+      primaryType: (getSpecCharacterBaseline(combatant.specID) || {}).primaryType || '',
+    })),
   };
 }
 
@@ -560,6 +686,8 @@ module.exports = {
   fetchReportCombatants,
   fetchTalentImportCode,
   findCombatant,
+  extractCombatantStats,
+  combatantRatingPreference,
   loadCraftingMap,
   readJsonFile,
   writeJsonFile,
@@ -567,6 +695,9 @@ module.exports = {
   normalizeBonusIDs,
   hasCraftingBonusSignature,
   parseCraftedStatsFromTooltip,
+  parseActualSecondaryStats,
+  parseItemSnapshotFromTooltip,
+  resolveGearStats,
   resolveCrafting,
   gearToSlots,
   buildPreset,

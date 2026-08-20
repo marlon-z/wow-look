@@ -86,22 +86,46 @@ function createReport(classKey, specId) {
       wrongSpecItems: [],
       slotMismatches: [],
       preservedMetadata: { craftedStats: 0, enchants: 0, gems: 0 },
+      snapshot: { resolved: 0, missing: 0, noSecondary: 0, tierMapped: 0 },
+      combatantStats: { resolved: 0, missing: 0 },
     },
   };
 }
 
 function auditPresetFile(file, allItems, specItems, report) {
   const source = JSON.parse(fs.readFileSync(file, 'utf8'));
-  const fileReport = { file: path.basename(file), presets: 0, slots: 0 };
+  const fileReport = {
+    file: path.basename(file), presets: 0, slots: 0,
+    snapshot: { resolved: 0, missing: 0, noSecondary: 0, tierMapped: 0 },
+    combatantStats: { resolved: 0, missing: 0 },
+  };
   (source.entries || []).forEach((entry) => {
     (entry.presets || []).forEach((preset) => {
       fileReport.presets += 1;
       report.summary.presets += 1;
+      if (preset.combatantStats && preset.combatantStats.fieldSources) {
+        fileReport.combatantStats.resolved += 1;
+        report.summary.combatantStats.resolved += 1;
+      } else {
+        fileReport.combatantStats.missing += 1;
+        report.summary.combatantStats.missing += 1;
+      }
       Object.keys(preset.slots || {}).forEach((wclSlot) => {
         const slot = preset.slots[wclSlot];
         if (!slot || !slot.itemId) return;
         fileReport.slots += 1;
         report.summary.slots += 1;
+        if (slot.snapshotStatus === 'resolved' && slot.snapshot) {
+          fileReport.snapshot.resolved += 1;
+          report.summary.snapshot.resolved += 1;
+          if (!Array.isArray(slot.snapshot.secondaryStats) || !slot.snapshot.secondaryStats.length) {
+            fileReport.snapshot.noSecondary += 1;
+            report.summary.snapshot.noSecondary += 1;
+          }
+        } else {
+          fileReport.snapshot.missing += 1;
+          report.summary.snapshot.missing += 1;
+        }
         if (Array.isArray(slot.craftedStats) && slot.craftedStats.length) report.summary.preservedMetadata.craftedStats += 1;
         if (slot.permanentEnchant || slot.enchantName) report.summary.preservedMetadata.enchants += 1;
         if (Array.isArray(slot.gems) && slot.gems.length) report.summary.preservedMetadata.gems += 1;
@@ -126,6 +150,10 @@ function auditPresetFile(file, allItems, specItems, report) {
           return;
         }
         report.summary.mappedItems += 1;
+        if ((item.sourceType || item.instanceType) === 'tier') {
+          fileReport.snapshot.tierMapped += 1;
+          report.summary.snapshot.tierMapped += 1;
+        }
       });
     });
   });

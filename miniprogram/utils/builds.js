@@ -1,4 +1,4 @@
-var { summarizeSlots, BUILD_SLOT_KEYS } = require('./stat-calc');
+var { summarizeSlots, summarizeWclCombatant, BUILD_SLOT_KEYS } = require('./stat-calc');
 var { applyWeaponSelection } = require('./weapon-rules');
 var { getAssetBase } = require('./class-data');
 var { normalizeLocalIconPath } = require('./local-icon-path');
@@ -11,6 +11,18 @@ function emptySlots() {
     slots[key] = null;
   });
   return slots;
+}
+
+function hasWclCombatantSnapshot(build) {
+  return !!(build && build.wclPreset && build.wclPreset.wclCombatantSnapshot === true
+    && build.wclPreset.combatantStats && typeof build.wclPreset.combatantStats === 'object');
+}
+
+function summarizeBuild(build) {
+  if (hasWclCombatantSnapshot(build)) {
+    return summarizeWclCombatant(build.wclPreset.combatantStats, build.specId, build.wclPreset.slotSummary);
+  }
+  return summarizeSlots(build.slots || emptySlots(), build.specId);
 }
 
 function normalizeBuildsWithMigration(value) {
@@ -40,7 +52,7 @@ function normalizeBuildsWithMigration(value) {
         });
       }
       if (normalizedBuild.slots && normalizedBuild.specId) {
-        normalizedBuild.summary = summarizeSlots(normalizedBuild.slots, normalizedBuild.specId);
+        normalizedBuild.summary = summarizeBuild(normalizedBuild);
       }
       return normalizedBuild;
     });
@@ -198,7 +210,7 @@ function updateBuild(buildId, updates) {
   }
   updated.updatedAt = Date.now();
   if (updated.slots) {
-    updated.summary = summarizeSlots(updated.slots, updated.specId);
+    updated.summary = summarizeBuild(updated);
   }
 
   builds[index] = updated;
@@ -216,7 +228,7 @@ function setSlotItem(buildId, slotKey, item) {
     slots[slotKeys[i]] = build.slots[slotKeys[i]];
   }
   slots[slotKey] = item ? buildItemSnapshot(item) : null;
-  return updateBuild(buildId, { slots: slots });
+  return updateBuild(buildId, { slots: slots, wclPreset: null });
 }
 
 function setWeaponSlotItem(buildId, slotKey, item) {
@@ -225,7 +237,7 @@ function setWeaponSlotItem(buildId, slotKey, item) {
   var snapshot = buildItemSnapshot(item);
   var result = applyWeaponSelection(build.slots, build.specId, slotKey, snapshot);
   if (!result.ok) return result;
-  var updated = updateBuild(buildId, { slots: result.slots });
+  var updated = updateBuild(buildId, { slots: result.slots, wclPreset: null });
   return { ok: !!updated, build: updated, clearedOffHand: result.clearedOffHand };
 }
 
@@ -243,7 +255,7 @@ function renameBuild(buildId, newName) {
 }
 
 function clearAllSlots(buildId) {
-  return updateBuild(buildId, { slots: emptySlots() });
+  return updateBuild(buildId, { slots: emptySlots(), wclPreset: null });
 }
 
 function getAvailableSlotKey(build, item) {
@@ -294,4 +306,6 @@ module.exports = {
   slotKeyForItem: slotKeyForItem,
   getAvailableSlotKey: getAvailableSlotKey,
   isDuplicateEquip: isDuplicateEquip,
+  hasWclCombatantSnapshot: hasWclCombatantSnapshot,
+  summarizeBuild: summarizeBuild,
 };

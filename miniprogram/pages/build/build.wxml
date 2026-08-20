@@ -248,7 +248,8 @@
       </view>
 
       <view class="stats-bottom-hint">
-        <text>已含90级基础主属性与耐力{{summary.armorSpecializationActive ? '、护甲专精5%加成' : ''}}；不含种族、天赋、附魔、宝石及临时 Buff</text>
+        <text wx:if="{{summary.isWclCombatantSnapshot}}">WCL 角色总属性，含记录时已生效的食物、光环等状态；不按装备卡逐件相加</text>
+        <text wx:else>已含90级基础主属性与耐力{{summary.armorSpecializationActive ? '、护甲专精5%加成' : ''}}；不含种族、天赋、附魔、宝石及临时 Buff</text>
       </view>
     </view>
 

@@ -14,7 +14,7 @@ const classData = {
     encounters: [{
       id: 1,
       items: [
-        { id: 1, slot: 'head', specs: [103] },
+        { id: 1, slot: 'head', specs: [103], sourceType: 'tier' },
         { id: 2, slot: 'finger', specs: [103] },
         { id: 3, slot: 'trinket', specs: [103] },
         { id: 4, slot: 'weapon', specs: [103] },
@@ -29,8 +29,12 @@ const source = {
   entries: [{
     presets: [{
       id: 'fixture-preset',
+      combatantStats: { fieldSources: { crit: 'critMelee' } },
       slots: {
-        head: { itemId: 1, permanentEnchant: 10, enchantName: '附魔', gems: [{ id: 20, name: '宝石' }] },
+        head: {
+          itemId: 1, permanentEnchant: 10, enchantName: '附魔', gems: [{ id: 20, name: '宝石' }],
+          snapshotStatus: 'resolved', snapshot: { secondaryStats: [] },
+        },
         finger1: { itemId: 2 },
         finger2: { itemId: 2 },
         trinket1: { itemId: 3 },
@@ -65,5 +69,7 @@ assert.strictEqual(report.summary.wrongSpecItems[0].itemId, 6);
 assert.strictEqual(report.summary.slotMismatches.length, 1);
 assert.strictEqual(report.summary.slotMismatches[0].itemId, 5);
 assert.deepStrictEqual(report.summary.preservedMetadata, { craftedStats: 1, enchants: 1, gems: 1 });
+assert.deepStrictEqual(report.summary.snapshot, { resolved: 1, missing: 9, noSecondary: 1, tierMapped: 1 });
+assert.deepStrictEqual(report.summary.combatantStats, { resolved: 1, missing: 0 });
 
 console.log('wcl preset mapping audit tests passed');

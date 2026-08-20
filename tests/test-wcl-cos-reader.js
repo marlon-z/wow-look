@@ -18,6 +18,12 @@ async function main() {
   assert.strictEqual(parsed.pathname, '/wcl-presets/data-12.1/mage/63/index.json');
   assert.ok(parsed.searchParams.get('_wclts'));
   assert.strictEqual(index.dataSource, 'remote');
+  assert.strictEqual(presets.hasWclCombatantSnapshot(
+    { wclCombatantSnapshot: true }, { wclCombatantSnapshot: true }
+  ), true);
+  assert.strictEqual(presets.hasWclCombatantSnapshot(
+    { wclCombatantSnapshot: true }, { wclCombatantSnapshot: false }
+  ), false);
 
   presets = loadPresets((options) => options.success({ statusCode: 200, data: '{bad json' }));
   assert.strictEqual(await presets.loadWclPresetFile('mage', 63, 'mythic-plus-top'), null);

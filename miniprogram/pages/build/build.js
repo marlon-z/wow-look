@@ -10,6 +10,7 @@ var {
   WCL_SEASON_AVAILABLE,
   loadWclPresetIndex,
   loadWclPresetFile,
+  hasWclCombatantSnapshot,
   applyWclPresetToBuild,
 } = require('../../utils/wcl-presets');
 
@@ -461,6 +462,12 @@ Page({
         return;
       }
       var entries = self.normalizeWclPresetEntries(content && Array.isArray(content.entries) ? content.entries : []);
+      var wclCombatantSnapshotEnabled = hasWclCombatantSnapshot(self.data.wclPresetIndex, content);
+      entries.forEach(function (entry) {
+        (entry.presets || []).forEach(function (preset) {
+          preset.wclCombatantSnapshotEnabled = wclCombatantSnapshotEnabled;
+        });
+      });
       var dungeonFilters = self.buildWclDungeonFilters(entries);
       self.setData({
         selectedWclLevelName: levelName || self.data.selectedWclLevelName,
@@ -572,7 +579,8 @@ Page({
         preset,
         classData,
         targetSpecId,
-        self.data.slots
+        self.data.slots,
+        { enabled: preset.wclCombatantSnapshotEnabled === true }
       );
       wx.hideLoading();
       if (!result || !result.build) {

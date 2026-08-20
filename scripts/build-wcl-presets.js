@@ -23,6 +23,7 @@ const {
   getSpecConfig,
   listSpecs,
 } = require('./wcl-preset-config');
+const { auditDirectory, writeReport } = require('./audit-wcl-preset-mapping');
 // 附魔/宝石 中文名静态映射(一次性建全, 换赛季维护此文件); build 时只查表, 不调任何 API。
 const NAME_MAP = require('./wcl-name-map.json');
 
@@ -45,7 +46,6 @@ function parseArgs(argv) {
     writeMiniProgram: false,
     sample: false,
     outputRoot: DEFAULT_OUTPUT_ROOT,
-    allowPartialProduction: false,
   };
   for (let i = 2; i < argv.length; i += 1) {
     const key = argv[i];
@@ -62,7 +62,6 @@ function parseArgs(argv) {
     else if (key === '--write-miniprogram') { args.writeMiniProgram = true; }
     else if (key === '--sample') { args.sample = true; }
     else if (key === '--output-root') { args.outputRoot = path.resolve(process.cwd(), val); i += 1; }
-    else if (key === '--allow-partial-production') { args.allowPartialProduction = true; }
   }
   return args;
 }
@@ -91,8 +90,8 @@ function isProductionOutputRoot(outputRoot) {
 }
 
 function validateGenerationScope(args) {
-  if (isPartialGeneration(args) && isProductionOutputRoot(args.outputRoot) && !args.allowPartialProduction) {
-    throw new Error('局部/取样生成不能写入正式 wcl-presets 目录；请使用 --output-root cos-upload/wcl-presets-test，或明确传 --allow-partial-production。');
+  if (isPartialGeneration(args) && isProductionOutputRoot(args.outputRoot)) {
+    throw new Error('局部/取样生成不能写入正式 wcl-presets 目录；请使用 --output-root cos-upload/wcl-presets-test。');
   }
 }
 
@@ -182,6 +181,27 @@ function compactSlot(slot) {
     }));
   }
   if (slot.craftedStatsUnknown) result.craftedStatsUnknown = true;
+  if (slot.snapshotStatus === 'resolved' && slot.snapshot) {
+    result.snapshotStatus = 'resolved';
+    result.snapshot = {
+      name: slot.snapshot.name,
+      primaryStats: (slot.snapshot.primaryStats || []).map((stat) => ({
+        type: stat.type,
+        name: stat.name,
+        value: stat.value,
+      })),
+      stamina: slot.snapshot.stamina ? {
+        name: slot.snapshot.stamina.name,
+        value: slot.snapshot.stamina.value,
+      } : null,
+      armor: slot.snapshot.armor || 0,
+      secondaryStats: (slot.snapshot.secondaryStats || []).map((stat) => ({
+        type: stat.type,
+        name: stat.name,
+        value: stat.value,
+      })),
+    };
+  }
   return result;
 }
 
@@ -245,8 +265,19 @@ function compactPreset(spec, preset, diagnostics, context) {
       } : {}),
     },
     talents: buildTalentPayload(spec, preset, diagnostics),
+    combatantStats: preset.combatantStats,
     slots,
   };
+}
+
+function assertCompleteCombatantSnapshots(entries) {
+  (entries || []).forEach((entry) => (entry.presets || []).forEach((preset) => {
+    if (!preset.combatantStats || !preset.combatantStats.fieldSources) throw new Error(`WCL 预设缺少总属性: ${preset.id || ''}`);
+    Object.keys(preset.slots || {}).forEach((key) => {
+      const slot = preset.slots[key];
+      if (!slot || slot.snapshotStatus !== 'resolved' || !slot.snapshot) throw new Error(`WCL 预设缺少装备快照: ${preset.id || ''}/${key}`);
+    });
+  }));
 }
 
 function writeJson(file, data) {
@@ -322,7 +353,10 @@ async function fetchCombatantPreset(token, spec, encounter, ranking, rankIndex, 
   if (Number(combatant.specID) !== Number(spec.specId)) {
     throw new Error(`wrong-spec-${combatant.specID}`);
   }
-  const preset = await buildPreset(encounter, ranking, combatant, rankIndex, craftingMap, tooltipOptions);
+  const preset = await buildPreset(encounter, ranking, combatant, rankIndex, craftingMap, Object.assign({}, tooltipOptions, {
+    classKey: spec.classKey,
+    role: spec.role,
+  }));
   // 天赋导入码：用 WCL 官方 talentImportCode(reportCode + fightID + actorID)
   const talentImportCode = await fetchTalentImportCode(
     token,
@@ -426,7 +460,8 @@ async function buildMythicPlusFiles(token, spec, args, generatedAt, craftingMap,
       ));
     }
     const output = {
-      schemaVersion: 2,
+      schemaVersion: 4,
+      wclCombatantSnapshot: true,
       generatedAt,
       dataVersion: DATA_VERSION,
       classKey: spec.classKey,
@@ -439,6 +474,7 @@ async function buildMythicPlusFiles(token, spec, args, generatedAt, craftingMap,
       entries,
     };
     const quality = summarizeEntryQuality(entries);
+    assertCompleteCombatantSnapshots(entries);
     files.push({
       ...level,
       dungeonCount: entries.length,
@@ -483,7 +519,8 @@ async function buildRaidFiles(token, spec, args, generatedAt, craftingMap, toolt
       ));
     }
     const output = {
-      schemaVersion: 2,
+      schemaVersion: 4,
+      wclCombatantSnapshot: true,
       generatedAt,
       dataVersion: DATA_VERSION,
       classKey: spec.classKey,
@@ -499,6 +536,7 @@ async function buildRaidFiles(token, spec, args, generatedAt, craftingMap, toolt
       entries,
     };
     const quality = summarizeEntryQuality(entries);
+    assertCompleteCombatantSnapshots(entries);
     files.push({
       zoneId: raid.zoneId,
       name: raid.localName,
@@ -520,7 +558,8 @@ async function buildRaidFiles(token, spec, args, generatedAt, craftingMap, toolt
 
 function buildIndex(spec, generatedAt, mythicPlusFiles, raidFiles) {
   return {
-    schemaVersion: 2,
+    schemaVersion: 4,
+    wclCombatantSnapshot: true,
     generatedAt,
     dataVersion: DATA_VERSION,
     classKey: spec.classKey,
@@ -543,22 +582,68 @@ function buildIndex(spec, generatedAt, mythicPlusFiles, raidFiles) {
   };
 }
 
+function mergeFiles(existing, generated) {
+  const map = {};
+  (existing || []).forEach((item) => { map[item.fileKey] = item; });
+  (generated || []).forEach((item) => { map[item.fileKey] = item; });
+  return Object.keys(map).map((key) => map[key]);
+}
+
+function mergePartialIndex(existing, next, args) {
+  if (!existing || !isPartialGeneration(args)) return next;
+  if (args.content === 'mythic-plus') {
+    next.raid = existing.raid || [];
+    next.mythicPlus = mergeFiles(existing.mythicPlus, next.mythicPlus);
+  } else if (args.content === 'raid') {
+    next.mythicPlus = existing.mythicPlus || [];
+    next.raid = mergeFiles(existing.raid, next.raid);
+  }
+  return next;
+}
+
+function replaceDirectoryAtomic(destination, staging) {
+  const rollback = `${destination}.rollback-${process.pid}-${Date.now()}`;
+  let movedOld = false;
+  try {
+    if (fs.existsSync(destination)) {
+      fs.renameSync(destination, rollback);
+      movedOld = true;
+    }
+    fs.renameSync(staging, destination);
+    if (movedOld) fs.rmSync(rollback, { recursive: true, force: true });
+  } catch (error) {
+    if (movedOld && !fs.existsSync(destination) && fs.existsSync(rollback)) fs.renameSync(rollback, destination);
+    throw error;
+  }
+}
+
 async function buildSpec(token, spec, args, shared) {
   const generatedAt = Date.now();
-  const outRoot = path.join(args.outputRoot, `data-${DATA_VERSION}`, spec.classKey, String(spec.specId));
+  const destinationRoot = path.join(args.outputRoot, `data-${DATA_VERSION}`, spec.classKey, String(spec.specId));
+  const outRoot = `${destinationRoot}.staging-${process.pid}-${Date.now()}`;
+  if (isPartialGeneration(args) && fs.existsSync(destinationRoot)) {
+    fs.mkdirSync(path.dirname(outRoot), { recursive: true });
+    fs.cpSync(destinationRoot, outRoot, { recursive: true });
+  } else {
+    fs.mkdirSync(outRoot, { recursive: true });
+  }
   const miniRoot = path.join(process.cwd(), 'miniprogram', 'data', 'wcl-presets');
   const miniSpecRoot = path.join(miniRoot, `data-${DATA_VERSION}`, spec.classKey, String(spec.specId));
 
   const mythicPlusFiles = await buildMythicPlusFiles(token, spec, args, generatedAt, shared.craftingMap, shared.tooltipOptions, outRoot, miniSpecRoot);
   const raidFiles = await buildRaidFiles(token, spec, args, generatedAt, shared.craftingMap, shared.tooltipOptions, outRoot, miniSpecRoot);
   validateProductionSpecQuality(args, spec, mythicPlusFiles.concat(raidFiles));
-  const index = buildIndex(spec, generatedAt, mythicPlusFiles, raidFiles);
+  const existingIndex = readDataFile(path.join(destinationRoot, 'index.json'), null);
+  const index = mergePartialIndex(existingIndex, buildIndex(spec, generatedAt, mythicPlusFiles, raidFiles), args);
   writeJson(path.join(outRoot, 'index.json'), index);
+  const report = auditDirectory({ source: outRoot, classKey: spec.classKey, specId: spec.specId });
+  writeReport(outRoot, report);
+  replaceDirectoryAtomic(destinationRoot, outRoot);
   if (args.writeMiniProgram) {
     writeJsModule(path.join(miniSpecRoot, 'index.js'), index);
     writeMiniProgramManifest(miniRoot);
   }
-  console.log(`已写入: ${path.relative(process.cwd(), outRoot)}`);
+  console.log(`已写入: ${path.relative(process.cwd(), destinationRoot)}`);
   return index;
 }
 

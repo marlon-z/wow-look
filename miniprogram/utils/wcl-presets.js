@@ -18,7 +18,6 @@ var SLOT_LABEL = {
 var SLOT_ORDER = ['head', 'neck', 'shoulder', 'cloak', 'chest', 'wrist', 'hand',
   'waist', 'legs', 'feet', 'finger1', 'finger2', 'trinket1', 'trinket2', 'weapon', 'weapon2'];
 
-// 从预设槽位提取"附魔宝石"展示列表(只含有附魔或宝石的部位); 名字已由后端按映射表写好。
 function buildEnchantsGems(presetSlots) {
   var list = [];
   SLOT_ORDER.forEach(function (key) {
@@ -102,38 +101,54 @@ function cloneStats(stats) {
   };
 }
 
-function applyWclSlotOverrides(baseItem, wclSlot, slotKey) {
+function normalizeWclSnapshot(wclSlot) {
+  var s = wclSlot && wclSlot.snapshot;
+  if (!wclSlot || wclSlot.snapshotStatus !== 'resolved' || !s || !s.name) return null;
+  var n = function (x, names) { return { type: x.type, name: x.name || names[x.type] || x.type, value: Number(x.value) || 0 }; };
+  return { name: s.name, primaryStats: Array.isArray(s.primaryStats) ? s.primaryStats.map(function (x) { return n(x, {}); }) : [],
+    stamina: s.stamina && typeof s.stamina === 'object' ? { name: s.stamina.name || '耐力', value: Number(s.stamina.value) || 0 } : null,
+    armor: Number(s.armor) || 0, secondary: Array.isArray(s.secondaryStats) ? s.secondaryStats.map(function (x) { return n(x, STAT_NAME); }) : [] };
+}
+
+function snapshotStats(snapshot, existingStats) {
+  var s = cloneStats(existingStats) || { effects: { equip: [], use: [] }, white: {} };
+  return Object.assign({}, s, { primaryStats: snapshot.primaryStats, stamina: snapshot.stamina || 0, armor: snapshot.armor, secondary: snapshot.secondary });
+}
+
+function applyWclSlotOverrides(baseItem, wclSlot, slotKey, options) {
+  var snapshot = options && options.enabled ? normalizeWclSnapshot(wclSlot) : null;
   if (!baseItem) {
     var craftedStats = Array.isArray(wclSlot.craftedStats) ? wclSlot.craftedStats : [];
+    var secondary = snapshot ? snapshot.secondary : craftedStats.map(function (stat) {
+      return { type: stat.type, name: stat.name || STAT_NAME[stat.type] || stat.type, value: stat.value || 0 };
+    });
+    if (wclSlot.crafted) {
+      secondary = secondary.map(function (stat, index) {
+        return Object.assign({}, stat, { craftedRandom: true, randomAttributeIndex: index + 1 });
+      });
+    }
     return {
       id: wclSlot.itemId,
-      name: '未知装备 ' + wclSlot.itemId,
+      name: snapshot ? snapshot.name : ('未知装备 ' + wclSlot.itemId),
       ilvl: wclSlot.ilvl || 0,
       slot: slotKey,
       slotName: slotKey,
       iconText: '装',
-      statLine: craftedStats.map(function (stat) {
+      statLine: secondary.map(function (stat) {
         return (stat.name || STAT_NAME[stat.type] || stat.type) + stat.value;
       }).join(' / '),
-      stats: craftedStats.length ? {
-        primaryStats: [],
-        stamina: 0,
-        secondary: craftedStats.map(function (stat) {
-          return {
-            type: stat.type,
-            name: stat.name || STAT_NAME[stat.type] || stat.type,
-            value: stat.value || 0,
-            craftedRandom: true,
-            randomAttributeIndex: stat.randomAttributeIndex,
-          };
-        }),
+      stats: snapshot || secondary.length ? {
+        primaryStats: snapshot ? snapshot.primaryStats : [],
+        stamina: snapshot ? (snapshot.stamina || 0) : 0,
+        armor: snapshot ? snapshot.armor : 0,
+        secondary: secondary,
         effects: { equip: [], use: [] },
         white: {},
       } : null,
       source: {
-        difficultyName: 'WCL',
+        difficultyName: snapshot ? 'WCL 排行榜数据' : 'WCL',
       },
-      instanceName: 'WCL',
+      instanceName: snapshot ? 'WCL 排行榜数据' : 'WCL',
       wclMissingLocalItem: true,
     };
   }
@@ -143,13 +158,23 @@ function applyWclSlotOverrides(baseItem, wclSlot, slotKey) {
     item.iconAsset = getAssetBase() + item.iconAsset;
   }
   item.ilvl = wclSlot.ilvl || item.ilvl || 0;
+  if (snapshot) {
+    item.name = snapshot.name;
+    item.stats = snapshotStats(snapshot, item.stats);
+  }
   item.wcl = {
     bonusIDs: wclSlot.bonusIDs || [],
     gems: wclSlot.gems || [],
     permanentEnchant: wclSlot.permanentEnchant || null,
   };
 
-  if (Array.isArray(wclSlot.craftedStats) && wclSlot.craftedStats.length) {
+  if (wclSlot.crafted && snapshot) {
+    var snapshotCrafted = (item.stats.secondary || []).map(function (stat, index) {
+      return Object.assign({}, stat, { craftedRandom: true, randomAttributeIndex: index + 1 });
+    });
+    item.stats.secondary = snapshotCrafted;
+    item.selectedCraftingStats = snapshotCrafted;
+  } else if (Array.isArray(wclSlot.craftedStats) && wclSlot.craftedStats.length) {
     var stats = cloneStats(item.stats) || {
       primaryStats: [],
       stamina: 0,
@@ -179,6 +204,15 @@ function applyWclSlotOverrides(baseItem, wclSlot, slotKey) {
   return item;
 }
 
+function hasWclCombatantSnapshot(index, content) {
+  return !!(index && content && index.wclCombatantSnapshot === true && content.wclCombatantSnapshot === true);
+}
+
+function summarizePresetSlots(slots) {
+  var a = Object.keys(slots || {}).reduce(function (v, k) { var s = slots[k]; return [v[0] + (s ? 1 : 0), v[1] + (Number(s && s.ilvl) || 0)]; }, [0, 0]);
+  return { avgIlvl: a[0] ? Math.round(a[1] / SLOT_ORDER.length) : 0, filledSlots: a[0], occupiedSlots: a[0], totalSlots: SLOT_ORDER.length };
+}
+
 function buildItemMap(classData, specId) {
   var map = {};
   flattenItems((classData && classData.instances) || []).forEach(function (item) {
@@ -190,7 +224,7 @@ function buildItemMap(classData, specId) {
   return map;
 }
 
-function applyWclPresetToBuild(buildId, preset, classData, specId, currentSlots) {
+function applyWclPresetToBuild(buildId, preset, classData, specId, currentSlots, options) {
   var itemMap = buildItemMap(classData, specId);
   var slots = {};
   Object.keys(currentSlots || {}).forEach(function (slotKey) {
@@ -201,7 +235,7 @@ function applyWclPresetToBuild(buildId, preset, classData, specId, currentSlots)
   Object.keys(preset.slots || {}).forEach(function (slotKey) {
     var wclSlot = preset.slots[slotKey];
     if (!wclSlot || !wclSlot.itemId) return;
-    var item = applyWclSlotOverrides(itemMap[wclSlot.itemId], wclSlot, slotKey);
+    var item = applyWclSlotOverrides(itemMap[wclSlot.itemId], wclSlot, slotKey, options);
     if (item.wclMissingLocalItem) {
       missing.push({ slotKey: slotKey, itemId: wclSlot.itemId });
     }
@@ -217,6 +251,9 @@ function applyWclPresetToBuild(buildId, preset, classData, specId, currentSlots)
       talents: preset.talents || null,
       enchantsGems: buildEnchantsGems(preset.slots),
       missingItems: missing,
+      wclCombatantSnapshot: !!(options && options.enabled && preset.combatantStats),
+      combatantStats: options && options.enabled ? preset.combatantStats || null : null,
+      slotSummary: summarizePresetSlots(preset.slots),
       appliedAt: Date.now(),
     },
   });
@@ -233,5 +270,6 @@ module.exports = {
   WCL_SEASON_AVAILABLE: WCL_SEASON_AVAILABLE,
   loadWclPresetIndex: loadWclPresetIndex,
   loadWclPresetFile: loadWclPresetFile,
+  hasWclCombatantSnapshot: hasWclCombatantSnapshot,
   applyWclPresetToBuild: applyWclPresetToBuild,
 };

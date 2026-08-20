@@ -222,6 +222,18 @@ function summarizeSlots(slots, specId) {
   };
 }
 
+function summarizeWclCombatant(combatantStats, specId, displayMeta) {
+  var s = combatantStats || {}; var b = getSpecCharacterBaseline(specId); var m = displayMeta || {};
+  var c = Number(s.crit) || 0; var h = Number(s.haste) || 0; var r = Number(s.mastery) || 0; var v = Number(s.versatility) || 0;
+  var mr = calcMasteryPercent(r, specId); var cp = calcStatPercent(c, 'crit') + getBaseCritPercent(specId); var hp = calcStatPercent(h, 'haste'); var vp = calcStatPercent(v, 'versatility');
+  return { avgIlvl: Number(m.avgIlvl) || 0, filledSlots: Number(m.filledSlots) || 0, occupiedSlots: Number(m.occupiedSlots) || 0, totalSlots: Number(m.totalSlots) || BUILD_SLOT_KEYS.length,
+    primaryStats: b ? [{ type: b.primaryType, name: b.primaryName, value: Number(s[b.primaryType]) || 0 }] : [], stamina: Number(s.stamina) || 0, armor: Number(s.armor) || 0,
+    armorSpecializationActive: false, secondaryTotal: c + h + r + v, isWclCombatantSnapshot: true,
+    secondary: { crit: { rating: c, percent: cp, percentText: formatPercent(cp) }, haste: { rating: h, percent: hp, percentText: formatPercent(hp) },
+      mastery: { rating: r, percent: mr.percent, percentText: formatPercent(mr.percent), baseMasteryPercent: mr.baseMasteryPercent, effect: mr.effect, masteryName: mr.masteryName, label: mr.label },
+      versatility: { rating: v, percent: vp, percentText: formatPercent(vp) } } };
+}
+
 module.exports = {
   BASE_CRIT_PERCENT: DEFAULT_BASE_CRIT_PERCENT,
   BASE_MASTERY_POINTS: BASE_MASTERY_POINTS,
@@ -233,4 +245,5 @@ module.exports = {
   formatPercent: formatPercent,
   getBaseCritPercent: getBaseCritPercent,
   summarizeSlots: summarizeSlots,
+  summarizeWclCombatant: summarizeWclCombatant,
 };

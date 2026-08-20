@@ -19,6 +19,7 @@ assert.strictEqual(RAIDS[0].bosses.length, 9);
 
 const workflow = fs.readFileSync(path.join(__dirname, '..', '.github', 'workflows', 'update-wcl-presets.yml'), 'utf8');
 assert.match(workflow, /WCL_DATA_DIR=data-\$\(node -p/);
+assert.ok(!workflow.includes('\\"require'), '工作流的 Node 表达式不能在 Bash 命令替换中转义双引号。');
 assert.ok(!workflow.includes('data-4.4.x'), '工作流不能继续上传旧 WCL 数据目录。');
 
 const guardian = getSpecConfig('druid', 104);

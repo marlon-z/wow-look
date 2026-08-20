@@ -74,7 +74,7 @@ jobs:
       - name: Resolve WCL output target
         shell: bash
         run: |
-          echo "WCL_DATA_DIR=data-$(node -p \"require('./scripts/wcl-preset-config').DATA_VERSION\")" >> "$GITHUB_ENV"
+          echo "WCL_DATA_DIR=data-$(node -p "require('./scripts/wcl-preset-config').DATA_VERSION")" >> "$GITHUB_ENV"
           partial=0
           if [ -n "${{ inputs.content }}" ] && [ "${{ inputs.content }}" != "all" ]; then partial=1; fi
           if [ -n "${{ inputs.levels }}" ]; then partial=1; fi

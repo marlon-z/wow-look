@@ -1,0 +1,134 @@
+<view class="page-shell rankings-page">
+  <block wx:if="{{phase === 'class'}}">
+    <view class="ranking-picker-back" bindtap="onPageBack">
+      <text class="ranking-back-arrow">‹</text>
+      <text>返回</text>
+    </view>
+    <view class="ranking-title-block">
+      <text class="ranking-title">排行榜配装</text>
+      <text class="ranking-subtitle">选择职业，查看云端高分配装</text>
+    </view>
+    <view class="class-grid">
+      <view
+        wx:for="{{classes}}"
+        wx:key="key"
+        class="class-card"
+        bindtap="onClassTap"
+        data-key="{{item.key}}"
+      >
+        <image class="class-emblem" src="{{item.emblem}}" mode="aspectFit" />
+        <text class="class-name" style="color: {{item.color}};">{{item.name}}</text>
+      </view>
+    </view>
+  </block>
+
+  <block wx:else>
+    <view class="ranking-header">
+      <view class="ranking-back" bindtap="onPageBack">
+        <text class="ranking-back-arrow">‹</text>
+        <text>职业</text>
+      </view>
+      <view class="ranking-class-title">
+        <image class="ranking-class-emblem" src="{{selectedClassEmblem}}" mode="aspectFit" />
+        <view>
+          <text class="ranking-title">排行榜配装</text>
+          <text class="ranking-class-name">{{selectedClassName}}</text>
+        </view>
+      </view>
+      <text wx:if="{{cloudUpdateText}}" class="ranking-update">{{cloudUpdateText}}</text>
+    </view>
+
+    <view class="spec-bar">
+      <view
+        wx:for="{{specs}}"
+        wx:key="id"
+        class="spec-pill {{item.id === selectedSpecId ? 'active' : ''}}"
+        bindtap="onWclSpecTap"
+        data-spec-id="{{item.id}}"
+      >{{item.name}}</view>
+    </view>
+
+    <view wx:if="{{wclSeasonAvailable && wclContentTabs.length}}" class="compact-filter-card">
+      <view class="content-tabs">
+        <view
+          wx:for="{{wclContentTabs}}"
+          wx:key="type"
+          class="content-tab {{item.type === selectedWclContentType ? 'active' : ''}}"
+          bindtap="onWclContentTap"
+          data-content-type="{{item.type}}"
+        >{{item.name}}</view>
+      </view>
+
+      <scroll-view wx:if="{{wclPresetLevels.length > 1}}" class="compact-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+        <view class="compact-row">
+          <view
+            wx:for="{{wclPresetLevels}}"
+            wx:key="fileKey"
+            class="compact-pill {{item.fileKey === selectedWclFileKey ? 'active' : ''}}"
+            bindtap="onWclLevelTap"
+            data-file-key="{{item.fileKey}}"
+            data-name="{{item.name}}"
+          >{{item.name}}</view>
+        </view>
+      </scroll-view>
+
+      <scroll-view wx:if="{{wclDungeonFilters.length}}" class="compact-scroll dungeon-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+        <view class="compact-row">
+          <view
+            wx:for="{{wclDungeonFilters}}"
+            wx:key="id"
+            class="compact-pill dungeon-pill {{item.id === selectedWclDungeonId ? 'active' : ''}}"
+            bindtap="onWclDungeonTap"
+            data-encounter-id="{{item.id}}"
+          >{{item.name}}</view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <view wx:if="{{rankingLoading}}" class="ranking-state">
+      <view class="loading-orb"></view>
+      <text>正在加载云端排行榜</text>
+    </view>
+    <view wx:elif="{{rankingError}}" class="ranking-state">
+      <text>{{rankingError}}</text>
+    </view>
+    <view wx:elif="{{!wclPresetEntries.length}}" class="ranking-state">
+      <text>当前筛选暂无可用配装</text>
+    </view>
+
+    <view wx:else class="preset-list">
+      <view wx:for="{{wclPresetEntries}}" wx:key="encounter.id" wx:for-index="entryIndex" class="preset-group">
+        <text wx:if="{{wclPresetEntries.length > 1}}" class="preset-group-title">{{item.encounter.localName || item.encounter.name}}</text>
+        <view
+          wx:for="{{item.presets}}"
+          wx:key="id"
+          wx:for-item="preset"
+          wx:for-index="presetIndex"
+          class="preset-card"
+          bindtap="onUsePresetTap"
+          data-entry-index="{{entryIndex}}"
+          data-preset-index="{{presetIndex}}"
+        >
+          <view class="preset-main">
+            <text class="preset-name">{{preset.name}}</text>
+            <text class="preset-meta">{{preset.source.amount}} {{preset.source.metricLabel}} · {{preset.source.server ? preset.source.server.region : ''}} {{preset.source.server ? preset.source.server.name : ''}}</text>
+          </view>
+          <view class="preset-side">
+            <text wx:if="{{preset.source.score}}" class="preset-score">{{preset.source.score}}分</text>
+            <text class="preset-difficulty">{{preset.source.bracket ? preset.source.bracket + '层' : preset.source.difficultyName}}</text>
+          </view>
+          <button
+            class="preset-share"
+            size="mini"
+            open-type="share"
+            data-share-kind="preset"
+            data-entry-index="{{entryIndex}}"
+            data-preset-index="{{presetIndex}}"
+            catchtap="preventBubble"
+            hover-class="none"
+          >分享</button>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

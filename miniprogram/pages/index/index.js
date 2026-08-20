@@ -1007,10 +1007,10 @@ Page({
     });
   },
 
-  // 大神排行榜: 复用配装页的"排行榜配装"面板(选职业后自动打开), 纯引流入口
+  // 排行榜配装是独立页面，保留完整链接与广告承载空间。
   onLeaderboardTap() {
     wx.navigateTo({
-      url: '/pages/build/build?openWcl=1',
+      url: '/packages/rankings/rankings',
     });
   },
 

@@ -134,8 +134,15 @@ Page({
   },
 
   onLoad: function (options) {
-    cleanupDrafts();
     options = options || {};
+    // 旧的通用排行榜入口改为独立页面；精确 WCL 分享链接仍在此恢复配装。
+    if (options.openWcl === '1' && !(options.wclFileKey && options.wclPresetId)) {
+      var rankingUrl = '/packages/rankings/rankings';
+      if (options.classKey) rankingUrl += '?classKey=' + encodeURIComponent(options.classKey);
+      wx.redirectTo({ url: rankingUrl });
+      return;
+    }
+    cleanupDrafts();
     // 分享链接的异步恢复必须先完成校验，避免先生成一个空草稿。
     if (options.shareBuild) {
       this.restoreSharedBuild(options);
@@ -145,8 +152,6 @@ Page({
       this.restoreSharedWclPreset(options);
       return;
     }
-    // 从首页"大神排行榜"入口进来(无职业): 选职业进入配装后自动打开排行榜配装面板
-    this.pendingWcl = options.openWcl === '1';
     if (options.buildId) {
       var build = getBuild(options.buildId);
       if (build) {
@@ -161,10 +166,6 @@ Page({
         Number(options.specId),
         options.specName ? decodeURIComponent(options.specName) : ''
       );
-      // 来自"分享排行榜配装"的链接: 落地后自动打开排行榜配装
-      if (options.openWcl === '1' && typeof this.openWclPresets === 'function') {
-        this.openWclPresets();
-      }
     }
   },
 
@@ -397,16 +398,12 @@ Page({
   },
 
   openWclPresets: function () {
-    this.setData({
-      showWclPresets: true,
-      pageStyle: 'overflow:hidden;height:100vh;',
-      wclPresetLoading: WCL_SEASON_AVAILABLE,
-      wclSpecId: this.data.selectedSpecId,
-    });
-    if (!WCL_SEASON_AVAILABLE) {
-      return;
+    var url = '/packages/rankings/rankings';
+    if (this.data.selectedClassKey) {
+      url += '?classKey=' + encodeURIComponent(this.data.selectedClassKey)
+        + '&specId=' + encodeURIComponent(this.data.selectedSpecId || '');
     }
-    this.loadWclIndexForSpec(this.data.selectedSpecId);
+    wx.navigateTo({ url: url });
   },
 
   // 面板内切专精(与配装专精联动): 换该专精的排行榜; 套用时会直接切到该专精

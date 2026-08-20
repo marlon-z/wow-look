@@ -1,6 +1,7 @@
 var { getAssetBase } = require('./class-data');
 var { flattenItems, buildStatLine } = require('./equipment');
 var { updateBuild } = require('./builds');
+var { getTotalEquipmentSlotCount } = require('./weapon-rules');
 
 var STAT_NAME = {
   crit: '暴击',
@@ -115,6 +116,11 @@ function snapshotStats(snapshot, existingStats) {
   return Object.assign({}, s, { primaryStats: snapshot.primaryStats, stamina: snapshot.stamina || 0, armor: snapshot.armor, secondary: snapshot.secondary });
 }
 
+function getSlotIconText(slotKey) {
+  var slotName = SLOT_LABEL[slotKey] || slotKey || '装备';
+  return String(slotName).charAt(0) || '装';
+}
+
 function applyWclSlotOverrides(baseItem, wclSlot, slotKey, options) {
   var snapshot = options && options.enabled ? normalizeWclSnapshot(wclSlot) : null;
   if (!baseItem) {
@@ -132,8 +138,8 @@ function applyWclSlotOverrides(baseItem, wclSlot, slotKey, options) {
       name: snapshot ? snapshot.name : ('未知装备 ' + wclSlot.itemId),
       ilvl: wclSlot.ilvl || 0,
       slot: slotKey,
-      slotName: slotKey,
-      iconText: '装',
+      slotName: SLOT_LABEL[slotKey] || slotKey,
+      iconText: getSlotIconText(slotKey),
       statLine: secondary.map(function (stat) {
         return (stat.name || STAT_NAME[stat.type] || stat.type) + stat.value;
       }).join(' / '),
@@ -208,9 +214,9 @@ function hasWclCombatantSnapshot(index, content) {
   return !!(index && content && index.wclCombatantSnapshot === true && content.wclCombatantSnapshot === true);
 }
 
-function summarizePresetSlots(slots) {
+function summarizePresetSlots(slots, specId) {
   var a = Object.keys(slots || {}).reduce(function (v, k) { var s = slots[k]; return [v[0] + (s ? 1 : 0), v[1] + (Number(s && s.ilvl) || 0)]; }, [0, 0]);
-  return { avgIlvl: a[0] ? Math.round(a[1] / SLOT_ORDER.length) : 0, filledSlots: a[0], occupiedSlots: a[0], totalSlots: SLOT_ORDER.length };
+  return { avgIlvl: a[0] ? Math.round(a[1] / SLOT_ORDER.length) : 0, filledSlots: a[0], occupiedSlots: a[0], totalSlots: getTotalEquipmentSlotCount(specId) };
 }
 
 function buildItemMap(classData, specId) {
@@ -253,7 +259,7 @@ function applyWclPresetToBuild(buildId, preset, classData, specId, currentSlots,
       missingItems: missing,
       wclCombatantSnapshot: !!(options && options.enabled && preset.combatantStats),
       combatantStats: options && options.enabled ? preset.combatantStats || null : null,
-      slotSummary: summarizePresetSlots(preset.slots),
+      slotSummary: summarizePresetSlots(preset.slots, specId),
       fileKey: options && options.fileKey ? options.fileKey : '',
       contentType: options && options.contentType ? options.contentType : '',
       appliedAt: Date.now(),

@@ -1,6 +1,14 @@
 <page-meta page-style="{{pageStyle}}"></page-meta>
 <view class="page-shell build-page">
 
+  <!-- Ranking preset is loading: prevent the default class picker from flashing. -->
+  <block wx:if="{{phase === 'loading'}}">
+    <view class="build-loading-state">
+      <view class="build-loading-orb"></view>
+      <text class="build-loading-text">加载中</text>
+    </view>
+  </block>
+
   <!-- Phase 1: Select Class -->
   <block wx:if="{{phase === 'select'}}">
     <view class="build-header">

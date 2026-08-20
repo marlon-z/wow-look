@@ -1,23 +1,27 @@
-<view class="page-shell rankings-page">
+<view class="page-shell rankings-page {{phase === 'class' ? 'rankings-picker-page' : ''}}">
   <block wx:if="{{phase === 'class'}}">
-    <view class="ranking-picker-back" bindtap="onPageBack">
-      <text class="ranking-back-arrow">‹</text>
-      <text>返回</text>
+    <view class="ranking-picker-header">
+      <text class="ranking-picker-title">排行榜配装</text>
+      <text class="ranking-picker-subtitle">选择职业，查看云端高分配装</text>
     </view>
-    <view class="ranking-title-block">
-      <text class="ranking-title">排行榜配装</text>
-      <text class="ranking-subtitle">选择职业，查看云端高分配装</text>
-    </view>
-    <view class="class-grid">
-      <view
-        wx:for="{{classes}}"
-        wx:key="key"
-        class="class-card"
-        bindtap="onClassTap"
-        data-key="{{item.key}}"
-      >
-        <image class="class-emblem" src="{{item.emblem}}" mode="aspectFit" />
-        <text class="class-name" style="color: {{item.color}};">{{item.name}}</text>
+    <view class="ranking-class-grid-wrap">
+      <view class="ranking-class-row">
+        <view wx:for="{{classRow1}}" wx:key="id" class="ranking-class-cell" bindtap="onClassTap" data-key="{{item.key}}">
+          <image class="ranking-picker-emblem" src="{{item.emblem}}" mode="aspectFit" />
+          <text class="ranking-picker-label" style="color: {{item.color}};">{{item.name}}</text>
+        </view>
+      </view>
+      <view class="ranking-class-row">
+        <view wx:for="{{classRow2}}" wx:key="id" class="ranking-class-cell" bindtap="onClassTap" data-key="{{item.key}}">
+          <image class="ranking-picker-emblem" src="{{item.emblem}}" mode="aspectFit" />
+          <text class="ranking-picker-label" style="color: {{item.color}};">{{item.name}}</text>
+        </view>
+      </view>
+      <view class="ranking-class-row">
+        <view wx:for="{{classRow3}}" wx:key="id" class="ranking-class-cell" bindtap="onClassTap" data-key="{{item.key}}">
+          <image class="ranking-picker-emblem" src="{{item.emblem}}" mode="aspectFit" />
+          <text class="ranking-picker-label" style="color: {{item.color}};">{{item.name}}</text>
+        </view>
       </view>
     </view>
   </block>
@@ -126,7 +130,7 @@
             data-preset-index="{{presetIndex}}"
             catchtap="preventBubble"
             hover-class="none"
-          >分享</button>
+          ><text class="preset-share-label">分享</text></button>
         </view>
       </view>
     </view>

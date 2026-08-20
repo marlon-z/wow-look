@@ -7,6 +7,35 @@
   background: transparent;
 }
 
+/* ── Shared ranking preset restoration ── */
+.build-loading-state {
+  flex: 1;
+  min-height: calc(100vh - 48rpx);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18rpx;
+  color: var(--text-soft);
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+}
+
+.build-loading-orb {
+  width: 34rpx;
+  height: 34rpx;
+  border: 3rpx solid rgba(212, 168, 75, 0.16);
+  border-top-color: var(--theme);
+  border-radius: 50%;
+  animation: build-loading-spin 0.8s linear infinite;
+}
+
+.build-loading-text { line-height: 1; }
+
+@keyframes build-loading-spin {
+  to { transform: rotate(360deg); }
+}
+
 /* ── Header (Select Class Phase) ── */
 .build-header {
   display: flex;

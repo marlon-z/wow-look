@@ -92,7 +92,7 @@ const snapshotResult = applyWclPresetToBuild(
 assert.strictEqual(snapshotResult.build.slots.wrist.name, 'WCL 护腕名称');
 assert.deepStrictEqual(snapshotResult.build.slots.wrist.stats.secondary, [{ type: 'crit', name: '暴击', value: 49 }]);
 assert.strictEqual(snapshotResult.build.slots.head.name, 'WCL 未收录头盔');
-assert.strictEqual(snapshotResult.build.slots.head.iconText, '装');
+assert.strictEqual(snapshotResult.build.slots.head.iconText, '头');
 assert.strictEqual(snapshotResult.build.slots.head.instanceName, 'WCL 排行榜数据');
 assert.strictEqual(snapshotResult.build.summary.isWclCombatantSnapshot, true);
 assert.strictEqual(snapshotResult.build.summary.secondary.crit.rating, 460);

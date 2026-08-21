@@ -6,7 +6,11 @@ require('../miniprogram/packages/rankings/rankings');
 
 assert.ok(page, '独立排行榜页面应注册');
 assert.strictEqual(page.data.phase, 'class');
-assert.strictEqual(page.data.classes.length, 13, '职业选择页应包含全部职业');
+assert.strictEqual(
+  page.data.classRow1.length + page.data.classRow2.length + page.data.classRow3.length,
+  13,
+  '职业选择页应包含全部职业'
+);
 
 const tabs = page.buildWclContentTabs({ mythicPlus: [{ fileKey: 'top' }], raid: [{ fileKey: 'raid' }] });
 assert.deepStrictEqual(tabs, [

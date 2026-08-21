@@ -60,7 +60,7 @@ slots.weapon = item(10, 'INVTYPE_2HWEAPON', [71], 200);
 let summary = summarizeSlots(slots, 71);
 assert.strictEqual(summary.avgIlvl, 31, '双手武器装等应计算两次并固定除以16');
 assert.strictEqual(summary.filledSlots, 2);
-assert.strictEqual(summary.occupiedSlots, 3);
+assert.strictEqual(summary.occupiedSlots, 2, '仅限双手的专精不应把不存在的副手栏计入占用数');
 
 slots.weapon = item(11, 'INVTYPE_2HWEAPON', [72], 200);
 slots.weapon2 = item(12, 'INVTYPE_2HWEAPON', [72], 180);

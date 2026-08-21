@@ -76,6 +76,15 @@ function getLayouts(specId) {
   return SPEC_WEAPON_LAYOUTS[Number(specId)] || [];
 }
 
+// 只有双手武器可用的专精没有独立副手栏位；展示装备槽数量时应将其排除。
+function getTotalEquipmentSlotCount(specId) {
+  var layouts = getLayouts(specId);
+  var noOffHandInAnyLayout = layouts.length > 0 && layouts.every(function (layout) {
+    return layout[1] === null;
+  });
+  return noOffHandInAnyLayout ? 15 : 16;
+}
+
 function kindMatches(actual, expected, slotIndex) {
   if (actual === MAIN_HAND) return slotIndex === 0 && expected === ONE_HAND;
   if (actual === OFF_HAND) return slotIndex === 1 && expected === ONE_HAND;
@@ -155,6 +164,7 @@ module.exports = {
   getEquipLoc: getEquipLoc,
   getWeaponKind: getWeaponKind,
   getLayouts: getLayouts,
+  getTotalEquipmentSlotCount: getTotalEquipmentSlotCount,
   canItemUseSlot: canItemUseSlot,
   isCompleteLayoutValid: isCompleteLayoutValid,
   mainHandOccupiesBoth: mainHandOccupiesBoth,

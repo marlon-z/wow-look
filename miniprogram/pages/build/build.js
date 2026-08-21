@@ -149,6 +149,7 @@ Page({
       return;
     }
     if (options.openWcl === '1' && options.wclFileKey && options.wclPresetId) {
+      this.setData({ phase: 'loading' });
       this.restoreSharedWclPreset(options);
       return;
     }
@@ -179,7 +180,10 @@ Page({
   fallbackFromSharedLink: function (options) {
     var classKey = options && options.classKey;
     var specId = Number(options && options.specId);
-    if (!getClassMeta(classKey) || !specId) return;
+    if (!getClassMeta(classKey) || !specId) {
+      this.setData({ phase: 'select' });
+      return;
+    }
     this.quickStart(
       classKey,
       decodeShareParam(options.className),
@@ -213,7 +217,6 @@ Page({
   },
 
   restoreSharedWclPreset: function (options) {
-    wx.showLoading({ title: '恢复排行榜配装中' });
     var sharedOptions = Object.assign({}, options, {
       wclFileKey: decodeShareParam(options.wclFileKey),
       wclPresetId: decodeShareParam(options.wclPresetId),
@@ -222,17 +225,12 @@ Page({
     loadShareRestore().then(function (restore) {
       return restore.restoreWclPreset(sharedOptions);
     }).then(function (build) {
-      wx.hideLoading();
       if (!build) {
-        wx.showToast({ title: '排行榜配装已失效', icon: 'none' });
         this.fallbackFromSharedLink(options);
         return;
       }
       this.enterBuildPhase(build);
-      wx.showToast({ title: '已恢复排行榜配装，可直接编辑', icon: 'none' });
     }.bind(this)).catch(function () {
-      wx.hideLoading();
-      wx.showToast({ title: '排行榜配装恢复失败', icon: 'none' });
       this.fallbackFromSharedLink(options);
     }.bind(this));
   },

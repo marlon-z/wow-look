@@ -45,10 +45,13 @@ Page({
 
   data: {
     phase: 'class',
-    classes: compactClassList(),
+    classRow1: compactClassList().slice(0, 4),
+    classRow2: compactClassList().slice(4, 9),
+    classRow3: compactClassList().slice(9, 13),
     selectedClassKey: '',
     selectedClassName: '',
     selectedClassEmblem: '',
+    selectedClassBanner: '',
     specs: [],
     selectedSpecId: null,
     selectedSpecName: '',
@@ -99,6 +102,7 @@ Page({
       selectedClassKey: classKey,
       selectedClassName: classMeta.name,
       selectedClassEmblem: getClassVisualAssets(classKey).emblem,
+      selectedClassBanner: getClassVisualAssets(classKey).banner,
       specs: [],
       selectedSpecId: null,
       selectedSpecName: '',
@@ -148,6 +152,7 @@ Page({
       selectedClassKey: '',
       selectedClassName: '',
       selectedClassEmblem: '',
+      selectedClassBanner: '',
       specs: [],
       selectedSpecId: null,
       selectedSpecName: '',
@@ -214,7 +219,21 @@ Page({
 
   getWclCategories: function (index, contentType) {
     if (!index) return [];
-    return contentType === 'raid' ? (index.raid || []) : (index.mythicPlus || []);
+    var categories = contentType === 'raid' ? (index.raid || []) : (index.mythicPlus || []);
+    if (contentType === 'raid') return categories;
+
+    return categories.map(function (category) {
+      if (!category) return category;
+      var isPushTier = category.fileKey === 'top' || /^(最顶级|最高层|当前上限)$/.test(category.name || '');
+      return isPushTier ? Object.assign({}, category, { name: '冲层', isPushTier: true }) : category;
+    }).sort(function (left, right) {
+      var priority = function (category) {
+        if (category && category.isPushTier) return 0;
+        var level = Number(String((category && category.name) || '').match(/\d+/));
+        return level ? 100 - level : 50;
+      };
+      return priority(left) - priority(right);
+    });
   },
 
   loadWclIndexForSpec: function (specId) {
@@ -351,7 +370,9 @@ Page({
         this.setData({ rankingLoading: false, rankingError: '排行榜数据加载失败' });
         return;
       }
-      var entries = this.normalizeWclPresetEntries(Array.isArray(content.entries) ? content.entries : []);
+      var entries = this.normalizeWclPresetEntries(Array.isArray(content.entries) ? content.entries : []).filter(function (entry) {
+        return Array.isArray(entry.presets) && entry.presets.length > 0;
+      });
       var snapshotEnabled = hasWclCombatantSnapshot(this.data.wclPresetIndex, content);
       entries.forEach(function (entry) {
         (entry.presets || []).forEach(function (preset) {

@@ -1,5 +1,5 @@
 var { getMasteryCoefficient, BASE_MASTERY_POINTS } = require('./mastery-coefficients');
-var { mainHandOccupiesBoth } = require('./weapon-rules');
+var { mainHandOccupiesBoth, getTotalEquipmentSlotCount } = require('./weapon-rules');
 var {
   DEFAULT_BASE_CRIT_PERCENT,
   LEVEL_90_BASE_PRIMARY,
@@ -178,9 +178,10 @@ function summarizeSlots(slots, specId) {
   if (isTwoHand) {
     totalIlvl += slots.weapon.ilvl || 0;
   }
-  var occupiedSlots = filledSlots + (isTwoHand ? 1 : 0);
+  var totalSlots = getTotalEquipmentSlotCount(specId);
+  // 双手专精本身没有独立副手栏，计数按真实可装备栏位展示。
+  var occupiedSlots = filledSlots + (isTwoHand && totalSlots === BUILD_SLOT_KEYS.length ? 1 : 0);
   var ilvlDivisor = 16;
-  var totalSlots = BUILD_SLOT_KEYS.length;
 
   var secondaryTotal = critRating + hasteRating + masteryRating + versatilityRating;
 
@@ -226,7 +227,7 @@ function summarizeWclCombatant(combatantStats, specId, displayMeta) {
   var s = combatantStats || {}; var b = getSpecCharacterBaseline(specId); var m = displayMeta || {};
   var c = Number(s.crit) || 0; var h = Number(s.haste) || 0; var r = Number(s.mastery) || 0; var v = Number(s.versatility) || 0;
   var mr = calcMasteryPercent(r, specId); var cp = calcStatPercent(c, 'crit') + getBaseCritPercent(specId); var hp = calcStatPercent(h, 'haste'); var vp = calcStatPercent(v, 'versatility');
-  return { avgIlvl: Number(m.avgIlvl) || 0, filledSlots: Number(m.filledSlots) || 0, occupiedSlots: Number(m.occupiedSlots) || 0, totalSlots: Number(m.totalSlots) || BUILD_SLOT_KEYS.length,
+  return { avgIlvl: Number(m.avgIlvl) || 0, filledSlots: Number(m.filledSlots) || 0, occupiedSlots: Number(m.occupiedSlots) || 0, totalSlots: getTotalEquipmentSlotCount(specId),
     primaryStats: b ? [{ type: b.primaryType, name: b.primaryName, value: Number(s[b.primaryType]) || 0 }] : [], stamina: Number(s.stamina) || 0, armor: Number(s.armor) || 0,
     armorSpecializationActive: false, secondaryTotal: c + h + r + v, isWclCombatantSnapshot: true,
     secondary: { crit: { rating: c, percent: cp, percentText: formatPercent(cp) }, haste: { rating: h, percent: hp, percentText: formatPercent(hp) },

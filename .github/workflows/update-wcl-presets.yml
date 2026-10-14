@@ -33,6 +33,9 @@ on:
         required: false
         type: string
   schedule:
+    # GitHub 会在公开仓库连续 60 天无活动后停用定时工作流；仅成功运行不代表风险解除。
+    # 收到停用预警时检查 Actions 页面并保留启用；已停用时使用 Enable workflow 恢复。
+    # https://docs.github.com/en/actions/how-tos/manage-workflow-runs/disable-and-enable-workflows
     # 每小时整点更新 COS 上最旧的 3 个专精，控制 WCL 免费 API 配额。
     - cron: '0 * * * *'
 
